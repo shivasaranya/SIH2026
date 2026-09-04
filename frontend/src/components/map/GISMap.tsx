@@ -97,22 +97,12 @@ export const GISMap: React.FC<GISMapProps> = ({
       minZoom: 6,
       maxZoom: 14,
       zoomControl: false,
+      attributionControl: false,
     });
 
-    // Dark cartographic basemap (CartoDB Dark Matter with OpenStreetMap fallback)
-    L.tileLayer(
-      'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
-      {
-        attribution:
-          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
-        subdomains: 'abcd',
-        maxZoom: 19,
-      }
-    ).addTo(map);
+    L.control.zoom({ position: 'bottomleft' }).addTo(map);
 
-    L.control.zoom({ position: 'topright' }).addTo(map);
-
-    map.fitBounds(AP_BOUNDS, { padding: [20, 20] });
+    map.fitBounds(AP_BOUNDS, { padding: [10, 10] });
     mapInstanceRef.current = map;
 
     return () => {
@@ -124,7 +114,7 @@ export const GISMap: React.FC<GISMapProps> = ({
   // 2. Handle Reset View Trigger
   useEffect(() => {
     if (mapInstanceRef.current && resetViewTrigger > 0) {
-      mapInstanceRef.current.fitBounds(AP_BOUNDS, { padding: [20, 20] });
+      mapInstanceRef.current.fitBounds(AP_BOUNDS, { padding: [10, 10] });
       onSelectDistrict(null);
       onSelectMandal(null);
     }
@@ -150,11 +140,11 @@ export const GISMap: React.FC<GISMapProps> = ({
 
         if (isAnalyticalMode) {
           return {
-            fillColor: '#0f172a',
-            fillOpacity: 0.05,
-            color: isSelected ? '#38bdf8' : '#475569',
+            fillColor: 'transparent',
+            fillOpacity: 0,
+            color: isSelected ? '#0284c7' : '#475569',
             weight: isSelected ? 2.5 : 1.2,
-            opacity: 0.7,
+            opacity: 0.8,
           };
         }
 
@@ -548,7 +538,7 @@ export const GISMap: React.FC<GISMapProps> = ({
   }, [showFloodWms, showSheltersWms, showHabitationsWms]);
 
   return (
-    <div className="relative w-full h-full min-h-[500px] overflow-hidden rounded-xl border border-slate-800 bg-slate-950">
+    <div className="relative w-full h-full min-h-[500px] overflow-hidden rounded-2xl border border-slate-700/60 bg-slate-100 shadow-inner">
       <div ref={mapContainerRef} className="w-full h-full z-0" />
     </div>
   );
