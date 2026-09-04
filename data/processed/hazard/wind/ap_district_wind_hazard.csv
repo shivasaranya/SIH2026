@@ -1,0 +1,27 @@
+district_id,district_name,short_code,state,state_code,basic_wind_speed_m_s,risk_zone,source_standard
+alluri_sitharama_raju,Alluri Sitharama Raju,ASR,Andhra Pradesh,AP,50.0,Zone I - Very High Damage Risk,IS 875 (Part 3): 2015 / BMTPC Vulnerability Atlas
+anakapalli,Anakapalli,Anakapalli,Andhra Pradesh,AP,50.0,Zone I - Very High Damage Risk,IS 875 (Part 3): 2015 / BMTPC Vulnerability Atlas
+ananthapuramu,Ananthapuramu,Anantapuram,Andhra Pradesh,AP,44.0,Zone III - Moderate Damage Risk,IS 875 (Part 3): 2015 / BMTPC Vulnerability Atlas
+annamayya,Annamayya,Annamayya,Andhra Pradesh,AP,47.0,Zone II - High Damage Risk,IS 875 (Part 3): 2015 / BMTPC Vulnerability Atlas
+bapatla,Bapatla,Bapatla,Andhra Pradesh,AP,50.0,Zone I - Very High Damage Risk,IS 875 (Part 3): 2015 / BMTPC Vulnerability Atlas
+chittoor,Chittoor,Chittoor,Andhra Pradesh,AP,47.0,Zone II - High Damage Risk,IS 875 (Part 3): 2015 / BMTPC Vulnerability Atlas
+dr_b_r_ambedkar_konaseema,Dr. B.R. Ambedkar Konaseema,Konaseema,Andhra Pradesh,AP,50.0,Zone I - Very High Damage Risk,IS 875 (Part 3): 2015 / BMTPC Vulnerability Atlas
+east_godavari,East Godavari,Rajahmundry,Andhra Pradesh,AP,50.0,Zone I - Very High Damage Risk,IS 875 (Part 3): 2015 / BMTPC Vulnerability Atlas
+eluru,Eluru,Eluru,Andhra Pradesh,AP,50.0,Zone I - Very High Damage Risk,IS 875 (Part 3): 2015 / BMTPC Vulnerability Atlas
+guntur,Guntur,Guntur,Andhra Pradesh,AP,47.0,Zone II - High Damage Risk,IS 875 (Part 3): 2015 / BMTPC Vulnerability Atlas
+kakinada,Kakinada,Kakinada,Andhra Pradesh,AP,50.0,Zone I - Very High Damage Risk,IS 875 (Part 3): 2015 / BMTPC Vulnerability Atlas
+krishna,Krishna,Machilipatnam,Andhra Pradesh,AP,50.0,Zone I - Very High Damage Risk,IS 875 (Part 3): 2015 / BMTPC Vulnerability Atlas
+kurnool,Kurnool,Kurnool,Andhra Pradesh,AP,44.0,Zone III - Moderate Damage Risk,IS 875 (Part 3): 2015 / BMTPC Vulnerability Atlas
+nandyal,Nandyal,Nandyal,Andhra Pradesh,AP,47.0,Zone II - High Damage Risk,IS 875 (Part 3): 2015 / BMTPC Vulnerability Atlas
+ntr,NTR,NTR,Andhra Pradesh,AP,47.0,Zone II - High Damage Risk,IS 875 (Part 3): 2015 / BMTPC Vulnerability Atlas
+palnadu,Palnadu,Nrasaraopet,Andhra Pradesh,AP,47.0,Zone II - High Damage Risk,IS 875 (Part 3): 2015 / BMTPC Vulnerability Atlas
+parvathipuram_manyam,Parvathipuram Manyam,Parvathipuram,Andhra Pradesh,AP,50.0,Zone I - Very High Damage Risk,IS 875 (Part 3): 2015 / BMTPC Vulnerability Atlas
+prakasam,Prakasam,Ongole,Andhra Pradesh,AP,50.0,Zone I - Very High Damage Risk,IS 875 (Part 3): 2015 / BMTPC Vulnerability Atlas
+sri_potti_sriramulu_nellore,Sri Potti Sriramulu Nellore,Nellore,Andhra Pradesh,AP,50.0,Zone I - Very High Damage Risk,IS 875 (Part 3): 2015 / BMTPC Vulnerability Atlas
+sri_sathya_sai,Sri Sathya Sai,Satyasai,Andhra Pradesh,AP,44.0,Zone III - Moderate Damage Risk,IS 875 (Part 3): 2015 / BMTPC Vulnerability Atlas
+srikakulam,Srikakulam,Srikakulam,Andhra Pradesh,AP,50.0,Zone I - Very High Damage Risk,IS 875 (Part 3): 2015 / BMTPC Vulnerability Atlas
+tirupati,Tirupati,Tirupati,Andhra Pradesh,AP,50.0,Zone I - Very High Damage Risk,IS 875 (Part 3): 2015 / BMTPC Vulnerability Atlas
+visakhapatnam,Visakhapatnam,Visakhapatnam,Andhra Pradesh,AP,50.0,Zone I - Very High Damage Risk,IS 875 (Part 3): 2015 / BMTPC Vulnerability Atlas
+vizianagaram,Vizianagaram,Vizianagaram,Andhra Pradesh,AP,50.0,Zone I - Very High Damage Risk,IS 875 (Part 3): 2015 / BMTPC Vulnerability Atlas
+west_godavari,West Godavari,Bhimavaram,Andhra Pradesh,AP,50.0,Zone I - Very High Damage Risk,IS 875 (Part 3): 2015 / BMTPC Vulnerability Atlas
+ysr_kadapa,YSR Kadapa,Kadapa,Andhra Pradesh,AP,47.0,Zone II - High Damage Risk,IS 875 (Part 3): 2015 / BMTPC Vulnerability Atlas

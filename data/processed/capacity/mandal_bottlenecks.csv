@@ -1,0 +1,697 @@
+mandal_id,mandal_name,current_district_id,current_district_name,population_total,capacity_condition,primary_bottleneck,secondary_bottleneck,bottleneck_confidence,available_component_count,capacity_data_completeness,shelter_adequacy,health_adequacy,water_sanitation_adequacy,road_accessibility_score,safe_area_adequacy
+AP_MANDAL_001,ICHCHAPURAM,srikakulam,Srikakulam,52472,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.5333,0.23,0.845,0.8976,0.9094
+AP_MANDAL_002,GUMMALAKSHMIPURAM,parvathipuram_manyam,Parvathipuram Manyam,49507,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.24,0.773,0.6709,0.8613
+AP_MANDAL_003,KANCHILI,srikakulam,Srikakulam,66657,CAPACITY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.42,0.36,0.868,0.6836,0.9737
+AP_MANDAL_004,KAVITI,srikakulam,Srikakulam,75974,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3687,0.315,0.877,0.7392,0.9581
+AP_MANDAL_005,MANDASA,srikakulam,Srikakulam,82699,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.29,0.29,0.7885,0.6021,0.9824
+AP_MANDAL_006,BHAMINI,parvathipuram_manyam,Parvathipuram Manyam,44157,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.27,0.832,0.6056,0.8955
+AP_MANDAL_007,KOMARADA,parvathipuram_manyam,Parvathipuram Manyam,51993,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.23,0.865,0.7953,0.912
+AP_MANDAL_008,SOMPETA,srikakulam,Srikakulam,60130,CAPACITY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.4653,0.4,0.8095,0.6657,0.9692
+AP_MANDAL_009,KOMARADA,parvathipuram_manyam,Parvathipuram Manyam,51993,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.23,0.7495,0.5651,0.8114
+AP_MANDAL_010,KURUPAM,parvathipuram_manyam,Parvathipuram Manyam,48402,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.25,0.8545,0.7357,0.9224
+AP_MANDAL_011,PALASA,srikakulam,Srikakulam,40044,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.4993,0.3,0.7575,0.8207,0.9795
+AP_MANDAL_012,JIYYAMMAVALASA,parvathipuram_manyam,Parvathipuram Manyam,52360,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.23,0.841,0.7629,0.9349
+AP_MANDAL_013,MELIAPUTTI,srikakulam,Srikakulam,52737,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.4553,0.23,0.767,0.7802,0.9319
+AP_MANDAL_014,PARVATHIPURAM,parvathipuram_manyam,Parvathipuram Manyam,59794,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.2,0.774,0.6443,0.9486
+AP_MANDAL_015,KOTHURU,srikakulam,Srikakulam,67093,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.298,0.36,0.742,0.5737,0.8969
+AP_MANDAL_016,SEETHAMPETA,parvathipuram_manyam,Parvathipuram Manyam,55848,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.215,0.7855,0.801,0.8872
+AP_MANDAL_017,PATHAPATNAM,srikakulam,Srikakulam,64639,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.3093,0.37,0.753,0.6778,0.9461
+AP_MANDAL_018,GARUGUBILLI,parvathipuram_manyam,Parvathipuram Manyam,46773,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.255,0.8385,0.701,0.9228
+AP_MANDAL_019,VAJRAPUKOTHURU,srikakulam,Srikakulam,73212,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.328,0.33,0.7715,0.8375,0.9254
+AP_MANDAL_020,SALUR,parvathipuram_manyam,Parvathipuram Manyam,55889,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.215,0.7805,0.7218,0.879
+AP_MANDAL_021,VEERAGHATTAM,parvathipuram_manyam,Parvathipuram Manyam,65616,CAPACITY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.365,0.8825,0.7629,0.9823
+AP_MANDAL_022,HIRAMANDALAM,srikakulam,Srikakulam,43415,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.6447,0.275,0.8075,0.8976,0.8209
+AP_MANDAL_023,NANDIGAM,srikakulam,Srikakulam,56443,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3547,0.215,0.8065,0.6611,0.957
+AP_MANDAL_024,MAKKUVA,parvathipuram_manyam,Parvathipuram Manyam,50506,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.24,0.748,0.7947,0.9785
+AP_MANDAL_025,SEETHANAGARAM2,parvathipuram_manyam,Parvathipuram Manyam,58182,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.205,0.7975,0.7264,0.9825
+AP_MANDAL_026,SARAVAKOTA,srikakulam,Srikakulam,52243,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3827,0.23,0.7715,0.7386,0.9675
+AP_MANDAL_027,VANGARA,vizianagaram,Vizianagaram,41133,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.486,0.29,0.7245,0.8554,0.7813
+AP_MANDAL_028,TEKKALI,srikakulam,Srikakulam,45362,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.4407,0.265,0.851,0.7623,0.9632
+AP_MANDAL_029,BALIJIPETA,parvathipuram_manyam,Parvathipuram Manyam,59764,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.2,0.791,0.7692,0.9784
+AP_MANDAL_030,PALAKONDA,parvathipuram_manyam,Parvathipuram Manyam,54212,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.22,0.7955,0.8161,0.9767
+AP_MANDAL_031,LAKSHMINARSUPETA,srikakulam,Srikakulam,29107,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.6873,0.205,0.787,0.6917,0.9551
+AP_MANDAL_032,BOBBILI,vizianagaram,Vizianagaram,66145,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.3027,0.365,0.9065,0.6431,0.9675
+AP_MANDAL_033,BURJA,srikakulam,Srikakulam,42308,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.4727,0.285,0.798,0.6148,0.924
+AP_MANDAL_034,JALUMURU,srikakulam,Srikakulam,59599,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3353,0.2,0.7445,0.5523,0.9311
+AP_MANDAL_035,SANTHABOMMALI,srikakulam,Srikakulam,70561,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3967,0.34,0.856,0.9017,0.8082
+AP_MANDAL_036,KOTABOMMALI,srikakulam,Srikakulam,74718,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.268,0.32,0.7315,0.6264,0.9781
+AP_MANDAL_037,REGIDIAMADALAVALASA,vizianagaram,Vizianagaram,70493,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.284,0.34,0.834,0.7039,0.9643
+AP_MANDAL_038,SARUBUJJILI,srikakulam,Srikakulam,33254,CAPACITY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.6013,0.36,0.6785,0.6987,0.9675
+AP_MANDAL_039,BALIJIPETA,parvathipuram_manyam,Parvathipuram Manyam,59764,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.2,0.782,0.749,0.9835
+AP_MANDAL_040,THERLAM,vizianagaram,Vizianagaram,59688,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3353,0.2,0.8355,0.7935,0.9887
+AP_MANDAL_041,VANGARA,vizianagaram,Vizianagaram,41133,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3887,0.29,0.8535,0.7976,0.973
+AP_MANDAL_042,PACHIPENTA,parvathipuram_manyam,Parvathipuram Manyam,48233,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.25,0.848,0.6316,0.9028
+AP_MANDAL_043,RAMABHADRAPURAM,vizianagaram,Vizianagaram,50464,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.396,0.24,0.8545,0.7027,0.9845
+AP_MANDAL_044,BADANGI,vizianagaram,Vizianagaram,49384,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.4047,0.245,0.828,0.7432,0.9771
+AP_MANDAL_045,MUNCHINGIPUTTU,alluri_sitharama_raju,Alluri Sitharama Raju,47418,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.255,0.6965,0.6813,0.9064
+AP_MANDAL_046,SANTHAKAVITI,vizianagaram,Vizianagaram,65419,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.306,0.365,0.746,0.8623,0.9735
+AP_MANDAL_047,RAJAM,vizianagaram,Vizianagaram,51842,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.386,0.23,0.776,0.7658,0.986
+AP_MANDAL_048,NARASANNAPETA,srikakulam,Srikakulam,51041,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.392,0.235,0.8615,0.7866,0.9551
+AP_MANDAL_049,POLAKI,srikakulam,Srikakulam,65622,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.3047,0.365,0.843,0.7802,0.9445
+AP_MANDAL_050,AMADALAVALASA,srikakulam,Srikakulam,44294,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.4513,0.27,0.714,0.8248,0.9168
+AP_MANDAL_051,MERAKAMUDIDAM,vizianagaram,Vizianagaram,57237,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3493,0.21,0.833,0.7351,0.9881
+AP_MANDAL_052,DATTIRAJERU,vizianagaram,Vizianagaram,54499,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3667,0.22,0.775,0.6102,0.9917
+AP_MANDAL_053,GANGUVARISIGADAM,srikakulam,Srikakulam,57543,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3473,0.21,0.766,0.7577,0.99
+AP_MANDAL_054,DUMBRIGUDA,alluri_sitharama_raju,Alluri Sitharama Raju,49029,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.245,0.8025,0.642,0.9472
+AP_MANDAL_055,SRIKAKULAM,srikakulam,Srikakulam,75894,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2633,0.315,0.8345,0.6773,0.9425
+AP_MANDAL_056,MENTADA,vizianagaram,Vizianagaram,46855,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.4267,0.255,0.8185,0.7478,0.9189
+AP_MANDAL_057,ARUKU VALLEY,alluri_sitharama_raju,Alluri Sitharama Raju,49960,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.24,0.7485,0.7981,0.93
+AP_MANDAL_058,GARIVIDI,vizianagaram,Vizianagaram,49396,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.4047,0.245,0.8285,0.7247,0.9909
+AP_MANDAL_059,PONDURU,srikakulam,Srikakulam,61250,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.3267,0.39,0.8025,0.7496,0.9901
+AP_MANDAL_060,GARA,srikakulam,Srikakulam,79617,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2513,0.3,0.914,0.8704,0.9452
+AP_MANDAL_061,GAJAPATHINAGARAM,vizianagaram,Vizianagaram,51842,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3087,0.23,0.8055,0.742,0.9874
+AP_MANDAL_062,ANANTHAGIRI,alluri_sitharama_raju,Alluri Sitharama Raju,49019,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.245,0.81,0.8751,0.8348
+AP_MANDAL_063,ETCHERLA,srikakulam,Srikakulam,85270,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2347,0.28,0.74,0.7721,0.9605
+AP_MANDAL_064,CHEEPURUPALLE,vizianagaram,Vizianagaram,48561,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.412,0.245,0.779,0.5685,0.9873
+AP_MANDAL_065,GURLA,vizianagaram,Vizianagaram,64695,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.3093,0.37,0.834,0.7802,0.9639
+AP_MANDAL_066,LAVERU,srikakulam,Srikakulam,68621,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2913,0.35,0.878,0.7553,0.9846
+AP_MANDAL_067,PEDABAYALU,alluri_sitharama_raju,Alluri Sitharama Raju,51890,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.23,0.867,0.8161,0.9567
+AP_MANDAL_068,BONDAPALLE,vizianagaram,Vizianagaram,51146,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3913,0.235,0.856,0.7791,0.9792
+AP_MANDAL_069,NELLIMARLA,vizianagaram,Vizianagaram,50772,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.394,0.235,0.8615,0.694,0.9425
+AP_MANDAL_070,RANASTALAM,srikakulam,Srikakulam,85872,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2327,0.28,0.765,0.616,0.9794
+AP_MANDAL_071,GARIVIDI,vizianagaram,Vizianagaram,49396,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.4047,0.245,0.829,0.7033,0.9937
+AP_MANDAL_072,HUKUMPETA,alluri_sitharama_raju,Alluri Sitharama Raju,51697,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.23,0.931,0.6113,0.9177
+AP_MANDAL_073,GANTYADA,vizianagaram,Vizianagaram,65579,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.3047,0.365,0.795,0.6674,0.9279
+AP_MANDAL_074,SRUNGAVARAPUKOTA,vizianagaram,Vizianagaram,75917,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2633,0.315,0.934,0.7646,0.9599
+AP_MANDAL_075,VIZIANAGARAM,vizianagaram,Vizianagaram,43641,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.458,0.275,0.715,0.8681,0.9728
+AP_MANDAL_076,PADERU,alluri_sitharama_raju,Alluri Sitharama Raju,50196,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.24,0.835,0.7039,0.8851
+AP_MANDAL_077,PUSAPATIREGA,vizianagaram,Vizianagaram,71955,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.278,0.335,0.835,0.6108,0.96
+AP_MANDAL_078,DEVARAPALLE1,anakapalli,Anakapalli,58312,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3427,0.205,0.8265,0.7455,0.9354
+AP_MANDAL_079,DENKADA,vizianagaram,Vizianagaram,48461,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.4127,0.25,0.8345,0.8213,0.9647
+AP_MANDAL_080,G MADUGULA,alluri_sitharama_raju,Alluri Sitharama Raju,53884,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.225,0.681,0.6397,0.9336
+AP_MANDAL_081,JAMI,vizianagaram,Vizianagaram,58066,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.2753,0.205,0.7835,0.7114,0.9724
+AP_MANDAL_082,VEPADA,vizianagaram,Vizianagaram,50580,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3953,0.235,0.8225,0.6969,0.9224
+AP_MANDAL_083,BHOGAPURAM,vizianagaram,Vizianagaram,54891,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3647,0.22,0.878,0.6547,0.9781
+AP_MANDAL_084,PADMANABHAM,visakhapatnam,Visakhapatnam,52079,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.384,0.23,0.807,0.7692,0.9569
+AP_MANDAL_085,CHINTAPALLE,alluri_sitharama_raju,Alluri Sitharama Raju,63752,CAPACITY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.375,0.782,0.6825,0.9344
+AP_MANDAL_086,LAKKAVARAPUKOTA,vizianagaram,Vizianagaram,53039,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3013,0.225,0.7545,0.7582,0.9662
+AP_MANDAL_087,G K VEEDHI,alluri_sitharama_raju,Alluri Sitharama Raju,58542,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.205,0.865,0.609,0.9164
+AP_MANDAL_088,BHEEMUNIPATNAM,visakhapatnam,Visakhapatnam,56754,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.282,0.21,0.8455,0.6813,0.962
+AP_MANDAL_089,CHEEDIKADA,anakapalli,Anakapalli,46643,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3433,0.255,0.805,0.7715,0.9468
+AP_MANDAL_090,Y.RAMAVARAM,alluri_sitharama_raju,Alluri Sitharama Raju,28614,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.21,0.866,0.6293,0.8535
+AP_MANDAL_091,ANANDAPURAM,visakhapatnam,Visakhapatnam,60789,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.3293,0.395,0.841,0.8485,0.933
+AP_MANDAL_092,KOTHAVALASA,vizianagaram,Vizianagaram,49347,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.324,0.245,0.8695,0.6802,0.9732
+AP_MANDAL_093,K KOTAPADU,anakapalli,Anakapalli,60498,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2647,0.395,0.78,0.7299,0.9588
+AP_MANDAL_094,MADUGULA,anakapalli,Anakapalli,72006,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.222,0.335,0.7535,0.7947,0.9686
+AP_MANDAL_095,CHODAVARAM,anakapalli,Anakapalli,68242,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2347,0.35,0.808,0.5743,0.9296
+AP_MANDAL_096,CHINTUR,alluri_sitharama_raju,Alluri Sitharama Raju,0,INSUFFICIENT-DATA,NO POPULATION,N/A,LOW,0,0.0,,0.0,0.0,0.5419,0.9333
+AP_MANDAL_097,PENDURTHI,visakhapatnam,Visakhapatnam,32380,CAPACITY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,5,1.0,0.6173,0.37,0.8345,0.5772,0.8915
+AP_MANDAL_098,SABBAVARAM,anakapalli,Anakapalli,62713,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2553,0.385,0.79,0.8213,0.9607
+AP_MANDAL_099,VISAKHAPATNAM(R),visakhapatnam,Visakhapatnam,0,INSUFFICIENT-DATA,NO POPULATION,N/A,LOW,0,0.0,,0.0,0.0,0.6316,0.901
+AP_MANDAL_100,BUTCHAYYAPETA,anakapalli,Anakapalli,66214,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2413,0.36,0.832,0.9248,0.9483
+AP_MANDAL_101,MAREDUMILLI,alluri_sitharama_raju,Alluri Sitharama Raju,19507,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.31,0.749,0.6154,0.8728
+AP_MANDAL_102,KOYYURU,alluri_sitharama_raju,Alluri Sitharama Raju,50639,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.235,0.813,0.6958,0.901
+AP_MANDAL_103,RAVIKAMATAM,anakapalli,Anakapalli,70761,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.226,0.34,0.799,0.8213,0.915
+AP_MANDAL_104,ROLUGUNTA,anakapalli,Anakapalli,48388,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3307,0.25,0.7785,0.8918,0.9758
+AP_MANDAL_105,ANAKAPALLI,anakapalli,Anakapalli,95417,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.168,0.41,0.832,0.8884,0.9519
+AP_MANDAL_106,BHADRACHALAM,alluri_sitharama_raju,Alluri Sitharama Raju,0,INSUFFICIENT-DATA,NO POPULATION,N/A,LOW,0,0.0,,0.0,0.0,0.8276,0.9442
+AP_MANDAL_107,VISAKHAPATNAM(U),visakhapatnam,Visakhapatnam,0,INSUFFICIENT-DATA,NO POPULATION,N/A,LOW,0,0.0,,0.0,0.0,0.8086,0.949
+AP_MANDAL_108,GOLUGONDA,anakapalli,Anakapalli,52852,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3787,0.225,0.809,0.7409,0.8805
+AP_MANDAL_109,PARAVADA,anakapalli,Anakapalli,52605,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.304,0.23,0.813,0.7848,0.9369
+AP_MANDAL_110,GAJUWAKA,visakhapatnam,Visakhapatnam,0,INSUFFICIENT-DATA,NO POPULATION,N/A,LOW,0,0.0,,0.0,0.0,0.6698,0.9401
+AP_MANDAL_111,KUNAVARAM,alluri_sitharama_raju,Alluri Sitharama Raju,0,INSUFFICIENT-DATA,NO POPULATION,N/A,LOW,0,0.0,,0.0,0.0,0.6391,0.8542
+AP_MANDAL_112,NARSIPATNAM,anakapalli,Anakapalli,45074,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3547,0.265,0.7995,0.723,0.986
+AP_MANDAL_113,KASIMKOTA,anakapalli,Anakapalli,67262,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.238,0.355,0.8505,0.6888,0.9491
+AP_MANDAL_114,MAKAVARAPALEM,anakapalli,Anakapalli,57568,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.278,0.21,0.8965,0.6726,0.9543
+AP_MANDAL_115,VARARAMACHANDRAPURAM,alluri_sitharama_raju,Alluri Sitharama Raju,0,INSUFFICIENT-DATA,NO POPULATION,N/A,LOW,0,0.0,,0.0,0.0,0.7582,0.8946
+AP_MANDAL_116,MUNAGAPAKA,anakapalli,Anakapalli,55520,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.288,0.215,0.815,0.8034,0.9781
+AP_MANDAL_117,PEDAGANTYADA,visakhapatnam,Visakhapatnam,0,INSUFFICIENT-DATA,NO POPULATION,N/A,LOW,0,0.0,,0.0,0.0,0.7282,0.8979
+AP_MANDAL_118,ADDATEEGALA,alluri_sitharama_raju,Alluri Sitharama Raju,37241,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.32,0.7665,0.8213,0.9286
+AP_MANDAL_119,ATCHUTAPURAM,anakapalli,Anakapalli,66577,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.24,0.36,0.8935,0.6189,0.9736
+AP_MANDAL_120,YELAMANCHILI1,anakapalli,Anakapalli,43288,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3693,0.275,0.8065,0.6611,0.8945
+AP_MANDAL_121,MUNAGAPAKA,anakapalli,Anakapalli,55520,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.288,0.215,0.8565,0.6472,0.9611
+AP_MANDAL_122,RAJAVOMMANGI,alluri_sitharama_raju,Alluri Sitharama Raju,39582,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.305,0.797,0.5414,0.9542
+AP_MANDAL_123,KOTAURATLA,anakapalli,Anakapalli,54510,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.2933,0.22,0.879,0.6628,0.882
+AP_MANDAL_124,NATHAVARAM,anakapalli,Anakapalli,64607,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2473,0.37,0.78,0.6669,0.8967
+AP_MANDAL_125,KUKUNOOR,alluri_sitharama_raju,Alluri Sitharama Raju,0,INSUFFICIENT-DATA,NO POPULATION,N/A,LOW,0,0.0,,0.0,0.0,0.0,0.0
+AP_MANDAL_126,KUKUNOOR,alluri_sitharama_raju,Alluri Sitharama Raju,0,INSUFFICIENT-DATA,NO POPULATION,N/A,LOW,0,0.0,,0.0,0.0,0.0,0.0
+AP_MANDAL_127,KUKUNOOR,eluru,Eluru,0,INSUFFICIENT-DATA,NO POPULATION,N/A,LOW,0,0.0,,0.0,0.0,0.6217,0.9303
+AP_MANDAL_128,RAMBILLI,anakapalli,Anakapalli,53913,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.2967,0.225,0.778,0.8757,0.9376
+AP_MANDAL_129,GANGAVARAM2,alluri_sitharama_raju,Alluri Sitharama Raju,25912,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.23,0.8055,0.8184,0.9386
+AP_MANDAL_130,VELAIRPADU,eluru,Eluru,0,INSUFFICIENT-DATA,NO POPULATION,N/A,LOW,0,0.0,,0.0,0.0,0.7519,0.9515
+AP_MANDAL_131,RAMPACHODAVARAM,alluri_sitharama_raju,Alluri Sitharama Raju,29399,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.205,0.787,0.6778,0.9356
+AP_MANDAL_132,KOTANANDURU,kakinada,Kakinada,48512,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.33,0.245,0.802,0.6223,0.9569
+AP_MANDAL_133,S RAYAVARAM,anakapalli,Anakapalli,74101,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.216,0.325,0.754,0.6842,0.9315
+AP_MANDAL_134,ROWTHULAPUDI,kakinada,Kakinada,55236,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.2893,0.215,0.8275,0.7733,0.9015
+AP_MANDAL_135,DEVIPATNAM,alluri_sitharama_raju,Alluri Sitharama Raju,28178,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.215,0.735,0.8496,0.8664
+AP_MANDAL_136,TUNI,kakinada,Kakinada,84654,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.1893,0.285,0.8575,0.8421,0.9549
+AP_MANDAL_137,NAKKAPALLI,anakapalli,Anakapalli,73476,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.218,0.325,0.751,0.6663,0.9332
+AP_MANDAL_138,POLAVARAM,eluru,Eluru,45392,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3527,0.265,0.778,0.5922,0.8545
+AP_MANDAL_139,SANKHAVARAM,kakinada,Kakinada,51944,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.308,0.23,0.849,0.7206,0.9458
+AP_MANDAL_140,PAYAKARAOPETA,anakapalli,Anakapalli,66092,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.242,0.365,0.7645,0.5547,0.9388
+AP_MANDAL_141,PRATHIPADU1,kakinada,Kakinada,79076,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2027,0.305,0.866,0.7287,0.944
+AP_MANDAL_142,YELESWARAM,kakinada,Kakinada,77965,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2567,0.31,0.845,0.6923,0.7465
+AP_MANDAL_143,BUTTAYAGUDEM,eluru,Eluru,53031,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.302,0.225,0.768,0.6686,0.9604
+AP_MANDAL_144,JEELUGU MILLI,eluru,Eluru,30077,CAPACITY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.532,0.4,0.816,0.5847,0.9961
+AP_MANDAL_145,GOKAVARAM,east_godavari,East Godavari,69596,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.23,0.345,0.8235,0.7617,0.924
+AP_MANDAL_146,THONDANGI,kakinada,Kakinada,87592,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.1827,0.275,0.867,0.6767,0.9683
+AP_MANDAL_147,JAGGAMPETA,kakinada,Kakinada,79640,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2007,0.3,0.727,0.6206,0.9709
+AP_MANDAL_148,SEETHANAGARAM1,east_godavari,East Godavari,71665,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2793,0.335,0.7645,0.4737,0.6877
+AP_MANDAL_149,GOLLAPROLU,kakinada,Kakinada,78926,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2027,0.305,0.8415,0.7201,0.9667
+AP_MANDAL_150,KORUKONDA,east_godavari,East Godavari,79553,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2013,0.3,0.8405,0.8768,0.9269
+AP_MANDAL_151,KIRLAMPUDI,kakinada,Kakinada,74379,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2153,0.325,0.833,0.867,0.9658
+AP_MANDAL_152,GOPALAPURAM,east_godavari,East Godavari,62597,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2553,0.385,0.8855,0.6836,0.9769
+AP_MANDAL_153,PITHAPURAM,kakinada,Kakinada,74423,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2147,0.32,0.7655,0.6709,0.9903
+AP_MANDAL_154,T.NARASAPURAM,eluru,Eluru,56179,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.2847,0.215,0.8095,0.7634,0.9693
+AP_MANDAL_155,CHINTALAPUDI,eluru,Eluru,91372,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.1753,0.425,0.8095,0.6356,0.9764
+AP_MANDAL_156,GANDEPALLE,kakinada,Kakinada,54278,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.2947,0.22,0.766,0.749,0.9759
+AP_MANDAL_157,JANGAREDDIGUDEM,eluru,Eluru,109814,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.146,0.355,0.88,0.7895,0.9266
+AP_MANDAL_158,KOYYALAGUDEM,eluru,Eluru,75694,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2113,0.315,0.8675,0.8294,0.9823
+AP_MANDAL_159,TALLAPUDI,east_godavari,East Godavari,52785,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3033,0.225,0.799,0.7143,0.9912
+AP_MANDAL_160,RAJANAGARAM,east_godavari,East Godavari,106085,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.1507,0.37,0.8275,0.705,0.9833
+AP_MANDAL_161,KOTHAPALLE1,kakinada,Kakinada,82788,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.1933,0.29,0.7465,0.6472,0.9337
+AP_MANDAL_162,PEDDAPURAM,kakinada,Kakinada,73922,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2167,0.325,0.862,0.6512,0.9792
+AP_MANDAL_163,TIRUVURU,ntr,NTR,58164,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.205,0.8505,0.7033,0.9677
+AP_MANDAL_164,RANGAMPETA,east_godavari,East Godavari,57106,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.28,0.21,0.794,0.7548,0.9779
+AP_MANDAL_165,DEVARAPALLE2,east_godavari,East Godavari,77971,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2053,0.31,0.8625,0.8022,0.9739
+AP_MANDAL_166,RAJAHMUNDRY (RURAL),east_godavari,East Godavari,0,INSUFFICIENT-DATA,NO POPULATION,N/A,LOW,0,0.0,,0.0,0.0,0.653,0.6398
+AP_MANDAL_167,SAMALKOTA,kakinada,Kakinada,81115,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.1973,0.295,0.893,0.8525,0.9261
+AP_MANDAL_168,KOVVUR,east_godavari,East Godavari,68778,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2327,0.35,0.9485,0.6992,0.9744
+AP_MANDAL_169,GAMPALAGUDEM,ntr,NTR,71544,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.335,0.7855,0.7189,0.978
+AP_MANDAL_170,VISSANNAPET,ntr,NTR,59798,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.2,0.769,0.6559,0.9657
+AP_MANDAL_171,CHATRAI,eluru,Eluru,53493,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.2993,0.225,0.7815,0.5124,0.943
+AP_MANDAL_172,KAKINADA (RURAL),kakinada,Kakinada,43639,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3667,0.275,0.786,0.7993,0.9366
+AP_MANDAL_173,KAMAVARAPUKOTA,eluru,Eluru,57636,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.2773,0.21,0.828,0.7872,0.9907
+AP_MANDAL_174,A.KONDURU,ntr,NTR,48463,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.25,0.8845,0.6929,0.974
+AP_MANDAL_175,DWARAKA TIRUMALA,eluru,Eluru,63446,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.252,0.38,0.821,0.7287,0.9853
+AP_MANDAL_176,NALLAJERLA,east_godavari,East Godavari,80388,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.1993,0.3,0.8285,0.7675,0.9846
+AP_MANDAL_177,VATSAVAI,ntr,NTR,61749,CAPACITY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.39,0.776,0.5876,0.9804
+AP_MANDAL_178,RAJAHMUNDRY (FULLY URBAN),east_godavari,East Godavari,0,INSUFFICIENT-DATA,NO POPULATION,N/A,LOW,0,0.0,,0.0,0.0,0.675,0.9736
+AP_MANDAL_179,BICCAVOLU,east_godavari,East Godavari,70277,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.228,0.34,0.8005,0.7918,0.9746
+AP_MANDAL_180,CHAGALLU,east_godavari,East Godavari,64774,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2473,0.37,0.9705,0.6142,0.9924
+AP_MANDAL_181,JAGGAYYAPETA,ntr,NTR,72745,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.33,0.8275,0.7484,0.9732
+AP_MANDAL_182,LINGAPALEM,eluru,Eluru,58360,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.274,0.205,0.781,0.6056,0.9779
+AP_MANDAL_183,THALLAREVU,kakinada,Kakinada,82799,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3867,0.29,0.765,0.7634,0.4569
+AP_MANDAL_184,PEDAPUDI,kakinada,Kakinada,71459,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.224,0.335,0.8675,0.7201,0.9009
+AP_MANDAL_185,KAKINADA (FULLY URBAN),kakinada,Kakinada,43639,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3667,0.275,0.86,0.583,0.9187
+AP_MANDAL_186,MANDAPETA,dr_b_r_ambedkar_konaseema,Dr. B.R. Ambedkar Konaseema,76616,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2087,0.315,0.831,0.8242,0.9825
+AP_MANDAL_187,ANAPARTHY,east_godavari,East Godavari,70859,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.226,0.34,0.8215,0.6593,0.9876
+AP_MANDAL_188,TADEPALLIGUDEM,west_godavari,West Godavari,88130,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.1813,0.27,0.8385,0.6524,0.9593
+AP_MANDAL_189,REDDIGUDEM,ntr,NTR,46226,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.26,0.7945,0.7386,0.9672
+AP_MANDAL_190,NIDADAVOLE,east_godavari,East Godavari,70436,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2273,0.34,0.7965,0.823,0.9212
+AP_MANDAL_191,KARAPA,kakinada,Kakinada,76398,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2093,0.315,0.8095,0.6345,0.9013
+AP_MANDAL_192,ATREYAPURAM,dr_b_r_ambedkar_konaseema,Dr. B.R. Ambedkar Konaseema,65580,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.4267,0.365,0.842,0.7287,0.5564
+AP_MANDAL_193,KADIAM,east_godavari,East Godavari,90499,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.1767,0.43,0.839,0.76,0.9693
+AP_MANDAL_194,MUSUNURU,eluru,Eluru,57197,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.28,0.21,0.788,0.7831,0.9795
+AP_MANDAL_195,PENUGANCHIPROLU,ntr,NTR,51811,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.23,0.844,0.7386,0.9698
+AP_MANDAL_196,RAYAVARAM,dr_b_r_ambedkar_konaseema,Dr. B.R. Ambedkar Konaseema,66456,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2407,0.36,0.845,0.6912,0.9881
+AP_MANDAL_197,PEDAVEGI,eluru,Eluru,88834,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.18,0.27,0.803,0.6512,0.9738
+AP_MANDAL_198,UNGUTUR,eluru,Eluru,80722,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.248,0.295,0.8525,0.7305,0.8389
+AP_MANDAL_199,RAMACHANDRAPURAM2,dr_b_r_ambedkar_konaseema,Dr. B.R. Ambedkar Konaseema,70870,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.226,0.34,0.854,0.6298,0.9514
+AP_MANDAL_200,NUZVID,eluru,Eluru,70963,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2253,0.34,0.78,0.4679,0.9743
+AP_MANDAL_201,DENDULURU,eluru,Eluru,66695,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.3,0.36,0.825,0.7611,0.7965
+AP_MANDAL_202,MYLAVARAM2,ntr,NTR,66947,CAPACITY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.36,0.8425,0.801,0.9747
+AP_MANDAL_203,NANDIGAMA,ntr,NTR,92291,CAPACITY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.425,0.895,0.5182,0.9753
+AP_MANDAL_204,ALAMURU,dr_b_r_ambedkar_konaseema,Dr. B.R. Ambedkar Konaseema,74025,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.216,0.325,0.8385,0.635,0.9498
+AP_MANDAL_205,KAJULURU,kakinada,Kakinada,70903,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2253,0.34,0.7615,0.7767,0.9095
+AP_MANDAL_206,VEERULLAPADU,ntr,NTR,49089,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.245,0.7605,0.8942,0.9718
+AP_MANDAL_207,PERAVALI,east_godavari,East Godavari,70194,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.228,0.34,0.8375,0.7247,0.9551
+AP_MANDAL_208,UNDRAJAVARAM,east_godavari,East Godavari,76489,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2093,0.315,0.8715,0.6599,0.9824
+AP_MANDAL_209,BHIMADOLE,eluru,Eluru,65216,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.4293,0.37,0.842,0.7068,0.5095
+AP_MANDAL_210,KAPILESWARAPURAM,dr_b_r_ambedkar_konaseema,Dr. B.R. Ambedkar Konaseema,66809,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2993,0.36,0.9225,0.8421,0.797
+AP_MANDAL_211,TANUKU,west_godavari,West Godavari,70567,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2267,0.34,0.8015,0.6669,0.9433
+AP_MANDAL_212,ATCHAMPET,palnadu,Palnadu,58447,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.205,0.885,0.6536,0.886
+AP_MANDAL_213,PENTAPADU,west_godavari,West Godavari,70458,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2273,0.34,0.8745,0.6813,0.9354
+AP_MANDAL_214,BELLAMKONDA,palnadu,Palnadu,38455,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.31,0.8995,0.631,0.8652
+AP_MANDAL_215,PAMARRU1,kakinada,Kakinada,0,INSUFFICIENT-DATA,NO POPULATION,N/A,LOW,0,0.0,,0.0,0.0,0.734,0.9332
+AP_MANDAL_216,RAVULAPALEM,dr_b_r_ambedkar_konaseema,Dr. B.R. Ambedkar Konaseema,83360,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.192,0.29,0.8535,0.8641,0.9661
+AP_MANDAL_217,CHANDARLAPADU,ntr,NTR,59943,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.2,0.7855,0.7513,0.9233
+AP_MANDAL_218,G.KONDURU,ntr,NTR,57693,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.21,0.8465,0.6819,0.9434
+AP_MANDAL_219,KATRENIKONA,dr_b_r_ambedkar_konaseema,Dr. B.R. Ambedkar Konaseema,74819,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.374,0.32,0.789,0.6975,0.6145
+AP_MANDAL_220,ELURU,eluru,Eluru,68571,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.4087,0.35,0.8245,0.5876,0.4267
+AP_MANDAL_221,NIDAMARRU,eluru,Eluru,47623,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,safe_habitable_area,HIGH,5,1.0,0.672,0.25,0.934,0.7993,0.3752
+AP_MANDAL_222,AGIRIPALLE,eluru,Eluru,62098,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2573,0.385,0.7345,0.7108,0.9528
+AP_MANDAL_223,THALLAREVU,kakinada,Kakinada,82799,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.338,0.29,0.832,0.7073,0.5688
+AP_MANDAL_224,GANAPAVARAM,eluru,Eluru,64963,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.308,0.37,0.7465,1.0,0.7878
+AP_MANDAL_225,BAPULAPADU,krishna,Krishna,84922,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.1887,0.285,0.822,0.7496,0.9907
+AP_MANDAL_226,IBRAHIMPATNAM2,ntr,NTR,29567,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.205,0.8345,0.642,0.8722
+AP_MANDAL_227,ATTILI,west_godavari,West Godavari,68881,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2907,0.35,0.82,0.6865,0.9052
+AP_MANDAL_228,KOTHAPETA,dr_b_r_ambedkar_konaseema,Dr. B.R. Ambedkar Konaseema,77859,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2053,0.31,0.7455,0.8224,0.9821
+AP_MANDAL_229,KANCHIKACHERLA,ntr,NTR,71075,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.34,0.8145,0.7316,0.8903
+AP_MANDAL_230,DACHEPALLE,palnadu,Palnadu,75233,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.32,0.802,0.598,0.9723
+AP_MANDAL_231,IRAGAVARAM,west_godavari,West Godavari,65831,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2433,0.365,0.765,0.8028,0.9582
+AP_MANDAL_232,PEDAPADU,eluru,Eluru,69141,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2893,0.345,0.8335,0.6651,0.735
+AP_MANDAL_233,AINAVILLI,dr_b_r_ambedkar_konaseema,Dr. B.R. Ambedkar Konaseema,65161,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.3067,0.37,0.8585,0.8855,0.9159
+AP_MANDAL_234,I. POLAVARAM,dr_b_r_ambedkar_konaseema,Dr. B.R. Ambedkar Konaseema,67434,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2967,0.355,0.782,0.8167,0.8258
+AP_MANDAL_235,BAPULAPADU,krishna,Krishna,84922,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.1887,0.285,0.8945,0.6842,0.9309
+AP_MANDAL_236,MACHAVARAM,palnadu,Palnadu,52469,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.23,0.8935,0.834,0.9317
+AP_MANDAL_237,PENUGONDA,west_godavari,West Godavari,69317,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2307,0.345,0.6825,0.7287,0.9889
+AP_MANDAL_238,PENUMANTRA,west_godavari,West Godavari,60153,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.3327,0.4,0.7615,0.797,0.8718
+AP_MANDAL_239,AKIVIDU,west_godavari,West Godavari,73889,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3787,0.325,0.7955,0.7652,0.4871
+AP_MANDAL_240,MUMMIDIVARAM,dr_b_r_ambedkar_konaseema,Dr. B.R. Ambedkar Konaseema,68586,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2333,0.35,0.838,0.6495,0.9354
+AP_MANDAL_241,KAIKALUR,eluru,Eluru,77654,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,safe_habitable_area,HIGH,5,1.0,0.412,0.31,0.75,0.6669,0.3691
+AP_MANDAL_242,UNDI,west_godavari,West Godavari,66049,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.424,0.365,0.828,0.812,0.6343
+AP_MANDAL_243,BAPULAPADU,krishna,Krishna,84922,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.1887,0.285,0.8425,0.6946,0.9859
+AP_MANDAL_244,GURAZALA,palnadu,Palnadu,66070,CAPACITY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.365,0.837,0.6877,0.9793
+AP_MANDAL_245,GANNAVARAM,krishna,Krishna,87027,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.184,0.275,0.7245,0.6403,0.9592
+AP_MANDAL_246,P.GANNAVARAM,dr_b_r_ambedkar_konaseema,Dr. B.R. Ambedkar Konaseema,75306,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2653,0.32,0.8225,0.7594,0.8077
+AP_MANDAL_247,AMBAJIPETA,dr_b_r_ambedkar_konaseema,Dr. B.R. Ambedkar Konaseema,63134,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2533,0.38,0.81,0.9017,0.9963
+AP_MANDAL_248,VIJAYAWADA (RURAL),ntr,NTR,18929,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.315,0.7815,0.6217,0.9153
+AP_MANDAL_249,RENTACHINTALA,palnadu,Palnadu,49827,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.24,0.944,0.7253,0.9607
+AP_MANDAL_250,PALACODERU,west_godavari,West Godavari,66119,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.3027,0.365,0.802,0.8456,0.8505
+AP_MANDAL_251,ACHANTA,west_godavari,West Godavari,60711,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2633,0.395,0.715,0.716,0.9631
+AP_MANDAL_252,AMALAPURAM,dr_b_r_ambedkar_konaseema,Dr. B.R. Ambedkar Konaseema,76992,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.208,0.31,0.836,0.7623,0.9715
+AP_MANDAL_253,VEERAVASARAM,west_godavari,West Godavari,64912,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.308,0.37,0.9075,0.631,0.8729
+AP_MANDAL_254,MANDAVALLI,eluru,Eluru,48627,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,safe_habitable_area,HIGH,5,1.0,0.658,0.245,0.8665,0.76,0.329
+AP_MANDAL_255,PODURU,west_godavari,West Godavari,65706,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2433,0.365,0.7385,0.7068,0.9311
+AP_MANDAL_256,AMARAVATHI,palnadu,Palnadu,66277,CAPACITY-CONSTRAINED,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.36,0.801,0.808,0.8251
+AP_MANDAL_257,UPPALAGUPTAM,dr_b_r_ambedkar_konaseema,Dr. B.R. Ambedkar Konaseema,59931,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.4673,0.2,0.836,0.8259,0.6186
+AP_MANDAL_258,UNGUTURU,krishna,Krishna,54323,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.2947,0.22,0.821,0.9479,0.9867
+AP_MANDAL_259,KROSURU,palnadu,Palnadu,56308,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.215,0.831,0.7727,0.9897
+AP_MANDAL_260,THULLUR,guntur,Guntur,54081,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.222,0.22,0.879,0.7507,0.8279
+AP_MANDAL_261,MACHERLA,palnadu,Palnadu,55758,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.215,0.7815,0.7374,0.8819
+AP_MANDAL_262,NANDIVADA,krishna,Krishna,36924,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,safe_habitable_area,HIGH,5,1.0,0.8667,0.325,0.8235,0.6923,0.3562
+AP_MANDAL_263,PALACOLE,west_godavari,West Godavari,48518,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.412,0.245,0.683,0.7519,0.9072
+AP_MANDAL_264,BHIMAVARAM,west_godavari,West Godavari,79536,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.4027,0.3,0.78,0.6975,0.425
+AP_MANDAL_265,PIDUGURALLA,palnadu,Palnadu,59216,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.205,0.8195,0.7374,0.9934
+AP_MANDAL_266,KALLA,west_godavari,West Godavari,68118,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.47,0.35,0.794,0.8369,0.4917
+AP_MANDAL_267,MAMIDIKUDURU,dr_b_r_ambedkar_konaseema,Dr. B.R. Ambedkar Konaseema,70639,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2833,0.34,0.8925,0.6356,0.7873
+AP_MANDAL_268,KALIDINDI,eluru,Eluru,70729,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,safe_habitable_area,HIGH,5,1.0,0.4527,0.34,0.7685,0.8219,0.3825
+AP_MANDAL_269,VIJAYAWADA (URBAN),ntr,NTR,18929,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.315,0.791,0.8311,0.9088
+AP_MANDAL_270,PEDAKURAPADU,palnadu,Palnadu,50030,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.24,0.859,0.7126,0.9978
+AP_MANDAL_271,KAREMPUDI,palnadu,Palnadu,52367,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.23,0.86,0.5344,0.9862
+AP_MANDAL_272,ALLAVARAM,dr_b_r_ambedkar_konaseema,Dr. B.R. Ambedkar Konaseema,68242,CAPACITY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.41,0.35,0.7985,0.6703,0.7335
+AP_MANDAL_273,YELAMANCHILI2,west_godavari,West Godavari,71890,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.278,0.335,0.865,0.8352,0.8663
+AP_MANDAL_274,TADEPALLE,guntur,Guntur,29004,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.5513,0.205,0.7745,0.7131,0.7824
+AP_MANDAL_275,SATTENAPALLE,palnadu,Palnadu,73887,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.325,0.773,0.6362,0.9946
+AP_MANDAL_276,PENAMALURU,krishna,Krishna,18905,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,5,1.0,0.8467,0.315,0.816,0.679,0.8621
+AP_MANDAL_277,KANKIPADU,krishna,Krishna,54946,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.2913,0.22,0.8455,0.7958,0.9721
+AP_MANDAL_278,RAZOLE,dr_b_r_ambedkar_konaseema,Dr. B.R. Ambedkar Konaseema,71433,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.28,0.335,0.7685,0.7704,0.9448
+AP_MANDAL_279,SAKHINETIPALLE,dr_b_r_ambedkar_konaseema,Dr. B.R. Ambedkar Konaseema,72560,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.386,0.33,0.804,0.7021,0.6078
+AP_MANDAL_280,MUDINEPALLE,eluru,Eluru,64377,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.4347,0.375,0.744,0.6912,0.6216
+AP_MANDAL_281,MANGALAGIRI,guntur,Guntur,53106,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.226,0.225,0.806,0.6871,0.9244
+AP_MANDAL_282,PEDAPARUPUDI,krishna,Krishna,31348,CAPACITY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.5107,0.385,0.777,0.6431,0.9451
+AP_MANDAL_283,GUDIVADA,krishna,Krishna,43286,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.462,0.275,0.8415,0.8629,0.8694
+AP_MANDAL_284,NARASAPURAM,west_godavari,West Godavari,79971,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.35,0.3,0.779,0.6946,0.6706
+AP_MANDAL_285,DURGI,palnadu,Palnadu,49059,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.245,0.931,0.8219,0.9601
+AP_MANDAL_286,RAJUPALEM1,palnadu,Palnadu,45213,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.265,0.737,0.8508,0.9892
+AP_MANDAL_287,TADIKONDA,guntur,Guntur,67962,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.0493,0.355,0.78,0.8086,0.9755
+AP_MANDAL_288,VELDURTHI1,palnadu,Palnadu,49054,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.245,0.8385,0.6848,0.9575
+AP_MANDAL_289,MOGALTHUR,west_godavari,West Godavari,72255,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3873,0.33,0.826,0.7582,0.58
+AP_MANDAL_290,BANTUMILLI,krishna,Krishna,46370,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.604,0.26,0.7535,0.7206,0.6659
+AP_MANDAL_291,MALIKIPURAM,dr_b_r_ambedkar_konaseema,Dr. B.R. Ambedkar Konaseema,75847,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.264,0.315,0.8455,0.6449,0.9439
+AP_MANDAL_292,VUYYURU,krishna,Krishna,76703,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2087,0.315,0.8155,0.7507,0.9878
+AP_MANDAL_293,NEKARIKALLU,palnadu,Palnadu,63349,CAPACITY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.38,0.781,0.6189,0.987
+AP_MANDAL_294,MEDIKONDURU,guntur,Guntur,60144,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.0553,0.4,0.852,0.8259,0.9967
+AP_MANDAL_295,KRUTHIVENNU,krishna,Krishna,48892,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,safe_habitable_area,HIGH,5,1.0,0.6547,0.245,0.835,0.6825,0.4858
+AP_MANDAL_296,MUPPALLA,palnadu,Palnadu,42509,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.28,0.7265,0.7403,0.9904
+AP_MANDAL_297,DUGGIRALA,guntur,Guntur,62655,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.0533,0.385,0.847,0.7478,0.9709
+AP_MANDAL_298,THOTLAVALLURU,krishna,Krishna,38641,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.5173,0.31,0.8085,0.7004,0.8541
+AP_MANDAL_299,PEDANA,krishna,Krishna,34936,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.5727,0.345,0.8225,0.7739,0.8114
+AP_MANDAL_300,GUDLAVALLERU,krishna,Krishna,51753,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3867,0.23,0.8345,0.6819,0.9045
+AP_MANDAL_301,BOLLAPALLE,palnadu,Palnadu,58086,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.205,0.8255,0.7941,0.9817
+AP_MANDAL_302,GUNTUR,guntur,Guntur,109216,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.0307,0.355,0.806,0.6061,0.9908
+AP_MANDAL_303,PEDAKAKANI,guntur,Guntur,73689,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.0453,0.325,0.8315,0.734,0.9898
+AP_MANDAL_304,IPUR,palnadu,Palnadu,46714,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.255,0.8565,0.8855,0.9783
+AP_MANDAL_305,PAMIDIMUKKALA,krishna,Krishna,53913,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.2967,0.225,0.851,0.6362,0.9473
+AP_MANDAL_306,PAMARRU2,krishna,Krishna,54634,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.2927,0.22,0.8445,0.6645,0.9781
+AP_MANDAL_307,KOLLIPARA,guntur,Guntur,56662,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.2827,0.21,0.8725,0.7675,0.8465
+AP_MANDAL_308,PHIRANGIPURAM,guntur,Guntur,63449,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.0527,0.38,0.769,0.738,0.9939
+AP_MANDAL_309,ROMPICHERLA2,palnadu,Palnadu,62060,CAPACITY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.385,0.857,0.7536,0.9939
+AP_MANDAL_310,NARASARAOPET,palnadu,Palnadu,94459,CAPACITY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.415,0.8155,0.7623,0.9866
+AP_MANDAL_311,MACHILIPATNAM,krishna,Krishna,69070,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.4053,0.345,0.828,0.7779,0.5193
+AP_MANDAL_312,TENALI,guntur,Guntur,75094,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.0447,0.32,0.8805,0.819,0.9914
+AP_MANDAL_313,EDLAPADU,palnadu,Palnadu,56321,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.215,0.8795,0.7461,0.9662
+AP_MANDAL_314,PULLALACHERUVU,prakasam,Prakasam,53279,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.2253,0.225,0.8355,0.6969,0.9846
+AP_MANDAL_315,MOVVA,krishna,Krishna,52974,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.302,0.225,0.908,0.7814,0.9809
+AP_MANDAL_316,GUDURU,krishna,Krishna,49228,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3253,0.245,0.82,0.8878,0.9492
+AP_MANDAL_317,CHEBROLU,guntur,Guntur,72141,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.046,0.335,0.9005,0.7114,0.9851
+AP_MANDAL_318,NADENDLA,palnadu,Palnadu,68978,CAPACITY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.35,0.7805,0.6385,0.9948
+AP_MANDAL_319,ROMPICHERLA2,palnadu,Palnadu,62060,CAPACITY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.385,0.8755,0.8207,0.98
+AP_MANDAL_320,VATTICHERUKURU,guntur,Guntur,45773,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.0727,0.26,0.813,0.7126,0.9857
+AP_MANDAL_321,KOLLUR,bapatla,Bapatla,55323,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3613,0.215,0.8,0.5344,0.8655
+AP_MANDAL_322,YERRAGONDAPALEM,prakasam,Prakasam,64063,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.1873,0.375,0.827,0.7756,0.9418
+AP_MANDAL_323,PRATHIPADU2,guntur,Guntur,49390,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.0673,0.245,0.7675,0.6767,0.9879
+AP_MANDAL_324,VEMURU,bapatla,Bapatla,43586,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3673,0.275,0.919,0.7149,0.9959
+AP_MANDAL_325,TSUNDUR,bapatla,Bapatla,45778,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3493,0.26,0.7825,0.7513,0.9926
+AP_MANDAL_326,GHANTASALA,krishna,Krishna,40098,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3993,0.3,0.743,0.7392,0.9368
+AP_MANDAL_327,AMRUTHALUR,bapatla,Bapatla,44713,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.358,0.27,0.865,0.7843,0.9863
+AP_MANDAL_328,SAVALYAPURAM,palnadu,Palnadu,37994,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.315,0.9055,0.6854,0.9923
+AP_MANDAL_329,CHILAKALURIPET,palnadu,Palnadu,52231,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.23,0.889,0.7675,0.989
+AP_MANDAL_330,SANTHAMAGULURU,bapatla,Bapatla,59528,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.2687,0.2,0.854,0.6987,0.9798
+AP_MANDAL_331,PONNUR,guntur,Guntur,63504,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.0527,0.38,0.814,0.7872,0.9375
+AP_MANDAL_332,CHALLAPALLE,krishna,Krishna,53540,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3733,0.225,0.7765,0.7762,0.857
+AP_MANDAL_333,PEDANANDIPADU,guntur,Guntur,41980,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.0793,0.285,0.834,0.642,0.9851
+AP_MANDAL_334,SRISAILAM,nandyal,Nandyal,10382,CAPACITY-CONSTRAINED,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.58,0.755,0.7623,0.77
+AP_MANDAL_335,KAKUMANU,guntur,Guntur,40681,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.082,0.295,0.8505,0.6761,0.9591
+AP_MANDAL_336,BHATTIPROLU,bapatla,Bapatla,50252,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3187,0.24,0.761,0.7929,0.9742
+AP_MANDAL_337,CHERUKUPALLE,bapatla,Bapatla,60385,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2647,0.395,0.7875,0.7548,0.9882
+AP_MANDAL_338,MOPIDEVI,krishna,Krishna,35967,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.556,0.335,0.817,0.882,0.8746
+AP_MANDAL_339,VINUKONDA,palnadu,Palnadu,49948,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.24,0.8185,0.7027,0.9684
+AP_MANDAL_340,KOTHAPALLE2,nandyal,Nandyal,30362,CAPACITY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.395,0.8315,0.6865,0.7091
+AP_MANDAL_341,BALLIKURAVA,bapatla,Bapatla,53269,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3007,0.225,0.743,0.7143,0.9702
+AP_MANDAL_342,TRIPURANTHAKAM,prakasam,Prakasam,62627,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.1913,0.385,0.784,0.6964,0.9709
+AP_MANDAL_343,KODURU,krishna,Krishna,45281,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,safe_habitable_area,HIGH,5,1.0,0.6187,0.265,0.8305,0.7924,0.4343
+AP_MANDAL_344,REPALLE,bapatla,Bapatla,61123,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.3273,0.395,0.8195,0.583,0.6961
+AP_MANDAL_345,NAGARAM,bapatla,Bapatla,50262,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.318,0.24,0.839,0.6316,0.8964
+AP_MANDAL_346,ATMAKUR2,nandyal,Nandyal,76028,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.315,0.8115,0.6223,0.9472
+AP_MANDAL_347,AVANIGADDA,krishna,Krishna,40986,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.488,0.295,0.778,0.8051,0.7583
+AP_MANDAL_348,PARCHUR,bapatla,Bapatla,54668,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.2927,0.22,0.749,0.8716,0.9835
+AP_MANDAL_349,PITTALAVANIPALEM,bapatla,Bapatla,38609,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.4147,0.31,0.7765,0.7137,0.9231
+AP_MANDAL_350,YEDDANAPUDI,bapatla,Bapatla,28373,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.564,0.21,0.8285,0.7085,0.9852
+AP_MANDAL_351,NUZENDLA,palnadu,Palnadu,52853,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.225,0.8455,0.7287,0.9825
+AP_MANDAL_352,PAGIDYALA,nandyal,Nandyal,35267,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,safe_habitable_area,HIGH,4,0.8,,0.34,0.8365,0.8236,0.7799
+AP_MANDAL_353,MARTUR,bapatla,Bapatla,73862,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2167,0.325,0.8925,0.642,0.9924
+AP_MANDAL_354,BAPATLA,bapatla,Bapatla,73048,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2193,0.33,0.8445,0.7438,0.9536
+AP_MANDAL_355,DORNALA,prakasam,Prakasam,44187,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.2713,0.27,0.7955,0.7744,0.9251
+AP_MANDAL_356,KARLAPALEM,bapatla,Bapatla,50320,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.318,0.24,0.7795,0.7663,0.8913
+AP_MANDAL_357,KURICHEDU,prakasam,Prakasam,40801,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.294,0.295,0.826,0.7386,0.9814
+AP_MANDAL_358,NIZAMPATNAM,bapatla,Bapatla,59973,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.4667,0.2,0.8075,0.8097,0.6317
+AP_MANDAL_359,KOSIGI,kurnool,Kurnool,69275,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.345,0.813,0.4881,0.9637
+AP_MANDAL_360,MANTRALAYAM,kurnool,Kurnool,61294,CAPACITY-CONSTRAINED,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.39,0.758,0.782,0.9702
+AP_MANDAL_361,NAGAYALANKA,krishna,Krishna,47899,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,safe_habitable_area,HIGH,5,1.0,0.668,0.25,0.8365,0.6663,0.4086
+AP_MANDAL_362,KOWTHALAM,kurnool,Kurnool,78149,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.305,0.915,0.5639,0.9815
+AP_MANDAL_363,NANDAVARAM,kurnool,Kurnool,61215,CAPACITY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.39,0.8235,0.7675,0.9637
+AP_MANDAL_364,NANDIKOTKUR,nandyal,Nandyal,83748,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.285,0.8215,0.8421,0.8785
+AP_MANDAL_365,JUPADU BUNGALOW,nandyal,Nandyal,37666,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.32,0.8655,0.7108,0.9182
+AP_MANDAL_366,KARAMCHEDU,bapatla,Bapatla,38916,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.4113,0.31,0.717,0.8057,0.9556
+AP_MANDAL_367,PEDA  ARAVEEDU,prakasam,Prakasam,42262,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.284,0.285,0.855,0.86,0.9801
+AP_MANDAL_368,MUNDLAMURU,prakasam,Prakasam,56783,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.2113,0.21,0.766,0.8369,0.9821
+AP_MANDAL_369,CHIRALA,bapatla,Bapatla,52590,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.304,0.23,0.808,0.8652,0.8712
+AP_MANDAL_370,INKOLLU,bapatla,Bapatla,49546,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3227,0.24,0.7475,0.7877,0.9893
+AP_MANDAL_371,ADDANKI,bapatla,Bapatla,89769,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.178,0.265,0.779,0.7293,0.9399
+AP_MANDAL_372,PAMULAPADU,nandyal,Nandyal,40358,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.295,0.868,0.5842,0.9476
+AP_MANDAL_373,KURNOOL,kurnool,Kurnool,67268,CAPACITY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.355,0.866,0.7016,0.94
+AP_MANDAL_374,DONAKONDA,prakasam,Prakasam,48148,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2493,0.25,0.866,0.6495,0.9735
+AP_MANDAL_375,C.BELAGAL,kurnool,Kurnool,57167,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.21,0.909,0.9115,0.9293
+AP_MANDAL_376,JANAKAVARAMPANGULURU,bapatla,Bapatla,45186,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.354,0.265,0.792,0.7073,0.989
+AP_MANDAL_377,GUDUR1,kurnool,Kurnool,46266,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.26,0.855,0.7334,0.995
+AP_MANDAL_378,DARSI,prakasam,Prakasam,86702,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.1387,0.275,0.7865,0.7681,0.9793
+AP_MANDAL_379,YEMMIGANUR,kurnool,Kurnool,74195,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.325,0.9395,0.727,0.993
+AP_MANDAL_380,PEDDA KADUBUR,kurnool,Kurnool,56966,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.21,0.7635,0.8693,0.9639
+AP_MANDAL_381,KALLUR2,kurnool,Kurnool,51470,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.235,0.7325,0.6692,0.9921
+AP_MANDAL_382,MIDTHUR,nandyal,Nandyal,41652,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.29,0.7745,0.7397,0.9665
+AP_MANDAL_383,CHINAGANJAM,bapatla,Bapatla,42468,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3767,0.285,0.7595,0.6576,0.9908
+AP_MANDAL_384,GONEGANDLA,kurnool,Kurnool,73873,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.325,0.8135,0.6084,0.9233
+AP_MANDAL_385,VETAPALEM,bapatla,Bapatla,32984,CAPACITY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.4853,0.365,0.77,0.6698,0.9128
+AP_MANDAL_386,MARKAPUR,prakasam,Prakasam,51892,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.2313,0.23,0.811,0.7183,0.9718
+AP_MANDAL_387,ARDHAVEEDU,prakasam,Prakasam,36169,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.4427,0.33,0.82,0.6431,0.887
+AP_MANDAL_388,ADONI,kurnool,Kurnool,84661,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.285,0.9545,0.6622,0.9925
+AP_MANDAL_389,NAGULUPPALAPADU,prakasam,Prakasam,67733,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.236,0.355,0.867,0.6015,0.9938
+AP_MANDAL_390,KODUMUR,kurnool,Kurnool,74594,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.32,0.7995,0.716,0.9972
+AP_MANDAL_391,VELGODE,nandyal,Nandyal,47850,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.25,0.8015,0.5853,0.8917
+AP_MANDAL_392,KORISAPADU,bapatla,Bapatla,48273,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3313,0.25,0.842,0.7889,0.9679
+AP_MANDAL_393,THALLUR,prakasam,Prakasam,48400,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.248,0.25,0.747,0.7287,0.9829
+AP_MANDAL_394,CHINAGANJAM,bapatla,Bapatla,42468,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3767,0.285,0.8905,0.5963,0.8161
+AP_MANDAL_395,ORVAKAL,kurnool,Kurnool,58437,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.205,0.8645,0.6964,0.9957
+AP_MANDAL_396,NAGULUPPALAPADU,prakasam,Prakasam,67733,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.236,0.355,0.7915,0.6576,0.9559
+AP_MANDAL_397,TARLUPADU,prakasam,Prakasam,34640,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3467,0.345,0.7565,0.7507,0.9908
+AP_MANDAL_398,MUNDLAMURU,prakasam,Prakasam,56783,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.2113,0.21,0.876,0.8305,1.0
+AP_MANDAL_399,KONAKANAMITLA,prakasam,Prakasam,49259,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2433,0.245,0.8285,0.5593,0.9906
+AP_MANDAL_400,GADIVEMULA,nandyal,Nandyal,42810,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.28,0.867,0.7328,0.9612
+AP_MANDAL_401,PODILI,prakasam,Prakasam,35872,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.3347,0.335,0.744,0.7091,0.9861
+AP_MANDAL_402,MADDIPADU,prakasam,Prakasam,52353,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3053,0.23,0.7315,0.7814,0.8935
+AP_MANDAL_403,CHIMAKURTHI,prakasam,Prakasam,79343,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2013,0.3,0.8385,0.7299,0.9462
+AP_MANDAL_404,DEVANAKONDA,kurnool,Kurnool,71237,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.335,0.825,0.6576,0.9824
+AP_MANDAL_405,ASPARI,kurnool,Kurnool,65088,CAPACITY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.37,0.8205,0.6952,0.9945
+AP_MANDAL_406,KRISHNAGIRI,kurnool,Kurnool,47103,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.255,0.762,0.6541,0.99
+AP_MANDAL_407,BANDI ATMAKUR,nandyal,Nandyal,48592,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.245,0.822,0.8057,0.9716
+AP_MANDAL_408,PANYAM,nandyal,Nandyal,51426,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.235,0.803,0.7241,0.9666
+AP_MANDAL_409,VELDURTHI2,kurnool,Kurnool,63120,CAPACITY-CONSTRAINED,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.38,0.8495,0.8878,0.9839
+AP_MANDAL_410,CUMBUM,prakasam,Prakasam,33529,CAPACITY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.4773,0.36,0.808,0.716,0.9054
+AP_MANDAL_411,HOLAGUNDA,kurnool,Kurnool,50592,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.235,0.8625,0.6605,0.9915
+AP_MANDAL_412,SANTHANUTHALA PADU,prakasam,Prakasam,62588,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2553,0.385,0.734,0.5917,0.9739
+AP_MANDAL_413,GIDDALUR,prakasam,Prakasam,50983,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.2353,0.235,0.7275,0.5564,0.9747
+AP_MANDAL_414,RACHERLA,prakasam,Prakasam,35080,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.342,0.34,0.9235,0.5755,0.9556
+AP_MANDAL_415,BESTAWARIPETA,prakasam,Prakasam,51062,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3133,0.235,0.8235,0.723,0.9435
+AP_MANDAL_416,MARRIPUDI,prakasam,Prakasam,38848,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.412,0.31,0.786,0.76,0.9633
+AP_MANDAL_417,BETHAMCHERLA,nandyal,Nandyal,49732,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.24,0.9075,0.5853,0.9968
+AP_MANDAL_418,NANDYAL,nandyal,Nandyal,57944,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.205,0.832,0.8005,0.976
+AP_MANDAL_419,ONGOLE,prakasam,Prakasam,48376,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3307,0.25,0.8705,0.6807,0.8881
+AP_MANDAL_420,HANUMANTHUNIPADU,prakasam,Prakasam,30964,CAPACITY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.3873,0.39,0.8265,0.7357,0.9869
+AP_MANDAL_421,ALUR,kurnool,Kurnool,55834,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.215,0.9625,0.8629,0.9952
+AP_MANDAL_422,KANIGIRI,prakasam,Prakasam,55046,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.2907,0.22,0.891,0.7987,0.9835
+AP_MANDAL_423,MAHANANDI,nandyal,Nandyal,38487,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.31,0.808,0.6975,0.9839
+AP_MANDAL_424,PATTIKONDA,kurnool,Kurnool,68962,CAPACITY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.35,0.886,0.6455,0.9844
+AP_MANDAL_425,KOTHA PATNAM,prakasam,Prakasam,50006,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.4,0.24,0.873,0.5361,0.7603
+AP_MANDAL_426,DHONE,nandyal,Nandyal,60960,CAPACITY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.395,0.9075,0.6605,0.991
+AP_MANDAL_427,KONDAPI,prakasam,Prakasam,43004,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.372,0.28,0.7875,0.705,0.98
+AP_MANDAL_428,BANAGANAPALLE,nandyal,Nandyal,65898,CAPACITY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.365,0.813,0.6368,0.986
+AP_MANDAL_429,TANGUTUR,prakasam,Prakasam,62618,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2553,0.385,0.906,0.7114,0.8808
+AP_MANDAL_430,HALAHARVI,kurnool,Kurnool,41123,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.29,0.703,0.7293,0.9947
+AP_MANDAL_431,TUGGALI,kurnool,Kurnool,59462,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.2,0.769,0.7033,0.9878
+AP_MANDAL_432,SIRVEL,nandyal,Nandyal,58014,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.205,0.701,0.6663,0.989
+AP_MANDAL_433,VELIGANDLA,prakasam,Prakasam,35951,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.4453,0.335,0.7995,0.7287,0.9641
+AP_MANDAL_434,RUDRAVARAM,nandyal,Nandyal,49003,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.245,0.855,0.749,0.9622
+AP_MANDAL_435,GOSPADU,nandyal,Nandyal,41066,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.29,0.89,0.6281,0.9946
+AP_MANDAL_436,KOMAROLU,prakasam,Prakasam,40517,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3947,0.295,0.8285,0.8213,0.9121
+AP_MANDAL_437,ZARUGUMILLI,prakasam,Prakasam,42866,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3733,0.28,0.9315,0.7143,0.9741
+AP_MANDAL_438,PONNALURU,prakasam,Prakasam,43016,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.372,0.28,0.764,0.7247,0.9804
+AP_MANDAL_439,MADDIKERA (EAST),kurnool,Kurnool,36834,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.325,0.7305,0.7843,0.9961
+AP_MANDAL_440,PEDACHERLO PALLE,prakasam,Prakasam,36985,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.4327,0.325,0.8375,0.7426,0.9848
+AP_MANDAL_441,CHIPPAGIRI,kurnool,Kurnool,33400,CAPACITY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.36,0.8635,0.8057,0.9945
+AP_MANDAL_442,PEAPALLY,nandyal,Nandyal,73692,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.325,0.778,0.7467,0.9938
+AP_MANDAL_443,DORNIPADU,nandyal,Nandyal,26079,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.23,0.737,0.6698,0.997
+AP_MANDAL_444,KOILKUNTLA,nandyal,Nandyal,48559,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.245,0.829,0.7542,0.9919
+AP_MANDAL_445,OWK,nandyal,Nandyal,43838,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.275,0.747,0.6235,0.9714
+AP_MANDAL_446,KANDUKUR1,sri_potti_sriramulu_nellore,Sri Potti Sriramulu Nellore,41523,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3853,0.29,0.8815,0.7322,0.927
+AP_MANDAL_447,SINGARAYAKONDA,prakasam,Prakasam,39239,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.51,0.305,0.826,0.7201,0.8
+AP_MANDAL_448,CHANDRASEKHARA PURAM,prakasam,Prakasam,44953,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.356,0.265,0.7745,0.6877,0.9575
+AP_MANDAL_449,ALLAGADDA,nandyal,Nandyal,79126,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.305,0.7855,0.712,0.991
+AP_MANDAL_450,ZARUGUMILLI,prakasam,Prakasam,42866,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3733,0.28,0.7665,0.583,0.958
+AP_MANDAL_451,SANJAMALA,nandyal,Nandyal,37537,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.32,0.7805,0.6755,0.9868
+AP_MANDAL_452,GOOTY,ananthapuramu,Ananthapuramu,40229,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.3,0.817,0.7305,0.9715
+AP_MANDAL_453,GUNTAKAL,ananthapuramu,Ananthapuramu,45385,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.265,0.813,0.7357,0.9752
+AP_MANDAL_454,VOLETIVARIPALEM,sri_potti_sriramulu_nellore,Sri Potti Sriramulu Nellore,39855,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.4013,0.3,0.8125,0.6333,0.9635
+AP_MANDAL_455,ZARUGUMILLI,prakasam,Prakasam,42866,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3733,0.28,0.762,0.834,0.9572
+AP_MANDAL_456,PAMUR,prakasam,Prakasam,43017,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.372,0.28,0.719,0.6478,0.9586
+AP_MANDAL_457,KALASAPADU,ysr_kadapa,YSR Kadapa,31296,CAPACITY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.385,0.791,0.7744,0.913
+AP_MANDAL_458,ULAVAPADU,sri_potti_sriramulu_nellore,Sri Potti Sriramulu Nellore,53918,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3707,0.225,0.7305,0.76,0.8556
+AP_MANDAL_459,YADIKI,ananthapuramu,Ananthapuramu,56122,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.215,0.8335,0.6651,0.9882
+AP_MANDAL_460,UYYALAWADA,nandyal,Nandyal,28156,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.215,0.7875,0.8768,0.9816
+AP_MANDAL_461,VIDAPANAKAL,ananthapuramu,Ananthapuramu,53476,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.225,0.883,0.6194,0.9987
+AP_MANDAL_462,PORUMAMILLA,ysr_kadapa,YSR Kadapa,57937,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.205,0.8715,0.7918,0.9312
+AP_MANDAL_463,PEAPALLY,nandyal,Nandyal,73692,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.325,0.809,0.8103,0.9973
+AP_MANDAL_464,VAJRAKARUR,ananthapuramu,Ananthapuramu,50007,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.24,0.814,0.6645,0.9853
+AP_MANDAL_465,KOLIMIGUNDLA,nandyal,Nandyal,41228,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.29,0.74,0.8438,0.9881
+AP_MANDAL_466,GUDLURU,sri_potti_sriramulu_nellore,Sri Potti Sriramulu Nellore,46883,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3413,0.255,0.86,0.701,0.9312
+AP_MANDAL_467,LINGASAMUDRAM,sri_potti_sriramulu_nellore,Sri Potti Sriramulu Nellore,38094,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.42,0.315,0.803,0.7484,0.941
+AP_MANDAL_468,PEDDAVADUGUR,ananthapuramu,Ananthapuramu,45771,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.26,0.8025,0.7438,0.9912
+AP_MANDAL_469,D.HIREHAL,ananthapuramu,Ananthapuramu,46613,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.255,0.8175,0.7102,0.9915
+AP_MANDAL_470,VARIKUNTAPADU,sri_potti_sriramulu_nellore,Sri Potti Sriramulu Nellore,32828,CAPACITY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.4873,0.365,0.844,0.7918,0.9817
+AP_MANDAL_471,CHAGALAMARRI,nandyal,Nandyal,51132,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.235,0.839,0.7843,0.9718
+AP_MANDAL_472,SEETHARAMAPURAM,sri_potti_sriramulu_nellore,Sri Potti Sriramulu Nellore,22785,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.5267,0.265,0.7255,0.5581,0.9611
+AP_MANDAL_473,SRI AVADHUTHA KASINAYANA,ysr_kadapa,YSR Kadapa,30532,CAPACITY-CONSTRAINED,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.395,0.762,0.8259,0.9654
+AP_MANDAL_474,PEDDAMUDIUM,ysr_kadapa,YSR Kadapa,32541,CAPACITY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.37,0.8985,0.5789,0.9993
+AP_MANDAL_475,PEDDAMUDIUM,ysr_kadapa,YSR Kadapa,32541,CAPACITY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.37,0.9085,0.8126,0.9937
+AP_MANDAL_476,PAMIDI,ananthapuramu,Ananthapuramu,55303,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.215,0.81,0.8201,0.9889
+AP_MANDAL_477,TADPATRI,ananthapuramu,Ananthapuramu,57701,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.21,0.8425,0.6281,0.9932
+AP_MANDAL_478,BOMMANAHAL,ananthapuramu,Ananthapuramu,55989,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.215,0.826,0.6871,0.9944
+AP_MANDAL_479,KONDAPURAM2,sri_potti_sriramulu_nellore,Sri Potti Sriramulu Nellore,39007,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.41,0.31,0.9005,0.627,0.9514
+AP_MANDAL_480,UDAYAGIRI,sri_potti_sriramulu_nellore,Sri Potti Sriramulu Nellore,36378,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.44,0.33,0.8565,0.6877,0.9341
+AP_MANDAL_481,PEDDAPAPPUR,ananthapuramu,Ananthapuramu,34629,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.345,0.761,0.6964,0.9462
+AP_MANDAL_482,S.MYDUKUR,ysr_kadapa,YSR Kadapa,81019,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.295,0.768,0.7854,0.9601
+AP_MANDAL_483,SANJAMALA,nandyal,Nandyal,37537,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.32,0.714,0.8363,0.9916
+AP_MANDAL_484,MYLAVARAM1,ysr_kadapa,YSR Kadapa,26876,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.225,0.792,0.8438,0.9651
+AP_MANDAL_485,URAVAKONDA,ananthapuramu,Ananthapuramu,44636,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.27,0.7845,0.6744,0.9777
+AP_MANDAL_486,KAVALI,sri_potti_sriramulu_nellore,Sri Potti Sriramulu Nellore,60234,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.332,0.4,0.788,0.705,0.8277
+AP_MANDAL_487,VINJAMUR,sri_potti_sriramulu_nellore,Sri Potti Sriramulu Nellore,41392,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3867,0.29,0.81,0.5766,0.9611
+AP_MANDAL_488,DUVVUR,ysr_kadapa,YSR Kadapa,51872,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.23,0.722,0.6507,0.9763
+AP_MANDAL_489,JALADANKI,sri_potti_sriramulu_nellore,Sri Potti Sriramulu Nellore,45853,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3487,0.26,0.8625,0.8068,0.9305
+AP_MANDAL_490,RAJUPALEM2,ysr_kadapa,YSR Kadapa,32829,CAPACITY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.365,0.879,0.8629,0.9889
+AP_MANDAL_491,GARLADINNE,ananthapuramu,Ananthapuramu,53780,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.225,0.786,0.616,0.9932
+AP_MANDAL_492,KONDAPURAM1,ysr_kadapa,YSR Kadapa,42093,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.285,0.874,0.6686,0.7488
+AP_MANDAL_493,SINGANAMALA,ananthapuramu,Ananthapuramu,43643,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.275,0.832,0.7131,0.9366
+AP_MANDAL_494,DUTTALUR,sri_potti_sriramulu_nellore,Sri Potti Sriramulu Nellore,27291,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.586,0.22,0.748,0.7473,0.9837
+AP_MANDAL_495,B.KODUR,ysr_kadapa,YSR Kadapa,20471,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.295,0.885,0.646,0.9173
+AP_MANDAL_496,KANEKAL,ananthapuramu,Ananthapuramu,64979,CAPACITY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.37,0.8015,0.76,0.9797
+AP_MANDAL_497,BRAHMAMGARIMATTAM,ysr_kadapa,YSR Kadapa,37278,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.32,0.7505,0.6738,0.8936
+AP_MANDAL_498,JAMMALAMADUGU,ysr_kadapa,YSR Kadapa,25445,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.235,0.814,0.7189,0.9481
+AP_MANDAL_499,KALIGIRI,sri_potti_sriramulu_nellore,Sri Potti Sriramulu Nellore,43954,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.364,0.275,0.73,0.7704,0.9558
+AP_MANDAL_500,KUDAIR,ananthapuramu,Ananthapuramu,38312,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.315,0.7635,0.7235,0.9569
+AP_MANDAL_501,PUTLUR,ananthapuramu,Ananthapuramu,36902,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.325,0.8545,0.6848,0.9927
+AP_MANDAL_502,GOPAVARAM,ysr_kadapa,YSR Kadapa,17661,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.34,0.9145,0.6744,0.7457
+AP_MANDAL_503,NARPALA,ananthapuramu,Ananthapuramu,54973,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.22,0.7565,0.7131,0.9898
+AP_MANDAL_504,PRODDATUR,ysr_kadapa,YSR Kadapa,41093,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.29,0.8765,0.6906,0.9817
+AP_MANDAL_505,RAYADURG,ananthapuramu,Ananthapuramu,40942,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.295,0.7875,0.6969,0.9831
+AP_MANDAL_506,BOGOLE,sri_potti_sriramulu_nellore,Sri Potti Sriramulu Nellore,49088,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.4073,0.245,0.7795,0.8618,0.8123
+AP_MANDAL_507,BADVEL,ysr_kadapa,YSR Kadapa,21317,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.28,0.7905,0.738,0.8824
+AP_MANDAL_508,BUKKARAYA  SAMUDRAM,ananthapuramu,Ananthapuramu,67384,CAPACITY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.355,0.7895,0.6969,0.9735
+AP_MANDAL_509,ANUMASAMUDRAMPETA,sri_potti_sriramulu_nellore,Sri Potti Sriramulu Nellore,33620,CAPACITY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.476,0.355,0.817,0.7837,0.9496
+AP_MANDAL_510,MARRIPADU,sri_potti_sriramulu_nellore,Sri Potti Sriramulu Nellore,44698,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.358,0.27,0.777,0.6807,0.9496
+AP_MANDAL_511,CHAPAD,ysr_kadapa,YSR Kadapa,41379,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.29,0.806,0.8248,0.9799
+AP_MANDAL_512,MUDDANUR,ysr_kadapa,YSR Kadapa,24591,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.245,0.793,0.7536,0.9312
+AP_MANDAL_513,BELUGUPPA,ananthapuramu,Ananthapuramu,43735,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.275,0.764,0.7137,0.97
+AP_MANDAL_514,ANANTAPUR,ananthapuramu,Ananthapuramu,53567,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.225,0.8205,0.7606,0.9704
+AP_MANDAL_515,YELLANUR,ananthapuramu,Ananthapuramu,35732,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.335,0.7535,0.5865,0.9746
+AP_MANDAL_516,ATMAKUR4,sri_potti_sriramulu_nellore,Sri Potti Sriramulu Nellore,61217,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2613,0.39,0.8285,0.6252,0.9287
+AP_MANDAL_517,YERRAGUNTLA,ysr_kadapa,YSR Kadapa,44498,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.27,0.816,0.6194,0.9812
+AP_MANDAL_518,ALLUR,sri_potti_sriramulu_nellore,Sri Potti Sriramulu Nellore,52602,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.456,0.23,0.794,0.7351,0.6826
+AP_MANDAL_519,DAGADARTHI,sri_potti_sriramulu_nellore,Sri Potti Sriramulu Nellore,37438,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.4273,0.32,0.81,0.8733,0.9169
+AP_MANDAL_520,SIMHADRIPURAM,ysr_kadapa,YSR Kadapa,32819,CAPACITY-CONSTRAINED,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.365,0.882,0.9161,0.9606
+AP_MANDAL_521,GUMMAGATTA,ananthapuramu,Ananthapuramu,49207,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.245,0.72,0.7779,0.9639
+AP_MANDAL_522,ATMAKUR1,ananthapuramu,Ananthapuramu,38970,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.31,0.8455,0.7663,0.9812
+AP_MANDAL_523,KHAJIPET,ysr_kadapa,YSR Kadapa,50320,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.24,0.7605,0.5604,0.9632
+AP_MANDAL_524,VIDAVALUR,sri_potti_sriramulu_nellore,Sri Potti Sriramulu Nellore,47489,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.4213,0.255,0.8955,0.6761,0.8039
+AP_MANDAL_525,KAMALAPURAM,ysr_kadapa,YSR Kadapa,52168,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.23,0.7465,0.6547,0.9725
+AP_MANDAL_526,ATLUR,ysr_kadapa,YSR Kadapa,24339,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.245,0.741,0.6287,0.8687
+AP_MANDAL_527,SANGAM1,sri_potti_sriramulu_nellore,Sri Potti Sriramulu Nellore,44735,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.4473,0.27,0.758,0.7085,0.7334
+AP_MANDAL_528,BRAHMASAMUDRAM,ananthapuramu,Ananthapuramu,43162,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.28,0.827,0.6813,0.9757
+AP_MANDAL_529,ANANTHASAGARAM,sri_potti_sriramulu_nellore,Sri Potti Sriramulu Nellore,42950,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3727,0.28,0.82,0.5321,0.8712
+AP_MANDAL_530,KALYANDURG,ananthapuramu,Ananthapuramu,57551,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.21,0.7695,0.7872,0.9912
+AP_MANDAL_531,THONDUR,ysr_kadapa,YSR Kadapa,23964,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.25,0.843,0.6298,0.9865
+AP_MANDAL_532,TADIMARRI,sri_sathya_sai,Sri Sathya Sai,32385,CAPACITY-CONSTRAINED,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.37,0.7345,0.742,0.9075
+AP_MANDAL_533,RAPTADU,ananthapuramu,Ananthapuramu,31900,CAPACITY-CONSTRAINED,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.375,0.837,0.9028,0.9859
+AP_MANDAL_534,KODAVALUR,sri_potti_sriramulu_nellore,Sri Potti Sriramulu Nellore,48820,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.328,0.245,0.8155,0.6431,0.9436
+AP_MANDAL_535,VALLUR,ysr_kadapa,YSR Kadapa,28873,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.21,0.7685,0.5038,0.9612
+AP_MANDAL_536,BUCHIREDDIPALEM,sri_potti_sriramulu_nellore,Sri Potti Sriramulu Nellore,78470,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2547,0.305,0.778,0.6981,0.7667
+AP_MANDAL_537,VEERAPUNAYUNIPALLE,ysr_kadapa,YSR Kadapa,32910,CAPACITY-CONSTRAINED,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.365,0.7725,0.8172,0.9605
+AP_MANDAL_538,BATHALAPALLE,sri_sathya_sai,Sri Sathya Sai,39373,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.305,0.8525,0.8901,0.9838
+AP_MANDAL_539,CHENNUR2,ysr_kadapa,YSR Kadapa,34414,CAPACITY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.35,0.837,0.609,0.9439
+AP_MANDAL_540,LINGALA,ysr_kadapa,YSR Kadapa,29945,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.2,0.8325,0.7658,0.9928
+AP_MANDAL_541,KANAGANAPALLE,sri_sathya_sai,Sri Sathya Sai,39673,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.3,0.897,0.6819,0.9898
+AP_MANDAL_542,CHEJERLA,sri_potti_sriramulu_nellore,Sri Potti Sriramulu Nellore,34630,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.462,0.345,0.7475,0.7137,0.9107
+AP_MANDAL_543,SETTUR,ananthapuramu,Ananthapuramu,43172,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.28,0.853,0.952,0.9789
+AP_MANDAL_544,PODALAKUR,sri_potti_sriramulu_nellore,Sri Potti Sriramulu Nellore,68148,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2347,0.35,0.9235,0.5928,0.9243
+AP_MANDAL_545,MUDIGUBBA,sri_sathya_sai,Sri Sathya Sai,60469,CAPACITY-CONSTRAINED,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.395,0.692,0.7415,0.9476
+AP_MANDAL_546,INDUKURPET,sri_potti_sriramulu_nellore,Sri Potti Sriramulu Nellore,58543,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.478,0.205,0.772,0.7634,0.6554
+AP_MANDAL_547,KALUVOYA,sri_potti_sriramulu_nellore,Sri Potti Sriramulu Nellore,43242,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.37,0.28,0.8235,0.8091,0.8383
+AP_MANDAL_548,DHARMAVARAM,sri_sathya_sai,Sri Sathya Sai,50605,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.235,0.7765,0.7276,0.9594
+AP_MANDAL_549,KOVUR,sri_potti_sriramulu_nellore,Sri Potti Sriramulu Nellore,76598,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2613,0.315,0.812,0.7496,0.8663
+AP_MANDAL_550,KADAPA,ysr_kadapa,YSR Kadapa,0,INSUFFICIENT-DATA,NO POPULATION,N/A,LOW,0,0.0,,0.0,0.0,0.6842,0.9501
+AP_MANDAL_551,KAMBADUR,ananthapuramu,Ananthapuramu,50799,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.235,0.8185,0.7461,0.9721
+AP_MANDAL_552,PENDLIMARRI,ysr_kadapa,YSR Kadapa,44008,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.275,0.7855,0.6842,0.975
+AP_MANDAL_553,SIDHOUT,ysr_kadapa,YSR Kadapa,37452,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.32,0.8725,0.7542,0.9198
+AP_MANDAL_554,NELLORE,sri_potti_sriramulu_nellore,Sri Potti Sriramulu Nellore,73243,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.2733,0.33,0.782,0.6906,0.8315
+AP_MANDAL_555,VEMULA,ysr_kadapa,YSR Kadapa,29160,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.205,0.8375,0.7501,0.9781
+AP_MANDAL_556,VONTIMITTA,ysr_kadapa,YSR Kadapa,33100,CAPACITY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.365,0.818,0.6935,0.7167
+AP_MANDAL_557,CHINTHAKOMMADINNE,ysr_kadapa,YSR Kadapa,31384,CAPACITY-CONSTRAINED,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.38,0.7365,0.8155,0.973
+AP_MANDAL_558,PULIVENDLA,ysr_kadapa,YSR Kadapa,13178,CAPACITY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.455,0.8045,0.7183,0.9937
+AP_MANDAL_559,VEMPALLE,ysr_kadapa,YSR Kadapa,61344,CAPACITY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.39,0.8655,0.5685,0.9837
+AP_MANDAL_560,PENAGALUR,annamayya,Annamayya,42360,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.285,0.761,0.7953,0.8894
+AP_MANDAL_561,THOTAPALLIGUDUR,sri_potti_sriramulu_nellore,Sri Potti Sriramulu Nellore,50490,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.396,0.24,0.8725,0.6443,0.6882
+AP_MANDAL_562,KUNDURPI,ananthapuramu,Ananthapuramu,53180,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.225,0.9185,0.6634,0.9773
+AP_MANDAL_563,RAPUR,sri_potti_sriramulu_nellore,Sri Potti Sriramulu Nellore,45747,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.35,0.26,0.833,0.6507,0.8011
+AP_MANDAL_564,RAMAGIRI,sri_sathya_sai,Sri Sathya Sai,34001,CAPACITY-CONSTRAINED,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.355,0.7975,0.8421,0.9593
+AP_MANDAL_565,NANDALUR,annamayya,Annamayya,27584,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.22,0.883,0.5067,0.8414
+AP_MANDAL_566,CHENNEKOTHAPALLE,sri_sathya_sai,Sri Sathya Sai,44351,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.27,0.797,0.9919,0.9626
+AP_MANDAL_567,VENKATACHALAM,sri_potti_sriramulu_nellore,Sri Potti Sriramulu Nellore,61275,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.3267,0.39,0.737,0.8149,0.7791
+AP_MANDAL_568,BUKKAPATNAM,sri_sathya_sai,Sri Sathya Sai,40149,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.3,0.7425,0.7334,0.9574
+AP_MANDAL_569,MUTHUKUR,sri_potti_sriramulu_nellore,Sri Potti Sriramulu Nellore,58003,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3447,0.205,0.734,0.7183,0.7217
+AP_MANDAL_570,MANUBOLU,sri_potti_sriramulu_nellore,Sri Potti Sriramulu Nellore,39074,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.4093,0.305,0.7585,0.7478,0.7953
+AP_MANDAL_571,TALUPULA,sri_sathya_sai,Sri Sathya Sai,42392,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.285,0.8115,0.7559,0.9664
+AP_MANDAL_572,CHAKRAYAPET,ysr_kadapa,YSR Kadapa,31258,CAPACITY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.385,0.864,0.7733,0.976
+AP_MANDAL_573,VEERABALLE,annamayya,Annamayya,35530,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.34,0.808,0.7577,0.9635
+AP_MANDAL_574,SYDAPURAM,sri_potti_sriramulu_nellore,Sri Potti Sriramulu Nellore,43704,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.366,0.275,0.8375,0.7305,0.9655
+AP_MANDAL_575,KADIRI,sri_sathya_sai,Sri Sathya Sai,35944,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.335,0.881,0.705,0.9637
+AP_MANDAL_576,CHITVEL,annamayya,Annamayya,42104,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.285,0.731,0.6709,0.8954
+AP_MANDAL_577,RAMAPURAM,annamayya,Annamayya,35220,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.34,0.794,0.7045,0.9754
+AP_MANDAL_578,MANUBOLU,sri_potti_sriramulu_nellore,Sri Potti Sriramulu Nellore,39074,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.4093,0.305,0.8395,0.8178,0.8687
+AP_MANDAL_579,KOTHACHERUVU,sri_sathya_sai,Sri Sathya Sai,39046,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.305,0.7805,0.7698,0.9652
+AP_MANDAL_580,LAKKIREDDIPALLE,annamayya,Annamayya,35246,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.34,0.869,0.4667,0.9885
+AP_MANDAL_581,NALLAMADA,sri_sathya_sai,Sri Sathya Sai,41376,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.29,0.885,0.7744,0.9814
+AP_MANDAL_582,RAJAMPET,annamayya,Annamayya,49821,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.24,0.806,0.7322,0.9199
+AP_MANDAL_583,GUDUR2,tirupati,Tirupati,42980,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.372,0.28,0.8475,0.7212,0.9375
+AP_MANDAL_584,PENUKONDA,sri_sathya_sai,Sri Sathya Sai,55383,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.215,0.907,0.6859,0.9573
+AP_MANDAL_585,CHILLAKUR,tirupati,Tirupati,52451,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3813,0.23,0.825,0.8207,0.78
+AP_MANDAL_586,AMARAPURAM,sri_sathya_sai,Sri Sathya Sai,55771,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.215,0.8205,0.8051,0.9469
+AP_MANDAL_587,NAMBULIPULIKUNTA,sri_sathya_sai,Sri Sathya Sai,31404,CAPACITY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.38,0.8125,0.6507,0.9695
+AP_MANDAL_588,PUTTAPARTHI,sri_sathya_sai,Sri Sathya Sai,48518,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.245,0.802,0.7571,0.9728
+AP_MANDAL_589,RODDAM,sri_sathya_sai,Sri Sathya Sai,51168,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.235,0.8295,0.6385,0.9578
+AP_MANDAL_590,GANDLAPENTA,sri_sathya_sai,Sri Sathya Sai,26183,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.23,0.7385,0.5946,0.9761
+AP_MANDAL_591,PULLAMPETA,annamayya,Annamayya,39434,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.305,0.766,0.6622,0.9777
+AP_MANDAL_592,DAKKILI,tirupati,Tirupati,40452,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3953,0.295,0.806,0.7791,0.9015
+AP_MANDAL_593,KOTA,tirupati,Tirupati,55226,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.362,0.215,0.8045,0.8057,0.7846
+AP_MANDAL_594,GALIVEEDU,annamayya,Annamayya,50833,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.235,0.7695,0.7634,0.9541
+AP_MANDAL_595,OBULAVARIPALLE,annamayya,Annamayya,48100,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.25,0.8705,0.7773,0.9473
+AP_MANDAL_596,KOTHACHERUVU,sri_sathya_sai,Sri Sathya Sai,39046,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.305,0.847,0.7681,1.0
+AP_MANDAL_597,T SUNDUPALLE,annamayya,Annamayya,57140,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.21,0.8015,0.6518,0.9575
+AP_MANDAL_598,OBULADEVARACHERUVU,sri_sathya_sai,Sri Sathya Sai,48308,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.25,0.7925,0.7577,0.9835
+AP_MANDAL_599,RAYACHOTI,annamayya,Annamayya,26266,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.23,0.796,0.786,0.9755
+AP_MANDAL_600,BALAYAPALLE,tirupati,Tirupati,33864,CAPACITY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.4727,0.355,0.828,0.7883,0.915
+AP_MANDAL_601,GORANTLA,sri_sathya_sai,Sri Sathya Sai,77271,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.31,0.873,0.8253,0.9749
+AP_MANDAL_602,NALLACHERUVU,sri_sathya_sai,Sri Sathya Sai,31036,CAPACITY-CONSTRAINED,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.385,0.764,0.7779,0.9611
+AP_MANDAL_603,AMADAGUR,sri_sathya_sai,Sri Sathya Sai,29520,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.205,0.86,0.7484,0.9808
+AP_MANDAL_604,GUDIBANDA,sri_sathya_sai,Sri Sathya Sai,52610,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.23,0.8835,0.8138,0.9787
+AP_MANDAL_605,VAKADU,tirupati,Tirupati,37695,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,safe_habitable_area,HIGH,5,1.0,0.7427,0.32,0.8135,0.7206,0.6288
+AP_MANDAL_606,SOMANDEPALLE,sri_sathya_sai,Sri Sathya Sai,28696,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.21,0.9255,0.6455,0.9558
+AP_MANDAL_607,MADAKASIRA,sri_sathya_sai,Sri Sathya Sai,81227,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.295,0.7735,0.7062,0.9631
+AP_MANDAL_608,KODUR,annamayya,Annamayya,90814,CAPACITY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.43,0.7365,0.6345,0.9429
+AP_MANDAL_609,OJILI,tirupati,Tirupati,34528,CAPACITY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.4633,0.35,0.7485,0.6645,0.8999
+AP_MANDAL_610,VENKATAGIRI,tirupati,Tirupati,26900,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.5947,0.225,0.8565,0.6894,0.8918
+AP_MANDAL_611,SAMBEPALLE,annamayya,Annamayya,37006,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.325,0.844,0.6524,0.9894
+AP_MANDAL_612,CHINNAMANDEM,annamayya,Annamayya,34515,CAPACITY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.35,0.8105,0.6553,0.8982
+AP_MANDAL_613,CHITTAMUR,tirupati,Tirupati,40241,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.4973,0.3,0.856,0.5587,0.7704
+AP_MANDAL_614,PEDDAMANDYAM,annamayya,Annamayya,34502,CAPACITY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.35,0.776,0.7276,0.9531
+AP_MANDAL_615,NAIDUPET,tirupati,Tirupati,38820,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.412,0.31,0.9205,0.723,0.8893
+AP_MANDAL_616,OJILI,tirupati,Tirupati,34528,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.3473,0.35,0.842,0.6559,1.0
+AP_MANDAL_617,PARIGI,sri_sathya_sai,Sri Sathya Sai,58225,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.205,0.8565,0.7802,0.9426
+AP_MANDAL_618,TANAKAL,sri_sathya_sai,Sri Sathya Sai,47946,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.25,0.8615,0.8016,0.9789
+AP_MANDAL_619,CHITTAMUR,tirupati,Tirupati,40241,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.4973,0.3,0.8355,0.5425,0.7812
+AP_MANDAL_620,MULAKALACHERUVU,annamayya,Annamayya,45556,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.265,0.7875,0.6507,0.9614
+AP_MANDAL_621,ROLLA,sri_sathya_sai,Sri Sathya Sai,39964,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.3,0.7485,0.6524,0.9719
+AP_MANDAL_622,THAMBALLAPALLE,annamayya,Annamayya,39914,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.3,0.826,0.6322,0.9594
+AP_MANDAL_623,HINDUPUR,sri_sathya_sai,Sri Sathya Sai,51861,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.23,0.881,0.7947,0.9359
+AP_MANDAL_624,CHILAMATHUR,sri_sathya_sai,Sri Sathya Sai,51456,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.235,0.869,0.7062,0.9669
+AP_MANDAL_625,THOTTAMBEDU,tirupati,Tirupati,43044,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.372,0.28,0.8865,0.6987,0.8867
+AP_MANDAL_626,SRIKALAHASTI,tirupati,Tirupati,57581,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.278,0.21,0.805,0.5263,0.8826
+AP_MANDAL_627,GURRAMKONDA,annamayya,Annamayya,42772,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.28,0.767,0.7571,0.9418
+AP_MANDAL_628,KAMBHAMVARIPALLE,annamayya,Annamayya,42351,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.285,0.8215,0.6108,0.967
+AP_MANDAL_629,YERRAVARIPALEM,tirupati,Tirupati,28011,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.4287,0.215,0.818,0.723,0.9709
+AP_MANDAL_630,AGALI,sri_sathya_sai,Sri Sathya Sai,36253,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.33,0.808,0.7467,0.9433
+AP_MANDAL_631,PELLAKUR,tirupati,Tirupati,34455,CAPACITY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.4647,0.35,0.7115,0.8409,0.8614
+AP_MANDAL_632,KALAKADA,annamayya,Annamayya,34326,CAPACITY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.35,0.8785,0.6038,0.9768
+AP_MANDAL_633,LEPAKSHI,sri_sathya_sai,Sri Sathya Sai,45122,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.265,0.773,0.461,0.9372
+AP_MANDAL_634,PILERU,annamayya,Annamayya,31527,CAPACITY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.38,0.811,0.7299,0.9699
+AP_MANDAL_635,DORAVARISATRAM,tirupati,Tirupati,35971,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.556,0.335,0.81,0.8791,0.7967
+AP_MANDAL_636,OJILI,tirupati,Tirupati,34528,CAPACITY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.4633,0.35,0.7725,0.8161,0.8098
+AP_MANDAL_637,YERPEDU,tirupati,Tirupati,56403,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.284,0.215,0.8445,0.7345,0.9037
+AP_MANDAL_638,SULLURPETA,tirupati,Tirupati,48453,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.578,0.25,0.858,0.6802,0.6807
+AP_MANDAL_639,PEDDA THIPPASAMUDRAM,annamayya,Annamayya,53079,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.225,0.7595,0.7929,0.9497
+AP_MANDAL_640,BUCHINAIDU  KANDRIGA,tirupati,Tirupati,34261,CAPACITY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.4673,0.35,0.7455,0.6385,0.9365
+AP_MANDAL_641,RENIGUNTA,tirupati,Tirupati,49758,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.2413,0.24,0.7815,0.7582,0.9461
+AP_MANDAL_642,KALIKIRI,annamayya,Annamayya,48729,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.245,0.88,0.7646,0.9777
+AP_MANDAL_643,ROMPICHERLA1,chittoor,Chittoor,26335,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.23,0.7915,0.8149,0.9774
+AP_MANDAL_644,DORAVARISATRAM,tirupati,Tirupati,35971,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.4447,0.335,0.7505,0.9641,0.912
+AP_MANDAL_645,TIRUPATI (URBAN),tirupati,Tirupati,55036,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.2907,0.22,0.807,0.7097,0.8898
+AP_MANDAL_646,CHANDRAGIRI,tirupati,Tirupati,57286,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.2793,0.21,0.801,0.6327,0.8951
+AP_MANDAL_647,KURABALAKOTA,annamayya,Annamayya,41235,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.29,0.704,0.7178,0.9774
+AP_MANDAL_648,B.KOTHAKOTA,annamayya,Annamayya,59465,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.2,0.8435,0.5523,0.9424
+AP_MANDAL_649,VAYALPAD,annamayya,Annamayya,45274,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.265,0.829,0.6495,0.9621
+AP_MANDAL_650,CHINNAGOTTIGALLU,tirupati,Tirupati,26150,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.4587,0.23,0.804,0.6871,0.9673
+AP_MANDAL_651,K.V.B.PURAM,tirupati,Tirupati,42111,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.38,0.285,0.8265,0.6362,0.8877
+AP_MANDAL_652,TADA,tirupati,Tirupati,40345,CAPACITY-SEVERELY-CONSTRAINED,safe_habitable_area,health_infrastructure,HIGH,5,1.0,0.892,0.295,0.8895,0.7363,0.2573
+AP_MANDAL_653,VARADAIAHPALEM,tirupati,Tirupati,45068,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.3553,0.265,0.764,0.631,0.9142
+AP_MANDAL_654,MADANAPALLE,annamayya,Annamayya,53002,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.225,0.7575,0.8149,0.9654
+AP_MANDAL_655,SODAM,chittoor,Chittoor,34394,CAPACITY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.35,0.889,0.7154,0.9653
+AP_MANDAL_656,PULICHERLA,chittoor,Chittoor,37108,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.325,0.7665,0.716,0.9709
+AP_MANDAL_657,TIRUPATI (RURAL),tirupati,Tirupati,55036,CAPACITY-SEVERELY-CONSTRAINED,shelter_capacity,health_infrastructure,HIGH,5,1.0,0.218,0.22,0.829,0.694,0.9643
+AP_MANDAL_658,NIMMANAPALLE,annamayya,Annamayya,32890,CAPACITY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.365,0.8335,0.7293,0.9536
+AP_MANDAL_659,VADAMALAPETA,tirupati,Tirupati,32407,CAPACITY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.494,0.37,0.8065,0.786,0.9222
+AP_MANDAL_660,SOMALA,chittoor,Chittoor,43528,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.275,0.7355,0.62,0.9308
+AP_MANDAL_661,RAMACHANDRAPURAM1,tirupati,Tirupati,31373,CAPACITY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.51,0.38,0.7725,0.6293,0.9001
+AP_MANDAL_662,NARAYANAVANAM,tirupati,Tirupati,25788,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.6207,0.235,0.8,0.6455,0.8775
+AP_MANDAL_663,PAKALA,tirupati,Tirupati,56667,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.212,0.21,0.7715,0.5975,0.9646
+AP_MANDAL_664,SATYAVEDU,tirupati,Tirupati,52979,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.302,0.225,0.794,0.6518,0.9781
+AP_MANDAL_665,CHOWDEPALLE,chittoor,Chittoor,42103,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.285,0.781,0.6721,0.9498
+AP_MANDAL_666,PUNGANUR,chittoor,Chittoor,54956,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.22,0.8345,0.7987,0.9512
+AP_MANDAL_667,RAMAKUPPAM,chittoor,Chittoor,57851,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.205,0.8055,0.7409,0.9762
+AP_MANDAL_668,PUTTUR,tirupati,Tirupati,25074,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.638,0.24,0.854,0.7363,0.9587
+AP_MANDAL_669,IRALA,chittoor,Chittoor,50631,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.235,0.727,0.7704,0.9236
+AP_MANDAL_670,NAGALAPURAM,tirupati,Tirupati,34026,CAPACITY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.47,0.355,0.858,0.6929,0.9367
+AP_MANDAL_671,VEDURUKUPPAM,chittoor,Chittoor,46853,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.255,0.8685,0.7519,0.976
+AP_MANDAL_672,RAMASAMUDRAM,annamayya,Annamayya,49202,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.245,0.6945,0.7085,0.9543
+AP_MANDAL_673,PICHATUR,tirupati,Tirupati,31524,CAPACITY-CONSTRAINED,health_infrastructure,shelter_capacity,HIGH,5,1.0,0.5073,0.38,0.786,0.7461,0.8701
+AP_MANDAL_674,PUTHALAPATTU,chittoor,Chittoor,46412,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.26,0.7725,0.6674,0.9649
+AP_MANDAL_675,NINDRA,chittoor,Chittoor,28993,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.205,0.745,0.5113,0.9217
+AP_MANDAL_676,PENUMURU,chittoor,Chittoor,41539,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.29,0.8255,0.7085,0.9653
+AP_MANDAL_677,NAGARI,chittoor,Chittoor,33899,CAPACITY-CONSTRAINED,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.355,0.726,0.8236,0.9229
+AP_MANDAL_678,PEDDAPANJANI,chittoor,Chittoor,58423,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.205,0.848,0.8034,0.9562
+AP_MANDAL_679,THAVANAMPALLE,chittoor,Chittoor,53708,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.225,0.896,0.7993,0.9712
+AP_MANDAL_680,SRIRANGARAJAPURAM,chittoor,Chittoor,38926,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.31,0.8645,0.8236,0.9704
+AP_MANDAL_681,VIJAYAPURAM,chittoor,Chittoor,30048,CAPACITY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.4,0.8275,0.7305,0.9538
+AP_MANDAL_682,SRIRANGARAJAPURAM,chittoor,Chittoor,38926,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.31,0.791,0.7397,0.9651
+AP_MANDAL_683,GANGAVARAM1,chittoor,Chittoor,53598,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.225,0.7735,0.668,0.9752
+AP_MANDAL_684,GANGADHARANELLORE,chittoor,Chittoor,69543,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.345,0.8855,0.6952,0.9739
+AP_MANDAL_685,BANGARUPALEM,chittoor,Chittoor,73199,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.33,0.777,0.7704,0.98
+AP_MANDAL_686,PALASAMUDRAM,chittoor,Chittoor,23657,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.255,0.832,0.8155,0.9666
+AP_MANDAL_687,CHITTOOR,chittoor,Chittoor,37169,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.325,0.859,0.7108,0.9785
+AP_MANDAL_688,PALAMANER,chittoor,Chittoor,30020,CAPACITY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.4,0.78,0.6825,0.9848
+AP_MANDAL_689,YADAMARRI,chittoor,Chittoor,50176,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.24,0.866,0.723,0.9853
+AP_MANDAL_690,BAIREDDIPALLE,chittoor,Chittoor,56538,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.21,0.8415,0.775,0.987
+AP_MANDAL_691,GUDIPALA,chittoor,Chittoor,43306,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.275,0.8335,0.5963,0.9814
+AP_MANDAL_692,VENKATAGIRIKOTA,chittoor,Chittoor,88321,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.27,0.9085,0.5211,0.9893
+AP_MANDAL_693,RAMAKUPPAM,chittoor,Chittoor,57851,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.205,0.766,0.6738,0.9835
+AP_MANDAL_694,SANTHIPURAM,chittoor,Chittoor,61789,CAPACITY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.39,0.8205,0.6171,0.9853
+AP_MANDAL_695,GUDUPALLE,chittoor,Chittoor,45004,CAPACITY-SEVERELY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.265,0.8525,0.6778,0.9907
+AP_MANDAL_696,KUPPAM,chittoor,Chittoor,98516,CAPACITY-CONSTRAINED,health_infrastructure,road_accessibility,HIGH,4,0.8,,0.395,0.781,0.7073,0.9869

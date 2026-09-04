@@ -1,0 +1,16 @@
+metric,value
+total_mandals,696.0
+total_designated_shelters,1685.0
+total_verified_shelter_capacity_persons,1009700.0
+mandals_with_designated_shelters,381.0
+mandals_without_designated_shelters,315.0
+mean_shelter_capacity_per_1000_in_shelter_mandals,50.35
+total_normative_health_beds_iphs,21084.0
+mean_normative_beds_per_1000,0.58
+mean_water_access_percent,74.4
+mean_sanitation_coverage_percent,88.6
+mean_water_sanitation_adequacy,0.8148
+total_evacuation_road_length_km,198000.7
+mean_road_density_km_per_km2,1.242
+mean_safe_area_fraction,0.9197
+mean_safe_area_m2_per_person,4544.0
