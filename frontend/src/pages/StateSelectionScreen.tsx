@@ -2,14 +2,17 @@ import React, { useEffect, useRef, useState } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { 
-  Shield, 
   Search, 
   ArrowRight, 
-  Compass, 
+  ArrowLeft,
   Layers, 
-  ChevronRight, 
   Clock, 
-  X
+  X,
+  UserCheck,
+  HeartHandshake,
+  MapPin,
+  CheckCircle2,
+  Shield
 } from 'lucide-react';
 
 interface StateSelectionScreenProps {
@@ -36,33 +39,29 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
   const [hoveredState, setHoveredState] = useState<string | null>(null);
   const [loadingMap, setLoadingMap] = useState(true);
 
-  // Initialize Leaflet Map for India
+  // Initialize Single India Map (Vector GeoJSON Only - No World Tile Layer)
   useEffect(() => {
     if (!mapContainerRef.current || mapInstanceRef.current) return;
 
-    // Create Leaflet Map instance
+    // Create Leaflet Map instance centered on India
     const map = L.map(mapContainerRef.current, {
       center: [22.5, 82.0],
-      zoom: 4.5,
+      zoom: 5,
       minZoom: 4,
-      maxZoom: 7,
+      maxZoom: 8,
       zoomControl: false,
       attributionControl: false,
+      dragging: true,
+      scrollWheelZoom: true,
+      doubleClickZoom: true,
     });
-
-    // Add base tiles (Esri World Dark Gray Base - No API Key Required)
-    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
-      maxZoom: 16,
-      attribution: '&copy; Esri, OpenStreetMap',
-    }).addTo(map);
 
     // Zoom control at bottom-right
     L.control.zoom({ position: 'bottomright' }).addTo(map);
 
     mapInstanceRef.current = map;
 
-    // Fetch and render India states GeoJSON
-    // Data Source: DataMeet Open Spatial Data / Official Survey of India administrative state boundaries
+    // Fetch and render single India states GeoJSON (Vector only, no world tiles)
     fetch('/data/india_states.geojson')
       .then((res) => {
         if (!res.ok) throw new Error('Failed to load India states boundary GeoJSON');
@@ -76,12 +75,20 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
             const props = feature?.properties as StateFeatureProperties;
             const isAP = props?.is_implemented;
 
+            if (isAP) {
+              return {
+                color: '#145A36',
+                weight: 2.5,
+                fillColor: '#1E7446',
+                fillOpacity: 0.95,
+              };
+            }
+
             return {
-              color: isAP ? '#10b981' : '#334155',
-              weight: isAP ? 2 : 1,
-              fillColor: isAP ? '#065f46' : '#0f172a',
-              fillOpacity: isAP ? 0.75 : 0.6,
-              dashArray: isAP ? undefined : '2, 2',
+              color: '#FFFFFF',
+              weight: 1.5,
+              fillColor: '#ECE8E0',
+              fillOpacity: 0.9,
             };
           },
           onEachFeature: (feature, featureLayer) => {
@@ -89,39 +96,56 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
             const stateName = props.state_name;
             const isAP = props.is_implemented;
 
-            // Custom clean tooltip showing state name and status
+            // Custom warm tooltip
             featureLayer.bindTooltip(
-              `<div class="p-1 text-center select-none font-sans">
-                <div class="text-xs font-bold ${isAP ? 'text-emerald-400' : 'text-slate-200'}">${stateName}</div>
-                <div class="text-[10px] font-mono mt-0.5 ${isAP ? 'text-emerald-300 font-bold' : 'text-amber-400/90'}">
-                  ${isAP ? '● ACTIVE PILOT (Click to Launch)' : '○ Data Integration Coming Soon'}
+              `<div class="py-1.5 px-2.5 text-center select-none font-sans">
+                <div class="text-xs font-bold ${isAP ? 'text-[#145A36]' : 'text-slate-900'}">${stateName}</div>
+                <div class="text-[10px] font-semibold mt-0.5 ${isAP ? 'text-[#1E7446] font-extrabold' : 'text-amber-700'}">
+                  ${isAP ? '★ ACTIVE OPERATIONAL PILOT (Click to Launch)' : '○ Regional Data Expansion In Progress'}
                 </div>
               </div>`,
-              { sticky: true, className: 'leaflet-custom-tooltip' }
+              { sticky: true, className: 'leaflet-warm-tooltip' }
             );
 
             featureLayer.on({
               mouseover: (e) => {
                 const target = e.target as L.Path;
                 setHoveredState(stateName);
-                target.setStyle({
-                  weight: 2.5,
-                  color: isAP ? '#34d399' : '#38bdf8',
-                  fillColor: isAP ? '#047857' : '#1e293b',
-                  fillOpacity: 0.9,
-                });
+                if (isAP) {
+                  target.setStyle({
+                    weight: 3.5,
+                    color: '#0B3B20',
+                    fillColor: '#166534',
+                    fillOpacity: 1,
+                  });
+                } else {
+                  target.setStyle({
+                    weight: 2.5,
+                    color: '#0D629B',
+                    fillColor: '#DDD6C9',
+                    fillOpacity: 0.98,
+                  });
+                }
                 target.bringToFront();
               },
               mouseout: (e) => {
                 const target = e.target as L.Path;
                 setHoveredState(null);
-                target.setStyle({
-                  color: isAP ? '#10b981' : '#334155',
-                  weight: isAP ? 2 : 1,
-                  fillColor: isAP ? '#065f46' : '#0f172a',
-                  fillOpacity: isAP ? 0.75 : 0.6,
-                  dashArray: isAP ? undefined : '2, 2',
-                });
+                if (isAP) {
+                  target.setStyle({
+                    color: '#145A36',
+                    weight: 2.5,
+                    fillColor: '#1E7446',
+                    fillOpacity: 0.95,
+                  });
+                } else {
+                  target.setStyle({
+                    color: '#FFFFFF',
+                    weight: 1.5,
+                    fillColor: '#ECE8E0',
+                    fillOpacity: 0.9,
+                  });
+                }
               },
               click: (e) => {
                 L.DomEvent.stopPropagation(e);
@@ -138,15 +162,57 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
         layer.addTo(map);
         geojsonLayerRef.current = layer;
         
-        // Fit map view to India boundaries
+        // Fit view strictly to India boundaries with tight padding to maximize map scale
         try {
           const bounds = layer.getBounds();
           if (bounds.isValid()) {
-            map.fitBounds(bounds, { padding: [20, 20], maxZoom: 5.5 });
+            map.fitBounds(bounds, { padding: [8, 8] });
           }
         } catch {
           // fallback center
         }
+
+        // Add prominent AP marker label at coordinates [15.9, 79.7]
+        const apLabelIcon = L.divIcon({
+          className: 'ap-marker-badge',
+          html: `<div style="
+            background: #1E7446;
+            color: #FFFFFF;
+            font-family: inherit;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 5px 10px;
+            border-radius: 9999px;
+            box-shadow: 0 4px 14px rgba(20, 90, 54, 0.4);
+            border: 2px solid #FFFFFF;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            transform: scale(1.05);
+          ">
+            <span style="display:inline-block; width:7px; height:7px; background:#4ade80; border-radius:50%; box-shadow: 0 0 6px #4ade80;"></span>
+            Andhra Pradesh (Active Pilot)
+          </div>`,
+          iconSize: [160, 28],
+          iconAnchor: [80, 14],
+        });
+
+        const apMarker = L.marker([15.9, 79.7], { icon: apLabelIcon, interactive: true });
+        apMarker.on('click', () => onSelectState('Andhra Pradesh'));
+        apMarker.addTo(map);
+
+        // Force invalidate size after DOM layout settles to ensure full expansion
+        setTimeout(() => {
+          if (mapInstanceRef.current) {
+            mapInstanceRef.current.invalidateSize();
+            const bounds = layer.getBounds();
+            if (bounds.isValid()) {
+              mapInstanceRef.current.fitBounds(bounds, { padding: [8, 8] });
+            }
+          }
+        }, 150);
 
         setLoadingMap(false);
       })
@@ -155,13 +221,26 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
         setLoadingMap(false);
       });
 
+    // Window resize handler
+    const handleResize = () => {
+      if (mapInstanceRef.current && geojsonLayerRef.current) {
+        mapInstanceRef.current.invalidateSize();
+        const bounds = geojsonLayerRef.current.getBounds();
+        if (bounds.isValid()) {
+          mapInstanceRef.current.fitBounds(bounds, { padding: [8, 8] });
+        }
+      }
+    };
+    window.addEventListener('resize', handleResize);
+
     return () => {
+      window.removeEventListener('resize', handleResize);
       map.remove();
       mapInstanceRef.current = null;
     };
   }, [onSelectState]);
 
-  // List of major states for quick selection dropdown / filter
+  // Major states quick lookup
   const allStates = [
     { name: 'Andhra Pradesh', status: 'Implemented', isPilot: true },
     { name: 'Tamil Nadu', status: 'Coming Soon', isPilot: false },
@@ -180,158 +259,193 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
   );
 
   return (
-    <div className="min-h-screen w-full bg-slate-950 text-slate-100 flex flex-col font-sans select-none overflow-x-hidden">
-      {/* Background GIS Grid & Vignette */}
-      <div className="absolute inset-0 bg-gis-grid opacity-25 pointer-events-none" />
-      <div className="absolute inset-0 bg-radial-vignette pointer-events-none" />
-
-      {/* Header Bar */}
-      <header className="relative z-20 bg-slate-900/95 backdrop-blur-md border-b border-slate-800 px-4 sm:px-8 py-3 shadow-md">
+    <div className="relative min-h-screen w-full bg-[#FBF9F4] text-slate-800 flex flex-col justify-between overflow-x-hidden select-none font-sans">
+      
+      {/* Top Header Bar */}
+      <header className="relative z-20 w-full px-6 sm:px-10 pt-4 pb-3 border-b border-stone-200/80 bg-white/80 backdrop-blur-md shadow-sm">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           
-          {/* Left: Branding & Subtitle */}
-          <div className="flex items-center space-x-3.5">
-            <button 
+          {/* Left: National Emblem & Return Button */}
+          <div className="flex items-center gap-4">
+            <button
               onClick={onBackToLanding}
-              className="bg-emerald-500/15 p-2 rounded-xl border border-emerald-500/30 text-emerald-400 shadow-sm flex items-center justify-center hover:bg-emerald-500/25 transition"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-stone-300 hover:border-slate-400 bg-white text-slate-700 text-xs font-semibold shadow-sm transition hover:bg-stone-50"
               title="Return to Access Selection"
             >
-              <Shield className="w-5 h-5" />
+              <ArrowLeft className="w-3.5 h-3.5" />
+              <span>Back</span>
             </button>
-            <div>
-              <div className="flex items-center space-x-2">
-                <span className="text-xl font-extrabold tracking-tight text-white">
-                  RakshaSethu
-                </span>
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-indigo-500/15 text-indigo-300 border border-indigo-500/30 font-semibold">
-                  GOVERNMENT
+
+            <div className="h-6 w-[1px] bg-stone-200 hidden sm:block" />
+
+            <div className="flex items-center gap-3">
+              <img 
+                src="/images/emblem_india.jpg" 
+                alt="National Emblem of India" 
+                className="h-9 sm:h-10 w-auto object-contain mix-blend-multiply"
+              />
+              <div className="flex flex-col">
+                <div className="flex items-center gap-2">
+                  <span className="text-sm font-extrabold tracking-wide text-slate-900">
+                    RAKSHA SETHU
+                  </span>
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-[#0D629B]/10 text-[#0D629B] border border-[#0D629B]/20">
+                    GOVERNMENT
+                  </span>
+                </div>
+                <span className="text-[10px] text-slate-500 font-medium">
+                  National Disaster Decision-Support Platform &bull; SIH26191
                 </span>
               </div>
-              <p className="text-[11px] font-medium text-slate-400">
-                Government Decision Support
-              </p>
             </div>
           </div>
 
-          {/* Right: State Selection Indicator */}
-          <div className="flex items-center space-x-3">
-            <div className="flex items-center space-x-2 bg-slate-800/80 px-3.5 py-1.5 rounded-lg border border-slate-700/60 text-xs shadow-sm">
-              <Compass className="w-3.5 h-3.5 text-indigo-400" />
-              <span className="font-semibold text-slate-200">State Selection</span>
-            </div>
+          {/* Right: Active Pilot Direct Launch Pill */}
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => onSelectState('Andhra Pradesh')}
+              className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#1E7446] hover:bg-[#165a36] text-white text-xs font-bold shadow-md shadow-emerald-900/15 transition group"
+            >
+              <span className="w-2 h-2 rounded-full bg-emerald-300 animate-ping" />
+              <span className="hidden sm:inline">Active Pilot:</span>
+              <span>Andhra Pradesh</span>
+              <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" />
+            </button>
           </div>
 
         </div>
       </header>
 
-      {/* Breadcrumb Bar */}
-      <div className="relative z-20 bg-slate-900/60 border-b border-slate-800/70 px-4 sm:px-8 py-2 text-xs text-slate-400">
-        <div className="max-w-7xl mx-auto flex items-center space-x-2">
-          <button 
-            onClick={onBackToLanding}
-            className="hover:text-emerald-400 transition"
-          >
-            RakshaSethu
-          </button>
-          <ChevronRight className="w-3 h-3 text-slate-600" />
-          <span className="text-slate-300">Government</span>
-          <ChevronRight className="w-3 h-3 text-slate-600" />
-          <span className="text-emerald-400 font-semibold">Select State</span>
-        </div>
-      </div>
-
-      {/* Main Content: Map HERO Container */}
-      <main className="relative z-10 flex-1 flex flex-col max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-6 space-y-5">
+      {/* Main Container - Fully Expanded */}
+      <main className="relative z-10 flex-1 flex flex-col max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-5 space-y-4">
         
-        {/* Title & Directive */}
-        <div className="text-center space-y-1.5 max-w-xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-            Select your State
-          </h2>
-          <p className="text-xs sm:text-sm text-slate-400 font-medium">
-            &ldquo;Choose a state to view disaster decision-support information.&rdquo;
-          </p>
-        </div>
+        {/* Title & National Status Banner */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-white border border-stone-200/90 rounded-2xl px-5 py-3 shadow-sm">
+          <div>
+            <h1 className="text-lg sm:text-xl font-black text-slate-900 tracking-tight flex items-center gap-2">
+              <span>Select State Jurisdiction</span>
+              <span className="text-[11px] font-semibold text-[#1E7446] bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full">
+                Interactive National Map
+              </span>
+            </h1>
+            <p className="text-xs text-slate-500 pt-0.5">
+              Select an Indian state on the vector map below to open localized multi-hazard carrying capacity &amp; relocation decision support.
+            </p>
+          </div>
 
-        {/* Quick Search & Pilot Badge Toolbar */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-slate-900/80 border border-slate-800 rounded-xl p-3 shadow-md">
-          {/* Search bar */}
+          {/* Quick Search */}
           <div className="relative w-full sm:w-72">
-            <Search className="absolute left-3 top-2.5 w-4 h-4 text-slate-400" />
+            <Search className="absolute left-3.5 top-2.5 w-4 h-4 text-slate-400" />
             <input
               type="text"
-              placeholder="Search Indian state..."
+              placeholder="Search state..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-slate-800/80 border border-slate-700/80 rounded-lg pl-9 pr-3 py-1.5 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-indigo-500/60"
+              className="w-full bg-[#FBF9F4] border border-stone-300 rounded-xl pl-10 pr-3 py-1.5 text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#0D629B] focus:bg-white transition"
             />
-          </div>
-
-          {/* Pilot State Quick Launch Pill */}
-          <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
-            <button
-              onClick={() => onSelectState('Andhra Pradesh')}
-              className="group flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-300 border border-emerald-500/40 text-xs font-bold transition shadow-sm"
-              title="Launch Andhra Pradesh Decision Support"
-            >
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span>Andhra Pradesh (Active Pilot)</span>
-              <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" />
-            </button>
           </div>
         </div>
 
-        {/* Hero India Map Visual Container */}
-        <div className="relative flex-1 min-h-[480px] lg:min-h-[560px] rounded-2xl border border-slate-800/90 bg-slate-950/80 overflow-hidden shadow-2xl flex flex-col">
+        {/* Large Expanded Single India Map Card */}
+        <div className="relative flex-1 min-h-[660px] sm:min-h-[720px] lg:min-h-[780px] rounded-3xl border border-stone-200/90 bg-white overflow-hidden shadow-xl shadow-stone-300/30 flex flex-col w-full">
           
-          {/* Top-left Legend & Status Badge */}
-          <div className="absolute top-4 left-4 z-[400] bg-slate-900/90 backdrop-blur-md border border-slate-800 rounded-xl p-3 shadow-lg space-y-2 max-w-xs pointer-events-auto">
-            <div className="flex items-center gap-2 text-xs font-bold text-slate-200 border-b border-slate-800 pb-1.5">
-              <Layers className="w-3.5 h-3.5 text-indigo-400" />
-              <span>National Disaster GIS</span>
+          {/* Top-Left: Map Legend Overlay */}
+          <div className="absolute top-4 left-4 z-[400] bg-white/95 backdrop-blur-md border border-stone-200 rounded-2xl p-3.5 shadow-md space-y-2.5 max-w-xs pointer-events-auto">
+            <div className="flex items-center gap-2 text-xs font-bold text-slate-800 border-b border-stone-100 pb-1.5">
+              <Layers className="w-3.5 h-3.5 text-[#0D629B]" />
+              <span>National Boundary Layer</span>
             </div>
-            <div className="space-y-1.5 text-[11px]">
-              <div className="flex items-center justify-between gap-3">
-                <span className="flex items-center gap-1.5 text-emerald-300 font-semibold">
-                  <span className="w-2.5 h-2.5 rounded-sm bg-emerald-500 border border-emerald-300" />
+            <div className="space-y-2 text-[11px]">
+              <div 
+                onClick={() => onSelectState('Andhra Pradesh')}
+                className="flex items-center justify-between gap-3 cursor-pointer p-1.5 rounded-xl hover:bg-emerald-50 transition border border-transparent hover:border-emerald-200"
+              >
+                <span className="flex items-center gap-2 text-[#145A36] font-bold">
+                  <span className="w-3.5 h-3.5 rounded-md bg-[#1E7446] border border-[#145A36] shadow-sm" />
                   Andhra Pradesh
                 </span>
-                <span className="font-mono text-[9px] px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold">
-                  PILOT READY
+                <span className="font-mono text-[9px] px-2 py-0.5 rounded-full bg-emerald-100 text-[#145A36] font-extrabold">
+                  ACTIVE PILOT
                 </span>
               </div>
-              <div className="flex items-center justify-between gap-3">
-                <span className="flex items-center gap-1.5 text-slate-400">
-                  <span className="w-2.5 h-2.5 rounded-sm bg-slate-800 border border-slate-600" />
+              <div className="flex items-center justify-between gap-3 p-1.5">
+                <span className="flex items-center gap-2 text-slate-500 font-medium">
+                  <span className="w-3.5 h-3.5 rounded-md bg-[#ECE8E0] border border-stone-300" />
                   Other States
                 </span>
-                <span className="font-mono text-[9px] px-1.5 py-0.5 rounded bg-slate-800 text-slate-400">
-                  COMING SOON
+                <span className="font-mono text-[9px] px-2 py-0.5 rounded-full bg-stone-100 text-slate-500">
+                  EXPANSION
                 </span>
               </div>
             </div>
+
             {hoveredState && (
-              <div className="pt-1.5 border-t border-slate-800 text-[11px] text-slate-300 flex items-center justify-between">
-                <span className="text-slate-500">Hovered:</span>
-                <span className="font-bold text-white">{hoveredState}</span>
+              <div className="pt-2 border-t border-stone-100 text-[11px] text-slate-700 flex items-center justify-between">
+                <span className="text-slate-400">Inspecting:</span>
+                <span className="font-bold text-slate-900">{hoveredState}</span>
               </div>
             )}
           </div>
 
-          {/* Leaflet Map DOM Element */}
-          <div ref={mapContainerRef} className="w-full h-full min-h-[480px] lg:min-h-[560px] z-0" />
+          {/* Bottom-Right: Active Pilot Quick Showcase Card */}
+          <div className="absolute bottom-5 right-5 z-[400] bg-white/95 backdrop-blur-md border border-stone-200/90 rounded-2xl p-4 shadow-lg max-w-sm pointer-events-auto hidden md:block">
+            <div className="flex items-center gap-2.5 pb-2 border-b border-stone-100">
+              <div className="w-8 h-8 rounded-xl bg-emerald-50 text-[#1E7446] flex items-center justify-center border border-emerald-200">
+                <Shield className="w-4 h-4" />
+              </div>
+              <div>
+                <h4 className="text-xs font-bold text-slate-900">
+                  Andhra Pradesh Pilot
+                </h4>
+                <p className="text-[10px] text-slate-500 font-medium">
+                  Full Spatial Decision-Support Model
+                </p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-2 my-2.5 text-[11px]">
+              <div className="bg-[#FAF8F3] p-2 rounded-xl border border-stone-200/60">
+                <div className="text-[10px] text-slate-400 font-semibold">DISTRICTS</div>
+                <div className="text-sm font-extrabold text-slate-800">26 Units</div>
+              </div>
+              <div className="bg-[#FAF8F3] p-2 rounded-xl border border-stone-200/60">
+                <div className="text-[10px] text-slate-400 font-semibold">MANDALS</div>
+                <div className="text-sm font-extrabold text-slate-800">696 Assessed</div>
+              </div>
+            </div>
+
+            <button
+              onClick={() => onSelectState('Andhra Pradesh')}
+              className="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-xl bg-[#1E7446] hover:bg-[#165a36] text-white text-xs font-bold transition shadow-sm"
+            >
+              <span>Launch Andhra Pradesh Pilot</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
+          </div>
+
+          {/* Bottom-Left: Technical Assurance Badge */}
+          <div className="absolute bottom-5 left-5 z-[400] bg-white/90 backdrop-blur-sm border border-stone-200/80 rounded-xl px-3 py-1.5 shadow-sm text-[10px] text-slate-500 hidden sm:flex items-center gap-2">
+            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+            <span>Single India Administrative GIS (DataMeet &bull; Survey of India Aligned)</span>
+          </div>
+
+          {/* Leaflet Single India Map DOM Element (Full Canvas) */}
+          <div 
+            ref={mapContainerRef} 
+            className="w-full h-full min-h-[660px] sm:min-h-[720px] lg:min-h-[780px] z-0 bg-[#FAF8F3]" 
+          />
 
           {/* Loading Indicator */}
           {loadingMap && (
-            <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-sm z-[500] flex items-center justify-center space-x-2 text-xs text-slate-400">
-              <div className="w-4 h-4 rounded-full border-2 border-emerald-500 border-t-transparent animate-spin" />
-              <span>Loading India States Boundary GIS...</span>
+            <div className="absolute inset-0 bg-white/85 backdrop-blur-sm z-[500] flex items-center justify-center space-x-2 text-xs text-slate-600">
+              <div className="w-5 h-5 rounded-full border-2 border-[#1E7446] border-t-transparent animate-spin" />
+              <span>Rendering Single India Boundary Map...</span>
             </div>
           )}
 
-          {/* Filtered States Quick List overlay if searching */}
+          {/* Filtered States Dropdown / Overlay if searching */}
           {searchQuery && (
-            <div className="absolute top-4 right-4 z-[400] bg-slate-900/95 backdrop-blur-md border border-slate-800 rounded-xl p-3 shadow-xl max-h-60 overflow-y-auto custom-scrollbar w-64 space-y-1">
+            <div className="absolute top-4 right-4 z-[400] bg-white border border-stone-200 rounded-2xl p-3 shadow-xl max-h-64 overflow-y-auto custom-scrollbar w-64 space-y-1">
               <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400 pb-1">
                 Matching States ({filteredStates.length})
               </p>
@@ -345,11 +459,11 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
                       setSelectedComingSoonState(s.name);
                     }
                   }}
-                  className="w-full flex items-center justify-between px-2.5 py-1.5 rounded-lg text-xs hover:bg-slate-800 text-left transition"
+                  className="w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs hover:bg-stone-50 text-left transition"
                 >
-                  <span className="text-slate-200 font-medium">{s.name}</span>
-                  <span className={`text-[9px] font-mono px-1.5 py-0.5 rounded ${
-                    s.isPilot ? 'bg-emerald-500/20 text-emerald-300 font-bold' : 'bg-slate-800 text-slate-400'
+                  <span className="text-slate-800 font-medium">{s.name}</span>
+                  <span className={`text-[9px] font-mono px-2 py-0.5 rounded-full ${
+                    s.isPilot ? 'bg-emerald-100 text-[#145A36] font-bold' : 'bg-stone-100 text-slate-500'
                   }`}>
                     {s.status}
                   </span>
@@ -362,45 +476,45 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
 
       </main>
 
-      {/* Non-implemented State "Coming Soon" Modal Dialog */}
+      {/* Non-implemented State "Coming Soon" Modal Dialog (Warm Themed) */}
       {selectedComingSoonState && (
-        <div className="fixed inset-0 z-[1000] bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-slate-900 border border-slate-800 rounded-2xl max-w-md w-full p-6 space-y-5 shadow-2xl animate-in fade-in zoom-in-95">
+        <div className="fixed inset-0 z-[1000] bg-slate-900/40 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="bg-white border border-stone-200 rounded-3xl max-w-md w-full p-6 space-y-5 shadow-2xl animate-in fade-in zoom-in-95">
             <div className="flex items-start justify-between">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-400 flex items-center justify-center">
+                <div className="w-11 h-11 rounded-2xl bg-amber-50 text-amber-700 flex items-center justify-center border border-amber-200">
                   <Clock className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-base font-bold text-white">
+                  <h3 className="text-base font-bold text-slate-900">
                     {selectedComingSoonState}
                   </h3>
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/30 font-semibold">
-                    REGIONAL EXPANSION IN PROGRESS
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-100 text-amber-800 font-bold">
+                    DATA INTEGRATION IN PROGRESS
                   </span>
                 </div>
               </div>
               <button
                 onClick={() => setSelectedComingSoonState(null)}
-                className="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-800 transition"
+                className="text-slate-400 hover:text-slate-700 p-1.5 rounded-xl hover:bg-stone-100 transition"
               >
                 <X className="w-4 h-4" />
               </button>
             </div>
 
-            <div className="space-y-3 text-xs text-slate-300 bg-slate-950/60 p-4 rounded-xl border border-slate-800/80">
+            <div className="space-y-3 text-xs text-slate-600 bg-stone-50 p-4 rounded-2xl border border-stone-200/80">
               <p className="leading-relaxed">
-                State-level data integration for this region is coming soon.
+                Analytical hazard models and carrying capacity indicators for <span className="font-semibold text-slate-800">{selectedComingSoonState}</span> are currently being integrated into the national pipeline.
               </p>
-              <p className="text-slate-400 leading-relaxed text-[11px]">
-                Currently, <span className="text-emerald-400 font-semibold">Andhra Pradesh</span> is the operational pilot state with 26 districts and 696 mandals analyzed across multi-hazard exposure, census demographics, physical carrying capacity, and AHP/TOPSIS relocation models.
+              <p className="text-[11px] leading-relaxed text-slate-500">
+                You can explore the live operational model using the <strong className="text-[#145A36]">Andhra Pradesh pilot</strong>, featuring all 26 districts, 696 mandals, 17,039 villages, and AHP/TOPSIS multi-criteria relocation priorities.
               </p>
             </div>
 
             <div className="flex items-center justify-end space-x-3 pt-1">
               <button
                 onClick={() => setSelectedComingSoonState(null)}
-                className="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold transition"
+                className="px-4 py-2 rounded-xl bg-stone-100 hover:bg-stone-200 text-slate-700 text-xs font-semibold transition"
               >
                 Choose Another State
               </button>
@@ -409,7 +523,7 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
                   setSelectedComingSoonState(null);
                   onSelectState('Andhra Pradesh');
                 }}
-                className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition shadow-lg shadow-emerald-600/20"
+                className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#1E7446] hover:bg-[#165a36] text-white text-xs font-bold transition shadow-md shadow-emerald-900/15"
               >
                 <span>Launch Andhra Pradesh Pilot</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -419,15 +533,26 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
         </div>
       )}
 
-      {/* Footer */}
-      <footer className="relative z-10 border-t border-slate-800/80 bg-slate-950/80 px-4 py-3.5 text-center text-xs text-slate-500">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
-          <span>RakshaSethu Government Decision-Support Platform &bull; Smart India Hackathon 2026</span>
-          <span className="text-[11px] font-mono text-slate-600">
-            Boundary Source: DataMeet Open Spatial / Survey of India (Simplified for Web GIS)
-          </span>
+      {/* Bottom Pillars / Trust Markers */}
+      <footer className="relative z-10 w-full py-4 px-4 border-t border-stone-200/80 bg-white/70">
+        <div className="max-w-xl mx-auto flex items-center justify-center gap-6 sm:gap-10 text-xs font-medium text-slate-600 flex-wrap">
+          <div className="flex items-center gap-2">
+            <UserCheck className="w-4 h-4 text-slate-500" />
+            <span>People First</span>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <HeartHandshake className="w-4 h-4 text-slate-500" />
+            <span>Community Driven</span>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <MapPin className="w-4 h-4 text-slate-500" />
+            <span>Single India Jurisdiction GIS</span>
+          </div>
         </div>
       </footer>
+
     </div>
   );
 };

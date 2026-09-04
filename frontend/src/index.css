@@ -70,6 +70,19 @@ body {
   border-right-color: #0f172a !important;
 }
 
+/* Warm Clean Tooltip for State Selection Screen */
+.leaflet-warm-tooltip {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.12), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+  border-radius: 0.75rem !important;
+  padding: 8px 14px !important;
+}
+.leaflet-warm-tooltip:before {
+  display: none !important;
+}
+
 /* Background grid & subtle GIS accents */
 .bg-gis-grid {
   background-size: 40px 40px;
