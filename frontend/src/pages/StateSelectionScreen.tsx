@@ -41,6 +41,7 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
 
   // Initialize Single India Map (Vector GeoJSON Only - No World Tile Layer)
   useEffect(() => {
+    let isMounted = true;
     if (!mapContainerRef.current || mapInstanceRef.current) return;
 
     // Create Leaflet Map instance centered on India
@@ -68,7 +69,7 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
         return res.json();
       })
       .then((geoData) => {
-        if (!mapInstanceRef.current) return;
+        if (!isMounted || !mapInstanceRef.current) return;
 
         const layer = L.geoJSON(geoData, {
           style: (feature) => {
@@ -245,9 +246,10 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
           }
         }, 150);
 
-        setLoadingMap(false);
+        if (isMounted) setLoadingMap(false);
       })
       .catch((err) => {
+        if (!isMounted) return;
         console.error('Error loading India states GeoJSON:', err);
         setLoadingMap(false);
       });
@@ -265,6 +267,7 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
     window.addEventListener('resize', handleResize);
 
     return () => {
+      isMounted = false;
       window.removeEventListener('resize', handleResize);
       map.remove();
       mapInstanceRef.current = null;

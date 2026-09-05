@@ -175,7 +175,7 @@ class DemographicsService:
             return data["district_details"][did]
         # Check by name
         for k, v in data["district_details"].items():
-            if v.district_summary.district_name.lower() == did or k.lower() == did:
+            if v.district.district_name.lower() == did or k.lower() == did:
                 return v
         return None
 

@@ -141,10 +141,16 @@ class CapacityService:
             methodology_note="Physical carrying capacity covers verified shelter facilities, IPHS normative health beds, WASH indices, PMGSY road accessibility, and non-steep/non-water safe land.",
             classification_standards={
                 "shelter": "NDMA / SDMA verified disaster shelters",
+                "shelter_capacity": "NCRMP Phase-I Multi-Purpose Cyclone Shelters (Direct Engineering Design Persons)",
+                "school_emergency_space": "UDISE+ School Infrastructure (Unavailable in open catalog; not fabricated)",
                 "health": "IPHS Community Health Standard baseline",
+                "health_capacity": "Normative IPHS 2022 Facility Bed Baseline (PHC: 6, CHC: 30, SDH: 100, DH: 300)",
                 "wash": "JJM & SBM-G administrative indicators",
+                "water_sanitation": "JJM Functional Tap Connections (%) & SBM-G Sanitation (Infrastructure Adequacy Proxy)",
                 "road": "PMGSY road network clearance",
-                "safe_area": "Non-inundation / non-steep land fraction"
+                "evacuation_road": "OpenStreetMap Highway Density km/km² (Evacuation Accessibility Proxy; NOT vehicle flow capacity)",
+                "safe_area": "Non-inundation / non-steep land fraction",
+                "safe_habitable_area": "JRC GSW Flood + SRTM Slope Exclusion m²/person (Spatial Safety Constraint vs. Sphere Standard)"
             }
         )
 
@@ -170,6 +176,9 @@ class CapacityService:
         district_id: Optional[str] = None,
         shelter_status: Optional[str] = None,
         health_status: Optional[str] = None,
+        capacity_condition: Optional[str] = None,
+        primary_bottleneck: Optional[str] = None,
+        is_host_candidate: Optional[bool] = None,
         state_id: Optional[str] = "andhra_pradesh"
     ) -> MandalCapacityAdequacyListResponse:
         data = self._load_data(state_id)
@@ -181,6 +190,12 @@ class CapacityService:
             df = df[df["shelter_status"].str.lower() == shelter_status.strip().lower()]
         if health_status:
             df = df[df["health_status"].str.lower() == health_status.strip().lower()]
+        if capacity_condition:
+            df = df[df["capacity_condition"].str.upper() == capacity_condition.strip().upper()]
+        if primary_bottleneck:
+            df = df[df["primary_bottleneck"].str.lower() == primary_bottleneck.strip().lower()]
+        if is_host_candidate is not None:
+            df = df[df["is_host_zone_candidate"] == is_host_candidate]
 
         records = df.replace({np.nan: None}).to_dict(orient="records")
         items = [MandalCapacityAdequacyItem(**row) for row in records]
@@ -210,20 +225,39 @@ class CapacityService:
         data = self._load_data(state_id)
         df = data["adequacy_df"]
 
-        deficit_mandals = df[df["shelter_deficit_persons"] > 0]
-        deficit_by_dist = df.groupby("current_district_name")["shelter_deficit_persons"].sum().to_dict()
+        cond_counts = df["capacity_condition"].value_counts().to_dict()
+        bottleneck_counts = df["primary_bottleneck"].value_counts().to_dict()
+        shelter_stat_counts = df["shelter_status"].value_counts().to_dict()
+        host_count = int(df["is_host_zone_candidate"].sum())
+        mean_comp = round(float(df["capacity_data_completeness"].mean()), 3)
 
         return CapacityAdequacySummaryResponse(
             total_mandals=len(df),
-            mandals_with_shelter_deficit=len(deficit_mandals),
-            mandals_shelter_adequate=len(df) - len(deficit_mandals),
-            total_shelter_deficit_persons=int(df["shelter_deficit_persons"].sum()),
-            shelter_deficit_by_district=deficit_by_dist,
-            mandals_health_deficit=int((df["health_status"] == "DEFICIT").sum()),
-            mandals_safe_area_constrained=int((df["safe_area_status"] == "CONSTRAINED").sum()),
-            mandals_road_access_constrained=int((df["road_access_status"] == "MODERATE").sum()),
-            methodology_note="Carrying capacity stress evaluates population relief headroom against emergency infrastructure standards."
+            condition_breakdown=cond_counts,
+            primary_bottleneck_breakdown=bottleneck_counts,
+            host_zone_candidates_pool_count=host_count,
+            mean_data_completeness=mean_comp,
+            shelter_coverage_breakdown=shelter_stat_counts,
+            governance_notice="Capacity condition and bottleneck identifications are decision-support analytical classifications. They do NOT mandate or execute habitation relocation."
         )
+
+    def get_bottlenecks(
+        self,
+        district_id: Optional[str] = None,
+        primary_bottleneck: Optional[str] = None,
+        state_id: Optional[str] = "andhra_pradesh"
+    ) -> MandalBottlenecksListResponse:
+        data = self._load_data(state_id)
+        df = data["bottlenecks_df"].copy()
+
+        if district_id:
+            df = df[df["current_district_id"] == district_id.strip().lower()]
+        if primary_bottleneck:
+            df = df[df["primary_bottleneck"].str.lower() == primary_bottleneck.strip().lower()]
+
+        records = df.replace({np.nan: None}).to_dict(orient="records")
+        items = [MandalBottleneckItem(**row) for row in records]
+        return MandalBottlenecksListResponse(total_mandals=len(items), items=items)
 
     def get_adequacy_geojson(self, district_id: Optional[str] = None, state_id: Optional[str] = "andhra_pradesh") -> Dict[str, Any]:
         data = self._load_data(state_id)

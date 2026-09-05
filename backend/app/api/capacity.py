@@ -8,6 +8,7 @@ from app.capacity.schemas import (
     MandalCapacityAdequacyListResponse,
     MandalCapacityAdequacyItem,
     CapacityAdequacySummaryResponse,
+    MandalBottlenecksListResponse,
     HostZoneCandidateListResponse,
 )
 
@@ -76,6 +77,9 @@ def get_all_adequacy_mandals(
     district_id: Optional[str] = Query(None, description="Optional district filter"),
     shelter_status: Optional[str] = Query(None, description="Filter by shelter status"),
     health_status: Optional[str] = Query(None, description="Filter by health status"),
+    capacity_condition: Optional[str] = Query(None, description="Filter by condition (e.g. 'CAPACITY-ADEQUATE', 'CAPACITY-CONSTRAINED', 'CAPACITY-SEVERELY-CONSTRAINED')"),
+    primary_bottleneck: Optional[str] = Query(None, description="Filter by primary bottleneck (e.g. 'health_infrastructure', 'shelter_capacity', 'road_accessibility', 'water_sanitation')"),
+    is_host_candidate: Optional[bool] = Query(None, description="Filter for units in candidate host zone pool"),
     state_id: Optional[str] = Query("andhra_pradesh", description="State identifier ('andhra_pradesh' or 'tamil_nadu')"),
 ):
     """Returns capacity adequacy and condition indicators for all administrative units."""
@@ -83,6 +87,23 @@ def get_all_adequacy_mandals(
         district_id=district_id,
         shelter_status=shelter_status,
         health_status=health_status,
+        capacity_condition=capacity_condition,
+        primary_bottleneck=primary_bottleneck,
+        is_host_candidate=is_host_candidate,
+        state_id=state_id or "andhra_pradesh",
+    )
+
+
+@router.get("/bottlenecks", response_model=MandalBottlenecksListResponse)
+def get_all_bottlenecks(
+    district_id: Optional[str] = Query(None, description="Optional district filter"),
+    primary_bottleneck: Optional[str] = Query(None, description="Filter by limiting resource bottleneck"),
+    state_id: Optional[str] = Query("andhra_pradesh", description="State identifier ('andhra_pradesh' or 'tamil_nadu')"),
+):
+    """Returns administrative unit limiting resource bottleneck rankings and component adequacy scores."""
+    return capacity_service.get_bottlenecks(
+        district_id=district_id,
+        primary_bottleneck=primary_bottleneck,
         state_id=state_id or "andhra_pradesh",
     )
 
