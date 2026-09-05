@@ -1,5 +1,6 @@
 import React from 'react';
 import type { StateDemographicSummary } from '../../types/demographics';
+import { useActiveState } from '../../context/StateContext';
 import { Building2, MapPin, CheckCircle2, ShieldCheck } from 'lucide-react';
 
 interface StateOverviewCardsProps {
@@ -8,19 +9,27 @@ interface StateOverviewCardsProps {
 }
 
 export const StateOverviewCards: React.FC<StateOverviewCardsProps> = ({ summary, loading }) => {
+  const { currentState } = useActiveState();
+
+  const isTN = currentState.id === 'tamil_nadu';
+  const unitLabel = `${currentState.adminUnitPlural} Assessed`;
+  const unitCount = currentState.adminUnitCount.toString();
+  const rankedUnits = isTN ? '302' : '680';
+  const hostCount = isTN ? '38' : '51';
+
   const cards = [
     {
       label: 'Districts Evaluated',
-      value: summary ? `${summary.total_districts}` : '26',
-      sub: 'All 26 Admin Districts',
+      value: summary ? `${summary.total_districts}` : `${currentState.districtCount}`,
+      sub: `All ${currentState.districtCount} Admin Districts`,
       icon: Building2,
       color: 'text-sky-400',
       bg: 'bg-sky-500/10',
       border: 'border-sky-500/20',
     },
     {
-      label: 'Mandals Assessed',
-      value: '696',
+      label: unitLabel,
+      value: unitCount,
       sub: 'Complete Jurisdiction',
       icon: MapPin,
       color: 'text-indigo-400',
@@ -29,7 +38,7 @@ export const StateOverviewCards: React.FC<StateOverviewCardsProps> = ({ summary,
     },
     {
       label: 'Populated Units Ranked',
-      value: '680',
+      value: rankedUnits,
       sub: 'Decision Support Prioritization',
       icon: CheckCircle2,
       color: 'text-emerald-400',
@@ -38,7 +47,7 @@ export const StateOverviewCards: React.FC<StateOverviewCardsProps> = ({ summary,
     },
     {
       label: 'Candidate Host Locations',
-      value: '51',
+      value: hostCount,
       sub: 'Screened Candidate Host Zones',
       icon: ShieldCheck,
       color: 'text-amber-400',
@@ -49,12 +58,12 @@ export const StateOverviewCards: React.FC<StateOverviewCardsProps> = ({ summary,
 
   if (loading) {
     return (
-      <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 space-y-3 shadow-md animate-pulse">
-        <div className="h-5 bg-slate-800 rounded w-1/2" />
-        <div className="h-3 bg-slate-800 rounded w-3/4" />
+      <div className="bg-white border border-slate-200/80 rounded-2xl p-4 space-y-3 shadow-xs animate-pulse">
+        <div className="h-5 bg-slate-100 rounded w-1/2" />
+        <div className="h-3 bg-slate-100 rounded w-3/4" />
         <div className="grid grid-cols-2 gap-2.5 pt-1">
           {[1, 2, 3, 4].map((i) => (
-            <div key={i} className="h-16 bg-slate-800/80 rounded-xl" />
+            <div key={i} className="h-16 bg-slate-50 rounded-xl" />
           ))}
         </div>
       </div>
@@ -62,17 +71,17 @@ export const StateOverviewCards: React.FC<StateOverviewCardsProps> = ({ summary,
   }
 
   return (
-    <div className="bg-slate-900/90 backdrop-blur-md border border-slate-800/90 rounded-2xl p-4 space-y-3 shadow-lg">
+    <div className="bg-white border border-slate-200/90 rounded-2xl p-4 space-y-3 shadow-xs">
       <div>
         <div className="flex items-center justify-between">
-          <h3 className="text-sm font-black text-white tracking-wider uppercase">
-            ANDHRA PRADESH
+          <h3 className="text-sm font-black text-slate-900 tracking-wider uppercase">
+            {currentState.name}
           </h3>
-          <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 font-semibold">
-            PILOT STATE
+          <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 font-semibold">
+            {currentState.id === 'andhra_pradesh' ? 'PILOT STATE' : 'OPERATIONAL STATE'}
           </span>
         </div>
-        <p className="text-[11px] text-slate-400 font-medium">
+        <p className="text-[11px] text-slate-500 font-medium">
           State-level decision-support overview
         </p>
       </div>
@@ -83,21 +92,21 @@ export const StateOverviewCards: React.FC<StateOverviewCardsProps> = ({ summary,
           return (
             <div
               key={idx}
-              className="bg-slate-950/60 border border-slate-800/80 rounded-xl p-2.5 flex flex-col justify-between shadow-inner hover:border-slate-700 transition"
+              className="bg-slate-50/80 border border-slate-200/70 rounded-xl p-2.5 flex flex-col justify-between hover:bg-slate-100/70 transition shadow-2xs"
             >
               <div className="flex items-center justify-between">
                 <div className={`p-1.5 rounded-lg ${card.bg} ${card.border} border shrink-0`}>
                   <Icon className={`w-3.5 h-3.5 ${card.color}`} />
                 </div>
-                <span className="text-base sm:text-lg font-black text-white tracking-tight font-mono">
+                <span className="text-base sm:text-lg font-black text-slate-900 tracking-tight font-mono">
                   {card.value}
                 </span>
               </div>
-              <div className="mt-1.5">
-                <span className="text-[10px] font-bold text-slate-300 block truncate leading-tight">
+              <div className="mt-1.5 min-w-0">
+                <span className="text-[10.5px] font-bold text-slate-800 block leading-snug">
                   {card.label}
                 </span>
-                <span className="text-[9px] text-slate-400 font-mono block truncate">
+                <span className="text-[9px] text-slate-500 font-mono block leading-tight mt-0.5">
                   {card.sub}
                 </span>
               </div>

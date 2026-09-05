@@ -12,26 +12,46 @@ from app.decision.schemas import (
 )
 
 
+def is_tn(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["tamil_nadu", "tn", "tamilnadu"]
+
 class DecisionService:
     def __init__(self):
-        self._reloc_df: Optional[pd.DataFrame] = None
-        self._cap_df: Optional[pd.DataFrame] = None
-        self._hosts_df: Optional[pd.DataFrame] = None
+        self._cache: Dict[str, Dict[str, Any]] = {}
 
-    def _load_data(self):
-        if self._reloc_df is not None and self._cap_df is not None and self._hosts_df is not None:
-            return
+    def _get_state_key(self, state_id: Optional[str]) -> str:
+        return "tn" if is_tn(state_id) else "ap"
 
-        reloc_csv = settings.DATA_DIR / "processed" / "relocation" / "mandal_relocation_priority.csv"
-        cap_csv = settings.DATA_DIR / "processed" / "capacity" / "mandal_capacity_adequacy.csv"
-        hosts_csv = settings.DATA_DIR / "processed" / "capacity" / "host_zone_candidates.csv"
+    def _load_data(self, state_id: Optional[str] = "andhra_pradesh"):
+        key = self._get_state_key(state_id)
+        if key in self._cache:
+            return self._cache[key]
+
+        reloc_dir = settings.DATA_DIR / "processed" / "relocation"
+        cap_dir = settings.DATA_DIR / "processed" / "capacity"
+
+        if key == "tn":
+            reloc_csv = reloc_dir / "tn_taluk_relocation_priority.csv"
+            cap_csv = cap_dir / "tn_taluk_capacity_adequacy.csv"
+            hosts_csv = cap_dir / "tn_host_zone_candidates.csv"
+        else:
+            reloc_csv = reloc_dir / "mandal_relocation_priority.csv"
+            cap_csv = cap_dir / "mandal_capacity_adequacy.csv"
+            hosts_csv = cap_dir / "host_zone_candidates.csv"
 
         if not reloc_csv.exists() or not cap_csv.exists() or not hosts_csv.exists():
             raise FileNotFoundError("Required processed datasets (relocation, capacity, host_candidates) not found.")
 
-        self._reloc_df = pd.read_csv(reloc_csv)
-        self._cap_df = pd.read_csv(cap_csv)
-        self._hosts_df = pd.read_csv(hosts_csv)
+        data = {
+            "reloc_df": pd.read_csv(reloc_csv),
+            "cap_df": pd.read_csv(cap_csv),
+            "hosts_df": pd.read_csv(hosts_csv)
+        }
+        self._cache[key] = data
+        return data
 
     def _find_mandal(self, df: pd.DataFrame, mandal_id: str) -> Optional[pd.Series]:
         target = mandal_id.strip().upper()
@@ -40,10 +60,17 @@ class DecisionService:
             return match.iloc[0]
         return None
 
-    def get_capacity_gap_assessment(self, mandal_id: str) -> Optional[CapacityGapAssessment]:
-        self._load_data()
-        r_row = self._find_mandal(self._reloc_df, mandal_id)
-        c_row = self._find_mandal(self._cap_df, mandal_id)
+    def get_capacity_gap_assessment(self, mandal_id: str, state_id: Optional[str] = "andhra_pradesh") -> Optional[CapacityGapAssessment]:
+        target = mandal_id.strip().upper()
+        detected_state = "tamil_nadu" if target.startswith("TN_") else state_id
+        data = self._load_data(detected_state)
+        r_row = self._find_mandal(data["reloc_df"], mandal_id)
+        c_row = self._find_mandal(data["cap_df"], mandal_id)
+
+        if (r_row is None or c_row is None) and detected_state != "tamil_nadu":
+            data_tn = self._load_data("tamil_nadu")
+            r_row = self._find_mandal(data_tn["reloc_df"], mandal_id)
+            c_row = self._find_mandal(data_tn["cap_df"], mandal_id)
 
         if r_row is None or c_row is None:
             return None
@@ -162,10 +189,17 @@ class DecisionService:
             data_limitations_notice=notice
         )
 
-    def get_action_plan(self, mandal_id: str) -> Optional[ActionPlanResponse]:
-        self._load_data()
-        r_row = self._find_mandal(self._reloc_df, mandal_id)
-        c_row = self._find_mandal(self._cap_df, mandal_id)
+    def get_action_plan(self, mandal_id: str, state_id: Optional[str] = "andhra_pradesh") -> Optional[ActionPlanResponse]:
+        target = mandal_id.strip().upper()
+        detected_state = "tamil_nadu" if target.startswith("TN_") else state_id
+        data = self._load_data(detected_state)
+        r_row = self._find_mandal(data["reloc_df"], mandal_id)
+        c_row = self._find_mandal(data["cap_df"], mandal_id)
+
+        if (r_row is None or c_row is None) and detected_state != "tamil_nadu":
+            data_tn = self._load_data("tamil_nadu")
+            r_row = self._find_mandal(data_tn["reloc_df"], mandal_id)
+            c_row = self._find_mandal(data_tn["cap_df"], mandal_id)
 
         if r_row is None or c_row is None:
             return None
@@ -344,12 +378,20 @@ class DecisionService:
             governance_disclaimer=disclaimer
         )
 
-    def compare_source_and_host(self, source_id: str, host_id: str) -> Optional[SourceHostComparisonResponse]:
-        self._load_data()
-        s_reloc = self._find_mandal(self._reloc_df, source_id)
-        s_cap = self._find_mandal(self._cap_df, source_id)
-        h_reloc = self._find_mandal(self._reloc_df, host_id)
-        h_cap = self._find_mandal(self._cap_df, host_id)
+    def compare_source_and_host(self, source_id: str, host_id: str, state_id: Optional[str] = "andhra_pradesh") -> Optional[SourceHostComparisonResponse]:
+        detected_state = "tamil_nadu" if (source_id.strip().upper().startswith("TN_") or host_id.strip().upper().startswith("TN_")) else state_id
+        data = self._load_data(detected_state)
+        s_reloc = self._find_mandal(data["reloc_df"], source_id)
+        s_cap = self._find_mandal(data["cap_df"], source_id)
+        h_reloc = self._find_mandal(data["reloc_df"], host_id)
+        h_cap = self._find_mandal(data["cap_df"], host_id)
+
+        if (s_reloc is None or s_cap is None or h_reloc is None or h_cap is None) and detected_state != "tamil_nadu":
+            data_tn = self._load_data("tamil_nadu")
+            s_reloc = self._find_mandal(data_tn["reloc_df"], source_id) or s_reloc
+            s_cap = self._find_mandal(data_tn["cap_df"], source_id) or s_cap
+            h_reloc = self._find_mandal(data_tn["reloc_df"], host_id) or h_reloc
+            h_cap = self._find_mandal(data_tn["cap_df"], host_id) or h_cap
 
         if s_reloc is None or s_cap is None or h_reloc is None or h_cap is None:
             return None
@@ -357,9 +399,9 @@ class DecisionService:
         # Distance lookup from host_zone_candidates.csv
         s_mid = str(s_reloc["mandal_id"])
         h_mid = str(h_reloc["mandal_id"])
-        pair = self._hosts_df[
-            (self._hosts_df["source_mandal_id"] == s_mid) &
-            (self._hosts_df["candidate_mandal_id"] == h_mid)
+        pair = data["hosts_df"][
+            (data["hosts_df"]["source_mandal_id"] == s_mid) &
+            (data["hosts_df"]["candidate_mandal_id"] == h_mid)
         ]
 
         if not pair.empty:
@@ -455,10 +497,11 @@ class DecisionService:
             human_validation_notice=notice
         )
 
-    def get_action_dashboard_summary(self) -> ActionDashboardSummary:
-        self._load_data()
-        df_r = self._reloc_df.copy()
-        df_c = self._cap_df.copy()
+    def get_action_dashboard_summary(self, state_id: Optional[str] = "andhra_pradesh") -> ActionDashboardSummary:
+        data = self._load_data(state_id)
+        df_r = data["reloc_df"].copy()
+        df_c = data["cap_df"].copy()
+        hosts_df = data["hosts_df"].copy()
 
         pop_mask = df_r["ranking_status"] != "INSUFFICIENT_DATA"
         df_valid = df_r[pop_mask]
@@ -467,7 +510,7 @@ class DecisionService:
         h_cnt = int((df_r["relocation_priority_category"] == "HIGH").sum())
         cap_constr_cnt = int((df_c["capacity_condition"] == "CAPACITY-CONSTRAINED").sum())
         cap_sev_cnt = int((df_c["capacity_condition"] == "CAPACITY-SEVERELY-CONSTRAINED").sum())
-        host_cnt = self._hosts_df["candidate_mandal_id"].nunique()
+        host_cnt = hosts_df["candidate_mandal_id"].nunique()
         insuf_cnt = int((~pop_mask).sum())
 
         # Top Action Mandals (Very High Priority with largest population)
@@ -479,7 +522,7 @@ class DecisionService:
         bot_dist = df_valid["primary_bottleneck"].value_counts().to_dict()
 
         # Top Host Candidates (Hosts appearing most frequently as top-3 nearest candidate)
-        top_hosts = self._hosts_df.groupby(["candidate_mandal_id", "candidate_mandal_name"]).size().reset_index(name="source_mandals_served")
+        top_hosts = hosts_df.groupby(["candidate_mandal_id", "candidate_mandal_name"]).size().reset_index(name="source_mandals_served")
         top_hosts = top_hosts.sort_values(by="source_mandals_served", ascending=False).head(10).to_dict(orient="records")
 
         disclaimer = (

@@ -6,89 +6,86 @@
 
 :root {
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 body {
   margin: 0;
   min-height: 100vh;
-  background-color: #020617; /* Slate 950 */
-  color: #f8fafc;
+  background-color: #f8fafc; /* Very light / off-white */
+  color: #0f172a;
 }
 
 /* Custom subtle scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
 }
 ::-webkit-scrollbar-track {
-  background: #020617;
+  background: #f1f5f9;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
-  border-radius: 3px;
+  background: #cbd5e1;
+  border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #334155;
+  background: #94a3b8;
 }
 
 /* Leaflet Container Custom Overrides */
 .leaflet-container {
-  background-color: #ffffff !important;
+  background-color: #f8fafc !important;
   font-family: inherit !important;
 }
 
 .leaflet-popup-content-wrapper,
 .leaflet-popup-tip {
-  background-color: #0f172a !important;
-  color: #f8fafc !important;
-  border: 1px solid #334155 !important;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5) !important;
-  border-radius: 0.5rem !important;
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+  border-radius: 0.75rem !important;
 }
 
 .leaflet-tooltip {
-  background-color: rgba(15, 23, 42, 0.92) !important;
-  color: #f8fafc !important;
-  border: 1px solid rgba(51, 65, 85, 0.8) !important;
+  background-color: rgba(255, 255, 255, 0.96) !important;
+  color: #0f172a !important;
+  border: 1px solid rgba(226, 232, 240, 0.9) !important;
   backdrop-filter: blur(8px) !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35) !important;
-  border-radius: 0.375rem !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+  border-radius: 0.5rem !important;
   padding: 6px 10px !important;
 }
 
 .leaflet-tooltip-top:before {
-  border-top-color: #0f172a !important;
+  border-top-color: #ffffff !important;
 }
 .leaflet-tooltip-bottom:before {
-  border-bottom-color: #0f172a !important;
+  border-bottom-color: #ffffff !important;
 }
 .leaflet-tooltip-left:before {
-  border-left-color: #0f172a !important;
+  border-left-color: #ffffff !important;
 }
 .leaflet-tooltip-right:before {
-  border-right-color: #0f172a !important;
+  border-right-color: #ffffff !important;
 }
 
-/* Warm Clean Tooltip for State Selection Screen */
-.leaflet-warm-tooltip {
-  background-color: #ffffff !important;
-  color: #0f172a !important;
-  border: 1px solid #e2e8f0 !important;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.12), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
-  border-radius: 0.75rem !important;
-  padding: 8px 14px !important;
-}
-.leaflet-warm-tooltip:before {
-  display: none !important;
+/* Light Popup Content */
+.leaflet-light-popup .leaflet-popup-content {
+  margin: 10px 12px !important;
+  line-height: 1.4 !important;
 }
 
-/* Background grid & subtle GIS accents */
+/* Dot grid background for map background */
 .bg-gis-grid {
-  background-size: 40px 40px;
-  background-image: 
-    linear-gradient(to right, rgba(51, 65, 85, 0.12) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(51, 65, 85, 0.12) 1px, transparent 1px);
+  background-color: #fafbfc;
+  background-size: 24px 24px;
+  background-image: radial-gradient(circle, #cbd5e1 1.2px, transparent 1.2px);
+}
+
+/* Subtle light tiles matching minimal target screenshot */
+.leaflet-tile-pane {
+  filter: grayscale(100%) brightness(108%) contrast(65%) opacity(20%);
 }
 
 .bg-radial-vignette {

@@ -1,102 +1,177 @@
-import React from 'react';
-import { Shield, AlertCircle, MapPin, ChevronRight, ArrowRight, Grid } from 'lucide-react';
+import React, { useState, useRef, useEffect } from 'react';
+import { Shield, ChevronRight, Grid, AlertCircle, ArrowLeft, ChevronDown, Check } from 'lucide-react';
 
 interface HeaderProps {
   pilotState: string;
   onBackToLanding?: () => void;
   onNavigateToStateSelection?: () => void;
+  onSelectState?: (stateName: string) => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({ 
   pilotState, 
   onBackToLanding,
   onNavigateToStateSelection,
+  onSelectState,
 }) => {
+  const [showStateDropdown, setShowStateDropdown] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const isTN = pilotState.toLowerCase().includes('tamil');
+  const stateCode = isTN ? 'TN' : 'AP';
+  const sdmaLabel = isTN ? 'Tamil Nadu SDMA (TNDMA)' : 'Andhra Pradesh SDMA (APSDMA)';
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setShowStateDropdown(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const handleStateChange = (st: string) => {
+    setShowStateDropdown(false);
+    if (onSelectState) {
+      onSelectState(st);
+    }
+  };
+
   return (
-    <header className="bg-slate-900/95 backdrop-blur-md border-b border-slate-800 sticky top-0 z-40 px-4 lg:px-6 py-2 shadow-md">
-      <div className="flex items-center justify-between">
-        
-        {/* Left: Shield, RakshaSethu & Subtitle & Breadcrumb */}
-        <div className="flex items-center space-x-3">
-          <div 
-            onClick={onBackToLanding}
-            className="bg-emerald-500/15 p-1.5 rounded-xl border border-emerald-500/30 text-emerald-400 shadow-sm flex items-center justify-center cursor-pointer hover:bg-emerald-500/25 transition"
-            title="Return to Access Selection"
-          >
-            <Shield className="w-5 h-5 text-emerald-400" />
-          </div>
-
-          <div>
-            <div className="flex items-center space-x-2">
-              <button
-                onClick={onBackToLanding}
-                className="text-base font-extrabold tracking-tight text-white hover:text-emerald-300 transition flex items-center gap-1.5"
-              >
-                <span>RakshaSethu</span>
-              </button>
-              
-              {/* Breadcrumb: Government / Andhra Pradesh */}
-              <div className="hidden sm:flex items-center space-x-1.5 text-xs text-slate-400 font-medium pl-1 border-l border-slate-700/80">
-                <button
-                  onClick={onNavigateToStateSelection}
-                  className="hover:text-indigo-300 transition"
-                  title="Return to State Selection"
-                >
-                  Government
-                </button>
-                <ChevronRight className="w-3 h-3 text-slate-500" />
-                <span className="text-emerald-400 font-semibold">{pilotState}</span>
-              </div>
-            </div>
-
-            <p className="text-[10px] font-medium text-slate-400 leading-none mt-0.5">
-              Disaster Decision &amp; Response Platform
-            </p>
-          </div>
+    <header className="bg-white border-b border-slate-200/90 sticky top-0 z-40 px-4 lg:px-5 h-[52px] flex items-center justify-between shadow-xs select-none">
+      
+      {/* Left: Shield Logo & Branding */}
+      <div className="flex items-center space-x-3">
+        <div 
+          onClick={onBackToLanding}
+          className="bg-indigo-50 p-1.5 rounded-lg border border-indigo-200 text-indigo-600 shadow-xs flex items-center justify-center cursor-pointer hover:bg-indigo-100 transition"
+          title="Return to Access Selection"
+        >
+          <Shield className="w-4 h-4 text-indigo-600" />
         </div>
 
-        {/* Center / Right: Change State, State Badge & Status */}
-        <div className="flex items-center space-x-2.5">
+        <div>
+          <button
+            onClick={onBackToLanding}
+            className="text-xs sm:text-sm font-black tracking-tight text-slate-900 hover:text-indigo-600 transition flex items-center gap-1.5 leading-none"
+          >
+            <span>RAKSHA SETHU</span>
+          </button>
+          <p className="text-[10px] font-medium text-slate-500 leading-none mt-0.5">
+            Disaster Decision &amp; Response Platform
+          </p>
+        </div>
+
+        {/* Breadcrumb: In India > State Switcher */}
+        <div className="hidden sm:flex items-center space-x-1.5 text-xs text-slate-500 font-medium pl-3 border-l border-slate-200 relative" ref={dropdownRef}>
+          <button
+            onClick={onNavigateToStateSelection}
+            className="hover:text-indigo-600 transition text-slate-500"
+            title="Return to State Selection"
+          >
+            In India
+          </button>
+          <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
           
-          {/* India -> Change State button */}
-          {onNavigateToStateSelection && (
-            <button
-              onClick={onNavigateToStateSelection}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800/90 hover:bg-slate-700/90 text-slate-200 hover:text-white border border-slate-700 text-xs font-semibold transition shadow-sm group"
-              title="Return to India Map to choose another State"
-            >
-              <span>🇮🇳 India</span>
-              <ArrowRight className="w-3.5 h-3.5 text-indigo-400 group-hover:translate-x-0.5 transition-transform" />
-              <span className="text-indigo-300">Change State</span>
-            </button>
-          )}
-
-          {/* Current State Badge */}
-          <div className="hidden md:flex items-center space-x-1.5 bg-emerald-500/10 text-emerald-300 border border-emerald-500/30 px-3 py-1.5 rounded-lg text-xs font-bold shadow-sm">
-            <MapPin className="w-3.5 h-3.5 text-emerald-400" />
+          <button
+            onClick={() => setShowStateDropdown(!showStateDropdown)}
+            className="flex items-center gap-1 px-2 py-0.5 rounded-md hover:bg-indigo-50 text-indigo-700 font-bold transition border border-transparent hover:border-indigo-200"
+            title="Switch Operational State"
+          >
             <span>{pilotState}</span>
-          </div>
+            <ChevronDown className="w-3 h-3 text-indigo-500" />
+          </button>
 
-          {/* Subtle Decision Support Only Badge */}
-          <div className="hidden lg:flex items-center space-x-1.5 bg-amber-500/10 text-amber-300/90 border border-amber-500/20 px-2.5 py-1.5 rounded-lg text-[11px] font-semibold shadow-sm">
-            <AlertCircle className="w-3.5 h-3.5 text-amber-400" />
-            <span>Decision Support Only</span>
-          </div>
+          {/* Quick State Dropdown */}
+          {showStateDropdown && (
+            <div className="absolute top-full left-12 mt-1 w-52 bg-white rounded-xl shadow-xl border border-slate-200 py-1.5 z-50 animate-in fade-in zoom-in-95">
+              <div className="px-3 py-1 text-[10px] font-semibold text-slate-400 uppercase tracking-wider">
+                Select Active State
+              </div>
 
-          {/* Switch Portal Role */}
-          {onBackToLanding && (
-            <button
-              onClick={onBackToLanding}
-              className="p-1.5 rounded-lg bg-slate-800/70 hover:bg-slate-700 text-slate-400 hover:text-white border border-slate-700/60 transition"
-              title="Switch Access Role / Return to Home"
-            >
-              <Grid className="w-4 h-4" />
-            </button>
+              <button
+                onClick={() => handleStateChange('Andhra Pradesh')}
+                className={`w-full text-left px-3 py-1.5 text-xs flex items-center justify-between hover:bg-slate-50 transition ${
+                  !isTN ? 'text-indigo-600 font-bold bg-indigo-50/50' : 'text-slate-700'
+                }`}
+              >
+                <div>
+                  <div className="font-semibold">Andhra Pradesh</div>
+                  <div className="text-[10px] text-slate-400">26 Districts &bull; 696 Mandals</div>
+                </div>
+                {!isTN && <Check className="w-3.5 h-3.5 text-indigo-600" />}
+              </button>
+
+              <button
+                onClick={() => handleStateChange('Tamil Nadu')}
+                className={`w-full text-left px-3 py-1.5 text-xs flex items-center justify-between hover:bg-slate-50 transition ${
+                  isTN ? 'text-indigo-600 font-bold bg-indigo-50/50' : 'text-slate-700'
+                }`}
+              >
+                <div>
+                  <div className="font-semibold">Tamil Nadu</div>
+                  <div className="text-[10px] text-slate-400">38 Districts &bull; 302 Taluks</div>
+                </div>
+                {isTN && <Check className="w-3.5 h-3.5 text-indigo-600" />}
+              </button>
+
+              <div className="border-t border-slate-100 mt-1 pt-1">
+                <button
+                  onClick={() => {
+                    setShowStateDropdown(false);
+                    onNavigateToStateSelection?.();
+                  }}
+                  className="w-full text-left px-3 py-1 text-[11px] text-slate-500 hover:text-indigo-600 hover:bg-slate-50 transition"
+                >
+                  All States (India Map)...
+                </button>
+              </div>
+            </div>
           )}
+        </div>
+      </div>
 
+      {/* Right Controls: Decision Support Only + Grid Icon + State SDMA Avatar */}
+      <div className="flex items-center space-x-2.5">
+        
+        {/* Switch State Button on Mobile */}
+        {onNavigateToStateSelection && (
+          <button
+            onClick={onNavigateToStateSelection}
+            className="sm:hidden flex items-center gap-1 px-2 py-1 rounded-md bg-slate-100 hover:bg-slate-200 text-slate-700 text-[11px] font-medium transition"
+            title="Change State"
+          >
+            <ArrowLeft className="w-3 h-3" />
+            <span>{stateCode}</span>
+          </button>
+        )}
+
+        {/* Decision Support Only Badge Pill */}
+        <div className="flex items-center space-x-1.5 bg-indigo-50/70 text-indigo-700 border border-indigo-200/90 px-3 py-1 rounded-full text-xs font-semibold shadow-xs">
+          <AlertCircle className="w-3.5 h-3.5 text-indigo-600" />
+          <span>Decision Support Only</span>
+        </div>
+
+        {/* Access Grid Switcher Button */}
+        <button
+          onClick={onBackToLanding}
+          className="p-1.5 rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-600 hover:text-slate-900 border border-slate-200 transition shadow-xs"
+          title="Switch Access Role (Gov / Citizen)"
+        >
+          <Grid className="w-4 h-4" />
+        </button>
+
+        {/* User Profile Avatar */}
+        <div 
+          className="w-7 h-7 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold text-xs shadow-xs"
+          title={`Official Profile (${sdmaLabel})`}
+        >
+          {stateCode}
         </div>
 
       </div>
+
     </header>
   );
 };

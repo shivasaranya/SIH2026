@@ -9,25 +9,50 @@ from app.hazard.schemas import (
     HazardSummaryResponse,
 )
 
+def is_tn(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["tamil_nadu", "tn", "tamilnadu"]
 
 class HazardService:
     def __init__(self):
-        self._exposure_df: Optional[pd.DataFrame] = None
-        self._exposure_geojson: Optional[Dict[str, Any]] = None
+        self._cache: Dict[str, Dict[str, Any]] = {}
 
-    def _load_data(self):
-        if self._exposure_df is not None:
-            return
+    def _get_state_key(self, state_id: Optional[str]) -> str:
+        return "tn" if is_tn(state_id) else "ap"
 
-        csv_path = settings.DATA_DIR / "processed" / "hazard" / "mandal_exposure" / "mandal_multi_hazard_exposure.csv"
+    def _load_data(self, state_id: Optional[str] = "andhra_pradesh"):
+        key = self._get_state_key(state_id)
+        if key in self._cache:
+            return self._cache[key]
+
+        haz_dir = settings.DATA_DIR / "processed" / "hazard" / "mandal_exposure"
+
+        if key == "tn":
+            csv_path = haz_dir / "tn_taluk_multi_hazard_exposure.csv"
+            geojson_path = haz_dir / "tn_taluk_multi_hazard_exposure.geojson"
+            surge_included = True
+        else:
+            csv_path = haz_dir / "mandal_multi_hazard_exposure.csv"
+            geojson_path = haz_dir / "ap_mandal_multi_hazard_exposure.geojson"
+            surge_included = False
+
         if not csv_path.exists():
-            raise FileNotFoundError(f"Mandal exposure data not found at {csv_path}")
+            raise FileNotFoundError(f"Hazard data not found at {csv_path}")
 
-        self._exposure_df = pd.read_csv(csv_path)
+        data = {
+            "exposure_df": pd.read_csv(csv_path),
+            "geojson_path": geojson_path,
+            "surge_included": surge_included,
+            "geojson": None
+        }
+        self._cache[key] = data
+        return data
 
-    def get_all_mandals(self, district_id: Optional[str] = None) -> MandalExposureListResponse:
-        self._load_data()
-        df = self._exposure_df
+    def get_all_mandals(self, district_id: Optional[str] = None, state_id: Optional[str] = "andhra_pradesh") -> MandalExposureListResponse:
+        data = self._load_data(state_id)
+        df = data["exposure_df"]
 
         if district_id:
             df = df[df["current_district_id"] == district_id.strip().lower()]
@@ -35,21 +60,29 @@ class HazardService:
         items = [MandalHazardExposureItem(**row) for row in df.to_dict(orient="records")]
         return MandalExposureListResponse(total_mandals=len(items), items=items)
 
-    def get_mandal_detail(self, mandal_id: str) -> Optional[MandalHazardExposureItem]:
-        self._load_data()
+    def get_mandal_detail(self, mandal_id: str, state_id: Optional[str] = "andhra_pradesh") -> Optional[MandalHazardExposureItem]:
         target = mandal_id.strip().upper()
-        # Search by mandal_id (e.g. AP_MANDAL_001) or by mandal_name
-        match = self._exposure_df[
-            (self._exposure_df["mandal_id"] == target) |
-            (self._exposure_df["mandal_name"].str.upper() == target)
+        detected_state = "tamil_nadu" if target.startswith("TN_") else state_id
+        data = self._load_data(detected_state)
+        df = data["exposure_df"]
+
+        match = df[
+            (df["mandal_id"] == target) |
+            (df["mandal_name"].str.upper() == target)
         ]
+        if match.empty and detected_state != "tamil_nadu":
+            tn_data = self._load_data("tamil_nadu")
+            match = tn_data["exposure_df"][
+                (tn_data["exposure_df"]["mandal_id"] == target) |
+                (tn_data["exposure_df"]["mandal_name"].str.upper() == target)
+            ]
         if match.empty:
             return None
         return MandalHazardExposureItem(**match.iloc[0].to_dict())
 
-    def get_summary(self) -> HazardSummaryResponse:
-        self._load_data()
-        df = self._exposure_df
+    def get_summary(self, state_id: Optional[str] = "andhra_pradesh") -> HazardSummaryResponse:
+        data = self._load_data(state_id)
+        df = data["exposure_df"]
 
         indices = df["multi_hazard_exposure_index"]
         high_count = int((indices >= 0.50).sum())
@@ -66,36 +99,34 @@ class HazardService:
             min_exposure_index=round(float(indices.min()), 4),
             max_exposure_index=round(float(indices.max()), 4),
             exposure_distribution={
-                "high_exposure_ge_0_50": high_count,
-                "moderate_exposure_0_25_to_0_50": mod_count,
-                "low_exposure_lt_0_25": low_count,
+                "High Hazard (>= 0.50)": high_count,
+                "Moderate Hazard (0.25 - 0.50)": mod_count,
+                "Low Hazard (< 0.25)": low_count,
             },
             top_exposed_mandals=top_5,
-            storm_surge_included=False,
-            storm_surge_exclusion_reason="No open analytical storm surge layer available in Phase 2B; excluded to prevent unverified scores.",
-            methodology_note="Bounded multi-hazard exposure index H_i in [0, 1] synthesized from Flood (40%), Cyclone (30%), Wind (20%), and Topographic Slope constraint (10%)."
+            storm_surge_included=data["surge_included"],
+            storm_surge_exclusion_reason="None" if data["surge_included"] else "Open-access coastal surge inundation layer requires dynamic hydrodynamic modeling (e.g. ADCIRC). Historical tropical storm buffers applied as proxy.",
+            methodology_note="Calculated using verified open hazard datasets: JRC Global Surface Water 30m, NOAA IBTrACS Bay of Bengal tracks, BMTPC IS 875 wind speeds, and CGIAR SRTM 90m slope."
         )
 
-    def get_geojson(self, district_id: Optional[str] = None) -> Dict[str, Any]:
-        if self._exposure_geojson is None:
-            geojson_path = settings.DATA_DIR / "processed" / "hazard" / "mandal_exposure" / "ap_mandal_multi_hazard_exposure.geojson"
-            if not geojson_path.exists():
-                raise FileNotFoundError(f"Mandal exposure GeoJSON not found at {geojson_path}")
+    def get_geojson(self, district_id: Optional[str] = None, state_id: Optional[str] = "andhra_pradesh") -> Dict[str, Any]:
+        data = self._load_data(state_id)
+        if data["geojson"] is None:
+            geojson_path = data["geojson_path"]
             with open(geojson_path, "r", encoding="utf-8") as f:
-                self._exposure_geojson = json.load(f)
+                data["geojson"] = json.load(f)
 
         if not district_id:
-            return self._exposure_geojson
+            return data["geojson"]
 
         target_did = district_id.strip().lower()
-        filtered_features = [
-            f for f in self._exposure_geojson.get("features", [])
-            if str(f.get("properties", {}).get("current_district_id", "")).lower() == target_did
+        filtered = [
+            feat for feat in data["geojson"].get("features", [])
+            if str(feat.get("properties", {}).get("current_district_id", "")).lower() == target_did
         ]
         return {
             "type": "FeatureCollection",
-            "features": filtered_features
+            "features": filtered
         }
-
 
 hazard_service = HazardService()

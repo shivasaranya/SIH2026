@@ -73,9 +73,9 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
         const layer = L.geoJSON(geoData, {
           style: (feature) => {
             const props = feature?.properties as StateFeatureProperties;
-            const isAP = props?.is_implemented;
+            const isImplemented = Boolean(props?.is_implemented);
 
-            if (isAP) {
+            if (isImplemented) {
               return {
                 color: '#145A36',
                 weight: 2.5,
@@ -94,14 +94,14 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
           onEachFeature: (feature, featureLayer) => {
             const props = feature.properties as StateFeatureProperties;
             const stateName = props.state_name;
-            const isAP = props.is_implemented;
+            const isImplemented = Boolean(props.is_implemented);
 
             // Custom warm tooltip
             featureLayer.bindTooltip(
               `<div class="py-1.5 px-2.5 text-center select-none font-sans">
-                <div class="text-xs font-bold ${isAP ? 'text-[#145A36]' : 'text-slate-900'}">${stateName}</div>
-                <div class="text-[10px] font-semibold mt-0.5 ${isAP ? 'text-[#1E7446] font-extrabold' : 'text-amber-700'}">
-                  ${isAP ? '★ ACTIVE OPERATIONAL PILOT (Click to Launch)' : '○ Regional Data Expansion In Progress'}
+                <div class="text-xs font-bold ${isImplemented ? 'text-[#145A36]' : 'text-slate-900'}">${stateName}</div>
+                <div class="text-[10px] font-semibold mt-0.5 ${isImplemented ? 'text-[#1E7446] font-extrabold' : 'text-amber-700'}">
+                  ${isImplemented ? '★ OPERATIONAL STATE (Click to Launch)' : '○ Regional Data Expansion In Progress'}
                 </div>
               </div>`,
               { sticky: true, className: 'leaflet-warm-tooltip' }
@@ -111,7 +111,7 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
               mouseover: (e) => {
                 const target = e.target as L.Path;
                 setHoveredState(stateName);
-                if (isAP) {
+                if (isImplemented) {
                   target.setStyle({
                     weight: 3.5,
                     color: '#0B3B20',
@@ -131,7 +131,7 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
               mouseout: (e) => {
                 const target = e.target as L.Path;
                 setHoveredState(null);
-                if (isAP) {
+                if (isImplemented) {
                   target.setStyle({
                     color: '#145A36',
                     weight: 2.5,
@@ -149,8 +149,8 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
               },
               click: (e) => {
                 L.DomEvent.stopPropagation(e);
-                if (isAP) {
-                  onSelectState('Andhra Pradesh');
+                if (isImplemented) {
+                  onSelectState(stateName);
                 } else {
                   setSelectedComingSoonState(stateName);
                 }
@@ -190,7 +190,7 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
             align-items: center;
             gap: 5px;
             cursor: pointer;
-            transform: scale(1.05);
+            transform: scale(1.02);
           ">
             <span style="display:inline-block; width:7px; height:7px; background:#4ade80; border-radius:50%; box-shadow: 0 0 6px #4ade80;"></span>
             Andhra Pradesh (Active Pilot)
@@ -202,6 +202,37 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
         const apMarker = L.marker([15.9, 79.7], { icon: apLabelIcon, interactive: true });
         apMarker.on('click', () => onSelectState('Andhra Pradesh'));
         apMarker.addTo(map);
+
+        // Add prominent Tamil Nadu marker label at coordinates [11.12, 78.65]
+        const tnLabelIcon = L.divIcon({
+          className: 'tn-marker-badge',
+          html: `<div style="
+            background: #1E7446;
+            color: #FFFFFF;
+            font-family: inherit;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 5px 10px;
+            border-radius: 9999px;
+            box-shadow: 0 4px 14px rgba(20, 90, 54, 0.4);
+            border: 2px solid #FFFFFF;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            transform: scale(1.02);
+          ">
+            <span style="display:inline-block; width:7px; height:7px; background:#4ade80; border-radius:50%; box-shadow: 0 0 6px #4ade80;"></span>
+            Tamil Nadu (Operational)
+          </div>`,
+          iconSize: [150, 28],
+          iconAnchor: [75, 14],
+        });
+
+        const tnMarker = L.marker([11.12, 78.65], { icon: tnLabelIcon, interactive: true });
+        tnMarker.on('click', () => onSelectState('Tamil Nadu'));
+        tnMarker.addTo(map);
 
         // Force invalidate size after DOM layout settles to ensure full expansion
         setTimeout(() => {
@@ -242,8 +273,8 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
 
   // Major states quick lookup
   const allStates = [
-    { name: 'Andhra Pradesh', status: 'Implemented', isPilot: true },
-    { name: 'Tamil Nadu', status: 'Coming Soon', isPilot: false },
+    { name: 'Andhra Pradesh', status: 'Operational Pilot', isPilot: true },
+    { name: 'Tamil Nadu', status: 'Operational State', isPilot: true },
     { name: 'Odisha', status: 'Coming Soon', isPilot: false },
     { name: 'Kerala', status: 'Coming Soon', isPilot: false },
     { name: 'Karnataka', status: 'Coming Soon', isPilot: false },
@@ -368,6 +399,18 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
                   ACTIVE PILOT
                 </span>
               </div>
+              <div 
+                onClick={() => onSelectState('Tamil Nadu')}
+                className="flex items-center justify-between gap-3 cursor-pointer p-1.5 rounded-xl hover:bg-emerald-50 transition border border-transparent hover:border-emerald-200"
+              >
+                <span className="flex items-center gap-2 text-[#145A36] font-bold">
+                  <span className="w-3.5 h-3.5 rounded-md bg-[#1E7446] border border-[#145A36] shadow-sm" />
+                  Tamil Nadu
+                </span>
+                <span className="font-mono text-[9px] px-2 py-0.5 rounded-full bg-emerald-100 text-[#145A36] font-extrabold">
+                  OPERATIONAL
+                </span>
+              </div>
               <div className="flex items-center justify-between gap-3 p-1.5">
                 <span className="flex items-center gap-2 text-slate-500 font-medium">
                   <span className="w-3.5 h-3.5 rounded-md bg-[#ECE8E0] border border-stone-300" />
@@ -387,7 +430,7 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
             )}
           </div>
 
-          {/* Bottom-Right: Active Pilot Quick Showcase Card */}
+          {/* Bottom-Right: Active States Quick Showcase Card */}
           <div className="absolute bottom-5 right-5 z-[400] bg-white/95 backdrop-blur-md border border-stone-200/90 rounded-2xl p-4 shadow-lg max-w-sm pointer-events-auto hidden md:block">
             <div className="flex items-center gap-2.5 pb-2 border-b border-stone-100">
               <div className="w-8 h-8 rounded-xl bg-emerald-50 text-[#1E7446] flex items-center justify-center border border-emerald-200">
@@ -395,32 +438,45 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
               </div>
               <div>
                 <h4 className="text-xs font-bold text-slate-900">
-                  Andhra Pradesh Pilot
+                  Operational State Deployments
                 </h4>
                 <p className="text-[10px] text-slate-500 font-medium">
-                  Full Spatial Decision-Support Model
+                  Full Spatial Relocation &amp; Capacity Models
                 </p>
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-2 my-2.5 text-[11px]">
-              <div className="bg-[#FAF8F3] p-2 rounded-xl border border-stone-200/60">
-                <div className="text-[10px] text-slate-400 font-semibold">DISTRICTS</div>
-                <div className="text-sm font-extrabold text-slate-800">26 Units</div>
+            <div className="space-y-2 my-2.5">
+              {/* Andhra Pradesh Quick Tile */}
+              <div 
+                onClick={() => onSelectState('Andhra Pradesh')}
+                className="bg-[#FAF8F3] hover:bg-emerald-50/60 transition cursor-pointer p-2.5 rounded-xl border border-stone-200/60 flex items-center justify-between"
+              >
+                <div>
+                  <div className="text-xs font-bold text-slate-800 flex items-center gap-1.5">
+                    <span>Andhra Pradesh</span>
+                    <span className="text-[9px] font-mono px-1.5 py-0.2 bg-emerald-100 text-emerald-800 rounded font-bold">PILOT</span>
+                  </div>
+                  <div className="text-[10px] text-slate-500 mt-0.5">26 Districts &bull; 696 Mandals</div>
+                </div>
+                <ArrowRight className="w-3.5 h-3.5 text-[#1E7446]" />
               </div>
-              <div className="bg-[#FAF8F3] p-2 rounded-xl border border-stone-200/60">
-                <div className="text-[10px] text-slate-400 font-semibold">MANDALS</div>
-                <div className="text-sm font-extrabold text-slate-800">696 Assessed</div>
+
+              {/* Tamil Nadu Quick Tile */}
+              <div 
+                onClick={() => onSelectState('Tamil Nadu')}
+                className="bg-[#FAF8F3] hover:bg-emerald-50/60 transition cursor-pointer p-2.5 rounded-xl border border-stone-200/60 flex items-center justify-between"
+              >
+                <div>
+                  <div className="text-xs font-bold text-slate-800 flex items-center gap-1.5">
+                    <span>Tamil Nadu</span>
+                    <span className="text-[9px] font-mono px-1.5 py-0.2 bg-emerald-100 text-emerald-800 rounded font-bold">ACTIVE</span>
+                  </div>
+                  <div className="text-[10px] text-slate-500 mt-0.5">38 Districts &bull; 302 Taluks</div>
+                </div>
+                <ArrowRight className="w-3.5 h-3.5 text-[#1E7446]" />
               </div>
             </div>
-
-            <button
-              onClick={() => onSelectState('Andhra Pradesh')}
-              className="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-xl bg-[#1E7446] hover:bg-[#165a36] text-white text-xs font-bold transition shadow-sm"
-            >
-              <span>Launch Andhra Pradesh Pilot</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </button>
           </div>
 
           {/* Bottom-Left: Technical Assurance Badge */}

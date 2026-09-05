@@ -5,6 +5,7 @@ export type ActiveTab =
   | 'vulnerability'
   | 'capacity'
   | 'relocation'
+  | 'priority_directory'
   | 'hosts'
   | 'simulation'
   | 'actions'

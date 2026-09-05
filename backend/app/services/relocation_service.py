@@ -19,46 +19,58 @@ from app.capacity.schemas import (
     HostZoneCandidateListResponse,
 )
 
+def is_tn(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["tamil_nadu", "tn", "tamilnadu"]
 
 class RelocationService:
     def __init__(self):
-        self._reloc_df: Optional[pd.DataFrame] = None
-        self._factors_df: Optional[pd.DataFrame] = None
-        self._ahp_df: Optional[pd.DataFrame] = None
-        self._diag_df: Optional[pd.DataFrame] = None
-        self._summary_df: Optional[pd.DataFrame] = None
-        self._host_candidates_df: Optional[pd.DataFrame] = None
-        self._reloc_geojson: Optional[Dict[str, Any]] = None
+        self._cache: Dict[str, Dict[str, Any]] = {}
 
-    def _load_data(self):
-        if self._reloc_df is not None:
-            return
+    def _get_state_key(self, state_id: Optional[str]) -> str:
+        return "tn" if is_tn(state_id) else "ap"
+
+    def _load_data(self, state_id: Optional[str] = "andhra_pradesh"):
+        key = self._get_state_key(state_id)
+        if key in self._cache:
+            return self._cache[key]
 
         reloc_dir = settings.DATA_DIR / "processed" / "relocation"
-        master_csv = reloc_dir / "mandal_relocation_priority.csv"
+        cap_dir = settings.DATA_DIR / "processed" / "capacity"
+
+        if key == "tn":
+            master_csv = reloc_dir / "tn_taluk_relocation_priority.csv"
+            factors_csv = reloc_dir / "tn_relocation_factor_contributions.csv"
+            ahp_csv = reloc_dir / "tn_ahp_weights.csv"
+            sum_csv = reloc_dir / "tn_relocation_priority_summary.csv"
+            host_csv = cap_dir / "tn_host_zone_candidates.csv"
+            geojson_path = reloc_dir / "tn_taluk_relocation_priority.geojson"
+            if not geojson_path.exists():
+                geojson_path = settings.PROCESSED_ADMIN_DIR / "tamil_nadu_taluks.geojson"
+        else:
+            master_csv = reloc_dir / "mandal_relocation_priority.csv"
+            factors_csv = reloc_dir / "relocation_factor_contributions.csv"
+            ahp_csv = reloc_dir / "ahp_weights.csv"
+            sum_csv = reloc_dir / "relocation_priority_summary.csv"
+            host_csv = cap_dir / "host_zone_candidates.csv"
+            geojson_path = reloc_dir / "ap_mandal_relocation_priority.geojson"
+
         if not master_csv.exists():
             raise FileNotFoundError(f"Relocation priority dataset not found at {master_csv}")
-        self._reloc_df = pd.read_csv(master_csv)
 
-        factors_csv = reloc_dir / "relocation_factor_contributions.csv"
-        if factors_csv.exists():
-            self._factors_df = pd.read_csv(factors_csv)
-
-        ahp_csv = reloc_dir / "ahp_weights.csv"
-        if ahp_csv.exists():
-            self._ahp_df = pd.read_csv(ahp_csv)
-
-        diag_csv = reloc_dir / "topsis_diagnostics.csv"
-        if diag_csv.exists():
-            self._diag_df = pd.read_csv(diag_csv)
-
-        sum_csv = reloc_dir / "relocation_priority_summary.csv"
-        if sum_csv.exists():
-            self._summary_df = pd.read_csv(sum_csv)
-
-        host_csv = settings.DATA_DIR / "processed" / "capacity" / "host_zone_candidates.csv"
-        if host_csv.exists():
-            self._host_candidates_df = pd.read_csv(host_csv)
+        data = {
+            "reloc_df": pd.read_csv(master_csv),
+            "factors_df": pd.read_csv(factors_csv) if factors_csv.exists() else None,
+            "ahp_df": pd.read_csv(ahp_csv) if ahp_csv.exists() else None,
+            "summary_df": pd.read_csv(sum_csv) if sum_csv.exists() else None,
+            "host_df": pd.read_csv(host_csv) if host_csv.exists() else None,
+            "geojson_path": geojson_path,
+            "geojson": None
+        }
+        self._cache[key] = data
+        return data
 
     def get_all_mandals(
         self,
@@ -66,9 +78,10 @@ class RelocationService:
         priority_category: Optional[str] = None,
         ranking_status: Optional[str] = None,
         primary_factor: Optional[str] = None,
+        state_id: Optional[str] = "andhra_pradesh"
     ) -> MandalRelocationListResponse:
-        self._load_data()
-        df = self._reloc_df.copy()
+        data = self._load_data(state_id)
+        df = data["reloc_df"].copy()
 
         if district_id:
             df = df[df["current_district_id"] == district_id.strip().lower()]
@@ -83,29 +96,41 @@ class RelocationService:
         items = [MandalRelocationItem(**row) for row in records]
         return MandalRelocationListResponse(total_mandals=len(items), items=items)
 
-    def get_mandal_detail(self, mandal_id: str) -> Optional[MandalRelocationItem]:
-        self._load_data()
+    def get_mandal_detail(self, mandal_id: str, state_id: Optional[str] = "andhra_pradesh") -> Optional[MandalRelocationItem]:
+        # Search specified state or auto-detect based on ID prefix
         target = mandal_id.strip().upper()
-        match = self._reloc_df[
-            (self._reloc_df["mandal_id"] == target) |
-            (self._reloc_df["mandal_name"].str.upper() == target)
+        detected_state = "tamil_nadu" if target.startswith("TN_") else state_id
+        data = self._load_data(detected_state)
+        df = data["reloc_df"]
+
+        match = df[
+            (df["mandal_id"] == target) |
+            (df["mandal_name"].str.upper() == target)
         ]
+        if match.empty and detected_state != "tamil_nadu":
+            # Fallback search in TN
+            tn_data = self._load_data("tamil_nadu")
+            match = tn_data["reloc_df"][
+                (tn_data["reloc_df"]["mandal_id"] == target) |
+                (tn_data["reloc_df"]["mandal_name"].str.upper() == target)
+            ]
         if match.empty:
             return None
         row_dict = match.iloc[0].replace({np.nan: None}).to_dict()
         return MandalRelocationItem(**row_dict)
 
-    def get_top_prioritized(self, limit: int = 10) -> TopRelocationListResponse:
-        self._load_data()
-        ranked = self._reloc_df[self._reloc_df["ranking_status"] != "INSUFFICIENT_DATA"]
+    def get_top_prioritized(self, limit: int = 10, state_id: Optional[str] = "andhra_pradesh") -> TopRelocationListResponse:
+        data = self._load_data(state_id)
+        df = data["reloc_df"]
+        ranked = df[df["ranking_status"] != "INSUFFICIENT_DATA"]
         top_df = ranked.sort_values(by="topsis_score", ascending=False).head(limit)
         records = top_df.replace({np.nan: None}).to_dict(orient="records")
         items = [MandalRelocationItem(**row) for row in records]
         return TopRelocationListResponse(total_returned=len(items), items=items)
 
-    def get_summary(self) -> RelocationSummaryResponse:
-        self._load_data()
-        df = self._reloc_df
+    def get_summary(self, state_id: Optional[str] = "andhra_pradesh") -> RelocationSummaryResponse:
+        data = self._load_data(state_id)
+        df = data["reloc_df"]
         valid_df = df[df["ranking_status"] != "INSUFFICIENT_DATA"]
         cat_counts = df["relocation_priority_category"].value_counts().to_dict()
 
@@ -130,12 +155,11 @@ class RelocationService:
             governance_notice="Multi-Criteria Relocation Prioritization provides transparent mathematical decision support (AHP weight derivation + TOPSIS ranking) for disaster management authorities. It does NOT mandate or order population relocations."
         )
 
-    def get_ahp_weights(self) -> AHPWeightsResponse:
-        self._load_data()
-        records = self._ahp_df.to_dict(orient="records")
+    def get_ahp_weights(self, state_id: Optional[str] = "andhra_pradesh") -> AHPWeightsResponse:
+        data = self._load_data(state_id)
+        records = data["ahp_df"].to_dict(orient="records") if data["ahp_df"] is not None else []
         items = [AHPWeightItem(**row) for row in records]
 
-        # Saaty 1-9 Pairwise Matrix
         matrix = [
             [1.0, 2.0, 2.0, 3.0],
             [0.5, 1.0, 1.0, 2.0],
@@ -156,13 +180,15 @@ class RelocationService:
         self,
         district_id: Optional[str] = None,
         priority_category: Optional[str] = None,
+        state_id: Optional[str] = "andhra_pradesh"
     ) -> RelocationFactorContributionsResponse:
-        self._load_data()
-        df = self._factors_df.copy()
+        data = self._load_data(state_id)
+        df = data["factors_df"].copy() if data["factors_df"] is not None else pd.DataFrame()
+
+        if "current_district_id" not in df.columns:
+            df = df.merge(data["reloc_df"][['mandal_id', 'current_district_id']], on='mandal_id', how='left')
 
         if district_id:
-            # Merge district_id from reloc_df
-            df = df.merge(self._reloc_df[['mandal_id', 'current_district_id']], on='mandal_id', how='left')
             df = df[df["current_district_id"] == district_id.strip().lower()]
         if priority_category:
             df = df[df["relocation_priority_category"].str.upper() == priority_category.strip().upper()]
@@ -171,20 +197,21 @@ class RelocationService:
         items = [RelocationFactorItem(**row) for row in records]
         return RelocationFactorContributionsResponse(total_mandals=len(items), items=items)
 
-    def get_geojson(self, district_id: Optional[str] = None) -> Dict[str, Any]:
-        if self._reloc_geojson is None:
-            geojson_path = settings.DATA_DIR / "processed" / "relocation" / "ap_mandal_relocation_priority.geojson"
+    def get_geojson(self, district_id: Optional[str] = None, state_id: Optional[str] = "andhra_pradesh") -> Dict[str, Any]:
+        data = self._load_data(state_id)
+        if data["geojson"] is None:
+            geojson_path = data["geojson_path"]
             if not geojson_path.exists():
                 raise FileNotFoundError(f"Relocation GeoJSON not found at {geojson_path}")
             with open(geojson_path, "r", encoding="utf-8") as f:
-                self._reloc_geojson = json.load(f)
+                data["geojson"] = json.load(f)
 
         if not district_id:
-            return self._reloc_geojson
+            return data["geojson"]
 
         target_did = district_id.strip().lower()
         filtered = [
-            feat for feat in self._reloc_geojson.get("features", [])
+            feat for feat in data["geojson"].get("features", [])
             if str(feat.get("properties", {}).get("current_district_id", "")).lower() == target_did
         ]
         return {
@@ -192,14 +219,23 @@ class RelocationService:
             "features": filtered
         }
 
-    def get_host_zones_for_mandal(self, mandal_id: str) -> HostZoneCandidateListResponse:
-        self._load_data()
+    def get_host_zones_for_mandal(self, mandal_id: str, state_id: Optional[str] = "andhra_pradesh") -> HostZoneCandidateListResponse:
         target = mandal_id.strip().upper()
+        detected_state = "tamil_nadu" if target.startswith("TN_") else state_id
+        data = self._load_data(detected_state)
+        host_df = data["host_df"]
 
-        match = self._host_candidates_df[
-            (self._host_candidates_df["source_mandal_id"] == target) |
-            (self._host_candidates_df["source_mandal_name"].str.upper() == target)
+        match = host_df[
+            (host_df["source_mandal_id"] == target) |
+            (host_df["source_mandal_name"].str.upper() == target)
         ]
+
+        if match.empty and detected_state != "tamil_nadu":
+            tn_data = self._load_data("tamil_nadu")
+            match = tn_data["host_df"][
+                (tn_data["host_df"]["source_mandal_id"] == target) |
+                (tn_data["host_df"]["source_mandal_name"].str.upper() == target)
+            ]
 
         records = match.replace({np.nan: None}).to_dict(orient="records")
         items = [HostZoneCandidateItem(**row) for row in records]
@@ -210,6 +246,5 @@ class RelocationService:
             candidates=items,
             governance_disclaimer="CANDIDATE HOST ZONE — HUMAN REVIEW REQUIRED. Distances computed in EPSG:7755 (India Albers Equal Area). Screened candidate zones satisfy low hazard, low vulnerability, and safe headroom criteria. This information provides decision support for district planning authorities and is NOT an automated relocation order."
         )
-
 
 relocation_service = RelocationService()

@@ -4,41 +4,67 @@ import { Sidebar } from './components/layout/Sidebar';
 import { GISPage } from './pages/GISPage';
 import { DashboardPage } from './pages/DashboardPage';
 import { DataMethodologyPage } from './pages/DataMethodologyPage';
+import { RelocationPlanningPage } from './pages/RelocationPlanningPage';
+import { HazardRiskPage } from './pages/HazardRiskPage';
+import { CommunityVulnerabilityPage } from './pages/CommunityVulnerabilityPage';
+import { EmergencyCapacityPage } from './pages/EmergencyCapacityPage';
+import { CandidateLocationsPage } from './pages/CandidateLocationsPage';
+import { SimulationPage } from './pages/SimulationPage';
+import { ActionPlanPage } from './pages/ActionPlanPage';
+import { PriorityDirectoryPage } from './pages/PriorityDirectoryPage';
 import { LandingScreen } from './pages/LandingScreen';
 import { StateSelectionScreen } from './pages/StateSelectionScreen';
 import { CitizenPage } from './pages/CitizenPage';
+import { StateProvider, useActiveState } from './context/StateContext';
+import { setActiveStateId } from './services/api';
 import type { ActiveTab } from './types';
+import type { MandalProperties } from './types/gis';
 
 export type PortalRole = 
   | 'landing' 
   | 'government_state_selection' 
-  | 'government_ap' 
+  | 'government_portal' 
   | 'citizen';
 
-export function App() {
+function AppContent() {
+  const { currentState, stateId, setStateId, selectStateByName } = useActiveState();
   const [activeTab, setActiveTab] = useState<ActiveTab>('gis');
-  const [selectedState, setSelectedState] = useState<string>('Andhra Pradesh');
+  const [selectedMandalForGIS, setSelectedMandalForGIS] = useState<MandalProperties | null>(null);
   
   // Determine initial portal view from URL hash
   const getInitialPortal = (): PortalRole => {
     if (typeof window === 'undefined') return 'landing';
     const hash = window.location.hash.toLowerCase();
     if (hash === '#government/select-state' || hash === '#government/states') return 'government_state_selection';
-    if (hash === '#government/ap' || hash === '#government/andhra-pradesh' || hash === '#government') return 'government_ap';
+    if (
+      hash.startsWith('#government/ap') || 
+      hash.startsWith('#government/tn') || 
+      hash.startsWith('#government/andhra') || 
+      hash.startsWith('#government/tamil') || 
+      hash === '#government'
+    ) {
+      return 'government_portal';
+    }
     if (hash === '#citizen' || hash.startsWith('#citizen/')) return 'citizen';
     return 'landing';
   };
 
   const [portalRole, setPortalRole] = useState<PortalRole>(getInitialPortal);
 
-  // Sync state with hash change
+  // Sync state and role with hash changes
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.toLowerCase();
       if (hash === '#government/select-state' || hash === '#government/states') {
         setPortalRole('government_state_selection');
-      } else if (hash === '#government/ap' || hash === '#government/andhra-pradesh' || hash === '#government') {
-        setPortalRole('government_ap');
+      } else if (hash.includes('/tn') || hash.includes('/tamil')) {
+        setPortalRole('government_portal');
+        setStateId('tamil_nadu');
+        setActiveStateId('tamil_nadu');
+      } else if (hash.includes('/ap') || hash.includes('/andhra') || hash === '#government') {
+        setPortalRole('government_portal');
+        setStateId('andhra_pradesh');
+        setActiveStateId('andhra_pradesh');
       } else if (hash === '#citizen' || hash.startsWith('#citizen/')) {
         setPortalRole('citizen');
       } else {
@@ -48,7 +74,12 @@ export function App() {
 
     window.addEventListener('hashchange', handleHashChange);
     return () => window.removeEventListener('hashchange', handleHashChange);
-  }, []);
+  }, [setStateId]);
+
+  // Keep API module-level state aligned with active stateId
+  useEffect(() => {
+    setActiveStateId(stateId);
+  }, [stateId]);
 
   // From Landing: Government -> State Selection, Citizen -> Citizen Portal
   const handleSelectRoleFromLanding = (role: 'government' | 'citizen') => {
@@ -63,9 +94,13 @@ export function App() {
 
   // From State Selection: Choose state
   const handleSelectState = (stateName: string) => {
-    setSelectedState(stateName);
-    setPortalRole('government_ap');
-    window.location.hash = '#government/ap';
+    const isTN = stateName.toLowerCase().includes('tamil');
+    const targetStateId = isTN ? 'tamil_nadu' : 'andhra_pradesh';
+    selectStateByName(stateName);
+    setActiveStateId(targetStateId);
+    setSelectedMandalForGIS(null);
+    setPortalRole('government_portal');
+    window.location.hash = isTN ? '#government/tn' : '#government/ap';
   };
 
   const handleNavigateToStateSelection = () => {
@@ -103,57 +138,64 @@ export function App() {
     );
   }
 
-  // Government Decision-Support Dashboard (Andhra Pradesh Active Implementation)
+  // Government Decision-Support Dashboard (Active State Implementation: AP or TN)
   const renderContent = () => {
     switch (activeTab) {
       case 'gis':
-        return <GISPage key="gis" initialMetric="topsis_score" />;
+        return (
+          <GISPage 
+            key={`gis-${stateId}`} 
+            initialMetric="topsis_score" 
+            initialSelectedMandal={selectedMandalForGIS} 
+            onNavigateToTab={setActiveTab} 
+          />
+        );
+      case 'priority_directory':
+        return (
+          <PriorityDirectoryPage 
+            key={`priority-${stateId}`}
+            onSelectMandalOnMap={(m) => {
+              setSelectedMandalForGIS(m);
+              setActiveTab('gis');
+            }} 
+          />
+        );
       case 'hazard':
-        return <GISPage key="hazard" initialMetric="hazard_exposure" />;
+        return <HazardRiskPage key={`hazard-${stateId}`} onSelectMandalOnMap={() => setActiveTab('gis')} />;
       case 'vulnerability':
-        return <GISPage key="vulnerability" initialMetric="demographic_sensitivity" />;
+        return <CommunityVulnerabilityPage key={`vuln-${stateId}`} onSelectMandalOnMap={() => setActiveTab('gis')} />;
       case 'capacity':
-        return <GISPage key="capacity" initialMetric="shelter_capacity" />;
+        return <EmergencyCapacityPage key={`cap-${stateId}`} onSelectMandalOnMap={() => setActiveTab('gis')} />;
       case 'relocation':
-        return <GISPage key="relocation" initialMetric="topsis_score" />;
+        return <RelocationPlanningPage key={`reloc-${stateId}`} onSelectMandalOnMap={() => setActiveTab('gis')} />;
       case 'hosts':
-        return <GISPage key="hosts" initialMetric="safe_area_fraction" />;
+        return <CandidateLocationsPage key={`hosts-${stateId}`} />;
       case 'simulation':
-        return <GISPage key="simulation" initialMetric="scenario_topsis_score" initialOpenSimulation={true} />;
+        return <SimulationPage key={`sim-${stateId}`} />;
       case 'actions':
-        return <GISPage key="actions" initialMetric="topsis_score" />;
+        return <ActionPlanPage key={`actions-${stateId}`} />;
       case 'dashboard':
-        return (
-          <div className="flex-1 overflow-y-auto p-4 lg:p-8 custom-scrollbar">
-            <div className="max-w-7xl mx-auto">
-              <DashboardPage onNavigateToGIS={() => setActiveTab('gis')} />
-            </div>
-          </div>
-        );
+        return <DashboardPage key={`dash-${stateId}`} onNavigateToGIS={() => setActiveTab('gis')} />;
       case 'data':
+        return <DataMethodologyPage key={`data-${stateId}`} initialTab="sources" onLaunchGIS={() => setActiveTab('gis')} />;
       case 'methodology':
-        return (
-          <div className="flex-1 overflow-y-auto p-4 lg:p-8 custom-scrollbar">
-            <div className="max-w-7xl mx-auto">
-              <DataMethodologyPage onLaunchGIS={() => setActiveTab('gis')} />
-            </div>
-          </div>
-        );
+        return <DataMethodologyPage key={`method-${stateId}`} initialTab="methodology" onLaunchGIS={() => setActiveTab('gis')} />;
       default:
-        return <GISPage key="gis" initialMetric="topsis_score" />;
+        return <GISPage key={`gis-${stateId}`} initialMetric="topsis_score" onNavigateToTab={setActiveTab} />;
     }
   };
 
   return (
-    <div className="h-screen w-screen overflow-hidden bg-slate-950 flex flex-col font-sans select-none">
+    <div className="h-screen w-screen overflow-hidden bg-[#f8fafc] text-slate-900 flex flex-col font-sans select-none">
       <Header 
-        pilotState={selectedState} 
+        pilotState={currentState.name} 
         onBackToLanding={handleReturnToLanding}
         onNavigateToStateSelection={handleNavigateToStateSelection}
+        onSelectState={handleSelectState}
       />
       <div className="flex-1 flex overflow-hidden">
         <Sidebar activeTab={activeTab} onSelectTab={setActiveTab} />
-        <main className="flex-1 flex flex-col overflow-hidden bg-slate-950/60">
+        <main key={stateId} className="flex-1 flex flex-col overflow-hidden p-2 sm:p-2.5 gap-2.5 bg-[#f4f6fa]">
           {renderContent()}
         </main>
       </div>
@@ -161,5 +203,12 @@ export function App() {
   );
 }
 
-export default App;
+export function App() {
+  return (
+    <StateProvider>
+      <AppContent />
+    </StateProvider>
+  );
+}
 
+export default App;

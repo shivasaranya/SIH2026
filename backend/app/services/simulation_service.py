@@ -52,38 +52,57 @@ PRESETS = [
 ]
 
 
+def is_tn(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["tamil_nadu", "tn", "tamilnadu"]
+
 class SimulationService:
     def __init__(self):
-        self._master_df: Optional[pd.DataFrame] = None
-        self._norm_denom_base: Optional[np.ndarray] = None
-        self._a_plus_base: Optional[np.ndarray] = None
-        self._a_minus_base: Optional[np.ndarray] = None
+        self._cache: Dict[str, Dict[str, Any]] = {}
 
-    def _load_data(self):
-        if self._master_df is not None:
-            return
+    def _get_state_key(self, state_id: Optional[str]) -> str:
+        return "tn" if is_tn(state_id) else "ap"
 
-        master_csv = settings.DATA_DIR / "processed" / "relocation" / "mandal_relocation_priority.csv"
+    def _load_data(self, state_id: Optional[str] = "andhra_pradesh"):
+        key = self._get_state_key(state_id)
+        if key in self._cache:
+            return self._cache[key]
+
+        reloc_dir = settings.DATA_DIR / "processed" / "relocation"
+        master_csv = reloc_dir / ("tn_taluk_relocation_priority.csv" if key == "tn" else "mandal_relocation_priority.csv")
         if not master_csv.exists():
             raise FileNotFoundError(f"Relocation priority dataset not found at {master_csv}")
-        self._master_df = pd.read_csv(master_csv)
+        master_df = pd.read_csv(master_csv)
 
-        # Precompute baseline reference normalizers and ideal boundaries
-        valid_df = self._master_df[self._master_df["ranking_status"] != "INSUFFICIENT_DATA"]
+        valid_df = master_df[master_df["ranking_status"] != "INSUFFICIENT_DATA"]
         X_base = valid_df[['c1_hazard_exposure', 'c2_demographic_sensitivity', 'c3_capacity_stress', 'c4_accessibility_constraint']].values
-        self._norm_denom_base = np.sqrt(np.sum(X_base ** 2, axis=0))
-        self._norm_denom_base = np.where(self._norm_denom_base == 0, 1.0, self._norm_denom_base)
+        norm_denom_base = np.sqrt(np.sum(X_base ** 2, axis=0))
+        norm_denom_base = np.where(norm_denom_base == 0, 1.0, norm_denom_base)
 
-        V_base = (X_base / self._norm_denom_base) * AHP_WEIGHTS
-        self._a_plus_base = np.max(V_base, axis=0)
-        self._a_minus_base = np.min(V_base, axis=0)
+        V_base = (X_base / norm_denom_base) * AHP_WEIGHTS
+        a_plus_base = np.max(V_base, axis=0)
+        a_minus_base = np.min(V_base, axis=0)
+
+        data = {
+            "master_df": master_df,
+            "norm_denom_base": norm_denom_base,
+            "a_plus_base": a_plus_base,
+            "a_minus_base": a_minus_base
+        }
+        self._cache[key] = data
+        return data
 
     def get_presets(self) -> SimulationPresetsResponse:
         return SimulationPresetsResponse(presets=PRESETS)
 
-    def run_simulation(self, params: SimulationParameters) -> SimulationRunResponse:
-        self._load_data()
-        df = self._master_df.copy()
+    def run_simulation(self, params: SimulationParameters, state_id: Optional[str] = "andhra_pradesh") -> SimulationRunResponse:
+        state_data = self._load_data(state_id)
+        df = state_data["master_df"].copy()
+        norm_denom_base = state_data["norm_denom_base"]
+        a_plus_base = state_data["a_plus_base"]
+        a_minus_base = state_data["a_minus_base"]
 
         pop_mask = df["ranking_status"] != "INSUFFICIENT_DATA"
         df_valid = df[pop_mask].copy()
@@ -110,11 +129,11 @@ class SimulationService:
         X_scen = np.column_stack([h_scen, d_scen, c_scen, e_scen])
 
         # Normalize relative to baseline reference scale to allow true comparative sensitivity
-        R_scen = X_scen / self._norm_denom_base
+        R_scen = X_scen / norm_denom_base
         V_scen = R_scen * AHP_WEIGHTS
 
-        D_plus = np.sqrt(np.sum((V_scen - self._a_plus_base) ** 2, axis=1))
-        D_minus = np.sqrt(np.sum((V_scen - self._a_minus_base) ** 2, axis=1))
+        D_plus = np.sqrt(np.sum((V_scen - a_plus_base) ** 2, axis=1))
+        D_minus = np.sqrt(np.sum((V_scen - a_minus_base) ** 2, axis=1))
 
         total_dist = D_plus + D_minus
         CC_scen = np.where(total_dist > 0, D_minus / total_dist, 0.0)
@@ -417,12 +436,18 @@ class SimulationService:
             governance_disclaimer="SCENARIO SIMULATION — NOT A DISASTER FORECAST. All outputs represent deterministic mathematical sensitivity recalculations (AHP+TOPSIS) over precomputed baseline indicators. Results serve strictly as decision support for disaster management authorities and do not constitute government relocation orders or emergency evacuation directives."
         )
 
-    def get_mandal_simulation(self, mandal_id: str, params: SimulationParameters) -> Optional[MandalSimulationComparisonItem]:
-        run_res = self.run_simulation(params)
+    def get_mandal_simulation(self, mandal_id: str, params: SimulationParameters, state_id: Optional[str] = "andhra_pradesh") -> Optional[MandalSimulationComparisonItem]:
         target = mandal_id.strip().upper()
+        detected_state = "tamil_nadu" if target.startswith("TN_") else state_id
+        run_res = self.run_simulation(params, state_id=detected_state)
         for item in run_res.mandals:
             if item.mandal_id.upper() == target or item.mandal_name.upper() == target:
                 return item
+        if detected_state != "tamil_nadu":
+            run_res_tn = self.run_simulation(params, state_id="tamil_nadu")
+            for item in run_res_tn.mandals:
+                if item.mandal_id.upper() == target or item.mandal_name.upper() == target:
+                    return item
         return None
 
 

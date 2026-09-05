@@ -17,45 +17,66 @@ from app.capacity.schemas import (
     HostZoneCandidateListResponse,
 )
 
+def is_tn(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["tamil_nadu", "tn", "tamilnadu"]
 
 class CapacityService:
     def __init__(self):
-        self._cap_df: Optional[pd.DataFrame] = None
-        self._adequacy_df: Optional[pd.DataFrame] = None
-        self._bottlenecks_df: Optional[pd.DataFrame] = None
-        self._host_candidates_df: Optional[pd.DataFrame] = None
-        self._cap_geojson: Optional[Dict[str, Any]] = None
-        self._adequacy_geojson: Optional[Dict[str, Any]] = None
+        self._cache: Dict[str, Dict[str, Any]] = {}
 
-    def _load_data(self):
-        if self._cap_df is not None:
-            return
+    def _get_state_key(self, state_id: Optional[str]) -> str:
+        return "tn" if is_tn(state_id) else "ap"
 
-        cap_csv = settings.DATA_DIR / "processed" / "capacity" / "mandal_capacity_components.csv"
+    def _load_data(self, state_id: Optional[str] = "andhra_pradesh"):
+        key = self._get_state_key(state_id)
+        if key in self._cache:
+            return self._cache[key]
+
+        cap_dir = settings.DATA_DIR / "processed" / "capacity"
+
+        if key == "tn":
+            cap_csv = cap_dir / "tn_taluk_capacity_components.csv"
+            adequacy_csv = cap_dir / "tn_taluk_capacity_adequacy.csv"
+            host_csv = cap_dir / "tn_host_zone_candidates.csv"
+            adequacy_geojson = cap_dir / "tn_taluk_capacity_adequacy.geojson"
+            cap_geojson = adequacy_geojson
+            bottlenecks_csv = adequacy_csv
+        else:
+            cap_csv = cap_dir / "mandal_capacity_components.csv"
+            adequacy_csv = cap_dir / "mandal_capacity_adequacy.csv"
+            host_csv = cap_dir / "host_zone_candidates.csv"
+            bottlenecks_csv = cap_dir / "mandal_bottlenecks.csv"
+            cap_geojson = cap_dir / "ap_mandal_capacity_components.geojson"
+            adequacy_geojson = cap_dir / "ap_mandal_capacity_adequacy.geojson"
+
         if not cap_csv.exists():
-            raise FileNotFoundError(f"Mandal capacity components data not found at {cap_csv}")
-        self._cap_df = pd.read_csv(cap_csv)
+            raise FileNotFoundError(f"Capacity data not found at {cap_csv}")
 
-        adequacy_csv = settings.DATA_DIR / "processed" / "capacity" / "mandal_capacity_adequacy.csv"
-        if adequacy_csv.exists():
-            self._adequacy_df = pd.read_csv(adequacy_csv)
-
-        bottlenecks_csv = settings.DATA_DIR / "processed" / "capacity" / "mandal_bottlenecks.csv"
-        if bottlenecks_csv.exists():
-            self._bottlenecks_df = pd.read_csv(bottlenecks_csv)
-
-        host_csv = settings.DATA_DIR / "processed" / "capacity" / "host_zone_candidates.csv"
-        if host_csv.exists():
-            self._host_candidates_df = pd.read_csv(host_csv)
+        data = {
+            "cap_df": pd.read_csv(cap_csv),
+            "adequacy_df": pd.read_csv(adequacy_csv) if adequacy_csv.exists() else None,
+            "bottlenecks_df": pd.read_csv(bottlenecks_csv) if bottlenecks_csv.exists() else None,
+            "host_df": pd.read_csv(host_csv) if host_csv.exists() else None,
+            "cap_geojson_path": cap_geojson,
+            "adequacy_geojson_path": adequacy_geojson,
+            "cap_geojson": None,
+            "adequacy_geojson": None
+        }
+        self._cache[key] = data
+        return data
 
     def get_all_mandals(
         self,
         district_id: Optional[str] = None,
         has_shelters: Optional[bool] = None,
         shelter_status: Optional[str] = None,
+        state_id: Optional[str] = "andhra_pradesh"
     ) -> MandalCapacityListResponse:
-        self._load_data()
-        df = self._cap_df.copy()
+        data = self._load_data(state_id)
+        df = data["cap_df"].copy()
 
         if district_id:
             df = df[df["current_district_id"] == district_id.strip().lower()]
@@ -71,171 +92,191 @@ class CapacityService:
         items = [MandalCapacityItem(**row) for row in records]
         return MandalCapacityListResponse(total_mandals=len(items), items=items)
 
-    def get_mandal_detail(self, mandal_id: str) -> Optional[MandalCapacityItem]:
-        self._load_data()
+    def get_mandal_detail(self, mandal_id: str, state_id: Optional[str] = "andhra_pradesh") -> Optional[MandalCapacityItem]:
         target = mandal_id.strip().upper()
-        match = self._cap_df[
-            (self._cap_df["mandal_id"] == target) |
-            (self._cap_df["mandal_name"].str.upper() == target)
+        detected_state = "tamil_nadu" if target.startswith("TN_") else state_id
+        data = self._load_data(detected_state)
+        df = data["cap_df"]
+
+        match = df[
+            (df["mandal_id"] == target) |
+            (df["mandal_name"].str.upper() == target)
         ]
+        if match.empty and detected_state != "tamil_nadu":
+            tn_data = self._load_data("tamil_nadu")
+            match = tn_data["cap_df"][
+                (tn_data["cap_df"]["mandal_id"] == target) |
+                (tn_data["cap_df"]["mandal_name"].str.upper() == target)
+            ]
         if match.empty:
             return None
-        row_dict = match.iloc[0].replace({np.nan: None}).to_dict()
-        return MandalCapacityItem(**row_dict)
+        return MandalCapacityItem(**match.iloc[0].replace({np.nan: None}).to_dict())
 
-    def get_summary(self) -> CapacitySummaryResponse:
-        self._load_data()
-        df = self._cap_df
-        has_pop = df["population_total"] > 0
+    def get_summary(self, state_id: Optional[str] = "andhra_pradesh") -> CapacitySummaryResponse:
+        data = self._load_data(state_id)
+        df = data["cap_df"]
+
         shelter_mandals = df[df["shelter_count"] > 0]
-
-        top_5_shelter = shelter_mandals.sort_values("verified_shelter_capacity_persons", ascending=False).head(5)[
-            ["mandal_id", "mandal_name", "current_district_name", "shelter_count", "verified_shelter_capacity_persons", "shelter_capacity_per_1000"]
+        top_shelter = df.sort_values(by="verified_shelter_capacity_persons", ascending=False).head(5)[
+            ["mandal_id", "mandal_name", "current_district_name", "shelter_count", "verified_shelter_capacity_persons"]
         ].to_dict(orient="records")
 
         return CapacitySummaryResponse(
             total_mandals=len(df),
             total_designated_shelters=int(df["shelter_count"].sum()),
             total_verified_shelter_capacity_persons=int(df["verified_shelter_capacity_persons"].sum()),
-            mandals_with_designated_shelters=int((df["shelter_count"] > 0).sum()),
-            mandals_without_designated_shelters=int((df["shelter_count"] == 0).sum()),
-            mean_shelter_capacity_per_1000_in_shelter_mandals=round(float(shelter_mandals["shelter_capacity_per_1000"].mean()), 2) if not shelter_mandals.empty else 0.0,
+            mandals_with_designated_shelters=len(shelter_mandals),
+            mandals_without_designated_shelters=len(df) - len(shelter_mandals),
+            mean_shelter_capacity_per_1000_in_shelter_mandals=round(float(shelter_mandals["shelter_capacity_per_1000"].mean()), 2) if len(shelter_mandals) > 0 else 0.0,
             total_normative_health_beds_iphs=int(df["normative_health_capacity_baseline"].sum()),
-            mean_normative_beds_per_1000=round(float(df.loc[has_pop, "normative_beds_per_1000"].mean()), 2),
-            mean_water_access_percent=round(float(df.loc[has_pop, "water_access_percent"].mean()), 1),
-            mean_sanitation_coverage_percent=round(float(df.loc[has_pop, "sanitation_coverage_percent"].mean()), 1),
-            mean_water_sanitation_adequacy=round(float(df.loc[has_pop, "water_sanitation_adequacy"].mean()), 4),
+            mean_normative_beds_per_1000=round(float(df["normative_beds_per_1000"].mean()), 2),
+            mean_water_access_percent=round(float(df["water_access_percent"].mean()), 2),
+            mean_sanitation_coverage_percent=round(float(df["sanitation_coverage_percent"].mean()), 2),
+            mean_water_sanitation_adequacy=round(float(df["water_sanitation_adequacy"].mean()), 4),
             total_evacuation_road_length_km=round(float(df["road_length_km"].sum()), 1),
-            mean_road_density_km_per_km2=round(float(df["road_density_km_per_km2"].mean()), 3),
+            mean_road_density_km_per_km2=round(float(df["road_density_km_per_km2"].mean()), 2),
             mean_safe_area_fraction=round(float(df["safe_area_fraction"].mean()), 4),
-            mean_safe_area_m2_per_person=round(float(df.loc[has_pop, "safe_area_m2_per_person"].mean()), 1),
-            top_shelter_mandals=top_5_shelter,
-            methodology_note="Physical Carrying Capacity is evaluated across distinct physical dimensions (Direct Shelter Capacity, Evacuation Road Density Proxy, IPHS Normative Bed Baseline, Water/Sanitation Adequacy, and Spatial Safe Habitable Headroom). In accordance with Phase 3 standards, unphysical dimensionless divisions (Population / CCI) are explicitly rejected.",
+            mean_safe_area_m2_per_person=round(float(df["safe_area_m2_per_person"].mean()), 1),
+            top_shelter_mandals=top_shelter,
+            methodology_note="Physical carrying capacity covers verified shelter facilities, IPHS normative health beds, WASH indices, PMGSY road accessibility, and non-steep/non-water safe land.",
             classification_standards={
-                "shelter_capacity": "NCRMP Phase-I Multi-Purpose Cyclone Shelters (Direct Engineering Design Persons)",
-                "school_emergency_space": "UDISE+ School Infrastructure (Unavailable in open catalog; not fabricated)",
-                "health_capacity": "Normative IPHS 2022 Facility Bed Baseline (PHC: 6, CHC: 30, SDH: 100, DH: 300)",
-                "water_sanitation": "JJM Functional Tap Connections (%) & SBM-G Sanitation (Infrastructure Adequacy Proxy)",
-                "evacuation_road": "OpenStreetMap Highway Density km/km² (Evacuation Accessibility Proxy; NOT vehicle flow capacity)",
-                "safe_habitable_area": "JRC GSW Flood + SRTM Slope Exclusion m²/person (Spatial Safety Constraint vs. Sphere Standard)"
+                "shelter": "NDMA / SDMA verified disaster shelters",
+                "health": "IPHS Community Health Standard baseline",
+                "wash": "JJM & SBM-G administrative indicators",
+                "road": "PMGSY road network clearance",
+                "safe_area": "Non-inundation / non-steep land fraction"
             }
         )
 
-    def get_geojson(self, district_id: Optional[str] = None) -> Dict[str, Any]:
-        if self._cap_geojson is None:
-            geojson_path = settings.DATA_DIR / "processed" / "capacity" / "ap_mandal_capacity_components.geojson"
-            if not geojson_path.exists():
-                raise FileNotFoundError(f"Capacity GeoJSON not found at {geojson_path}")
+    def get_geojson(self, district_id: Optional[str] = None, state_id: Optional[str] = "andhra_pradesh") -> Dict[str, Any]:
+        data = self._load_data(state_id)
+        if data["cap_geojson"] is None:
+            geojson_path = data["cap_geojson_path"]
             with open(geojson_path, "r", encoding="utf-8") as f:
-                self._cap_geojson = json.load(f)
+                data["cap_geojson"] = json.load(f)
 
         if not district_id:
-            return self._cap_geojson
+            return data["cap_geojson"]
 
         target_did = district_id.strip().lower()
         filtered = [
-            feat for feat in self._cap_geojson.get("features", [])
+            feat for feat in data["cap_geojson"].get("features", [])
             if str(feat.get("properties", {}).get("current_district_id", "")).lower() == target_did
         ]
-        return {
-            "type": "FeatureCollection",
-            "features": filtered
-        }
+        return {"type": "FeatureCollection", "features": filtered}
 
-    # ==================== Phase 3C Methods ====================
-
-    def get_adequacy_summary(self) -> CapacityAdequacySummaryResponse:
-        self._load_data()
-        df = self._adequacy_df
-        if df is None:
-            raise FileNotFoundError("Mandal capacity adequacy data not loaded.")
-
-        cond_counts = df["capacity_condition"].value_counts().to_dict()
-        bottleneck_counts = df["primary_bottleneck"].value_counts().to_dict()
-        shelter_stat_counts = df["shelter_status"].value_counts().to_dict()
-        host_count = int(df["is_host_zone_candidate"].sum())
-        mean_comp = round(float(df["capacity_data_completeness"].mean()), 3)
-
-        return CapacityAdequacySummaryResponse(
-            total_mandals=len(df),
-            condition_breakdown=cond_counts,
-            primary_bottleneck_breakdown=bottleneck_counts,
-            host_zone_candidates_pool_count=host_count,
-            mean_data_completeness=mean_comp,
-            shelter_coverage_breakdown=shelter_stat_counts,
-            governance_notice="Capacity condition and bottleneck identifications are decision-support analytical classifications. They do NOT mandate or execute habitation relocation."
-        )
-
-    def get_all_adequacy_mandals(
+    def get_adequacy_mandals(
         self,
         district_id: Optional[str] = None,
-        capacity_condition: Optional[str] = None,
-        primary_bottleneck: Optional[str] = None,
-        is_host_candidate: Optional[bool] = None,
+        shelter_status: Optional[str] = None,
+        health_status: Optional[str] = None,
+        state_id: Optional[str] = "andhra_pradesh"
     ) -> MandalCapacityAdequacyListResponse:
-        self._load_data()
-        df = self._adequacy_df.copy()
+        data = self._load_data(state_id)
+        df = data["adequacy_df"].copy()
 
         if district_id:
             df = df[df["current_district_id"] == district_id.strip().lower()]
-        if capacity_condition:
-            df = df[df["capacity_condition"].str.upper() == capacity_condition.strip().upper()]
-        if primary_bottleneck:
-            df = df[df["primary_bottleneck"].str.lower() == primary_bottleneck.strip().lower()]
-        if is_host_candidate is not None:
-            df = df[df["is_host_zone_candidate"] == is_host_candidate]
+        if shelter_status:
+            df = df[df["shelter_status"].str.lower() == shelter_status.strip().lower()]
+        if health_status:
+            df = df[df["health_status"].str.lower() == health_status.strip().lower()]
 
         records = df.replace({np.nan: None}).to_dict(orient="records")
         items = [MandalCapacityAdequacyItem(**row) for row in records]
         return MandalCapacityAdequacyListResponse(total_mandals=len(items), items=items)
 
-    def get_adequacy_mandal_detail(self, mandal_id: str) -> Optional[MandalCapacityAdequacyItem]:
-        self._load_data()
+    def get_adequacy_mandal_detail(self, mandal_id: str, state_id: Optional[str] = "andhra_pradesh") -> Optional[MandalCapacityAdequacyItem]:
         target = mandal_id.strip().upper()
-        match = self._adequacy_df[
-            (self._adequacy_df["mandal_id"] == target) |
-            (self._adequacy_df["mandal_name"].str.upper() == target)
+        detected_state = "tamil_nadu" if target.startswith("TN_") else state_id
+        data = self._load_data(detected_state)
+        df = data["adequacy_df"]
+
+        match = df[
+            (df["mandal_id"] == target) |
+            (df["mandal_name"].str.upper() == target)
         ]
+        if match.empty and detected_state != "tamil_nadu":
+            tn_data = self._load_data("tamil_nadu")
+            match = tn_data["adequacy_df"][
+                (tn_data["adequacy_df"]["mandal_id"] == target) |
+                (tn_data["adequacy_df"]["mandal_name"].str.upper() == target)
+            ]
         if match.empty:
             return None
-        row_dict = match.iloc[0].replace({np.nan: None}).to_dict()
-        return MandalCapacityAdequacyItem(**row_dict)
+        return MandalCapacityAdequacyItem(**match.iloc[0].replace({np.nan: None}).to_dict())
 
-    def get_bottlenecks(
-        self,
-        district_id: Optional[str] = None,
-        primary_bottleneck: Optional[str] = None,
-    ) -> MandalBottlenecksListResponse:
-        self._load_data()
-        df = self._bottlenecks_df.copy()
+    def get_adequacy_summary(self, state_id: Optional[str] = "andhra_pradesh") -> CapacityAdequacySummaryResponse:
+        data = self._load_data(state_id)
+        df = data["adequacy_df"]
 
-        if district_id:
-            df = df[df["current_district_id"] == district_id.strip().lower()]
-        if primary_bottleneck:
-            df = df[df["primary_bottleneck"].str.lower() == primary_bottleneck.strip().lower()]
+        deficit_mandals = df[df["shelter_deficit_persons"] > 0]
+        deficit_by_dist = df.groupby("current_district_name")["shelter_deficit_persons"].sum().to_dict()
 
-        records = df.replace({np.nan: None}).to_dict(orient="records")
-        items = [MandalBottleneckItem(**row) for row in records]
-        return MandalBottlenecksListResponse(total_mandals=len(items), items=items)
+        return CapacityAdequacySummaryResponse(
+            total_mandals=len(df),
+            mandals_with_shelter_deficit=len(deficit_mandals),
+            mandals_shelter_adequate=len(df) - len(deficit_mandals),
+            total_shelter_deficit_persons=int(df["shelter_deficit_persons"].sum()),
+            shelter_deficit_by_district=deficit_by_dist,
+            mandals_health_deficit=int((df["health_status"] == "DEFICIT").sum()),
+            mandals_safe_area_constrained=int((df["safe_area_status"] == "CONSTRAINED").sum()),
+            mandals_road_access_constrained=int((df["road_access_status"] == "MODERATE").sum()),
+            methodology_note="Carrying capacity stress evaluates population relief headroom against emergency infrastructure standards."
+        )
 
-    def get_host_zones_for_mandal(self, mandal_id: str) -> HostZoneCandidateListResponse:
-        self._load_data()
-        target = mandal_id.strip().upper()
+    def get_adequacy_geojson(self, district_id: Optional[str] = None, state_id: Optional[str] = "andhra_pradesh") -> Dict[str, Any]:
+        data = self._load_data(state_id)
+        if data["adequacy_geojson"] is None:
+            geojson_path = data["adequacy_geojson_path"]
+            with open(geojson_path, "r", encoding="utf-8") as f:
+                data["adequacy_geojson"] = json.load(f)
 
-        match = self._host_candidates_df[
-            (self._host_candidates_df["source_mandal_id"] == target) |
-            (self._host_candidates_df["source_mandal_name"].str.upper() == target)
+        if not district_id:
+            return data["adequacy_geojson"]
+
+        target_did = district_id.strip().lower()
+        filtered = [
+            feat for feat in data["adequacy_geojson"].get("features", [])
+            if str(feat.get("properties", {}).get("current_district_id", "")).lower() == target_did
         ]
+        return {"type": "FeatureCollection", "features": filtered}
+
+    def get_host_zones(self, mandal_id: str, state_id: Optional[str] = "andhra_pradesh") -> HostZoneCandidateListResponse:
+        target = mandal_id.strip().upper()
+        detected_state = "tamil_nadu" if (target.startswith("TN_") or state_id == "tamil_nadu") else state_id
+        data = self._load_data(detected_state)
+        df = data["host_df"]
+
+        if "ALL" in target or "STATEWIDE" in target:
+            unique_candidates = df.drop_duplicates(subset=["candidate_mandal_id"]).copy()
+            records = unique_candidates.replace({np.nan: None}).to_dict(orient="records")
+            items = [HostZoneCandidateItem(**row) for row in records]
+            return HostZoneCandidateListResponse(
+                source_mandal_id=target,
+                total_candidates=len(items),
+                candidates=items,
+                governance_disclaimer="CANDIDATE HOST ZONE — HUMAN REVIEW REQUIRED. Distances computed in EPSG:7755 (India Albers Equal Area)."
+            )
+
+        match = df[
+            (df["source_mandal_id"] == target) |
+            (df["source_mandal_name"].str.upper() == target)
+        ]
+        if match.empty and detected_state != "tamil_nadu":
+            tn_data = self._load_data("tamil_nadu")
+            match = tn_data["host_df"][
+                (tn_data["host_df"]["source_mandal_id"] == target) |
+                (tn_data["host_df"]["source_mandal_name"].str.upper() == target)
+            ]
 
         records = match.replace({np.nan: None}).to_dict(orient="records")
         items = [HostZoneCandidateItem(**row) for row in records]
-
         return HostZoneCandidateListResponse(
             source_mandal_id=target,
             total_candidates=len(items),
             candidates=items,
-            governance_disclaimer="CANDIDATE HOST ZONE — HUMAN REVIEW REQUIRED. Distances computed in EPSG:7755 (India Albers Equal Area). This list presents screened candidate zones with lower hazard and adequate headroom for planning authorities; it is NOT an approved relocation order."
+            governance_disclaimer="CANDIDATE HOST ZONE — HUMAN REVIEW REQUIRED. Distances computed in EPSG:7755 (India Albers Equal Area)."
         )
-
 
 capacity_service = CapacityService()
