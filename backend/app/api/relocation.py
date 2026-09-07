@@ -99,3 +99,12 @@ def get_mandal_host_zones(
 ):
     """Returns screened candidate host zones with geodesic distances in EPSG:7755 for planning human review."""
     return relocation_service.get_host_zones_for_mandal(mandal_id, state_id=state_id or "andhra_pradesh")
+
+
+@router.get("/host-zones/{mandal_id}", response_model=HostZoneCandidateListResponse)
+def get_host_zones_direct(
+    mandal_id: str,
+    state_id: Optional[str] = Query("andhra_pradesh", description="State identifier ('andhra_pradesh' or 'tamil_nadu')")
+):
+    """Returns screened candidate host zones with geodesic distances in EPSG:7755."""
+    return relocation_service.get_host_zones_for_mandal(mandal_id, state_id=state_id or "andhra_pradesh")

@@ -172,6 +172,31 @@ export interface HostZoneCandidateItem {
   candidate_safe_area_fraction: number;
   host_candidate_reason: string;
   host_candidate_status: string;
+
+  // AP Relocation Logic Upgrade Attributes
+  candidate_district_id?: string;
+  candidate_district_name?: string;
+  source_district_id?: string;
+  source_district_name?: string;
+  administrative_relation?: 'SAME_MANDAL' | 'ADJACENT_MANDAL' | 'FARTHER_MANDAL' | 'DIFFERENT_DISTRICT' | string;
+  proximity_tier?: number; // 1: Same mandal, 2: Adjacent mandal same district, 3: Farther mandal same district, 4: Different district
+  candidate_shelter_capacity_persons?: number;
+  candidate_shelter_count?: number;
+  candidate_beds_per_1000?: number;
+  candidate_health_adequacy?: number;
+  candidate_water_access_pct?: number;
+  candidate_sanitation_coverage_pct?: number;
+  candidate_safe_area_m2_per_person?: number;
+  candidate_road_access_status?: string;
+  relocation_suitability_score?: number;
+  relocation_suitability_rank?: number;
+  suitability_tier?: 'RECOMMENDED' | 'ALTERNATIVE' | 'FALLBACK' | 'REJECTED' | 'INSUFFICIENT-DATA' | string;
+  is_safe?: boolean | null;
+  is_capacity_adequate?: boolean | null;
+  is_accessible?: boolean | null;
+  rejection_reason?: string;
+  recommendation_reason?: string;
+  recommendation_explanation?: string;
 }
 
 export interface HostZoneCandidateListResponse {
@@ -179,4 +204,15 @@ export interface HostZoneCandidateListResponse {
   total_candidates: number;
   candidates: HostZoneCandidateItem[];
   governance_disclaimer: string;
+
+  // Contextual Origin & AP Logic Metadata
+  source_mandal_name?: string;
+  source_district_id?: string;
+  source_district_name?: string;
+  source_hazard_exposure?: number;
+  source_capacity_condition?: string;
+  source_population?: number;
+  recommended_candidates?: HostZoneCandidateItem[];
+  rejected_candidates?: HostZoneCandidateItem[];
+  soft_preference_notice?: string;
 }

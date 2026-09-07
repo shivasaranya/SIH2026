@@ -2,13 +2,16 @@ import React, { useState, useEffect } from 'react';
 import type { MandalProperties } from '../../types/gis';
 import type { HostZoneCandidateItem } from '../../types/capacity';
 import type { MandalHazardItem } from '../../types/hazard';
-import { fetchHostZones, fetchMandalHazard } from '../../services/api';
+import type { VillageItem } from '../../types/demographics';
+import { fetchHostZones, fetchMandalHazard, fetchMandalVillages, fetchVillageSummary } from '../../services/api';
 import { HostComparisonModal } from './HostComparisonModal';
 import {
   X,
   Activity,
   ArrowRight,
-  ShieldCheck
+  ShieldCheck,
+  Search,
+  Building2
 } from 'lucide-react';
 
 interface MandalDetailPanelProps {
@@ -16,51 +19,107 @@ interface MandalDetailPanelProps {
   onClose: () => void;
   onNavigateToActionPlan?: () => void;
   onNavigateToDirectory?: () => void;
+  onNavigateToVillage?: (villageCode: number) => void;
 }
 
 export const MandalDetailPanel: React.FC<MandalDetailPanelProps> = ({
   mandal,
   onClose,
   onNavigateToActionPlan,
+  onNavigateToVillage,
 }) => {
   const [selectedHostId, setSelectedHostId] = useState<string | null>(null);
   const [hazardDetail, setHazardDetail] = useState<MandalHazardItem | null>(null);
   const [hostCandidates, setHostCandidates] = useState<HostZoneCandidateItem[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
+  // Village Explorer State
+  const [villages, setVillages] = useState<VillageItem[]>([]);
+  const [loadingVillages, setLoadingVillages] = useState<boolean>(false);
+  const [villageSearchQuery, setVillageSearchQuery] = useState<string>('');
+  const [selectedVillage, setSelectedVillage] = useState<VillageItem | null>(null);
+  const [villageError, setVillageError] = useState<string | null>(null);
+  const [villageArea, setVillageArea] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (!selectedVillage) {
+      setVillageArea(null);
+      return;
+    }
+    let active = true;
+    fetchVillageSummary(Number(selectedVillage.village_code))
+      .then((res) => {
+        if (active) setVillageArea(res.village_area_sqkm);
+      })
+      .catch(() => {
+        if (active) setVillageArea(null);
+      });
+    return () => {
+      active = false;
+    };
+  }, [selectedVillage]);
+
   useEffect(() => {
     let isMounted = true;
-    if (mandal?.mandal_id) {
-      const mid = mandal.mandal_id;
+    const mid = mandal?.mandal_id || mandal?.mandal_name || mandal?.DMNAME;
+    const did = mandal?.current_district_id || mandal?.current_district_name || mandal?.DNAME;
+
+    if (mid) {
       setLoading(true);
+      setLoadingVillages(true);
+      setSelectedVillage(null);
+      setVillageSearchQuery('');
+      setVillageError(null);
 
       Promise.allSettled([
         fetchMandalHazard(mid),
         fetchHostZones(mid),
+        fetchMandalVillages(mid, did),
       ])
-        .then(([hazRes, hostRes]) => {
+        .then(([hazRes, hostRes, villRes]) => {
           if (!isMounted) return;
           if (hazRes.status === 'fulfilled') setHazardDetail(hazRes.value);
           if (hostRes.status === 'fulfilled') setHostCandidates(hostRes.value.candidates || []);
+          if (villRes.status === 'fulfilled') {
+            setVillages(villRes.value.villages || []);
+            if (!villRes.value.has_village_data && villRes.value.note) {
+              setVillageError(villRes.value.note);
+            }
+          } else {
+            setVillages([]);
+            setVillageError('Village data unavailable for this mandal.');
+          }
         })
         .finally(() => {
-          if (isMounted) setLoading(false);
+          if (isMounted) {
+            setLoading(false);
+            setLoadingVillages(false);
+          }
         });
     } else {
       setHazardDetail(null);
       setHostCandidates([]);
+      setVillages([]);
+      setSelectedVillage(null);
+      setVillageSearchQuery('');
+      setVillageError(null);
     }
 
     return () => {
       isMounted = false;
     };
-  }, [mandal?.mandal_id]);
+  }, [mandal?.mandal_id, mandal?.mandal_name, mandal?.DMNAME, mandal?.current_district_id, mandal?.current_district_name]);
+
 
   if (!mandal) return null;
 
   const mName = mandal.mandal_name || mandal.DMNAME || 'Mandal';
   const dName = mandal.current_district_name || mandal.DNAME || 'District';
   const popTotal = Number(mandal.population_total ?? 0);
+
+  const filteredVillages = villages.filter(v =>
+    v.village_name.toLowerCase().includes(villageSearchQuery.toLowerCase().trim())
+  );
 
   // Check Insufficient Data Status
   const isInsufficientData =
@@ -365,6 +424,162 @@ export const MandalDetailPanel: React.FC<MandalDetailPanelProps> = ({
               </strong>
             </div>
           </div>
+        </div>
+
+        {/* 5.5 VILLAGE EXPLORER */}
+        <div className="space-y-2.5 pt-2 border-t border-slate-200">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-1.5">
+              <Building2 className="w-3.5 h-3.5 text-indigo-600" />
+              <h3 className="text-[11px] font-bold text-slate-900 uppercase tracking-wider">
+                VILLAGE EXPLORER
+              </h3>
+            </div>
+            <span className="text-[10px] font-semibold text-indigo-700 bg-indigo-50 border border-indigo-200 px-1.5 py-0.5 rounded-md">
+              Census 2011
+            </span>
+          </div>
+
+          <div className="text-[11px] font-bold text-slate-800 uppercase tracking-wide">
+            VILLAGES IN {mName}
+          </div>
+
+          {/* Search Village input */}
+          <div className="relative">
+            <div className="absolute inset-y-0 left-0 pl-2.5 flex items-center pointer-events-none">
+              <Search className="h-3.5 w-3.5 text-slate-400" />
+            </div>
+            <input
+              type="text"
+              placeholder="Search Village..."
+              value={villageSearchQuery}
+              onChange={(e) => setVillageSearchQuery(e.target.value)}
+              className="w-full pl-8 pr-7 py-1.5 text-xs bg-slate-50 border border-slate-200 rounded-lg focus:outline-hidden focus:ring-1.5 focus:ring-indigo-500 focus:bg-white transition text-slate-800 placeholder-slate-400"
+            />
+            {villageSearchQuery && (
+              <button
+                onClick={() => setVillageSearchQuery('')}
+                className="absolute inset-y-0 right-0 pr-2 flex items-center text-slate-400 hover:text-slate-600"
+                title="Clear search"
+              >
+                <X className="h-3.5 w-3.5" />
+              </button>
+            )}
+          </div>
+
+          {/* List Header & Count */}
+          <div className="flex items-center justify-between text-[11px] text-slate-500 px-0.5">
+            <span>
+              {loadingVillages
+                ? 'Loading villages...'
+                : `Villages (${filteredVillages.length}${villageSearchQuery ? ` of ${villages.length}` : ''})`}
+            </span>
+            {selectedVillage && (
+              <button
+                onClick={() => {
+                  setSelectedVillage(null);
+                }}
+                className="text-[10px] text-indigo-600 hover:text-indigo-800 font-semibold underline"
+              >
+                Clear Selection
+              </button>
+            )}
+          </div>
+
+          {/* Scrollable Village List */}
+          <div className="max-h-44 overflow-y-auto space-y-1 pr-1 custom-scrollbar border border-slate-100 rounded-lg p-1 bg-slate-50/50">
+            {loadingVillages ? (
+              <div className="py-4 text-center text-xs text-slate-400 animate-pulse">
+                Loading real Census villages...
+              </div>
+            ) : filteredVillages.length > 0 ? (
+              filteredVillages.map((v) => {
+                const isSelected = selectedVillage?.village_code === v.village_code;
+                return (
+                  <button
+                    key={String(v.village_code)}
+                    onClick={() => {
+                      setSelectedVillage(isSelected ? null : v);
+                    }}
+                    className={`w-full text-left px-2.5 py-1.5 rounded-md text-xs font-medium transition flex items-center justify-between ${
+                      isSelected
+                        ? 'bg-indigo-600 text-white shadow-xs'
+                        : 'hover:bg-slate-100 text-slate-700 bg-white border border-slate-100'
+                    }`}
+                  >
+                    <span className="truncate pr-2">{v.village_name}</span>
+                    <span
+                      className={`text-[10px] font-mono shrink-0 ${
+                        isSelected ? 'text-indigo-100' : 'text-slate-400'
+                      }`}
+                    >
+                      Pop: {v.population_total.toLocaleString()}
+                    </span>
+                  </button>
+                );
+              })
+            ) : (
+              <div className="py-3 text-center text-xs text-slate-500 italic">
+                {villageError || (villages.length === 0 ? 'No village records found' : 'No matching villages found')}
+              </div>
+            )}
+          </div>
+
+          {/* Compact Selected Village Summary & Action Button */}
+          {selectedVillage && (
+            <div className="mt-2.5 p-3 bg-indigo-50/80 border border-indigo-200/90 rounded-xl space-y-2.5 animate-in fade-in duration-150 shadow-2xs">
+              <div className="flex items-start justify-between">
+                <div>
+                  <div className="text-[10px] uppercase font-bold text-indigo-700 tracking-wider">
+                    Selected Village
+                  </div>
+                  <div className="text-xs font-black text-slate-900 uppercase">
+                    {selectedVillage.village_name}
+                  </div>
+                </div>
+                <span className="text-[9px] font-mono bg-white text-indigo-900 border border-indigo-200 px-1.5 py-0.5 rounded font-bold">
+                  Code: {selectedVillage.village_code}
+                </span>
+              </div>
+
+              {/* Compact Metrics */}
+              <div className="grid grid-cols-3 gap-1.5 text-center">
+                <div className="bg-white p-1.5 rounded-lg border border-indigo-100">
+                  <span className="text-[9px] text-slate-500 block font-medium">Population</span>
+                  <span className="text-xs font-black text-slate-900 font-mono">
+                    {selectedVillage.population_total.toLocaleString()}
+                  </span>
+                </div>
+                <div className="bg-white p-1.5 rounded-lg border border-indigo-100">
+                  <span className="text-[9px] text-slate-500 block font-medium">Households</span>
+                  <span className="text-xs font-black text-slate-900 font-mono">
+                    {selectedVillage.households.toLocaleString()}
+                  </span>
+                </div>
+                <div className="bg-white p-1.5 rounded-lg border border-indigo-100">
+                  <span className="text-[9px] text-slate-500 block font-medium">Cadastral Area</span>
+                  <span className="text-xs font-black text-slate-900 font-mono">
+                    {villageArea !== null ? `${villageArea.toFixed(2)} km²` : '...'}
+                  </span>
+                </div>
+              </div>
+
+              {/* Action Button: OPEN VILLAGE ANALYSIS → */}
+              <button
+                onClick={() => {
+                  if (onNavigateToVillage) {
+                    onNavigateToVillage(Number(selectedVillage.village_code));
+                  } else {
+                    window.location.hash = `#government/ap/village/${selectedVillage.village_code}`;
+                  }
+                }}
+                className="w-full py-2 px-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-bold text-xs transition text-center flex items-center justify-center gap-1.5 shadow-xs"
+              >
+                <span>OPEN VILLAGE ANALYSIS</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
+          )}
         </div>
 
         {/* 6. RELOCATION RECOMMENDATION (Candidate Planning Location) */}

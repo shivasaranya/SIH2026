@@ -15,12 +15,22 @@ def is_tn(state_id: Optional[str]) -> bool:
     clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
     return clean in ["tamil_nadu", "tn", "tamilnadu"]
 
+def is_mizoram(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["mizoram", "mz", "mizo"]
+
 class HazardService:
     def __init__(self):
         self._cache: Dict[str, Dict[str, Any]] = {}
 
     def _get_state_key(self, state_id: Optional[str]) -> str:
-        return "tn" if is_tn(state_id) else "ap"
+        if is_mizoram(state_id):
+            return "mz"
+        if is_tn(state_id):
+            return "tn"
+        return "ap"
 
     def _load_data(self, state_id: Optional[str] = "andhra_pradesh"):
         key = self._get_state_key(state_id)
@@ -29,7 +39,11 @@ class HazardService:
 
         haz_dir = settings.DATA_DIR / "processed" / "hazard" / "mandal_exposure"
 
-        if key == "tn":
+        if key == "mz":
+            csv_path = haz_dir / "mizoram_subdistrict_multi_hazard_exposure.csv"
+            geojson_path = haz_dir / "mizoram_subdistrict_multi_hazard_exposure.geojson"
+            surge_included = False
+        elif key == "tn":
             csv_path = haz_dir / "tn_taluk_multi_hazard_exposure.csv"
             geojson_path = haz_dir / "tn_taluk_multi_hazard_exposure.geojson"
             surge_included = True
@@ -62,7 +76,13 @@ class HazardService:
 
     def get_mandal_detail(self, mandal_id: str, state_id: Optional[str] = "andhra_pradesh") -> Optional[MandalHazardExposureItem]:
         target = mandal_id.strip().upper()
-        detected_state = "tamil_nadu" if target.startswith("TN_") else state_id
+        if target.startswith("MZ_"):
+            detected_state = "mizoram"
+        elif target.startswith("TN_"):
+            detected_state = "tamil_nadu"
+        else:
+            detected_state = state_id
+
         data = self._load_data(detected_state)
         df = data["exposure_df"]
 
@@ -70,11 +90,17 @@ class HazardService:
             (df["mandal_id"] == target) |
             (df["mandal_name"].str.upper() == target)
         ]
-        if match.empty and detected_state != "tamil_nadu":
+        if match.empty and detected_state != "tamil_nadu" and detected_state != "mizoram":
             tn_data = self._load_data("tamil_nadu")
             match = tn_data["exposure_df"][
                 (tn_data["exposure_df"]["mandal_id"] == target) |
                 (tn_data["exposure_df"]["mandal_name"].str.upper() == target)
+            ]
+        if match.empty and detected_state != "mizoram":
+            mz_data = self._load_data("mizoram")
+            match = mz_data["exposure_df"][
+                (mz_data["exposure_df"]["mandal_id"] == target) |
+                (mz_data["exposure_df"]["mandal_name"].str.upper() == target)
             ]
         if match.empty:
             return None

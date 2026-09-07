@@ -29,12 +29,21 @@ app.add_middleware(
 app.include_router(api_router, prefix="/api")
 
 
+@app.get("/health", summary="Direct Health Check")
+async def health():
+    return {
+        "status": "healthy",
+        "service": settings.APP_NAME,
+        "supported_states": ["andhra_pradesh", "tamil_nadu", "mizoram"]
+    }
+
 @app.get("/", summary="Root Index")
 async def root():
     return {
         "message": f"Welcome to {settings.APP_NAME} Decision-Support Platform",
         "sih_problem": settings.SIH_CODE,
         "pilot": settings.PILOT_STATE,
+        "supported_states": ["andhra_pradesh", "tamil_nadu", "mizoram"],
         "phase": "PHASE 0 — PROJECT FOUNDATION",
         "docs": "/docs",
         "health": "/api/health"

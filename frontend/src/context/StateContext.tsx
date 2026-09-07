@@ -1,13 +1,13 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
-export type StateId = 'andhra_pradesh' | 'tamil_nadu';
+export type StateId = 'andhra_pradesh' | 'tamil_nadu' | 'mizoram';
 
 export interface StateConfig {
   id: StateId;
   name: string;
   code: string;
-  adminUnitName: string; // 'Mandal' | 'Taluk'
-  adminUnitPlural: string; // 'Mandals' | 'Taluks'
+  adminUnitName: string; // 'Mandal' | 'Taluk' | 'R.D. Block'
+  adminUnitPlural: string; // 'Mandals' | 'Taluks' | 'R.D. Blocks'
   districtCount: number;
   adminUnitCount: number;
   center: [number, number];
@@ -52,6 +52,23 @@ export const STATE_CONFIGS: Record<StateId, StateConfig> = {
     sdmaName: 'Tamil Nadu SDMA (TNDMA)',
     tagline: 'Coromandel Coast & Delta Disaster Preparedness & Resettlement Platform',
   },
+  mizoram: {
+    id: 'mizoram',
+    name: 'Mizoram',
+    code: 'MZ',
+    adminUnitName: 'R.D. Block',
+    adminUnitPlural: 'R.D. Blocks',
+    districtCount: 11,
+    adminUnitCount: 26,
+    center: [23.1645, 92.9376],
+    bounds: [
+      [21.95, 92.25],
+      [24.55, 93.45],
+    ],
+    isCoastal: false,
+    sdmaName: 'Mizoram Disaster Management Authority (DM&R)',
+    tagline: 'Hilly Terrain Landslide & Multi-Hazard Resettlement Decision Platform',
+  },
 };
 
 interface StateContextType {
@@ -69,6 +86,9 @@ export const StateProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   const getInitialState = (): StateId => {
     if (typeof window !== 'undefined') {
       const hash = window.location.hash.toLowerCase();
+      if (hash.includes('/mz') || hash.includes('/mizoram') || hash.includes('mizo')) {
+        return 'mizoram';
+      }
       if (hash.includes('/tn') || hash.includes('/tamil') || hash.includes('tamil_nadu')) {
         return 'tamil_nadu';
       }
@@ -85,7 +105,9 @@ export const StateProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
   const selectStateByName = (name: string) => {
     const lower = name.toLowerCase();
-    if (lower.includes('tamil')) {
+    if (lower.includes('mizo')) {
+      setStateId('mizoram');
+    } else if (lower.includes('tamil')) {
       setStateId('tamil_nadu');
     } else {
       setStateId('andhra_pradesh');
@@ -96,7 +118,9 @@ export const StateProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   useEffect(() => {
     const handleHash = () => {
       const hash = window.location.hash.toLowerCase();
-      if (hash.includes('/tn') || hash.includes('/tamil')) {
+      if (hash.includes('/mz') || hash.includes('/mizoram')) {
+        setStateIdState('mizoram');
+      } else if (hash.includes('/tn') || hash.includes('/tamil')) {
         setStateIdState('tamil_nadu');
       } else if (hash.includes('/ap') || hash.includes('/andhra')) {
         setStateIdState('andhra_pradesh');

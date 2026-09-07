@@ -34,7 +34,6 @@ body {
 
 /* Leaflet Container Custom Overrides */
 .leaflet-container {
-  background-color: #f8fafc !important;
   font-family: inherit !important;
 }
 
@@ -83,9 +82,31 @@ body {
   background-image: radial-gradient(circle, #cbd5e1 1.2px, transparent 1.2px);
 }
 
-/* Subtle light tiles matching minimal target screenshot */
-.leaflet-tile-pane {
-  filter: grayscale(100%) brightness(108%) contrast(65%) opacity(20%);
+/* Leaflet Basemap Tiles: 100% full opacity, full color, crisp sharpness, no blur or filters */
+.leaflet-tile-pane,
+.leaflet-tile,
+.leaflet-layer,
+.satellite-tile {
+  filter: none !important;
+  -webkit-filter: none !important;
+  opacity: 1 !important;
+  mix-blend-mode: normal !important;
+}
+
+.village-satellite-container .leaflet-tile-pane,
+.village-satellite-container .leaflet-tile,
+.village-satellite-container .leaflet-layer,
+.village-satellite-container .satellite-tile,
+.village-satellite-container img.leaflet-tile {
+  filter: none !important;
+  -webkit-filter: none !important;
+  opacity: 1 !important;
+  mix-blend-mode: normal !important;
+  image-rendering: auto;
+}
+
+.village-satellite-container .leaflet-container {
+  background-color: #0b1120 !important;
 }
 
 .bg-radial-vignette {

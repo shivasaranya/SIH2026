@@ -1,5 +1,5 @@
 import type { GeoJsonFeatureCollection, DistrictProperties, MandalProperties } from '../types/gis';
-import type { StateDemographicSummary, DistrictDetailResponse } from '../types/demographics';
+import type { StateDemographicSummary, DistrictDetailResponse, MandalVillageListResponse } from '../types/demographics';
 
 const API_BASE = '/api';
 
@@ -53,6 +53,22 @@ export async function fetchDistrictDemographics(districtId: string, stateId?: st
   const res = await fetch(`${API_BASE}/demographics/district/${encodeURIComponent(districtId)}?state_id=${encodeURIComponent(sid)}`);
   if (!res.ok) {
     throw new Error(`Failed to load demographics for district ${districtId}: HTTP ${res.status}`);
+  }
+  return res.json();
+}
+
+export async function fetchMandalVillages(
+  mandalId: string,
+  districtId?: string,
+  stateId?: string
+): Promise<MandalVillageListResponse> {
+  const sid = resolveState(stateId);
+  const params = new URLSearchParams();
+  params.append('state_id', sid);
+  if (districtId) params.append('district_id', districtId);
+  const res = await fetch(`${API_BASE}/demographics/mandal/${encodeURIComponent(mandalId)}/villages?${params.toString()}`);
+  if (!res.ok) {
+    throw new Error(`Failed to load villages for mandal ${mandalId}: HTTP ${res.status}`);
   }
   return res.json();
 }
@@ -413,3 +429,75 @@ export async function fetchSourceHostComparison(
   }
   return res.json();
 }
+
+// ==========================================
+// Village-Level Spatial Hazard APIs
+// ==========================================
+
+export async function fetchVillageSummary(
+  villageCode: number,
+  disasterType: string = 'all'
+): Promise<import('../types/village').VillageHazardResponse> {
+  const res = await fetch(`${API_BASE}/village/${encodeURIComponent(villageCode)}?disaster_type=${encodeURIComponent(disasterType)}`);
+  if (!res.ok) {
+    throw new Error(`Failed to load village summary for code ${villageCode}: HTTP ${res.status}`);
+  }
+  return res.json();
+}
+
+export async function fetchVillageGeometry(
+  villageCode: number
+): Promise<import('../types/village').VillageGeometryResponse> {
+  const res = await fetch(`${API_BASE}/village/${encodeURIComponent(villageCode)}/geometry`);
+  if (!res.ok) {
+    throw new Error(`Failed to load village geometry for code ${villageCode}: HTTP ${res.status}`);
+  }
+  return res.json();
+}
+
+export async function fetchVillageHazards(
+  villageCode: number,
+  disasterType: string = 'all'
+): Promise<import('../types/village').VillageHazardResponse> {
+  const res = await fetch(`${API_BASE}/village/${encodeURIComponent(villageCode)}/hazards?disaster_type=${encodeURIComponent(disasterType)}`);
+  if (!res.ok) {
+    throw new Error(`Failed to load village hazards for code ${villageCode}: HTTP ${res.status}`);
+  }
+  return res.json();
+}
+
+export async function fetchVillageScenario(
+  villageCode: number,
+  increase: number = 0.0
+): Promise<import('../types/village').VillageScenarioResponse> {
+  const res = await fetch(`${API_BASE}/village/${encodeURIComponent(villageCode)}/scenario?increase=${encodeURIComponent(increase)}`);
+  if (!res.ok) {
+    throw new Error(`Failed to load village scenario for code ${villageCode}: HTTP ${res.status}`);
+  }
+  return res.json();
+}
+
+export async function fetchVillageRelocationCenters(
+  villageCode: number,
+  limit: number = 5
+): Promise<import('../types/village').VillageRelocationResponse> {
+  const res = await fetch(`${API_BASE}/village/${encodeURIComponent(villageCode)}/relocation-centers?limit=${encodeURIComponent(limit)}`);
+  if (!res.ok) {
+    throw new Error(`Failed to load relocation centers for village ${villageCode}: HTTP ${res.status}`);
+  }
+  return res.json();
+}
+
+export async function checkBackendHealth(): Promise<{ status: string; healthy: boolean; supported_states?: string[] }> {
+  try {
+    const res = await fetch(`${API_BASE}/health`, { signal: AbortSignal.timeout(4000) });
+    if (res.ok) {
+      const data = await res.json();
+      return { status: data.status || 'healthy', healthy: true, supported_states: data.supported_states };
+    }
+  } catch {
+    // fallback or offline
+  }
+  return { status: 'unreachable', healthy: false };
+}
+

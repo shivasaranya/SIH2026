@@ -235,6 +235,37 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
         tnMarker.on('click', () => onSelectState('Tamil Nadu'));
         tnMarker.addTo(map);
 
+        // Add prominent Mizoram marker label at coordinates [23.16, 92.93]
+        const mzLabelIcon = L.divIcon({
+          className: 'mz-marker-badge',
+          html: `<div style="
+            background: #1E7446;
+            color: #FFFFFF;
+            font-family: inherit;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 5px 10px;
+            border-radius: 9999px;
+            box-shadow: 0 4px 14px rgba(20, 90, 54, 0.4);
+            border: 2px solid #FFFFFF;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            transform: scale(1.02);
+          ">
+            <span style="display:inline-block; width:7px; height:7px; background:#4ade80; border-radius:50%; box-shadow: 0 0 6px #4ade80;"></span>
+            Mizoram (Operational)
+          </div>`,
+          iconSize: [140, 28],
+          iconAnchor: [70, 14],
+        });
+
+        const mzMarker = L.marker([23.16, 92.93], { icon: mzLabelIcon, interactive: true });
+        mzMarker.on('click', () => onSelectState('Mizoram'));
+        mzMarker.addTo(map);
+
         // Force invalidate size after DOM layout settles to ensure full expansion
         setTimeout(() => {
           if (mapInstanceRef.current) {
@@ -278,6 +309,7 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
   const allStates = [
     { name: 'Andhra Pradesh', status: 'Operational Pilot', isPilot: true },
     { name: 'Tamil Nadu', status: 'Operational State', isPilot: true },
+    { name: 'Mizoram', status: 'Operational State', isPilot: true },
     { name: 'Odisha', status: 'Coming Soon', isPilot: false },
     { name: 'Kerala', status: 'Coming Soon', isPilot: false },
     { name: 'Karnataka', status: 'Coming Soon', isPilot: false },

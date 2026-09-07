@@ -10,6 +10,7 @@ import {
   Filter,
   ArrowRight
 } from 'lucide-react';
+import { useActiveState } from '../../context/StateContext';
 
 interface DecisionSupportPanelProps {
   mandals: MandalProperties[];
@@ -26,6 +27,7 @@ export const DecisionSupportPanel: React.FC<DecisionSupportPanelProps> = ({
   onSelectMandal,
   onNavigateToRelocation,
 }) => {
+  const { currentState } = useActiveState();
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [selectedFilter, setSelectedFilter] = useState<PriorityFilter>('ALL');
   const [sortBy, setSortBy] = useState<'rank' | 'score' | 'hazard' | 'name'>('rank');
@@ -141,7 +143,7 @@ export const DecisionSupportPanel: React.FC<DecisionSupportPanelProps> = ({
             </h3>
           </div>
           <p className="text-[11px] text-slate-400 font-medium mt-0.5">
-            Priority Areas &bull; <span className="font-mono text-slate-300">680 Ranked Mandals</span>
+            Priority Areas &bull; <span className="font-mono text-slate-300">{(mandals.length - counts.insufficient) || currentState.adminUnitCount} Ranked {currentState.adminUnitPlural}</span>
           </p>
         </div>
         <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-rose-500/10 text-rose-300 border border-rose-500/20 font-semibold">
@@ -156,7 +158,7 @@ export const DecisionSupportPanel: React.FC<DecisionSupportPanelProps> = ({
           <Search className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
           <input
             type="text"
-            placeholder="Search Mandal or District (e.g. Tada)..."
+            placeholder={`Search ${currentState.adminUnitName} or District...`}
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full bg-slate-950/90 border border-slate-800 rounded-xl pl-9 pr-8 py-2 text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-indigo-500/80 focus:ring-1 focus:ring-indigo-500/40 shadow-inner"

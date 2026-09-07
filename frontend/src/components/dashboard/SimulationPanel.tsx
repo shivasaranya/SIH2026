@@ -13,6 +13,7 @@ import {
   HeartPulse,
   Car
 } from 'lucide-react';
+import { useActiveState } from '../../context/StateContext';
 
 interface SimulationPanelProps {
   onSimulationRun: (result: SimulationRunResponse | null) => void;
@@ -27,6 +28,7 @@ export const SimulationPanel: React.FC<SimulationPanelProps> = ({
   onMetricSelect,
   selectedMandalId,
 }) => {
+  const { currentState } = useActiveState();
   const [sliders, setSliders] = useState<SimulationParameters>({
     hazard_change: 0.0,
     population_change: 0.0,
@@ -86,7 +88,7 @@ export const SimulationPanel: React.FC<SimulationPanelProps> = ({
     setLoading(true);
     setError(null);
     try {
-      const res = await runWhatIfSimulation(sliders);
+      const res = await runWhatIfSimulation(sliders, currentState.id);
       setSimulationResult(res);
       onSimulationRun(res);
     } catch (err: any) {
@@ -237,7 +239,7 @@ export const SimulationPanel: React.FC<SimulationPanelProps> = ({
         className="w-full py-2.5 px-4 bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 disabled:opacity-50 text-white font-bold rounded-xl transition shadow-lg shadow-indigo-600/20 flex items-center justify-center space-x-2"
       >
         {loading ? (
-          <span>Recalculating Scenario Across 680 Mandals...</span>
+          <span>Recalculating Scenario Across {currentState.adminUnitCount} {currentState.adminUnitPlural}...</span>
         ) : (
           <>
             <span>Run What-If Scenario</span>

@@ -115,6 +115,7 @@ export const GISMap: React.FC<GISMapProps> = ({
 
     // Standard OpenStreetMap - completely open, genuinely accessible, no API key required
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      opacity: 0.5,
       attribution: '&copy; OpenStreetMap contributors',
       subdomains: ['a', 'b', 'c'],
       maxZoom: 19,

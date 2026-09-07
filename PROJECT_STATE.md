@@ -152,9 +152,32 @@
   - Built backend APIs under `/api/decision/...` and passed all 80 backend unit tests.
   - Implemented frontend multi-tab detail panel and `HostComparisonModal`.
   - Authored documentation: `docs/phase6_decision_action_planning.md`.
+- **Phase 7A (Multi-State Platform Expansion — Tamil Nadu & Mizoram):**
+  - Generalized the backend architecture to be fully state-agnostic via `app/core/state_registry.py`.
+  - Implemented end-to-end data pipeline and decision support for **Tamil Nadu** (38 districts, 302 taluks, coastal delta vulnerability).
+  - Built and validated full pipeline for **Mizoram** (11 districts, 26 R.D. blocks, hilly terrain landslide & multi-hazard risk).
+  - Unified frontend state selector, map bounds switcher, and dynamic admin unit handling (`Mandals`, `Taluks`, `R.D. Blocks`).
+  - Implemented state-aware API query parameters with backward compatibility.
+- **Phase 7B (Cadastral Village Spatial Hazard Analysis & 4-Sector Engine):**
+  - Integrated Survey of India (SOI) high-resolution cadastral boundary geometries matched 1:1 to Census 2011 village codes (17,039 habitations in AP).
+  - Built continuous spatial raster sampling for 30m JRC surface water recurrence, 90m SRTM DEM/slope, and NOAA IBTrACS cyclone track vectors.
+  - Formulated 4-Cardinal Direction quadrant partitioning ($S_N, S_E, S_S, S_W$) clipped to village polygons with mathematical area preservation ($\Delta A < 0.05\text{ km}^2$).
+  - Established micro-topography slope threshold ($\ge 15^\circ$) for village habitation access tracks, distinct from mandal civil engineering exclusion ($> 25^\circ$).
+  - Built real-time what-if scenario perturbation engine (0%–10% stress test).
+  - Created interactive `VillageAnalysisPage.tsx` and `VillageSpatialPanel.tsx`.
+  - Authored documentation: `docs/ap_village_spatial_analysis.md` and `docs/ap_village_spatial_data_audit.md`.
+- **Phase 7C (Safer Locations Protocol & MCDA Decision B Engine):**
+  - Separated Relocation Priority (Decision A: AHP + TOPSIS) from Potential Safer Locations (Decision B: Multi-Criteria Decision Analysis).
+  - Established research-grounded principle: NCRMP 1.5–2 km is a cyclone shelter service/design radius, NOT an evacuation limit.
+  - Implemented Hard Safety Filters (hazard $\ge 0.35$ or safe land $< 50\%$ rejected; capacity-stressed rejected; road $< 0.15$ rejected).
+  - Established 4 administrative proximity tiers (Same Mandal, Adjacent Mandal, Farther Mandal, Different District) as soft preferences without rigid cutoffs.
+  - Redesigned `CandidateLocationsPage.tsx` featuring 🥇 Recommended, 🥈 Alternative, 🥉 Fallback tiers, transparent rejection reasons, and human-readable explanations.
+  - Authored documentation: `docs/andhra_pradesh_relocation_logic.md`.
 
 ### Current
-- Completed Phase 6: Decision & Action Planning (Human-in-the-Loop Decision Support Workflow)
+- **Multi-State Operational Coverage**: Andhra Pradesh (696 mandals, 17,039 villages), Tamil Nadu (302 taluks), Mizoram (26 R.D. blocks).
+- **Backend Test Suite**: 112 / 112 tests passing across all states, pipelines, spatial sampling, and decision modules.
+- **Frontend Build**: Production build clean with 0 errors.
 
 ### Status Summary
 - **Phase 0:** Project Foundation — **COMPLETE**
@@ -164,6 +187,19 @@
 - **Phase 4:** Multi-Criteria Relocation Prioritization (AHP + TOPSIS) — **COMPLETE**
 - **Phase 5:** Explainable What-If Disaster Simulation — **COMPLETE**
 - **Phase 6:** Decision & Action Planning — **COMPLETE**
+- **Phase 7A:** Multi-State Architecture Expansion (AP, TN, Mizoram) — **COMPLETE**
+- **Phase 7B:** Village Cadastral Spatial Analysis & 4-Sector Engine — **COMPLETE**
+- **Phase 7C:** Safer Locations Protocol & MCDA Decision B Engine — **COMPLETE**
+- **Phase 7D:** Mizoram Full State Implementation & Multi-Hazard Pipeline — **COMPLETE**
+  - Administrative boundary acquisition (11 districts, 26 R.D. Blocks) from Survey of India (SOI) & MIRSAC.
+  - Census 2011 Primary Census Abstract (PCA) demographics ingested with care dependency proxy (children 0-6, household congestion, non-workers). Zero caste or gender vulnerability scoring.
+  - Multi-hazard pipeline tailored to inland mountainous geography: slope & landslide hazard (40%), GSW flood inundation (35%), basic design wind speed IS 875 (25%), zero fake cyclone tracks.
+  - Carrying capacity headroom: shelter capacity (DM&R & YMA halls), evacuation road access, safe land headroom (>1,500 m²/person), water & sanitation, healthcare bed standards.
+  - Saaty AHP pairwise matrix (CR = 0.0038 < 0.10) and TOPSIS MCDA relative closeness ranking across all 26 R.D. Blocks (2 Very High, 5 High, 11 Moderate, 8 Low).
+  - 5 screened candidate host zones identified (Champhai, Zawlnuam, Bilkhawthlir, Lawngtlai, 'N' Thingdawl).
+  - Full UI integration with state-dynamic routing (`#government/mz/...`), custom map bounds, what-if simulator, 3-horizon action plans, and complete provenance documentation (`docs/mizoram_state_implementation.md`).
+  - 100% backend test pass (112/112 tests) and 0 frontend build errors.
+  - Zero regression for Andhra Pradesh and Tamil Nadu.
 
 
 

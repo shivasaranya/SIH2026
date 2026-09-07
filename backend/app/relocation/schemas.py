@@ -74,8 +74,8 @@ class AHPWeightItem(BaseModel):
     criterion_id: str
     criterion_name: str
     weight: float
-    weight_percent: float
-    saaty_scale_rationale: str
+    weight_percent: Optional[float] = 0.0
+    saaty_scale_rationale: Optional[str] = "Pairwise Saaty matrix derived"
 
 
 class AHPWeightsResponse(BaseModel):

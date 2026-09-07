@@ -14,7 +14,8 @@ import {
   ChevronLeft,
   ChevronRight,
   Target,
-  Shield
+  Shield,
+  Home
 } from 'lucide-react';
 import type { ActiveTab } from '../../types';
 
@@ -28,8 +29,18 @@ interface SidebarProps {
 export const Sidebar: React.FC<SidebarProps> = ({ activeTab, onSelectTab }) => {
   const [collapsed, setCollapsed] = useState(false);
   const { currentState } = useActiveState();
+  const isAP = currentState.id === 'andhra_pradesh';
+  const isMZ = currentState.id === 'mizoram';
   const isTN = currentState.id === 'tamil_nadu';
-  const priorityCount = isTN ? '302' : '680';
+  const priorityCount = isMZ ? '26' : (isTN ? '302' : '680');
+
+  const assessmentItems = [
+    { id: 'hazard' as ActiveTab, label: 'Hazard Risk', icon: AlertTriangle },
+    { id: 'vulnerability' as ActiveTab, label: 'Community Vulnerability', icon: Users },
+    { id: 'capacity' as ActiveTab, label: 'Emergency Capacity', icon: Scale },
+    { id: 'relocation' as ActiveTab, label: 'Relocation Planning', icon: MapPin },
+    ...(isAP ? [{ id: 'village' as ActiveTab, label: 'Village Habitation Analysis', icon: Home, badge: '17K' }] : [])
+  ];
 
   const sections = [
     {
@@ -41,12 +52,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab, onSelectTab }) => {
     },
     {
       title: 'ASSESSMENT',
-      items: [
-        { id: 'hazard' as ActiveTab, label: 'Hazard Risk', icon: AlertTriangle },
-        { id: 'vulnerability' as ActiveTab, label: 'Community Vulnerability', icon: Users },
-        { id: 'capacity' as ActiveTab, label: 'Emergency Capacity', icon: Scale },
-        { id: 'relocation' as ActiveTab, label: 'Relocation Planning', icon: MapPin },
-      ]
+      items: assessmentItems
     },
     {
       title: 'DECISION SUPPORT',
@@ -141,8 +147,8 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab, onSelectTab }) => {
               <Shield className="w-4 h-4 text-white" />
             </div>
             <div className="min-w-0 flex-1">
-              <div className="text-[8.5px] font-bold uppercase tracking-wider text-indigo-600">Pilot State</div>
-              <div className="text-xs font-black text-slate-800 truncate leading-tight">Andhra Pradesh</div>
+              <div className="text-[8.5px] font-bold uppercase tracking-wider text-indigo-600">Active State</div>
+              <div className="text-xs font-black text-slate-800 truncate leading-tight">{currentState.name}</div>
             </div>
           </div>
 
@@ -152,7 +158,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab, onSelectTab }) => {
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
               Engine
             </span>
-            <span className="font-mono font-semibold text-slate-600">696 Mandals</span>
+            <span className="font-mono font-semibold text-slate-600">{currentState.adminUnitCount} {currentState.adminUnitPlural}</span>
           </div>
         </div>
       )}

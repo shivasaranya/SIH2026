@@ -50,6 +50,7 @@ interface GISPageProps {
   initialOpenSimulation?: boolean;
   initialSelectedMandal?: MandalProperties | null;
   onNavigateToTab?: (tab: ActiveTab) => void;
+  onNavigateToVillage?: (villageCode: number) => void;
 }
 
 import { useActiveState } from '../context/StateContext';
@@ -59,6 +60,7 @@ export const GISPage: React.FC<GISPageProps> = ({
   initialOpenSimulation = false,
   initialSelectedMandal = null,
   onNavigateToTab,
+  onNavigateToVillage,
 }) => {
   const { currentState } = useActiveState();
   // Data State
@@ -701,6 +703,13 @@ export const GISPage: React.FC<GISPageProps> = ({
                   onClose={() => setSelectedMandal(null)}
                   onNavigateToActionPlan={() => onNavigateToTab?.('actions')}
                   onNavigateToDirectory={() => onNavigateToTab?.('priority_directory')}
+                  onNavigateToVillage={(code) => {
+                    if (onNavigateToVillage) {
+                      onNavigateToVillage(code);
+                    } else {
+                      window.location.hash = `#government/ap/village/${code}`;
+                    }
+                  }}
                 />
               </div>
             ) : (

@@ -58,12 +58,22 @@ def is_tn(state_id: Optional[str]) -> bool:
     clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
     return clean in ["tamil_nadu", "tn", "tamilnadu"]
 
+def is_mizoram(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["mizoram", "mz", "mizo"]
+
 class SimulationService:
     def __init__(self):
         self._cache: Dict[str, Dict[str, Any]] = {}
 
     def _get_state_key(self, state_id: Optional[str]) -> str:
-        return "tn" if is_tn(state_id) else "ap"
+        if is_mizoram(state_id):
+            return "mz"
+        if is_tn(state_id):
+            return "tn"
+        return "ap"
 
     def _load_data(self, state_id: Optional[str] = "andhra_pradesh"):
         key = self._get_state_key(state_id)
@@ -71,7 +81,13 @@ class SimulationService:
             return self._cache[key]
 
         reloc_dir = settings.DATA_DIR / "processed" / "relocation"
-        master_csv = reloc_dir / ("tn_taluk_relocation_priority.csv" if key == "tn" else "mandal_relocation_priority.csv")
+        if key == "mz":
+            master_csv = reloc_dir / "mizoram_subdistrict_relocation_priority.csv"
+        elif key == "tn":
+            master_csv = reloc_dir / "tn_taluk_relocation_priority.csv"
+        else:
+            master_csv = reloc_dir / "mandal_relocation_priority.csv"
+
         if not master_csv.exists():
             raise FileNotFoundError(f"Relocation priority dataset not found at {master_csv}")
         master_df = pd.read_csv(master_csv)

@@ -10,7 +10,8 @@ export type ActiveTab =
   | 'simulation'
   | 'actions'
   | 'data'
-  | 'methodology';
+  | 'methodology'
+  | 'village';
 
 
 
