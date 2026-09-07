@@ -1,0 +1,13 @@
+mandal_id,mandal_name,current_district_name,factor_contrib_hazard_pct,factor_contrib_demographic_pct,factor_contrib_capacity_pct,factor_contrib_accessibility_pct,primary_priority_factor,secondary_priority_factor
+GA_TALUK_001,Pernem,North Goa,56.7,0.0,28.7,14.6,Hazard Exposure,Capacity Stress
+GA_TALUK_002,Bardez,North Goa,56.8,0.0,31.8,11.4,Hazard Exposure,Capacity Stress
+GA_TALUK_003,Tiswadi,North Goa,57.2,0.0,28.0,14.8,Hazard Exposure,Capacity Stress
+GA_TALUK_004,Bicholim,North Goa,57.1,0.0,30.9,12.0,Hazard Exposure,Capacity Stress
+GA_TALUK_005,Sattari,North Goa,52.3,0.0,27.6,20.1,Hazard Exposure,Capacity Stress
+GA_TALUK_006,Ponda,North Goa,50.8,0.0,33.1,16.0,Hazard Exposure,Capacity Stress
+GA_TALUK_007,Mormugao,South Goa,57.7,0.0,30.5,11.8,Hazard Exposure,Capacity Stress
+GA_TALUK_008,Salcete,South Goa,57.7,0.0,29.6,12.7,Hazard Exposure,Capacity Stress
+GA_TALUK_009,Canacona,South Goa,55.0,0.0,27.8,17.2,Hazard Exposure,Capacity Stress
+GA_TALUK_010,Quepem,South Goa,54.0,0.0,25.8,20.2,Hazard Exposure,Capacity Stress
+GA_TALUK_011,Sanguem,South Goa,50.4,0.0,28.2,21.3,Hazard Exposure,Capacity Stress
+GA_TALUK_012,Dharbandora,South Goa,51.0,0.0,32.0,17.1,Hazard Exposure,Capacity Stress

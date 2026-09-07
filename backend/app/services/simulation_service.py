@@ -58,12 +58,70 @@ def is_tn(state_id: Optional[str]) -> bool:
     clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
     return clean in ["tamil_nadu", "tn", "tamilnadu"]
 
+def is_tr(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["tripura", "tr"]
+
+def is_tg(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["telangana", "tg", "ts"]
+
+def is_rj(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["rajasthan", "rj"]
+
+def is_mp(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["madhya_pradesh", "mp", "madhyapradesh"]
+
+def is_ka(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["karnataka", "ka"]
+
+def is_ga(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["goa", "ga"]
+
+def is_mn(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["manipur", "mn"]
+
 class SimulationService:
     def __init__(self):
         self._cache: Dict[str, Dict[str, Any]] = {}
 
     def _get_state_key(self, state_id: Optional[str]) -> str:
-        return "tn" if is_tn(state_id) else "ap"
+        if is_mn(state_id):
+            return "mn"
+        if is_ga(state_id):
+            return "ga"
+        if is_ka(state_id):
+            return "ka"
+        if is_mp(state_id):
+            return "mp"
+        if is_rj(state_id):
+            return "rj"
+        if is_tg(state_id):
+            return "tg"
+        if is_tr(state_id):
+            return "tr"
+        if is_tn(state_id):
+            return "tn"
+        return "ap"
 
     def _load_data(self, state_id: Optional[str] = "andhra_pradesh"):
         key = self._get_state_key(state_id)
@@ -71,7 +129,25 @@ class SimulationService:
             return self._cache[key]
 
         reloc_dir = settings.DATA_DIR / "processed" / "relocation"
-        master_csv = reloc_dir / ("tn_taluk_relocation_priority.csv" if key == "tn" else "mandal_relocation_priority.csv")
+        if key == "mn":
+            master_csv = reloc_dir / "mn_subdivisions_relocation_priority.csv"
+        elif key == "ga":
+            master_csv = reloc_dir / "ga_taluks_relocation_priority.csv"
+        elif key == "ka":
+            master_csv = reloc_dir / "ka_taluks_relocation_priority.csv"
+        elif key == "mp":
+            master_csv = reloc_dir / "mp_tehsils_relocation_priority.csv"
+        elif key == "rj":
+            master_csv = reloc_dir / "rj_tehsils_relocation_priority.csv"
+        elif key == "tg":
+            master_csv = reloc_dir / "tg_mandal_relocation_priority.csv"
+        elif key == "tr":
+            master_csv = reloc_dir / "tr_subdivision_relocation_priority.csv"
+        elif key == "tn":
+            master_csv = reloc_dir / "tn_taluk_relocation_priority.csv"
+        else:
+            master_csv = reloc_dir / "mandal_relocation_priority.csv"
+
         if not master_csv.exists():
             raise FileNotFoundError(f"Relocation priority dataset not found at {master_csv}")
         master_df = pd.read_csv(master_csv)
@@ -438,11 +514,22 @@ class SimulationService:
 
     def get_mandal_simulation(self, mandal_id: str, params: SimulationParameters, state_id: Optional[str] = "andhra_pradesh") -> Optional[MandalSimulationComparisonItem]:
         target = mandal_id.strip().upper()
-        detected_state = "tamil_nadu" if target.startswith("TN_") else state_id
+        if target.startswith("TR_"):
+            detected_state = "tripura"
+        elif target.startswith("TN_"):
+            detected_state = "tamil_nadu"
+        else:
+            detected_state = state_id
+
         run_res = self.run_simulation(params, state_id=detected_state)
         for item in run_res.mandals:
             if item.mandal_id.upper() == target or item.mandal_name.upper() == target:
                 return item
+        if detected_state != "tripura":
+            run_res_tr = self.run_simulation(params, state_id="tripura")
+            for item in run_res_tr.mandals:
+                if item.mandal_id.upper() == target or item.mandal_name.upper() == target:
+                    return item
         if detected_state != "tamil_nadu":
             run_res_tn = self.run_simulation(params, state_id="tamil_nadu")
             for item in run_res_tn.mandals:

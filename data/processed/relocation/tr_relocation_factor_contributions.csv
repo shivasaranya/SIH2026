@@ -1,0 +1,27 @@
+mandal_id,mandal_name,relocation_priority_category,factor_contrib_hazard_pct,factor_contrib_demographic_pct,factor_contrib_capacity_pct,factor_contrib_accessibility_pct,primary_priority_factor,secondary_priority_factor
+TR_SUBD_026,Mohanpur,VERY HIGH,41.3,22.2,20.1,16.4,Hazard Exposure,Demographic Sensitivity
+TR_SUBD_017,Belonia,VERY HIGH,35.7,24.4,23.8,16.0,Hazard Exposure,Demographic Sensitivity
+TR_SUBD_025,Jirania,HIGH,44.0,23.6,22.9,9.5,Hazard Exposure,Demographic Sensitivity
+TR_SUBD_013,Bishalgarh,HIGH,42.4,26.5,20.9,10.2,Hazard Exposure,Demographic Sensitivity
+TR_SUBD_008,Khowai,HIGH,38.8,27.8,20.1,13.3,Hazard Exposure,Demographic Sensitivity
+TR_SUBD_011,Kumarghat,HIGH,39.4,19.0,24.2,17.4,Hazard Exposure,Capacity Stress
+TR_SUBD_023,Agartala,HIGH,42.8,24.6,18.8,13.8,Hazard Exposure,Demographic Sensitivity
+TR_SUBD_007,Udaipur,MODERATE,42.4,20.5,24.2,12.9,Hazard Exposure,Capacity Stress
+TR_SUBD_019,Sabroom,MODERATE,40.7,27.4,21.2,10.7,Hazard Exposure,Demographic Sensitivity
+TR_SUBD_005,Amarpur,MODERATE,44.2,20.6,24.8,10.5,Hazard Exposure,Capacity Stress
+TR_SUBD_020,Santirbazar,MODERATE,38.7,27.0,25.4,8.9,Hazard Exposure,Demographic Sensitivity
+TR_SUBD_014,Jampuijala,MODERATE,42.2,27.9,19.5,10.5,Hazard Exposure,Demographic Sensitivity
+TR_SUBD_016,Sonamura,MODERATE,44.1,27.3,22.3,6.4,Hazard Exposure,Demographic Sensitivity
+TR_SUBD_015,Melaghar,MODERATE,44.8,27.3,21.4,6.4,Hazard Exposure,Demographic Sensitivity
+TR_SUBD_018,Rajnagar,MODERATE,40.1,27.8,24.2,7.9,Hazard Exposure,Demographic Sensitivity
+TR_SUBD_006,Karbook,MODERATE,47.9,21.1,21.7,9.3,Hazard Exposure,Capacity Stress
+TR_SUBD_009,Teliamura,MODERATE,37.6,30.0,21.7,10.7,Hazard Exposure,Demographic Sensitivity
+TR_SUBD_024,Bisramganj,MODERATE,46.4,26.7,20.2,6.7,Hazard Exposure,Demographic Sensitivity
+TR_SUBD_010,Kailashahar,LOW,42.0,21.1,22.8,14.1,Hazard Exposure,Capacity Stress
+TR_SUBD_012,Panisagar,LOW,39.6,20.8,26.8,12.8,Hazard Exposure,Capacity Stress
+TR_SUBD_021,Dharmanagar,LOW,44.4,19.2,20.9,15.5,Hazard Exposure,Capacity Stress
+TR_SUBD_022,Kanchanpur,LOW,40.4,19.1,21.7,18.8,Hazard Exposure,Capacity Stress
+TR_SUBD_003,Longtharai Valley,LOW,48.8,5.9,30.6,14.8,Hazard Exposure,Capacity Stress
+TR_SUBD_004,Manu,LOW,50.9,6.6,32.6,9.9,Hazard Exposure,Capacity Stress
+TR_SUBD_001,Ambassa,LOW,53.5,6.5,24.6,15.5,Hazard Exposure,Capacity Stress
+TR_SUBD_002,Gandacherra,LOW,57.4,7.1,26.1,9.4,Hazard Exposure,Capacity Stress

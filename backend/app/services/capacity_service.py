@@ -23,12 +23,70 @@ def is_tn(state_id: Optional[str]) -> bool:
     clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
     return clean in ["tamil_nadu", "tn", "tamilnadu"]
 
+def is_tr(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["tripura", "tr"]
+
+def is_tg(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["telangana", "tg", "ts"]
+
+def is_rj(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["rajasthan", "rj"]
+
+def is_mp(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["madhya_pradesh", "mp", "madhyapradesh"]
+
+def is_ka(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["karnataka", "ka"]
+
+def is_ga(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["goa", "ga"]
+
+def is_mn(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["manipur", "mn"]
+
 class CapacityService:
     def __init__(self):
         self._cache: Dict[str, Dict[str, Any]] = {}
 
     def _get_state_key(self, state_id: Optional[str]) -> str:
-        return "tn" if is_tn(state_id) else "ap"
+        if is_mn(state_id):
+            return "mn"
+        if is_ga(state_id):
+            return "ga"
+        if is_ka(state_id):
+            return "ka"
+        if is_mp(state_id):
+            return "mp"
+        if is_rj(state_id):
+            return "rj"
+        if is_tg(state_id):
+            return "tg"
+        if is_tr(state_id):
+            return "tr"
+        if is_tn(state_id):
+            return "tn"
+        return "ap"
 
     def _load_data(self, state_id: Optional[str] = "andhra_pradesh"):
         key = self._get_state_key(state_id)
@@ -37,7 +95,56 @@ class CapacityService:
 
         cap_dir = settings.DATA_DIR / "processed" / "capacity"
 
-        if key == "tn":
+        if key == "mn":
+            cap_csv = cap_dir / "mn_subdivisions_capacity_adequacy.csv"
+            adequacy_csv = cap_dir / "mn_subdivisions_capacity_adequacy.csv"
+            host_csv = cap_dir / "mn_host_zone_candidates.csv"
+            adequacy_geojson = cap_dir / "mn_subdivisions_capacity_adequacy.geojson"
+            cap_geojson = adequacy_geojson
+            bottlenecks_csv = adequacy_csv
+        elif key == "ga":
+            cap_csv = cap_dir / "ga_taluks_capacity_adequacy.csv"
+            adequacy_csv = cap_dir / "ga_taluks_capacity_adequacy.csv"
+            host_csv = cap_dir / "ga_host_zone_candidates.csv"
+            adequacy_geojson = cap_dir / "ga_taluks_capacity_adequacy.geojson"
+            cap_geojson = adequacy_geojson
+            bottlenecks_csv = adequacy_csv
+        elif key == "ka":
+            cap_csv = cap_dir / "ka_taluks_capacity_adequacy.csv"
+            adequacy_csv = cap_dir / "ka_taluks_capacity_adequacy.csv"
+            host_csv = cap_dir / "ka_host_zone_candidates.csv"
+            adequacy_geojson = cap_dir / "ka_taluks_capacity_adequacy.geojson"
+            cap_geojson = adequacy_geojson
+            bottlenecks_csv = adequacy_csv
+        elif key == "mp":
+            cap_csv = cap_dir / "mp_tehsils_capacity_components.csv"
+            adequacy_csv = cap_dir / "mp_tehsils_capacity_adequacy.csv"
+            host_csv = cap_dir / "mp_host_zone_candidates.csv"
+            adequacy_geojson = cap_dir / "mp_tehsils_capacity_adequacy.geojson"
+            cap_geojson = adequacy_geojson
+            bottlenecks_csv = adequacy_csv
+        elif key == "rj":
+            cap_csv = cap_dir / "rj_tehsils_capacity_components.csv"
+            adequacy_csv = cap_dir / "rj_tehsils_capacity_adequacy.csv"
+            host_csv = cap_dir / "rj_host_zone_candidates.csv"
+            adequacy_geojson = cap_dir / "rj_tehsils_capacity_adequacy.geojson"
+            cap_geojson = adequacy_geojson
+            bottlenecks_csv = adequacy_csv
+        elif key == "tg":
+            cap_csv = cap_dir / "tg_mandal_capacity_components.csv"
+            adequacy_csv = cap_dir / "tg_mandal_capacity_adequacy.csv"
+            host_csv = cap_dir / "tg_host_zone_candidates.csv"
+            adequacy_geojson = cap_dir / "tg_mandal_capacity_adequacy.geojson"
+            cap_geojson = adequacy_geojson
+            bottlenecks_csv = adequacy_csv
+        elif key == "tr":
+            cap_csv = cap_dir / "tr_subdivision_capacity_components.csv"
+            adequacy_csv = cap_dir / "tr_subdivision_capacity_adequacy.csv"
+            host_csv = cap_dir / "tr_host_zone_candidates.csv"
+            adequacy_geojson = cap_dir / "tr_subdivision_capacity_adequacy.geojson"
+            cap_geojson = adequacy_geojson
+            bottlenecks_csv = adequacy_csv
+        elif key == "tn":
             cap_csv = cap_dir / "tn_taluk_capacity_components.csv"
             adequacy_csv = cap_dir / "tn_taluk_capacity_adequacy.csv"
             host_csv = cap_dir / "tn_host_zone_candidates.csv"
@@ -94,7 +201,13 @@ class CapacityService:
 
     def get_mandal_detail(self, mandal_id: str, state_id: Optional[str] = "andhra_pradesh") -> Optional[MandalCapacityItem]:
         target = mandal_id.strip().upper()
-        detected_state = "tamil_nadu" if target.startswith("TN_") else state_id
+        if target.startswith("TR_"):
+            detected_state = "tripura"
+        elif target.startswith("TN_"):
+            detected_state = "tamil_nadu"
+        else:
+            detected_state = state_id
+
         data = self._load_data(detected_state)
         df = data["cap_df"]
 
@@ -102,6 +215,12 @@ class CapacityService:
             (df["mandal_id"] == target) |
             (df["mandal_name"].str.upper() == target)
         ]
+        if match.empty and detected_state != "tripura":
+            tr_data = self._load_data("tripura")
+            match = tr_data["cap_df"][
+                (tr_data["cap_df"]["mandal_id"] == target) |
+                (tr_data["cap_df"]["mandal_name"].str.upper() == target)
+            ]
         if match.empty and detected_state != "tamil_nadu":
             tn_data = self._load_data("tamil_nadu")
             match = tn_data["cap_df"][
@@ -203,7 +322,13 @@ class CapacityService:
 
     def get_adequacy_mandal_detail(self, mandal_id: str, state_id: Optional[str] = "andhra_pradesh") -> Optional[MandalCapacityAdequacyItem]:
         target = mandal_id.strip().upper()
-        detected_state = "tamil_nadu" if target.startswith("TN_") else state_id
+        if target.startswith("TR_"):
+            detected_state = "tripura"
+        elif target.startswith("TN_"):
+            detected_state = "tamil_nadu"
+        else:
+            detected_state = state_id
+
         data = self._load_data(detected_state)
         df = data["adequacy_df"]
 
@@ -211,6 +336,12 @@ class CapacityService:
             (df["mandal_id"] == target) |
             (df["mandal_name"].str.upper() == target)
         ]
+        if match.empty and detected_state != "tripura":
+            tr_data = self._load_data("tripura")
+            match = tr_data["adequacy_df"][
+                (tr_data["adequacy_df"]["mandal_id"] == target) |
+                (tr_data["adequacy_df"]["mandal_name"].str.upper() == target)
+            ]
         if match.empty and detected_state != "tamil_nadu":
             tn_data = self._load_data("tamil_nadu")
             match = tn_data["adequacy_df"][
@@ -278,7 +409,13 @@ class CapacityService:
 
     def get_host_zones(self, mandal_id: str, state_id: Optional[str] = "andhra_pradesh") -> HostZoneCandidateListResponse:
         target = mandal_id.strip().upper()
-        detected_state = "tamil_nadu" if (target.startswith("TN_") or state_id == "tamil_nadu") else state_id
+        if target.startswith("TR_") or (state_id and is_tr(state_id)):
+            detected_state = "tripura"
+        elif target.startswith("TN_") or (state_id and is_tn(state_id)):
+            detected_state = "tamil_nadu"
+        else:
+            detected_state = state_id
+
         data = self._load_data(detected_state)
         df = data["host_df"]
 
@@ -297,6 +434,12 @@ class CapacityService:
             (df["source_mandal_id"] == target) |
             (df["source_mandal_name"].str.upper() == target)
         ]
+        if match.empty and detected_state != "tripura":
+            tr_data = self._load_data("tripura")
+            match = tr_data["host_df"][
+                (tr_data["host_df"]["source_mandal_id"] == target) |
+                (tr_data["host_df"]["source_mandal_name"].str.upper() == target)
+            ]
         if match.empty and detected_state != "tamil_nadu":
             tn_data = self._load_data("tamil_nadu")
             match = tn_data["host_df"][

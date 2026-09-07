@@ -1,15 +1,17 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
-export type StateId = 'andhra_pradesh' | 'tamil_nadu';
+export type StateId = 'andhra_pradesh' | 'tamil_nadu' | 'tripura' | 'telangana' | 'rajasthan' | 'madhya_pradesh' | 'karnataka' | 'goa' | 'manipur';
 
 export interface StateConfig {
   id: StateId;
   name: string;
   code: string;
-  adminUnitName: string; // 'Mandal' | 'Taluk'
-  adminUnitPlural: string; // 'Mandals' | 'Taluks'
+  adminUnitName: string; // 'Mandal' | 'Taluk' | 'Sub-Division' | 'Tehsil' | 'Taluka'
+  adminUnitPlural: string; // 'Mandals' | 'Taluks' | 'Sub-Divisions' | 'Tehsils' | 'Talukas'
   districtCount: number;
   adminUnitCount: number;
+  rankedCount: number;
+  hostCandidateCount: number;
   center: [number, number];
   bounds: [[number, number], [number, number]];
   isCoastal: boolean;
@@ -26,6 +28,8 @@ export const STATE_CONFIGS: Record<StateId, StateConfig> = {
     adminUnitPlural: 'Mandals',
     districtCount: 26,
     adminUnitCount: 696,
+    rankedCount: 680,
+    hostCandidateCount: 51,
     center: [15.90, 80.76],
     bounds: [
       [12.60, 76.75],
@@ -43,6 +47,8 @@ export const STATE_CONFIGS: Record<StateId, StateConfig> = {
     adminUnitPlural: 'Taluks',
     districtCount: 38,
     adminUnitCount: 302,
+    rankedCount: 302,
+    hostCandidateCount: 38,
     center: [11.1271, 78.6569],
     bounds: [
       [8.08, 76.24],
@@ -51,6 +57,139 @@ export const STATE_CONFIGS: Record<StateId, StateConfig> = {
     isCoastal: true,
     sdmaName: 'Tamil Nadu SDMA (TNDMA)',
     tagline: 'Coromandel Coast & Delta Disaster Preparedness & Resettlement Platform',
+  },
+  tripura: {
+    id: 'tripura',
+    name: 'Tripura',
+    code: 'TR',
+    adminUnitName: 'Sub-Division',
+    adminUnitPlural: 'Sub-Divisions',
+    districtCount: 8,
+    adminUnitCount: 26,
+    rankedCount: 26,
+    hostCandidateCount: 78,
+    center: [23.8039, 91.6816],
+    bounds: [
+      [22.90, 91.10],
+      [24.60, 92.40],
+    ],
+    isCoastal: false,
+    sdmaName: 'Tripura SDMA (TDMA)',
+    tagline: 'Northeastern Hills & River Valleys Multi-Hazard & Resettlement Platform',
+  },
+  telangana: {
+    id: 'telangana',
+    name: 'Telangana',
+    code: 'TG',
+    adminUnitName: 'Mandal',
+    adminUnitPlural: 'Mandals',
+    districtCount: 33,
+    adminUnitCount: 109,
+    rankedCount: 109,
+    hostCandidateCount: 18,
+    center: [17.8495, 79.1151],
+    bounds: [
+      [15.82, 77.23],
+      [19.92, 81.80],
+    ],
+    isCoastal: false,
+    sdmaName: 'Telangana SDMA (TGSDMA)',
+    tagline: 'Deccan Plateau & Godavari-Krishna River Basins Multi-Hazard Platform',
+  },
+  rajasthan: {
+    id: 'rajasthan',
+    name: 'Rajasthan',
+    code: 'RJ',
+    adminUnitName: 'Tehsil',
+    adminUnitPlural: 'Tehsils',
+    districtCount: 33,
+    adminUnitCount: 198,
+    rankedCount: 198,
+    hostCandidateCount: 34,
+    center: [26.58, 73.85],
+    bounds: [
+      [23.06, 69.48],
+      [30.20, 78.26],
+    ],
+    isCoastal: false,
+    sdmaName: 'Rajasthan SDMA (RSDMA)',
+    tagline: 'Arid & Semi-Arid Multi-Hazard Vulnerability & Relocation Decision System',
+  },
+  madhya_pradesh: {
+    id: 'madhya_pradesh',
+    name: 'Madhya Pradesh',
+    code: 'MP',
+    adminUnitName: 'Tehsil',
+    adminUnitPlural: 'Tehsils',
+    districtCount: 52,
+    adminUnitCount: 273,
+    rankedCount: 273,
+    hostCandidateCount: 53,
+    center: [23.47, 77.94],
+    bounds: [
+      [21.08, 74.03],
+      [26.87, 82.81],
+    ],
+    isCoastal: false,
+    sdmaName: 'Madhya Pradesh SDMA (MPSDMA)',
+    tagline: 'Central Plateau & Narmada Basin Multi-Hazard Platform',
+  },
+  karnataka: {
+    id: 'karnataka',
+    name: 'Karnataka',
+    code: 'KA',
+    adminUnitName: 'Taluk',
+    adminUnitPlural: 'Taluks',
+    districtCount: 31,
+    adminUnitCount: 230,
+    rankedCount: 230,
+    hostCandidateCount: 57,
+    center: [14.705, 76.166],
+    bounds: [
+      [11.57, 74.05],
+      [18.45, 78.58],
+    ],
+    isCoastal: true,
+    sdmaName: 'Karnataka SDMA (KSDMA)',
+    tagline: 'Deccan Plateau, Western Ghats & Coastal Multi-Hazard Vulnerability & Relocation Decision System',
+  },
+  goa: {
+    id: 'goa',
+    name: 'Goa',
+    code: 'GA',
+    adminUnitName: 'Taluka',
+    adminUnitPlural: 'Talukas',
+    districtCount: 2,
+    adminUnitCount: 12,
+    rankedCount: 12,
+    hostCandidateCount: 1,
+    center: [15.35, 74.01],
+    bounds: [
+      [14.89, 73.67],
+      [15.80, 74.35],
+    ],
+    isCoastal: true,
+    sdmaName: 'Goa SDMA (GSDMA)',
+    tagline: 'Arabian Sea Coast, Mandovi-Zuari Estuaries & Western Ghats Multi-Hazard Platform',
+  },
+  manipur: {
+    id: 'manipur',
+    name: 'Manipur',
+    code: 'MN',
+    adminUnitName: 'Sub-Division',
+    adminUnitPlural: 'Sub-Divisions',
+    districtCount: 16,
+    adminUnitCount: 51,
+    rankedCount: 51,
+    hostCandidateCount: 14,
+    center: [24.80, 93.94],
+    bounds: [
+      [23.83, 92.95],
+      [25.70, 94.78],
+    ],
+    isCoastal: false,
+    sdmaName: 'Manipur SDMA (MSDMA)',
+    tagline: 'Indo-Burma Ranges, Loktak Lake & River Basin Multi-Hazard Relocation Decision System',
   },
 };
 
@@ -69,7 +208,28 @@ export const StateProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   const getInitialState = (): StateId => {
     if (typeof window !== 'undefined') {
       const hash = window.location.hash.toLowerCase();
-      if (hash.includes('/tn') || hash.includes('/tamil') || hash.includes('tamil_nadu')) {
+      if (hash.includes('/mn') || hash.includes('/manipur') || hash.includes('manipur')) {
+        return 'manipur';
+      }
+      if (hash.includes('/ga') || hash.includes('/goa') || hash.includes('goa')) {
+        return 'goa';
+      }
+      if (hash.includes('/ka') || hash.includes('/karnataka') || hash.includes('karnataka')) {
+        return 'karnataka';
+      }
+      if (hash.includes('/mp') || hash.includes('/madhya') || hash.includes('madhya')) {
+        return 'madhya_pradesh';
+      }
+      if (hash.includes('/rj') || hash.includes('/rajasthan') || hash.includes('rajasthan')) {
+        return 'rajasthan';
+      }
+      if (hash.includes('/tg') || hash.includes('/ts') || hash.includes('/telangana') || hash.includes('telangana')) {
+        return 'telangana';
+      }
+      if (hash.includes('/tr') || hash.includes('/tripura') || hash.includes('tripura')) {
+        return 'tripura';
+      }
+      if (hash.includes('/tn') || hash.includes('/tamil') || hash.includes('tamil_nadu') || hash.includes('tamil-nadu')) {
         return 'tamil_nadu';
       }
     }
@@ -84,8 +244,22 @@ export const StateProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   };
 
   const selectStateByName = (name: string) => {
-    const lower = name.toLowerCase();
-    if (lower.includes('tamil')) {
+    const lower = name.toLowerCase().replace(/[-_]/g, ' ');
+    if (lower.includes('manipur') || lower === 'mn') {
+      setStateId('manipur');
+    } else if (lower.includes('goa') || lower === 'ga') {
+      setStateId('goa');
+    } else if (lower.includes('karnataka') || lower === 'ka') {
+      setStateId('karnataka');
+    } else if (lower.includes('madhya') || lower === 'mp') {
+      setStateId('madhya_pradesh');
+    } else if (lower.includes('rajasthan') || lower === 'rj') {
+      setStateId('rajasthan');
+    } else if (lower.includes('telangana') || lower === 'tg' || lower === 'ts') {
+      setStateId('telangana');
+    } else if (lower.includes('tripura') || lower === 'tr') {
+      setStateId('tripura');
+    } else if (lower.includes('tamil') || lower === 'tn') {
       setStateId('tamil_nadu');
     } else {
       setStateId('andhra_pradesh');
@@ -96,9 +270,23 @@ export const StateProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   useEffect(() => {
     const handleHash = () => {
       const hash = window.location.hash.toLowerCase();
-      if (hash.includes('/tn') || hash.includes('/tamil')) {
+      if (hash.includes('/mn') || hash.includes('/manipur') || hash.includes('manipur')) {
+        setStateIdState('manipur');
+      } else if (hash.includes('/ga') || hash.includes('/goa') || hash.includes('goa')) {
+        setStateIdState('goa');
+      } else if (hash.includes('/ka') || hash.includes('/karnataka') || hash.includes('karnataka')) {
+        setStateIdState('karnataka');
+      } else if (hash.includes('/mp') || hash.includes('/madhya') || hash.includes('madhya')) {
+        setStateIdState('madhya_pradesh');
+      } else if (hash.includes('/rj') || hash.includes('/rajasthan') || hash.includes('rajasthan')) {
+        setStateIdState('rajasthan');
+      } else if (hash.includes('/tg') || hash.includes('/ts') || hash.includes('/telangana') || hash.includes('telangana')) {
+        setStateIdState('telangana');
+      } else if (hash.includes('/tr') || hash.includes('/tripura') || hash.includes('tripura')) {
+        setStateIdState('tripura');
+      } else if (hash.includes('/tn') || hash.includes('/tamil') || hash.includes('tamil_nadu') || hash.includes('tamil-nadu')) {
         setStateIdState('tamil_nadu');
-      } else if (hash.includes('/ap') || hash.includes('/andhra')) {
+      } else if (hash.includes('/ap') || hash.includes('/andhra') || hash.includes('andhra_pradesh') || hash.includes('andhra-pradesh')) {
         setStateIdState('andhra_pradesh');
       }
     };

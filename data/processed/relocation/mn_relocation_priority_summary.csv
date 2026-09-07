@@ -1,0 +1,2 @@
+total_mandals,total_mandals_ranked,mandals_very_high_priority,mandals_high_priority,mandals_moderate_priority,mandals_low_priority,mandals_insufficient_data,topsis_min_score,topsis_max_score,topsis_mean_score,ahp_consistency_ratio,host_zone_candidates_pool_count
+51,51,10,14,27,0,0,0.0,0.8564,0.521,0.0038,14

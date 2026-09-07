@@ -18,12 +18,70 @@ def is_tn(state_id: Optional[str]) -> bool:
     clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
     return clean in ["tamil_nadu", "tn", "tamilnadu"]
 
+def is_tr(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["tripura", "tr"]
+
+def is_tg(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["telangana", "tg", "ts"]
+
+def is_rj(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["rajasthan", "rj"]
+
+def is_mp(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["madhya_pradesh", "mp", "madhyapradesh"]
+
+def is_ka(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["karnataka", "ka"]
+
+def is_ga(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["goa", "ga"]
+
+def is_mn(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["manipur", "mn"]
+
 class DecisionService:
     def __init__(self):
         self._cache: Dict[str, Dict[str, Any]] = {}
 
     def _get_state_key(self, state_id: Optional[str]) -> str:
-        return "tn" if is_tn(state_id) else "ap"
+        if is_mn(state_id):
+            return "mn"
+        if is_ga(state_id):
+            return "ga"
+        if is_ka(state_id):
+            return "ka"
+        if is_mp(state_id):
+            return "mp"
+        if is_rj(state_id):
+            return "rj"
+        if is_tg(state_id):
+            return "tg"
+        if is_tr(state_id):
+            return "tr"
+        if is_tn(state_id):
+            return "tn"
+        return "ap"
 
     def _load_data(self, state_id: Optional[str] = "andhra_pradesh"):
         key = self._get_state_key(state_id)
@@ -33,7 +91,35 @@ class DecisionService:
         reloc_dir = settings.DATA_DIR / "processed" / "relocation"
         cap_dir = settings.DATA_DIR / "processed" / "capacity"
 
-        if key == "tn":
+        if key == "mn":
+            reloc_csv = reloc_dir / "mn_subdivisions_relocation_priority.csv"
+            cap_csv = cap_dir / "mn_subdivisions_capacity_adequacy.csv"
+            hosts_csv = cap_dir / "mn_host_zone_candidates.csv"
+        elif key == "ga":
+            reloc_csv = reloc_dir / "ga_taluks_relocation_priority.csv"
+            cap_csv = cap_dir / "ga_taluks_capacity_adequacy.csv"
+            hosts_csv = cap_dir / "ga_host_zone_candidates.csv"
+        elif key == "ka":
+            reloc_csv = reloc_dir / "ka_taluks_relocation_priority.csv"
+            cap_csv = cap_dir / "ka_taluks_capacity_adequacy.csv"
+            hosts_csv = cap_dir / "ka_host_zone_candidates.csv"
+        elif key == "mp":
+            reloc_csv = reloc_dir / "mp_tehsils_relocation_priority.csv"
+            cap_csv = cap_dir / "mp_tehsils_capacity_adequacy.csv"
+            hosts_csv = cap_dir / "mp_host_zone_candidates.csv"
+        elif key == "rj":
+            reloc_csv = reloc_dir / "rj_tehsils_relocation_priority.csv"
+            cap_csv = cap_dir / "rj_tehsils_capacity_adequacy.csv"
+            hosts_csv = cap_dir / "rj_host_zone_candidates.csv"
+        elif key == "tg":
+            reloc_csv = reloc_dir / "tg_mandal_relocation_priority.csv"
+            cap_csv = cap_dir / "tg_mandal_capacity_adequacy.csv"
+            hosts_csv = cap_dir / "tg_host_zone_candidates.csv"
+        elif key == "tr":
+            reloc_csv = reloc_dir / "tr_subdivision_relocation_priority.csv"
+            cap_csv = cap_dir / "tr_subdivision_capacity_adequacy.csv"
+            hosts_csv = cap_dir / "tr_host_zone_candidates.csv"
+        elif key == "tn":
             reloc_csv = reloc_dir / "tn_taluk_relocation_priority.csv"
             cap_csv = cap_dir / "tn_taluk_capacity_adequacy.csv"
             hosts_csv = cap_dir / "tn_host_zone_candidates.csv"
@@ -62,15 +148,48 @@ class DecisionService:
 
     def get_capacity_gap_assessment(self, mandal_id: str, state_id: Optional[str] = "andhra_pradesh") -> Optional[CapacityGapAssessment]:
         target = mandal_id.strip().upper()
-        detected_state = "tamil_nadu" if target.startswith("TN_") else state_id
+        if target.startswith("MN_"):
+            detected_state = "manipur"
+        elif target.startswith("GA_"):
+            detected_state = "goa"
+        elif target.startswith("KA_"):
+            detected_state = "karnataka"
+        elif target.startswith("MP_"):
+            detected_state = "madhya_pradesh"
+        elif target.startswith("RJ_"):
+            detected_state = "rajasthan"
+        elif target.startswith("TG_"):
+            detected_state = "telangana"
+        elif target.startswith("TR_"):
+            detected_state = "tripura"
+        elif target.startswith("TN_"):
+            detected_state = "tamil_nadu"
+        else:
+            detected_state = state_id
+
         data = self._load_data(detected_state)
         r_row = self._find_mandal(data["reloc_df"], mandal_id)
         c_row = self._find_mandal(data["cap_df"], mandal_id)
 
+        if (r_row is None or c_row is None) and detected_state != "rajasthan":
+            data_rj = self._load_data("rajasthan")
+            r_row = self._find_mandal(data_rj["reloc_df"], mandal_id) or r_row
+            c_row = self._find_mandal(data_rj["cap_df"], mandal_id) or c_row
+
+        if (r_row is None or c_row is None) and detected_state != "telangana":
+            data_tg = self._load_data("telangana")
+            r_row = self._find_mandal(data_tg["reloc_df"], mandal_id) or r_row
+            c_row = self._find_mandal(data_tg["cap_df"], mandal_id) or c_row
+
+        if (r_row is None or c_row is None) and detected_state != "tripura":
+            data_tr = self._load_data("tripura")
+            r_row = self._find_mandal(data_tr["reloc_df"], mandal_id) or r_row
+            c_row = self._find_mandal(data_tr["cap_df"], mandal_id) or c_row
+
         if (r_row is None or c_row is None) and detected_state != "tamil_nadu":
             data_tn = self._load_data("tamil_nadu")
-            r_row = self._find_mandal(data_tn["reloc_df"], mandal_id)
-            c_row = self._find_mandal(data_tn["cap_df"], mandal_id)
+            r_row = self._find_mandal(data_tn["reloc_df"], mandal_id) or r_row
+            c_row = self._find_mandal(data_tn["cap_df"], mandal_id) or c_row
 
         if r_row is None or c_row is None:
             return None
@@ -191,15 +310,40 @@ class DecisionService:
 
     def get_action_plan(self, mandal_id: str, state_id: Optional[str] = "andhra_pradesh") -> Optional[ActionPlanResponse]:
         target = mandal_id.strip().upper()
-        detected_state = "tamil_nadu" if target.startswith("TN_") else state_id
+        if target.startswith("RJ_"):
+            detected_state = "rajasthan"
+        elif target.startswith("TG_"):
+            detected_state = "telangana"
+        elif target.startswith("TR_"):
+            detected_state = "tripura"
+        elif target.startswith("TN_"):
+            detected_state = "tamil_nadu"
+        else:
+            detected_state = state_id
+
         data = self._load_data(detected_state)
         r_row = self._find_mandal(data["reloc_df"], mandal_id)
         c_row = self._find_mandal(data["cap_df"], mandal_id)
 
+        if (r_row is None or c_row is None) and detected_state != "rajasthan":
+            data_rj = self._load_data("rajasthan")
+            r_row = self._find_mandal(data_rj["reloc_df"], mandal_id) or r_row
+            c_row = self._find_mandal(data_rj["cap_df"], mandal_id) or c_row
+
+        if (r_row is None or c_row is None) and detected_state != "telangana":
+            data_tg = self._load_data("telangana")
+            r_row = self._find_mandal(data_tg["reloc_df"], mandal_id) or r_row
+            c_row = self._find_mandal(data_tg["cap_df"], mandal_id) or c_row
+
+        if (r_row is None or c_row is None) and detected_state != "tripura":
+            data_tr = self._load_data("tripura")
+            r_row = self._find_mandal(data_tr["reloc_df"], mandal_id) or r_row
+            c_row = self._find_mandal(data_tr["cap_df"], mandal_id) or c_row
+
         if (r_row is None or c_row is None) and detected_state != "tamil_nadu":
             data_tn = self._load_data("tamil_nadu")
-            r_row = self._find_mandal(data_tn["reloc_df"], mandal_id)
-            c_row = self._find_mandal(data_tn["cap_df"], mandal_id)
+            r_row = self._find_mandal(data_tn["reloc_df"], mandal_id) or r_row
+            c_row = self._find_mandal(data_tn["cap_df"], mandal_id) or c_row
 
         if r_row is None or c_row is None:
             return None
@@ -210,6 +354,43 @@ class DecisionService:
         reloc_cat = str(r_row.get("relocation_priority_category", "MODERATE"))
         primary_bot = str(r_row.get("primary_bottleneck", "health_infrastructure"))
         secondary_bot = str(c_row.get("secondary_bottleneck", "N/A"))
+
+        is_mn_state = is_mn(detected_state) or m_id.startswith("MN_")
+        is_ga_state = is_ga(detected_state) or m_id.startswith("GA_")
+        is_ka_state = is_ka(detected_state) or m_id.startswith("KA_")
+        is_mp_state = is_mp(detected_state) or m_id.startswith("MP_")
+        is_rj_state = is_rj(detected_state) or m_id.startswith("RJ_")
+        is_tg_state = is_tg(detected_state) or m_id.startswith("TG_")
+        is_tr_state = is_tr(detected_state) or m_id.startswith("TR_")
+        is_tn_state = is_tn(detected_state) or m_id.startswith("TN_")
+
+        if is_mn_state:
+            agency_prefix = "Manipur"
+            sdma_name = "MSDMA"
+        elif is_ga_state:
+            agency_prefix = "Goa"
+            sdma_name = "GSDMA"
+        elif is_ka_state:
+            agency_prefix = "Karnataka"
+            sdma_name = "KSDMA"
+        elif is_mp_state:
+            agency_prefix = "Madhya Pradesh"
+            sdma_name = "MPSDMA"
+        elif is_rj_state:
+            agency_prefix = "Rajasthan"
+            sdma_name = "RSDMA"
+        elif is_tg_state:
+            agency_prefix = "Telangana"
+            sdma_name = "TGSDMA"
+        elif is_tr_state:
+            agency_prefix = "Tripura"
+            sdma_name = "TDMA"
+        elif is_tn_state:
+            agency_prefix = "Tamil Nadu"
+            sdma_name = "TNSDMA"
+        else:
+            agency_prefix = "AP"
+            sdma_name = "APSDMA"
 
         haz_exp = float(r_row.get("c1_hazard_exposure", 0.0))
         demo_sens = float(r_row.get("c2_demographic_sensitivity", 0.0))
@@ -228,10 +409,10 @@ class DecisionService:
                     horizon="IMMEDIATE_EMERGENCY",
                     category="EVACUATION_ACCESS",
                     title="Audit Alternate Egress Corridors & Road Chokepoints",
-                    description=f"Deploy local R&B engineers to verify culverts, bridge clearances, and unpaved evacuation routes in {m_name}.",
+                    description=f"Deploy local engineers to verify culverts, bridge clearances, and unpaved evacuation routes in {m_name}.",
                     trigger_condition=f"Accessibility constraint ({acc_constraint:.2f}) exceeds threshold 0.30.",
                     priority_level="CRITICAL" if reloc_cat == "VERY HIGH" else "HIGH",
-                    responsible_agency="AP Roads & Buildings Department / District Police"
+                    responsible_agency=f"{agency_prefix} Roads & Buildings / PWD / District Police"
                 )
             )
             short_term.append(
@@ -243,7 +424,7 @@ class DecisionService:
                     description="Prioritize elevating flood-prone road causeways connecting low-lying habitations to major state highways.",
                     trigger_condition="High road vulnerability to seasonal inundation.",
                     priority_level="HIGH",
-                    responsible_agency="AP Panchayat Raj & Rural Development"
+                    responsible_agency=f"{agency_prefix} Rural Development / PWD"
                 )
             )
 
@@ -258,7 +439,7 @@ class DecisionService:
                     description=f"Inspect backup generator power, emergency food rations, and sanitation supplies in designated cyclone/flood shelters.",
                     trigger_condition=f"Hazard exposure index ({haz_exp:.2f}) exceeds high risk threshold 0.40.",
                     priority_level="CRITICAL",
-                    responsible_agency="APSDMA / Revenue Department"
+                    responsible_agency=f"{sdma_name} / Revenue Department"
                 )
             )
 
@@ -277,7 +458,6 @@ class DecisionService:
                 )
             )
 
-
         # Rule 4: Primary Bottleneck Specific Actions
         if "HEALTH" in primary_bot.upper():
             short_term.append(
@@ -286,10 +466,10 @@ class DecisionService:
                     horizon="SHORT_TERM_MITIGATION",
                     category="HEALTH_MEDICAL",
                     title="Pre-position Mobile Medical Units & Essential Drug Kits",
-                    description="Establish pre-identified medical referral corridors to secondary care hospitals in adjacent safer mandals.",
+                    description="Establish pre-identified medical referral corridors to secondary care hospitals in adjacent safer units.",
                     trigger_condition="Primary physical constraint is Health Bed & Facility Adequacy.",
                     priority_level="HIGH",
-                    responsible_agency="AP Health, Medical & Family Welfare Department"
+                    responsible_agency=f"{agency_prefix} Health & Family Welfare Department"
                 )
             )
         elif "SHELTER" in primary_bot.upper():
@@ -302,7 +482,7 @@ class DecisionService:
                     description="Conduct structural audits of robust concrete institutional buildings to supplement verified shelter capacity.",
                     trigger_condition="Primary physical constraint is Designated Cyclone/Flood Shelter Capacity.",
                     priority_level="HIGH",
-                    responsible_agency="School Education Department / NCRMP Cell"
+                    responsible_agency="School Education Department / SDMA Cell"
                 )
             )
         elif "WATER" in primary_bot.upper() or "SANITATION" in primary_bot.upper():
@@ -315,7 +495,7 @@ class DecisionService:
                     description="Secure elevated water storage tanks and distribute chlorine water purification tablets to flood-exposed habitations.",
                     trigger_condition="Primary physical constraint is Water Access and Sanitation Coverage.",
                     priority_level="HIGH",
-                    responsible_agency="Rural Water Supply & Sanitation (RWS&S)"
+                    responsible_agency=f"{agency_prefix} Drinking Water & Sanitation / RWS"
                 )
             )
 
@@ -379,12 +559,45 @@ class DecisionService:
         )
 
     def compare_source_and_host(self, source_id: str, host_id: str, state_id: Optional[str] = "andhra_pradesh") -> Optional[SourceHostComparisonResponse]:
-        detected_state = "tamil_nadu" if (source_id.strip().upper().startswith("TN_") or host_id.strip().upper().startswith("TN_")) else state_id
+        s_target = source_id.strip().upper()
+        h_target = host_id.strip().upper()
+        if s_target.startswith("RJ_") or h_target.startswith("RJ_") or (state_id and is_rj(state_id)):
+            detected_state = "rajasthan"
+        elif s_target.startswith("TG_") or h_target.startswith("TG_") or (state_id and is_tg(state_id)):
+            detected_state = "telangana"
+        elif s_target.startswith("TR_") or h_target.startswith("TR_") or (state_id and is_tr(state_id)):
+            detected_state = "tripura"
+        elif s_target.startswith("TN_") or h_target.startswith("TN_") or (state_id and is_tn(state_id)):
+            detected_state = "tamil_nadu"
+        else:
+            detected_state = state_id
+
         data = self._load_data(detected_state)
         s_reloc = self._find_mandal(data["reloc_df"], source_id)
         s_cap = self._find_mandal(data["cap_df"], source_id)
         h_reloc = self._find_mandal(data["reloc_df"], host_id)
         h_cap = self._find_mandal(data["cap_df"], host_id)
+
+        if (s_reloc is None or s_cap is None or h_reloc is None or h_cap is None) and detected_state != "rajasthan":
+            data_rj = self._load_data("rajasthan")
+            s_reloc = self._find_mandal(data_rj["reloc_df"], source_id) or s_reloc
+            s_cap = self._find_mandal(data_rj["cap_df"], source_id) or s_cap
+            h_reloc = self._find_mandal(data_rj["reloc_df"], host_id) or h_reloc
+            h_cap = self._find_mandal(data_rj["cap_df"], host_id) or h_cap
+
+        if (s_reloc is None or s_cap is None or h_reloc is None or h_cap is None) and detected_state != "telangana":
+            data_tg = self._load_data("telangana")
+            s_reloc = self._find_mandal(data_tg["reloc_df"], source_id) or s_reloc
+            s_cap = self._find_mandal(data_tg["cap_df"], source_id) or s_cap
+            h_reloc = self._find_mandal(data_tg["reloc_df"], host_id) or h_reloc
+            h_cap = self._find_mandal(data_tg["cap_df"], host_id) or h_cap
+
+        if (s_reloc is None or s_cap is None or h_reloc is None or h_cap is None) and detected_state != "tripura":
+            data_tr = self._load_data("tripura")
+            s_reloc = self._find_mandal(data_tr["reloc_df"], source_id) or s_reloc
+            s_cap = self._find_mandal(data_tr["cap_df"], source_id) or s_cap
+            h_reloc = self._find_mandal(data_tr["reloc_df"], host_id) or h_reloc
+            h_cap = self._find_mandal(data_tr["cap_df"], host_id) or h_cap
 
         if (s_reloc is None or s_cap is None or h_reloc is None or h_cap is None) and detected_state != "tamil_nadu":
             data_tn = self._load_data("tamil_nadu")

@@ -28,8 +28,7 @@ interface SidebarProps {
 export const Sidebar: React.FC<SidebarProps> = ({ activeTab, onSelectTab }) => {
   const [collapsed, setCollapsed] = useState(false);
   const { currentState } = useActiveState();
-  const isTN = currentState.id === 'tamil_nadu';
-  const priorityCount = isTN ? '302' : '680';
+  const priorityCount = String(currentState?.rankedCount || 680);
 
   const sections = [
     {
@@ -101,21 +100,20 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab, onSelectTab }) => {
                   <button
                     key={item.id}
                     onClick={() => onSelectTab(item.id)}
-                    className={`w-full flex items-center ${collapsed ? 'justify-center' : 'justify-between'} px-3 py-1.5 rounded-lg text-xs transition-all duration-150 ${
+                    className={`w-full flex items-center justify-between px-2.5 py-2 rounded-xl text-xs font-semibold transition-all duration-150 group ${
                       isActive
-                        ? 'bg-indigo-50/90 text-indigo-900 border border-indigo-200/80 font-bold shadow-xs'
-                        : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50 border border-transparent font-medium'
+                        ? 'bg-indigo-50 text-indigo-700 font-bold shadow-xs'
+                        : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
                     }`}
-                    title={collapsed ? `${item.label} ${item.badge ? `(${item.badge})` : ''}` : undefined}
+                    title={collapsed ? item.label : undefined}
                   >
-                    <div className="flex items-center space-x-2.5 min-w-0 flex-1">
-                      <Icon className={`w-3.5 h-3.5 shrink-0 ${isActive ? 'text-indigo-600' : 'text-slate-400'}`} />
-                      {!collapsed && (
-                        <span className="tracking-tight text-[11px] leading-tight text-left">
-                          {item.label}
-                        </span>
-                      )}
+                    <div className="flex items-center space-x-2.5 min-w-0">
+                      <Icon className={`w-4 h-4 shrink-0 transition-colors ${
+                        isActive ? 'text-indigo-600' : 'text-slate-400 group-hover:text-slate-600'
+                      }`} />
+                      {!collapsed && <span className="truncate leading-tight">{item.label}</span>}
                     </div>
+
                     {!collapsed && item.badge && (
                       <span className={`text-[9px] px-1.5 py-0.5 rounded font-mono font-bold shrink-0 ml-1.5 ${
                         isActive
@@ -133,7 +131,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab, onSelectTab }) => {
         ))}
       </div>
 
-      {/* Pilot State Card pinned at bottom */}
+      {/* State Card pinned at bottom */}
       {!collapsed && (
         <div className="p-3 border-t border-slate-100 space-y-2 bg-slate-50/70 shrink-0">
           <div className="bg-indigo-50/60 border border-indigo-100 rounded-xl p-2.5 flex items-center gap-2.5 shadow-xs">
@@ -141,8 +139,8 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab, onSelectTab }) => {
               <Shield className="w-4 h-4 text-white" />
             </div>
             <div className="min-w-0 flex-1">
-              <div className="text-[8.5px] font-bold uppercase tracking-wider text-indigo-600">Pilot State</div>
-              <div className="text-xs font-black text-slate-800 truncate leading-tight">Andhra Pradesh</div>
+              <div className="text-[8.5px] font-bold uppercase tracking-wider text-indigo-600">Active State</div>
+              <div className="text-xs font-black text-slate-800 truncate leading-tight">{currentState?.name || 'Andhra Pradesh'}</div>
             </div>
           </div>
 
@@ -152,11 +150,10 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab, onSelectTab }) => {
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
               Engine
             </span>
-            <span className="font-mono font-semibold text-slate-600">696 Mandals</span>
+            <span className="font-mono font-semibold text-slate-600">{currentState?.adminUnitCount || 696} {currentState?.adminUnitPlural || 'Mandals'}</span>
           </div>
         </div>
       )}
     </aside>
   );
 };
-

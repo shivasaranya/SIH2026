@@ -1,0 +1,110 @@
+mandal_id,mandal_name,relocation_priority_category,factor_contrib_hazard_pct,factor_contrib_demographic_pct,factor_contrib_capacity_pct,factor_contrib_accessibility_pct,primary_priority_factor,secondary_priority_factor
+TG_MANDAL_001,Adilabad Urban,MODERATE,48.0,0.0,38.1,13.9,Hazard Exposure,Capacity Stress
+TG_MANDAL_002,Boath,LOW,52.5,0.0,28.2,19.3,Hazard Exposure,Capacity Stress
+TG_MANDAL_003,Utnoor,MODERATE,42.9,0.0,45.1,12.1,Hazard Exposure,Capacity Stress
+TG_MANDAL_004,Bhadrachalam,HIGH,85.2,0.0,3.9,10.9,Hazard Exposure,Capacity Stress
+TG_MANDAL_005,Kothagudem,VERY HIGH,74.4,0.0,15.3,10.3,Hazard Exposure,Capacity Stress
+TG_MANDAL_006,Yellandu,VERY HIGH,68.0,0.0,17.9,14.1,Hazard Exposure,Capacity Stress
+TG_MANDAL_007,Manuguru,VERY HIGH,86.1,0.0,6.6,7.4,Hazard Exposure,Capacity Stress
+TG_MANDAL_008,Hanamkonda,MODERATE,29.0,0.0,45.3,25.7,Hazard Exposure,Capacity Stress
+TG_MANDAL_009,Kazipet,MODERATE,40.2,0.0,43.7,16.1,Hazard Exposure,Capacity Stress
+TG_MANDAL_010,Parkal,LOW,57.6,0.0,14.6,27.8,Hazard Exposure,Capacity Stress
+TG_MANDAL_011,Charminar,MODERATE,82.2,0.0,5.3,12.5,Hazard Exposure,Capacity Stress
+TG_MANDAL_012,Secunderabad,HIGH,86.3,0.0,5.6,8.1,Hazard Exposure,Capacity Stress
+TG_MANDAL_013,Khairatabad,VERY HIGH,62.9,0.0,21.6,15.5,Hazard Exposure,Capacity Stress
+TG_MANDAL_014,Jagtial,VERY HIGH,45.0,0.0,43.1,11.9,Hazard Exposure,Capacity Stress
+TG_MANDAL_015,Korutla,MODERATE,72.9,0.0,12.1,15.0,Hazard Exposure,Capacity Stress
+TG_MANDAL_016,Dharmapuri,MODERATE,59.6,0.0,23.9,16.5,Hazard Exposure,Capacity Stress
+TG_MANDAL_017,Jangaon,MODERATE,41.8,0.0,32.1,26.1,Hazard Exposure,Capacity Stress
+TG_MANDAL_018,Station Ghanpur,MODERATE,43.2,0.0,47.8,9.1,Hazard Exposure,Capacity Stress
+TG_MANDAL_019,Palakurthi,LOW,61.4,0.0,16.8,21.9,Hazard Exposure,Capacity Stress
+TG_MANDAL_020,Bhupalpally,VERY HIGH,80.0,0.0,9.4,10.7,Hazard Exposure,Capacity Stress
+TG_MANDAL_021,Kataram,HIGH,83.6,0.0,4.1,12.3,Hazard Exposure,Capacity Stress
+TG_MANDAL_022,Mahadevpur,VERY HIGH,65.9,0.0,20.4,13.7,Hazard Exposure,Capacity Stress
+TG_MANDAL_023,Gadwal,HIGH,50.2,0.0,35.2,14.6,Hazard Exposure,Capacity Stress
+TG_MANDAL_024,Alampur,MODERATE,75.5,0.0,12.9,11.7,Hazard Exposure,Capacity Stress
+TG_MANDAL_025,Ieeja,MODERATE,81.0,0.0,4.9,14.0,Hazard Exposure,Capacity Stress
+TG_MANDAL_026,Kamareddy,MODERATE,43.7,0.0,33.1,23.2,Hazard Exposure,Capacity Stress
+TG_MANDAL_027,Banswada,LOW,49.7,0.0,34.4,15.9,Hazard Exposure,Capacity Stress
+TG_MANDAL_028,Yellareddy,LOW,62.3,0.0,9.6,28.0,Hazard Exposure,Capacity Stress
+TG_MANDAL_029,Karimnagar,MODERATE,42.7,0.0,43.2,14.1,Hazard Exposure,Capacity Stress
+TG_MANDAL_030,Huzurabad,MODERATE,39.7,0.0,35.7,24.6,Hazard Exposure,Capacity Stress
+TG_MANDAL_031,Choppadandi,LOW,53.9,0.0,21.0,25.1,Hazard Exposure,Capacity Stress
+TG_MANDAL_032,Khammam Urban,VERY HIGH,63.4,0.0,18.9,17.7,Hazard Exposure,Capacity Stress
+TG_MANDAL_033,Madhira,HIGH,78.2,0.0,7.6,14.2,Hazard Exposure,Capacity Stress
+TG_MANDAL_034,Sathupalli,VERY HIGH,62.0,0.0,21.3,16.7,Hazard Exposure,Capacity Stress
+TG_MANDAL_035,Asifabad,MODERATE,57.3,0.0,28.5,14.2,Hazard Exposure,Capacity Stress
+TG_MANDAL_036,Sirpur,LOW,53.9,0.0,29.0,17.1,Hazard Exposure,Capacity Stress
+TG_MANDAL_037,Kagaznagar,MODERATE,45.6,0.0,42.6,11.8,Hazard Exposure,Capacity Stress
+TG_MANDAL_038,Mahabubabad,LOW,73.6,0.0,8.9,17.5,Hazard Exposure,Capacity Stress
+TG_MANDAL_039,Dornakal,MODERATE,39.8,0.0,45.8,14.4,Hazard Exposure,Capacity Stress
+TG_MANDAL_040,Maripeda,LOW,46.9,0.0,22.7,30.4,Hazard Exposure,Capacity Stress
+TG_MANDAL_041,Mahbubnagar Urban,LOW,43.2,0.0,24.6,32.2,Hazard Exposure,Capacity Stress
+TG_MANDAL_042,Jadcherla,LOW,57.2,0.0,28.6,14.2,Hazard Exposure,Capacity Stress
+TG_MANDAL_043,Devarkadra,MODERATE,33.3,0.0,46.2,20.5,Hazard Exposure,Capacity Stress
+TG_MANDAL_044,Mancherial,HIGH,48.7,0.0,34.6,16.7,Hazard Exposure,Capacity Stress
+TG_MANDAL_045,Bellampalli,VERY HIGH,52.2,0.0,37.0,10.8,Hazard Exposure,Capacity Stress
+TG_MANDAL_046,Chennur,VERY HIGH,43.2,0.0,43.1,13.6,Hazard Exposure,Capacity Stress
+TG_MANDAL_047,Medak,LOW,66.3,0.0,8.9,24.9,Hazard Exposure,Capacity Stress
+TG_MANDAL_048,Narsapur,MODERATE,44.5,0.0,41.5,14.0,Hazard Exposure,Capacity Stress
+TG_MANDAL_049,Toopran,MODERATE,41.2,0.0,37.1,21.7,Hazard Exposure,Capacity Stress
+TG_MANDAL_050,Malkajgiri,HIGH,68.7,0.0,20.4,10.9,Hazard Exposure,Capacity Stress
+TG_MANDAL_051,Medchal,HIGH,73.7,0.0,18.2,8.2,Hazard Exposure,Capacity Stress
+TG_MANDAL_052,Kukatpally,VERY HIGH,47.5,0.0,43.8,8.7,Hazard Exposure,Capacity Stress
+TG_MANDAL_053,Quthbullapur,HIGH,65.7,0.0,21.9,12.4,Hazard Exposure,Capacity Stress
+TG_MANDAL_054,Mulug,VERY HIGH,83.9,0.0,9.6,6.5,Hazard Exposure,Capacity Stress
+TG_MANDAL_055,Eturnagaram,VERY HIGH,80.1,0.0,8.6,11.3,Hazard Exposure,Capacity Stress
+TG_MANDAL_056,Venkatapur,HIGH,77.6,0.0,9.0,13.4,Hazard Exposure,Capacity Stress
+TG_MANDAL_057,Nagarkurnool,MODERATE,62.7,0.0,20.4,16.9,Hazard Exposure,Capacity Stress
+TG_MANDAL_058,Achampet,HIGH,55.2,0.0,29.1,15.6,Hazard Exposure,Capacity Stress
+TG_MANDAL_059,Kalwakurthy,VERY HIGH,59.0,0.0,24.5,16.5,Hazard Exposure,Capacity Stress
+TG_MANDAL_060,Kollapur,HIGH,64.2,0.0,18.5,17.3,Hazard Exposure,Capacity Stress
+TG_MANDAL_061,Nalgonda,HIGH,30.5,0.0,55.7,13.8,Hazard Exposure,Capacity Stress
+TG_MANDAL_062,Miryalaguda,LOW,48.8,0.0,15.9,35.2,Hazard Exposure,Capacity Stress
+TG_MANDAL_063,Devarakonda,MODERATE,39.0,0.0,45.7,15.3,Hazard Exposure,Capacity Stress
+TG_MANDAL_064,Narketpally,HIGH,37.2,0.0,50.4,12.4,Hazard Exposure,Capacity Stress
+TG_MANDAL_065,Narayanpet,LOW,59.2,0.0,16.5,24.4,Hazard Exposure,Capacity Stress
+TG_MANDAL_066,Makthal,LOW,56.3,0.0,30.7,13.0,Hazard Exposure,Capacity Stress
+TG_MANDAL_067,Maddur,LOW,60.1,0.0,22.9,17.1,Hazard Exposure,Capacity Stress
+TG_MANDAL_068,Nirmal,MODERATE,73.9,0.0,4.7,21.5,Hazard Exposure,Capacity Stress
+TG_MANDAL_069,Bhainsa,HIGH,65.9,0.0,20.2,13.9,Hazard Exposure,Capacity Stress
+TG_MANDAL_070,Khanapur,HIGH,58.6,0.0,28.2,13.2,Hazard Exposure,Capacity Stress
+TG_MANDAL_071,Nizamabad North,MODERATE,70.0,0.0,9.9,20.0,Hazard Exposure,Capacity Stress
+TG_MANDAL_072,Armoor,MODERATE,66.5,0.0,9.7,23.8,Hazard Exposure,Capacity Stress
+TG_MANDAL_073,Bodhan,HIGH,61.9,0.0,20.8,17.3,Hazard Exposure,Capacity Stress
+TG_MANDAL_074,Peddapalli,VERY HIGH,49.8,0.0,40.2,10.0,Hazard Exposure,Capacity Stress
+TG_MANDAL_075,Ramagundam,HIGH,69.3,0.0,7.6,23.1,Hazard Exposure,Capacity Stress
+TG_MANDAL_076,Manthani,MODERATE,80.4,0.0,7.6,12.0,Hazard Exposure,Capacity Stress
+TG_MANDAL_077,Sircilla,HIGH,31.4,0.0,58.6,9.9,Hazard Exposure,Capacity Stress
+TG_MANDAL_078,Vemulawada,MODERATE,40.5,0.0,38.8,20.7,Hazard Exposure,Capacity Stress
+TG_MANDAL_079,Yellareddypet,LOW,51.9,0.0,26.0,22.1,Hazard Exposure,Capacity Stress
+TG_MANDAL_080,Rajendranagar,MODERATE,35.5,0.0,45.9,18.6,Hazard Exposure,Capacity Stress
+TG_MANDAL_081,Ibrahimpatnam,MODERATE,46.8,0.0,41.9,11.4,Hazard Exposure,Capacity Stress
+TG_MANDAL_082,Chevella,MODERATE,46.6,0.0,39.7,13.7,Hazard Exposure,Capacity Stress
+TG_MANDAL_083,Maheshwaram,LOW,46.0,0.0,41.6,12.4,Hazard Exposure,Capacity Stress
+TG_MANDAL_084,Sangareddy,LOW,55.0,0.0,24.2,20.8,Hazard Exposure,Capacity Stress
+TG_MANDAL_085,Patancheru,LOW,58.5,0.0,24.1,17.3,Hazard Exposure,Capacity Stress
+TG_MANDAL_086,Zahirabad,MODERATE,36.0,0.0,44.5,19.5,Hazard Exposure,Capacity Stress
+TG_MANDAL_087,Narayankhed,LOW,61.1,0.0,17.2,21.8,Hazard Exposure,Capacity Stress
+TG_MANDAL_088,Siddipet Urban,LOW,54.4,0.0,16.6,29.0,Hazard Exposure,Capacity Stress
+TG_MANDAL_089,Gajwel,HIGH,28.3,0.0,52.6,19.1,Hazard Exposure,Capacity Stress
+TG_MANDAL_090,Husnabad,MODERATE,38.0,0.0,46.3,15.7,Hazard Exposure,Capacity Stress
+TG_MANDAL_091,Dubbak,LOW,55.1,0.0,15.8,29.1,Hazard Exposure,Capacity Stress
+TG_MANDAL_092,Suryapet,LOW,54.2,0.0,12.3,33.5,Hazard Exposure,Capacity Stress
+TG_MANDAL_093,Kodad,LOW,39.4,0.0,32.8,27.8,Hazard Exposure,Capacity Stress
+TG_MANDAL_094,Huzurnagar,LOW,55.4,0.0,6.3,38.2,Hazard Exposure,Capacity Stress
+TG_MANDAL_095,Thungathurthi,LOW,68.2,0.0,7.0,24.8,Hazard Exposure,Capacity Stress
+TG_MANDAL_096,Vikarabad,MODERATE,49.8,0.0,32.4,17.8,Hazard Exposure,Capacity Stress
+TG_MANDAL_097,Tandur,HIGH,47.3,0.0,36.7,16.1,Hazard Exposure,Capacity Stress
+TG_MANDAL_098,Pargi,LOW,73.9,0.0,5.7,20.4,Hazard Exposure,Capacity Stress
+TG_MANDAL_099,Kodangal,MODERATE,52.7,0.0,31.1,16.2,Hazard Exposure,Capacity Stress
+TG_MANDAL_100,Wanaparthy,LOW,45.2,0.0,29.7,25.0,Hazard Exposure,Capacity Stress
+TG_MANDAL_101,Pebbair,LOW,60.6,0.0,7.7,31.7,Hazard Exposure,Capacity Stress
+TG_MANDAL_102,Atmakur,LOW,55.1,0.0,17.4,27.5,Hazard Exposure,Capacity Stress
+TG_MANDAL_103,Warangal,HIGH,31.7,0.0,60.1,8.2,Hazard Exposure,Capacity Stress
+TG_MANDAL_104,Narsampet,LOW,43.1,0.0,29.3,27.5,Hazard Exposure,Capacity Stress
+TG_MANDAL_105,Wardhannapet,MODERATE,45.5,0.0,39.4,15.1,Hazard Exposure,Capacity Stress
+TG_MANDAL_106,Bhongir,MODERATE,33.8,0.0,40.0,26.2,Hazard Exposure,Capacity Stress
+TG_MANDAL_107,Choutuppal,MODERATE,40.0,0.0,46.1,13.9,Hazard Exposure,Capacity Stress
+TG_MANDAL_108,Alair,LOW,47.6,0.0,26.8,25.6,Hazard Exposure,Capacity Stress
+TG_MANDAL_109,Mothkur,MODERATE,39.6,0.0,47.8,12.6,Hazard Exposure,Capacity Stress

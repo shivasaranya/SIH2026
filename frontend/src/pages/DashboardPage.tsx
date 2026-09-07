@@ -15,19 +15,44 @@ import { useActiveState } from '../context/StateContext';
 
 export const DashboardPage: React.FC<DashboardPageProps> = ({ onNavigateToGIS }) => {
   const { currentState } = useActiveState();
+  const isRJ = currentState.id === 'rajasthan';
+  const isTG = currentState.id === 'telangana';
+  const isTR = currentState.id === 'tripura';
   const isTN = currentState.id === 'tamil_nadu';
+
+  const defaultRanked = currentState.rankedCount || (isRJ ? 198 : (isTG ? 109 : (isTR ? 26 : (isTN ? 302 : 680))));
+  const defaultInsufficient = (isRJ || isTG || isTR || isTN) ? 0 : 16;
+  const defaultCandidateHosts = currentState.hostCandidateCount || (isRJ ? 34 : (isTG ? 18 : (isTR ? 78 : (isTN ? 38 : 51))));
+  const defaultVH = isRJ ? 30 : (isTG ? 16 : (isTR ? 3 : (isTN ? 30 : 34)));
+  const defaultH = isRJ ? 40 : (isTG ? 22 : (isTR ? 5 : (isTN ? 60 : 136)));
+  const defaultM = isRJ ? 69 : (isTG ? 38 : (isTR ? 10 : (isTN ? 121 : 272)));
+  const defaultL = isRJ ? 59 : (isTG ? 33 : (isTR ? 8 : (isTN ? 91 : 238)));
 
   const [counts, setCounts] = useState({
     districts: currentState.districtCount,
     mandals: currentState.adminUnitCount,
-    ranked: isTN ? 302 : 680,
-    insufficient: isTN ? 0 : 16,
-    candidateHosts: isTN ? 41 : 51,
-    veryHigh: isTN ? 30 : 34,
-    high: isTN ? 60 : 136,
-    moderate: isTN ? 121 : 272,
-    low: isTN ? 91 : 238
+    ranked: defaultRanked,
+    insufficient: defaultInsufficient,
+    candidateHosts: defaultCandidateHosts,
+    veryHigh: defaultVH,
+    high: defaultH,
+    moderate: defaultM,
+    low: defaultL
   });
+
+  useEffect(() => {
+    setCounts({
+      districts: currentState.districtCount,
+      mandals: currentState.adminUnitCount,
+      ranked: defaultRanked,
+      insufficient: defaultInsufficient,
+      candidateHosts: defaultCandidateHosts,
+      veryHigh: defaultVH,
+      high: defaultH,
+      moderate: defaultM,
+      low: defaultL
+    });
+  }, [currentState]);
 
   useEffect(() => {
     let isMounted = true;
@@ -60,11 +85,11 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({ onNavigateToGIS })
           mandals: geo.features.length || currentState.adminUnitCount,
           ranked: geo.features.length - ins,
           insufficient: ins,
-          candidateHosts: isTN ? 41 : 51,
-          veryHigh: vh || (isTN ? 30 : 34),
-          high: h || (isTN ? 60 : 136),
-          moderate: m || (isTN ? 121 : 272),
-          low: l || (isTN ? 91 : 238)
+          candidateHosts: currentState.hostCandidateCount || defaultCandidateHosts,
+          veryHigh: vh || defaultVH,
+          high: h || defaultH,
+          moderate: m || defaultM,
+          low: l || defaultL
         }));
       })
       .catch((err) => {

@@ -1,0 +1,52 @@
+mandal_id,mandal_name,current_district_name,factor_contrib_hazard_pct,factor_contrib_demographic_pct,factor_contrib_capacity_pct,factor_contrib_accessibility_pct,primary_priority_factor,secondary_priority_factor
+MN_SUBDIV_001,Lamphelpat (Imphal West I),Imphal West,52.2,29.7,8.6,9.6,Hazard Exposure,Capacity Stress
+MN_SUBDIV_002,Patsoi (Imphal West II),Imphal West,52.2,29.7,8.6,9.6,Hazard Exposure,Capacity Stress
+MN_SUBDIV_003,Lamsang,Imphal West,52.2,29.7,8.6,9.6,Hazard Exposure,Capacity Stress
+MN_SUBDIV_004,Wangoi,Imphal West,53.9,28.6,8.2,9.2,Hazard Exposure,Capacity Stress
+MN_SUBDIV_005,Porompat,Imphal East,52.2,29.7,8.6,9.6,Hazard Exposure,Capacity Stress
+MN_SUBDIV_006,Keirao Bitra,Imphal East,52.2,29.7,8.6,9.6,Hazard Exposure,Capacity Stress
+MN_SUBDIV_007,Sawombung,Imphal East,52.2,29.7,8.6,9.6,Hazard Exposure,Capacity Stress
+MN_SUBDIV_008,Sagolmang,Imphal East,38.6,21.5,26.3,13.6,Hazard Exposure,Capacity Stress
+MN_SUBDIV_009,Thoubal,Thoubal,52.2,29.7,8.6,9.6,Hazard Exposure,Capacity Stress
+MN_SUBDIV_010,Lilong,Thoubal,52.2,29.7,8.6,9.6,Hazard Exposure,Capacity Stress
+MN_SUBDIV_011,Bishnupur,Bishnupur,53.9,28.6,8.2,9.2,Hazard Exposure,Capacity Stress
+MN_SUBDIV_012,Nambol,Bishnupur,52.2,29.7,8.6,9.6,Hazard Exposure,Capacity Stress
+MN_SUBDIV_013,Moirang,Bishnupur,53.9,28.6,8.2,9.2,Hazard Exposure,Capacity Stress
+MN_SUBDIV_014,Kakching,Kakching,52.2,29.7,8.6,9.6,Hazard Exposure,Capacity Stress
+MN_SUBDIV_015,Waikhong,Kakching,52.2,29.7,8.6,9.6,Hazard Exposure,Capacity Stress
+MN_SUBDIV_016,Churachandpur (Tuibong),Churachandpur,38.6,21.5,26.3,13.6,Hazard Exposure,Capacity Stress
+MN_SUBDIV_017,Singngat,Churachandpur,38.6,21.5,26.2,13.7,Hazard Exposure,Capacity Stress
+MN_SUBDIV_018,Henglep,Churachandpur,38.5,21.4,26.4,13.6,Hazard Exposure,Capacity Stress
+MN_SUBDIV_019,Samulamlan,Churachandpur,38.5,21.4,26.4,13.6,Hazard Exposure,Capacity Stress
+MN_SUBDIV_020,Pherzawl,Pherzawl,38.5,21.4,26.4,13.6,Hazard Exposure,Capacity Stress
+MN_SUBDIV_021,Thanlon,Pherzawl,38.6,21.5,26.3,13.6,Hazard Exposure,Capacity Stress
+MN_SUBDIV_022,Tipaimukh,Pherzawl,46.7,21.6,17.9,13.7,Hazard Exposure,Capacity Stress
+MN_SUBDIV_023,Vangai Range,Pherzawl,38.8,21.6,25.9,13.7,Hazard Exposure,Capacity Stress
+MN_SUBDIV_024,Senapati (Mao-Maram),Senapati,40.9,21.2,26.0,11.9,Hazard Exposure,Capacity Stress
+MN_SUBDIV_025,Purul,Senapati,40.8,21.2,26.1,11.9,Hazard Exposure,Capacity Stress
+MN_SUBDIV_026,Paomata,Senapati,40.9,21.2,26.0,11.9,Hazard Exposure,Capacity Stress
+MN_SUBDIV_027,Willong,Senapati,40.8,21.2,26.2,11.9,Hazard Exposure,Capacity Stress
+MN_SUBDIV_028,Kangpokpi (Sadar Hills West),Kangpokpi,40.9,21.2,26.0,11.9,Hazard Exposure,Capacity Stress
+MN_SUBDIV_029,Saitu Gamphazol,Kangpokpi,40.8,21.2,26.1,11.9,Hazard Exposure,Capacity Stress
+MN_SUBDIV_030,Saikul (Sadar Hills East),Kangpokpi,40.8,21.2,26.1,11.9,Hazard Exposure,Capacity Stress
+MN_SUBDIV_031,Tamenglong,Tamenglong,41.1,20.6,25.2,13.1,Hazard Exposure,Capacity Stress
+MN_SUBDIV_032,Tamei,Tamenglong,41.0,20.6,25.4,13.1,Hazard Exposure,Capacity Stress
+MN_SUBDIV_033,Tousem,Tamenglong,41.0,20.6,25.3,13.1,Hazard Exposure,Capacity Stress
+MN_SUBDIV_034,Noney (Longmai),Noney,41.0,20.6,25.4,13.1,Hazard Exposure,Capacity Stress
+MN_SUBDIV_035,Khoupum,Noney,41.0,20.6,25.4,13.1,Hazard Exposure,Capacity Stress
+MN_SUBDIV_036,Haochong,Noney,41.1,20.7,25.1,13.1,Hazard Exposure,Capacity Stress
+MN_SUBDIV_037,Ukhrul (Central),Ukhrul,39.7,21.1,25.9,13.4,Hazard Exposure,Capacity Stress
+MN_SUBDIV_038,Chingai,Ukhrul,39.7,21.1,25.9,13.4,Hazard Exposure,Capacity Stress
+MN_SUBDIV_039,Jessami,Ukhrul,39.6,21.0,25.9,13.4,Hazard Exposure,Capacity Stress
+MN_SUBDIV_040,Kamjong,Kamjong,39.6,21.0,26.1,13.4,Hazard Exposure,Capacity Stress
+MN_SUBDIV_041,Phungyar,Kamjong,39.6,21.0,26.0,13.4,Hazard Exposure,Capacity Stress
+MN_SUBDIV_042,Kasom Khullen,Kamjong,39.6,21.0,26.0,13.4,Hazard Exposure,Capacity Stress
+MN_SUBDIV_043,Sahamphung,Kamjong,39.9,21.2,25.4,13.5,Hazard Exposure,Capacity Stress
+MN_SUBDIV_044,Chandel,Chandel,38.6,21.5,26.2,13.7,Hazard Exposure,Capacity Stress
+MN_SUBDIV_045,Chakpikarong,Chandel,46.7,21.6,18.0,13.7,Hazard Exposure,Capacity Stress
+MN_SUBDIV_046,Khengjoy,Chandel,38.5,21.4,26.5,13.6,Hazard Exposure,Capacity Stress
+MN_SUBDIV_047,Tengnoupal,Tengnoupal,39.3,21.9,26.5,12.3,Hazard Exposure,Capacity Stress
+MN_SUBDIV_048,Moreh,Tengnoupal,52.2,29.7,8.6,9.6,Hazard Exposure,Capacity Stress
+MN_SUBDIV_049,Machi,Tengnoupal,39.2,21.8,26.7,12.3,Hazard Exposure,Capacity Stress
+MN_SUBDIV_050,Jiribam,Jiribam,52.2,29.7,8.6,9.6,Hazard Exposure,Capacity Stress
+MN_SUBDIV_051,Borobekra,Jiribam,52.2,29.7,8.6,9.6,Hazard Exposure,Capacity Stress

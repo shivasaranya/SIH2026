@@ -1,0 +1,12 @@
+source_mandal_id,source_mandal_name,candidate_mandal_id,candidate_mandal_name,distance_km,candidate_hazard_exposure,candidate_vulnerability,candidate_capacity_condition,candidate_capacity_data_completeness,candidate_shelter_adequacy,candidate_water_sanitation_adequacy,candidate_road_accessibility,candidate_safe_area_fraction,host_candidate_reason,host_candidate_status
+GA_TALUK_002,Bardez,GA_TALUK_001,Pernem,14.6,0.5113,0.0,ADEQUATE,0.95,1.0,0.8836,0.8527,0.5918,Low multi-hazard score (0.51) in North Goa with verified road connectivity.,VERIFIED_ELIGIBLE
+GA_TALUK_003,Tiswadi,GA_TALUK_001,Pernem,27.3,0.5113,0.0,ADEQUATE,0.95,1.0,0.8836,0.8527,0.5918,Low multi-hazard score (0.51) in North Goa with verified road connectivity.,VERIFIED_ELIGIBLE
+GA_TALUK_004,Bicholim,GA_TALUK_001,Pernem,21.1,0.5113,0.0,ADEQUATE,0.95,1.0,0.8836,0.8527,0.5918,Low multi-hazard score (0.51) in North Goa with verified road connectivity.,VERIFIED_ELIGIBLE
+GA_TALUK_005,Sattari,GA_TALUK_001,Pernem,38.9,0.5113,0.0,ADEQUATE,0.95,1.0,0.8836,0.8527,0.5918,Low multi-hazard score (0.51) in North Goa with verified road connectivity.,VERIFIED_ELIGIBLE
+GA_TALUK_006,Ponda,GA_TALUK_001,Pernem,41.8,0.5113,0.0,ADEQUATE,0.95,1.0,0.8836,0.8527,0.5918,Low multi-hazard score (0.51) in North Goa with verified road connectivity.,VERIFIED_ELIGIBLE
+GA_TALUK_007,Mormugao,GA_TALUK_001,Pernem,36.7,0.5113,0.0,ADEQUATE,0.95,1.0,0.8836,0.8527,0.5918,Low multi-hazard score (0.51) in North Goa with verified road connectivity.,VERIFIED_ELIGIBLE
+GA_TALUK_008,Salcete,GA_TALUK_001,Pernem,51.8,0.5113,0.0,ADEQUATE,0.95,1.0,0.8836,0.8527,0.5918,Low multi-hazard score (0.51) in North Goa with verified road connectivity.,VERIFIED_ELIGIBLE
+GA_TALUK_009,Canacona,GA_TALUK_001,Pernem,84.8,0.5113,0.0,ADEQUATE,0.95,1.0,0.8836,0.8527,0.5918,Low multi-hazard score (0.51) in North Goa with verified road connectivity.,VERIFIED_ELIGIBLE
+GA_TALUK_010,Quepem,GA_TALUK_001,Pernem,63.1,0.5113,0.0,ADEQUATE,0.95,1.0,0.8836,0.8527,0.5918,Low multi-hazard score (0.51) in North Goa with verified road connectivity.,VERIFIED_ELIGIBLE
+GA_TALUK_011,Sanguem,GA_TALUK_001,Pernem,65.0,0.5113,0.0,ADEQUATE,0.95,1.0,0.8836,0.8527,0.5918,Low multi-hazard score (0.51) in North Goa with verified road connectivity.,VERIFIED_ELIGIBLE
+GA_TALUK_012,Dharbandora,GA_TALUK_001,Pernem,51.9,0.5113,0.0,ADEQUATE,0.95,1.0,0.8836,0.8527,0.5918,Low multi-hazard score (0.51) in North Goa with verified road connectivity.,VERIFIED_ELIGIBLE

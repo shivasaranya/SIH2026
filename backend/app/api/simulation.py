@@ -20,7 +20,7 @@ def get_simulation_presets():
 @router.post("/run", response_model=SimulationRunResponse)
 def run_what_if_simulation(
     params: SimulationParameters,
-    state_id: Optional[str] = Query("andhra_pradesh", description="State identifier ('andhra_pradesh' or 'tamil_nadu')")
+    state_id: Optional[str] = Query("andhra_pradesh", description="State identifier ('andhra_pradesh', 'tamil_nadu', or 'tripura')")
 ):
     """Executes deterministic scenario recalculation across all units using AHP+TOPSIS."""
     return simulation_service.run_simulation(params, state_id=state_id or "andhra_pradesh")
@@ -33,7 +33,7 @@ def get_mandal_simulation(
     population_change: float = Query(0.0, ge=-0.20, le=0.30, description="Population pressure multiplier"),
     capacity_change: float = Query(0.0, ge=-0.30, le=0.50, description="Capacity stress multiplier"),
     accessibility_change: float = Query(0.0, ge=-0.50, le=0.50, description="Evacuation accessibility multiplier"),
-    state_id: Optional[str] = Query("andhra_pradesh", description="State identifier ('andhra_pradesh' or 'tamil_nadu')"),
+    state_id: Optional[str] = Query("andhra_pradesh", description="State identifier ('andhra_pradesh', 'tamil_nadu', or 'tripura')"),
 ):
     """Returns baseline vs scenario comparison and deterministic explanation for a specific unit."""
     params = SimulationParameters(

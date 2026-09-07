@@ -1,0 +1,691 @@
+source_mandal_id,source_mandal_name,candidate_mandal_id,candidate_mandal_name,distance_km,candidate_hazard_exposure,candidate_vulnerability,candidate_capacity_condition,candidate_capacity_data_completeness,candidate_shelter_adequacy,candidate_water_sanitation_adequacy,candidate_road_accessibility,candidate_safe_area_fraction,host_candidate_reason,host_candidate_status
+KA_TALUK_001,Badami,KA_TALUK_091,Alnavar,87.9,0.166,0.0,ADEQUATE,0.95,0.5245,0.8821,0.8998,0.8531,Low multi-hazard score (0.17) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_001,Badami,KA_TALUK_087,Hubballi Rural,89.8,0.2052,0.0,ADEQUATE,0.95,0.6348,0.9318,0.8728,0.8081,Low multi-hazard score (0.21) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_001,Badami,KA_TALUK_090,Navalgund,90.4,0.1799,0.0,ADEQUATE,0.95,0.6428,0.7258,0.9046,0.833,Low multi-hazard score (0.18) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_002,Bagalkote,KA_TALUK_091,Alnavar,104.2,0.166,0.0,ADEQUATE,0.95,0.5245,0.8821,0.8998,0.8531,Low multi-hazard score (0.17) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_002,Bagalkote,KA_TALUK_139,Gangavathi,106.1,0.3146,0.0,ADEQUATE,0.95,0.9744,0.905,0.89,0.748,Low multi-hazard score (0.31) in Koppal with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_002,Bagalkote,KA_TALUK_087,Hubballi Rural,106.4,0.2052,0.0,ADEQUATE,0.95,0.6348,0.9318,0.8728,0.8081,Low multi-hazard score (0.21) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_003,Bilgi,KA_TALUK_091,Alnavar,79.0,0.166,0.0,ADEQUATE,0.95,0.5245,0.8821,0.8998,0.8531,Low multi-hazard score (0.17) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_003,Bilgi,KA_TALUK_087,Hubballi Rural,81.3,0.2052,0.0,ADEQUATE,0.95,0.6348,0.9318,0.8728,0.8081,Low multi-hazard score (0.21) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_003,Bilgi,KA_TALUK_090,Navalgund,81.7,0.1799,0.0,ADEQUATE,0.95,0.6428,0.7258,0.9046,0.833,Low multi-hazard score (0.18) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_004,Hunagund,KA_TALUK_091,Alnavar,80.2,0.166,0.0,ADEQUATE,0.95,0.5245,0.8821,0.8998,0.8531,Low multi-hazard score (0.17) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_004,Hunagund,KA_TALUK_087,Hubballi Rural,82.6,0.2052,0.0,ADEQUATE,0.95,0.6348,0.9318,0.8728,0.8081,Low multi-hazard score (0.21) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_004,Hunagund,KA_TALUK_090,Navalgund,82.9,0.1799,0.0,ADEQUATE,0.95,0.6428,0.7258,0.9046,0.833,Low multi-hazard score (0.18) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_005,Jamkhandi,KA_TALUK_091,Alnavar,89.2,0.166,0.0,ADEQUATE,0.95,0.5245,0.8821,0.8998,0.8531,Low multi-hazard score (0.17) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_005,Jamkhandi,KA_TALUK_087,Hubballi Rural,91.4,0.2052,0.0,ADEQUATE,0.95,0.6348,0.9318,0.8728,0.8081,Low multi-hazard score (0.21) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_005,Jamkhandi,KA_TALUK_090,Navalgund,91.8,0.1799,0.0,ADEQUATE,0.95,0.6428,0.7258,0.9046,0.833,Low multi-hazard score (0.18) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_006,Mudhol,KA_TALUK_091,Alnavar,87.0,0.166,0.0,ADEQUATE,0.95,0.5245,0.8821,0.8998,0.8531,Low multi-hazard score (0.17) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_006,Mudhol,KA_TALUK_087,Hubballi Rural,89.5,0.2052,0.0,ADEQUATE,0.95,0.6348,0.9318,0.8728,0.8081,Low multi-hazard score (0.21) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_006,Mudhol,KA_TALUK_090,Navalgund,89.8,0.1799,0.0,ADEQUATE,0.95,0.6428,0.7258,0.9046,0.833,Low multi-hazard score (0.18) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_007,Guledgudda,KA_TALUK_091,Alnavar,79.1,0.166,0.0,ADEQUATE,0.95,0.5245,0.8821,0.8998,0.8531,Low multi-hazard score (0.17) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_007,Guledgudda,KA_TALUK_087,Hubballi Rural,81.6,0.2052,0.0,ADEQUATE,0.95,0.6348,0.9318,0.8728,0.8081,Low multi-hazard score (0.21) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_007,Guledgudda,KA_TALUK_090,Navalgund,81.8,0.1799,0.0,ADEQUATE,0.95,0.6428,0.7258,0.9046,0.833,Low multi-hazard score (0.18) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_008,Rabkavi Banhatti,KA_TALUK_091,Alnavar,86.2,0.166,0.0,ADEQUATE,0.95,0.5245,0.8821,0.8998,0.8531,Low multi-hazard score (0.17) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_008,Rabkavi Banhatti,KA_TALUK_087,Hubballi Rural,88.6,0.2052,0.0,ADEQUATE,0.95,0.6348,0.9318,0.8728,0.8081,Low multi-hazard score (0.21) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_008,Rabkavi Banhatti,KA_TALUK_090,Navalgund,88.9,0.1799,0.0,ADEQUATE,0.95,0.6428,0.7258,0.9046,0.833,Low multi-hazard score (0.18) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_009,Ilkal,KA_TALUK_091,Alnavar,91.8,0.166,0.0,ADEQUATE,0.95,0.5245,0.8821,0.8998,0.8531,Low multi-hazard score (0.17) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_009,Ilkal,KA_TALUK_087,Hubballi Rural,93.8,0.2052,0.0,ADEQUATE,0.95,0.6348,0.9318,0.8728,0.8081,Low multi-hazard score (0.21) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_009,Ilkal,KA_TALUK_090,Navalgund,94.4,0.1799,0.0,ADEQUATE,0.95,0.6428,0.7258,0.9046,0.833,Low multi-hazard score (0.18) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_010,Ballari,KA_TALUK_014,Kampli,10.6,0.1937,0.0,ADEQUATE,0.95,0.7162,0.9117,0.8169,0.7993,Low multi-hazard score (0.19) in Ballari with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_010,Ballari,KA_TALUK_013,Siruguppa,20.2,0.2144,0.0,ADEQUATE,0.95,0.9137,0.8087,0.7949,0.8051,Low multi-hazard score (0.21) in Ballari with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_010,Ballari,KA_TALUK_012,Sanduru,20.6,0.2234,0.0,ADEQUATE,0.95,0.9136,0.9243,0.8526,0.8024,Low multi-hazard score (0.22) in Ballari with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_011,Kurugodu,KA_TALUK_013,Siruguppa,11.3,0.2144,0.0,ADEQUATE,0.95,0.9137,0.8087,0.7949,0.8051,Low multi-hazard score (0.21) in Ballari with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_011,Kurugodu,KA_TALUK_014,Kampli,23.6,0.1937,0.0,ADEQUATE,0.95,0.7162,0.9117,0.8169,0.7993,Low multi-hazard score (0.19) in Ballari with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_011,Kurugodu,KA_TALUK_012,Sanduru,24.0,0.2234,0.0,ADEQUATE,0.95,0.9136,0.9243,0.8526,0.8024,Low multi-hazard score (0.22) in Ballari with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_012,Sanduru,KA_TALUK_014,Kampli,10.4,0.1937,0.0,ADEQUATE,0.95,0.7162,0.9117,0.8169,0.7993,Low multi-hazard score (0.19) in Ballari with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_012,Sanduru,KA_TALUK_013,Siruguppa,12.8,0.2144,0.0,ADEQUATE,0.95,0.9137,0.8087,0.7949,0.8051,Low multi-hazard score (0.21) in Ballari with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_012,Sanduru,KA_TALUK_010,Ballari,20.6,0.1802,0.0,ADEQUATE,0.95,0.4919,0.9417,0.8045,0.8255,Low multi-hazard score (0.18) in Ballari with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_013,Siruguppa,KA_TALUK_011,Kurugodu,11.3,0.1468,0.0,ADEQUATE,0.95,0.5431,0.8939,0.8209,0.8812,Low multi-hazard score (0.15) in Ballari with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_013,Siruguppa,KA_TALUK_012,Sanduru,12.8,0.2234,0.0,ADEQUATE,0.95,0.9136,0.9243,0.8526,0.8024,Low multi-hazard score (0.22) in Ballari with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_013,Siruguppa,KA_TALUK_014,Kampli,15.0,0.1937,0.0,ADEQUATE,0.95,0.7162,0.9117,0.8169,0.7993,Low multi-hazard score (0.19) in Ballari with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_014,Kampli,KA_TALUK_012,Sanduru,10.4,0.2234,0.0,ADEQUATE,0.95,0.9136,0.9243,0.8526,0.8024,Low multi-hazard score (0.22) in Ballari with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_014,Kampli,KA_TALUK_010,Ballari,10.6,0.1802,0.0,ADEQUATE,0.95,0.4919,0.9417,0.8045,0.8255,Low multi-hazard score (0.18) in Ballari with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_014,Kampli,KA_TALUK_013,Siruguppa,15.0,0.2144,0.0,ADEQUATE,0.95,0.9137,0.8087,0.7949,0.8051,Low multi-hazard score (0.21) in Ballari with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_015,Belagavi,KA_TALUK_089,Kundgol,62.6,0.1556,0.0,ADEQUATE,0.95,0.6595,0.9378,0.8292,0.8418,Low multi-hazard score (0.16) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_015,Belagavi,KA_TALUK_087,Hubballi Rural,65.4,0.2052,0.0,ADEQUATE,0.95,0.6348,0.9318,0.8728,0.8081,Low multi-hazard score (0.21) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_015,Belagavi,KA_TALUK_088,Kalghatgi,66.4,0.2241,0.0,ADEQUATE,0.95,0.6626,0.7994,0.7938,0.809,Low multi-hazard score (0.22) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_016,Gokak,KA_TALUK_089,Kundgol,59.5,0.1556,0.0,ADEQUATE,0.95,0.6595,0.9378,0.8292,0.8418,Low multi-hazard score (0.16) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_016,Gokak,KA_TALUK_087,Hubballi Rural,62.2,0.2052,0.0,ADEQUATE,0.95,0.6348,0.9318,0.8728,0.8081,Low multi-hazard score (0.21) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_016,Gokak,KA_TALUK_088,Kalghatgi,63.2,0.2241,0.0,ADEQUATE,0.95,0.6626,0.7994,0.7938,0.809,Low multi-hazard score (0.22) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_017,Hukkeri,KA_TALUK_089,Kundgol,66.3,0.1556,0.0,ADEQUATE,0.95,0.6595,0.9378,0.8292,0.8418,Low multi-hazard score (0.16) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_017,Hukkeri,KA_TALUK_087,Hubballi Rural,67.0,0.2052,0.0,ADEQUATE,0.95,0.6348,0.9318,0.8728,0.8081,Low multi-hazard score (0.21) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_017,Hukkeri,KA_TALUK_088,Kalghatgi,68.5,0.2241,0.0,ADEQUATE,0.95,0.6626,0.7994,0.7938,0.809,Low multi-hazard score (0.22) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_018,Khanapur,KA_TALUK_087,Hubballi Rural,71.5,0.2052,0.0,ADEQUATE,0.95,0.6348,0.9318,0.8728,0.8081,Low multi-hazard score (0.21) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_018,Khanapur,KA_TALUK_089,Kundgol,73.3,0.1556,0.0,ADEQUATE,0.95,0.6595,0.9378,0.8292,0.8418,Low multi-hazard score (0.16) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_018,Khanapur,KA_TALUK_088,Kalghatgi,73.7,0.2241,0.0,ADEQUATE,0.95,0.6626,0.7994,0.7938,0.809,Low multi-hazard score (0.22) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_019,Chikkodi,KA_TALUK_089,Kundgol,59.7,0.1556,0.0,ADEQUATE,0.95,0.6595,0.9378,0.8292,0.8418,Low multi-hazard score (0.16) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_019,Chikkodi,KA_TALUK_087,Hubballi Rural,60.1,0.2052,0.0,ADEQUATE,0.95,0.6348,0.9318,0.8728,0.8081,Low multi-hazard score (0.21) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_019,Chikkodi,KA_TALUK_088,Kalghatgi,61.7,0.2241,0.0,ADEQUATE,0.95,0.6626,0.7994,0.7938,0.809,Low multi-hazard score (0.22) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_020,Athani,KA_TALUK_089,Kundgol,52.8,0.1556,0.0,ADEQUATE,0.95,0.6595,0.9378,0.8292,0.8418,Low multi-hazard score (0.16) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_020,Athani,KA_TALUK_087,Hubballi Rural,53.1,0.2052,0.0,ADEQUATE,0.95,0.6348,0.9318,0.8728,0.8081,Low multi-hazard score (0.21) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_020,Athani,KA_TALUK_088,Kalghatgi,54.7,0.2241,0.0,ADEQUATE,0.95,0.6626,0.7994,0.7938,0.809,Low multi-hazard score (0.22) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_021,Raybag,KA_TALUK_087,Hubballi Rural,48.5,0.2052,0.0,ADEQUATE,0.95,0.6348,0.9318,0.8728,0.8081,Low multi-hazard score (0.21) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_021,Raybag,KA_TALUK_089,Kundgol,48.6,0.1556,0.0,ADEQUATE,0.95,0.6595,0.9378,0.8292,0.8418,Low multi-hazard score (0.16) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_021,Raybag,KA_TALUK_088,Kalghatgi,50.1,0.2241,0.0,ADEQUATE,0.95,0.6626,0.7994,0.7938,0.809,Low multi-hazard score (0.22) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_022,Bailhongal,KA_TALUK_087,Hubballi Rural,73.6,0.2052,0.0,ADEQUATE,0.95,0.6348,0.9318,0.8728,0.8081,Low multi-hazard score (0.21) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_022,Bailhongal,KA_TALUK_089,Kundgol,74.6,0.1556,0.0,ADEQUATE,0.95,0.6595,0.9378,0.8292,0.8418,Low multi-hazard score (0.16) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_022,Bailhongal,KA_TALUK_088,Kalghatgi,75.6,0.2241,0.0,ADEQUATE,0.95,0.6626,0.7994,0.7938,0.809,Low multi-hazard score (0.22) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_023,Ramdurg,KA_TALUK_089,Kundgol,50.1,0.1556,0.0,ADEQUATE,0.95,0.6595,0.9378,0.8292,0.8418,Low multi-hazard score (0.16) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_023,Ramdurg,KA_TALUK_087,Hubballi Rural,51.3,0.2052,0.0,ADEQUATE,0.95,0.6348,0.9318,0.8728,0.8081,Low multi-hazard score (0.21) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_023,Ramdurg,KA_TALUK_088,Kalghatgi,52.6,0.2241,0.0,ADEQUATE,0.95,0.6626,0.7994,0.7938,0.809,Low multi-hazard score (0.22) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_024,Saundatti,KA_TALUK_087,Hubballi Rural,62.7,0.2052,0.0,ADEQUATE,0.95,0.6348,0.9318,0.8728,0.8081,Low multi-hazard score (0.21) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_024,Saundatti,KA_TALUK_090,Navalgund,65.0,0.1799,0.0,ADEQUATE,0.95,0.6428,0.7258,0.9046,0.833,Low multi-hazard score (0.18) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_024,Saundatti,KA_TALUK_088,Kalghatgi,65.1,0.2241,0.0,ADEQUATE,0.95,0.6626,0.7994,0.7938,0.809,Low multi-hazard score (0.22) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_025,Nippani,KA_TALUK_087,Hubballi Rural,63.8,0.2052,0.0,ADEQUATE,0.95,0.6348,0.9318,0.8728,0.8081,Low multi-hazard score (0.21) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_025,Nippani,KA_TALUK_089,Kundgol,64.5,0.1556,0.0,ADEQUATE,0.95,0.6595,0.9378,0.8292,0.8418,Low multi-hazard score (0.16) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_025,Nippani,KA_TALUK_088,Kalghatgi,65.7,0.2241,0.0,ADEQUATE,0.95,0.6626,0.7994,0.7938,0.809,Low multi-hazard score (0.22) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_026,Kagawad,KA_TALUK_089,Kundgol,68.5,0.1556,0.0,ADEQUATE,0.95,0.6595,0.9378,0.8292,0.8418,Low multi-hazard score (0.16) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_026,Kagawad,KA_TALUK_087,Hubballi Rural,69.9,0.2052,0.0,ADEQUATE,0.95,0.6348,0.9318,0.8728,0.8081,Low multi-hazard score (0.21) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_026,Kagawad,KA_TALUK_088,Kalghatgi,71.3,0.2241,0.0,ADEQUATE,0.95,0.6626,0.7994,0.7938,0.809,Low multi-hazard score (0.22) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_027,Kittur,KA_TALUK_087,Hubballi Rural,67.2,0.2052,0.0,ADEQUATE,0.95,0.6348,0.9318,0.8728,0.8081,Low multi-hazard score (0.21) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_027,Kittur,KA_TALUK_090,Navalgund,69.5,0.1799,0.0,ADEQUATE,0.95,0.6428,0.7258,0.9046,0.833,Low multi-hazard score (0.18) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_027,Kittur,KA_TALUK_088,Kalghatgi,69.7,0.2241,0.0,ADEQUATE,0.95,0.6626,0.7994,0.7938,0.809,Low multi-hazard score (0.22) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_028,Mudalgi,KA_TALUK_089,Kundgol,68.9,0.1556,0.0,ADEQUATE,0.95,0.6595,0.9378,0.8292,0.8418,Low multi-hazard score (0.16) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_028,Mudalgi,KA_TALUK_087,Hubballi Rural,70.7,0.2052,0.0,ADEQUATE,0.95,0.6348,0.9318,0.8728,0.8081,Low multi-hazard score (0.21) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_028,Mudalgi,KA_TALUK_088,Kalghatgi,72.0,0.2241,0.0,ADEQUATE,0.95,0.6626,0.7994,0.7938,0.809,Low multi-hazard score (0.22) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_029,Devanahalli,KA_TALUK_032,Nelamangala,3.1,0.1674,0.0,MODERATE_DEFICIT,0.95,0.469,0.9337,0.8091,0.8179,Low multi-hazard score (0.17) in Bengaluru Rural with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_029,Devanahalli,KA_TALUK_056,Sidlaghatta,11.3,0.1912,0.0,ADEQUATE,0.95,1.0,0.8452,0.9318,0.7876,Low multi-hazard score (0.19) in Chikkaballapura with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_029,Devanahalli,KA_TALUK_053,Chintamani,20.4,0.2262,0.0,ADEQUATE,0.95,0.5781,0.8687,0.9343,0.8011,Low multi-hazard score (0.23) in Chikkaballapura with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_030,Doddaballapura,KA_TALUK_032,Nelamangala,18.1,0.1674,0.0,MODERATE_DEFICIT,0.95,0.469,0.9337,0.8091,0.8179,Low multi-hazard score (0.17) in Bengaluru Rural with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_030,Doddaballapura,KA_TALUK_055,Gudibande,28.4,0.1559,0.0,ADEQUATE,0.95,0.7247,0.8919,0.8242,0.8462,Low multi-hazard score (0.16) in Chikkaballapura with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_030,Doddaballapura,KA_TALUK_056,Sidlaghatta,28.8,0.1912,0.0,ADEQUATE,0.95,1.0,0.8452,0.9318,0.7876,Low multi-hazard score (0.19) in Chikkaballapura with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_031,Hosakote,KA_TALUK_032,Nelamangala,1.6,0.1674,0.0,MODERATE_DEFICIT,0.95,0.469,0.9337,0.8091,0.8179,Low multi-hazard score (0.17) in Bengaluru Rural with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_031,Hosakote,KA_TALUK_056,Sidlaghatta,12.9,0.1912,0.0,ADEQUATE,0.95,1.0,0.8452,0.9318,0.7876,Low multi-hazard score (0.19) in Chikkaballapura with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_031,Hosakote,KA_TALUK_030,Doddaballapura,17.4,0.1818,0.0,ADEQUATE,0.95,0.7092,0.9397,0.835,0.8502,Low multi-hazard score (0.18) in Bengaluru Rural with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_032,Nelamangala,KA_TALUK_056,Sidlaghatta,13.5,0.1912,0.0,ADEQUATE,0.95,1.0,0.8452,0.9318,0.7876,Low multi-hazard score (0.19) in Chikkaballapura with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_032,Nelamangala,KA_TALUK_030,Doddaballapura,18.1,0.1818,0.0,ADEQUATE,0.95,0.7092,0.9397,0.835,0.8502,Low multi-hazard score (0.18) in Bengaluru Rural with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_032,Nelamangala,KA_TALUK_053,Chintamani,21.6,0.2262,0.0,ADEQUATE,0.95,0.5781,0.8687,0.9343,0.8011,Low multi-hazard score (0.23) in Chikkaballapura with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_033,Bengaluru North,KA_TALUK_030,Doddaballapura,16.2,0.1818,0.0,ADEQUATE,0.95,0.7092,0.9397,0.835,0.8502,Low multi-hazard score (0.18) in Bengaluru Rural with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_033,Bengaluru North,KA_TALUK_169,Channapatna,27.4,0.1823,0.0,ADEQUATE,0.95,1.0,0.9426,0.8167,0.8086,Low multi-hazard score (0.18) in Ramanagara with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_033,Bengaluru North,KA_TALUK_032,Nelamangala,31.5,0.1674,0.0,MODERATE_DEFICIT,0.95,0.469,0.9337,0.8091,0.8179,Low multi-hazard score (0.17) in Bengaluru Rural with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_034,Bengaluru South,KA_TALUK_030,Doddaballapura,18.2,0.1818,0.0,ADEQUATE,0.95,0.7092,0.9397,0.835,0.8502,Low multi-hazard score (0.18) in Bengaluru Rural with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_034,Bengaluru South,KA_TALUK_169,Channapatna,34.7,0.1823,0.0,ADEQUATE,0.95,1.0,0.9426,0.8167,0.8086,Low multi-hazard score (0.18) in Ramanagara with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_034,Bengaluru South,KA_TALUK_032,Nelamangala,36.3,0.1674,0.0,MODERATE_DEFICIT,0.95,0.469,0.9337,0.8091,0.8179,Low multi-hazard score (0.17) in Bengaluru Rural with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_035,Bengaluru East,KA_TALUK_169,Channapatna,21.4,0.1823,0.0,ADEQUATE,0.95,1.0,0.9426,0.8167,0.8086,Low multi-hazard score (0.18) in Ramanagara with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_035,Bengaluru East,KA_TALUK_030,Doddaballapura,25.0,0.1818,0.0,ADEQUATE,0.95,0.7092,0.9397,0.835,0.8502,Low multi-hazard score (0.18) in Bengaluru Rural with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_035,Bengaluru East,KA_TALUK_171,Magadi,29.2,0.2164,0.0,MODERATE_DEFICIT,0.95,0.6642,0.7538,0.7954,0.7783,Low multi-hazard score (0.22) in Ramanagara with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_036,Anekal,KA_TALUK_030,Doddaballapura,14.9,0.1818,0.0,ADEQUATE,0.95,0.7092,0.9397,0.835,0.8502,Low multi-hazard score (0.18) in Bengaluru Rural with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_036,Anekal,KA_TALUK_032,Nelamangala,28.6,0.1674,0.0,MODERATE_DEFICIT,0.95,0.469,0.9337,0.8091,0.8179,Low multi-hazard score (0.17) in Bengaluru Rural with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_036,Anekal,KA_TALUK_169,Channapatna,29.1,0.1823,0.0,ADEQUATE,0.95,1.0,0.9426,0.8167,0.8086,Low multi-hazard score (0.18) in Ramanagara with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_037,Yelahanka,KA_TALUK_169,Channapatna,16.6,0.1823,0.0,ADEQUATE,0.95,1.0,0.9426,0.8167,0.8086,Low multi-hazard score (0.18) in Ramanagara with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_037,Yelahanka,KA_TALUK_171,Magadi,23.9,0.2164,0.0,MODERATE_DEFICIT,0.95,0.6642,0.7538,0.7954,0.7783,Low multi-hazard score (0.22) in Ramanagara with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_037,Yelahanka,KA_TALUK_030,Doddaballapura,30.2,0.1818,0.0,ADEQUATE,0.95,0.7092,0.9397,0.835,0.8502,Low multi-hazard score (0.18) in Bengaluru Rural with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_038,Bidar,KA_TALUK_042,Aurad,20.3,0.2994,0.0,ADEQUATE,0.95,0.9472,0.8816,0.7856,0.7034,Low multi-hazard score (0.30) in Bidar with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_038,Bidar,KA_TALUK_117,Afzalpur,89.5,0.3113,0.0,ADEQUATE,0.95,0.8841,0.7329,0.828,0.7208,Low multi-hazard score (0.31) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_038,Bidar,KA_TALUK_120,Chittapur,93.0,0.3002,0.0,ADEQUATE,0.95,0.8516,0.8432,0.7985,0.7289,Low multi-hazard score (0.30) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_039,Basavakalyan,KA_TALUK_042,Aurad,7.2,0.2994,0.0,ADEQUATE,0.95,0.9472,0.8816,0.7856,0.7034,Low multi-hazard score (0.30) in Bidar with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_039,Basavakalyan,KA_TALUK_117,Afzalpur,87.4,0.3113,0.0,ADEQUATE,0.95,0.8841,0.7329,0.828,0.7208,Low multi-hazard score (0.31) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_039,Basavakalyan,KA_TALUK_120,Chittapur,90.4,0.3002,0.0,ADEQUATE,0.95,0.8516,0.8432,0.7985,0.7289,Low multi-hazard score (0.30) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_040,Bhalki,KA_TALUK_042,Aurad,20.6,0.2994,0.0,ADEQUATE,0.95,0.9472,0.8816,0.7856,0.7034,Low multi-hazard score (0.30) in Bidar with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_040,Bhalki,KA_TALUK_117,Afzalpur,72.0,0.3113,0.0,ADEQUATE,0.95,0.8841,0.7329,0.828,0.7208,Low multi-hazard score (0.31) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_040,Bhalki,KA_TALUK_120,Chittapur,75.5,0.3002,0.0,ADEQUATE,0.95,0.8516,0.8432,0.7985,0.7289,Low multi-hazard score (0.30) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_041,Homnabad,KA_TALUK_042,Aurad,14.9,0.2994,0.0,ADEQUATE,0.95,0.9472,0.8816,0.7856,0.7034,Low multi-hazard score (0.30) in Bidar with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_041,Homnabad,KA_TALUK_117,Afzalpur,83.3,0.3113,0.0,ADEQUATE,0.95,0.8841,0.7329,0.828,0.7208,Low multi-hazard score (0.31) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_041,Homnabad,KA_TALUK_120,Chittapur,86.7,0.3002,0.0,ADEQUATE,0.95,0.8516,0.8432,0.7985,0.7289,Low multi-hazard score (0.30) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_042,Aurad,KA_TALUK_117,Afzalpur,81.9,0.3113,0.0,ADEQUATE,0.95,0.8841,0.7329,0.828,0.7208,Low multi-hazard score (0.31) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_042,Aurad,KA_TALUK_120,Chittapur,84.7,0.3002,0.0,ADEQUATE,0.95,0.8516,0.8432,0.7985,0.7289,Low multi-hazard score (0.30) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_042,Aurad,KA_TALUK_011,Kurugodu,307.2,0.1468,0.0,ADEQUATE,0.95,0.5431,0.8939,0.8209,0.8812,Low multi-hazard score (0.15) in Ballari with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_043,Kamalnagar,KA_TALUK_042,Aurad,13.3,0.2994,0.0,ADEQUATE,0.95,0.9472,0.8816,0.7856,0.7034,Low multi-hazard score (0.30) in Bidar with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_043,Kamalnagar,KA_TALUK_117,Afzalpur,82.0,0.3113,0.0,ADEQUATE,0.95,0.8841,0.7329,0.828,0.7208,Low multi-hazard score (0.31) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_043,Kamalnagar,KA_TALUK_120,Chittapur,85.3,0.3002,0.0,ADEQUATE,0.95,0.8516,0.8432,0.7985,0.7289,Low multi-hazard score (0.30) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_044,Hulsoor,KA_TALUK_042,Aurad,17.2,0.2994,0.0,ADEQUATE,0.95,0.9472,0.8816,0.7856,0.7034,Low multi-hazard score (0.30) in Bidar with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_044,Hulsoor,KA_TALUK_117,Afzalpur,71.8,0.3113,0.0,ADEQUATE,0.95,0.8841,0.7329,0.828,0.7208,Low multi-hazard score (0.31) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_044,Hulsoor,KA_TALUK_120,Chittapur,75.2,0.3002,0.0,ADEQUATE,0.95,0.8516,0.8432,0.7985,0.7289,Low multi-hazard score (0.30) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_045,Chitgoppa,KA_TALUK_042,Aurad,14.9,0.2994,0.0,ADEQUATE,0.95,0.9472,0.8816,0.7856,0.7034,Low multi-hazard score (0.30) in Bidar with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_045,Chitgoppa,KA_TALUK_117,Afzalpur,83.3,0.3113,0.0,ADEQUATE,0.95,0.8841,0.7329,0.828,0.7208,Low multi-hazard score (0.31) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_045,Chitgoppa,KA_TALUK_120,Chittapur,86.7,0.3002,0.0,ADEQUATE,0.95,0.8516,0.8432,0.7985,0.7289,Low multi-hazard score (0.30) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_046,Chamarajanagar,KA_TALUK_157,Piriyapatna,22.6,0.2773,0.0,MODERATE_DEFICIT,0.95,0.4288,0.9457,0.8629,0.7184,Low multi-hazard score (0.28) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_046,Chamarajanagar,KA_TALUK_155,Nanjangud,25.7,0.2973,0.0,ADEQUATE,0.95,0.6419,0.8536,0.9379,0.7269,Low multi-hazard score (0.30) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_046,Chamarajanagar,KA_TALUK_159,Saragur,28.6,0.3075,0.0,MODERATE_DEFICIT,0.95,0.5201,0.8803,0.8627,0.7125,Low multi-hazard score (0.31) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_047,Gundlupet,KA_TALUK_157,Piriyapatna,33.7,0.2773,0.0,MODERATE_DEFICIT,0.95,0.4288,0.9457,0.8629,0.7184,Low multi-hazard score (0.28) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_047,Gundlupet,KA_TALUK_155,Nanjangud,37.4,0.2973,0.0,ADEQUATE,0.95,0.6419,0.8536,0.9379,0.7269,Low multi-hazard score (0.30) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_047,Gundlupet,KA_TALUK_159,Saragur,38.5,0.3075,0.0,MODERATE_DEFICIT,0.95,0.5201,0.8803,0.8627,0.7125,Low multi-hazard score (0.31) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_048,Kollegal,KA_TALUK_157,Piriyapatna,36.9,0.2773,0.0,MODERATE_DEFICIT,0.95,0.4288,0.9457,0.8629,0.7184,Low multi-hazard score (0.28) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_048,Kollegal,KA_TALUK_159,Saragur,40.3,0.3075,0.0,MODERATE_DEFICIT,0.95,0.5201,0.8803,0.8627,0.7125,Low multi-hazard score (0.31) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_048,Kollegal,KA_TALUK_155,Nanjangud,41.2,0.2973,0.0,ADEQUATE,0.95,0.6419,0.8536,0.9379,0.7269,Low multi-hazard score (0.30) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_049,Yelandur,KA_TALUK_157,Piriyapatna,33.6,0.2773,0.0,MODERATE_DEFICIT,0.95,0.4288,0.9457,0.8629,0.7184,Low multi-hazard score (0.28) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_049,Yelandur,KA_TALUK_155,Nanjangud,36.7,0.2973,0.0,ADEQUATE,0.95,0.6419,0.8536,0.9379,0.7269,Low multi-hazard score (0.30) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_049,Yelandur,KA_TALUK_159,Saragur,39.3,0.3075,0.0,MODERATE_DEFICIT,0.95,0.5201,0.8803,0.8627,0.7125,Low multi-hazard score (0.31) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_050,Hanur,KA_TALUK_157,Piriyapatna,44.5,0.2773,0.0,MODERATE_DEFICIT,0.95,0.4288,0.9457,0.8629,0.7184,Low multi-hazard score (0.28) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_050,Hanur,KA_TALUK_159,Saragur,48.3,0.3075,0.0,MODERATE_DEFICIT,0.95,0.5201,0.8803,0.8627,0.7125,Low multi-hazard score (0.31) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_050,Hanur,KA_TALUK_155,Nanjangud,48.5,0.2973,0.0,ADEQUATE,0.95,0.6419,0.8536,0.9379,0.7269,Low multi-hazard score (0.30) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_051,Chikkaballapura,KA_TALUK_054,Gauribidanur,5.3,0.2275,0.0,ADEQUATE,0.95,1.0,0.8253,0.8076,0.7712,Low multi-hazard score (0.23) in Chikkaballapura with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_051,Chikkaballapura,KA_TALUK_053,Chintamani,8.6,0.2262,0.0,ADEQUATE,0.95,0.5781,0.8687,0.9343,0.8011,Low multi-hazard score (0.23) in Chikkaballapura with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_051,Chikkaballapura,KA_TALUK_052,Bagepalli,11.6,0.1491,0.0,ADEQUATE,0.95,0.738,0.7875,0.8901,0.8797,Low multi-hazard score (0.15) in Chikkaballapura with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_052,Bagepalli,KA_TALUK_053,Chintamani,4.1,0.2262,0.0,ADEQUATE,0.95,0.5781,0.8687,0.9343,0.8011,Low multi-hazard score (0.23) in Chikkaballapura with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_052,Bagepalli,KA_TALUK_055,Gudibande,4.6,0.1559,0.0,ADEQUATE,0.95,0.7247,0.8919,0.8242,0.8462,Low multi-hazard score (0.16) in Chikkaballapura with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_052,Bagepalli,KA_TALUK_054,Gauribidanur,11.4,0.2275,0.0,ADEQUATE,0.95,1.0,0.8253,0.8076,0.7712,Low multi-hazard score (0.23) in Chikkaballapura with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_053,Chintamani,KA_TALUK_052,Bagepalli,4.1,0.1491,0.0,ADEQUATE,0.95,0.738,0.7875,0.8901,0.8797,Low multi-hazard score (0.15) in Chikkaballapura with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_053,Chintamani,KA_TALUK_054,Gauribidanur,7.4,0.2275,0.0,ADEQUATE,0.95,1.0,0.8253,0.8076,0.7712,Low multi-hazard score (0.23) in Chikkaballapura with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_053,Chintamani,KA_TALUK_055,Gudibande,8.7,0.1559,0.0,ADEQUATE,0.95,0.7247,0.8919,0.8242,0.8462,Low multi-hazard score (0.16) in Chikkaballapura with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_054,Gauribidanur,KA_TALUK_053,Chintamani,7.4,0.2262,0.0,ADEQUATE,0.95,0.5781,0.8687,0.9343,0.8011,Low multi-hazard score (0.23) in Chikkaballapura with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_054,Gauribidanur,KA_TALUK_052,Bagepalli,11.4,0.1491,0.0,ADEQUATE,0.95,0.738,0.7875,0.8901,0.8797,Low multi-hazard score (0.15) in Chikkaballapura with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_054,Gauribidanur,KA_TALUK_056,Sidlaghatta,11.6,0.1912,0.0,ADEQUATE,0.95,1.0,0.8452,0.9318,0.7876,Low multi-hazard score (0.19) in Chikkaballapura with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_055,Gudibande,KA_TALUK_052,Bagepalli,4.6,0.1491,0.0,ADEQUATE,0.95,0.738,0.7875,0.8901,0.8797,Low multi-hazard score (0.15) in Chikkaballapura with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_055,Gudibande,KA_TALUK_053,Chintamani,8.7,0.2262,0.0,ADEQUATE,0.95,0.5781,0.8687,0.9343,0.8011,Low multi-hazard score (0.23) in Chikkaballapura with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_055,Gudibande,KA_TALUK_054,Gauribidanur,16.0,0.2275,0.0,ADEQUATE,0.95,1.0,0.8253,0.8076,0.7712,Low multi-hazard score (0.23) in Chikkaballapura with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_056,Sidlaghatta,KA_TALUK_053,Chintamani,10.3,0.2262,0.0,ADEQUATE,0.95,0.5781,0.8687,0.9343,0.8011,Low multi-hazard score (0.23) in Chikkaballapura with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_056,Sidlaghatta,KA_TALUK_054,Gauribidanur,11.6,0.2275,0.0,ADEQUATE,0.95,1.0,0.8253,0.8076,0.7712,Low multi-hazard score (0.23) in Chikkaballapura with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_056,Sidlaghatta,KA_TALUK_052,Bagepalli,12.7,0.1491,0.0,ADEQUATE,0.95,0.738,0.7875,0.8901,0.8797,Low multi-hazard score (0.15) in Chikkaballapura with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_057,Chikkamagaluru,KA_TALUK_068,Hiriyur,98.9,0.149,0.0,ADEQUATE,0.95,1.0,0.7726,0.8596,0.8252,Low multi-hazard score (0.15) in Chitradurga with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_057,Chikkamagaluru,KA_TALUK_066,Chitradurga,101.2,0.2324,0.0,ADEQUATE,0.95,1.0,0.7572,0.8249,0.7686,Low multi-hazard score (0.23) in Chitradurga with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_057,Chikkamagaluru,KA_TALUK_185,Pavagada,106.9,0.2096,0.0,ADEQUATE,0.95,0.8417,0.7748,0.9199,0.8199,Low multi-hazard score (0.21) in Tumakuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_058,Kadur,KA_TALUK_068,Hiriyur,111.0,0.149,0.0,ADEQUATE,0.95,1.0,0.7726,0.8596,0.8252,Low multi-hazard score (0.15) in Chitradurga with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_058,Kadur,KA_TALUK_066,Chitradurga,113.5,0.2324,0.0,ADEQUATE,0.95,1.0,0.7572,0.8249,0.7686,Low multi-hazard score (0.23) in Chitradurga with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_058,Kadur,KA_TALUK_070,Hosadurga,119.8,0.1617,0.0,ADEQUATE,0.95,1.0,0.9315,0.9385,0.8468,Low multi-hazard score (0.16) in Chitradurga with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_059,Koppa,KA_TALUK_068,Hiriyur,105.6,0.149,0.0,ADEQUATE,0.95,1.0,0.7726,0.8596,0.8252,Low multi-hazard score (0.15) in Chitradurga with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_059,Koppa,KA_TALUK_185,Pavagada,107.1,0.2096,0.0,ADEQUATE,0.95,0.8417,0.7748,0.9199,0.8199,Low multi-hazard score (0.21) in Tumakuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_059,Koppa,KA_TALUK_066,Chitradurga,108.0,0.2324,0.0,ADEQUATE,0.95,1.0,0.7572,0.8249,0.7686,Low multi-hazard score (0.23) in Chitradurga with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_060,Mudigere,KA_TALUK_068,Hiriyur,95.5,0.149,0.0,ADEQUATE,0.95,1.0,0.7726,0.8596,0.8252,Low multi-hazard score (0.15) in Chitradurga with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_060,Mudigere,KA_TALUK_066,Chitradurga,98.0,0.2324,0.0,ADEQUATE,0.95,1.0,0.7572,0.8249,0.7686,Low multi-hazard score (0.23) in Chitradurga with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_060,Mudigere,KA_TALUK_070,Hosadurga,105.1,0.1617,0.0,ADEQUATE,0.95,1.0,0.9315,0.9385,0.8468,Low multi-hazard score (0.16) in Chitradurga with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_061,Narasimharajapura,KA_TALUK_068,Hiriyur,93.6,0.149,0.0,ADEQUATE,0.95,1.0,0.7726,0.8596,0.8252,Low multi-hazard score (0.15) in Chitradurga with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_061,Narasimharajapura,KA_TALUK_066,Chitradurga,96.0,0.2324,0.0,ADEQUATE,0.95,1.0,0.7572,0.8249,0.7686,Low multi-hazard score (0.23) in Chitradurga with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_061,Narasimharajapura,KA_TALUK_070,Hosadurga,102.2,0.1617,0.0,ADEQUATE,0.95,1.0,0.9315,0.9385,0.8468,Low multi-hazard score (0.16) in Chitradurga with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_062,Sringeri,KA_TALUK_068,Hiriyur,99.2,0.149,0.0,ADEQUATE,0.95,1.0,0.7726,0.8596,0.8252,Low multi-hazard score (0.15) in Chitradurga with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_062,Sringeri,KA_TALUK_066,Chitradurga,101.7,0.2324,0.0,ADEQUATE,0.95,1.0,0.7572,0.8249,0.7686,Low multi-hazard score (0.23) in Chitradurga with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_062,Sringeri,KA_TALUK_070,Hosadurga,108.2,0.1617,0.0,ADEQUATE,0.95,1.0,0.9315,0.9385,0.8468,Low multi-hazard score (0.16) in Chitradurga with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_063,Tarikere,KA_TALUK_068,Hiriyur,111.6,0.149,0.0,ADEQUATE,0.95,1.0,0.7726,0.8596,0.8252,Low multi-hazard score (0.15) in Chitradurga with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_063,Tarikere,KA_TALUK_066,Chitradurga,114.1,0.2324,0.0,ADEQUATE,0.95,1.0,0.7572,0.8249,0.7686,Low multi-hazard score (0.23) in Chitradurga with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_063,Tarikere,KA_TALUK_070,Hosadurga,120.8,0.1617,0.0,ADEQUATE,0.95,1.0,0.9315,0.9385,0.8468,Low multi-hazard score (0.16) in Chitradurga with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_064,Ajjampura,KA_TALUK_068,Hiriyur,87.1,0.149,0.0,ADEQUATE,0.95,1.0,0.7726,0.8596,0.8252,Low multi-hazard score (0.15) in Chitradurga with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_064,Ajjampura,KA_TALUK_066,Chitradurga,89.5,0.2324,0.0,ADEQUATE,0.95,1.0,0.7572,0.8249,0.7686,Low multi-hazard score (0.23) in Chitradurga with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_064,Ajjampura,KA_TALUK_070,Hosadurga,95.9,0.1617,0.0,ADEQUATE,0.95,1.0,0.9315,0.9385,0.8468,Low multi-hazard score (0.16) in Chitradurga with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_065,Kalasa,KA_TALUK_068,Hiriyur,99.8,0.149,0.0,ADEQUATE,0.95,1.0,0.7726,0.8596,0.8252,Low multi-hazard score (0.15) in Chitradurga with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_065,Kalasa,KA_TALUK_066,Chitradurga,102.2,0.2324,0.0,ADEQUATE,0.95,1.0,0.7572,0.8249,0.7686,Low multi-hazard score (0.23) in Chitradurga with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_065,Kalasa,KA_TALUK_070,Hosadurga,109.0,0.1617,0.0,ADEQUATE,0.95,1.0,0.9315,0.9385,0.8468,Low multi-hazard score (0.16) in Chitradurga with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_066,Chitradurga,KA_TALUK_068,Hiriyur,2.4,0.149,0.0,ADEQUATE,0.95,1.0,0.7726,0.8596,0.8252,Low multi-hazard score (0.15) in Chitradurga with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_066,Chitradurga,KA_TALUK_070,Hosadurga,9.1,0.1617,0.0,ADEQUATE,0.95,1.0,0.9315,0.9385,0.8468,Low multi-hazard score (0.16) in Chitradurga with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_066,Chitradurga,KA_TALUK_071,Molakalmuru,19.7,0.2191,0.0,ADEQUATE,0.95,1.0,0.9312,0.9292,0.7795,Low multi-hazard score (0.22) in Chitradurga with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_067,Challakere,KA_TALUK_071,Molakalmuru,5.6,0.2191,0.0,ADEQUATE,0.95,1.0,0.9312,0.9292,0.7795,Low multi-hazard score (0.22) in Chitradurga with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_067,Challakere,KA_TALUK_070,Hosadurga,19.7,0.1617,0.0,ADEQUATE,0.95,1.0,0.9315,0.9385,0.8468,Low multi-hazard score (0.16) in Chitradurga with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_067,Challakere,KA_TALUK_066,Chitradurga,24.0,0.2324,0.0,ADEQUATE,0.95,1.0,0.7572,0.8249,0.7686,Low multi-hazard score (0.23) in Chitradurga with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_068,Hiriyur,KA_TALUK_066,Chitradurga,2.4,0.2324,0.0,ADEQUATE,0.95,1.0,0.7572,0.8249,0.7686,Low multi-hazard score (0.23) in Chitradurga with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_068,Hiriyur,KA_TALUK_070,Hosadurga,11.1,0.1617,0.0,ADEQUATE,0.95,1.0,0.9315,0.9385,0.8468,Low multi-hazard score (0.16) in Chitradurga with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_068,Hiriyur,KA_TALUK_071,Molakalmuru,22.2,0.2191,0.0,ADEQUATE,0.95,1.0,0.9312,0.9292,0.7795,Low multi-hazard score (0.22) in Chitradurga with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_069,Holalkere,KA_TALUK_071,Molakalmuru,14.9,0.2191,0.0,ADEQUATE,0.95,1.0,0.9312,0.9292,0.7795,Low multi-hazard score (0.22) in Chitradurga with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_069,Holalkere,KA_TALUK_067,Challakere,15.2,0.1974,0.0,ADEQUATE,0.95,1.0,0.85,0.8898,0.8323,Low multi-hazard score (0.20) in Chitradurga with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_069,Holalkere,KA_TALUK_066,Chitradurga,15.9,0.2324,0.0,ADEQUATE,0.95,1.0,0.7572,0.8249,0.7686,Low multi-hazard score (0.23) in Chitradurga with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_070,Hosadurga,KA_TALUK_066,Chitradurga,9.1,0.2324,0.0,ADEQUATE,0.95,1.0,0.7572,0.8249,0.7686,Low multi-hazard score (0.23) in Chitradurga with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_070,Hosadurga,KA_TALUK_068,Hiriyur,11.1,0.149,0.0,ADEQUATE,0.95,1.0,0.7726,0.8596,0.8252,Low multi-hazard score (0.15) in Chitradurga with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_070,Hosadurga,KA_TALUK_071,Molakalmuru,14.3,0.2191,0.0,ADEQUATE,0.95,1.0,0.9312,0.9292,0.7795,Low multi-hazard score (0.22) in Chitradurga with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_071,Molakalmuru,KA_TALUK_067,Challakere,5.6,0.1974,0.0,ADEQUATE,0.95,1.0,0.85,0.8898,0.8323,Low multi-hazard score (0.20) in Chitradurga with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_071,Molakalmuru,KA_TALUK_070,Hosadurga,14.3,0.1617,0.0,ADEQUATE,0.95,1.0,0.9315,0.9385,0.8468,Low multi-hazard score (0.16) in Chitradurga with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_071,Molakalmuru,KA_TALUK_066,Chitradurga,19.7,0.2324,0.0,ADEQUATE,0.95,1.0,0.7572,0.8249,0.7686,Low multi-hazard score (0.23) in Chitradurga with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_072,Mangaluru,KA_TALUK_159,Saragur,186.1,0.3075,0.0,MODERATE_DEFICIT,0.95,0.5201,0.8803,0.8627,0.7125,Low multi-hazard score (0.31) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_072,Mangaluru,KA_TALUK_068,Hiriyur,189.3,0.149,0.0,ADEQUATE,0.95,1.0,0.7726,0.8596,0.8252,Low multi-hazard score (0.15) in Chitradurga with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_072,Mangaluru,KA_TALUK_066,Chitradurga,191.7,0.2324,0.0,ADEQUATE,0.95,1.0,0.7572,0.8249,0.7686,Low multi-hazard score (0.23) in Chitradurga with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_073,Bantwal,KA_TALUK_159,Saragur,185.8,0.3075,0.0,MODERATE_DEFICIT,0.95,0.5201,0.8803,0.8627,0.7125,Low multi-hazard score (0.31) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_073,Bantwal,KA_TALUK_155,Nanjangud,193.0,0.2973,0.0,ADEQUATE,0.95,0.6419,0.8536,0.9379,0.7269,Low multi-hazard score (0.30) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_073,Bantwal,KA_TALUK_157,Piriyapatna,193.3,0.2773,0.0,MODERATE_DEFICIT,0.95,0.4288,0.9457,0.8629,0.7184,Low multi-hazard score (0.28) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_074,Belthangady,KA_TALUK_159,Saragur,185.8,0.3075,0.0,MODERATE_DEFICIT,0.95,0.5201,0.8803,0.8627,0.7125,Low multi-hazard score (0.31) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_074,Belthangady,KA_TALUK_155,Nanjangud,193.0,0.2973,0.0,ADEQUATE,0.95,0.6419,0.8536,0.9379,0.7269,Low multi-hazard score (0.30) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_074,Belthangady,KA_TALUK_157,Piriyapatna,193.3,0.2773,0.0,MODERATE_DEFICIT,0.95,0.4288,0.9457,0.8629,0.7184,Low multi-hazard score (0.28) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_075,Puttur,KA_TALUK_068,Hiriyur,186.5,0.149,0.0,ADEQUATE,0.95,1.0,0.7726,0.8596,0.8252,Low multi-hazard score (0.15) in Chitradurga with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_075,Puttur,KA_TALUK_084,Nyamathi,187.2,0.2784,0.0,ADEQUATE,0.95,0.6901,0.8452,0.8761,0.7726,Low multi-hazard score (0.28) in Davanagere with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_075,Puttur,KA_TALUK_081,Honnali,188.1,0.3083,0.0,MODERATE_DEFICIT,0.95,0.5145,0.8877,0.9327,0.7533,Low multi-hazard score (0.31) in Davanagere with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_076,Sullia,KA_TALUK_068,Hiriyur,184.0,0.149,0.0,ADEQUATE,0.95,1.0,0.7726,0.8596,0.8252,Low multi-hazard score (0.15) in Chitradurga with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_076,Sullia,KA_TALUK_084,Nyamathi,186.1,0.2784,0.0,ADEQUATE,0.95,0.6901,0.8452,0.8761,0.7726,Low multi-hazard score (0.28) in Davanagere with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_076,Sullia,KA_TALUK_066,Chitradurga,186.3,0.2324,0.0,ADEQUATE,0.95,1.0,0.7572,0.8249,0.7686,Low multi-hazard score (0.23) in Chitradurga with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_077,Moodabidri,KA_TALUK_068,Hiriyur,187.9,0.149,0.0,ADEQUATE,0.95,1.0,0.7726,0.8596,0.8252,Low multi-hazard score (0.15) in Chitradurga with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_077,Moodabidri,KA_TALUK_159,Saragur,189.1,0.3075,0.0,MODERATE_DEFICIT,0.95,0.5201,0.8803,0.8627,0.7125,Low multi-hazard score (0.31) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_077,Moodabidri,KA_TALUK_084,Nyamathi,189.9,0.2784,0.0,ADEQUATE,0.95,0.6901,0.8452,0.8761,0.7726,Low multi-hazard score (0.28) in Davanagere with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_078,Kadaba,KA_TALUK_159,Saragur,186.8,0.3075,0.0,MODERATE_DEFICIT,0.95,0.5201,0.8803,0.8627,0.7125,Low multi-hazard score (0.31) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_078,Kadaba,KA_TALUK_068,Hiriyur,192.1,0.149,0.0,ADEQUATE,0.95,1.0,0.7726,0.8596,0.8252,Low multi-hazard score (0.15) in Chitradurga with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_078,Kadaba,KA_TALUK_155,Nanjangud,193.9,0.2973,0.0,ADEQUATE,0.95,0.6419,0.8536,0.9379,0.7269,Low multi-hazard score (0.30) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_079,Davanagere,KA_TALUK_083,Jagalur,2.4,0.3142,0.0,MODERATE_DEFICIT,0.95,0.5746,0.9055,0.9367,0.6945,Low multi-hazard score (0.31) in Davanagere with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_079,Davanagere,KA_TALUK_082,Channagiri,13.7,0.3186,0.0,ADEQUATE,0.95,0.7751,0.7897,0.7916,0.7198,Low multi-hazard score (0.32) in Davanagere with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_079,Davanagere,KA_TALUK_084,Nyamathi,21.6,0.2784,0.0,ADEQUATE,0.95,0.6901,0.8452,0.8761,0.7726,Low multi-hazard score (0.28) in Davanagere with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_080,Harihara,KA_TALUK_083,Jagalur,11.2,0.3142,0.0,MODERATE_DEFICIT,0.95,0.5746,0.9055,0.9367,0.6945,Low multi-hazard score (0.31) in Davanagere with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_080,Harihara,KA_TALUK_084,Nyamathi,16.5,0.2784,0.0,ADEQUATE,0.95,0.6901,0.8452,0.8761,0.7726,Low multi-hazard score (0.28) in Davanagere with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_080,Harihara,KA_TALUK_082,Channagiri,18.9,0.3186,0.0,ADEQUATE,0.95,0.7751,0.7897,0.7916,0.7198,Low multi-hazard score (0.32) in Davanagere with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_081,Honnali,KA_TALUK_082,Channagiri,11.0,0.3186,0.0,ADEQUATE,0.95,0.7751,0.7897,0.7916,0.7198,Low multi-hazard score (0.32) in Davanagere with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_081,Honnali,KA_TALUK_084,Nyamathi,14.6,0.2784,0.0,ADEQUATE,0.95,0.6901,0.8452,0.8761,0.7726,Low multi-hazard score (0.28) in Davanagere with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_081,Honnali,KA_TALUK_083,Jagalur,25.3,0.3142,0.0,MODERATE_DEFICIT,0.95,0.5746,0.9055,0.9367,0.6945,Low multi-hazard score (0.31) in Davanagere with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_082,Channagiri,KA_TALUK_081,Honnali,11.0,0.3083,0.0,MODERATE_DEFICIT,0.95,0.5145,0.8877,0.9327,0.7533,Low multi-hazard score (0.31) in Davanagere with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_082,Channagiri,KA_TALUK_084,Nyamathi,13.9,0.2784,0.0,ADEQUATE,0.95,0.6901,0.8452,0.8761,0.7726,Low multi-hazard score (0.28) in Davanagere with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_082,Channagiri,KA_TALUK_083,Jagalur,14.5,0.3142,0.0,MODERATE_DEFICIT,0.95,0.5746,0.9055,0.9367,0.6945,Low multi-hazard score (0.31) in Davanagere with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_083,Jagalur,KA_TALUK_082,Channagiri,14.5,0.3186,0.0,ADEQUATE,0.95,0.7751,0.7897,0.7916,0.7198,Low multi-hazard score (0.32) in Davanagere with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_083,Jagalur,KA_TALUK_084,Nyamathi,20.8,0.2784,0.0,ADEQUATE,0.95,0.6901,0.8452,0.8761,0.7726,Low multi-hazard score (0.28) in Davanagere with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_083,Jagalur,KA_TALUK_081,Honnali,25.3,0.3083,0.0,MODERATE_DEFICIT,0.95,0.5145,0.8877,0.9327,0.7533,Low multi-hazard score (0.31) in Davanagere with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_084,Nyamathi,KA_TALUK_082,Channagiri,13.9,0.3186,0.0,ADEQUATE,0.95,0.7751,0.7897,0.7916,0.7198,Low multi-hazard score (0.32) in Davanagere with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_084,Nyamathi,KA_TALUK_081,Honnali,14.6,0.3083,0.0,MODERATE_DEFICIT,0.95,0.5145,0.8877,0.9327,0.7533,Low multi-hazard score (0.31) in Davanagere with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_084,Nyamathi,KA_TALUK_083,Jagalur,20.8,0.3142,0.0,MODERATE_DEFICIT,0.95,0.5746,0.9055,0.9367,0.6945,Low multi-hazard score (0.31) in Davanagere with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_085,Dharwad,KA_TALUK_090,Navalgund,6.6,0.1799,0.0,ADEQUATE,0.95,0.6428,0.7258,0.9046,0.833,Low multi-hazard score (0.18) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_085,Dharwad,KA_TALUK_091,Alnavar,6.9,0.166,0.0,ADEQUATE,0.95,0.5245,0.8821,0.8998,0.8531,Low multi-hazard score (0.17) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_085,Dharwad,KA_TALUK_088,Kalghatgi,7.0,0.2241,0.0,ADEQUATE,0.95,0.6626,0.7994,0.7938,0.809,Low multi-hazard score (0.22) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_086,Hubballi Urban,KA_TALUK_089,Kundgol,7.8,0.1556,0.0,ADEQUATE,0.95,0.6595,0.9378,0.8292,0.8418,Low multi-hazard score (0.16) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_086,Hubballi Urban,KA_TALUK_088,Kalghatgi,15.4,0.2241,0.0,ADEQUATE,0.95,0.6626,0.7994,0.7938,0.809,Low multi-hazard score (0.22) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_086,Hubballi Urban,KA_TALUK_085,Dharwad,16.7,0.19,0.0,ADEQUATE,0.95,0.7277,0.781,0.8523,0.8455,Low multi-hazard score (0.19) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_087,Hubballi Rural,KA_TALUK_090,Navalgund,2.4,0.1799,0.0,ADEQUATE,0.95,0.6428,0.7258,0.9046,0.833,Low multi-hazard score (0.18) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_087,Hubballi Rural,KA_TALUK_091,Alnavar,4.0,0.166,0.0,ADEQUATE,0.95,0.5245,0.8821,0.8998,0.8531,Low multi-hazard score (0.17) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_087,Hubballi Rural,KA_TALUK_088,Kalghatgi,4.9,0.2241,0.0,ADEQUATE,0.95,0.6626,0.7994,0.7938,0.809,Low multi-hazard score (0.22) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_088,Kalghatgi,KA_TALUK_090,Navalgund,3.9,0.1799,0.0,ADEQUATE,0.95,0.6428,0.7258,0.9046,0.833,Low multi-hazard score (0.18) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_088,Kalghatgi,KA_TALUK_087,Hubballi Rural,4.9,0.2052,0.0,ADEQUATE,0.95,0.6348,0.9318,0.8728,0.8081,Low multi-hazard score (0.21) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_088,Kalghatgi,KA_TALUK_091,Alnavar,6.6,0.166,0.0,ADEQUATE,0.95,0.5245,0.8821,0.8998,0.8531,Low multi-hazard score (0.17) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_089,Kundgol,KA_TALUK_086,Hubballi Urban,7.8,0.1637,0.0,MODERATE_DEFICIT,0.95,0.4122,0.837,0.8012,0.8382,Low multi-hazard score (0.16) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_089,Kundgol,KA_TALUK_088,Kalghatgi,13.0,0.2241,0.0,ADEQUATE,0.95,0.6626,0.7994,0.7938,0.809,Low multi-hazard score (0.22) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_089,Kundgol,KA_TALUK_090,Navalgund,16.9,0.1799,0.0,ADEQUATE,0.95,0.6428,0.7258,0.9046,0.833,Low multi-hazard score (0.18) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_090,Navalgund,KA_TALUK_087,Hubballi Rural,2.4,0.2052,0.0,ADEQUATE,0.95,0.6348,0.9318,0.8728,0.8081,Low multi-hazard score (0.21) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_090,Navalgund,KA_TALUK_091,Alnavar,2.8,0.166,0.0,ADEQUATE,0.95,0.5245,0.8821,0.8998,0.8531,Low multi-hazard score (0.17) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_090,Navalgund,KA_TALUK_088,Kalghatgi,3.9,0.2241,0.0,ADEQUATE,0.95,0.6626,0.7994,0.7938,0.809,Low multi-hazard score (0.22) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_091,Alnavar,KA_TALUK_090,Navalgund,2.8,0.1799,0.0,ADEQUATE,0.95,0.6428,0.7258,0.9046,0.833,Low multi-hazard score (0.18) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_091,Alnavar,KA_TALUK_087,Hubballi Rural,4.0,0.2052,0.0,ADEQUATE,0.95,0.6348,0.9318,0.8728,0.8081,Low multi-hazard score (0.21) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_091,Alnavar,KA_TALUK_088,Kalghatgi,6.6,0.2241,0.0,ADEQUATE,0.95,0.6626,0.7994,0.7938,0.809,Low multi-hazard score (0.22) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_092,Annigeri,KA_TALUK_089,Kundgol,6.3,0.1556,0.0,ADEQUATE,0.95,0.6595,0.9378,0.8292,0.8418,Low multi-hazard score (0.16) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_092,Annigeri,KA_TALUK_088,Kalghatgi,6.8,0.2241,0.0,ADEQUATE,0.95,0.6626,0.7994,0.7938,0.809,Low multi-hazard score (0.22) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_092,Annigeri,KA_TALUK_086,Hubballi Urban,9.9,0.1637,0.0,MODERATE_DEFICIT,0.95,0.4122,0.837,0.8012,0.8382,Low multi-hazard score (0.16) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_093,Gadag,KA_TALUK_097,Mundargi,5.8,0.3123,0.0,ADEQUATE,0.95,1.0,0.733,0.8023,0.7302,Low multi-hazard score (0.31) in Gadag with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_093,Gadag,KA_TALUK_140,Kushtagi,48.8,0.3227,0.0,ADEQUATE,0.95,1.0,0.8929,0.8967,0.6949,Low multi-hazard score (0.32) in Koppal with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_093,Gadag,KA_TALUK_085,Dharwad,52.9,0.19,0.0,ADEQUATE,0.95,0.7277,0.781,0.8523,0.8455,Low multi-hazard score (0.19) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_094,Nargund,KA_TALUK_097,Mundargi,8.2,0.3123,0.0,ADEQUATE,0.95,1.0,0.733,0.8023,0.7302,Low multi-hazard score (0.31) in Gadag with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_094,Nargund,KA_TALUK_085,Dharwad,51.0,0.19,0.0,ADEQUATE,0.95,0.7277,0.781,0.8523,0.8455,Low multi-hazard score (0.19) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_094,Nargund,KA_TALUK_140,Kushtagi,51.1,0.3227,0.0,ADEQUATE,0.95,1.0,0.8929,0.8967,0.6949,Low multi-hazard score (0.32) in Koppal with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_095,Ron,KA_TALUK_097,Mundargi,18.3,0.3123,0.0,ADEQUATE,0.95,1.0,0.733,0.8023,0.7302,Low multi-hazard score (0.31) in Gadag with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_095,Ron,KA_TALUK_085,Dharwad,43.6,0.19,0.0,ADEQUATE,0.95,0.7277,0.781,0.8523,0.8455,Low multi-hazard score (0.19) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_095,Ron,KA_TALUK_091,Alnavar,46.6,0.166,0.0,ADEQUATE,0.95,0.5245,0.8821,0.8998,0.8531,Low multi-hazard score (0.17) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_096,Shirahatti,KA_TALUK_097,Mundargi,23.5,0.3123,0.0,ADEQUATE,0.95,1.0,0.733,0.8023,0.7302,Low multi-hazard score (0.31) in Gadag with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_096,Shirahatti,KA_TALUK_085,Dharwad,37.6,0.19,0.0,ADEQUATE,0.95,0.7277,0.781,0.8523,0.8455,Low multi-hazard score (0.19) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_096,Shirahatti,KA_TALUK_091,Alnavar,40.6,0.166,0.0,ADEQUATE,0.95,0.5245,0.8821,0.8998,0.8531,Low multi-hazard score (0.17) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_097,Mundargi,KA_TALUK_140,Kushtagi,43.0,0.3227,0.0,ADEQUATE,0.95,1.0,0.8929,0.8967,0.6949,Low multi-hazard score (0.32) in Koppal with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_097,Mundargi,KA_TALUK_139,Gangavathi,50.4,0.3146,0.0,ADEQUATE,0.95,0.9744,0.905,0.89,0.748,Low multi-hazard score (0.31) in Koppal with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_097,Mundargi,KA_TALUK_230,Kotturu,58.3,0.31,0.0,ADEQUATE,0.95,0.7816,0.9197,0.9238,0.7381,Low multi-hazard score (0.31) in Vijayanagara with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_098,Gajendragad,KA_TALUK_097,Mundargi,18.2,0.3123,0.0,ADEQUATE,0.95,1.0,0.733,0.8023,0.7302,Low multi-hazard score (0.31) in Gadag with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_098,Gajendragad,KA_TALUK_085,Dharwad,40.9,0.19,0.0,ADEQUATE,0.95,0.7277,0.781,0.8523,0.8455,Low multi-hazard score (0.19) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_098,Gajendragad,KA_TALUK_091,Alnavar,44.7,0.166,0.0,ADEQUATE,0.95,0.5245,0.8821,0.8998,0.8531,Low multi-hazard score (0.17) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_099,Lakshmeshwar,KA_TALUK_097,Mundargi,13.0,0.3123,0.0,ADEQUATE,0.95,1.0,0.733,0.8023,0.7302,Low multi-hazard score (0.31) in Gadag with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_099,Lakshmeshwar,KA_TALUK_140,Kushtagi,48.1,0.3227,0.0,ADEQUATE,0.95,1.0,0.8929,0.8967,0.6949,Low multi-hazard score (0.32) in Koppal with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_099,Lakshmeshwar,KA_TALUK_139,Gangavathi,50.4,0.3146,0.0,ADEQUATE,0.95,0.9744,0.905,0.89,0.748,Low multi-hazard score (0.31) in Koppal with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_100,Hassan,KA_TALUK_185,Pavagada,85.9,0.2096,0.0,ADEQUATE,0.95,0.8417,0.7748,0.9199,0.8199,Low multi-hazard score (0.21) in Tumakuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_100,Hassan,KA_TALUK_179,Tumakuru,96.3,0.1658,0.0,ADEQUATE,0.95,0.8031,0.8056,0.8656,0.8342,Low multi-hazard score (0.17) in Tumakuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_100,Hassan,KA_TALUK_151,Srirangapatna,99.3,0.3118,0.0,MODERATE_DEFICIT,0.95,0.4651,0.9497,0.7919,0.7449,Low multi-hazard score (0.31) in Mandya with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_101,Alur,KA_TALUK_151,Srirangapatna,83.5,0.3118,0.0,MODERATE_DEFICIT,0.95,0.4651,0.9497,0.7919,0.7449,Low multi-hazard score (0.31) in Mandya with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_101,Alur,KA_TALUK_185,Pavagada,84.5,0.2096,0.0,ADEQUATE,0.95,0.8417,0.7748,0.9199,0.8199,Low multi-hazard score (0.21) in Tumakuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_101,Alur,KA_TALUK_179,Tumakuru,96.8,0.1658,0.0,ADEQUATE,0.95,0.8031,0.8056,0.8656,0.8342,Low multi-hazard score (0.17) in Tumakuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_102,Arkalgud,KA_TALUK_151,Srirangapatna,89.6,0.3118,0.0,MODERATE_DEFICIT,0.95,0.4651,0.9497,0.7919,0.7449,Low multi-hazard score (0.31) in Mandya with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_102,Arkalgud,KA_TALUK_185,Pavagada,92.6,0.2096,0.0,ADEQUATE,0.95,0.8417,0.7748,0.9199,0.8199,Low multi-hazard score (0.21) in Tumakuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_102,Arkalgud,KA_TALUK_159,Saragur,100.2,0.3075,0.0,MODERATE_DEFICIT,0.95,0.5201,0.8803,0.8627,0.7125,Low multi-hazard score (0.31) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_103,Arsikere,KA_TALUK_151,Srirangapatna,95.5,0.3118,0.0,MODERATE_DEFICIT,0.95,0.4651,0.9497,0.7919,0.7449,Low multi-hazard score (0.31) in Mandya with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_103,Arsikere,KA_TALUK_159,Saragur,101.6,0.3075,0.0,MODERATE_DEFICIT,0.95,0.5201,0.8803,0.8627,0.7125,Low multi-hazard score (0.31) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_103,Arsikere,KA_TALUK_185,Pavagada,103.4,0.2096,0.0,ADEQUATE,0.95,0.8417,0.7748,0.9199,0.8199,Low multi-hazard score (0.21) in Tumakuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_104,Belur,KA_TALUK_185,Pavagada,78.8,0.2096,0.0,ADEQUATE,0.95,0.8417,0.7748,0.9199,0.8199,Low multi-hazard score (0.21) in Tumakuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_104,Belur,KA_TALUK_179,Tumakuru,89.3,0.1658,0.0,ADEQUATE,0.95,0.8031,0.8056,0.8656,0.8342,Low multi-hazard score (0.17) in Tumakuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_104,Belur,KA_TALUK_180,Chiknayakanhalli,93.3,0.228,0.0,ADEQUATE,0.95,0.8351,0.7621,0.9017,0.8045,Low multi-hazard score (0.23) in Tumakuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_105,Channarayapatna,KA_TALUK_185,Pavagada,89.9,0.2096,0.0,ADEQUATE,0.95,0.8417,0.7748,0.9199,0.8199,Low multi-hazard score (0.21) in Tumakuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_105,Channarayapatna,KA_TALUK_151,Srirangapatna,96.6,0.3118,0.0,MODERATE_DEFICIT,0.95,0.4651,0.9497,0.7919,0.7449,Low multi-hazard score (0.31) in Mandya with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_105,Channarayapatna,KA_TALUK_179,Tumakuru,100.9,0.1658,0.0,ADEQUATE,0.95,0.8031,0.8056,0.8656,0.8342,Low multi-hazard score (0.17) in Tumakuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_106,Holenarasipura,KA_TALUK_151,Srirangapatna,94.0,0.3118,0.0,MODERATE_DEFICIT,0.95,0.4651,0.9497,0.7919,0.7449,Low multi-hazard score (0.31) in Mandya with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_106,Holenarasipura,KA_TALUK_185,Pavagada,99.6,0.2096,0.0,ADEQUATE,0.95,0.8417,0.7748,0.9199,0.8199,Low multi-hazard score (0.21) in Tumakuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_106,Holenarasipura,KA_TALUK_159,Saragur,101.8,0.3075,0.0,MODERATE_DEFICIT,0.95,0.5201,0.8803,0.8627,0.7125,Low multi-hazard score (0.31) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_107,Sakleshpur,KA_TALUK_151,Srirangapatna,87.2,0.3118,0.0,MODERATE_DEFICIT,0.95,0.4651,0.9497,0.7919,0.7449,Low multi-hazard score (0.31) in Mandya with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_107,Sakleshpur,KA_TALUK_185,Pavagada,90.5,0.2096,0.0,ADEQUATE,0.95,0.8417,0.7748,0.9199,0.8199,Low multi-hazard score (0.21) in Tumakuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_107,Sakleshpur,KA_TALUK_159,Saragur,98.3,0.3075,0.0,MODERATE_DEFICIT,0.95,0.5201,0.8803,0.8627,0.7125,Low multi-hazard score (0.31) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_108,Haveri,KA_TALUK_113,Savanur,5.1,0.3251,0.0,ADEQUATE,0.95,0.6058,0.8909,0.8823,0.7029,Low multi-hazard score (0.33) in Haveri with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_108,Haveri,KA_TALUK_110,Hangal,8.0,0.3044,0.0,ADEQUATE,0.95,0.5449,0.9218,0.8825,0.7445,Low multi-hazard score (0.30) in Haveri with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_108,Haveri,KA_TALUK_112,Ranebennur,12.4,0.3212,0.0,MODERATE_DEFICIT,0.95,0.5407,0.9129,0.8971,0.686,Low multi-hazard score (0.32) in Haveri with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_109,Byadgi,KA_TALUK_112,Ranebennur,10.7,0.3212,0.0,MODERATE_DEFICIT,0.95,0.5407,0.9129,0.8971,0.686,Low multi-hazard score (0.32) in Haveri with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_109,Byadgi,KA_TALUK_110,Hangal,17.1,0.3044,0.0,ADEQUATE,0.95,0.5449,0.9218,0.8825,0.7445,Low multi-hazard score (0.30) in Haveri with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_109,Byadgi,KA_TALUK_113,Savanur,20.7,0.3251,0.0,ADEQUATE,0.95,0.6058,0.8909,0.8823,0.7029,Low multi-hazard score (0.33) in Haveri with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_110,Hangal,KA_TALUK_113,Savanur,10.3,0.3251,0.0,ADEQUATE,0.95,0.6058,0.8909,0.8823,0.7029,Low multi-hazard score (0.33) in Haveri with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_110,Hangal,KA_TALUK_109,Byadgi,17.1,0.3029,0.0,ADEQUATE,0.95,0.8814,0.8556,0.8549,0.7571,Low multi-hazard score (0.30) in Haveri with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_110,Hangal,KA_TALUK_112,Ranebennur,18.5,0.3212,0.0,MODERATE_DEFICIT,0.95,0.5407,0.9129,0.8971,0.686,Low multi-hazard score (0.32) in Haveri with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_111,Hirekerur,KA_TALUK_113,Savanur,8.5,0.3251,0.0,ADEQUATE,0.95,0.6058,0.8909,0.8823,0.7029,Low multi-hazard score (0.33) in Haveri with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_111,Hirekerur,KA_TALUK_110,Hangal,18.8,0.3044,0.0,ADEQUATE,0.95,0.5449,0.9218,0.8825,0.7445,Low multi-hazard score (0.30) in Haveri with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_111,Hirekerur,KA_TALUK_112,Ranebennur,19.7,0.3212,0.0,MODERATE_DEFICIT,0.95,0.5407,0.9129,0.8971,0.686,Low multi-hazard score (0.32) in Haveri with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_112,Ranebennur,KA_TALUK_109,Byadgi,10.7,0.3029,0.0,ADEQUATE,0.95,0.8814,0.8556,0.8549,0.7571,Low multi-hazard score (0.30) in Haveri with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_112,Ranebennur,KA_TALUK_113,Savanur,16.1,0.3251,0.0,ADEQUATE,0.95,0.6058,0.8909,0.8823,0.7029,Low multi-hazard score (0.33) in Haveri with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_112,Ranebennur,KA_TALUK_110,Hangal,18.5,0.3044,0.0,ADEQUATE,0.95,0.5449,0.9218,0.8825,0.7445,Low multi-hazard score (0.30) in Haveri with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_113,Savanur,KA_TALUK_110,Hangal,10.3,0.3044,0.0,ADEQUATE,0.95,0.5449,0.9218,0.8825,0.7445,Low multi-hazard score (0.30) in Haveri with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_113,Savanur,KA_TALUK_112,Ranebennur,16.1,0.3212,0.0,MODERATE_DEFICIT,0.95,0.5407,0.9129,0.8971,0.686,Low multi-hazard score (0.32) in Haveri with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_113,Savanur,KA_TALUK_109,Byadgi,20.7,0.3029,0.0,ADEQUATE,0.95,0.8814,0.8556,0.8549,0.7571,Low multi-hazard score (0.30) in Haveri with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_114,Shiggaon,KA_TALUK_109,Byadgi,8.4,0.3029,0.0,ADEQUATE,0.95,0.8814,0.8556,0.8549,0.7571,Low multi-hazard score (0.30) in Haveri with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_114,Shiggaon,KA_TALUK_112,Ranebennur,9.3,0.3212,0.0,MODERATE_DEFICIT,0.95,0.5407,0.9129,0.8971,0.686,Low multi-hazard score (0.32) in Haveri with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_114,Shiggaon,KA_TALUK_110,Hangal,10.0,0.3044,0.0,ADEQUATE,0.95,0.5449,0.9218,0.8825,0.7445,Low multi-hazard score (0.30) in Haveri with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_115,Rattihalli,KA_TALUK_112,Ranebennur,7.4,0.3212,0.0,MODERATE_DEFICIT,0.95,0.5407,0.9129,0.8971,0.686,Low multi-hazard score (0.32) in Haveri with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_115,Rattihalli,KA_TALUK_113,Savanur,9.2,0.3251,0.0,ADEQUATE,0.95,0.6058,0.8909,0.8823,0.7029,Low multi-hazard score (0.33) in Haveri with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_115,Rattihalli,KA_TALUK_110,Hangal,11.7,0.3044,0.0,ADEQUATE,0.95,0.5449,0.9218,0.8825,0.7445,Low multi-hazard score (0.30) in Haveri with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_116,Kalaburagi,KA_TALUK_117,Afzalpur,24.3,0.3113,0.0,ADEQUATE,0.95,0.8841,0.7329,0.828,0.7208,Low multi-hazard score (0.31) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_116,Kalaburagi,KA_TALUK_120,Chittapur,24.8,0.3002,0.0,ADEQUATE,0.95,0.8516,0.8432,0.7985,0.7289,Low multi-hazard score (0.30) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_116,Kalaburagi,KA_TALUK_042,Aurad,101.5,0.2994,0.0,ADEQUATE,0.95,0.9472,0.8816,0.7856,0.7034,Low multi-hazard score (0.30) in Bidar with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_117,Afzalpur,KA_TALUK_120,Chittapur,4.4,0.3002,0.0,ADEQUATE,0.95,0.8516,0.8432,0.7985,0.7289,Low multi-hazard score (0.30) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_117,Afzalpur,KA_TALUK_042,Aurad,81.9,0.2994,0.0,ADEQUATE,0.95,0.9472,0.8816,0.7856,0.7034,Low multi-hazard score (0.30) in Bidar with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_117,Afzalpur,KA_TALUK_139,Gangavathi,231.7,0.3146,0.0,ADEQUATE,0.95,0.9744,0.905,0.89,0.748,Low multi-hazard score (0.31) in Koppal with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_118,Aland,KA_TALUK_117,Afzalpur,14.8,0.3113,0.0,ADEQUATE,0.95,0.8841,0.7329,0.828,0.7208,Low multi-hazard score (0.31) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_118,Aland,KA_TALUK_120,Chittapur,15.9,0.3002,0.0,ADEQUATE,0.95,0.8516,0.8432,0.7985,0.7289,Low multi-hazard score (0.30) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_118,Aland,KA_TALUK_042,Aurad,92.7,0.2994,0.0,ADEQUATE,0.95,0.9472,0.8816,0.7856,0.7034,Low multi-hazard score (0.30) in Bidar with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_119,Chincholi,KA_TALUK_117,Afzalpur,12.9,0.3113,0.0,ADEQUATE,0.95,0.8841,0.7329,0.828,0.7208,Low multi-hazard score (0.31) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_119,Chincholi,KA_TALUK_120,Chittapur,13.4,0.3002,0.0,ADEQUATE,0.95,0.8516,0.8432,0.7985,0.7289,Low multi-hazard score (0.30) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_119,Chincholi,KA_TALUK_042,Aurad,92.4,0.2994,0.0,ADEQUATE,0.95,0.9472,0.8816,0.7856,0.7034,Low multi-hazard score (0.30) in Bidar with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_120,Chittapur,KA_TALUK_117,Afzalpur,4.4,0.3113,0.0,ADEQUATE,0.95,0.8841,0.7329,0.828,0.7208,Low multi-hazard score (0.31) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_120,Chittapur,KA_TALUK_042,Aurad,84.7,0.2994,0.0,ADEQUATE,0.95,0.9472,0.8816,0.7856,0.7034,Low multi-hazard score (0.30) in Bidar with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_120,Chittapur,KA_TALUK_139,Gangavathi,230.7,0.3146,0.0,ADEQUATE,0.95,0.9744,0.905,0.89,0.748,Low multi-hazard score (0.31) in Koppal with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_121,Jevargi,KA_TALUK_117,Afzalpur,7.6,0.3113,0.0,ADEQUATE,0.95,0.8841,0.7329,0.828,0.7208,Low multi-hazard score (0.31) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_121,Jevargi,KA_TALUK_120,Chittapur,12.0,0.3002,0.0,ADEQUATE,0.95,0.8516,0.8432,0.7985,0.7289,Low multi-hazard score (0.30) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_121,Jevargi,KA_TALUK_042,Aurad,76.7,0.2994,0.0,ADEQUATE,0.95,0.9472,0.8816,0.7856,0.7034,Low multi-hazard score (0.30) in Bidar with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_122,Sedam,KA_TALUK_120,Chittapur,21.2,0.3002,0.0,ADEQUATE,0.95,0.8516,0.8432,0.7985,0.7289,Low multi-hazard score (0.30) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_122,Sedam,KA_TALUK_117,Afzalpur,23.0,0.3113,0.0,ADEQUATE,0.95,0.8841,0.7329,0.828,0.7208,Low multi-hazard score (0.31) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_122,Sedam,KA_TALUK_042,Aurad,104.6,0.2994,0.0,ADEQUATE,0.95,0.9472,0.8816,0.7856,0.7034,Low multi-hazard score (0.30) in Bidar with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_123,Kamalapur,KA_TALUK_120,Chittapur,23.9,0.3002,0.0,ADEQUATE,0.95,0.8516,0.8432,0.7985,0.7289,Low multi-hazard score (0.30) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_123,Kamalapur,KA_TALUK_117,Afzalpur,25.8,0.3113,0.0,ADEQUATE,0.95,0.8841,0.7329,0.828,0.7208,Low multi-hazard score (0.31) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_123,Kamalapur,KA_TALUK_042,Aurad,107.3,0.2994,0.0,ADEQUATE,0.95,0.9472,0.8816,0.7856,0.7034,Low multi-hazard score (0.30) in Bidar with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_124,Yadrami,KA_TALUK_117,Afzalpur,22.7,0.3113,0.0,ADEQUATE,0.95,0.8841,0.7329,0.828,0.7208,Low multi-hazard score (0.31) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_124,Yadrami,KA_TALUK_120,Chittapur,23.6,0.3002,0.0,ADEQUATE,0.95,0.8516,0.8432,0.7985,0.7289,Low multi-hazard score (0.30) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_124,Yadrami,KA_TALUK_042,Aurad,98.8,0.2994,0.0,ADEQUATE,0.95,0.9472,0.8816,0.7856,0.7034,Low multi-hazard score (0.30) in Bidar with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_125,Shahabad,KA_TALUK_120,Chittapur,23.2,0.3002,0.0,ADEQUATE,0.95,0.8516,0.8432,0.7985,0.7289,Low multi-hazard score (0.30) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_125,Shahabad,KA_TALUK_117,Afzalpur,23.9,0.3113,0.0,ADEQUATE,0.95,0.8841,0.7329,0.828,0.7208,Low multi-hazard score (0.31) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_125,Shahabad,KA_TALUK_042,Aurad,103.8,0.2994,0.0,ADEQUATE,0.95,0.9472,0.8816,0.7856,0.7034,Low multi-hazard score (0.30) in Bidar with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_126,Kalgi,KA_TALUK_120,Chittapur,8.7,0.3002,0.0,ADEQUATE,0.95,0.8516,0.8432,0.7985,0.7289,Low multi-hazard score (0.30) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_126,Kalgi,KA_TALUK_117,Afzalpur,13.0,0.3113,0.0,ADEQUATE,0.95,0.8841,0.7329,0.828,0.7208,Low multi-hazard score (0.31) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_126,Kalgi,KA_TALUK_042,Aurad,92.4,0.2994,0.0,ADEQUATE,0.95,0.9472,0.8816,0.7856,0.7034,Low multi-hazard score (0.30) in Bidar with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_127,Madikeri,KA_TALUK_159,Saragur,89.3,0.3075,0.0,MODERATE_DEFICIT,0.95,0.5201,0.8803,0.8627,0.7125,Low multi-hazard score (0.31) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_127,Madikeri,KA_TALUK_155,Nanjangud,96.7,0.2973,0.0,ADEQUATE,0.95,0.6419,0.8536,0.9379,0.7269,Low multi-hazard score (0.30) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_127,Madikeri,KA_TALUK_157,Piriyapatna,96.8,0.2773,0.0,MODERATE_DEFICIT,0.95,0.4288,0.9457,0.8629,0.7184,Low multi-hazard score (0.28) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_128,Somwarpet,KA_TALUK_159,Saragur,98.3,0.3075,0.0,MODERATE_DEFICIT,0.95,0.5201,0.8803,0.8627,0.7125,Low multi-hazard score (0.31) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_128,Somwarpet,KA_TALUK_157,Piriyapatna,105.9,0.2773,0.0,MODERATE_DEFICIT,0.95,0.4288,0.9457,0.8629,0.7184,Low multi-hazard score (0.28) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_128,Somwarpet,KA_TALUK_155,Nanjangud,106.1,0.2973,0.0,ADEQUATE,0.95,0.6419,0.8536,0.9379,0.7269,Low multi-hazard score (0.30) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_129,Virajpet,KA_TALUK_159,Saragur,83.4,0.3075,0.0,MODERATE_DEFICIT,0.95,0.5201,0.8803,0.8627,0.7125,Low multi-hazard score (0.31) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_129,Virajpet,KA_TALUK_157,Piriyapatna,91.2,0.2773,0.0,MODERATE_DEFICIT,0.95,0.4288,0.9457,0.8629,0.7184,Low multi-hazard score (0.28) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_129,Virajpet,KA_TALUK_155,Nanjangud,92.1,0.2973,0.0,ADEQUATE,0.95,0.6419,0.8536,0.9379,0.7269,Low multi-hazard score (0.30) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_130,Kushalnagar,KA_TALUK_159,Saragur,83.1,0.3075,0.0,MODERATE_DEFICIT,0.95,0.5201,0.8803,0.8627,0.7125,Low multi-hazard score (0.31) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_130,Kushalnagar,KA_TALUK_155,Nanjangud,90.5,0.2973,0.0,ADEQUATE,0.95,0.6419,0.8536,0.9379,0.7269,Low multi-hazard score (0.30) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_130,Kushalnagar,KA_TALUK_157,Piriyapatna,90.6,0.2773,0.0,MODERATE_DEFICIT,0.95,0.4288,0.9457,0.8629,0.7184,Low multi-hazard score (0.28) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_131,Ponnampet,KA_TALUK_159,Saragur,93.3,0.3075,0.0,MODERATE_DEFICIT,0.95,0.5201,0.8803,0.8627,0.7125,Low multi-hazard score (0.31) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_131,Ponnampet,KA_TALUK_157,Piriyapatna,101.1,0.2773,0.0,MODERATE_DEFICIT,0.95,0.4288,0.9457,0.8629,0.7184,Low multi-hazard score (0.28) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_131,Ponnampet,KA_TALUK_155,Nanjangud,101.7,0.2973,0.0,ADEQUATE,0.95,0.6419,0.8536,0.9379,0.7269,Low multi-hazard score (0.30) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_132,Kolar,KA_TALUK_134,Malur,5.4,0.1943,0.0,ADEQUATE,0.95,0.5237,0.923,0.8226,0.7933,Low multi-hazard score (0.19) in Kolar with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_132,Kolar,KA_TALUK_135,Mulbagal,7.6,0.1802,0.0,ADEQUATE,0.95,0.8264,0.7354,0.913,0.8436,Low multi-hazard score (0.18) in Kolar with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_132,Kolar,KA_TALUK_133,Bangarapet,10.1,0.1637,0.0,ADEQUATE,0.95,0.7857,0.914,0.8267,0.8198,Low multi-hazard score (0.16) in Kolar with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_133,Bangarapet,KA_TALUK_135,Mulbagal,2.7,0.1802,0.0,ADEQUATE,0.95,0.8264,0.7354,0.913,0.8436,Low multi-hazard score (0.18) in Kolar with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_133,Bangarapet,KA_TALUK_134,Malur,4.7,0.1943,0.0,ADEQUATE,0.95,0.5237,0.923,0.8226,0.7933,Low multi-hazard score (0.19) in Kolar with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_133,Bangarapet,KA_TALUK_137,KGF,22.0,0.1496,0.0,ADEQUATE,0.95,0.671,0.7706,0.7971,0.8611,Low multi-hazard score (0.15) in Kolar with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_134,Malur,KA_TALUK_135,Mulbagal,2.4,0.1802,0.0,ADEQUATE,0.95,0.8264,0.7354,0.913,0.8436,Low multi-hazard score (0.18) in Kolar with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_134,Malur,KA_TALUK_133,Bangarapet,4.7,0.1637,0.0,ADEQUATE,0.95,0.7857,0.914,0.8267,0.8198,Low multi-hazard score (0.16) in Kolar with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_134,Malur,KA_TALUK_137,KGF,19.6,0.1496,0.0,ADEQUATE,0.95,0.671,0.7706,0.7971,0.8611,Low multi-hazard score (0.15) in Kolar with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_135,Mulbagal,KA_TALUK_134,Malur,2.4,0.1943,0.0,ADEQUATE,0.95,0.5237,0.923,0.8226,0.7933,Low multi-hazard score (0.19) in Kolar with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_135,Mulbagal,KA_TALUK_133,Bangarapet,2.7,0.1637,0.0,ADEQUATE,0.95,0.7857,0.914,0.8267,0.8198,Low multi-hazard score (0.16) in Kolar with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_135,Mulbagal,KA_TALUK_137,KGF,21.5,0.1496,0.0,ADEQUATE,0.95,0.671,0.7706,0.7971,0.8611,Low multi-hazard score (0.15) in Kolar with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_136,Srinivaspur,KA_TALUK_137,KGF,13.7,0.1496,0.0,ADEQUATE,0.95,0.671,0.7706,0.7971,0.8611,Low multi-hazard score (0.15) in Kolar with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_136,Srinivaspur,KA_TALUK_133,Bangarapet,25.5,0.1637,0.0,ADEQUATE,0.95,0.7857,0.914,0.8267,0.8198,Low multi-hazard score (0.16) in Kolar with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_136,Srinivaspur,KA_TALUK_134,Malur,25.6,0.1943,0.0,ADEQUATE,0.95,0.5237,0.923,0.8226,0.7933,Low multi-hazard score (0.19) in Kolar with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_137,KGF,KA_TALUK_136,Srinivaspur,13.7,0.2021,0.0,MODERATE_DEFICIT,0.95,0.4635,0.737,0.8026,0.7994,Low multi-hazard score (0.20) in Kolar with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_137,KGF,KA_TALUK_134,Malur,19.6,0.1943,0.0,ADEQUATE,0.95,0.5237,0.923,0.8226,0.7933,Low multi-hazard score (0.19) in Kolar with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_137,KGF,KA_TALUK_135,Mulbagal,21.5,0.1802,0.0,ADEQUATE,0.95,0.8264,0.7354,0.913,0.8436,Low multi-hazard score (0.18) in Kolar with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_138,Koppal,KA_TALUK_139,Gangavathi,3.3,0.3146,0.0,ADEQUATE,0.95,0.9744,0.905,0.89,0.748,Low multi-hazard score (0.31) in Koppal with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_138,Koppal,KA_TALUK_230,Kotturu,11.8,0.31,0.0,ADEQUATE,0.95,0.7816,0.9197,0.9238,0.7381,Low multi-hazard score (0.31) in Vijayanagara with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_138,Koppal,KA_TALUK_140,Kushtagi,16.6,0.3227,0.0,ADEQUATE,0.95,1.0,0.8929,0.8967,0.6949,Low multi-hazard score (0.32) in Koppal with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_139,Gangavathi,KA_TALUK_230,Kotturu,13.2,0.31,0.0,ADEQUATE,0.95,0.7816,0.9197,0.9238,0.7381,Low multi-hazard score (0.31) in Vijayanagara with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_139,Gangavathi,KA_TALUK_140,Kushtagi,19.9,0.3227,0.0,ADEQUATE,0.95,1.0,0.8929,0.8967,0.6949,Low multi-hazard score (0.32) in Koppal with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_139,Gangavathi,KA_TALUK_097,Mundargi,50.4,0.3123,0.0,ADEQUATE,0.95,1.0,0.733,0.8023,0.7302,Low multi-hazard score (0.31) in Gadag with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_140,Kushtagi,KA_TALUK_230,Kotturu,18.4,0.31,0.0,ADEQUATE,0.95,0.7816,0.9197,0.9238,0.7381,Low multi-hazard score (0.31) in Vijayanagara with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_140,Kushtagi,KA_TALUK_139,Gangavathi,19.9,0.3146,0.0,ADEQUATE,0.95,0.9744,0.905,0.89,0.748,Low multi-hazard score (0.31) in Koppal with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_140,Kushtagi,KA_TALUK_097,Mundargi,43.0,0.3123,0.0,ADEQUATE,0.95,1.0,0.733,0.8023,0.7302,Low multi-hazard score (0.31) in Gadag with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_141,Yelburga,KA_TALUK_140,Kushtagi,1.6,0.3227,0.0,ADEQUATE,0.95,1.0,0.8929,0.8967,0.6949,Low multi-hazard score (0.32) in Koppal with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_141,Yelburga,KA_TALUK_230,Kotturu,17.8,0.31,0.0,ADEQUATE,0.95,0.7816,0.9197,0.9238,0.7381,Low multi-hazard score (0.31) in Vijayanagara with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_141,Yelburga,KA_TALUK_139,Gangavathi,20.3,0.3146,0.0,ADEQUATE,0.95,0.9744,0.905,0.89,0.748,Low multi-hazard score (0.31) in Koppal with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_142,Kuknoor,KA_TALUK_230,Kotturu,6.9,0.31,0.0,ADEQUATE,0.95,0.7816,0.9197,0.9238,0.7381,Low multi-hazard score (0.31) in Vijayanagara with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_142,Kuknoor,KA_TALUK_139,Gangavathi,9.6,0.3146,0.0,ADEQUATE,0.95,0.9744,0.905,0.89,0.748,Low multi-hazard score (0.31) in Koppal with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_142,Kuknoor,KA_TALUK_140,Kushtagi,13.0,0.3227,0.0,ADEQUATE,0.95,1.0,0.8929,0.8967,0.6949,Low multi-hazard score (0.32) in Koppal with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_143,Kanakagiri,KA_TALUK_140,Kushtagi,11.1,0.3227,0.0,ADEQUATE,0.95,1.0,0.8929,0.8967,0.6949,Low multi-hazard score (0.32) in Koppal with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_143,Kanakagiri,KA_TALUK_139,Gangavathi,19.4,0.3146,0.0,ADEQUATE,0.95,0.9744,0.905,0.89,0.748,Low multi-hazard score (0.31) in Koppal with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_143,Kanakagiri,KA_TALUK_230,Kotturu,24.8,0.31,0.0,ADEQUATE,0.95,0.7816,0.9197,0.9238,0.7381,Low multi-hazard score (0.31) in Vijayanagara with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_144,Karatagi,KA_TALUK_140,Kushtagi,6.3,0.3227,0.0,ADEQUATE,0.95,1.0,0.8929,0.8967,0.6949,Low multi-hazard score (0.32) in Koppal with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_144,Karatagi,KA_TALUK_230,Kotturu,12.5,0.31,0.0,ADEQUATE,0.95,0.7816,0.9197,0.9238,0.7381,Low multi-hazard score (0.31) in Vijayanagara with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_144,Karatagi,KA_TALUK_139,Gangavathi,17.3,0.3146,0.0,ADEQUATE,0.95,0.9744,0.905,0.89,0.748,Low multi-hazard score (0.31) in Koppal with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_145,Mandya,KA_TALUK_151,Srirangapatna,14.9,0.3118,0.0,MODERATE_DEFICIT,0.95,0.4651,0.9497,0.7919,0.7449,Low multi-hazard score (0.31) in Mandya with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_145,Mandya,KA_TALUK_155,Nanjangud,21.2,0.2973,0.0,ADEQUATE,0.95,0.6419,0.8536,0.9379,0.7269,Low multi-hazard score (0.30) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_145,Mandya,KA_TALUK_157,Piriyapatna,26.2,0.2773,0.0,MODERATE_DEFICIT,0.95,0.4288,0.9457,0.8629,0.7184,Low multi-hazard score (0.28) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_146,Maddur,KA_TALUK_151,Srirangapatna,11.5,0.3118,0.0,MODERATE_DEFICIT,0.95,0.4651,0.9497,0.7919,0.7449,Low multi-hazard score (0.31) in Mandya with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_146,Maddur,KA_TALUK_155,Nanjangud,46.2,0.2973,0.0,ADEQUATE,0.95,0.6419,0.8536,0.9379,0.7269,Low multi-hazard score (0.30) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_146,Maddur,KA_TALUK_171,Magadi,49.8,0.2164,0.0,MODERATE_DEFICIT,0.95,0.6642,0.7538,0.7954,0.7783,Low multi-hazard score (0.22) in Ramanagara with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_147,Malavalli,KA_TALUK_151,Srirangapatna,10.3,0.3118,0.0,MODERATE_DEFICIT,0.95,0.4651,0.9497,0.7919,0.7449,Low multi-hazard score (0.31) in Mandya with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_147,Malavalli,KA_TALUK_155,Nanjangud,35.6,0.2973,0.0,ADEQUATE,0.95,0.6419,0.8536,0.9379,0.7269,Low multi-hazard score (0.30) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_147,Malavalli,KA_TALUK_157,Piriyapatna,40.4,0.2773,0.0,MODERATE_DEFICIT,0.95,0.4288,0.9457,0.8629,0.7184,Low multi-hazard score (0.28) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_148,Pandavapura,KA_TALUK_151,Srirangapatna,16.6,0.3118,0.0,MODERATE_DEFICIT,0.95,0.4651,0.9497,0.7919,0.7449,Low multi-hazard score (0.31) in Mandya with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_148,Pandavapura,KA_TALUK_171,Magadi,36.2,0.2164,0.0,MODERATE_DEFICIT,0.95,0.6642,0.7538,0.7954,0.7783,Low multi-hazard score (0.22) in Ramanagara with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_148,Pandavapura,KA_TALUK_169,Channapatna,40.3,0.1823,0.0,ADEQUATE,0.95,1.0,0.9426,0.8167,0.8086,Low multi-hazard score (0.18) in Ramanagara with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_149,Nagamangala,KA_TALUK_151,Srirangapatna,5.3,0.3118,0.0,MODERATE_DEFICIT,0.95,0.4651,0.9497,0.7919,0.7449,Low multi-hazard score (0.31) in Mandya with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_149,Nagamangala,KA_TALUK_155,Nanjangud,40.2,0.2973,0.0,ADEQUATE,0.95,0.6419,0.8536,0.9379,0.7269,Low multi-hazard score (0.30) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_149,Nagamangala,KA_TALUK_157,Piriyapatna,45.3,0.2773,0.0,MODERATE_DEFICIT,0.95,0.4288,0.9457,0.8629,0.7184,Low multi-hazard score (0.28) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_150,Krishnarajpet,KA_TALUK_151,Srirangapatna,15.0,0.3118,0.0,MODERATE_DEFICIT,0.95,0.4651,0.9497,0.7919,0.7449,Low multi-hazard score (0.31) in Mandya with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_150,Krishnarajpet,KA_TALUK_155,Nanjangud,29.2,0.2973,0.0,ADEQUATE,0.95,0.6419,0.8536,0.9379,0.7269,Low multi-hazard score (0.30) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_150,Krishnarajpet,KA_TALUK_157,Piriyapatna,33.9,0.2773,0.0,MODERATE_DEFICIT,0.95,0.4288,0.9457,0.8629,0.7184,Low multi-hazard score (0.28) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_151,Srirangapatna,KA_TALUK_155,Nanjangud,35.6,0.2973,0.0,ADEQUATE,0.95,0.6419,0.8536,0.9379,0.7269,Low multi-hazard score (0.30) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_151,Srirangapatna,KA_TALUK_157,Piriyapatna,40.7,0.2773,0.0,MODERATE_DEFICIT,0.95,0.4288,0.9457,0.8629,0.7184,Low multi-hazard score (0.28) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_151,Srirangapatna,KA_TALUK_159,Saragur,43.3,0.3075,0.0,MODERATE_DEFICIT,0.95,0.5201,0.8803,0.8627,0.7125,Low multi-hazard score (0.31) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_152,Mysuru,KA_TALUK_155,Nanjangud,16.4,0.2973,0.0,ADEQUATE,0.95,0.6419,0.8536,0.9379,0.7269,Low multi-hazard score (0.30) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_152,Mysuru,KA_TALUK_159,Saragur,17.9,0.3075,0.0,MODERATE_DEFICIT,0.95,0.5201,0.8803,0.8627,0.7125,Low multi-hazard score (0.31) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_152,Mysuru,KA_TALUK_157,Piriyapatna,20.0,0.2773,0.0,MODERATE_DEFICIT,0.95,0.4288,0.9457,0.8629,0.7184,Low multi-hazard score (0.28) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_153,Hunsur,KA_TALUK_155,Nanjangud,23.9,0.2973,0.0,ADEQUATE,0.95,0.6419,0.8536,0.9379,0.7269,Low multi-hazard score (0.30) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_153,Hunsur,KA_TALUK_159,Saragur,24.0,0.3075,0.0,MODERATE_DEFICIT,0.95,0.5201,0.8803,0.8627,0.7125,Low multi-hazard score (0.31) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_153,Hunsur,KA_TALUK_157,Piriyapatna,27.2,0.2773,0.0,MODERATE_DEFICIT,0.95,0.4288,0.9457,0.8629,0.7184,Low multi-hazard score (0.28) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_154,Krishnarajanagara,KA_TALUK_155,Nanjangud,2.7,0.2973,0.0,ADEQUATE,0.95,0.6419,0.8536,0.9379,0.7269,Low multi-hazard score (0.30) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_154,Krishnarajanagara,KA_TALUK_157,Piriyapatna,6.5,0.2773,0.0,MODERATE_DEFICIT,0.95,0.4288,0.9457,0.8629,0.7184,Low multi-hazard score (0.28) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_154,Krishnarajanagara,KA_TALUK_159,Saragur,9.2,0.3075,0.0,MODERATE_DEFICIT,0.95,0.5201,0.8803,0.8627,0.7125,Low multi-hazard score (0.31) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_155,Nanjangud,KA_TALUK_157,Piriyapatna,5.1,0.2773,0.0,MODERATE_DEFICIT,0.95,0.4288,0.9457,0.8629,0.7184,Low multi-hazard score (0.28) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_155,Nanjangud,KA_TALUK_159,Saragur,10.2,0.3075,0.0,MODERATE_DEFICIT,0.95,0.5201,0.8803,0.8627,0.7125,Low multi-hazard score (0.31) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_155,Nanjangud,KA_TALUK_151,Srirangapatna,35.6,0.3118,0.0,MODERATE_DEFICIT,0.95,0.4651,0.9497,0.7919,0.7449,Low multi-hazard score (0.31) in Mandya with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_156,Heggadadevankote,KA_TALUK_157,Piriyapatna,2.0,0.2773,0.0,MODERATE_DEFICIT,0.95,0.4288,0.9457,0.8629,0.7184,Low multi-hazard score (0.28) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_156,Heggadadevankote,KA_TALUK_155,Nanjangud,5.6,0.2973,0.0,ADEQUATE,0.95,0.6419,0.8536,0.9379,0.7269,Low multi-hazard score (0.30) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_156,Heggadadevankote,KA_TALUK_159,Saragur,9.7,0.3075,0.0,MODERATE_DEFICIT,0.95,0.5201,0.8803,0.8627,0.7125,Low multi-hazard score (0.31) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_157,Piriyapatna,KA_TALUK_155,Nanjangud,5.1,0.2973,0.0,ADEQUATE,0.95,0.6419,0.8536,0.9379,0.7269,Low multi-hazard score (0.30) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_157,Piriyapatna,KA_TALUK_159,Saragur,7.8,0.3075,0.0,MODERATE_DEFICIT,0.95,0.5201,0.8803,0.8627,0.7125,Low multi-hazard score (0.31) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_157,Piriyapatna,KA_TALUK_151,Srirangapatna,40.7,0.3118,0.0,MODERATE_DEFICIT,0.95,0.4651,0.9497,0.7919,0.7449,Low multi-hazard score (0.31) in Mandya with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_158,T. Narasipura,KA_TALUK_155,Nanjangud,8.1,0.2973,0.0,ADEQUATE,0.95,0.6419,0.8536,0.9379,0.7269,Low multi-hazard score (0.30) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_158,T. Narasipura,KA_TALUK_157,Piriyapatna,13.1,0.2773,0.0,MODERATE_DEFICIT,0.95,0.4288,0.9457,0.8629,0.7184,Low multi-hazard score (0.28) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_158,T. Narasipura,KA_TALUK_159,Saragur,15.8,0.3075,0.0,MODERATE_DEFICIT,0.95,0.5201,0.8803,0.8627,0.7125,Low multi-hazard score (0.31) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_159,Saragur,KA_TALUK_157,Piriyapatna,7.8,0.2773,0.0,MODERATE_DEFICIT,0.95,0.4288,0.9457,0.8629,0.7184,Low multi-hazard score (0.28) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_159,Saragur,KA_TALUK_155,Nanjangud,10.2,0.2973,0.0,ADEQUATE,0.95,0.6419,0.8536,0.9379,0.7269,Low multi-hazard score (0.30) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_159,Saragur,KA_TALUK_151,Srirangapatna,43.3,0.3118,0.0,MODERATE_DEFICIT,0.95,0.4651,0.9497,0.7919,0.7449,Low multi-hazard score (0.31) in Mandya with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_160,Saligrama,KA_TALUK_155,Nanjangud,22.3,0.2973,0.0,ADEQUATE,0.95,0.6419,0.8536,0.9379,0.7269,Low multi-hazard score (0.30) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_160,Saligrama,KA_TALUK_159,Saragur,23.9,0.3075,0.0,MODERATE_DEFICIT,0.95,0.5201,0.8803,0.8627,0.7125,Low multi-hazard score (0.31) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_160,Saligrama,KA_TALUK_157,Piriyapatna,26.1,0.2773,0.0,MODERATE_DEFICIT,0.95,0.4288,0.9457,0.8629,0.7184,Low multi-hazard score (0.28) in Mysuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_161,Raichur,KA_TALUK_011,Kurugodu,109.3,0.1468,0.0,ADEQUATE,0.95,0.5431,0.8939,0.8209,0.8812,Low multi-hazard score (0.15) in Ballari with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_161,Raichur,KA_TALUK_013,Siruguppa,119.8,0.2144,0.0,ADEQUATE,0.95,0.9137,0.8087,0.7949,0.8051,Low multi-hazard score (0.21) in Ballari with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_161,Raichur,KA_TALUK_010,Ballari,130.5,0.1802,0.0,ADEQUATE,0.95,0.4919,0.9417,0.8045,0.8255,Low multi-hazard score (0.18) in Ballari with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_162,Deodurga,KA_TALUK_011,Kurugodu,120.6,0.1468,0.0,ADEQUATE,0.95,0.5431,0.8939,0.8209,0.8812,Low multi-hazard score (0.15) in Ballari with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_162,Deodurga,KA_TALUK_013,Siruguppa,130.3,0.2144,0.0,ADEQUATE,0.95,0.9137,0.8087,0.7949,0.8051,Low multi-hazard score (0.21) in Ballari with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_162,Deodurga,KA_TALUK_117,Afzalpur,135.6,0.3113,0.0,ADEQUATE,0.95,0.8841,0.7329,0.828,0.7208,Low multi-hazard score (0.31) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_163,Lingsugur,KA_TALUK_011,Kurugodu,112.5,0.1468,0.0,ADEQUATE,0.95,0.5431,0.8939,0.8209,0.8812,Low multi-hazard score (0.15) in Ballari with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_163,Lingsugur,KA_TALUK_013,Siruguppa,122.2,0.2144,0.0,ADEQUATE,0.95,0.9137,0.8087,0.7949,0.8051,Low multi-hazard score (0.21) in Ballari with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_163,Lingsugur,KA_TALUK_012,Sanduru,134.3,0.2234,0.0,ADEQUATE,0.95,0.9136,0.9243,0.8526,0.8024,Low multi-hazard score (0.22) in Ballari with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_164,Manvi,KA_TALUK_011,Kurugodu,102.8,0.1468,0.0,ADEQUATE,0.95,0.5431,0.8939,0.8209,0.8812,Low multi-hazard score (0.15) in Ballari with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_164,Manvi,KA_TALUK_013,Siruguppa,112.9,0.2144,0.0,ADEQUATE,0.95,0.9137,0.8087,0.7949,0.8051,Low multi-hazard score (0.21) in Ballari with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_164,Manvi,KA_TALUK_010,Ballari,124.9,0.1802,0.0,ADEQUATE,0.95,0.4919,0.9417,0.8045,0.8255,Low multi-hazard score (0.18) in Ballari with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_165,Sindhanur,KA_TALUK_011,Kurugodu,107.9,0.1468,0.0,ADEQUATE,0.95,0.5431,0.8939,0.8209,0.8812,Low multi-hazard score (0.15) in Ballari with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_165,Sindhanur,KA_TALUK_013,Siruguppa,118.0,0.2144,0.0,ADEQUATE,0.95,0.9137,0.8087,0.7949,0.8051,Low multi-hazard score (0.21) in Ballari with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_165,Sindhanur,KA_TALUK_010,Ballari,129.8,0.1802,0.0,ADEQUATE,0.95,0.4919,0.9417,0.8045,0.8255,Low multi-hazard score (0.18) in Ballari with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_166,Maski,KA_TALUK_011,Kurugodu,104.7,0.1468,0.0,ADEQUATE,0.95,0.5431,0.8939,0.8209,0.8812,Low multi-hazard score (0.15) in Ballari with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_166,Maski,KA_TALUK_013,Siruguppa,115.2,0.2144,0.0,ADEQUATE,0.95,0.9137,0.8087,0.7949,0.8051,Low multi-hazard score (0.21) in Ballari with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_166,Maski,KA_TALUK_010,Ballari,125.5,0.1802,0.0,ADEQUATE,0.95,0.4919,0.9417,0.8045,0.8255,Low multi-hazard score (0.18) in Ballari with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_167,Sirwar,KA_TALUK_011,Kurugodu,124.7,0.1468,0.0,ADEQUATE,0.95,0.5431,0.8939,0.8209,0.8812,Low multi-hazard score (0.15) in Ballari with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_167,Sirwar,KA_TALUK_013,Siruguppa,134.6,0.2144,0.0,ADEQUATE,0.95,0.9137,0.8087,0.7949,0.8051,Low multi-hazard score (0.21) in Ballari with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_167,Sirwar,KA_TALUK_117,Afzalpur,135.3,0.3113,0.0,ADEQUATE,0.95,0.8841,0.7329,0.828,0.7208,Low multi-hazard score (0.31) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_168,Ramanagara,KA_TALUK_171,Magadi,6.8,0.2164,0.0,MODERATE_DEFICIT,0.95,0.6642,0.7538,0.7954,0.7783,Low multi-hazard score (0.22) in Ramanagara with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_168,Ramanagara,KA_TALUK_169,Channapatna,17.6,0.1823,0.0,ADEQUATE,0.95,1.0,0.9426,0.8167,0.8086,Low multi-hazard score (0.18) in Ramanagara with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_168,Ramanagara,KA_TALUK_151,Srirangapatna,49.1,0.3118,0.0,MODERATE_DEFICIT,0.95,0.4651,0.9497,0.7919,0.7449,Low multi-hazard score (0.31) in Mandya with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_169,Channapatna,KA_TALUK_171,Magadi,10.8,0.2164,0.0,MODERATE_DEFICIT,0.95,0.6642,0.7538,0.7954,0.7783,Low multi-hazard score (0.22) in Ramanagara with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_169,Channapatna,KA_TALUK_030,Doddaballapura,43.6,0.1818,0.0,ADEQUATE,0.95,0.7092,0.9397,0.835,0.8502,Low multi-hazard score (0.18) in Bengaluru Rural with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_169,Channapatna,KA_TALUK_180,Chiknayakanhalli,55.3,0.228,0.0,ADEQUATE,0.95,0.8351,0.7621,0.9017,0.8045,Low multi-hazard score (0.23) in Tumakuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_170,Kanakapura,KA_TALUK_169,Channapatna,8.2,0.1823,0.0,ADEQUATE,0.95,1.0,0.9426,0.8167,0.8086,Low multi-hazard score (0.18) in Ramanagara with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_170,Kanakapura,KA_TALUK_171,Magadi,11.0,0.2164,0.0,MODERATE_DEFICIT,0.95,0.6642,0.7538,0.7954,0.7783,Low multi-hazard score (0.22) in Ramanagara with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_170,Kanakapura,KA_TALUK_151,Srirangapatna,48.8,0.3118,0.0,MODERATE_DEFICIT,0.95,0.4651,0.9497,0.7919,0.7449,Low multi-hazard score (0.31) in Mandya with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_171,Magadi,KA_TALUK_169,Channapatna,10.8,0.1823,0.0,ADEQUATE,0.95,1.0,0.9426,0.8167,0.8086,Low multi-hazard score (0.18) in Ramanagara with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_171,Magadi,KA_TALUK_151,Srirangapatna,51.6,0.3118,0.0,MODERATE_DEFICIT,0.95,0.4651,0.9497,0.7919,0.7449,Low multi-hazard score (0.31) in Mandya with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_171,Magadi,KA_TALUK_030,Doddaballapura,53.1,0.1818,0.0,ADEQUATE,0.95,0.7092,0.9397,0.835,0.8502,Low multi-hazard score (0.18) in Bengaluru Rural with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_172,Shivamogga,KA_TALUK_084,Nyamathi,61.0,0.2784,0.0,ADEQUATE,0.95,0.6901,0.8452,0.8761,0.7726,Low multi-hazard score (0.28) in Davanagere with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_172,Shivamogga,KA_TALUK_081,Honnali,63.4,0.3083,0.0,MODERATE_DEFICIT,0.95,0.5145,0.8877,0.9327,0.7533,Low multi-hazard score (0.31) in Davanagere with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_172,Shivamogga,KA_TALUK_082,Channagiri,72.0,0.3186,0.0,ADEQUATE,0.95,0.7751,0.7897,0.7916,0.7198,Low multi-hazard score (0.32) in Davanagere with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_173,Bhadravathi,KA_TALUK_084,Nyamathi,46.9,0.2784,0.0,ADEQUATE,0.95,0.6901,0.8452,0.8761,0.7726,Low multi-hazard score (0.28) in Davanagere with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_173,Bhadravathi,KA_TALUK_081,Honnali,48.8,0.3083,0.0,MODERATE_DEFICIT,0.95,0.5145,0.8877,0.9327,0.7533,Low multi-hazard score (0.31) in Davanagere with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_173,Bhadravathi,KA_TALUK_082,Channagiri,57.5,0.3186,0.0,ADEQUATE,0.95,0.7751,0.7897,0.7916,0.7198,Low multi-hazard score (0.32) in Davanagere with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_174,Hosanagara,KA_TALUK_084,Nyamathi,54.5,0.2784,0.0,ADEQUATE,0.95,0.6901,0.8452,0.8761,0.7726,Low multi-hazard score (0.28) in Davanagere with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_174,Hosanagara,KA_TALUK_081,Honnali,57.6,0.3083,0.0,MODERATE_DEFICIT,0.95,0.5145,0.8877,0.9327,0.7533,Low multi-hazard score (0.31) in Davanagere with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_174,Hosanagara,KA_TALUK_082,Channagiri,65.8,0.3186,0.0,ADEQUATE,0.95,0.7751,0.7897,0.7916,0.7198,Low multi-hazard score (0.32) in Davanagere with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_175,Sagara,KA_TALUK_084,Nyamathi,66.4,0.2784,0.0,ADEQUATE,0.95,0.6901,0.8452,0.8761,0.7726,Low multi-hazard score (0.28) in Davanagere with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_175,Sagara,KA_TALUK_081,Honnali,68.5,0.3083,0.0,MODERATE_DEFICIT,0.95,0.5145,0.8877,0.9327,0.7533,Low multi-hazard score (0.31) in Davanagere with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_175,Sagara,KA_TALUK_082,Channagiri,77.2,0.3186,0.0,ADEQUATE,0.95,0.7751,0.7897,0.7916,0.7198,Low multi-hazard score (0.32) in Davanagere with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_176,Shikaripura,KA_TALUK_081,Honnali,67.6,0.3083,0.0,MODERATE_DEFICIT,0.95,0.5145,0.8877,0.9327,0.7533,Low multi-hazard score (0.31) in Davanagere with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_176,Shikaripura,KA_TALUK_084,Nyamathi,69.0,0.2784,0.0,ADEQUATE,0.95,0.6901,0.8452,0.8761,0.7726,Low multi-hazard score (0.28) in Davanagere with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_176,Shikaripura,KA_TALUK_068,Hiriyur,69.4,0.149,0.0,ADEQUATE,0.95,1.0,0.7726,0.8596,0.8252,Low multi-hazard score (0.15) in Chitradurga with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_177,Soraba,KA_TALUK_084,Nyamathi,49.0,0.2784,0.0,ADEQUATE,0.95,0.6901,0.8452,0.8761,0.7726,Low multi-hazard score (0.28) in Davanagere with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_177,Soraba,KA_TALUK_081,Honnali,49.3,0.3083,0.0,MODERATE_DEFICIT,0.95,0.5145,0.8877,0.9327,0.7533,Low multi-hazard score (0.31) in Davanagere with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_177,Soraba,KA_TALUK_082,Channagiri,58.6,0.3186,0.0,ADEQUATE,0.95,0.7751,0.7897,0.7916,0.7198,Low multi-hazard score (0.32) in Davanagere with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_178,Thirthahalli,KA_TALUK_084,Nyamathi,49.9,0.2784,0.0,ADEQUATE,0.95,0.6901,0.8452,0.8761,0.7726,Low multi-hazard score (0.28) in Davanagere with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_178,Thirthahalli,KA_TALUK_081,Honnali,53.4,0.3083,0.0,MODERATE_DEFICIT,0.95,0.5145,0.8877,0.9327,0.7533,Low multi-hazard score (0.31) in Davanagere with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_178,Thirthahalli,KA_TALUK_082,Channagiri,61.4,0.3186,0.0,ADEQUATE,0.95,0.7751,0.7897,0.7916,0.7198,Low multi-hazard score (0.32) in Davanagere with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_179,Tumakuru,KA_TALUK_183,Kunigal,5.0,0.1693,0.0,ADEQUATE,0.95,0.808,0.7202,0.9115,0.8488,Low multi-hazard score (0.17) in Tumakuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_179,Tumakuru,KA_TALUK_186,Sira,7.1,0.1397,0.0,ADEQUATE,0.95,0.7509,0.8189,0.8513,0.859,Low multi-hazard score (0.14) in Tumakuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_179,Tumakuru,KA_TALUK_181,Gubbi,9.9,0.206,0.0,ADEQUATE,0.95,1.0,0.8061,0.8955,0.8266,Low multi-hazard score (0.21) in Tumakuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_180,Chiknayakanhalli,KA_TALUK_181,Gubbi,11.1,0.206,0.0,ADEQUATE,0.95,1.0,0.8061,0.8955,0.8266,Low multi-hazard score (0.21) in Tumakuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_180,Chiknayakanhalli,KA_TALUK_182,Koratagere,11.6,0.1516,0.0,ADEQUATE,0.95,1.0,0.7603,0.868,0.831,Low multi-hazard score (0.15) in Tumakuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_180,Chiknayakanhalli,KA_TALUK_183,Kunigal,12.0,0.1693,0.0,ADEQUATE,0.95,0.808,0.7202,0.9115,0.8488,Low multi-hazard score (0.17) in Tumakuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_181,Gubbi,KA_TALUK_182,Koratagere,1.8,0.1516,0.0,ADEQUATE,0.95,1.0,0.7603,0.868,0.831,Low multi-hazard score (0.15) in Tumakuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_181,Gubbi,KA_TALUK_183,Kunigal,4.9,0.1693,0.0,ADEQUATE,0.95,0.808,0.7202,0.9115,0.8488,Low multi-hazard score (0.17) in Tumakuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_181,Gubbi,KA_TALUK_186,Sira,7.2,0.1397,0.0,ADEQUATE,0.95,0.7509,0.8189,0.8513,0.859,Low multi-hazard score (0.14) in Tumakuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_182,Koratagere,KA_TALUK_181,Gubbi,1.8,0.206,0.0,ADEQUATE,0.95,1.0,0.8061,0.8955,0.8266,Low multi-hazard score (0.21) in Tumakuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_182,Koratagere,KA_TALUK_183,Kunigal,6.8,0.1693,0.0,ADEQUATE,0.95,0.808,0.7202,0.9115,0.8488,Low multi-hazard score (0.17) in Tumakuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_182,Koratagere,KA_TALUK_186,Sira,8.2,0.1397,0.0,ADEQUATE,0.95,0.7509,0.8189,0.8513,0.859,Low multi-hazard score (0.14) in Tumakuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_183,Kunigal,KA_TALUK_181,Gubbi,4.9,0.206,0.0,ADEQUATE,0.95,1.0,0.8061,0.8955,0.8266,Low multi-hazard score (0.21) in Tumakuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_183,Kunigal,KA_TALUK_179,Tumakuru,5.0,0.1658,0.0,ADEQUATE,0.95,0.8031,0.8056,0.8656,0.8342,Low multi-hazard score (0.17) in Tumakuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_183,Kunigal,KA_TALUK_186,Sira,5.6,0.1397,0.0,ADEQUATE,0.95,0.7509,0.8189,0.8513,0.859,Low multi-hazard score (0.14) in Tumakuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_184,Madhugiri,KA_TALUK_186,Sira,6.0,0.1397,0.0,ADEQUATE,0.95,0.7509,0.8189,0.8513,0.859,Low multi-hazard score (0.14) in Tumakuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_184,Madhugiri,KA_TALUK_179,Tumakuru,7.0,0.1658,0.0,ADEQUATE,0.95,0.8031,0.8056,0.8656,0.8342,Low multi-hazard score (0.17) in Tumakuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_184,Madhugiri,KA_TALUK_183,Kunigal,9.4,0.1693,0.0,ADEQUATE,0.95,0.808,0.7202,0.9115,0.8488,Low multi-hazard score (0.17) in Tumakuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_185,Pavagada,KA_TALUK_180,Chiknayakanhalli,14.8,0.228,0.0,ADEQUATE,0.95,0.8351,0.7621,0.9017,0.8045,Low multi-hazard score (0.23) in Tumakuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_185,Pavagada,KA_TALUK_179,Tumakuru,15.0,0.1658,0.0,ADEQUATE,0.95,0.8031,0.8056,0.8656,0.8342,Low multi-hazard score (0.17) in Tumakuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_185,Pavagada,KA_TALUK_183,Kunigal,16.6,0.1693,0.0,ADEQUATE,0.95,0.808,0.7202,0.9115,0.8488,Low multi-hazard score (0.17) in Tumakuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_186,Sira,KA_TALUK_183,Kunigal,5.6,0.1693,0.0,ADEQUATE,0.95,0.808,0.7202,0.9115,0.8488,Low multi-hazard score (0.17) in Tumakuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_186,Sira,KA_TALUK_179,Tumakuru,7.1,0.1658,0.0,ADEQUATE,0.95,0.8031,0.8056,0.8656,0.8342,Low multi-hazard score (0.17) in Tumakuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_186,Sira,KA_TALUK_181,Gubbi,7.2,0.206,0.0,ADEQUATE,0.95,1.0,0.8061,0.8955,0.8266,Low multi-hazard score (0.21) in Tumakuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_187,Tiptur,KA_TALUK_179,Tumakuru,4.1,0.1658,0.0,ADEQUATE,0.95,0.8031,0.8056,0.8656,0.8342,Low multi-hazard score (0.17) in Tumakuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_187,Tiptur,KA_TALUK_183,Kunigal,9.0,0.1693,0.0,ADEQUATE,0.95,0.808,0.7202,0.9115,0.8488,Low multi-hazard score (0.17) in Tumakuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_187,Tiptur,KA_TALUK_186,Sira,9.5,0.1397,0.0,ADEQUATE,0.95,0.7509,0.8189,0.8513,0.859,Low multi-hazard score (0.14) in Tumakuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_188,Turuvekere,KA_TALUK_185,Pavagada,0.3,0.2096,0.0,ADEQUATE,0.95,0.8417,0.7748,0.9199,0.8199,Low multi-hazard score (0.21) in Tumakuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_188,Turuvekere,KA_TALUK_179,Tumakuru,15.1,0.1658,0.0,ADEQUATE,0.95,0.8031,0.8056,0.8656,0.8342,Low multi-hazard score (0.17) in Tumakuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_188,Turuvekere,KA_TALUK_180,Chiknayakanhalli,15.2,0.228,0.0,ADEQUATE,0.95,0.8351,0.7621,0.9017,0.8045,Low multi-hazard score (0.23) in Tumakuru with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_189,Udupi,KA_TALUK_110,Hangal,154.5,0.3044,0.0,ADEQUATE,0.95,0.5449,0.9218,0.8825,0.7445,Low multi-hazard score (0.30) in Haveri with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_189,Udupi,KA_TALUK_113,Savanur,158.0,0.3251,0.0,ADEQUATE,0.95,0.6058,0.8909,0.8823,0.7029,Low multi-hazard score (0.33) in Haveri with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_189,Udupi,KA_TALUK_084,Nyamathi,158.6,0.2784,0.0,ADEQUATE,0.95,0.6901,0.8452,0.8761,0.7726,Low multi-hazard score (0.28) in Davanagere with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_190,Karkala,KA_TALUK_084,Nyamathi,154.3,0.2784,0.0,ADEQUATE,0.95,0.6901,0.8452,0.8761,0.7726,Low multi-hazard score (0.28) in Davanagere with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_190,Karkala,KA_TALUK_110,Hangal,155.1,0.3044,0.0,ADEQUATE,0.95,0.5449,0.9218,0.8825,0.7445,Low multi-hazard score (0.30) in Haveri with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_190,Karkala,KA_TALUK_081,Honnali,157.7,0.3083,0.0,MODERATE_DEFICIT,0.95,0.5145,0.8877,0.9327,0.7533,Low multi-hazard score (0.31) in Davanagere with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_191,Kundapura,KA_TALUK_110,Hangal,160.8,0.3044,0.0,ADEQUATE,0.95,0.5449,0.9218,0.8825,0.7445,Low multi-hazard score (0.30) in Haveri with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_191,Kundapura,KA_TALUK_084,Nyamathi,162.4,0.2784,0.0,ADEQUATE,0.95,0.6901,0.8452,0.8761,0.7726,Low multi-hazard score (0.28) in Davanagere with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_191,Kundapura,KA_TALUK_113,Savanur,164.0,0.3251,0.0,ADEQUATE,0.95,0.6058,0.8909,0.8823,0.7029,Low multi-hazard score (0.33) in Haveri with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_192,Byndoor,KA_TALUK_110,Hangal,150.2,0.3044,0.0,ADEQUATE,0.95,0.5449,0.9218,0.8825,0.7445,Low multi-hazard score (0.30) in Haveri with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_192,Byndoor,KA_TALUK_113,Savanur,153.6,0.3251,0.0,ADEQUATE,0.95,0.6058,0.8909,0.8823,0.7029,Low multi-hazard score (0.33) in Haveri with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_192,Byndoor,KA_TALUK_084,Nyamathi,154.4,0.2784,0.0,ADEQUATE,0.95,0.6901,0.8452,0.8761,0.7726,Low multi-hazard score (0.28) in Davanagere with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_193,Brahmavara,KA_TALUK_110,Hangal,167.2,0.3044,0.0,ADEQUATE,0.95,0.5449,0.9218,0.8825,0.7445,Low multi-hazard score (0.30) in Haveri with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_193,Brahmavara,KA_TALUK_084,Nyamathi,167.8,0.2784,0.0,ADEQUATE,0.95,0.6901,0.8452,0.8761,0.7726,Low multi-hazard score (0.28) in Davanagere with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_193,Brahmavara,KA_TALUK_113,Savanur,170.3,0.3251,0.0,ADEQUATE,0.95,0.6058,0.8909,0.8823,0.7029,Low multi-hazard score (0.33) in Haveri with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_194,Kapu,KA_TALUK_110,Hangal,148.8,0.3044,0.0,ADEQUATE,0.95,0.5449,0.9218,0.8825,0.7445,Low multi-hazard score (0.30) in Haveri with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_194,Kapu,KA_TALUK_113,Savanur,152.3,0.3251,0.0,ADEQUATE,0.95,0.6058,0.8909,0.8823,0.7029,Low multi-hazard score (0.33) in Haveri with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_194,Kapu,KA_TALUK_084,Nyamathi,153.4,0.2784,0.0,ADEQUATE,0.95,0.6901,0.8452,0.8761,0.7726,Low multi-hazard score (0.28) in Davanagere with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_195,Hebri,KA_TALUK_084,Nyamathi,163.7,0.2784,0.0,ADEQUATE,0.95,0.6901,0.8452,0.8761,0.7726,Low multi-hazard score (0.28) in Davanagere with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_195,Hebri,KA_TALUK_110,Hangal,164.1,0.3044,0.0,ADEQUATE,0.95,0.5449,0.9218,0.8825,0.7445,Low multi-hazard score (0.30) in Haveri with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_195,Hebri,KA_TALUK_081,Honnali,166.9,0.3083,0.0,MODERATE_DEFICIT,0.95,0.5145,0.8877,0.9327,0.7533,Low multi-hazard score (0.31) in Davanagere with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_196,Karwar,KA_TALUK_089,Kundgol,105.8,0.1556,0.0,ADEQUATE,0.95,0.6595,0.9378,0.8292,0.8418,Low multi-hazard score (0.16) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_196,Karwar,KA_TALUK_086,Hubballi Urban,106.1,0.1637,0.0,MODERATE_DEFICIT,0.95,0.4122,0.837,0.8012,0.8382,Low multi-hazard score (0.16) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_196,Karwar,KA_TALUK_109,Byadgi,110.9,0.3029,0.0,ADEQUATE,0.95,0.8814,0.8556,0.8549,0.7571,Low multi-hazard score (0.30) in Haveri with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_197,Ankola,KA_TALUK_089,Kundgol,105.8,0.1556,0.0,ADEQUATE,0.95,0.6595,0.9378,0.8292,0.8418,Low multi-hazard score (0.16) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_197,Ankola,KA_TALUK_086,Hubballi Urban,106.1,0.1637,0.0,MODERATE_DEFICIT,0.95,0.4122,0.837,0.8012,0.8382,Low multi-hazard score (0.16) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_197,Ankola,KA_TALUK_109,Byadgi,110.9,0.3029,0.0,ADEQUATE,0.95,0.8814,0.8556,0.8549,0.7571,Low multi-hazard score (0.30) in Haveri with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_198,Kumta,KA_TALUK_089,Kundgol,105.8,0.1556,0.0,ADEQUATE,0.95,0.6595,0.9378,0.8292,0.8418,Low multi-hazard score (0.16) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_198,Kumta,KA_TALUK_086,Hubballi Urban,106.1,0.1637,0.0,MODERATE_DEFICIT,0.95,0.4122,0.837,0.8012,0.8382,Low multi-hazard score (0.16) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_198,Kumta,KA_TALUK_109,Byadgi,110.9,0.3029,0.0,ADEQUATE,0.95,0.8814,0.8556,0.8549,0.7571,Low multi-hazard score (0.30) in Haveri with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_199,Honnavar,KA_TALUK_089,Kundgol,105.8,0.1556,0.0,ADEQUATE,0.95,0.6595,0.9378,0.8292,0.8418,Low multi-hazard score (0.16) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_199,Honnavar,KA_TALUK_086,Hubballi Urban,106.1,0.1637,0.0,MODERATE_DEFICIT,0.95,0.4122,0.837,0.8012,0.8382,Low multi-hazard score (0.16) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_199,Honnavar,KA_TALUK_109,Byadgi,110.9,0.3029,0.0,ADEQUATE,0.95,0.8814,0.8556,0.8549,0.7571,Low multi-hazard score (0.30) in Haveri with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_200,Bhatkal,KA_TALUK_089,Kundgol,105.8,0.1556,0.0,ADEQUATE,0.95,0.6595,0.9378,0.8292,0.8418,Low multi-hazard score (0.16) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_200,Bhatkal,KA_TALUK_086,Hubballi Urban,106.1,0.1637,0.0,MODERATE_DEFICIT,0.95,0.4122,0.837,0.8012,0.8382,Low multi-hazard score (0.16) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_200,Bhatkal,KA_TALUK_109,Byadgi,110.9,0.3029,0.0,ADEQUATE,0.95,0.8814,0.8556,0.8549,0.7571,Low multi-hazard score (0.30) in Haveri with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_201,Sirsi,KA_TALUK_089,Kundgol,105.8,0.1556,0.0,ADEQUATE,0.95,0.6595,0.9378,0.8292,0.8418,Low multi-hazard score (0.16) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_201,Sirsi,KA_TALUK_086,Hubballi Urban,106.1,0.1637,0.0,MODERATE_DEFICIT,0.95,0.4122,0.837,0.8012,0.8382,Low multi-hazard score (0.16) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_201,Sirsi,KA_TALUK_109,Byadgi,110.9,0.3029,0.0,ADEQUATE,0.95,0.8814,0.8556,0.8549,0.7571,Low multi-hazard score (0.30) in Haveri with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_202,Siddapur,KA_TALUK_089,Kundgol,105.8,0.1556,0.0,ADEQUATE,0.95,0.6595,0.9378,0.8292,0.8418,Low multi-hazard score (0.16) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_202,Siddapur,KA_TALUK_086,Hubballi Urban,106.1,0.1637,0.0,MODERATE_DEFICIT,0.95,0.4122,0.837,0.8012,0.8382,Low multi-hazard score (0.16) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_202,Siddapur,KA_TALUK_109,Byadgi,110.9,0.3029,0.0,ADEQUATE,0.95,0.8814,0.8556,0.8549,0.7571,Low multi-hazard score (0.30) in Haveri with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_203,Yellapur,KA_TALUK_089,Kundgol,98.4,0.1556,0.0,ADEQUATE,0.95,0.6595,0.9378,0.8292,0.8418,Low multi-hazard score (0.16) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_203,Yellapur,KA_TALUK_086,Hubballi Urban,99.1,0.1637,0.0,MODERATE_DEFICIT,0.95,0.4122,0.837,0.8012,0.8382,Low multi-hazard score (0.16) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_203,Yellapur,KA_TALUK_109,Byadgi,107.8,0.3029,0.0,ADEQUATE,0.95,0.8814,0.8556,0.8549,0.7571,Low multi-hazard score (0.30) in Haveri with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_204,Haliyal,KA_TALUK_089,Kundgol,105.8,0.1556,0.0,ADEQUATE,0.95,0.6595,0.9378,0.8292,0.8418,Low multi-hazard score (0.16) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_204,Haliyal,KA_TALUK_086,Hubballi Urban,106.1,0.1637,0.0,MODERATE_DEFICIT,0.95,0.4122,0.837,0.8012,0.8382,Low multi-hazard score (0.16) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_204,Haliyal,KA_TALUK_109,Byadgi,110.9,0.3029,0.0,ADEQUATE,0.95,0.8814,0.8556,0.8549,0.7571,Low multi-hazard score (0.30) in Haveri with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_205,Joida,KA_TALUK_089,Kundgol,105.8,0.1556,0.0,ADEQUATE,0.95,0.6595,0.9378,0.8292,0.8418,Low multi-hazard score (0.16) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_205,Joida,KA_TALUK_086,Hubballi Urban,106.1,0.1637,0.0,MODERATE_DEFICIT,0.95,0.4122,0.837,0.8012,0.8382,Low multi-hazard score (0.16) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_205,Joida,KA_TALUK_109,Byadgi,110.9,0.3029,0.0,ADEQUATE,0.95,0.8814,0.8556,0.8549,0.7571,Low multi-hazard score (0.30) in Haveri with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_206,Mundgod,KA_TALUK_086,Hubballi Urban,104.4,0.1637,0.0,MODERATE_DEFICIT,0.95,0.4122,0.837,0.8012,0.8382,Low multi-hazard score (0.16) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_206,Mundgod,KA_TALUK_109,Byadgi,104.5,0.3029,0.0,ADEQUATE,0.95,0.8814,0.8556,0.8549,0.7571,Low multi-hazard score (0.30) in Haveri with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_206,Mundgod,KA_TALUK_110,Hangal,104.5,0.3044,0.0,ADEQUATE,0.95,0.5449,0.9218,0.8825,0.7445,Low multi-hazard score (0.30) in Haveri with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_207,Dandeli,KA_TALUK_089,Kundgol,105.8,0.1556,0.0,ADEQUATE,0.95,0.6595,0.9378,0.8292,0.8418,Low multi-hazard score (0.16) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_207,Dandeli,KA_TALUK_086,Hubballi Urban,106.1,0.1637,0.0,MODERATE_DEFICIT,0.95,0.4122,0.837,0.8012,0.8382,Low multi-hazard score (0.16) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_207,Dandeli,KA_TALUK_109,Byadgi,110.9,0.3029,0.0,ADEQUATE,0.95,0.8814,0.8556,0.8549,0.7571,Low multi-hazard score (0.30) in Haveri with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_208,Vijayapura,KA_TALUK_120,Chittapur,123.8,0.3002,0.0,ADEQUATE,0.95,0.8516,0.8432,0.7985,0.7289,Low multi-hazard score (0.30) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_208,Vijayapura,KA_TALUK_117,Afzalpur,127.5,0.3113,0.0,ADEQUATE,0.95,0.8841,0.7329,0.828,0.7208,Low multi-hazard score (0.31) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_208,Vijayapura,KA_TALUK_091,Alnavar,154.1,0.166,0.0,ADEQUATE,0.95,0.5245,0.8821,0.8998,0.8531,Low multi-hazard score (0.17) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_209,Basavana Bagewadi,KA_TALUK_120,Chittapur,131.5,0.3002,0.0,ADEQUATE,0.95,0.8516,0.8432,0.7985,0.7289,Low multi-hazard score (0.30) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_209,Basavana Bagewadi,KA_TALUK_117,Afzalpur,135.1,0.3113,0.0,ADEQUATE,0.95,0.8841,0.7329,0.828,0.7208,Low multi-hazard score (0.31) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_209,Basavana Bagewadi,KA_TALUK_091,Alnavar,143.4,0.166,0.0,ADEQUATE,0.95,0.5245,0.8821,0.8998,0.8531,Low multi-hazard score (0.17) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_210,Indi,KA_TALUK_120,Chittapur,129.2,0.3002,0.0,ADEQUATE,0.95,0.8516,0.8432,0.7985,0.7289,Low multi-hazard score (0.30) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_210,Indi,KA_TALUK_117,Afzalpur,132.9,0.3113,0.0,ADEQUATE,0.95,0.8841,0.7329,0.828,0.7208,Low multi-hazard score (0.31) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_210,Indi,KA_TALUK_091,Alnavar,152.2,0.166,0.0,ADEQUATE,0.95,0.5245,0.8821,0.8998,0.8531,Low multi-hazard score (0.17) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_211,Muddebihal,KA_TALUK_120,Chittapur,130.4,0.3002,0.0,ADEQUATE,0.95,0.8516,0.8432,0.7985,0.7289,Low multi-hazard score (0.30) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_211,Muddebihal,KA_TALUK_117,Afzalpur,134.0,0.3113,0.0,ADEQUATE,0.95,0.8841,0.7329,0.828,0.7208,Low multi-hazard score (0.31) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_211,Muddebihal,KA_TALUK_091,Alnavar,146.8,0.166,0.0,ADEQUATE,0.95,0.5245,0.8821,0.8998,0.8531,Low multi-hazard score (0.17) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_212,Sindagi,KA_TALUK_120,Chittapur,135.2,0.3002,0.0,ADEQUATE,0.95,0.8516,0.8432,0.7985,0.7289,Low multi-hazard score (0.30) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_212,Sindagi,KA_TALUK_117,Afzalpur,138.8,0.3113,0.0,ADEQUATE,0.95,0.8841,0.7329,0.828,0.7208,Low multi-hazard score (0.31) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_212,Sindagi,KA_TALUK_091,Alnavar,140.2,0.166,0.0,ADEQUATE,0.95,0.5245,0.8821,0.8998,0.8531,Low multi-hazard score (0.17) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_213,Chadchan,KA_TALUK_120,Chittapur,132.2,0.3002,0.0,ADEQUATE,0.95,0.8516,0.8432,0.7985,0.7289,Low multi-hazard score (0.30) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_213,Chadchan,KA_TALUK_117,Afzalpur,135.8,0.3113,0.0,ADEQUATE,0.95,0.8841,0.7329,0.828,0.7208,Low multi-hazard score (0.31) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_213,Chadchan,KA_TALUK_091,Alnavar,144.9,0.166,0.0,ADEQUATE,0.95,0.5245,0.8821,0.8998,0.8531,Low multi-hazard score (0.17) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_214,Tikota,KA_TALUK_120,Chittapur,123.2,0.3002,0.0,ADEQUATE,0.95,0.8516,0.8432,0.7985,0.7289,Low multi-hazard score (0.30) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_214,Tikota,KA_TALUK_117,Afzalpur,126.6,0.3113,0.0,ADEQUATE,0.95,0.8841,0.7329,0.828,0.7208,Low multi-hazard score (0.31) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_214,Tikota,KA_TALUK_091,Alnavar,148.0,0.166,0.0,ADEQUATE,0.95,0.5245,0.8821,0.8998,0.8531,Low multi-hazard score (0.17) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_215,Babaleshwar,KA_TALUK_120,Chittapur,119.8,0.3002,0.0,ADEQUATE,0.95,0.8516,0.8432,0.7985,0.7289,Low multi-hazard score (0.30) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_215,Babaleshwar,KA_TALUK_117,Afzalpur,123.5,0.3113,0.0,ADEQUATE,0.95,0.8841,0.7329,0.828,0.7208,Low multi-hazard score (0.31) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_215,Babaleshwar,KA_TALUK_091,Alnavar,157.4,0.166,0.0,ADEQUATE,0.95,0.5245,0.8821,0.8998,0.8531,Low multi-hazard score (0.17) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_216,Kolhar,KA_TALUK_120,Chittapur,120.7,0.3002,0.0,ADEQUATE,0.95,0.8516,0.8432,0.7985,0.7289,Low multi-hazard score (0.30) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_216,Kolhar,KA_TALUK_117,Afzalpur,124.5,0.3113,0.0,ADEQUATE,0.95,0.8841,0.7329,0.828,0.7208,Low multi-hazard score (0.31) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_216,Kolhar,KA_TALUK_091,Alnavar,160.7,0.166,0.0,ADEQUATE,0.95,0.5245,0.8821,0.8998,0.8531,Low multi-hazard score (0.17) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_217,Nidagundi,KA_TALUK_120,Chittapur,130.2,0.3002,0.0,ADEQUATE,0.95,0.8516,0.8432,0.7985,0.7289,Low multi-hazard score (0.30) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_217,Nidagundi,KA_TALUK_117,Afzalpur,133.7,0.3113,0.0,ADEQUATE,0.95,0.8841,0.7329,0.828,0.7208,Low multi-hazard score (0.31) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_217,Nidagundi,KA_TALUK_091,Alnavar,143.7,0.166,0.0,ADEQUATE,0.95,0.5245,0.8821,0.8998,0.8531,Low multi-hazard score (0.17) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_218,Devara Hippargi,KA_TALUK_120,Chittapur,118.6,0.3002,0.0,ADEQUATE,0.95,0.8516,0.8432,0.7985,0.7289,Low multi-hazard score (0.30) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_218,Devara Hippargi,KA_TALUK_117,Afzalpur,122.3,0.3113,0.0,ADEQUATE,0.95,0.8841,0.7329,0.828,0.7208,Low multi-hazard score (0.31) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_218,Devara Hippargi,KA_TALUK_091,Alnavar,157.9,0.166,0.0,ADEQUATE,0.95,0.5245,0.8821,0.8998,0.8531,Low multi-hazard score (0.17) in Dharwad with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_219,Yadgir,KA_TALUK_117,Afzalpur,87.1,0.3113,0.0,ADEQUATE,0.95,0.8841,0.7329,0.828,0.7208,Low multi-hazard score (0.31) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_219,Yadgir,KA_TALUK_120,Chittapur,89.1,0.3002,0.0,ADEQUATE,0.95,0.8516,0.8432,0.7985,0.7289,Low multi-hazard score (0.30) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_219,Yadgir,KA_TALUK_042,Aurad,140.7,0.2994,0.0,ADEQUATE,0.95,0.9472,0.8816,0.7856,0.7034,Low multi-hazard score (0.30) in Bidar with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_220,Shahapur,KA_TALUK_117,Afzalpur,74.4,0.3113,0.0,ADEQUATE,0.95,0.8841,0.7329,0.828,0.7208,Low multi-hazard score (0.31) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_220,Shahapur,KA_TALUK_120,Chittapur,75.8,0.3002,0.0,ADEQUATE,0.95,0.8516,0.8432,0.7985,0.7289,Low multi-hazard score (0.30) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_220,Shahapur,KA_TALUK_042,Aurad,136.9,0.2994,0.0,ADEQUATE,0.95,0.9472,0.8816,0.7856,0.7034,Low multi-hazard score (0.30) in Bidar with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_221,Shorapur,KA_TALUK_117,Afzalpur,86.8,0.3113,0.0,ADEQUATE,0.95,0.8841,0.7329,0.828,0.7208,Low multi-hazard score (0.31) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_221,Shorapur,KA_TALUK_120,Chittapur,88.0,0.3002,0.0,ADEQUATE,0.95,0.8516,0.8432,0.7985,0.7289,Low multi-hazard score (0.30) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_221,Shorapur,KA_TALUK_042,Aurad,150.4,0.2994,0.0,ADEQUATE,0.95,0.9472,0.8816,0.7856,0.7034,Low multi-hazard score (0.30) in Bidar with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_222,Hunsagi,KA_TALUK_117,Afzalpur,83.1,0.3113,0.0,ADEQUATE,0.95,0.8841,0.7329,0.828,0.7208,Low multi-hazard score (0.31) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_222,Hunsagi,KA_TALUK_120,Chittapur,84.3,0.3002,0.0,ADEQUATE,0.95,0.8516,0.8432,0.7985,0.7289,Low multi-hazard score (0.30) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_222,Hunsagi,KA_TALUK_042,Aurad,146.7,0.2994,0.0,ADEQUATE,0.95,0.9472,0.8816,0.7856,0.7034,Low multi-hazard score (0.30) in Bidar with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_223,Gurmitkal,KA_TALUK_117,Afzalpur,85.4,0.3113,0.0,ADEQUATE,0.95,0.8841,0.7329,0.828,0.7208,Low multi-hazard score (0.31) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_223,Gurmitkal,KA_TALUK_120,Chittapur,86.7,0.3002,0.0,ADEQUATE,0.95,0.8516,0.8432,0.7985,0.7289,Low multi-hazard score (0.30) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_223,Gurmitkal,KA_TALUK_042,Aurad,147.6,0.2994,0.0,ADEQUATE,0.95,0.9472,0.8816,0.7856,0.7034,Low multi-hazard score (0.30) in Bidar with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_224,Wadgera,KA_TALUK_117,Afzalpur,90.6,0.3113,0.0,ADEQUATE,0.95,0.8841,0.7329,0.828,0.7208,Low multi-hazard score (0.31) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_224,Wadgera,KA_TALUK_120,Chittapur,92.5,0.3002,0.0,ADEQUATE,0.95,0.8516,0.8432,0.7985,0.7289,Low multi-hazard score (0.30) in Kalaburagi with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_224,Wadgera,KA_TALUK_042,Aurad,145.7,0.2994,0.0,ADEQUATE,0.95,0.9472,0.8816,0.7856,0.7034,Low multi-hazard score (0.30) in Bidar with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_225,Hosapete,KA_TALUK_230,Kotturu,16.5,0.31,0.0,ADEQUATE,0.95,0.7816,0.9197,0.9238,0.7381,Low multi-hazard score (0.31) in Vijayanagara with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_225,Hosapete,KA_TALUK_139,Gangavathi,25.1,0.3146,0.0,ADEQUATE,0.95,0.9744,0.905,0.89,0.748,Low multi-hazard score (0.31) in Koppal with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_225,Hosapete,KA_TALUK_140,Kushtagi,34.8,0.3227,0.0,ADEQUATE,0.95,1.0,0.8929,0.8967,0.6949,Low multi-hazard score (0.32) in Koppal with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_226,Hagaribommanahalli,KA_TALUK_230,Kotturu,2.1,0.31,0.0,ADEQUATE,0.95,0.7816,0.9197,0.9238,0.7381,Low multi-hazard score (0.31) in Vijayanagara with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_226,Hagaribommanahalli,KA_TALUK_139,Gangavathi,13.6,0.3146,0.0,ADEQUATE,0.95,0.9744,0.905,0.89,0.748,Low multi-hazard score (0.31) in Koppal with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_226,Hagaribommanahalli,KA_TALUK_140,Kushtagi,20.5,0.3227,0.0,ADEQUATE,0.95,1.0,0.8929,0.8967,0.6949,Low multi-hazard score (0.32) in Koppal with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_227,Harapanahalli,KA_TALUK_230,Kotturu,19.4,0.31,0.0,ADEQUATE,0.95,0.7816,0.9197,0.9238,0.7381,Low multi-hazard score (0.31) in Vijayanagara with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_227,Harapanahalli,KA_TALUK_140,Kushtagi,27.9,0.3227,0.0,ADEQUATE,0.95,1.0,0.8929,0.8967,0.6949,Low multi-hazard score (0.32) in Koppal with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_227,Harapanahalli,KA_TALUK_139,Gangavathi,32.5,0.3146,0.0,ADEQUATE,0.95,0.9744,0.905,0.89,0.748,Low multi-hazard score (0.31) in Koppal with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_228,Hoovina Hadagali,KA_TALUK_230,Kotturu,9.5,0.31,0.0,ADEQUATE,0.95,0.7816,0.9197,0.9238,0.7381,Low multi-hazard score (0.31) in Vijayanagara with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_228,Hoovina Hadagali,KA_TALUK_139,Gangavathi,18.4,0.3146,0.0,ADEQUATE,0.95,0.9744,0.905,0.89,0.748,Low multi-hazard score (0.31) in Koppal with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_228,Hoovina Hadagali,KA_TALUK_140,Kushtagi,27.9,0.3227,0.0,ADEQUATE,0.95,1.0,0.8929,0.8967,0.6949,Low multi-hazard score (0.32) in Koppal with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_229,Kudligi,KA_TALUK_230,Kotturu,5.7,0.31,0.0,ADEQUATE,0.95,0.7816,0.9197,0.9238,0.7381,Low multi-hazard score (0.31) in Vijayanagara with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_229,Kudligi,KA_TALUK_140,Kushtagi,18.5,0.3227,0.0,ADEQUATE,0.95,1.0,0.8929,0.8967,0.6949,Low multi-hazard score (0.32) in Koppal with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_229,Kudligi,KA_TALUK_139,Gangavathi,18.6,0.3146,0.0,ADEQUATE,0.95,0.9744,0.905,0.89,0.748,Low multi-hazard score (0.31) in Koppal with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_230,Kotturu,KA_TALUK_139,Gangavathi,13.2,0.3146,0.0,ADEQUATE,0.95,0.9744,0.905,0.89,0.748,Low multi-hazard score (0.31) in Koppal with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_230,Kotturu,KA_TALUK_140,Kushtagi,18.4,0.3227,0.0,ADEQUATE,0.95,1.0,0.8929,0.8967,0.6949,Low multi-hazard score (0.32) in Koppal with verified road connectivity.,VERIFIED_ELIGIBLE
+KA_TALUK_230,Kotturu,KA_TALUK_012,Sanduru,55.7,0.2234,0.0,ADEQUATE,0.95,0.9136,0.9243,0.8526,0.8024,Low multi-hazard score (0.22) in Ballari with verified road connectivity.,VERIFIED_ELIGIBLE

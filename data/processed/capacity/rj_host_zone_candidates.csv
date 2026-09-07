@@ -1,0 +1,595 @@
+source_mandal_id,source_mandal_name,candidate_mandal_id,candidate_mandal_name,distance_km,candidate_hazard_exposure,candidate_vulnerability,candidate_capacity_condition,candidate_capacity_data_completeness,candidate_shelter_adequacy,candidate_water_sanitation_adequacy,candidate_road_accessibility,candidate_safe_area_fraction,host_candidate_reason,host_candidate_status
+RJ_TEHSIL_001,Ajmer Urban,RJ_TEHSIL_005,Kekri,4.0,0.3097,0.0,MODERATE_DEFICIT,0.95,0.608,0.6963,0.7613,0.7341,Low multi-hazard score (0.31) in Ajmer with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_001,Ajmer Urban,RJ_TEHSIL_135,Didwana,99.3,0.2366,0.0,ADEQUATE,0.95,0.8721,0.8653,0.8997,0.7729,Low multi-hazard score (0.24) in Nagaur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_001,Ajmer Urban,RJ_TEHSIL_136,Ladnun,112.4,0.2261,0.0,ADEQUATE,0.95,1.0,0.8761,0.8065,0.729,Low multi-hazard score (0.23) in Nagaur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_002,Beawar,RJ_TEHSIL_005,Kekri,24.9,0.3097,0.0,MODERATE_DEFICIT,0.95,0.608,0.6963,0.7613,0.7341,Low multi-hazard score (0.31) in Ajmer with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_002,Beawar,RJ_TEHSIL_135,Didwana,94.2,0.2366,0.0,ADEQUATE,0.95,0.8721,0.8653,0.8997,0.7729,Low multi-hazard score (0.24) in Nagaur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_002,Beawar,RJ_TEHSIL_136,Ladnun,109.7,0.2261,0.0,ADEQUATE,0.95,1.0,0.8761,0.8065,0.729,Low multi-hazard score (0.23) in Nagaur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_003,Kishangarh,RJ_TEHSIL_005,Kekri,17.1,0.3097,0.0,MODERATE_DEFICIT,0.95,0.608,0.6963,0.7613,0.7341,Low multi-hazard score (0.31) in Ajmer with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_003,Kishangarh,RJ_TEHSIL_135,Didwana,84.8,0.2366,0.0,ADEQUATE,0.95,0.8721,0.8653,0.8997,0.7729,Low multi-hazard score (0.24) in Nagaur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_003,Kishangarh,RJ_TEHSIL_136,Ladnun,99.1,0.2261,0.0,ADEQUATE,0.95,1.0,0.8761,0.8065,0.729,Low multi-hazard score (0.23) in Nagaur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_004,Nasirabad,RJ_TEHSIL_005,Kekri,31.4,0.3097,0.0,MODERATE_DEFICIT,0.95,0.608,0.6963,0.7613,0.7341,Low multi-hazard score (0.31) in Ajmer with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_004,Nasirabad,RJ_TEHSIL_135,Didwana,97.8,0.2366,0.0,ADEQUATE,0.95,0.8721,0.8653,0.8997,0.7729,Low multi-hazard score (0.24) in Nagaur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_004,Nasirabad,RJ_TEHSIL_136,Ladnun,113.8,0.2261,0.0,ADEQUATE,0.95,1.0,0.8761,0.8065,0.729,Low multi-hazard score (0.23) in Nagaur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_005,Kekri,RJ_TEHSIL_135,Didwana,100.1,0.2366,0.0,ADEQUATE,0.95,0.8721,0.8653,0.8997,0.7729,Low multi-hazard score (0.24) in Nagaur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_005,Kekri,RJ_TEHSIL_136,Ladnun,113.6,0.2261,0.0,ADEQUATE,0.95,1.0,0.8761,0.8065,0.729,Low multi-hazard score (0.23) in Nagaur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_005,Kekri,RJ_TEHSIL_138,Kuchaman,119.6,0.262,0.0,MODERATE_DEFICIT,0.95,0.8416,0.7571,0.8772,0.7292,Low multi-hazard score (0.26) in Nagaur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_006,Alwar Urban,RJ_TEHSIL_010,Thanagazi,2.8,0.3626,0.0,MODERATE_DEFICIT,0.95,0.5174,0.6976,0.7216,0.634,Low multi-hazard score (0.36) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_006,Alwar Urban,RJ_TEHSIL_007,Tijara,12.5,0.3125,0.0,MODERATE_DEFICIT,0.95,0.2644,0.7476,0.7262,0.7009,Low multi-hazard score (0.31) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_006,Alwar Urban,RJ_TEHSIL_009,Rajgarh,17.5,0.3143,0.0,MODERATE_DEFICIT,0.95,0.2959,0.7453,0.7501,0.7148,Low multi-hazard score (0.31) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_007,Tijara,RJ_TEHSIL_009,Rajgarh,5.3,0.3143,0.0,MODERATE_DEFICIT,0.95,0.2959,0.7453,0.7501,0.7148,Low multi-hazard score (0.31) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_007,Tijara,RJ_TEHSIL_008,Behror,13.2,0.351,0.0,MODERATE_DEFICIT,0.95,0.3087,0.8006,0.7744,0.6564,Low multi-hazard score (0.35) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_007,Tijara,RJ_TEHSIL_010,Thanagazi,13.6,0.3626,0.0,MODERATE_DEFICIT,0.95,0.5174,0.6976,0.7216,0.634,Low multi-hazard score (0.36) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_008,Behror,RJ_TEHSIL_009,Rajgarh,11.6,0.3143,0.0,MODERATE_DEFICIT,0.95,0.2959,0.7453,0.7501,0.7148,Low multi-hazard score (0.31) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_008,Behror,RJ_TEHSIL_007,Tijara,13.2,0.3125,0.0,MODERATE_DEFICIT,0.95,0.2644,0.7476,0.7262,0.7009,Low multi-hazard score (0.31) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_008,Behror,RJ_TEHSIL_010,Thanagazi,21.8,0.3626,0.0,MODERATE_DEFICIT,0.95,0.5174,0.6976,0.7216,0.634,Low multi-hazard score (0.36) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_009,Rajgarh,RJ_TEHSIL_007,Tijara,5.3,0.3125,0.0,MODERATE_DEFICIT,0.95,0.2644,0.7476,0.7262,0.7009,Low multi-hazard score (0.31) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_009,Rajgarh,RJ_TEHSIL_008,Behror,11.6,0.351,0.0,MODERATE_DEFICIT,0.95,0.3087,0.8006,0.7744,0.6564,Low multi-hazard score (0.35) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_009,Rajgarh,RJ_TEHSIL_010,Thanagazi,18.8,0.3626,0.0,MODERATE_DEFICIT,0.95,0.5174,0.6976,0.7216,0.634,Low multi-hazard score (0.36) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_010,Thanagazi,RJ_TEHSIL_007,Tijara,13.6,0.3125,0.0,MODERATE_DEFICIT,0.95,0.2644,0.7476,0.7262,0.7009,Low multi-hazard score (0.31) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_010,Thanagazi,RJ_TEHSIL_009,Rajgarh,18.8,0.3143,0.0,MODERATE_DEFICIT,0.95,0.2959,0.7453,0.7501,0.7148,Low multi-hazard score (0.31) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_010,Thanagazi,RJ_TEHSIL_008,Behror,21.8,0.351,0.0,MODERATE_DEFICIT,0.95,0.3087,0.8006,0.7744,0.6564,Low multi-hazard score (0.35) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_011,Banswara,RJ_TEHSIL_154,Nathdwara,164.3,0.3713,0.0,MODERATE_DEFICIT,0.95,0.5538,0.8508,0.7737,0.6614,Low multi-hazard score (0.37) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_011,Banswara,RJ_TEHSIL_037,Jahazpur,175.8,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_011,Banswara,RJ_TEHSIL_157,Railmagra,185.4,0.3445,0.0,MODERATE_DEFICIT,0.95,0.5518,0.9052,0.7693,0.6594,Low multi-hazard score (0.34) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_012,Garhi,RJ_TEHSIL_154,Nathdwara,190.3,0.3713,0.0,MODERATE_DEFICIT,0.95,0.5538,0.8508,0.7737,0.6614,Low multi-hazard score (0.37) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_012,Garhi,RJ_TEHSIL_037,Jahazpur,198.6,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_012,Garhi,RJ_TEHSIL_157,Railmagra,211.3,0.3445,0.0,MODERATE_DEFICIT,0.95,0.5518,0.9052,0.7693,0.6594,Low multi-hazard score (0.34) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_013,Ghatol,RJ_TEHSIL_154,Nathdwara,174.4,0.3713,0.0,MODERATE_DEFICIT,0.95,0.5538,0.8508,0.7737,0.6614,Low multi-hazard score (0.37) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_013,Ghatol,RJ_TEHSIL_037,Jahazpur,188.6,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_013,Ghatol,RJ_TEHSIL_157,Railmagra,195.4,0.3445,0.0,MODERATE_DEFICIT,0.95,0.5518,0.9052,0.7693,0.6594,Low multi-hazard score (0.34) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_014,Kushalgarh,RJ_TEHSIL_154,Nathdwara,172.0,0.3713,0.0,MODERATE_DEFICIT,0.95,0.5538,0.8508,0.7737,0.6614,Low multi-hazard score (0.37) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_014,Kushalgarh,RJ_TEHSIL_037,Jahazpur,187.1,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_014,Kushalgarh,RJ_TEHSIL_157,Railmagra,192.9,0.3445,0.0,MODERATE_DEFICIT,0.95,0.5518,0.9052,0.7693,0.6594,Low multi-hazard score (0.34) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_015,Bagidora,RJ_TEHSIL_154,Nathdwara,160.7,0.3713,0.0,MODERATE_DEFICIT,0.95,0.5538,0.8508,0.7737,0.6614,Low multi-hazard score (0.37) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_015,Bagidora,RJ_TEHSIL_037,Jahazpur,172.6,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_015,Bagidora,RJ_TEHSIL_157,Railmagra,181.7,0.3445,0.0,MODERATE_DEFICIT,0.95,0.5518,0.9052,0.7693,0.6594,Low multi-hazard score (0.34) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_016,Baran,RJ_TEHSIL_188,Uniara,119.4,0.3528,0.0,MODERATE_DEFICIT,0.95,0.6639,0.7812,0.8392,0.6299,Low multi-hazard score (0.35) in Tonk with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_016,Baran,RJ_TEHSIL_065,Sikrai,189.9,0.3234,0.0,MODERATE_DEFICIT,0.95,0.5026,0.8949,0.7768,0.6769,Low multi-hazard score (0.32) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_016,Baran,RJ_TEHSIL_037,Jahazpur,194.7,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_017,Chhabra,RJ_TEHSIL_188,Uniara,122.5,0.3528,0.0,MODERATE_DEFICIT,0.95,0.6639,0.7812,0.8392,0.6299,Low multi-hazard score (0.35) in Tonk with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_017,Chhabra,RJ_TEHSIL_065,Sikrai,191.5,0.3234,0.0,MODERATE_DEFICIT,0.95,0.5026,0.8949,0.7768,0.6769,Low multi-hazard score (0.32) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_017,Chhabra,RJ_TEHSIL_037,Jahazpur,198.1,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_018,Atru,RJ_TEHSIL_188,Uniara,131.4,0.3528,0.0,MODERATE_DEFICIT,0.95,0.6639,0.7812,0.8392,0.6299,Low multi-hazard score (0.35) in Tonk with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_018,Atru,RJ_TEHSIL_037,Jahazpur,199.1,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_018,Atru,RJ_TEHSIL_065,Sikrai,202.8,0.3234,0.0,MODERATE_DEFICIT,0.95,0.5026,0.8949,0.7768,0.6769,Low multi-hazard score (0.32) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_019,Kishanganj,RJ_TEHSIL_188,Uniara,133.1,0.3528,0.0,MODERATE_DEFICIT,0.95,0.6639,0.7812,0.8392,0.6299,Low multi-hazard score (0.35) in Tonk with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_019,Kishanganj,RJ_TEHSIL_037,Jahazpur,179.9,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_019,Kishanganj,RJ_TEHSIL_065,Sikrai,217.3,0.3234,0.0,MODERATE_DEFICIT,0.95,0.5026,0.8949,0.7768,0.6769,Low multi-hazard score (0.32) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_020,Shahbad,RJ_TEHSIL_188,Uniara,136.2,0.3528,0.0,MODERATE_DEFICIT,0.95,0.6639,0.7812,0.8392,0.6299,Low multi-hazard score (0.35) in Tonk with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_020,Shahbad,RJ_TEHSIL_037,Jahazpur,183.8,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_020,Shahbad,RJ_TEHSIL_065,Sikrai,219.0,0.3234,0.0,MODERATE_DEFICIT,0.95,0.5026,0.8949,0.7768,0.6769,Low multi-hazard score (0.32) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_021,Barmer,RJ_TEHSIL_114,Jodhpur Urban,151.8,0.3027,0.0,ADEQUATE,0.95,1.0,0.8221,0.8152,0.7059,Low multi-hazard score (0.30) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_021,Barmer,RJ_TEHSIL_117,Osian,155.2,0.3446,0.0,ADEQUATE,0.95,0.9026,0.8343,0.7361,0.6721,Low multi-hazard score (0.34) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_021,Barmer,RJ_TEHSIL_119,Luni,158.2,0.3015,0.0,ADEQUATE,0.95,0.8163,0.8668,0.7744,0.7056,Low multi-hazard score (0.30) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_022,Balotra,RJ_TEHSIL_114,Jodhpur Urban,148.2,0.3027,0.0,ADEQUATE,0.95,1.0,0.8221,0.8152,0.7059,Low multi-hazard score (0.30) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_022,Balotra,RJ_TEHSIL_117,Osian,151.5,0.3446,0.0,ADEQUATE,0.95,0.9026,0.8343,0.7361,0.6721,Low multi-hazard score (0.34) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_022,Balotra,RJ_TEHSIL_119,Luni,153.9,0.3015,0.0,ADEQUATE,0.95,0.8163,0.8668,0.7744,0.7056,Low multi-hazard score (0.30) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_023,Gudamalani,RJ_TEHSIL_114,Jodhpur Urban,159.7,0.3027,0.0,ADEQUATE,0.95,1.0,0.8221,0.8152,0.7059,Low multi-hazard score (0.30) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_023,Gudamalani,RJ_TEHSIL_117,Osian,163.2,0.3446,0.0,ADEQUATE,0.95,0.9026,0.8343,0.7361,0.6721,Low multi-hazard score (0.34) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_023,Gudamalani,RJ_TEHSIL_119,Luni,169.9,0.3015,0.0,ADEQUATE,0.95,0.8163,0.8668,0.7744,0.7056,Low multi-hazard score (0.30) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_024,Chohtan,RJ_TEHSIL_114,Jodhpur Urban,153.6,0.3027,0.0,ADEQUATE,0.95,1.0,0.8221,0.8152,0.7059,Low multi-hazard score (0.30) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_024,Chohtan,RJ_TEHSIL_117,Osian,157.0,0.3446,0.0,ADEQUATE,0.95,0.9026,0.8343,0.7361,0.6721,Low multi-hazard score (0.34) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_024,Chohtan,RJ_TEHSIL_119,Luni,159.3,0.3015,0.0,ADEQUATE,0.95,0.8163,0.8668,0.7744,0.7056,Low multi-hazard score (0.30) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_025,Baytu,RJ_TEHSIL_114,Jodhpur Urban,146.0,0.3027,0.0,ADEQUATE,0.95,1.0,0.8221,0.8152,0.7059,Low multi-hazard score (0.30) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_025,Baytu,RJ_TEHSIL_117,Osian,149.4,0.3446,0.0,ADEQUATE,0.95,0.9026,0.8343,0.7361,0.6721,Low multi-hazard score (0.34) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_025,Baytu,RJ_TEHSIL_119,Luni,155.3,0.3015,0.0,ADEQUATE,0.95,0.8163,0.8668,0.7744,0.7056,Low multi-hazard score (0.30) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_026,Sheo,RJ_TEHSIL_114,Jodhpur Urban,163.1,0.3027,0.0,ADEQUATE,0.95,1.0,0.8221,0.8152,0.7059,Low multi-hazard score (0.30) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_026,Sheo,RJ_TEHSIL_117,Osian,166.6,0.3446,0.0,ADEQUATE,0.95,0.9026,0.8343,0.7361,0.6721,Low multi-hazard score (0.34) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_026,Sheo,RJ_TEHSIL_119,Luni,173.5,0.3015,0.0,ADEQUATE,0.95,0.8163,0.8668,0.7744,0.7056,Low multi-hazard score (0.30) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_027,Bharatpur Urban,RJ_TEHSIL_008,Behror,81.9,0.351,0.0,MODERATE_DEFICIT,0.95,0.3087,0.8006,0.7744,0.6564,Low multi-hazard score (0.35) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_027,Bharatpur Urban,RJ_TEHSIL_009,Rajgarh,84.9,0.3143,0.0,MODERATE_DEFICIT,0.95,0.2959,0.7453,0.7501,0.7148,Low multi-hazard score (0.31) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_027,Bharatpur Urban,RJ_TEHSIL_007,Tijara,90.1,0.3125,0.0,MODERATE_DEFICIT,0.95,0.2644,0.7476,0.7262,0.7009,Low multi-hazard score (0.31) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_028,Deeg,RJ_TEHSIL_008,Behror,84.1,0.351,0.0,MODERATE_DEFICIT,0.95,0.3087,0.8006,0.7744,0.6564,Low multi-hazard score (0.35) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_028,Deeg,RJ_TEHSIL_009,Rajgarh,89.2,0.3143,0.0,MODERATE_DEFICIT,0.95,0.2959,0.7453,0.7501,0.7148,Low multi-hazard score (0.31) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_028,Deeg,RJ_TEHSIL_007,Tijara,94.0,0.3125,0.0,MODERATE_DEFICIT,0.95,0.2644,0.7476,0.7262,0.7009,Low multi-hazard score (0.31) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_029,Bayana,RJ_TEHSIL_008,Behror,77.9,0.351,0.0,MODERATE_DEFICIT,0.95,0.3087,0.8006,0.7744,0.6564,Low multi-hazard score (0.35) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_029,Bayana,RJ_TEHSIL_009,Rajgarh,83.4,0.3143,0.0,MODERATE_DEFICIT,0.95,0.2959,0.7453,0.7501,0.7148,Low multi-hazard score (0.31) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_029,Bayana,RJ_TEHSIL_007,Tijara,88.2,0.3125,0.0,MODERATE_DEFICIT,0.95,0.2644,0.7476,0.7262,0.7009,Low multi-hazard score (0.31) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_030,Kaman,RJ_TEHSIL_008,Behror,83.3,0.351,0.0,MODERATE_DEFICIT,0.95,0.3087,0.8006,0.7744,0.6564,Low multi-hazard score (0.35) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_030,Kaman,RJ_TEHSIL_009,Rajgarh,87.4,0.3143,0.0,MODERATE_DEFICIT,0.95,0.2959,0.7453,0.7501,0.7148,Low multi-hazard score (0.31) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_030,Kaman,RJ_TEHSIL_007,Tijara,92.4,0.3125,0.0,MODERATE_DEFICIT,0.95,0.2644,0.7476,0.7262,0.7009,Low multi-hazard score (0.31) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_031,Nagar,RJ_TEHSIL_008,Behror,81.6,0.351,0.0,MODERATE_DEFICIT,0.95,0.3087,0.8006,0.7744,0.6564,Low multi-hazard score (0.35) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_031,Nagar,RJ_TEHSIL_009,Rajgarh,86.8,0.3143,0.0,MODERATE_DEFICIT,0.95,0.2959,0.7453,0.7501,0.7148,Low multi-hazard score (0.31) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_031,Nagar,RJ_TEHSIL_007,Tijara,91.6,0.3125,0.0,MODERATE_DEFICIT,0.95,0.2644,0.7476,0.7262,0.7009,Low multi-hazard score (0.31) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_032,Weir,RJ_TEHSIL_008,Behror,79.7,0.351,0.0,MODERATE_DEFICIT,0.95,0.3087,0.8006,0.7744,0.6564,Low multi-hazard score (0.35) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_032,Weir,RJ_TEHSIL_009,Rajgarh,84.8,0.3143,0.0,MODERATE_DEFICIT,0.95,0.2959,0.7453,0.7501,0.7148,Low multi-hazard score (0.31) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_032,Weir,RJ_TEHSIL_007,Tijara,89.7,0.3125,0.0,MODERATE_DEFICIT,0.95,0.2644,0.7476,0.7262,0.7009,Low multi-hazard score (0.31) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_033,Bhilwara Urban,RJ_TEHSIL_037,Jahazpur,18.6,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_033,Bhilwara Urban,RJ_TEHSIL_157,Railmagra,81.9,0.3445,0.0,MODERATE_DEFICIT,0.95,0.5518,0.9052,0.7693,0.6594,Low multi-hazard score (0.34) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_033,Bhilwara Urban,RJ_TEHSIL_154,Nathdwara,82.2,0.3713,0.0,MODERATE_DEFICIT,0.95,0.5538,0.8508,0.7737,0.6614,Low multi-hazard score (0.37) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_034,Shahpura,RJ_TEHSIL_037,Jahazpur,22.9,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_034,Shahpura,RJ_TEHSIL_154,Nathdwara,96.1,0.3713,0.0,MODERATE_DEFICIT,0.95,0.5538,0.8508,0.7737,0.6614,Low multi-hazard score (0.37) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_034,Shahpura,RJ_TEHSIL_157,Railmagra,97.9,0.3445,0.0,MODERATE_DEFICIT,0.95,0.5518,0.9052,0.7693,0.6594,Low multi-hazard score (0.34) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_035,Mandalgarh,RJ_TEHSIL_037,Jahazpur,6.7,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_035,Mandalgarh,RJ_TEHSIL_154,Nathdwara,79.7,0.3713,0.0,MODERATE_DEFICIT,0.95,0.5538,0.8508,0.7737,0.6614,Low multi-hazard score (0.37) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_035,Mandalgarh,RJ_TEHSIL_157,Railmagra,82.8,0.3445,0.0,MODERATE_DEFICIT,0.95,0.5518,0.9052,0.7693,0.6594,Low multi-hazard score (0.34) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_036,Asind,RJ_TEHSIL_037,Jahazpur,22.7,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_036,Asind,RJ_TEHSIL_157,Railmagra,80.5,0.3445,0.0,MODERATE_DEFICIT,0.95,0.5518,0.9052,0.7693,0.6594,Low multi-hazard score (0.34) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_036,Asind,RJ_TEHSIL_154,Nathdwara,82.0,0.3713,0.0,MODERATE_DEFICIT,0.95,0.5538,0.8508,0.7737,0.6614,Low multi-hazard score (0.37) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_037,Jahazpur,RJ_TEHSIL_154,Nathdwara,74.7,0.3713,0.0,MODERATE_DEFICIT,0.95,0.5538,0.8508,0.7737,0.6614,Low multi-hazard score (0.37) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_037,Jahazpur,RJ_TEHSIL_157,Railmagra,79.1,0.3445,0.0,MODERATE_DEFICIT,0.95,0.5518,0.9052,0.7693,0.6594,Low multi-hazard score (0.34) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_037,Jahazpur,RJ_TEHSIL_005,Kekri,127.6,0.3097,0.0,MODERATE_DEFICIT,0.95,0.608,0.6963,0.7613,0.7341,Low multi-hazard score (0.31) in Ajmer with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_038,Bikaner Urban,RJ_TEHSIL_134,Degana,73.3,0.22,0.0,ADEQUATE,0.95,1.0,0.7383,0.8659,0.7357,Low multi-hazard score (0.22) in Nagaur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_038,Bikaner Urban,RJ_TEHSIL_132,Nagaur,74.4,0.2263,0.0,ADEQUATE,0.95,0.9765,0.7132,0.8884,0.8046,Low multi-hazard score (0.23) in Nagaur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_038,Bikaner Urban,RJ_TEHSIL_133,Merta,74.7,0.2121,0.0,MODERATE_DEFICIT,0.95,0.6737,0.7388,0.7869,0.7419,Low multi-hazard score (0.21) in Nagaur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_039,Nokha,RJ_TEHSIL_038,Bikaner Urban,12.0,0.3365,0.0,ADEQUATE,0.95,1.0,0.8315,0.719,0.7112,Low multi-hazard score (0.34) in Bikaner with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_039,Nokha,RJ_TEHSIL_134,Degana,85.1,0.22,0.0,ADEQUATE,0.95,1.0,0.7383,0.8659,0.7357,Low multi-hazard score (0.22) in Nagaur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_039,Nokha,RJ_TEHSIL_132,Nagaur,86.1,0.2263,0.0,ADEQUATE,0.95,0.9765,0.7132,0.8884,0.8046,Low multi-hazard score (0.23) in Nagaur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_040,Kolayat,RJ_TEHSIL_038,Bikaner Urban,28.8,0.3365,0.0,ADEQUATE,0.95,1.0,0.8315,0.719,0.7112,Low multi-hazard score (0.34) in Bikaner with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_040,Kolayat,RJ_TEHSIL_134,Degana,101.6,0.22,0.0,ADEQUATE,0.95,1.0,0.7383,0.8659,0.7357,Low multi-hazard score (0.22) in Nagaur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_040,Kolayat,RJ_TEHSIL_133,Merta,102.8,0.2121,0.0,MODERATE_DEFICIT,0.95,0.6737,0.7388,0.7869,0.7419,Low multi-hazard score (0.21) in Nagaur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_041,Lunkaransar,RJ_TEHSIL_038,Bikaner Urban,19.3,0.3365,0.0,ADEQUATE,0.95,1.0,0.8315,0.719,0.7112,Low multi-hazard score (0.34) in Bikaner with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_041,Lunkaransar,RJ_TEHSIL_134,Degana,80.3,0.22,0.0,ADEQUATE,0.95,1.0,0.7383,0.8659,0.7357,Low multi-hazard score (0.22) in Nagaur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_041,Lunkaransar,RJ_TEHSIL_133,Merta,81.1,0.2121,0.0,MODERATE_DEFICIT,0.95,0.6737,0.7388,0.7869,0.7419,Low multi-hazard score (0.21) in Nagaur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_042,Khajuwala,RJ_TEHSIL_038,Bikaner Urban,8.3,0.3365,0.0,ADEQUATE,0.95,1.0,0.8315,0.719,0.7112,Low multi-hazard score (0.34) in Bikaner with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_042,Khajuwala,RJ_TEHSIL_134,Degana,81.5,0.22,0.0,ADEQUATE,0.95,1.0,0.7383,0.8659,0.7357,Low multi-hazard score (0.22) in Nagaur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_042,Khajuwala,RJ_TEHSIL_132,Nagaur,82.6,0.2263,0.0,ADEQUATE,0.95,0.9765,0.7132,0.8884,0.8046,Low multi-hazard score (0.23) in Nagaur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_043,Dungargarh,RJ_TEHSIL_038,Bikaner Urban,34.0,0.3365,0.0,ADEQUATE,0.95,1.0,0.8315,0.719,0.7112,Low multi-hazard score (0.34) in Bikaner with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_043,Dungargarh,RJ_TEHSIL_134,Degana,104.8,0.22,0.0,ADEQUATE,0.95,1.0,0.7383,0.8659,0.7357,Low multi-hazard score (0.22) in Nagaur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_043,Dungargarh,RJ_TEHSIL_133,Merta,105.8,0.2121,0.0,MODERATE_DEFICIT,0.95,0.6737,0.7388,0.7869,0.7419,Low multi-hazard score (0.21) in Nagaur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_044,Bundi,RJ_TEHSIL_188,Uniara,51.6,0.3528,0.0,MODERATE_DEFICIT,0.95,0.6639,0.7812,0.8392,0.6299,Low multi-hazard score (0.35) in Tonk with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_044,Bundi,RJ_TEHSIL_037,Jahazpur,105.9,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_044,Bundi,RJ_TEHSIL_005,Kekri,133.2,0.3097,0.0,MODERATE_DEFICIT,0.95,0.608,0.6963,0.7613,0.7341,Low multi-hazard score (0.31) in Ajmer with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_045,Keshoraipatan,RJ_TEHSIL_188,Uniara,63.8,0.3528,0.0,MODERATE_DEFICIT,0.95,0.6639,0.7812,0.8392,0.6299,Low multi-hazard score (0.35) in Tonk with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_045,Keshoraipatan,RJ_TEHSIL_037,Jahazpur,112.0,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_045,Keshoraipatan,RJ_TEHSIL_005,Kekri,150.8,0.3097,0.0,MODERATE_DEFICIT,0.95,0.608,0.6963,0.7613,0.7341,Low multi-hazard score (0.31) in Ajmer with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_046,Nainwa,RJ_TEHSIL_188,Uniara,69.0,0.3528,0.0,MODERATE_DEFICIT,0.95,0.6639,0.7812,0.8392,0.6299,Low multi-hazard score (0.35) in Tonk with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_046,Nainwa,RJ_TEHSIL_037,Jahazpur,118.5,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_046,Nainwa,RJ_TEHSIL_005,Kekri,160.0,0.3097,0.0,MODERATE_DEFICIT,0.95,0.608,0.6963,0.7613,0.7341,Low multi-hazard score (0.31) in Ajmer with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_047,Hindoli,RJ_TEHSIL_188,Uniara,51.6,0.3528,0.0,MODERATE_DEFICIT,0.95,0.6639,0.7812,0.8392,0.6299,Low multi-hazard score (0.35) in Tonk with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_047,Hindoli,RJ_TEHSIL_037,Jahazpur,104.2,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_047,Hindoli,RJ_TEHSIL_005,Kekri,131.2,0.3097,0.0,MODERATE_DEFICIT,0.95,0.608,0.6963,0.7613,0.7341,Low multi-hazard score (0.31) in Ajmer with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_048,Indergarh,RJ_TEHSIL_188,Uniara,66.1,0.3528,0.0,MODERATE_DEFICIT,0.95,0.6639,0.7812,0.8392,0.6299,Low multi-hazard score (0.35) in Tonk with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_048,Indergarh,RJ_TEHSIL_037,Jahazpur,100.6,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_048,Indergarh,RJ_TEHSIL_005,Kekri,142.9,0.3097,0.0,MODERATE_DEFICIT,0.95,0.608,0.6963,0.7613,0.7341,Low multi-hazard score (0.31) in Ajmer with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_049,Chittorgarh,RJ_TEHSIL_037,Jahazpur,22.6,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_049,Chittorgarh,RJ_TEHSIL_154,Nathdwara,70.3,0.3713,0.0,MODERATE_DEFICIT,0.95,0.5538,0.8508,0.7737,0.6614,Low multi-hazard score (0.37) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_049,Chittorgarh,RJ_TEHSIL_157,Railmagra,80.5,0.3445,0.0,MODERATE_DEFICIT,0.95,0.5518,0.9052,0.7693,0.6594,Low multi-hazard score (0.34) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_050,Nimbahera,RJ_TEHSIL_037,Jahazpur,48.2,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_050,Nimbahera,RJ_TEHSIL_154,Nathdwara,82.5,0.3713,0.0,MODERATE_DEFICIT,0.95,0.5538,0.8508,0.7737,0.6614,Low multi-hazard score (0.37) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_050,Nimbahera,RJ_TEHSIL_157,Railmagra,97.2,0.3445,0.0,MODERATE_DEFICIT,0.95,0.5518,0.9052,0.7693,0.6594,Low multi-hazard score (0.34) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_051,Kapasan,RJ_TEHSIL_037,Jahazpur,20.0,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_051,Kapasan,RJ_TEHSIL_154,Nathdwara,70.3,0.3713,0.0,MODERATE_DEFICIT,0.95,0.5538,0.8508,0.7737,0.6614,Low multi-hazard score (0.37) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_051,Kapasan,RJ_TEHSIL_157,Railmagra,79.9,0.3445,0.0,MODERATE_DEFICIT,0.95,0.5518,0.9052,0.7693,0.6594,Low multi-hazard score (0.34) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_052,Begun,RJ_TEHSIL_037,Jahazpur,33.1,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_052,Begun,RJ_TEHSIL_154,Nathdwara,86.0,0.3713,0.0,MODERATE_DEFICIT,0.95,0.5538,0.8508,0.7737,0.6614,Low multi-hazard score (0.37) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_052,Begun,RJ_TEHSIL_157,Railmagra,97.2,0.3445,0.0,MODERATE_DEFICIT,0.95,0.5518,0.9052,0.7693,0.6594,Low multi-hazard score (0.34) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_053,Rawatbhata,RJ_TEHSIL_037,Jahazpur,46.5,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_053,Rawatbhata,RJ_TEHSIL_154,Nathdwara,88.0,0.3713,0.0,MODERATE_DEFICIT,0.95,0.5538,0.8508,0.7737,0.6614,Low multi-hazard score (0.37) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_053,Rawatbhata,RJ_TEHSIL_157,Railmagra,101.8,0.3445,0.0,MODERATE_DEFICIT,0.95,0.5518,0.9052,0.7693,0.6594,Low multi-hazard score (0.34) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_054,Bari Sadri,RJ_TEHSIL_037,Jahazpur,41.6,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_054,Bari Sadri,RJ_TEHSIL_154,Nathdwara,84.2,0.3713,0.0,MODERATE_DEFICIT,0.95,0.5538,0.8508,0.7737,0.6614,Low multi-hazard score (0.37) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_054,Bari Sadri,RJ_TEHSIL_157,Railmagra,97.4,0.3445,0.0,MODERATE_DEFICIT,0.95,0.5518,0.9052,0.7693,0.6594,Low multi-hazard score (0.34) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_055,Churu,RJ_TEHSIL_057,Sardarshahar,18.9,0.317,0.0,ADEQUATE,0.95,1.0,0.7516,0.7874,0.6767,Low multi-hazard score (0.32) in Churu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_055,Churu,RJ_TEHSIL_059,Rajgarh,22.4,0.2872,0.0,ADEQUATE,0.95,1.0,0.859,0.8024,0.6994,Low multi-hazard score (0.29) in Churu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_055,Churu,RJ_TEHSIL_058,Sujangarh,23.4,0.2909,0.0,ADEQUATE,0.95,1.0,0.9183,0.8148,0.6841,Low multi-hazard score (0.29) in Churu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_056,Ratangarh,RJ_TEHSIL_058,Sujangarh,4.7,0.2909,0.0,ADEQUATE,0.95,1.0,0.9183,0.8148,0.6841,Low multi-hazard score (0.29) in Churu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_056,Ratangarh,RJ_TEHSIL_057,Sardarshahar,8.2,0.317,0.0,ADEQUATE,0.95,1.0,0.7516,0.7874,0.6767,Low multi-hazard score (0.32) in Churu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_056,Ratangarh,RJ_TEHSIL_060,Taranagar,9.3,0.3306,0.0,ADEQUATE,0.95,1.0,0.7202,0.7256,0.6913,Low multi-hazard score (0.33) in Churu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_057,Sardarshahar,RJ_TEHSIL_058,Sujangarh,4.7,0.2909,0.0,ADEQUATE,0.95,1.0,0.9183,0.8148,0.6841,Low multi-hazard score (0.29) in Churu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_057,Sardarshahar,RJ_TEHSIL_059,Rajgarh,7.5,0.2872,0.0,ADEQUATE,0.95,1.0,0.859,0.8024,0.6994,Low multi-hazard score (0.29) in Churu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_057,Sardarshahar,RJ_TEHSIL_056,Ratangarh,8.2,0.2908,0.0,ADEQUATE,0.95,0.8811,0.7692,0.8804,0.7081,Low multi-hazard score (0.29) in Churu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_058,Sujangarh,RJ_TEHSIL_056,Ratangarh,4.7,0.2908,0.0,ADEQUATE,0.95,0.8811,0.7692,0.8804,0.7081,Low multi-hazard score (0.29) in Churu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_058,Sujangarh,RJ_TEHSIL_057,Sardarshahar,4.7,0.317,0.0,ADEQUATE,0.95,1.0,0.7516,0.7874,0.6767,Low multi-hazard score (0.32) in Churu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_058,Sujangarh,RJ_TEHSIL_059,Rajgarh,6.3,0.2872,0.0,ADEQUATE,0.95,1.0,0.859,0.8024,0.6994,Low multi-hazard score (0.29) in Churu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_059,Rajgarh,RJ_TEHSIL_058,Sujangarh,6.3,0.2909,0.0,ADEQUATE,0.95,1.0,0.9183,0.8148,0.6841,Low multi-hazard score (0.29) in Churu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_059,Rajgarh,RJ_TEHSIL_057,Sardarshahar,7.5,0.317,0.0,ADEQUATE,0.95,1.0,0.7516,0.7874,0.6767,Low multi-hazard score (0.32) in Churu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_059,Rajgarh,RJ_TEHSIL_056,Ratangarh,10.7,0.2908,0.0,ADEQUATE,0.95,0.8811,0.7692,0.8804,0.7081,Low multi-hazard score (0.29) in Churu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_060,Taranagar,RJ_TEHSIL_056,Ratangarh,9.3,0.2908,0.0,ADEQUATE,0.95,0.8811,0.7692,0.8804,0.7081,Low multi-hazard score (0.29) in Churu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_060,Taranagar,RJ_TEHSIL_058,Sujangarh,9.8,0.2909,0.0,ADEQUATE,0.95,1.0,0.9183,0.8148,0.6841,Low multi-hazard score (0.29) in Churu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_060,Taranagar,RJ_TEHSIL_059,Rajgarh,10.9,0.2872,0.0,ADEQUATE,0.95,1.0,0.859,0.8024,0.6994,Low multi-hazard score (0.29) in Churu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_061,Dausa,RJ_TEHSIL_064,Mahwa,8.3,0.3453,0.0,MODERATE_DEFICIT,0.95,0.4717,0.7552,0.76,0.6698,Low multi-hazard score (0.35) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_061,Dausa,RJ_TEHSIL_065,Sikrai,13.8,0.3234,0.0,MODERATE_DEFICIT,0.95,0.5026,0.8949,0.7768,0.6769,Low multi-hazard score (0.32) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_061,Dausa,RJ_TEHSIL_009,Rajgarh,61.3,0.3143,0.0,MODERATE_DEFICIT,0.95,0.2959,0.7453,0.7501,0.7148,Low multi-hazard score (0.31) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_062,Bandikui,RJ_TEHSIL_065,Sikrai,6.1,0.3234,0.0,MODERATE_DEFICIT,0.95,0.5026,0.8949,0.7768,0.6769,Low multi-hazard score (0.32) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_062,Bandikui,RJ_TEHSIL_064,Mahwa,15.6,0.3453,0.0,MODERATE_DEFICIT,0.95,0.4717,0.7552,0.76,0.6698,Low multi-hazard score (0.35) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_062,Bandikui,RJ_TEHSIL_009,Rajgarh,67.6,0.3143,0.0,MODERATE_DEFICIT,0.95,0.2959,0.7453,0.7501,0.7148,Low multi-hazard score (0.31) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_063,Lalsot,RJ_TEHSIL_065,Sikrai,14.8,0.3234,0.0,MODERATE_DEFICIT,0.95,0.5026,0.8949,0.7768,0.6769,Low multi-hazard score (0.32) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_063,Lalsot,RJ_TEHSIL_064,Mahwa,31.9,0.3453,0.0,MODERATE_DEFICIT,0.95,0.4717,0.7552,0.76,0.6698,Low multi-hazard score (0.35) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_063,Lalsot,RJ_TEHSIL_009,Rajgarh,82.6,0.3143,0.0,MODERATE_DEFICIT,0.95,0.2959,0.7453,0.7501,0.7148,Low multi-hazard score (0.31) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_064,Mahwa,RJ_TEHSIL_065,Sikrai,18.4,0.3234,0.0,MODERATE_DEFICIT,0.95,0.5026,0.8949,0.7768,0.6769,Low multi-hazard score (0.32) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_064,Mahwa,RJ_TEHSIL_009,Rajgarh,53.0,0.3143,0.0,MODERATE_DEFICIT,0.95,0.2959,0.7453,0.7501,0.7148,Low multi-hazard score (0.31) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_064,Mahwa,RJ_TEHSIL_007,Tijara,54.8,0.3125,0.0,MODERATE_DEFICIT,0.95,0.2644,0.7476,0.7262,0.7009,Low multi-hazard score (0.31) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_065,Sikrai,RJ_TEHSIL_064,Mahwa,18.4,0.3453,0.0,MODERATE_DEFICIT,0.95,0.4717,0.7552,0.76,0.6698,Low multi-hazard score (0.35) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_065,Sikrai,RJ_TEHSIL_009,Rajgarh,67.8,0.3143,0.0,MODERATE_DEFICIT,0.95,0.2959,0.7453,0.7501,0.7148,Low multi-hazard score (0.31) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_065,Sikrai,RJ_TEHSIL_007,Tijara,68.6,0.3125,0.0,MODERATE_DEFICIT,0.95,0.2644,0.7476,0.7262,0.7009,Low multi-hazard score (0.31) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_066,Dholpur,RJ_TEHSIL_064,Mahwa,129.3,0.3453,0.0,MODERATE_DEFICIT,0.95,0.4717,0.7552,0.76,0.6698,Low multi-hazard score (0.35) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_066,Dholpur,RJ_TEHSIL_008,Behror,133.8,0.351,0.0,MODERATE_DEFICIT,0.95,0.3087,0.8006,0.7744,0.6564,Low multi-hazard score (0.35) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_066,Dholpur,RJ_TEHSIL_009,Rajgarh,134.6,0.3143,0.0,MODERATE_DEFICIT,0.95,0.2959,0.7453,0.7501,0.7148,Low multi-hazard score (0.31) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_067,Bari,RJ_TEHSIL_064,Mahwa,142.0,0.3453,0.0,MODERATE_DEFICIT,0.95,0.4717,0.7552,0.76,0.6698,Low multi-hazard score (0.35) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_067,Bari,RJ_TEHSIL_008,Behror,146.0,0.351,0.0,MODERATE_DEFICIT,0.95,0.3087,0.8006,0.7744,0.6564,Low multi-hazard score (0.35) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_067,Bari,RJ_TEHSIL_009,Rajgarh,147.1,0.3143,0.0,MODERATE_DEFICIT,0.95,0.2959,0.7453,0.7501,0.7148,Low multi-hazard score (0.31) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_068,Baseri,RJ_TEHSIL_064,Mahwa,127.5,0.3453,0.0,MODERATE_DEFICIT,0.95,0.4717,0.7552,0.76,0.6698,Low multi-hazard score (0.35) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_068,Baseri,RJ_TEHSIL_008,Behror,133.0,0.351,0.0,MODERATE_DEFICIT,0.95,0.3087,0.8006,0.7744,0.6564,Low multi-hazard score (0.35) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_068,Baseri,RJ_TEHSIL_009,Rajgarh,133.6,0.3143,0.0,MODERATE_DEFICIT,0.95,0.2959,0.7453,0.7501,0.7148,Low multi-hazard score (0.31) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_069,Rajakhera,RJ_TEHSIL_064,Mahwa,142.0,0.3453,0.0,MODERATE_DEFICIT,0.95,0.4717,0.7552,0.76,0.6698,Low multi-hazard score (0.35) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_069,Rajakhera,RJ_TEHSIL_008,Behror,146.0,0.351,0.0,MODERATE_DEFICIT,0.95,0.3087,0.8006,0.7744,0.6564,Low multi-hazard score (0.35) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_069,Rajakhera,RJ_TEHSIL_009,Rajgarh,147.1,0.3143,0.0,MODERATE_DEFICIT,0.95,0.2959,0.7453,0.7501,0.7148,Low multi-hazard score (0.31) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_070,Saipau,RJ_TEHSIL_064,Mahwa,137.8,0.3453,0.0,MODERATE_DEFICIT,0.95,0.4717,0.7552,0.76,0.6698,Low multi-hazard score (0.35) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_070,Saipau,RJ_TEHSIL_009,Rajgarh,149.7,0.3143,0.0,MODERATE_DEFICIT,0.95,0.2959,0.7453,0.7501,0.7148,Low multi-hazard score (0.31) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_070,Saipau,RJ_TEHSIL_008,Behror,150.2,0.351,0.0,MODERATE_DEFICIT,0.95,0.3087,0.8006,0.7744,0.6564,Low multi-hazard score (0.35) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_071,Dungarpur,RJ_TEHSIL_154,Nathdwara,142.8,0.3713,0.0,MODERATE_DEFICIT,0.95,0.5538,0.8508,0.7737,0.6614,Low multi-hazard score (0.37) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_071,Dungarpur,RJ_TEHSIL_157,Railmagra,162.0,0.3445,0.0,MODERATE_DEFICIT,0.95,0.5518,0.9052,0.7693,0.6594,Low multi-hazard score (0.34) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_071,Dungarpur,RJ_TEHSIL_037,Jahazpur,183.5,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_072,Sagwara,RJ_TEHSIL_154,Nathdwara,125.2,0.3713,0.0,MODERATE_DEFICIT,0.95,0.5538,0.8508,0.7737,0.6614,Low multi-hazard score (0.37) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_072,Sagwara,RJ_TEHSIL_157,Railmagra,144.9,0.3445,0.0,MODERATE_DEFICIT,0.95,0.5518,0.9052,0.7693,0.6594,Low multi-hazard score (0.34) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_072,Sagwara,RJ_TEHSIL_037,Jahazpur,164.2,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_073,Aspur,RJ_TEHSIL_154,Nathdwara,121.7,0.3713,0.0,MODERATE_DEFICIT,0.95,0.5538,0.8508,0.7737,0.6614,Low multi-hazard score (0.37) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_073,Aspur,RJ_TEHSIL_157,Railmagra,141.4,0.3445,0.0,MODERATE_DEFICIT,0.95,0.5518,0.9052,0.7693,0.6594,Low multi-hazard score (0.34) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_073,Aspur,RJ_TEHSIL_037,Jahazpur,161.1,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_074,Simalwara,RJ_TEHSIL_154,Nathdwara,132.7,0.3713,0.0,MODERATE_DEFICIT,0.95,0.5538,0.8508,0.7737,0.6614,Low multi-hazard score (0.37) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_074,Simalwara,RJ_TEHSIL_157,Railmagra,151.5,0.3445,0.0,MODERATE_DEFICIT,0.95,0.5518,0.9052,0.7693,0.6594,Low multi-hazard score (0.34) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_074,Simalwara,RJ_TEHSIL_037,Jahazpur,177.4,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_075,Bichhiwara,RJ_TEHSIL_154,Nathdwara,138.7,0.3713,0.0,MODERATE_DEFICIT,0.95,0.5538,0.8508,0.7737,0.6614,Low multi-hazard score (0.37) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_075,Bichhiwara,RJ_TEHSIL_157,Railmagra,157.8,0.3445,0.0,MODERATE_DEFICIT,0.95,0.5518,0.9052,0.7693,0.6594,Low multi-hazard score (0.34) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_075,Bichhiwara,RJ_TEHSIL_037,Jahazpur,180.6,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_076,Hanumangarh,RJ_TEHSIL_077,Pilibanga,11.0,0.3567,0.0,ADEQUATE,0.95,1.0,0.9209,0.7242,0.6467,Low multi-hazard score (0.36) in Hanumangarh with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_076,Hanumangarh,RJ_TEHSIL_060,Taranagar,137.5,0.3306,0.0,ADEQUATE,0.95,1.0,0.7202,0.7256,0.6913,Low multi-hazard score (0.33) in Churu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_076,Hanumangarh,RJ_TEHSIL_056,Ratangarh,144.5,0.2908,0.0,ADEQUATE,0.95,0.8811,0.7692,0.8804,0.7081,Low multi-hazard score (0.29) in Churu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_077,Pilibanga,RJ_TEHSIL_060,Taranagar,141.4,0.3306,0.0,ADEQUATE,0.95,1.0,0.7202,0.7256,0.6913,Low multi-hazard score (0.33) in Churu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_077,Pilibanga,RJ_TEHSIL_056,Ratangarh,148.0,0.2908,0.0,ADEQUATE,0.95,0.8811,0.7692,0.8804,0.7081,Low multi-hazard score (0.29) in Churu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_077,Pilibanga,RJ_TEHSIL_058,Sujangarh,150.7,0.2909,0.0,ADEQUATE,0.95,1.0,0.9183,0.8148,0.6841,Low multi-hazard score (0.29) in Churu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_078,Nohar,RJ_TEHSIL_077,Pilibanga,8.0,0.3567,0.0,ADEQUATE,0.95,1.0,0.9209,0.7242,0.6467,Low multi-hazard score (0.36) in Hanumangarh with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_078,Nohar,RJ_TEHSIL_060,Taranagar,147.5,0.3306,0.0,ADEQUATE,0.95,1.0,0.7202,0.7256,0.6913,Low multi-hazard score (0.33) in Churu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_078,Nohar,RJ_TEHSIL_056,Ratangarh,154.2,0.2908,0.0,ADEQUATE,0.95,0.8811,0.7692,0.8804,0.7081,Low multi-hazard score (0.29) in Churu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_079,Bhadra,RJ_TEHSIL_077,Pilibanga,20.3,0.3567,0.0,ADEQUATE,0.95,1.0,0.9209,0.7242,0.6467,Low multi-hazard score (0.36) in Hanumangarh with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_079,Bhadra,RJ_TEHSIL_060,Taranagar,122.0,0.3306,0.0,ADEQUATE,0.95,1.0,0.7202,0.7256,0.6913,Low multi-hazard score (0.33) in Churu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_079,Bhadra,RJ_TEHSIL_056,Ratangarh,128.8,0.2908,0.0,ADEQUATE,0.95,0.8811,0.7692,0.8804,0.7081,Low multi-hazard score (0.29) in Churu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_080,Sangaria,RJ_TEHSIL_077,Pilibanga,23.9,0.3567,0.0,ADEQUATE,0.95,1.0,0.9209,0.7242,0.6467,Low multi-hazard score (0.36) in Hanumangarh with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_080,Sangaria,RJ_TEHSIL_060,Taranagar,123.9,0.3306,0.0,ADEQUATE,0.95,1.0,0.7202,0.7256,0.6913,Low multi-hazard score (0.33) in Churu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_080,Sangaria,RJ_TEHSIL_056,Ratangarh,131.2,0.2908,0.0,ADEQUATE,0.95,0.8811,0.7692,0.8804,0.7081,Low multi-hazard score (0.29) in Churu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_081,Rawatsar,RJ_TEHSIL_077,Pilibanga,25.8,0.3567,0.0,ADEQUATE,0.95,1.0,0.9209,0.7242,0.6467,Low multi-hazard score (0.36) in Hanumangarh with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_081,Rawatsar,RJ_TEHSIL_060,Taranagar,148.9,0.3306,0.0,ADEQUATE,0.95,1.0,0.7202,0.7256,0.6913,Low multi-hazard score (0.33) in Churu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_081,Rawatsar,RJ_TEHSIL_056,Ratangarh,156.5,0.2908,0.0,ADEQUATE,0.95,0.8811,0.7692,0.8804,0.7081,Low multi-hazard score (0.29) in Churu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_082,Jaipur Urban,RJ_TEHSIL_065,Sikrai,54.3,0.3234,0.0,MODERATE_DEFICIT,0.95,0.5026,0.8949,0.7768,0.6769,Low multi-hazard score (0.32) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_082,Jaipur Urban,RJ_TEHSIL_064,Mahwa,69.6,0.3453,0.0,MODERATE_DEFICIT,0.95,0.4717,0.7552,0.76,0.6698,Low multi-hazard score (0.35) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_082,Jaipur Urban,RJ_TEHSIL_167,Fatehpur,91.9,0.3507,0.0,MODERATE_DEFICIT,0.95,0.5745,0.7758,0.7591,0.6804,Low multi-hazard score (0.35) in Sikar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_083,Sanganer,RJ_TEHSIL_065,Sikrai,48.4,0.3234,0.0,MODERATE_DEFICIT,0.95,0.5026,0.8949,0.7768,0.6769,Low multi-hazard score (0.32) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_083,Sanganer,RJ_TEHSIL_064,Mahwa,66.5,0.3453,0.0,MODERATE_DEFICIT,0.95,0.4717,0.7552,0.76,0.6698,Low multi-hazard score (0.35) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_083,Sanganer,RJ_TEHSIL_188,Uniara,88.2,0.3528,0.0,MODERATE_DEFICIT,0.95,0.6639,0.7812,0.8392,0.6299,Low multi-hazard score (0.35) in Tonk with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_084,Amber,RJ_TEHSIL_065,Sikrai,44.3,0.3234,0.0,MODERATE_DEFICIT,0.95,0.5026,0.8949,0.7768,0.6769,Low multi-hazard score (0.32) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_084,Amber,RJ_TEHSIL_064,Mahwa,58.8,0.3453,0.0,MODERATE_DEFICIT,0.95,0.4717,0.7552,0.76,0.6698,Low multi-hazard score (0.35) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_084,Amber,RJ_TEHSIL_010,Thanagazi,86.5,0.3626,0.0,MODERATE_DEFICIT,0.95,0.5174,0.6976,0.7216,0.634,Low multi-hazard score (0.36) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_085,Chomu,RJ_TEHSIL_065,Sikrai,59.8,0.3234,0.0,MODERATE_DEFICIT,0.95,0.5026,0.8949,0.7768,0.6769,Low multi-hazard score (0.32) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_085,Chomu,RJ_TEHSIL_064,Mahwa,76.4,0.3453,0.0,MODERATE_DEFICIT,0.95,0.4717,0.7552,0.76,0.6698,Low multi-hazard score (0.35) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_085,Chomu,RJ_TEHSIL_167,Fatehpur,96.7,0.3507,0.0,MODERATE_DEFICIT,0.95,0.5745,0.7758,0.7591,0.6804,Low multi-hazard score (0.35) in Sikar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_086,Kotputli,RJ_TEHSIL_065,Sikrai,34.1,0.3234,0.0,MODERATE_DEFICIT,0.95,0.5026,0.8949,0.7768,0.6769,Low multi-hazard score (0.32) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_086,Kotputli,RJ_TEHSIL_064,Mahwa,50.7,0.3453,0.0,MODERATE_DEFICIT,0.95,0.4717,0.7552,0.76,0.6698,Low multi-hazard score (0.35) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_086,Kotputli,RJ_TEHSIL_007,Tijara,87.5,0.3125,0.0,MODERATE_DEFICIT,0.95,0.2644,0.7476,0.7262,0.7009,Low multi-hazard score (0.31) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_087,Phulera,RJ_TEHSIL_065,Sikrai,49.7,0.3234,0.0,MODERATE_DEFICIT,0.95,0.5026,0.8949,0.7768,0.6769,Low multi-hazard score (0.32) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_087,Phulera,RJ_TEHSIL_064,Mahwa,67.8,0.3453,0.0,MODERATE_DEFICIT,0.95,0.4717,0.7552,0.76,0.6698,Low multi-hazard score (0.35) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_087,Phulera,RJ_TEHSIL_188,Uniara,87.1,0.3528,0.0,MODERATE_DEFICIT,0.95,0.6639,0.7812,0.8392,0.6299,Low multi-hazard score (0.35) in Tonk with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_088,Shahpura,RJ_TEHSIL_065,Sikrai,42.5,0.3234,0.0,MODERATE_DEFICIT,0.95,0.5026,0.8949,0.7768,0.6769,Low multi-hazard score (0.32) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_088,Shahpura,RJ_TEHSIL_064,Mahwa,57.4,0.3453,0.0,MODERATE_DEFICIT,0.95,0.4717,0.7552,0.76,0.6698,Low multi-hazard score (0.35) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_088,Shahpura,RJ_TEHSIL_010,Thanagazi,86.9,0.3626,0.0,MODERATE_DEFICIT,0.95,0.5174,0.6976,0.7216,0.634,Low multi-hazard score (0.36) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_089,Bassi,RJ_TEHSIL_065,Sikrai,42.6,0.3234,0.0,MODERATE_DEFICIT,0.95,0.5026,0.8949,0.7768,0.6769,Low multi-hazard score (0.32) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_089,Bassi,RJ_TEHSIL_064,Mahwa,58.7,0.3453,0.0,MODERATE_DEFICIT,0.95,0.4717,0.7552,0.76,0.6698,Low multi-hazard score (0.35) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_089,Bassi,RJ_TEHSIL_007,Tijara,92.0,0.3125,0.0,MODERATE_DEFICIT,0.95,0.2644,0.7476,0.7262,0.7009,Low multi-hazard score (0.31) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_090,Chaksu,RJ_TEHSIL_065,Sikrai,54.6,0.3234,0.0,MODERATE_DEFICIT,0.95,0.5026,0.8949,0.7768,0.6769,Low multi-hazard score (0.32) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_090,Chaksu,RJ_TEHSIL_064,Mahwa,72.0,0.3453,0.0,MODERATE_DEFICIT,0.95,0.4717,0.7552,0.76,0.6698,Low multi-hazard score (0.35) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_090,Chaksu,RJ_TEHSIL_188,Uniara,94.3,0.3528,0.0,MODERATE_DEFICIT,0.95,0.6639,0.7812,0.8392,0.6299,Low multi-hazard score (0.35) in Tonk with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_091,Jaisalmer,RJ_TEHSIL_114,Jodhpur Urban,194.7,0.3027,0.0,ADEQUATE,0.95,1.0,0.8221,0.8152,0.7059,Low multi-hazard score (0.30) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_091,Jaisalmer,RJ_TEHSIL_117,Osian,197.6,0.3446,0.0,ADEQUATE,0.95,0.9026,0.8343,0.7361,0.6721,Low multi-hazard score (0.34) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_091,Jaisalmer,RJ_TEHSIL_120,Bhopalgarh,205.8,0.3596,0.0,ADEQUATE,0.95,1.0,0.8097,0.7227,0.6326,Low multi-hazard score (0.36) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_092,Pokaran,RJ_TEHSIL_114,Jodhpur Urban,199.1,0.3027,0.0,ADEQUATE,0.95,1.0,0.8221,0.8152,0.7059,Low multi-hazard score (0.30) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_092,Pokaran,RJ_TEHSIL_117,Osian,202.0,0.3446,0.0,ADEQUATE,0.95,0.9026,0.8343,0.7361,0.6721,Low multi-hazard score (0.34) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_092,Pokaran,RJ_TEHSIL_120,Bhopalgarh,210.0,0.3596,0.0,ADEQUATE,0.95,1.0,0.8097,0.7227,0.6326,Low multi-hazard score (0.36) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_093,Fatehgarh,RJ_TEHSIL_114,Jodhpur Urban,196.1,0.3027,0.0,ADEQUATE,0.95,1.0,0.8221,0.8152,0.7059,Low multi-hazard score (0.30) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_093,Fatehgarh,RJ_TEHSIL_117,Osian,198.9,0.3446,0.0,ADEQUATE,0.95,0.9026,0.8343,0.7361,0.6721,Low multi-hazard score (0.34) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_093,Fatehgarh,RJ_TEHSIL_120,Bhopalgarh,206.4,0.3596,0.0,ADEQUATE,0.95,1.0,0.8097,0.7227,0.6326,Low multi-hazard score (0.36) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_094,Mohangarh,RJ_TEHSIL_114,Jodhpur Urban,204.3,0.3027,0.0,ADEQUATE,0.95,1.0,0.8221,0.8152,0.7059,Low multi-hazard score (0.30) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_094,Mohangarh,RJ_TEHSIL_117,Osian,207.3,0.3446,0.0,ADEQUATE,0.95,0.9026,0.8343,0.7361,0.6721,Low multi-hazard score (0.34) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_094,Mohangarh,RJ_TEHSIL_120,Bhopalgarh,216.0,0.3596,0.0,ADEQUATE,0.95,1.0,0.8097,0.7227,0.6326,Low multi-hazard score (0.36) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_095,Bhaniyana,RJ_TEHSIL_114,Jodhpur Urban,196.3,0.3027,0.0,ADEQUATE,0.95,1.0,0.8221,0.8152,0.7059,Low multi-hazard score (0.30) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_095,Bhaniyana,RJ_TEHSIL_117,Osian,199.3,0.3446,0.0,ADEQUATE,0.95,0.9026,0.8343,0.7361,0.6721,Low multi-hazard score (0.34) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_095,Bhaniyana,RJ_TEHSIL_120,Bhopalgarh,208.4,0.3596,0.0,ADEQUATE,0.95,1.0,0.8097,0.7227,0.6326,Low multi-hazard score (0.36) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_096,Jalore,RJ_TEHSIL_157,Railmagra,99.1,0.3445,0.0,MODERATE_DEFICIT,0.95,0.5518,0.9052,0.7693,0.6594,Low multi-hazard score (0.34) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_096,Jalore,RJ_TEHSIL_119,Luni,104.1,0.3015,0.0,ADEQUATE,0.95,0.8163,0.8668,0.7744,0.7056,Low multi-hazard score (0.30) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_096,Jalore,RJ_TEHSIL_118,Shergarh,106.0,0.2722,0.0,ADEQUATE,0.95,1.0,0.9254,0.9312,0.696,Low multi-hazard score (0.27) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_097,Ahore,RJ_TEHSIL_119,Luni,102.6,0.3015,0.0,ADEQUATE,0.95,0.8163,0.8668,0.7744,0.7056,Low multi-hazard score (0.30) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_097,Ahore,RJ_TEHSIL_118,Shergarh,104.7,0.2722,0.0,ADEQUATE,0.95,1.0,0.9254,0.9312,0.696,Low multi-hazard score (0.27) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_097,Ahore,RJ_TEHSIL_115,Bilara,113.3,0.2909,0.0,ADEQUATE,0.95,0.8609,0.8993,0.9359,0.7487,Low multi-hazard score (0.29) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_098,Bhinmal,RJ_TEHSIL_119,Luni,89.5,0.3015,0.0,ADEQUATE,0.95,0.8163,0.8668,0.7744,0.7056,Low multi-hazard score (0.30) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_098,Bhinmal,RJ_TEHSIL_118,Shergarh,91.5,0.2722,0.0,ADEQUATE,0.95,1.0,0.9254,0.9312,0.696,Low multi-hazard score (0.27) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_098,Bhinmal,RJ_TEHSIL_115,Bilara,100.7,0.2909,0.0,ADEQUATE,0.95,0.8609,0.8993,0.9359,0.7487,Low multi-hazard score (0.29) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_099,Sanchore,RJ_TEHSIL_119,Luni,100.5,0.3015,0.0,ADEQUATE,0.95,0.8163,0.8668,0.7744,0.7056,Low multi-hazard score (0.30) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_099,Sanchore,RJ_TEHSIL_118,Shergarh,102.5,0.2722,0.0,ADEQUATE,0.95,1.0,0.9254,0.9312,0.696,Low multi-hazard score (0.27) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_099,Sanchore,RJ_TEHSIL_157,Railmagra,105.0,0.3445,0.0,MODERATE_DEFICIT,0.95,0.5518,0.9052,0.7693,0.6594,Low multi-hazard score (0.34) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_100,Raniwara,RJ_TEHSIL_119,Luni,111.6,0.3015,0.0,ADEQUATE,0.95,0.8163,0.8668,0.7744,0.7056,Low multi-hazard score (0.30) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_100,Raniwara,RJ_TEHSIL_118,Shergarh,113.7,0.2722,0.0,ADEQUATE,0.95,1.0,0.9254,0.9312,0.696,Low multi-hazard score (0.27) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_100,Raniwara,RJ_TEHSIL_157,Railmagra,121.3,0.3445,0.0,MODERATE_DEFICIT,0.95,0.5518,0.9052,0.7693,0.6594,Low multi-hazard score (0.34) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_101,Bagoda,RJ_TEHSIL_119,Luni,91.9,0.3015,0.0,ADEQUATE,0.95,0.8163,0.8668,0.7744,0.7056,Low multi-hazard score (0.30) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_101,Bagoda,RJ_TEHSIL_118,Shergarh,94.0,0.2722,0.0,ADEQUATE,0.95,1.0,0.9254,0.9312,0.696,Low multi-hazard score (0.27) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_101,Bagoda,RJ_TEHSIL_115,Bilara,102.9,0.2909,0.0,ADEQUATE,0.95,0.8609,0.8993,0.9359,0.7487,Low multi-hazard score (0.29) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_102,Jhalrapatan,RJ_TEHSIL_037,Jahazpur,169.2,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_102,Jhalrapatan,RJ_TEHSIL_188,Uniara,170.2,0.3528,0.0,MODERATE_DEFICIT,0.95,0.6639,0.7812,0.8392,0.6299,Low multi-hazard score (0.35) in Tonk with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_102,Jhalrapatan,RJ_TEHSIL_154,Nathdwara,230.3,0.3713,0.0,MODERATE_DEFICIT,0.95,0.5538,0.8508,0.7737,0.6614,Low multi-hazard score (0.37) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_103,Aklera,RJ_TEHSIL_037,Jahazpur,161.8,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_103,Aklera,RJ_TEHSIL_188,Uniara,174.2,0.3528,0.0,MODERATE_DEFICIT,0.95,0.6639,0.7812,0.8392,0.6299,Low multi-hazard score (0.35) in Tonk with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_103,Aklera,RJ_TEHSIL_154,Nathdwara,220.5,0.3713,0.0,MODERATE_DEFICIT,0.95,0.5538,0.8508,0.7737,0.6614,Low multi-hazard score (0.37) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_104,Pirawa,RJ_TEHSIL_188,Uniara,151.2,0.3528,0.0,MODERATE_DEFICIT,0.95,0.6639,0.7812,0.8392,0.6299,Low multi-hazard score (0.35) in Tonk with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_104,Pirawa,RJ_TEHSIL_037,Jahazpur,171.0,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_104,Pirawa,RJ_TEHSIL_154,Nathdwara,237.1,0.3713,0.0,MODERATE_DEFICIT,0.95,0.5538,0.8508,0.7737,0.6614,Low multi-hazard score (0.37) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_105,Khanpur,RJ_TEHSIL_188,Uniara,156.2,0.3528,0.0,MODERATE_DEFICIT,0.95,0.6639,0.7812,0.8392,0.6299,Low multi-hazard score (0.35) in Tonk with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_105,Khanpur,RJ_TEHSIL_037,Jahazpur,162.5,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_105,Khanpur,RJ_TEHSIL_154,Nathdwara,226.4,0.3713,0.0,MODERATE_DEFICIT,0.95,0.5538,0.8508,0.7737,0.6614,Low multi-hazard score (0.37) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_106,Manohar Thana,RJ_TEHSIL_037,Jahazpur,163.5,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_106,Manohar Thana,RJ_TEHSIL_188,Uniara,171.7,0.3528,0.0,MODERATE_DEFICIT,0.95,0.6639,0.7812,0.8392,0.6299,Low multi-hazard score (0.35) in Tonk with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_106,Manohar Thana,RJ_TEHSIL_154,Nathdwara,223.3,0.3713,0.0,MODERATE_DEFICIT,0.95,0.5538,0.8508,0.7737,0.6614,Low multi-hazard score (0.37) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_107,Gangdhar,RJ_TEHSIL_188,Uniara,171.6,0.3528,0.0,MODERATE_DEFICIT,0.95,0.6639,0.7812,0.8392,0.6299,Low multi-hazard score (0.35) in Tonk with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_107,Gangdhar,RJ_TEHSIL_037,Jahazpur,172.4,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_107,Gangdhar,RJ_TEHSIL_154,Nathdwara,233.5,0.3713,0.0,MODERATE_DEFICIT,0.95,0.5538,0.8508,0.7737,0.6614,Low multi-hazard score (0.37) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_108,Jhunjhunu,RJ_TEHSIL_111,Khetri,19.7,0.3567,0.0,MODERATE_DEFICIT,0.95,0.6089,0.7697,0.7635,0.676,Low multi-hazard score (0.36) in Jhunjhunu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_108,Jhunjhunu,RJ_TEHSIL_055,Churu,37.3,0.303,0.0,ADEQUATE,0.95,0.9009,0.7897,0.7849,0.7415,Low multi-hazard score (0.30) in Churu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_108,Jhunjhunu,RJ_TEHSIL_059,Rajgarh,47.8,0.2872,0.0,ADEQUATE,0.95,1.0,0.859,0.8024,0.6994,Low multi-hazard score (0.29) in Churu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_109,Nawalgarh,RJ_TEHSIL_111,Khetri,9.9,0.3567,0.0,MODERATE_DEFICIT,0.95,0.6089,0.7697,0.7635,0.676,Low multi-hazard score (0.36) in Jhunjhunu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_109,Nawalgarh,RJ_TEHSIL_108,Jhunjhunu,12.3,0.3518,0.0,MODERATE_DEFICIT,0.95,0.6393,0.695,0.7716,0.6631,Low multi-hazard score (0.35) in Jhunjhunu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_109,Nawalgarh,RJ_TEHSIL_055,Churu,37.1,0.303,0.0,ADEQUATE,0.95,0.9009,0.7897,0.7849,0.7415,Low multi-hazard score (0.30) in Churu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_110,Udaipurwati,RJ_TEHSIL_108,Jhunjhunu,12.6,0.3518,0.0,MODERATE_DEFICIT,0.95,0.6393,0.695,0.7716,0.6631,Low multi-hazard score (0.35) in Jhunjhunu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_110,Udaipurwati,RJ_TEHSIL_111,Khetri,21.4,0.3567,0.0,MODERATE_DEFICIT,0.95,0.6089,0.7697,0.7635,0.676,Low multi-hazard score (0.36) in Jhunjhunu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_110,Udaipurwati,RJ_TEHSIL_055,Churu,26.3,0.303,0.0,ADEQUATE,0.95,0.9009,0.7897,0.7849,0.7415,Low multi-hazard score (0.30) in Churu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_111,Khetri,RJ_TEHSIL_108,Jhunjhunu,19.7,0.3518,0.0,MODERATE_DEFICIT,0.95,0.6393,0.695,0.7716,0.6631,Low multi-hazard score (0.35) in Jhunjhunu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_111,Khetri,RJ_TEHSIL_055,Churu,30.6,0.303,0.0,ADEQUATE,0.95,0.9009,0.7897,0.7849,0.7415,Low multi-hazard score (0.30) in Churu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_111,Khetri,RJ_TEHSIL_167,Fatehpur,35.0,0.3507,0.0,MODERATE_DEFICIT,0.95,0.5745,0.7758,0.7591,0.6804,Low multi-hazard score (0.35) in Sikar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_112,Chirawa,RJ_TEHSIL_108,Jhunjhunu,22.8,0.3518,0.0,MODERATE_DEFICIT,0.95,0.6393,0.695,0.7716,0.6631,Low multi-hazard score (0.35) in Jhunjhunu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_112,Chirawa,RJ_TEHSIL_111,Khetri,23.4,0.3567,0.0,MODERATE_DEFICIT,0.95,0.6089,0.7697,0.7635,0.676,Low multi-hazard score (0.36) in Jhunjhunu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_112,Chirawa,RJ_TEHSIL_167,Fatehpur,43.7,0.3507,0.0,MODERATE_DEFICIT,0.95,0.5745,0.7758,0.7591,0.6804,Low multi-hazard score (0.35) in Sikar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_113,Buhana,RJ_TEHSIL_108,Jhunjhunu,3.4,0.3518,0.0,MODERATE_DEFICIT,0.95,0.6393,0.695,0.7716,0.6631,Low multi-hazard score (0.35) in Jhunjhunu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_113,Buhana,RJ_TEHSIL_111,Khetri,23.1,0.3567,0.0,MODERATE_DEFICIT,0.95,0.6089,0.7697,0.7635,0.676,Low multi-hazard score (0.36) in Jhunjhunu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_113,Buhana,RJ_TEHSIL_055,Churu,39.1,0.303,0.0,ADEQUATE,0.95,0.9009,0.7897,0.7849,0.7415,Low multi-hazard score (0.30) in Churu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_114,Jodhpur Urban,RJ_TEHSIL_117,Osian,3.5,0.3446,0.0,ADEQUATE,0.95,0.9026,0.8343,0.7361,0.6721,Low multi-hazard score (0.34) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_114,Jodhpur Urban,RJ_TEHSIL_120,Bhopalgarh,18.3,0.3596,0.0,ADEQUATE,0.95,1.0,0.8097,0.7227,0.6326,Low multi-hazard score (0.36) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_114,Jodhpur Urban,RJ_TEHSIL_115,Bilara,18.8,0.2909,0.0,ADEQUATE,0.95,0.8609,0.8993,0.9359,0.7487,Low multi-hazard score (0.29) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_115,Bilara,RJ_TEHSIL_116,Phalodi,7.9,0.3273,0.0,ADEQUATE,0.95,1.0,0.9274,0.9389,0.706,Low multi-hazard score (0.33) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_115,Bilara,RJ_TEHSIL_118,Shergarh,10.1,0.2722,0.0,ADEQUATE,0.95,1.0,0.9254,0.9312,0.696,Low multi-hazard score (0.27) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_115,Bilara,RJ_TEHSIL_119,Luni,11.6,0.3015,0.0,ADEQUATE,0.95,0.8163,0.8668,0.7744,0.7056,Low multi-hazard score (0.30) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_116,Phalodi,RJ_TEHSIL_115,Bilara,7.9,0.2909,0.0,ADEQUATE,0.95,0.8609,0.8993,0.9359,0.7487,Low multi-hazard score (0.29) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_116,Phalodi,RJ_TEHSIL_118,Shergarh,15.7,0.2722,0.0,ADEQUATE,0.95,1.0,0.9254,0.9312,0.696,Low multi-hazard score (0.27) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_116,Phalodi,RJ_TEHSIL_120,Bhopalgarh,16.7,0.3596,0.0,ADEQUATE,0.95,1.0,0.8097,0.7227,0.6326,Low multi-hazard score (0.36) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_117,Osian,RJ_TEHSIL_114,Jodhpur Urban,3.5,0.3027,0.0,ADEQUATE,0.95,1.0,0.8221,0.8152,0.7059,Low multi-hazard score (0.30) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_117,Osian,RJ_TEHSIL_120,Bhopalgarh,15.1,0.3596,0.0,ADEQUATE,0.95,1.0,0.8097,0.7227,0.6326,Low multi-hazard score (0.36) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_117,Osian,RJ_TEHSIL_115,Bilara,16.3,0.2909,0.0,ADEQUATE,0.95,0.8609,0.8993,0.9359,0.7487,Low multi-hazard score (0.29) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_118,Shergarh,RJ_TEHSIL_119,Luni,2.2,0.3015,0.0,ADEQUATE,0.95,0.8163,0.8668,0.7744,0.7056,Low multi-hazard score (0.30) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_118,Shergarh,RJ_TEHSIL_115,Bilara,10.1,0.2909,0.0,ADEQUATE,0.95,0.8609,0.8993,0.9359,0.7487,Low multi-hazard score (0.29) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_118,Shergarh,RJ_TEHSIL_116,Phalodi,15.7,0.3273,0.0,ADEQUATE,0.95,1.0,0.9274,0.9389,0.706,Low multi-hazard score (0.33) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_119,Luni,RJ_TEHSIL_118,Shergarh,2.2,0.2722,0.0,ADEQUATE,0.95,1.0,0.9254,0.9312,0.696,Low multi-hazard score (0.27) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_119,Luni,RJ_TEHSIL_115,Bilara,11.6,0.2909,0.0,ADEQUATE,0.95,0.8609,0.8993,0.9359,0.7487,Low multi-hazard score (0.29) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_119,Luni,RJ_TEHSIL_116,Phalodi,17.7,0.3273,0.0,ADEQUATE,0.95,1.0,0.9274,0.9389,0.706,Low multi-hazard score (0.33) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_120,Bhopalgarh,RJ_TEHSIL_117,Osian,15.1,0.3446,0.0,ADEQUATE,0.95,0.9026,0.8343,0.7361,0.6721,Low multi-hazard score (0.34) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_120,Bhopalgarh,RJ_TEHSIL_116,Phalodi,16.7,0.3273,0.0,ADEQUATE,0.95,1.0,0.9274,0.9389,0.706,Low multi-hazard score (0.33) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_120,Bhopalgarh,RJ_TEHSIL_114,Jodhpur Urban,18.3,0.3027,0.0,ADEQUATE,0.95,1.0,0.8221,0.8152,0.7059,Low multi-hazard score (0.30) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_121,Karauli,RJ_TEHSIL_064,Mahwa,91.1,0.3453,0.0,MODERATE_DEFICIT,0.95,0.4717,0.7552,0.76,0.6698,Low multi-hazard score (0.35) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_121,Karauli,RJ_TEHSIL_065,Sikrai,98.8,0.3234,0.0,MODERATE_DEFICIT,0.95,0.5026,0.8949,0.7768,0.6769,Low multi-hazard score (0.32) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_121,Karauli,RJ_TEHSIL_009,Rajgarh,121.8,0.3143,0.0,MODERATE_DEFICIT,0.95,0.2959,0.7453,0.7501,0.7148,Low multi-hazard score (0.31) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_122,Hindaun,RJ_TEHSIL_064,Mahwa,63.2,0.3453,0.0,MODERATE_DEFICIT,0.95,0.4717,0.7552,0.76,0.6698,Low multi-hazard score (0.35) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_122,Hindaun,RJ_TEHSIL_065,Sikrai,71.0,0.3234,0.0,MODERATE_DEFICIT,0.95,0.5026,0.8949,0.7768,0.6769,Low multi-hazard score (0.32) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_122,Hindaun,RJ_TEHSIL_009,Rajgarh,97.8,0.3143,0.0,MODERATE_DEFICIT,0.95,0.2959,0.7453,0.7501,0.7148,Low multi-hazard score (0.31) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_123,Todabhim,RJ_TEHSIL_064,Mahwa,83.3,0.3453,0.0,MODERATE_DEFICIT,0.95,0.4717,0.7552,0.76,0.6698,Low multi-hazard score (0.35) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_123,Todabhim,RJ_TEHSIL_065,Sikrai,86.1,0.3234,0.0,MODERATE_DEFICIT,0.95,0.5026,0.8949,0.7768,0.6769,Low multi-hazard score (0.32) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_123,Todabhim,RJ_TEHSIL_188,Uniara,118.6,0.3528,0.0,MODERATE_DEFICIT,0.95,0.6639,0.7812,0.8392,0.6299,Low multi-hazard score (0.35) in Tonk with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_124,Sapotra,RJ_TEHSIL_064,Mahwa,84.7,0.3453,0.0,MODERATE_DEFICIT,0.95,0.4717,0.7552,0.76,0.6698,Low multi-hazard score (0.35) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_124,Sapotra,RJ_TEHSIL_065,Sikrai,87.3,0.3234,0.0,MODERATE_DEFICIT,0.95,0.5026,0.8949,0.7768,0.6769,Low multi-hazard score (0.32) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_124,Sapotra,RJ_TEHSIL_188,Uniara,117.9,0.3528,0.0,MODERATE_DEFICIT,0.95,0.6639,0.7812,0.8392,0.6299,Low multi-hazard score (0.35) in Tonk with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_125,Mandrail,RJ_TEHSIL_064,Mahwa,66.1,0.3453,0.0,MODERATE_DEFICIT,0.95,0.4717,0.7552,0.76,0.6698,Low multi-hazard score (0.35) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_125,Mandrail,RJ_TEHSIL_065,Sikrai,72.0,0.3234,0.0,MODERATE_DEFICIT,0.95,0.5026,0.8949,0.7768,0.6769,Low multi-hazard score (0.32) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_125,Mandrail,RJ_TEHSIL_009,Rajgarh,104.0,0.3143,0.0,MODERATE_DEFICIT,0.95,0.2959,0.7453,0.7501,0.7148,Low multi-hazard score (0.31) in Alwar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_126,Kota Urban,RJ_TEHSIL_188,Uniara,87.7,0.3528,0.0,MODERATE_DEFICIT,0.95,0.6639,0.7812,0.8392,0.6299,Low multi-hazard score (0.35) in Tonk with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_126,Kota Urban,RJ_TEHSIL_037,Jahazpur,124.9,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_126,Kota Urban,RJ_TEHSIL_005,Kekri,178.2,0.3097,0.0,MODERATE_DEFICIT,0.95,0.608,0.6963,0.7613,0.7341,Low multi-hazard score (0.31) in Ajmer with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_127,Ladpura,RJ_TEHSIL_188,Uniara,82.3,0.3528,0.0,MODERATE_DEFICIT,0.95,0.6639,0.7812,0.8392,0.6299,Low multi-hazard score (0.35) in Tonk with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_127,Ladpura,RJ_TEHSIL_037,Jahazpur,128.2,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_127,Ladpura,RJ_TEHSIL_005,Kekri,176.2,0.3097,0.0,MODERATE_DEFICIT,0.95,0.608,0.6963,0.7613,0.7341,Low multi-hazard score (0.31) in Ajmer with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_128,Digod,RJ_TEHSIL_188,Uniara,83.3,0.3528,0.0,MODERATE_DEFICIT,0.95,0.6639,0.7812,0.8392,0.6299,Low multi-hazard score (0.35) in Tonk with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_128,Digod,RJ_TEHSIL_037,Jahazpur,115.0,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_128,Digod,RJ_TEHSIL_005,Kekri,168.6,0.3097,0.0,MODERATE_DEFICIT,0.95,0.608,0.6963,0.7613,0.7341,Low multi-hazard score (0.31) in Ajmer with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_129,Sangod,RJ_TEHSIL_188,Uniara,105.3,0.3528,0.0,MODERATE_DEFICIT,0.95,0.6639,0.7812,0.8392,0.6299,Low multi-hazard score (0.35) in Tonk with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_129,Sangod,RJ_TEHSIL_037,Jahazpur,129.2,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_129,Sangod,RJ_TEHSIL_005,Kekri,193.0,0.3097,0.0,MODERATE_DEFICIT,0.95,0.608,0.6963,0.7613,0.7341,Low multi-hazard score (0.31) in Ajmer with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_130,Ramganj Mandi,RJ_TEHSIL_188,Uniara,86.2,0.3528,0.0,MODERATE_DEFICIT,0.95,0.6639,0.7812,0.8392,0.6299,Low multi-hazard score (0.35) in Tonk with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_130,Ramganj Mandi,RJ_TEHSIL_037,Jahazpur,135.4,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_130,Ramganj Mandi,RJ_TEHSIL_005,Kekri,183.3,0.3097,0.0,MODERATE_DEFICIT,0.95,0.608,0.6963,0.7613,0.7341,Low multi-hazard score (0.31) in Ajmer with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_131,Pipalda,RJ_TEHSIL_188,Uniara,96.4,0.3528,0.0,MODERATE_DEFICIT,0.95,0.6639,0.7812,0.8392,0.6299,Low multi-hazard score (0.35) in Tonk with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_131,Pipalda,RJ_TEHSIL_037,Jahazpur,117.6,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_131,Pipalda,RJ_TEHSIL_005,Kekri,179.9,0.3097,0.0,MODERATE_DEFICIT,0.95,0.608,0.6963,0.7613,0.7341,Low multi-hazard score (0.31) in Ajmer with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_132,Nagaur,RJ_TEHSIL_134,Degana,3.4,0.22,0.0,ADEQUATE,0.95,1.0,0.7383,0.8659,0.7357,Low multi-hazard score (0.22) in Nagaur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_132,Nagaur,RJ_TEHSIL_133,Merta,5.9,0.2121,0.0,MODERATE_DEFICIT,0.95,0.6737,0.7388,0.7869,0.7419,Low multi-hazard score (0.21) in Nagaur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_132,Nagaur,RJ_TEHSIL_138,Kuchaman,11.5,0.262,0.0,MODERATE_DEFICIT,0.95,0.8416,0.7571,0.8772,0.7292,Low multi-hazard score (0.26) in Nagaur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_133,Merta,RJ_TEHSIL_134,Degana,3.0,0.22,0.0,ADEQUATE,0.95,1.0,0.7383,0.8659,0.7357,Low multi-hazard score (0.22) in Nagaur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_133,Merta,RJ_TEHSIL_132,Nagaur,5.9,0.2263,0.0,ADEQUATE,0.95,0.9765,0.7132,0.8884,0.8046,Low multi-hazard score (0.23) in Nagaur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_133,Merta,RJ_TEHSIL_138,Kuchaman,12.3,0.262,0.0,MODERATE_DEFICIT,0.95,0.8416,0.7571,0.8772,0.7292,Low multi-hazard score (0.26) in Nagaur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_134,Degana,RJ_TEHSIL_133,Merta,3.0,0.2121,0.0,MODERATE_DEFICIT,0.95,0.6737,0.7388,0.7869,0.7419,Low multi-hazard score (0.21) in Nagaur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_134,Degana,RJ_TEHSIL_132,Nagaur,3.4,0.2263,0.0,ADEQUATE,0.95,0.9765,0.7132,0.8884,0.8046,Low multi-hazard score (0.23) in Nagaur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_134,Degana,RJ_TEHSIL_138,Kuchaman,12.8,0.262,0.0,MODERATE_DEFICIT,0.95,0.8416,0.7571,0.8772,0.7292,Low multi-hazard score (0.26) in Nagaur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_135,Didwana,RJ_TEHSIL_136,Ladnun,17.1,0.2261,0.0,ADEQUATE,0.95,1.0,0.8761,0.8065,0.729,Low multi-hazard score (0.23) in Nagaur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_135,Didwana,RJ_TEHSIL_138,Kuchaman,20.3,0.262,0.0,MODERATE_DEFICIT,0.95,0.8416,0.7571,0.8772,0.7292,Low multi-hazard score (0.26) in Nagaur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_135,Didwana,RJ_TEHSIL_139,Makrana,22.9,0.2335,0.0,ADEQUATE,0.95,1.0,0.9226,0.9021,0.772,Low multi-hazard score (0.23) in Nagaur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_136,Ladnun,RJ_TEHSIL_139,Makrana,11.9,0.2335,0.0,ADEQUATE,0.95,1.0,0.9226,0.9021,0.772,Low multi-hazard score (0.23) in Nagaur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_136,Ladnun,RJ_TEHSIL_135,Didwana,17.1,0.2366,0.0,ADEQUATE,0.95,0.8721,0.8653,0.8997,0.7729,Low multi-hazard score (0.24) in Nagaur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_136,Ladnun,RJ_TEHSIL_138,Kuchaman,18.4,0.262,0.0,MODERATE_DEFICIT,0.95,0.8416,0.7571,0.8772,0.7292,Low multi-hazard score (0.26) in Nagaur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_137,Jayal,RJ_TEHSIL_132,Nagaur,12.9,0.2263,0.0,ADEQUATE,0.95,0.9765,0.7132,0.8884,0.8046,Low multi-hazard score (0.23) in Nagaur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_137,Jayal,RJ_TEHSIL_138,Kuchaman,15.5,0.262,0.0,MODERATE_DEFICIT,0.95,0.8416,0.7571,0.8772,0.7292,Low multi-hazard score (0.26) in Nagaur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_137,Jayal,RJ_TEHSIL_134,Degana,16.3,0.22,0.0,ADEQUATE,0.95,1.0,0.7383,0.8659,0.7357,Low multi-hazard score (0.22) in Nagaur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_138,Kuchaman,RJ_TEHSIL_139,Makrana,10.6,0.2335,0.0,ADEQUATE,0.95,1.0,0.9226,0.9021,0.772,Low multi-hazard score (0.23) in Nagaur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_138,Kuchaman,RJ_TEHSIL_132,Nagaur,11.5,0.2263,0.0,ADEQUATE,0.95,0.9765,0.7132,0.8884,0.8046,Low multi-hazard score (0.23) in Nagaur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_138,Kuchaman,RJ_TEHSIL_133,Merta,12.3,0.2121,0.0,MODERATE_DEFICIT,0.95,0.6737,0.7388,0.7869,0.7419,Low multi-hazard score (0.21) in Nagaur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_139,Makrana,RJ_TEHSIL_138,Kuchaman,10.6,0.262,0.0,MODERATE_DEFICIT,0.95,0.8416,0.7571,0.8772,0.7292,Low multi-hazard score (0.26) in Nagaur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_139,Makrana,RJ_TEHSIL_136,Ladnun,11.9,0.2261,0.0,ADEQUATE,0.95,1.0,0.8761,0.8065,0.729,Low multi-hazard score (0.23) in Nagaur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_139,Makrana,RJ_TEHSIL_133,Merta,12.6,0.2121,0.0,MODERATE_DEFICIT,0.95,0.6737,0.7388,0.7869,0.7419,Low multi-hazard score (0.21) in Nagaur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_140,Pali,RJ_TEHSIL_119,Luni,42.4,0.3015,0.0,ADEQUATE,0.95,0.8163,0.8668,0.7744,0.7056,Low multi-hazard score (0.30) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_140,Pali,RJ_TEHSIL_118,Shergarh,42.7,0.2722,0.0,ADEQUATE,0.95,1.0,0.9254,0.9312,0.696,Low multi-hazard score (0.27) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_140,Pali,RJ_TEHSIL_115,Bilara,51.7,0.2909,0.0,ADEQUATE,0.95,0.8609,0.8993,0.9359,0.7487,Low multi-hazard score (0.29) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_141,Sumerpur,RJ_TEHSIL_118,Shergarh,32.0,0.2722,0.0,ADEQUATE,0.95,1.0,0.9254,0.9312,0.696,Low multi-hazard score (0.27) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_141,Sumerpur,RJ_TEHSIL_119,Luni,32.0,0.3015,0.0,ADEQUATE,0.95,0.8163,0.8668,0.7744,0.7056,Low multi-hazard score (0.30) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_141,Sumerpur,RJ_TEHSIL_115,Bilara,40.6,0.2909,0.0,ADEQUATE,0.95,0.8609,0.8993,0.9359,0.7487,Low multi-hazard score (0.29) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_142,Sojat,RJ_TEHSIL_119,Luni,51.4,0.3015,0.0,ADEQUATE,0.95,0.8163,0.8668,0.7744,0.7056,Low multi-hazard score (0.30) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_142,Sojat,RJ_TEHSIL_118,Shergarh,52.4,0.2722,0.0,ADEQUATE,0.95,1.0,0.9254,0.9312,0.696,Low multi-hazard score (0.27) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_142,Sojat,RJ_TEHSIL_115,Bilara,62.3,0.2909,0.0,ADEQUATE,0.95,0.8609,0.8993,0.9359,0.7487,Low multi-hazard score (0.29) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_143,Jaitaran,RJ_TEHSIL_118,Shergarh,40.3,0.2722,0.0,ADEQUATE,0.95,1.0,0.9254,0.9312,0.696,Low multi-hazard score (0.27) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_143,Jaitaran,RJ_TEHSIL_119,Luni,40.4,0.3015,0.0,ADEQUATE,0.95,0.8163,0.8668,0.7744,0.7056,Low multi-hazard score (0.30) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_143,Jaitaran,RJ_TEHSIL_115,Bilara,48.3,0.2909,0.0,ADEQUATE,0.95,0.8609,0.8993,0.9359,0.7487,Low multi-hazard score (0.29) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_144,Bali,RJ_TEHSIL_119,Luni,51.5,0.3015,0.0,ADEQUATE,0.95,0.8163,0.8668,0.7744,0.7056,Low multi-hazard score (0.30) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_144,Bali,RJ_TEHSIL_118,Shergarh,52.5,0.2722,0.0,ADEQUATE,0.95,1.0,0.9254,0.9312,0.696,Low multi-hazard score (0.27) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_144,Bali,RJ_TEHSIL_115,Bilara,62.4,0.2909,0.0,ADEQUATE,0.95,0.8609,0.8993,0.9359,0.7487,Low multi-hazard score (0.29) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_145,Marwar Junction,RJ_TEHSIL_119,Luni,32.6,0.3015,0.0,ADEQUATE,0.95,0.8163,0.8668,0.7744,0.7056,Low multi-hazard score (0.30) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_145,Marwar Junction,RJ_TEHSIL_118,Shergarh,33.3,0.2722,0.0,ADEQUATE,0.95,1.0,0.9254,0.9312,0.696,Low multi-hazard score (0.27) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_145,Marwar Junction,RJ_TEHSIL_115,Bilara,43.0,0.2909,0.0,ADEQUATE,0.95,0.8609,0.8993,0.9359,0.7487,Low multi-hazard score (0.29) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_146,Desuri,RJ_TEHSIL_118,Shergarh,40.7,0.2722,0.0,ADEQUATE,0.95,1.0,0.9254,0.9312,0.696,Low multi-hazard score (0.27) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_146,Desuri,RJ_TEHSIL_119,Luni,41.0,0.3015,0.0,ADEQUATE,0.95,0.8163,0.8668,0.7744,0.7056,Low multi-hazard score (0.30) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_146,Desuri,RJ_TEHSIL_116,Phalodi,48.0,0.3273,0.0,ADEQUATE,0.95,1.0,0.9274,0.9389,0.706,Low multi-hazard score (0.33) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_147,Rohat,RJ_TEHSIL_119,Luni,52.1,0.3015,0.0,ADEQUATE,0.95,0.8163,0.8668,0.7744,0.7056,Low multi-hazard score (0.30) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_147,Rohat,RJ_TEHSIL_118,Shergarh,53.1,0.2722,0.0,ADEQUATE,0.95,1.0,0.9254,0.9312,0.696,Low multi-hazard score (0.27) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_147,Rohat,RJ_TEHSIL_115,Bilara,63.1,0.2909,0.0,ADEQUATE,0.95,0.8609,0.8993,0.9359,0.7487,Low multi-hazard score (0.29) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_148,Pratapgarh,RJ_TEHSIL_037,Jahazpur,118.4,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_148,Pratapgarh,RJ_TEHSIL_154,Nathdwara,138.1,0.3713,0.0,MODERATE_DEFICIT,0.95,0.5538,0.8508,0.7737,0.6614,Low multi-hazard score (0.37) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_148,Pratapgarh,RJ_TEHSIL_157,Railmagra,157.2,0.3445,0.0,MODERATE_DEFICIT,0.95,0.5518,0.9052,0.7693,0.6594,Low multi-hazard score (0.34) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_149,Dhariawad,RJ_TEHSIL_037,Jahazpur,135.6,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_149,Dhariawad,RJ_TEHSIL_154,Nathdwara,141.0,0.3713,0.0,MODERATE_DEFICIT,0.95,0.5538,0.8508,0.7737,0.6614,Low multi-hazard score (0.37) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_149,Dhariawad,RJ_TEHSIL_157,Railmagra,161.4,0.3445,0.0,MODERATE_DEFICIT,0.95,0.5518,0.9052,0.7693,0.6594,Low multi-hazard score (0.34) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_150,Arnod,RJ_TEHSIL_037,Jahazpur,124.0,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_150,Arnod,RJ_TEHSIL_154,Nathdwara,139.2,0.3713,0.0,MODERATE_DEFICIT,0.95,0.5538,0.8508,0.7737,0.6614,Low multi-hazard score (0.37) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_150,Arnod,RJ_TEHSIL_157,Railmagra,158.7,0.3445,0.0,MODERATE_DEFICIT,0.95,0.5518,0.9052,0.7693,0.6594,Low multi-hazard score (0.34) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_151,Chhoti Sadri,RJ_TEHSIL_037,Jahazpur,137.6,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_151,Chhoti Sadri,RJ_TEHSIL_154,Nathdwara,154.6,0.3713,0.0,MODERATE_DEFICIT,0.95,0.5538,0.8508,0.7737,0.6614,Low multi-hazard score (0.37) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_151,Chhoti Sadri,RJ_TEHSIL_157,Railmagra,174.1,0.3445,0.0,MODERATE_DEFICIT,0.95,0.5518,0.9052,0.7693,0.6594,Low multi-hazard score (0.34) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_152,Peepalkhoont,RJ_TEHSIL_037,Jahazpur,145.6,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_152,Peepalkhoont,RJ_TEHSIL_154,Nathdwara,155.1,0.3713,0.0,MODERATE_DEFICIT,0.95,0.5538,0.8508,0.7737,0.6614,Low multi-hazard score (0.37) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_152,Peepalkhoont,RJ_TEHSIL_157,Railmagra,175.3,0.3445,0.0,MODERATE_DEFICIT,0.95,0.5518,0.9052,0.7693,0.6594,Low multi-hazard score (0.34) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_153,Rajsamand,RJ_TEHSIL_154,Nathdwara,20.7,0.3713,0.0,MODERATE_DEFICIT,0.95,0.5538,0.8508,0.7737,0.6614,Low multi-hazard score (0.37) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_153,Rajsamand,RJ_TEHSIL_157,Railmagra,29.4,0.3445,0.0,MODERATE_DEFICIT,0.95,0.5518,0.9052,0.7693,0.6594,Low multi-hazard score (0.34) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_153,Rajsamand,RJ_TEHSIL_037,Jahazpur,54.1,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_154,Nathdwara,RJ_TEHSIL_157,Railmagra,21.0,0.3445,0.0,MODERATE_DEFICIT,0.95,0.5518,0.9052,0.7693,0.6594,Low multi-hazard score (0.34) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_154,Nathdwara,RJ_TEHSIL_037,Jahazpur,74.7,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_154,Nathdwara,RJ_TEHSIL_119,Luni,138.8,0.3015,0.0,ADEQUATE,0.95,0.8163,0.8668,0.7744,0.7056,Low multi-hazard score (0.30) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_155,Kumbhalgarh,RJ_TEHSIL_157,Railmagra,6.2,0.3445,0.0,MODERATE_DEFICIT,0.95,0.5518,0.9052,0.7693,0.6594,Low multi-hazard score (0.34) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_155,Kumbhalgarh,RJ_TEHSIL_154,Nathdwara,16.5,0.3713,0.0,MODERATE_DEFICIT,0.95,0.5538,0.8508,0.7737,0.6614,Low multi-hazard score (0.37) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_155,Kumbhalgarh,RJ_TEHSIL_037,Jahazpur,74.0,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_156,Amet,RJ_TEHSIL_157,Railmagra,0.9,0.3445,0.0,MODERATE_DEFICIT,0.95,0.5518,0.9052,0.7693,0.6594,Low multi-hazard score (0.34) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_156,Amet,RJ_TEHSIL_154,Nathdwara,21.1,0.3713,0.0,MODERATE_DEFICIT,0.95,0.5538,0.8508,0.7737,0.6614,Low multi-hazard score (0.37) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_156,Amet,RJ_TEHSIL_037,Jahazpur,80.0,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_157,Railmagra,RJ_TEHSIL_154,Nathdwara,21.0,0.3713,0.0,MODERATE_DEFICIT,0.95,0.5538,0.8508,0.7737,0.6614,Low multi-hazard score (0.37) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_157,Railmagra,RJ_TEHSIL_037,Jahazpur,79.1,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_157,Railmagra,RJ_TEHSIL_119,Luni,118.4,0.3015,0.0,ADEQUATE,0.95,0.8163,0.8668,0.7744,0.7056,Low multi-hazard score (0.30) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_158,Bhim,RJ_TEHSIL_157,Railmagra,14.2,0.3445,0.0,MODERATE_DEFICIT,0.95,0.5518,0.9052,0.7693,0.6594,Low multi-hazard score (0.34) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_158,Bhim,RJ_TEHSIL_154,Nathdwara,18.6,0.3713,0.0,MODERATE_DEFICIT,0.95,0.5538,0.8508,0.7737,0.6614,Low multi-hazard score (0.37) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_158,Bhim,RJ_TEHSIL_037,Jahazpur,65.2,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_159,Deogarh,RJ_TEHSIL_157,Railmagra,1.2,0.3445,0.0,MODERATE_DEFICIT,0.95,0.5518,0.9052,0.7693,0.6594,Low multi-hazard score (0.34) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_159,Deogarh,RJ_TEHSIL_154,Nathdwara,21.5,0.3713,0.0,MODERATE_DEFICIT,0.95,0.5538,0.8508,0.7737,0.6614,Low multi-hazard score (0.37) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_159,Deogarh,RJ_TEHSIL_037,Jahazpur,78.2,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_160,Sawai Madhopur,RJ_TEHSIL_188,Uniara,61.5,0.3528,0.0,MODERATE_DEFICIT,0.95,0.6639,0.7812,0.8392,0.6299,Low multi-hazard score (0.35) in Tonk with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_160,Sawai Madhopur,RJ_TEHSIL_065,Sikrai,100.4,0.3234,0.0,MODERATE_DEFICIT,0.95,0.5026,0.8949,0.7768,0.6769,Low multi-hazard score (0.32) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_160,Sawai Madhopur,RJ_TEHSIL_064,Mahwa,109.1,0.3453,0.0,MODERATE_DEFICIT,0.95,0.4717,0.7552,0.76,0.6698,Low multi-hazard score (0.35) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_161,Gangapur City,RJ_TEHSIL_188,Uniara,47.1,0.3528,0.0,MODERATE_DEFICIT,0.95,0.6639,0.7812,0.8392,0.6299,Low multi-hazard score (0.35) in Tonk with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_161,Gangapur City,RJ_TEHSIL_065,Sikrai,91.2,0.3234,0.0,MODERATE_DEFICIT,0.95,0.5026,0.8949,0.7768,0.6769,Low multi-hazard score (0.32) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_161,Gangapur City,RJ_TEHSIL_064,Mahwa,102.4,0.3453,0.0,MODERATE_DEFICIT,0.95,0.4717,0.7552,0.76,0.6698,Low multi-hazard score (0.35) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_162,Bonli,RJ_TEHSIL_188,Uniara,72.7,0.3528,0.0,MODERATE_DEFICIT,0.95,0.6639,0.7812,0.8392,0.6299,Low multi-hazard score (0.35) in Tonk with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_162,Bonli,RJ_TEHSIL_065,Sikrai,113.2,0.3234,0.0,MODERATE_DEFICIT,0.95,0.5026,0.8949,0.7768,0.6769,Low multi-hazard score (0.32) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_162,Bonli,RJ_TEHSIL_064,Mahwa,120.4,0.3453,0.0,MODERATE_DEFICIT,0.95,0.4717,0.7552,0.76,0.6698,Low multi-hazard score (0.35) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_163,Bamanwas,RJ_TEHSIL_188,Uniara,58.6,0.3528,0.0,MODERATE_DEFICIT,0.95,0.6639,0.7812,0.8392,0.6299,Low multi-hazard score (0.35) in Tonk with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_163,Bamanwas,RJ_TEHSIL_065,Sikrai,91.4,0.3234,0.0,MODERATE_DEFICIT,0.95,0.5026,0.8949,0.7768,0.6769,Low multi-hazard score (0.32) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_163,Bamanwas,RJ_TEHSIL_064,Mahwa,100.7,0.3453,0.0,MODERATE_DEFICIT,0.95,0.4717,0.7552,0.76,0.6698,Low multi-hazard score (0.35) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_164,Khandar,RJ_TEHSIL_188,Uniara,52.6,0.3528,0.0,MODERATE_DEFICIT,0.95,0.6639,0.7812,0.8392,0.6299,Low multi-hazard score (0.35) in Tonk with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_164,Khandar,RJ_TEHSIL_065,Sikrai,100.3,0.3234,0.0,MODERATE_DEFICIT,0.95,0.5026,0.8949,0.7768,0.6769,Low multi-hazard score (0.32) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_164,Khandar,RJ_TEHSIL_064,Mahwa,110.3,0.3453,0.0,MODERATE_DEFICIT,0.95,0.4717,0.7552,0.76,0.6698,Low multi-hazard score (0.35) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_165,Chauth Ka Barwara,RJ_TEHSIL_188,Uniara,59.5,0.3528,0.0,MODERATE_DEFICIT,0.95,0.6639,0.7812,0.8392,0.6299,Low multi-hazard score (0.35) in Tonk with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_165,Chauth Ka Barwara,RJ_TEHSIL_065,Sikrai,114.8,0.3234,0.0,MODERATE_DEFICIT,0.95,0.5026,0.8949,0.7768,0.6769,Low multi-hazard score (0.32) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_165,Chauth Ka Barwara,RJ_TEHSIL_064,Mahwa,124.0,0.3453,0.0,MODERATE_DEFICIT,0.95,0.4717,0.7552,0.76,0.6698,Low multi-hazard score (0.35) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_166,Sikar,RJ_TEHSIL_167,Fatehpur,14.2,0.3507,0.0,MODERATE_DEFICIT,0.95,0.5745,0.7758,0.7591,0.6804,Low multi-hazard score (0.35) in Sikar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_166,Sikar,RJ_TEHSIL_111,Khetri,47.0,0.3567,0.0,MODERATE_DEFICIT,0.95,0.6089,0.7697,0.7635,0.676,Low multi-hazard score (0.36) in Jhunjhunu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_166,Sikar,RJ_TEHSIL_055,Churu,59.8,0.303,0.0,ADEQUATE,0.95,0.9009,0.7897,0.7849,0.7415,Low multi-hazard score (0.30) in Churu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_167,Fatehpur,RJ_TEHSIL_111,Khetri,35.0,0.3567,0.0,MODERATE_DEFICIT,0.95,0.6089,0.7697,0.7635,0.676,Low multi-hazard score (0.36) in Jhunjhunu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_167,Fatehpur,RJ_TEHSIL_055,Churu,53.7,0.303,0.0,ADEQUATE,0.95,0.9009,0.7897,0.7849,0.7415,Low multi-hazard score (0.30) in Churu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_167,Fatehpur,RJ_TEHSIL_108,Jhunjhunu,53.8,0.3518,0.0,MODERATE_DEFICIT,0.95,0.6393,0.695,0.7716,0.6631,Low multi-hazard score (0.35) in Jhunjhunu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_168,Lachhmangarh,RJ_TEHSIL_167,Fatehpur,22.6,0.3507,0.0,MODERATE_DEFICIT,0.95,0.5745,0.7758,0.7591,0.6804,Low multi-hazard score (0.35) in Sikar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_168,Lachhmangarh,RJ_TEHSIL_111,Khetri,56.1,0.3567,0.0,MODERATE_DEFICIT,0.95,0.6089,0.7697,0.7635,0.676,Low multi-hazard score (0.36) in Jhunjhunu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_168,Lachhmangarh,RJ_TEHSIL_108,Jhunjhunu,73.4,0.3518,0.0,MODERATE_DEFICIT,0.95,0.6393,0.695,0.7716,0.6631,Low multi-hazard score (0.35) in Jhunjhunu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_169,Danta Ramgarh,RJ_TEHSIL_167,Fatehpur,7.6,0.3507,0.0,MODERATE_DEFICIT,0.95,0.5745,0.7758,0.7591,0.6804,Low multi-hazard score (0.35) in Sikar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_169,Danta Ramgarh,RJ_TEHSIL_111,Khetri,34.2,0.3567,0.0,MODERATE_DEFICIT,0.95,0.6089,0.7697,0.7635,0.676,Low multi-hazard score (0.36) in Jhunjhunu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_169,Danta Ramgarh,RJ_TEHSIL_108,Jhunjhunu,51.6,0.3518,0.0,MODERATE_DEFICIT,0.95,0.6393,0.695,0.7716,0.6631,Low multi-hazard score (0.35) in Jhunjhunu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_170,Neem Ka Thana,RJ_TEHSIL_167,Fatehpur,3.6,0.3507,0.0,MODERATE_DEFICIT,0.95,0.5745,0.7758,0.7591,0.6804,Low multi-hazard score (0.35) in Sikar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_170,Neem Ka Thana,RJ_TEHSIL_111,Khetri,38.3,0.3567,0.0,MODERATE_DEFICIT,0.95,0.6089,0.7697,0.7635,0.676,Low multi-hazard score (0.36) in Jhunjhunu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_170,Neem Ka Thana,RJ_TEHSIL_055,Churu,55.7,0.303,0.0,ADEQUATE,0.95,0.9009,0.7897,0.7849,0.7415,Low multi-hazard score (0.30) in Churu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_171,Sri Madhopur,RJ_TEHSIL_167,Fatehpur,15.0,0.3507,0.0,MODERATE_DEFICIT,0.95,0.5745,0.7758,0.7591,0.6804,Low multi-hazard score (0.35) in Sikar with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_171,Sri Madhopur,RJ_TEHSIL_111,Khetri,47.6,0.3567,0.0,MODERATE_DEFICIT,0.95,0.6089,0.7697,0.7635,0.676,Low multi-hazard score (0.36) in Jhunjhunu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_171,Sri Madhopur,RJ_TEHSIL_108,Jhunjhunu,64.9,0.3518,0.0,MODERATE_DEFICIT,0.95,0.6393,0.695,0.7716,0.6631,Low multi-hazard score (0.35) in Jhunjhunu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_172,Sirohi,RJ_TEHSIL_157,Railmagra,96.9,0.3445,0.0,MODERATE_DEFICIT,0.95,0.5518,0.9052,0.7693,0.6594,Low multi-hazard score (0.34) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_172,Sirohi,RJ_TEHSIL_154,Nathdwara,101.7,0.3713,0.0,MODERATE_DEFICIT,0.95,0.5538,0.8508,0.7737,0.6614,Low multi-hazard score (0.37) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_172,Sirohi,RJ_TEHSIL_119,Luni,121.5,0.3015,0.0,ADEQUATE,0.95,0.8163,0.8668,0.7744,0.7056,Low multi-hazard score (0.30) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_173,Mount Abu,RJ_TEHSIL_157,Railmagra,94.3,0.3445,0.0,MODERATE_DEFICIT,0.95,0.5518,0.9052,0.7693,0.6594,Low multi-hazard score (0.34) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_173,Mount Abu,RJ_TEHSIL_154,Nathdwara,96.1,0.3713,0.0,MODERATE_DEFICIT,0.95,0.5538,0.8508,0.7737,0.6614,Low multi-hazard score (0.37) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_173,Mount Abu,RJ_TEHSIL_119,Luni,133.1,0.3015,0.0,ADEQUATE,0.95,0.8163,0.8668,0.7744,0.7056,Low multi-hazard score (0.30) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_174,Sheoganj,RJ_TEHSIL_157,Railmagra,77.7,0.3445,0.0,MODERATE_DEFICIT,0.95,0.5518,0.9052,0.7693,0.6594,Low multi-hazard score (0.34) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_174,Sheoganj,RJ_TEHSIL_154,Nathdwara,81.8,0.3713,0.0,MODERATE_DEFICIT,0.95,0.5538,0.8508,0.7737,0.6614,Low multi-hazard score (0.37) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_174,Sheoganj,RJ_TEHSIL_119,Luni,119.1,0.3015,0.0,ADEQUATE,0.95,0.8163,0.8668,0.7744,0.7056,Low multi-hazard score (0.30) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_175,Pindwara,RJ_TEHSIL_157,Railmagra,89.3,0.3445,0.0,MODERATE_DEFICIT,0.95,0.5518,0.9052,0.7693,0.6594,Low multi-hazard score (0.34) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_175,Pindwara,RJ_TEHSIL_154,Nathdwara,92.7,0.3713,0.0,MODERATE_DEFICIT,0.95,0.5538,0.8508,0.7737,0.6614,Low multi-hazard score (0.37) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_175,Pindwara,RJ_TEHSIL_119,Luni,124.7,0.3015,0.0,ADEQUATE,0.95,0.8163,0.8668,0.7744,0.7056,Low multi-hazard score (0.30) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_176,Reodar,RJ_TEHSIL_157,Railmagra,99.4,0.3445,0.0,MODERATE_DEFICIT,0.95,0.5518,0.9052,0.7693,0.6594,Low multi-hazard score (0.34) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_176,Reodar,RJ_TEHSIL_154,Nathdwara,100.1,0.3713,0.0,MODERATE_DEFICIT,0.95,0.5538,0.8508,0.7737,0.6614,Low multi-hazard score (0.37) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_176,Reodar,RJ_TEHSIL_119,Luni,139.5,0.3015,0.0,ADEQUATE,0.95,0.8163,0.8668,0.7744,0.7056,Low multi-hazard score (0.30) in Jodhpur with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_177,Sri Ganganagar,RJ_TEHSIL_077,Pilibanga,50.0,0.3567,0.0,ADEQUATE,0.95,1.0,0.9209,0.7242,0.6467,Low multi-hazard score (0.36) in Hanumangarh with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_177,Sri Ganganagar,RJ_TEHSIL_060,Taranagar,189.3,0.3306,0.0,ADEQUATE,0.95,1.0,0.7202,0.7256,0.6913,Low multi-hazard score (0.33) in Churu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_177,Sri Ganganagar,RJ_TEHSIL_056,Ratangarh,195.2,0.2908,0.0,ADEQUATE,0.95,0.8811,0.7692,0.8804,0.7081,Low multi-hazard score (0.29) in Churu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_178,Karanpur,RJ_TEHSIL_077,Pilibanga,45.4,0.3567,0.0,ADEQUATE,0.95,1.0,0.9209,0.7242,0.6467,Low multi-hazard score (0.36) in Hanumangarh with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_178,Karanpur,RJ_TEHSIL_060,Taranagar,182.8,0.3306,0.0,ADEQUATE,0.95,1.0,0.7202,0.7256,0.6913,Low multi-hazard score (0.33) in Churu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_178,Karanpur,RJ_TEHSIL_056,Ratangarh,188.5,0.2908,0.0,ADEQUATE,0.95,0.8811,0.7692,0.8804,0.7081,Low multi-hazard score (0.29) in Churu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_179,Sadulshahar,RJ_TEHSIL_077,Pilibanga,32.0,0.3567,0.0,ADEQUATE,0.95,1.0,0.9209,0.7242,0.6467,Low multi-hazard score (0.36) in Hanumangarh with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_179,Sadulshahar,RJ_TEHSIL_060,Taranagar,172.2,0.3306,0.0,ADEQUATE,0.95,1.0,0.7202,0.7256,0.6913,Low multi-hazard score (0.33) in Churu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_179,Sadulshahar,RJ_TEHSIL_056,Ratangarh,178.3,0.2908,0.0,ADEQUATE,0.95,0.8811,0.7692,0.8804,0.7081,Low multi-hazard score (0.29) in Churu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_180,Suratgarh,RJ_TEHSIL_077,Pilibanga,58.0,0.3567,0.0,ADEQUATE,0.95,1.0,0.9209,0.7242,0.6467,Low multi-hazard score (0.36) in Hanumangarh with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_180,Suratgarh,RJ_TEHSIL_060,Taranagar,196.3,0.3306,0.0,ADEQUATE,0.95,1.0,0.7202,0.7256,0.6913,Low multi-hazard score (0.33) in Churu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_180,Suratgarh,RJ_TEHSIL_056,Ratangarh,202.0,0.2908,0.0,ADEQUATE,0.95,0.8811,0.7692,0.8804,0.7081,Low multi-hazard score (0.29) in Churu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_181,Raisinghnagar,RJ_TEHSIL_077,Pilibanga,52.1,0.3567,0.0,ADEQUATE,0.95,1.0,0.9209,0.7242,0.6467,Low multi-hazard score (0.36) in Hanumangarh with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_181,Raisinghnagar,RJ_TEHSIL_060,Taranagar,192.7,0.3306,0.0,ADEQUATE,0.95,1.0,0.7202,0.7256,0.6913,Low multi-hazard score (0.33) in Churu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_181,Raisinghnagar,RJ_TEHSIL_056,Ratangarh,198.8,0.2908,0.0,ADEQUATE,0.95,0.8811,0.7692,0.8804,0.7081,Low multi-hazard score (0.29) in Churu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_182,Anupgarh,RJ_TEHSIL_077,Pilibanga,55.4,0.3567,0.0,ADEQUATE,0.95,1.0,0.9209,0.7242,0.6467,Low multi-hazard score (0.36) in Hanumangarh with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_182,Anupgarh,RJ_TEHSIL_060,Taranagar,191.1,0.3306,0.0,ADEQUATE,0.95,1.0,0.7202,0.7256,0.6913,Low multi-hazard score (0.33) in Churu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_182,Anupgarh,RJ_TEHSIL_056,Ratangarh,196.5,0.2908,0.0,ADEQUATE,0.95,0.8811,0.7692,0.8804,0.7081,Low multi-hazard score (0.29) in Churu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_183,Padampur,RJ_TEHSIL_077,Pilibanga,53.9,0.3567,0.0,ADEQUATE,0.95,1.0,0.9209,0.7242,0.6467,Low multi-hazard score (0.36) in Hanumangarh with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_183,Padampur,RJ_TEHSIL_060,Taranagar,194.0,0.3306,0.0,ADEQUATE,0.95,1.0,0.7202,0.7256,0.6913,Low multi-hazard score (0.33) in Churu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_183,Padampur,RJ_TEHSIL_056,Ratangarh,200.0,0.2908,0.0,ADEQUATE,0.95,0.8811,0.7692,0.8804,0.7081,Low multi-hazard score (0.29) in Churu with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_184,Tonk,RJ_TEHSIL_188,Uniara,14.4,0.3528,0.0,MODERATE_DEFICIT,0.95,0.6639,0.7812,0.8392,0.6299,Low multi-hazard score (0.35) in Tonk with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_184,Tonk,RJ_TEHSIL_065,Sikrai,106.2,0.3234,0.0,MODERATE_DEFICIT,0.95,0.5026,0.8949,0.7768,0.6769,Low multi-hazard score (0.32) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_184,Tonk,RJ_TEHSIL_005,Kekri,111.3,0.3097,0.0,MODERATE_DEFICIT,0.95,0.608,0.6963,0.7613,0.7341,Low multi-hazard score (0.31) in Ajmer with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_185,Niwai,RJ_TEHSIL_188,Uniara,11.7,0.3528,0.0,MODERATE_DEFICIT,0.95,0.6639,0.7812,0.8392,0.6299,Low multi-hazard score (0.35) in Tonk with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_185,Niwai,RJ_TEHSIL_065,Sikrai,108.8,0.3234,0.0,MODERATE_DEFICIT,0.95,0.5026,0.8949,0.7768,0.6769,Low multi-hazard score (0.32) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_185,Niwai,RJ_TEHSIL_064,Mahwa,123.6,0.3453,0.0,MODERATE_DEFICIT,0.95,0.4717,0.7552,0.76,0.6698,Low multi-hazard score (0.35) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_186,Malpura,RJ_TEHSIL_188,Uniara,22.6,0.3528,0.0,MODERATE_DEFICIT,0.95,0.6639,0.7812,0.8392,0.6299,Low multi-hazard score (0.35) in Tonk with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_186,Malpura,RJ_TEHSIL_065,Sikrai,91.5,0.3234,0.0,MODERATE_DEFICIT,0.95,0.5026,0.8949,0.7768,0.6769,Low multi-hazard score (0.32) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_186,Malpura,RJ_TEHSIL_064,Mahwa,107.3,0.3453,0.0,MODERATE_DEFICIT,0.95,0.4717,0.7552,0.76,0.6698,Low multi-hazard score (0.35) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_187,Deoli,RJ_TEHSIL_188,Uniara,9.0,0.3528,0.0,MODERATE_DEFICIT,0.95,0.6639,0.7812,0.8392,0.6299,Low multi-hazard score (0.35) in Tonk with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_187,Deoli,RJ_TEHSIL_065,Sikrai,111.5,0.3234,0.0,MODERATE_DEFICIT,0.95,0.5026,0.8949,0.7768,0.6769,Low multi-hazard score (0.32) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_187,Deoli,RJ_TEHSIL_005,Kekri,112.9,0.3097,0.0,MODERATE_DEFICIT,0.95,0.608,0.6963,0.7613,0.7341,Low multi-hazard score (0.31) in Ajmer with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_188,Uniara,RJ_TEHSIL_065,Sikrai,114.1,0.3234,0.0,MODERATE_DEFICIT,0.95,0.5026,0.8949,0.7768,0.6769,Low multi-hazard score (0.32) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_188,Uniara,RJ_TEHSIL_005,Kekri,120.8,0.3097,0.0,MODERATE_DEFICIT,0.95,0.608,0.6963,0.7613,0.7341,Low multi-hazard score (0.31) in Ajmer with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_188,Uniara,RJ_TEHSIL_064,Mahwa,129.8,0.3453,0.0,MODERATE_DEFICIT,0.95,0.4717,0.7552,0.76,0.6698,Low multi-hazard score (0.35) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_189,Todaraisingh,RJ_TEHSIL_188,Uniara,19.2,0.3528,0.0,MODERATE_DEFICIT,0.95,0.6639,0.7812,0.8392,0.6299,Low multi-hazard score (0.35) in Tonk with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_189,Todaraisingh,RJ_TEHSIL_065,Sikrai,96.9,0.3234,0.0,MODERATE_DEFICIT,0.95,0.5026,0.8949,0.7768,0.6769,Low multi-hazard score (0.32) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_189,Todaraisingh,RJ_TEHSIL_064,Mahwa,113.3,0.3453,0.0,MODERATE_DEFICIT,0.95,0.4717,0.7552,0.76,0.6698,Low multi-hazard score (0.35) in Dausa with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_190,Girwa (Udaipur),RJ_TEHSIL_154,Nathdwara,61.9,0.3713,0.0,MODERATE_DEFICIT,0.95,0.5538,0.8508,0.7737,0.6614,Low multi-hazard score (0.37) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_190,Girwa (Udaipur),RJ_TEHSIL_157,Railmagra,82.2,0.3445,0.0,MODERATE_DEFICIT,0.95,0.5518,0.9052,0.7693,0.6594,Low multi-hazard score (0.34) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_190,Girwa (Udaipur),RJ_TEHSIL_037,Jahazpur,107.3,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_191,Kherwara,RJ_TEHSIL_154,Nathdwara,53.2,0.3713,0.0,MODERATE_DEFICIT,0.95,0.5538,0.8508,0.7737,0.6614,Low multi-hazard score (0.37) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_191,Kherwara,RJ_TEHSIL_157,Railmagra,70.9,0.3445,0.0,MODERATE_DEFICIT,0.95,0.5518,0.9052,0.7693,0.6594,Low multi-hazard score (0.34) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_191,Kherwara,RJ_TEHSIL_037,Jahazpur,113.3,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_192,Salumber,RJ_TEHSIL_154,Nathdwara,51.7,0.3713,0.0,MODERATE_DEFICIT,0.95,0.5538,0.8508,0.7737,0.6614,Low multi-hazard score (0.37) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_192,Salumber,RJ_TEHSIL_157,Railmagra,72.1,0.3445,0.0,MODERATE_DEFICIT,0.95,0.5518,0.9052,0.7693,0.6594,Low multi-hazard score (0.34) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_192,Salumber,RJ_TEHSIL_037,Jahazpur,98.6,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_193,Mavli,RJ_TEHSIL_154,Nathdwara,52.6,0.3713,0.0,MODERATE_DEFICIT,0.95,0.5538,0.8508,0.7737,0.6614,Low multi-hazard score (0.37) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_193,Mavli,RJ_TEHSIL_157,Railmagra,70.7,0.3445,0.0,MODERATE_DEFICIT,0.95,0.5518,0.9052,0.7693,0.6594,Low multi-hazard score (0.34) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_193,Mavli,RJ_TEHSIL_037,Jahazpur,111.7,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_194,Vallabhnagar,RJ_TEHSIL_154,Nathdwara,49.0,0.3713,0.0,MODERATE_DEFICIT,0.95,0.5538,0.8508,0.7737,0.6614,Low multi-hazard score (0.37) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_194,Vallabhnagar,RJ_TEHSIL_157,Railmagra,66.4,0.3445,0.0,MODERATE_DEFICIT,0.95,0.5518,0.9052,0.7693,0.6594,Low multi-hazard score (0.34) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_194,Vallabhnagar,RJ_TEHSIL_037,Jahazpur,110.9,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_195,Jhadol,RJ_TEHSIL_154,Nathdwara,67.5,0.3713,0.0,MODERATE_DEFICIT,0.95,0.5538,0.8508,0.7737,0.6614,Low multi-hazard score (0.37) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_195,Jhadol,RJ_TEHSIL_157,Railmagra,85.2,0.3445,0.0,MODERATE_DEFICIT,0.95,0.5518,0.9052,0.7693,0.6594,Low multi-hazard score (0.34) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_195,Jhadol,RJ_TEHSIL_037,Jahazpur,125.1,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_196,Kotra,RJ_TEHSIL_154,Nathdwara,65.7,0.3713,0.0,MODERATE_DEFICIT,0.95,0.5538,0.8508,0.7737,0.6614,Low multi-hazard score (0.37) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_196,Kotra,RJ_TEHSIL_157,Railmagra,83.4,0.3445,0.0,MODERATE_DEFICIT,0.95,0.5518,0.9052,0.7693,0.6594,Low multi-hazard score (0.34) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_196,Kotra,RJ_TEHSIL_037,Jahazpur,123.5,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_197,Gogunda,RJ_TEHSIL_154,Nathdwara,62.5,0.3713,0.0,MODERATE_DEFICIT,0.95,0.5538,0.8508,0.7737,0.6614,Low multi-hazard score (0.37) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_197,Gogunda,RJ_TEHSIL_157,Railmagra,82.0,0.3445,0.0,MODERATE_DEFICIT,0.95,0.5518,0.9052,0.7693,0.6594,Low multi-hazard score (0.34) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_197,Gogunda,RJ_TEHSIL_037,Jahazpur,113.1,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_198,Sarada,RJ_TEHSIL_154,Nathdwara,62.5,0.3713,0.0,MODERATE_DEFICIT,0.95,0.5538,0.8508,0.7737,0.6614,Low multi-hazard score (0.37) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_198,Sarada,RJ_TEHSIL_157,Railmagra,80.9,0.3445,0.0,MODERATE_DEFICIT,0.95,0.5518,0.9052,0.7693,0.6594,Low multi-hazard score (0.34) in Rajsamand with verified road connectivity.,VERIFIED_ELIGIBLE
+RJ_TEHSIL_198,Sarada,RJ_TEHSIL_037,Jahazpur,118.1,0.2647,0.0,ADEQUATE,0.95,0.933,0.8342,0.7585,0.7216,Low multi-hazard score (0.26) in Bhilwara with verified road connectivity.,VERIFIED_ELIGIBLE

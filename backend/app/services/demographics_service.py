@@ -16,19 +16,133 @@ def is_tn(state_id: Optional[str]) -> bool:
     clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
     return clean in ["tamil_nadu", "tn", "tamilnadu"]
 
+def is_tr(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["tripura", "tr"]
+
+def is_tg(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["telangana", "tg", "ts"]
+
+def is_rj(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["rajasthan", "rj"]
+
+def is_mp(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["madhya_pradesh", "mp", "madhyapradesh"]
+
+def is_ka(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["karnataka", "ka"]
+
+def is_ga(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["goa", "ga"]
+
+def is_mn(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["manipur", "mn"]
+
 class DemographicsService:
     def __init__(self):
         self._cache: Dict[str, Dict[str, Any]] = {}
 
     def _get_state_key(self, state_id: Optional[str]) -> str:
-        return "tn" if is_tn(state_id) else "ap"
+        if is_mn(state_id):
+            return "mn"
+        if is_ga(state_id):
+            return "ga"
+        if is_ka(state_id):
+            return "ka"
+        if is_mp(state_id):
+            return "mp"
+        if is_rj(state_id):
+            return "rj"
+        if is_tg(state_id):
+            return "tg"
+        if is_tr(state_id):
+            return "tr"
+        if is_tn(state_id):
+            return "tn"
+        return "ap"
 
     def _load_data(self, state_id: Optional[str] = "andhra_pradesh"):
         key = self._get_state_key(state_id)
         if key in self._cache:
             return self._cache[key]
 
-        if key == "tn":
+        if key == "mn":
+            csv_path = settings.PROCESSED_CENSUS_DIR / "mn_subdivisions_demographics.csv"
+            state_name = "Manipur"
+            state_code = "MN"
+            code_col = "current_district_id"
+            name_col = "current_district_name"
+            m_code_col = "mandal_id"
+            m_name_col = "mandal_name"
+        elif key == "ga":
+            csv_path = settings.PROCESSED_CENSUS_DIR / "ga_taluks_demographics.csv"
+            state_name = "Goa"
+            state_code = "GA"
+            code_col = "current_district_id"
+            name_col = "current_district_name"
+            m_code_col = "mandal_id"
+            m_name_col = "mandal_name"
+        elif key == "ka":
+            csv_path = settings.PROCESSED_CENSUS_DIR / "ka_taluks_demographics.csv"
+            state_name = "Karnataka"
+            state_code = "KA"
+            code_col = "current_district_id"
+            name_col = "current_district_name"
+            m_code_col = "mandal_id"
+            m_name_col = "mandal_name"
+        elif key == "mp":
+            csv_path = settings.PROCESSED_CENSUS_DIR / "mp_tehsils_demographics.csv"
+            state_name = "Madhya Pradesh"
+            state_code = "MP"
+            code_col = "current_district_id"
+            name_col = "current_district_name"
+            m_code_col = "mandal_id"
+            m_name_col = "mandal_name"
+        elif key == "rj":
+            csv_path = settings.PROCESSED_CENSUS_DIR / "rj_tehsils_demographics.csv"
+            state_name = "Rajasthan"
+            state_code = "RJ"
+            code_col = "current_district_id"
+            name_col = "current_district_name"
+            m_code_col = "mandal_id"
+            m_name_col = "mandal_name"
+        elif key == "tg":
+            csv_path = settings.PROCESSED_CENSUS_DIR / "tg_mandal_demographics.csv"
+            state_name = "Telangana"
+            state_code = "TG"
+            code_col = "current_district_id"
+            name_col = "current_district_name"
+            m_code_col = "mandal_id"
+            m_name_col = "mandal_name"
+        elif key == "tr":
+            csv_path = settings.PROCESSED_CENSUS_DIR / "tr_subdivision_demographics.csv"
+            state_name = "Tripura"
+            state_code = "TR"
+            code_col = "current_district_id"
+            name_col = "current_district_name"
+            m_code_col = "mandal_id"
+            m_name_col = "mandal_name"
+        elif key == "tn":
             csv_path = settings.PROCESSED_CENSUS_DIR / "tn_taluk_demographics.csv"
             state_name = "Tamil Nadu"
             state_code = "TN"
@@ -57,12 +171,12 @@ class DemographicsService:
 
         for (did, dname), grp in grouped:
             pop = int(grp['population_total'].sum())
-            hh = int(grp['households'].sum())
-            p06 = int(grp['population_0_6'].sum())
-            sc = int(grp['population_sc'].sum()) if 'population_sc' in grp.columns else int(pop * 0.20)
-            st = int(grp['population_st'].sum()) if 'population_st' in grp.columns else int(pop * 0.01)
-            workers = int(grp['workers'].sum())
-            villages = int(len(grp))
+            hh = int(grp['households'].sum()) if 'households' in grp.columns else int(grp.get('households_total', pd.Series([pop // 5])).sum())
+            p06 = int(grp['population_0_6'].sum()) if 'population_0_6' in grp.columns else int(grp.get('children_0_6_total', pd.Series([int(pop * 0.12)])).sum())
+            sc = int(grp['population_sc'].sum()) if 'population_sc' in grp.columns else int(grp.get('sc_population', pd.Series([int(pop * 0.05)])).sum())
+            st = int(grp['population_st'].sum()) if 'population_st' in grp.columns else int(grp.get('st_population', pd.Series([int(pop * 0.05)])).sum())
+            workers = int(grp['workers'].sum()) if 'workers' in grp.columns else int(grp.get('workers_total', pd.Series([int(pop * 0.45)])).sum())
+            villages = int(grp['village_count'].sum()) if 'village_count' in grp.columns else int(len(grp))
             mandals = int(grp[m_code_col].nunique())
 
             p06_pct = round((p06 / pop * 100) if pop > 0 else 0.0, 2)
@@ -84,22 +198,25 @@ class DemographicsService:
                 village_count=villages,
                 mandal_count=mandals,
                 data_year=2011,
-                data_source="Census of India 2011 Primary Census Abstract"
+                data_source="Census of India 2011 Primary Census Abstract",
+                demographic_vulnerability_score=round(float(grp['c2_demographic_sensitivity'].mean()), 4) if 'c2_demographic_sensitivity' in grp.columns else 0.50
             )
             district_list.append(d_summary)
             district_summaries[str(did)] = d_summary
 
-            # Mandal breakdown
-            mandal_grp = grp.groupby([m_code_col, m_name_col])
+            # Individual mandals
             mandal_list: List[MandalDemographicSummary] = []
-            for (mid, mname), m_sub in mandal_grp:
-                mpop = int(m_sub['population_total'].sum())
-                mhh = int(m_sub['households'].sum())
-                mp06 = int(m_sub['population_0_6'].sum())
-                msc = int(m_sub['population_sc'].sum()) if 'population_sc' in m_sub.columns else int(mpop * 0.20)
-                mst = int(m_sub['population_st'].sum()) if 'population_st' in m_sub.columns else int(mpop * 0.01)
-                mwork = int(m_sub['workers'].sum())
-                mvill = int(len(m_sub))
+            for _, r in grp.iterrows():
+                mid = str(r[m_code_col])
+                mname = r[m_name_col]
+                mpop = int(r['population_total'])
+                mhh = int(r['households']) if 'households' in r else int(r.get('households_total', mpop // 5))
+                mp06 = int(r['population_0_6']) if 'population_0_6' in r else int(r.get('children_0_6_total', int(mpop * 0.12)))
+                msc = int(r['population_sc']) if 'population_sc' in r else int(r.get('sc_population', int(mpop * 0.05)))
+                mst = int(r['population_st']) if 'population_st' in r else int(r.get('st_population', int(mpop * 0.05)))
+                mwork = int(r['workers']) if 'workers' in r else int(r.get('workers_total', int(mpop * 0.45)))
+                mvill = int(r['village_count']) if 'village_count' in r else 1
+
                 mp06_pct = round((mp06 / mpop * 100) if mpop > 0 else 0.0, 2)
                 msc_pct = round((msc / mpop * 100) if mpop > 0 else 0.0, 2)
                 mst_pct = round((mst / mpop * 100) if mpop > 0 else 0.0, 2)
@@ -129,11 +246,11 @@ class DemographicsService:
             )
 
         tot_pop = int(df['population_total'].sum())
-        tot_hh = int(df['households'].sum())
-        tot_p06 = int(df['population_0_6'].sum())
-        tot_sc = int(df['population_sc'].sum()) if 'population_sc' in df.columns else int(tot_pop * 0.20)
-        tot_st = int(df['population_st'].sum()) if 'population_st' in df.columns else int(tot_pop * 0.01)
-        tot_work = int(df['workers'].sum())
+        tot_hh = int(df['households'].sum()) if 'households' in df.columns else int(df.get('households_total', pd.Series([tot_pop // 5])).sum())
+        tot_p06 = int(df['population_0_6'].sum()) if 'population_0_6' in df.columns else int(df.get('children_0_6_total', pd.Series([int(tot_pop * 0.12)])).sum())
+        tot_sc = int(df['population_sc'].sum()) if 'population_sc' in df.columns else int(df.get('sc_population', pd.Series([int(tot_pop * 0.05)])).sum())
+        tot_st = int(df['population_st'].sum()) if 'population_st' in df.columns else int(df.get('st_population', pd.Series([int(tot_pop * 0.05)])).sum())
+        tot_work = int(df['workers'].sum()) if 'workers' in df.columns else int(df.get('workers_total', pd.Series([int(tot_pop * 0.45)])).sum())
 
         state_summary = StateDemographicSummary(
             state_name=state_name,
@@ -149,7 +266,7 @@ class DemographicsService:
             total_st=tot_st,
             total_st_pct=round((tot_st / tot_pop * 100) if tot_pop > 0 else 0.0, 2),
             total_workers=tot_work,
-            total_villages=int(len(df)),
+            total_villages=int(df['village_count'].sum()) if 'village_count' in df.columns else int(len(df)),
             total_districts=len(district_list),
             total_mandals=int(df[m_code_col].nunique()),
             districts=sorted(district_list, key=lambda x: x.district_name)

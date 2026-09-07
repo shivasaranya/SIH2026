@@ -1,0 +1,154 @@
+source_mandal_id,source_mandal_name,candidate_mandal_id,candidate_mandal_name,distance_km,candidate_hazard_exposure,candidate_vulnerability,candidate_capacity_condition,candidate_capacity_data_completeness,candidate_shelter_adequacy,candidate_water_sanitation_adequacy,candidate_road_accessibility,candidate_safe_area_fraction,host_candidate_reason,host_candidate_status
+MN_SUBDIV_001,Lamphelpat (Imphal West I),MN_SUBDIV_005,Porompat,4.6,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal East with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_001,Lamphelpat (Imphal West I),MN_SUBDIV_002,Patsoi (Imphal West II),6.3,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal West with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_001,Lamphelpat (Imphal West I),MN_SUBDIV_006,Keirao Bitra,9.4,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal East with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_002,Patsoi (Imphal West II),MN_SUBDIV_001,Lamphelpat (Imphal West I),6.3,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal West with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_002,Patsoi (Imphal West II),MN_SUBDIV_010,Lilong,9.4,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Thoubal with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_002,Patsoi (Imphal West II),MN_SUBDIV_012,Nambol,9.5,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Bishnupur with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_003,Lamsang,MN_SUBDIV_001,Lamphelpat (Imphal West I),9.5,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal West with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_003,Lamsang,MN_SUBDIV_002,Patsoi (Imphal West II),11.6,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal West with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_003,Lamsang,MN_SUBDIV_005,Porompat,12.0,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal East with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_004,Wangoi,MN_SUBDIV_010,Lilong,5.1,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Thoubal with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_004,Wangoi,MN_SUBDIV_012,Nambol,8.6,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Bishnupur with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_004,Wangoi,MN_SUBDIV_002,Patsoi (Imphal West II),10.3,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal West with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_005,Porompat,MN_SUBDIV_001,Lamphelpat (Imphal West I),4.6,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal West with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_005,Porompat,MN_SUBDIV_006,Keirao Bitra,8.1,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal East with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_005,Porompat,MN_SUBDIV_007,Sawombung,8.2,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal East with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_006,Keirao Bitra,MN_SUBDIV_010,Lilong,6.3,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Thoubal with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_006,Keirao Bitra,MN_SUBDIV_005,Porompat,8.1,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal East with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_006,Keirao Bitra,MN_SUBDIV_001,Lamphelpat (Imphal West I),9.4,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal West with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_007,Sawombung,MN_SUBDIV_005,Porompat,8.2,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal East with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_007,Sawombung,MN_SUBDIV_001,Lamphelpat (Imphal West I),12.5,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal West with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_007,Sawombung,MN_SUBDIV_006,Keirao Bitra,13.8,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal East with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_008,Sagolmang,MN_SUBDIV_007,Sawombung,10.9,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal East with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_008,Sagolmang,MN_SUBDIV_005,Porompat,19.0,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal East with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_008,Sagolmang,MN_SUBDIV_001,Lamphelpat (Imphal West I),22.8,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal West with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_009,Thoubal,MN_SUBDIV_010,Lilong,10.8,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Thoubal with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_009,Thoubal,MN_SUBDIV_006,Keirao Bitra,12.8,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal East with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_009,Thoubal,MN_SUBDIV_014,Kakching,16.7,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Kakching with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_010,Lilong,MN_SUBDIV_006,Keirao Bitra,6.3,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal East with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_010,Lilong,MN_SUBDIV_002,Patsoi (Imphal West II),9.4,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal West with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_010,Lilong,MN_SUBDIV_001,Lamphelpat (Imphal West I),10.6,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal West with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_011,Bishnupur,MN_SUBDIV_012,Nambol,11.4,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Bishnupur with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_011,Bishnupur,MN_SUBDIV_002,Patsoi (Imphal West II),21.0,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal West with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_011,Bishnupur,MN_SUBDIV_010,Lilong,21.9,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Thoubal with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_012,Nambol,MN_SUBDIV_002,Patsoi (Imphal West II),9.5,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal West with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_012,Nambol,MN_SUBDIV_010,Lilong,12.3,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Thoubal with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_012,Nambol,MN_SUBDIV_001,Lamphelpat (Imphal West I),15.7,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal West with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_013,Moirang,MN_SUBDIV_015,Waikhong,21.9,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Kakching with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_013,Moirang,MN_SUBDIV_014,Kakching,23.4,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Kakching with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_013,Moirang,MN_SUBDIV_012,Nambol,24.2,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Bishnupur with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_014,Kakching,MN_SUBDIV_015,Waikhong,8.4,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Kakching with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_014,Kakching,MN_SUBDIV_009,Thoubal,16.7,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Thoubal with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_014,Kakching,MN_SUBDIV_010,Lilong,25.8,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Thoubal with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_015,Waikhong,MN_SUBDIV_014,Kakching,8.4,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Kakching with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_015,Waikhong,MN_SUBDIV_009,Thoubal,24.8,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Thoubal with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_015,Waikhong,MN_SUBDIV_010,Lilong,33.2,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Thoubal with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_016,Churachandpur (Tuibong),MN_SUBDIV_015,Waikhong,31.5,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Kakching with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_016,Churachandpur (Tuibong),MN_SUBDIV_014,Kakching,37.5,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Kakching with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_016,Churachandpur (Tuibong),MN_SUBDIV_012,Nambol,44.7,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Bishnupur with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_017,Singngat,MN_SUBDIV_015,Waikhong,50.2,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Kakching with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_017,Singngat,MN_SUBDIV_014,Kakching,57.6,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Kakching with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_017,Singngat,MN_SUBDIV_012,Nambol,66.9,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Bishnupur with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_018,Henglep,MN_SUBDIV_012,Nambol,45.1,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Bishnupur with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_018,Henglep,MN_SUBDIV_015,Waikhong,49.2,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Kakching with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_018,Henglep,MN_SUBDIV_014,Kakching,52.4,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Kakching with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_019,Samulamlan,MN_SUBDIV_015,Waikhong,36.8,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Kakching with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_019,Samulamlan,MN_SUBDIV_014,Kakching,41.3,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Kakching with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_019,Samulamlan,MN_SUBDIV_012,Nambol,41.5,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Bishnupur with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_020,Pherzawl,MN_SUBDIV_051,Borobekra,47.8,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Jiribam with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_020,Pherzawl,MN_SUBDIV_050,Jiribam,61.2,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Jiribam with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_020,Pherzawl,MN_SUBDIV_015,Waikhong,87.8,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Kakching with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_021,Thanlon,MN_SUBDIV_051,Borobekra,49.6,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Jiribam with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_021,Thanlon,MN_SUBDIV_050,Jiribam,60.9,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Jiribam with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_021,Thanlon,MN_SUBDIV_015,Waikhong,74.0,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Kakching with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_022,Tipaimukh,MN_SUBDIV_051,Borobekra,47.9,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Jiribam with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_022,Tipaimukh,MN_SUBDIV_050,Jiribam,62.7,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Jiribam with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_022,Tipaimukh,MN_SUBDIV_012,Nambol,103.1,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Bishnupur with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_023,Vangai Range,MN_SUBDIV_051,Borobekra,32.2,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Jiribam with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_023,Vangai Range,MN_SUBDIV_050,Jiribam,46.5,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Jiribam with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_023,Vangai Range,MN_SUBDIV_012,Nambol,88.1,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Bishnupur with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_024,Senapati (Mao-Maram),MN_SUBDIV_007,Sawombung,43.7,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal East with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_024,Senapati (Mao-Maram),MN_SUBDIV_003,Lamsang,45.5,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal West with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_024,Senapati (Mao-Maram),MN_SUBDIV_005,Porompat,49.6,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal East with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_025,Purul,MN_SUBDIV_007,Sawombung,57.0,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal East with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_025,Purul,MN_SUBDIV_003,Lamsang,64.2,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal West with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_025,Purul,MN_SUBDIV_005,Porompat,64.6,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal East with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_026,Paomata,MN_SUBDIV_007,Sawombung,64.6,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal East with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_026,Paomata,MN_SUBDIV_003,Lamsang,70.3,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal West with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_026,Paomata,MN_SUBDIV_005,Porompat,71.8,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal East with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_027,Willong,MN_SUBDIV_003,Lamsang,55.4,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal West with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_027,Willong,MN_SUBDIV_007,Sawombung,56.4,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal East with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_027,Willong,MN_SUBDIV_005,Porompat,61.4,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal East with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_028,Kangpokpi (Sadar Hills West),MN_SUBDIV_007,Sawombung,30.9,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal East with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_028,Kangpokpi (Sadar Hills West),MN_SUBDIV_003,Lamsang,31.2,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal West with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_028,Kangpokpi (Sadar Hills West),MN_SUBDIV_005,Porompat,35.9,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal East with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_029,Saitu Gamphazol,MN_SUBDIV_003,Lamsang,7.7,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal West with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_029,Saitu Gamphazol,MN_SUBDIV_001,Lamphelpat (Imphal West I),17.1,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal West with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_029,Saitu Gamphazol,MN_SUBDIV_005,Porompat,18.8,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal East with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_030,Saikul (Sadar Hills East),MN_SUBDIV_007,Sawombung,14.0,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal East with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_030,Saikul (Sadar Hills East),MN_SUBDIV_005,Porompat,22.1,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal East with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_030,Saikul (Sadar Hills East),MN_SUBDIV_001,Lamphelpat (Imphal West I),25.9,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal West with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_031,Tamenglong,MN_SUBDIV_003,Lamsang,44.1,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal West with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_031,Tamenglong,MN_SUBDIV_050,Jiribam,45.7,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Jiribam with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_031,Tamenglong,MN_SUBDIV_012,Nambol,48.2,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Bishnupur with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_032,Tamei,MN_SUBDIV_003,Lamsang,38.0,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal West with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_032,Tamei,MN_SUBDIV_001,Lamphelpat (Imphal West I),47.5,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal West with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_032,Tamei,MN_SUBDIV_002,Patsoi (Imphal West II),48.6,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal West with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_033,Tousem,MN_SUBDIV_050,Jiribam,34.6,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Jiribam with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_033,Tousem,MN_SUBDIV_051,Borobekra,48.9,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Jiribam with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_033,Tousem,MN_SUBDIV_003,Lamsang,64.1,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal West with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_034,Noney (Longmai),MN_SUBDIV_012,Nambol,27.9,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Bishnupur with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_034,Noney (Longmai),MN_SUBDIV_002,Patsoi (Imphal West II),31.3,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal West with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_034,Noney (Longmai),MN_SUBDIV_003,Lamsang,31.7,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal West with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_035,Khoupum,MN_SUBDIV_012,Nambol,30.0,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Bishnupur with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_035,Khoupum,MN_SUBDIV_002,Patsoi (Imphal West II),37.8,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal West with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_035,Khoupum,MN_SUBDIV_010,Lilong,42.1,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Thoubal with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_036,Haochong,MN_SUBDIV_003,Lamsang,27.3,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal West with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_036,Haochong,MN_SUBDIV_012,Nambol,29.1,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Bishnupur with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_036,Haochong,MN_SUBDIV_002,Patsoi (Imphal West II),29.9,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal West with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_037,Ukhrul (Central),MN_SUBDIV_007,Sawombung,45.9,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal East with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_037,Ukhrul (Central),MN_SUBDIV_005,Porompat,54.1,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal East with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_037,Ukhrul (Central),MN_SUBDIV_006,Keirao Bitra,57.3,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal East with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_038,Chingai,MN_SUBDIV_007,Sawombung,71.8,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal East with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_038,Chingai,MN_SUBDIV_005,Porompat,80.1,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal East with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_038,Chingai,MN_SUBDIV_003,Lamsang,83.7,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal West with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_039,Jessami,MN_SUBDIV_007,Sawombung,102.6,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal East with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_039,Jessami,MN_SUBDIV_005,Porompat,110.7,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal East with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_039,Jessami,MN_SUBDIV_003,Lamsang,112.2,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal West with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_040,Kamjong,MN_SUBDIV_007,Sawombung,57.1,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal East with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_040,Kamjong,MN_SUBDIV_005,Porompat,64.4,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal East with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_040,Kamjong,MN_SUBDIV_006,Keirao Bitra,65.0,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal East with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_041,Phungyar,MN_SUBDIV_007,Sawombung,33.4,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal East with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_041,Phungyar,MN_SUBDIV_006,Keirao Bitra,39.4,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal East with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_041,Phungyar,MN_SUBDIV_005,Porompat,39.8,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal East with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_042,Kasom Khullen,MN_SUBDIV_009,Thoubal,25.1,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Thoubal with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_042,Kasom Khullen,MN_SUBDIV_006,Keirao Bitra,28.2,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal East with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_042,Kasom Khullen,MN_SUBDIV_010,Lilong,31.9,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Thoubal with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_043,Sahamphung,MN_SUBDIV_007,Sawombung,72.1,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal East with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_043,Sahamphung,MN_SUBDIV_005,Porompat,79.9,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal East with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_043,Sahamphung,MN_SUBDIV_006,Keirao Bitra,81.4,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal East with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_044,Chandel,MN_SUBDIV_015,Waikhong,12.4,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Kakching with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_044,Chandel,MN_SUBDIV_014,Kakching,18.9,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Kakching with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_044,Chandel,MN_SUBDIV_048,Moreh,34.5,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Tengnoupal with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_045,Chakpikarong,MN_SUBDIV_015,Waikhong,23.5,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Kakching with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_045,Chakpikarong,MN_SUBDIV_014,Kakching,31.7,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Kakching with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_045,Chakpikarong,MN_SUBDIV_048,Moreh,42.4,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Tengnoupal with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_046,Khengjoy,MN_SUBDIV_048,Moreh,30.2,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Tengnoupal with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_046,Khengjoy,MN_SUBDIV_015,Waikhong,40.3,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Kakching with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_046,Khengjoy,MN_SUBDIV_014,Kakching,46.7,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Kakching with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_047,Tengnoupal,MN_SUBDIV_014,Kakching,22.5,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Kakching with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_047,Tengnoupal,MN_SUBDIV_015,Waikhong,22.7,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Kakching with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_047,Tengnoupal,MN_SUBDIV_048,Moreh,22.8,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Tengnoupal with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_048,Moreh,MN_SUBDIV_015,Waikhong,43.8,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Kakching with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_048,Moreh,MN_SUBDIV_014,Kakching,45.1,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Kakching with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_048,Moreh,MN_SUBDIV_009,Thoubal,55.8,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Thoubal with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_049,Machi,MN_SUBDIV_014,Kakching,15.9,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Kakching with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_049,Machi,MN_SUBDIV_009,Thoubal,19.2,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Thoubal with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_049,Machi,MN_SUBDIV_015,Waikhong,21.9,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Kakching with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_050,Jiribam,MN_SUBDIV_051,Borobekra,15.0,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Jiribam with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_050,Jiribam,MN_SUBDIV_012,Nambol,79.7,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Bishnupur with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_050,Jiribam,MN_SUBDIV_002,Patsoi (Imphal West II),84.6,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal West with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_051,Borobekra,MN_SUBDIV_050,Jiribam,15.0,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Jiribam with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_051,Borobekra,MN_SUBDIV_012,Nambol,83.6,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Bishnupur with verified connectivity.,VERIFIED_ELIGIBLE
+MN_SUBDIV_051,Borobekra,MN_SUBDIV_002,Patsoi (Imphal West II),89.9,0.573,0.4161,ADEQUATE,COMPLETE,1.0,0.82,0.84,0.52,Moderate hazard score (0.57) in Imphal West with verified connectivity.,VERIFIED_ELIGIBLE

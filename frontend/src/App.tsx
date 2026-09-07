@@ -27,7 +27,7 @@ export type PortalRole =
   | 'citizen';
 
 function AppContent() {
-  const { currentState, stateId, setStateId, selectStateByName } = useActiveState();
+  const { currentState, stateId, selectStateByName } = useActiveState();
   const [activeTab, setActiveTab] = useState<ActiveTab>('gis');
   const [selectedMandalForGIS, setSelectedMandalForGIS] = useState<MandalProperties | null>(null);
   
@@ -36,13 +36,7 @@ function AppContent() {
     if (typeof window === 'undefined') return 'landing';
     const hash = window.location.hash.toLowerCase();
     if (hash === '#government/select-state' || hash === '#government/states') return 'government_state_selection';
-    if (
-      hash.startsWith('#government/ap') || 
-      hash.startsWith('#government/tn') || 
-      hash.startsWith('#government/andhra') || 
-      hash.startsWith('#government/tamil') || 
-      hash === '#government'
-    ) {
+    if (hash.startsWith('#government') || hash.startsWith('#government/')) {
       return 'government_portal';
     }
     if (hash === '#citizen' || hash.startsWith('#citizen/')) return 'citizen';
@@ -57,14 +51,14 @@ function AppContent() {
       const hash = window.location.hash.toLowerCase();
       if (hash === '#government/select-state' || hash === '#government/states') {
         setPortalRole('government_state_selection');
-      } else if (hash.includes('/tn') || hash.includes('/tamil')) {
+      } else if (hash.startsWith('#government/')) {
         setPortalRole('government_portal');
-        setStateId('tamil_nadu');
-        setActiveStateId('tamil_nadu');
-      } else if (hash.includes('/ap') || hash.includes('/andhra') || hash === '#government') {
+        const stateKey = hash.replace('#government/', '').trim();
+        if (stateKey) {
+          selectStateByName(stateKey);
+        }
+      } else if (hash === '#government') {
         setPortalRole('government_portal');
-        setStateId('andhra_pradesh');
-        setActiveStateId('andhra_pradesh');
       } else if (hash === '#citizen' || hash.startsWith('#citizen/')) {
         setPortalRole('citizen');
       } else {
@@ -74,7 +68,7 @@ function AppContent() {
 
     window.addEventListener('hashchange', handleHashChange);
     return () => window.removeEventListener('hashchange', handleHashChange);
-  }, [setStateId]);
+  }, [selectStateByName]);
 
   // Keep API module-level state aligned with active stateId
   useEffect(() => {
@@ -92,15 +86,13 @@ function AppContent() {
     }
   };
 
-  // From State Selection: Choose state
+  // From State Selection: Choose state dynamically
   const handleSelectState = (stateName: string) => {
-    const isTN = stateName.toLowerCase().includes('tamil');
-    const targetStateId = isTN ? 'tamil_nadu' : 'andhra_pradesh';
     selectStateByName(stateName);
-    setActiveStateId(targetStateId);
+    const slug = stateName.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
     setSelectedMandalForGIS(null);
     setPortalRole('government_portal');
-    window.location.hash = isTN ? '#government/tn' : '#government/ap';
+    window.location.hash = `#government/${slug}`;
   };
 
   const handleNavigateToStateSelection = () => {

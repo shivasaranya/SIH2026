@@ -15,12 +15,70 @@ def is_tn(state_id: Optional[str]) -> bool:
     clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
     return clean in ["tamil_nadu", "tn", "tamilnadu"]
 
+def is_tr(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["tripura", "tr"]
+
+def is_tg(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["telangana", "tg", "ts"]
+
+def is_rj(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["rajasthan", "rj"]
+
+def is_mp(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["madhya_pradesh", "mp", "madhyapradesh"]
+
+def is_ka(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["karnataka", "ka"]
+
+def is_ga(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["goa", "ga"]
+
+def is_mn(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["manipur", "mn"]
+
 class HazardService:
     def __init__(self):
         self._cache: Dict[str, Dict[str, Any]] = {}
 
     def _get_state_key(self, state_id: Optional[str]) -> str:
-        return "tn" if is_tn(state_id) else "ap"
+        if is_mn(state_id):
+            return "mn"
+        if is_ga(state_id):
+            return "ga"
+        if is_ka(state_id):
+            return "ka"
+        if is_mp(state_id):
+            return "mp"
+        if is_rj(state_id):
+            return "rj"
+        if is_tg(state_id):
+            return "tg"
+        if is_tr(state_id):
+            return "tr"
+        if is_tn(state_id):
+            return "tn"
+        return "ap"
 
     def _load_data(self, state_id: Optional[str] = "andhra_pradesh"):
         key = self._get_state_key(state_id)
@@ -29,14 +87,51 @@ class HazardService:
 
         haz_dir = settings.DATA_DIR / "processed" / "hazard" / "mandal_exposure"
 
-        if key == "tn":
+        if key == "mn":
+            csv_path = haz_dir / "mn_subdivisions_multi_hazard_exposure.csv"
+            geojson_path = haz_dir / "mn_subdivisions_multi_hazard_exposure.geojson"
+            surge_included = False
+            exclusion_reason = "Manipur is an inland northeastern state; coastal storm surge is NOT_APPLICABLE. Hazard framework incorporates riverine flood & wetland inundation (Imphal, Thoubal, Iril, Barak basins, Loktak Lake), steep terrain landslide susceptibility (SRTM DEM, GSI), Zone V severe seismicity (BIS IS 1893), and high wind (IS 875 Vb=55 m/s)."
+        elif key == "ga":
+            csv_path = haz_dir / "ga_taluks_multi_hazard_exposure.csv"
+            geojson_path = haz_dir / "ga_taluks_multi_hazard_exposure.geojson"
+            surge_included = True
+            exclusion_reason = "None"
+        elif key == "ka":
+            csv_path = haz_dir / "ka_taluks_multi_hazard_exposure.csv"
+            geojson_path = haz_dir / "ka_taluks_multi_hazard_exposure.geojson"
+            surge_included = True
+            exclusion_reason = "None"
+        elif key == "mp":
+            csv_path = haz_dir / "mp_tehsils_multi_hazard_exposure.csv"
+            geojson_path = haz_dir / "mp_tehsils_multi_hazard_exposure.geojson"
+            surge_included = False
+            exclusion_reason = "Madhya Pradesh is a landlocked central state; coastal storm surge is NOT_APPLICABLE. Hazard framework focuses on riverine flood (Narmada, Chambal, Betwa, Son basins), wind hazard (IS 875 Vb=44 m/s), Vindhya/Satpura slope constraints, and seismicity (BIS IS 1893 Zone II/III)."
+        elif key == "rj":
+            csv_path = haz_dir / "rj_tehsils_multi_hazard_exposure.csv"
+            geojson_path = haz_dir / "rj_tehsils_multi_hazard_exposure.geojson"
+            surge_included = False
+            exclusion_reason = "Rajasthan is a landlocked arid/semi-arid state; coastal storm surge and cyclone tracks are NOT_APPLICABLE. Hazard framework incorporates riverine/flash flood (Chambal, Luni, Banas, Ghaggar), extreme heat/aridity, high wind/dust storms (IS 875 Vb=47 m/s), Aravalli slope constraints, and seismicity (BIS IS 1893 Zone II/III/IV)."
+        elif key == "tg":
+            csv_path = haz_dir / "tg_mandal_multi_hazard_exposure.csv"
+            geojson_path = haz_dir / "tg_mandal_multi_hazard_exposure.geojson"
+            surge_included = False
+            exclusion_reason = "Telangana is a landlocked state; coastal storm surge is NOT_APPLICABLE. Hazard model focuses on riverine flood (Godavari & Krishna basins), wind hazard (IS 875 Vb=44 m/s), slope constraints, and seismicity (BIS IS 1893 Zone II/III)."
+        elif key == "tr":
+            csv_path = haz_dir / "tr_subdivision_multi_hazard_exposure.csv"
+            geojson_path = haz_dir / "tr_subdivision_multi_hazard_exposure.geojson"
+            surge_included = False
+            exclusion_reason = "Tripura is a landlocked northeastern state; storm surge is NOT_APPLICABLE. Hazard model focuses on riverine/flash flood, landslide susceptibility (GSI), Zone V seismicity (BIS), and high wind (IS 875)."
+        elif key == "tn":
             csv_path = haz_dir / "tn_taluk_multi_hazard_exposure.csv"
             geojson_path = haz_dir / "tn_taluk_multi_hazard_exposure.geojson"
             surge_included = True
+            exclusion_reason = "None"
         else:
             csv_path = haz_dir / "mandal_multi_hazard_exposure.csv"
             geojson_path = haz_dir / "ap_mandal_multi_hazard_exposure.geojson"
             surge_included = False
+            exclusion_reason = "Open-access coastal surge inundation layer requires dynamic hydrodynamic modeling (e.g. ADCIRC). Historical tropical storm buffers applied as proxy."
 
         if not csv_path.exists():
             raise FileNotFoundError(f"Hazard data not found at {csv_path}")
@@ -45,6 +140,7 @@ class HazardService:
             "exposure_df": pd.read_csv(csv_path),
             "geojson_path": geojson_path,
             "surge_included": surge_included,
+            "exclusion_reason": exclusion_reason,
             "geojson": None
         }
         self._cache[key] = data
@@ -62,7 +158,13 @@ class HazardService:
 
     def get_mandal_detail(self, mandal_id: str, state_id: Optional[str] = "andhra_pradesh") -> Optional[MandalHazardExposureItem]:
         target = mandal_id.strip().upper()
-        detected_state = "tamil_nadu" if target.startswith("TN_") else state_id
+        if target.startswith("TR_"):
+            detected_state = "tripura"
+        elif target.startswith("TN_"):
+            detected_state = "tamil_nadu"
+        else:
+            detected_state = state_id
+
         data = self._load_data(detected_state)
         df = data["exposure_df"]
 
@@ -70,6 +172,12 @@ class HazardService:
             (df["mandal_id"] == target) |
             (df["mandal_name"].str.upper() == target)
         ]
+        if match.empty and detected_state != "tripura":
+            tr_data = self._load_data("tripura")
+            match = tr_data["exposure_df"][
+                (tr_data["exposure_df"]["mandal_id"] == target) |
+                (tr_data["exposure_df"]["mandal_name"].str.upper() == target)
+            ]
         if match.empty and detected_state != "tamil_nadu":
             tn_data = self._load_data("tamil_nadu")
             match = tn_data["exposure_df"][
@@ -105,7 +213,7 @@ class HazardService:
             },
             top_exposed_mandals=top_5,
             storm_surge_included=data["surge_included"],
-            storm_surge_exclusion_reason="None" if data["surge_included"] else "Open-access coastal surge inundation layer requires dynamic hydrodynamic modeling (e.g. ADCIRC). Historical tropical storm buffers applied as proxy.",
+            storm_surge_exclusion_reason=data.get("exclusion_reason", "None" if data["surge_included"] else "Excluded"),
             methodology_note="Calculated using verified open hazard datasets: JRC Global Surface Water 30m, NOAA IBTrACS Bay of Bengal tracks, BMTPC IS 875 wind speeds, and CGIAR SRTM 90m slope."
         )
 

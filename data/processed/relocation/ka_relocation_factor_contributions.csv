@@ -1,0 +1,231 @@
+mandal_id,mandal_name,current_district_name,factor_contrib_hazard_pct,factor_contrib_demographic_pct,factor_contrib_capacity_pct,factor_contrib_accessibility_pct,primary_priority_factor,secondary_priority_factor
+KA_TALUK_001,Badami,Bagalkote,58.1,0.0,29.8,12.0,Hazard Exposure,Capacity Stress
+KA_TALUK_002,Bagalkote,Bagalkote,52.5,0.0,32.1,15.4,Hazard Exposure,Capacity Stress
+KA_TALUK_003,Bilgi,Bagalkote,60.5,0.0,25.6,13.9,Hazard Exposure,Capacity Stress
+KA_TALUK_004,Hunagund,Bagalkote,65.1,0.0,20.7,14.2,Hazard Exposure,Capacity Stress
+KA_TALUK_005,Jamkhandi,Bagalkote,59.8,0.0,27.7,12.5,Hazard Exposure,Capacity Stress
+KA_TALUK_006,Mudhol,Bagalkote,61.4,0.0,25.9,12.7,Hazard Exposure,Capacity Stress
+KA_TALUK_007,Guledgudda,Bagalkote,58.3,0.0,27.5,14.2,Hazard Exposure,Capacity Stress
+KA_TALUK_008,Rabkavi Banhatti,Bagalkote,60.9,0.0,24.1,15.0,Hazard Exposure,Capacity Stress
+KA_TALUK_009,Ilkal,Bagalkote,59.8,0.0,25.9,14.3,Hazard Exposure,Capacity Stress
+KA_TALUK_010,Ballari,Ballari,35.7,0.0,48.2,16.1,Hazard Exposure,Capacity Stress
+KA_TALUK_011,Kurugodu,Ballari,33.3,0.0,51.4,15.3,Hazard Exposure,Capacity Stress
+KA_TALUK_012,Sanduru,Ballari,50.2,0.0,33.4,16.4,Hazard Exposure,Capacity Stress
+KA_TALUK_013,Siruguppa,Ballari,48.1,0.0,32.3,19.6,Hazard Exposure,Capacity Stress
+KA_TALUK_014,Kampli,Ballari,43.0,0.0,38.7,18.3,Hazard Exposure,Capacity Stress
+KA_TALUK_015,Belagavi,Belagavi,52.3,0.0,35.0,12.7,Hazard Exposure,Capacity Stress
+KA_TALUK_016,Gokak,Belagavi,55.5,0.0,29.5,14.9,Hazard Exposure,Capacity Stress
+KA_TALUK_017,Hukkeri,Belagavi,58.1,0.0,24.4,17.5,Hazard Exposure,Capacity Stress
+KA_TALUK_018,Khanapur,Belagavi,59.4,0.0,25.9,14.7,Hazard Exposure,Capacity Stress
+KA_TALUK_019,Chikkodi,Belagavi,53.9,0.0,32.0,14.0,Hazard Exposure,Capacity Stress
+KA_TALUK_020,Athani,Belagavi,54.4,0.0,29.9,15.7,Hazard Exposure,Capacity Stress
+KA_TALUK_021,Raybag,Belagavi,54.1,0.0,29.7,16.2,Hazard Exposure,Capacity Stress
+KA_TALUK_022,Bailhongal,Belagavi,60.2,0.0,23.8,16.0,Hazard Exposure,Capacity Stress
+KA_TALUK_023,Ramdurg,Belagavi,54.6,0.0,29.5,15.9,Hazard Exposure,Capacity Stress
+KA_TALUK_024,Saundatti,Belagavi,58.2,0.0,26.1,15.7,Hazard Exposure,Capacity Stress
+KA_TALUK_025,Nippani,Belagavi,57.8,0.0,24.0,18.2,Hazard Exposure,Capacity Stress
+KA_TALUK_026,Kagawad,Belagavi,55.6,0.0,27.1,17.3,Hazard Exposure,Capacity Stress
+KA_TALUK_027,Kittur,Belagavi,57.5,0.0,28.5,14.0,Hazard Exposure,Capacity Stress
+KA_TALUK_028,Mudalgi,Belagavi,60.0,0.0,23.9,16.1,Hazard Exposure,Capacity Stress
+KA_TALUK_029,Devanahalli,Bengaluru Rural,32.8,0.0,50.3,16.9,Hazard Exposure,Capacity Stress
+KA_TALUK_030,Doddaballapura,Bengaluru Rural,44.5,0.0,38.6,16.9,Hazard Exposure,Capacity Stress
+KA_TALUK_031,Hosakote,Bengaluru Rural,34.0,0.0,44.8,21.1,Hazard Exposure,Capacity Stress
+KA_TALUK_032,Nelamangala,Bengaluru Rural,31.3,0.0,53.4,15.2,Hazard Exposure,Capacity Stress
+KA_TALUK_033,Bengaluru North,Bengaluru Urban,40.0,0.0,49.5,10.5,Hazard Exposure,Capacity Stress
+KA_TALUK_034,Bengaluru South,Bengaluru Urban,36.4,0.0,53.7,9.9,Hazard Exposure,Capacity Stress
+KA_TALUK_035,Bengaluru East,Bengaluru Urban,40.9,0.0,49.7,9.4,Hazard Exposure,Capacity Stress
+KA_TALUK_036,Anekal,Bengaluru Urban,35.4,0.0,53.2,11.5,Hazard Exposure,Capacity Stress
+KA_TALUK_037,Yelahanka,Bengaluru Urban,35.9,0.0,54.2,9.9,Hazard Exposure,Capacity Stress
+KA_TALUK_038,Bidar,Bidar,46.9,0.0,37.9,15.2,Hazard Exposure,Capacity Stress
+KA_TALUK_039,Basavakalyan,Bidar,48.9,0.0,35.9,15.2,Hazard Exposure,Capacity Stress
+KA_TALUK_040,Bhalki,Bidar,59.8,0.0,18.8,21.4,Hazard Exposure,Capacity Stress
+KA_TALUK_041,Homnabad,Bidar,52.4,0.0,29.7,17.8,Hazard Exposure,Capacity Stress
+KA_TALUK_042,Aurad,Bidar,56.1,0.0,23.7,20.2,Hazard Exposure,Capacity Stress
+KA_TALUK_043,Kamalnagar,Bidar,51.0,0.0,35.3,13.7,Hazard Exposure,Capacity Stress
+KA_TALUK_044,Hulsoor,Bidar,50.9,0.0,37.4,11.7,Hazard Exposure,Capacity Stress
+KA_TALUK_045,Chitgoppa,Bidar,54.0,0.0,34.6,11.4,Hazard Exposure,Capacity Stress
+KA_TALUK_046,Chamarajanagar,Chamarajanagar,59.0,0.0,18.6,22.3,Hazard Exposure,Capacity Stress
+KA_TALUK_047,Gundlupet,Chamarajanagar,56.3,0.0,18.7,25.1,Hazard Exposure,Capacity Stress
+KA_TALUK_048,Kollegal,Chamarajanagar,49.8,0.0,23.6,26.6,Hazard Exposure,Capacity Stress
+KA_TALUK_049,Yelandur,Chamarajanagar,47.7,0.0,30.7,21.6,Hazard Exposure,Capacity Stress
+KA_TALUK_050,Hanur,Chamarajanagar,48.5,0.0,29.8,21.7,Hazard Exposure,Capacity Stress
+KA_TALUK_051,Chikkaballapura,Chikkaballapura,43.5,0.0,32.5,24.0,Hazard Exposure,Capacity Stress
+KA_TALUK_052,Bagepalli,Chikkaballapura,36.8,0.0,51.0,12.2,Hazard Exposure,Capacity Stress
+KA_TALUK_053,Chintamani,Chikkaballapura,43.3,0.0,46.8,9.9,Hazard Exposure,Capacity Stress
+KA_TALUK_054,Gauribidanur,Chikkaballapura,55.0,0.0,23.2,21.8,Hazard Exposure,Capacity Stress
+KA_TALUK_055,Gudibande,Chikkaballapura,36.9,0.0,45.9,17.2,Hazard Exposure,Capacity Stress
+KA_TALUK_056,Sidlaghatta,Chikkaballapura,57.3,0.0,26.3,16.4,Hazard Exposure,Capacity Stress
+KA_TALUK_057,Chikkamagaluru,Chikkamagaluru,60.7,0.0,21.9,17.4,Hazard Exposure,Capacity Stress
+KA_TALUK_058,Kadur,Chikkamagaluru,60.1,0.0,18.1,21.8,Hazard Exposure,Capacity Stress
+KA_TALUK_059,Koppa,Chikkamagaluru,55.6,0.0,21.3,23.0,Hazard Exposure,Capacity Stress
+KA_TALUK_060,Mudigere,Chikkamagaluru,64.1,0.0,16.9,18.9,Hazard Exposure,Capacity Stress
+KA_TALUK_061,Narasimharajapura,Chikkamagaluru,62.8,0.0,17.6,19.6,Hazard Exposure,Capacity Stress
+KA_TALUK_062,Sringeri,Chikkamagaluru,56.6,0.0,24.0,19.5,Hazard Exposure,Capacity Stress
+KA_TALUK_063,Tarikere,Chikkamagaluru,61.6,0.0,16.7,21.7,Hazard Exposure,Capacity Stress
+KA_TALUK_064,Ajjampura,Chikkamagaluru,59.3,0.0,20.2,20.5,Hazard Exposure,Capacity Stress
+KA_TALUK_065,Kalasa,Chikkamagaluru,64.5,0.0,18.1,17.5,Hazard Exposure,Capacity Stress
+KA_TALUK_066,Chitradurga,Chitradurga,54.7,0.0,25.1,20.2,Hazard Exposure,Capacity Stress
+KA_TALUK_067,Challakere,Chitradurga,60.0,0.0,22.4,17.6,Hazard Exposure,Capacity Stress
+KA_TALUK_068,Hiriyur,Chitradurga,41.0,0.0,40.5,18.5,Hazard Exposure,Capacity Stress
+KA_TALUK_069,Holalkere,Chitradurga,53.3,0.0,20.5,26.2,Hazard Exposure,Capacity Stress
+KA_TALUK_070,Hosadurga,Chitradurga,52.6,0.0,33.6,13.9,Hazard Exposure,Capacity Stress
+KA_TALUK_071,Molakalmuru,Chitradurga,59.5,0.0,25.1,15.4,Hazard Exposure,Capacity Stress
+KA_TALUK_072,Mangaluru,Dakshina Kannada,53.4,0.0,32.5,14.0,Hazard Exposure,Capacity Stress
+KA_TALUK_073,Bantwal,Dakshina Kannada,52.7,0.0,31.7,15.6,Hazard Exposure,Capacity Stress
+KA_TALUK_074,Belthangady,Dakshina Kannada,53.2,0.0,31.7,15.1,Hazard Exposure,Capacity Stress
+KA_TALUK_075,Puttur,Dakshina Kannada,55.8,0.0,31.1,13.1,Hazard Exposure,Capacity Stress
+KA_TALUK_076,Sullia,Dakshina Kannada,54.5,0.0,30.9,14.6,Hazard Exposure,Capacity Stress
+KA_TALUK_077,Moodabidri,Dakshina Kannada,55.0,0.0,32.6,12.4,Hazard Exposure,Capacity Stress
+KA_TALUK_078,Kadaba,Dakshina Kannada,58.7,0.0,26.8,14.5,Hazard Exposure,Capacity Stress
+KA_TALUK_079,Davanagere,Davanagere,50.4,0.0,33.1,16.5,Hazard Exposure,Capacity Stress
+KA_TALUK_080,Harihara,Davanagere,45.0,0.0,45.7,9.3,Hazard Exposure,Capacity Stress
+KA_TALUK_081,Honnali,Davanagere,47.0,0.0,43.8,9.2,Hazard Exposure,Capacity Stress
+KA_TALUK_082,Channagiri,Davanagere,51.6,0.0,31.8,16.7,Hazard Exposure,Capacity Stress
+KA_TALUK_083,Jagalur,Davanagere,46.2,0.0,43.5,10.2,Hazard Exposure,Capacity Stress
+KA_TALUK_084,Nyamathi,Davanagere,50.4,0.0,36.6,13.0,Hazard Exposure,Capacity Stress
+KA_TALUK_085,Dharwad,Dharwad,44.0,0.0,40.8,15.1,Hazard Exposure,Capacity Stress
+KA_TALUK_086,Hubballi Urban,Dharwad,31.2,0.0,53.6,15.2,Hazard Exposure,Capacity Stress
+KA_TALUK_087,Hubballi Rural,Dharwad,43.7,0.0,42.1,14.2,Hazard Exposure,Capacity Stress
+KA_TALUK_088,Kalghatgi,Dharwad,41.0,0.0,43.0,15.9,Hazard Exposure,Capacity Stress
+KA_TALUK_089,Kundgol,Dharwad,38.4,0.0,43.9,17.8,Hazard Exposure,Capacity Stress
+KA_TALUK_090,Navalgund,Dharwad,39.8,0.0,48.3,11.9,Hazard Exposure,Capacity Stress
+KA_TALUK_091,Alnavar,Dharwad,37.0,0.0,51.4,11.5,Hazard Exposure,Capacity Stress
+KA_TALUK_092,Annigeri,Dharwad,30.7,0.0,51.6,17.7,Hazard Exposure,Capacity Stress
+KA_TALUK_093,Gadag,Gadag,51.6,0.0,31.5,17.0,Hazard Exposure,Capacity Stress
+KA_TALUK_094,Nargund,Gadag,64.1,0.0,19.8,16.1,Hazard Exposure,Capacity Stress
+KA_TALUK_095,Ron,Gadag,57.9,0.0,26.0,16.2,Hazard Exposure,Capacity Stress
+KA_TALUK_096,Shirahatti,Gadag,58.9,0.0,21.4,19.8,Hazard Exposure,Capacity Stress
+KA_TALUK_097,Mundargi,Gadag,57.7,0.0,24.1,18.2,Hazard Exposure,Capacity Stress
+KA_TALUK_098,Gajendragad,Gadag,63.5,0.0,21.5,15.0,Hazard Exposure,Capacity Stress
+KA_TALUK_099,Lakshmeshwar,Gadag,57.4,0.0,26.6,16.0,Hazard Exposure,Capacity Stress
+KA_TALUK_100,Hassan,Hassan,54.5,0.0,27.5,18.0,Hazard Exposure,Capacity Stress
+KA_TALUK_101,Alur,Hassan,49.6,0.0,31.6,18.8,Hazard Exposure,Capacity Stress
+KA_TALUK_102,Arkalgud,Hassan,53.4,0.0,28.2,18.4,Hazard Exposure,Capacity Stress
+KA_TALUK_103,Arsikere,Hassan,59.6,0.0,22.7,17.7,Hazard Exposure,Capacity Stress
+KA_TALUK_104,Belur,Hassan,59.6,0.0,20.8,19.6,Hazard Exposure,Capacity Stress
+KA_TALUK_105,Channarayapatna,Hassan,50.2,0.0,34.2,15.6,Hazard Exposure,Capacity Stress
+KA_TALUK_106,Holenarasipura,Hassan,59.9,0.0,20.9,19.1,Hazard Exposure,Capacity Stress
+KA_TALUK_107,Sakleshpur,Hassan,57.1,0.0,25.9,17.0,Hazard Exposure,Capacity Stress
+KA_TALUK_108,Haveri,Haveri,52.1,0.0,37.6,10.3,Hazard Exposure,Capacity Stress
+KA_TALUK_109,Byadgi,Haveri,57.3,0.0,27.5,15.2,Hazard Exposure,Capacity Stress
+KA_TALUK_110,Hangal,Haveri,48.3,0.0,39.7,11.9,Hazard Exposure,Capacity Stress
+KA_TALUK_111,Hirekerur,Haveri,49.2,0.0,37.9,12.9,Hazard Exposure,Capacity Stress
+KA_TALUK_112,Ranebennur,Haveri,47.7,0.0,40.2,12.1,Hazard Exposure,Capacity Stress
+KA_TALUK_113,Savanur,Haveri,49.7,0.0,37.7,12.6,Hazard Exposure,Capacity Stress
+KA_TALUK_114,Shiggaon,Haveri,55.1,0.0,25.5,19.4,Hazard Exposure,Capacity Stress
+KA_TALUK_115,Rattihalli,Haveri,56.7,0.0,24.7,18.6,Hazard Exposure,Capacity Stress
+KA_TALUK_116,Kalaburagi,Kalaburagi,60.4,0.0,25.3,14.3,Hazard Exposure,Capacity Stress
+KA_TALUK_117,Afzalpur,Kalaburagi,49.5,0.0,35.6,14.9,Hazard Exposure,Capacity Stress
+KA_TALUK_118,Aland,Kalaburagi,58.4,0.0,22.8,18.8,Hazard Exposure,Capacity Stress
+KA_TALUK_119,Chincholi,Kalaburagi,59.9,0.0,25.1,15.0,Hazard Exposure,Capacity Stress
+KA_TALUK_120,Chittapur,Kalaburagi,51.6,0.0,31.2,17.1,Hazard Exposure,Capacity Stress
+KA_TALUK_121,Jevargi,Kalaburagi,58.1,0.0,23.8,18.1,Hazard Exposure,Capacity Stress
+KA_TALUK_122,Sedam,Kalaburagi,63.5,0.0,20.5,15.9,Hazard Exposure,Capacity Stress
+KA_TALUK_123,Kamalapur,Kalaburagi,64.0,0.0,20.4,15.7,Hazard Exposure,Capacity Stress
+KA_TALUK_124,Yadrami,Kalaburagi,56.1,0.0,25.0,18.9,Hazard Exposure,Capacity Stress
+KA_TALUK_125,Shahabad,Kalaburagi,53.9,0.0,27.9,18.2,Hazard Exposure,Capacity Stress
+KA_TALUK_126,Kalgi,Kalaburagi,56.0,0.0,25.3,18.7,Hazard Exposure,Capacity Stress
+KA_TALUK_127,Madikeri,Kodagu,61.6,0.0,18.4,19.9,Hazard Exposure,Capacity Stress
+KA_TALUK_128,Somwarpet,Kodagu,62.2,0.0,19.2,18.6,Hazard Exposure,Capacity Stress
+KA_TALUK_129,Virajpet,Kodagu,57.8,0.0,22.6,19.6,Hazard Exposure,Capacity Stress
+KA_TALUK_130,Kushalnagar,Kodagu,61.3,0.0,20.4,18.3,Hazard Exposure,Capacity Stress
+KA_TALUK_131,Ponnampet,Kodagu,59.5,0.0,18.8,21.7,Hazard Exposure,Capacity Stress
+KA_TALUK_132,Kolar,Kolar,42.4,0.0,38.6,19.0,Hazard Exposure,Capacity Stress
+KA_TALUK_133,Bangarapet,Kolar,42.7,0.0,37.4,19.9,Hazard Exposure,Capacity Stress
+KA_TALUK_134,Malur,Kolar,37.0,0.0,47.4,15.6,Hazard Exposure,Capacity Stress
+KA_TALUK_135,Mulbagal,Kolar,47.5,0.0,39.3,13.2,Hazard Exposure,Capacity Stress
+KA_TALUK_136,Srinivaspur,Kolar,34.9,0.0,50.2,14.9,Hazard Exposure,Capacity Stress
+KA_TALUK_137,KGF,Kolar,35.6,0.0,46.0,18.4,Hazard Exposure,Capacity Stress
+KA_TALUK_138,Koppal,Koppal,60.2,0.0,24.9,14.9,Hazard Exposure,Capacity Stress
+KA_TALUK_139,Gangavathi,Koppal,64.6,0.0,20.5,14.9,Hazard Exposure,Capacity Stress
+KA_TALUK_140,Kushtagi,Koppal,63.1,0.0,21.3,15.6,Hazard Exposure,Capacity Stress
+KA_TALUK_141,Yelburga,Koppal,58.8,0.0,22.1,19.1,Hazard Exposure,Capacity Stress
+KA_TALUK_142,Kuknoor,Koppal,64.9,0.0,21.1,14.0,Hazard Exposure,Capacity Stress
+KA_TALUK_143,Kanakagiri,Koppal,52.7,0.0,28.3,19.0,Hazard Exposure,Capacity Stress
+KA_TALUK_144,Karatagi,Koppal,53.3,0.0,28.0,18.8,Hazard Exposure,Capacity Stress
+KA_TALUK_145,Mandya,Mandya,50.1,0.0,32.0,17.9,Hazard Exposure,Capacity Stress
+KA_TALUK_146,Maddur,Mandya,50.5,0.0,33.1,16.4,Hazard Exposure,Capacity Stress
+KA_TALUK_147,Malavalli,Mandya,51.1,0.0,37.1,11.8,Hazard Exposure,Capacity Stress
+KA_TALUK_148,Pandavapura,Mandya,48.4,0.0,34.9,16.7,Hazard Exposure,Capacity Stress
+KA_TALUK_149,Nagamangala,Mandya,47.2,0.0,40.7,12.1,Hazard Exposure,Capacity Stress
+KA_TALUK_150,Krishnarajpet,Mandya,50.0,0.0,37.9,12.2,Hazard Exposure,Capacity Stress
+KA_TALUK_151,Srirangapatna,Mandya,45.5,0.0,40.0,14.4,Hazard Exposure,Capacity Stress
+KA_TALUK_152,Mysuru,Mysuru,51.1,0.0,34.2,14.7,Hazard Exposure,Capacity Stress
+KA_TALUK_153,Hunsur,Mysuru,49.6,0.0,37.9,12.4,Hazard Exposure,Capacity Stress
+KA_TALUK_154,Krishnarajanagara,Mysuru,50.3,0.0,38.6,11.1,Hazard Exposure,Capacity Stress
+KA_TALUK_155,Nanjangud,Mysuru,50.2,0.0,39.1,10.7,Hazard Exposure,Capacity Stress
+KA_TALUK_156,Heggadadevankote,Mysuru,49.6,0.0,40.5,9.9,Hazard Exposure,Capacity Stress
+KA_TALUK_157,Piriyapatna,Mysuru,42.2,0.0,45.0,12.9,Hazard Exposure,Capacity Stress
+KA_TALUK_158,T. Narasipura,Mysuru,46.5,0.0,42.3,11.3,Hazard Exposure,Capacity Stress
+KA_TALUK_159,Saragur,Mysuru,43.4,0.0,44.5,12.1,Hazard Exposure,Capacity Stress
+KA_TALUK_160,Saligrama,Mysuru,51.3,0.0,35.4,13.3,Hazard Exposure,Capacity Stress
+KA_TALUK_161,Raichur,Raichur,55.2,0.0,32.5,12.3,Hazard Exposure,Capacity Stress
+KA_TALUK_162,Deodurga,Raichur,62.2,0.0,20.0,17.8,Hazard Exposure,Capacity Stress
+KA_TALUK_163,Lingsugur,Raichur,60.8,0.0,20.3,18.9,Hazard Exposure,Capacity Stress
+KA_TALUK_164,Manvi,Raichur,61.1,0.0,24.7,14.1,Hazard Exposure,Capacity Stress
+KA_TALUK_165,Sindhanur,Raichur,60.4,0.0,26.9,12.7,Hazard Exposure,Capacity Stress
+KA_TALUK_166,Maski,Raichur,64.9,0.0,21.5,13.6,Hazard Exposure,Capacity Stress
+KA_TALUK_167,Sirwar,Raichur,62.9,0.0,25.0,12.1,Hazard Exposure,Capacity Stress
+KA_TALUK_168,Ramanagara,Ramanagara,34.3,0.0,49.0,16.6,Hazard Exposure,Capacity Stress
+KA_TALUK_169,Channapatna,Ramanagara,48.9,0.0,29.3,21.8,Hazard Exposure,Capacity Stress
+KA_TALUK_170,Kanakapura,Ramanagara,39.4,0.0,43.0,17.7,Hazard Exposure,Capacity Stress
+KA_TALUK_171,Magadi,Ramanagara,37.0,0.0,47.2,15.7,Hazard Exposure,Capacity Stress
+KA_TALUK_172,Shivamogga,Shivamogga,59.0,0.0,24.0,16.9,Hazard Exposure,Capacity Stress
+KA_TALUK_173,Bhadravathi,Shivamogga,57.6,0.0,24.1,18.2,Hazard Exposure,Capacity Stress
+KA_TALUK_174,Hosanagara,Shivamogga,59.7,0.0,21.1,19.2,Hazard Exposure,Capacity Stress
+KA_TALUK_175,Sagara,Shivamogga,60.6,0.0,20.3,19.1,Hazard Exposure,Capacity Stress
+KA_TALUK_176,Shikaripura,Shivamogga,62.6,0.0,19.0,18.4,Hazard Exposure,Capacity Stress
+KA_TALUK_177,Soraba,Shivamogga,59.7,0.0,19.8,20.5,Hazard Exposure,Capacity Stress
+KA_TALUK_178,Thirthahalli,Shivamogga,54.2,0.0,27.8,18.0,Hazard Exposure,Capacity Stress
+KA_TALUK_179,Tumakuru,Tumakuru,43.7,0.0,39.4,16.9,Hazard Exposure,Capacity Stress
+KA_TALUK_180,Chiknayakanhalli,Tumakuru,47.5,0.0,40.0,12.4,Hazard Exposure,Capacity Stress
+KA_TALUK_181,Gubbi,Tumakuru,59.6,0.0,23.7,16.6,Hazard Exposure,Capacity Stress
+KA_TALUK_182,Koratagere,Tumakuru,50.0,0.0,28.9,21.1,Hazard Exposure,Capacity Stress
+KA_TALUK_183,Kunigal,Tumakuru,45.2,0.0,41.7,13.2,Hazard Exposure,Capacity Stress
+KA_TALUK_184,Madhugiri,Tumakuru,40.7,0.0,37.5,21.8,Hazard Exposure,Capacity Stress
+KA_TALUK_185,Pavagada,Tumakuru,45.4,0.0,43.3,11.3,Hazard Exposure,Capacity Stress
+KA_TALUK_186,Sira,Tumakuru,38.7,0.0,43.8,17.5,Hazard Exposure,Capacity Stress
+KA_TALUK_187,Tiptur,Tumakuru,47.0,0.0,28.0,25.0,Hazard Exposure,Capacity Stress
+KA_TALUK_188,Turuvekere,Tumakuru,46.8,0.0,22.4,30.8,Hazard Exposure,Capacity Stress
+KA_TALUK_189,Udupi,Udupi,62.2,0.0,20.7,17.1,Hazard Exposure,Capacity Stress
+KA_TALUK_190,Karkala,Udupi,54.1,0.0,29.4,16.5,Hazard Exposure,Capacity Stress
+KA_TALUK_191,Kundapura,Udupi,61.4,0.0,20.6,18.0,Hazard Exposure,Capacity Stress
+KA_TALUK_192,Byndoor,Udupi,59.1,0.0,26.8,14.1,Hazard Exposure,Capacity Stress
+KA_TALUK_193,Brahmavara,Udupi,58.7,0.0,26.7,14.6,Hazard Exposure,Capacity Stress
+KA_TALUK_194,Kapu,Udupi,64.4,0.0,20.8,14.8,Hazard Exposure,Capacity Stress
+KA_TALUK_195,Hebri,Udupi,55.8,0.0,29.7,14.5,Hazard Exposure,Capacity Stress
+KA_TALUK_196,Karwar,Uttara Kannada,63.2,0.0,19.6,17.2,Hazard Exposure,Capacity Stress
+KA_TALUK_197,Ankola,Uttara Kannada,65.5,0.0,19.1,15.4,Hazard Exposure,Capacity Stress
+KA_TALUK_198,Kumta,Uttara Kannada,63.1,0.0,20.1,16.8,Hazard Exposure,Capacity Stress
+KA_TALUK_199,Honnavar,Uttara Kannada,63.9,0.0,18.7,17.4,Hazard Exposure,Capacity Stress
+KA_TALUK_200,Bhatkal,Uttara Kannada,65.3,0.0,19.0,15.8,Hazard Exposure,Capacity Stress
+KA_TALUK_201,Sirsi,Uttara Kannada,63.4,0.0,19.9,16.7,Hazard Exposure,Capacity Stress
+KA_TALUK_202,Siddapur,Uttara Kannada,61.2,0.0,20.3,18.4,Hazard Exposure,Capacity Stress
+KA_TALUK_203,Yellapur,Uttara Kannada,63.1,0.0,20.0,16.9,Hazard Exposure,Capacity Stress
+KA_TALUK_204,Haliyal,Uttara Kannada,64.9,0.0,18.1,17.0,Hazard Exposure,Capacity Stress
+KA_TALUK_205,Joida,Uttara Kannada,62.4,0.0,19.4,18.2,Hazard Exposure,Capacity Stress
+KA_TALUK_206,Mundgod,Uttara Kannada,62.2,0.0,18.6,19.1,Hazard Exposure,Capacity Stress
+KA_TALUK_207,Dandeli,Uttara Kannada,59.5,0.0,24.5,16.0,Hazard Exposure,Capacity Stress
+KA_TALUK_208,Vijayapura,Vijayapura,62.6,0.0,24.0,13.4,Hazard Exposure,Capacity Stress
+KA_TALUK_209,Basavana Bagewadi,Vijayapura,57.7,0.0,21.9,20.4,Hazard Exposure,Capacity Stress
+KA_TALUK_210,Indi,Vijayapura,58.1,0.0,24.4,17.5,Hazard Exposure,Capacity Stress
+KA_TALUK_211,Muddebihal,Vijayapura,63.2,0.0,19.0,17.8,Hazard Exposure,Capacity Stress
+KA_TALUK_212,Sindagi,Vijayapura,59.8,0.0,22.8,17.5,Hazard Exposure,Capacity Stress
+KA_TALUK_213,Chadchan,Vijayapura,59.0,0.0,19.8,21.2,Hazard Exposure,Capacity Stress
+KA_TALUK_214,Tikota,Vijayapura,54.6,0.0,28.3,17.2,Hazard Exposure,Capacity Stress
+KA_TALUK_215,Babaleshwar,Vijayapura,58.6,0.0,20.0,21.4,Hazard Exposure,Capacity Stress
+KA_TALUK_216,Kolhar,Vijayapura,57.4,0.0,26.7,15.9,Hazard Exposure,Capacity Stress
+KA_TALUK_217,Nidagundi,Vijayapura,61.6,0.0,21.5,16.9,Hazard Exposure,Capacity Stress
+KA_TALUK_218,Devara Hippargi,Vijayapura,52.7,0.0,29.4,17.9,Hazard Exposure,Capacity Stress
+KA_TALUK_219,Yadgir,Yadgir,57.4,0.0,26.7,15.9,Hazard Exposure,Capacity Stress
+KA_TALUK_220,Shahapur,Yadgir,62.8,0.0,24.8,12.5,Hazard Exposure,Capacity Stress
+KA_TALUK_221,Shorapur,Yadgir,62.3,0.0,21.1,16.6,Hazard Exposure,Capacity Stress
+KA_TALUK_222,Hunsagi,Yadgir,62.4,0.0,22.7,14.9,Hazard Exposure,Capacity Stress
+KA_TALUK_223,Gurmitkal,Yadgir,60.7,0.0,23.0,16.3,Hazard Exposure,Capacity Stress
+KA_TALUK_224,Wadgera,Yadgir,62.1,0.0,27.2,10.7,Hazard Exposure,Capacity Stress
+KA_TALUK_225,Hosapete,Vijayanagara,60.3,0.0,21.7,18.0,Hazard Exposure,Capacity Stress
+KA_TALUK_226,Hagaribommanahalli,Vijayanagara,54.9,0.0,32.0,13.1,Hazard Exposure,Capacity Stress
+KA_TALUK_227,Harapanahalli,Vijayanagara,59.3,0.0,25.7,15.0,Hazard Exposure,Capacity Stress
+KA_TALUK_228,Hoovina Hadagali,Vijayanagara,54.8,0.0,25.9,19.3,Hazard Exposure,Capacity Stress
+KA_TALUK_229,Kudligi,Vijayanagara,52.2,0.0,29.8,17.9,Hazard Exposure,Capacity Stress
+KA_TALUK_230,Kotturu,Vijayanagara,57.0,0.0,31.0,12.0,Hazard Exposure,Capacity Stress
