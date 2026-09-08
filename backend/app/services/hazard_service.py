@@ -9,11 +9,33 @@ from app.hazard.schemas import (
     HazardSummaryResponse,
 )
 
-def is_tn(state_id: Optional[str]) -> bool:
+def resolve_state_key(state_id: Optional[str]) -> str:
     if not state_id:
-        return False
+        return "andhra_pradesh"
     clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
-    return clean in ["tamil_nadu", "tn", "tamilnadu"]
+    if clean in ["odisha", "od", "or", "orissa"]:
+        return "odisha"
+    if clean in ["assam", "as"]:
+        return "assam"
+    if clean in ["bihar", "br"]:
+        return "bihar"
+    if clean in ["tamil_nadu", "tn", "tamilnadu"]:
+        return "tamil_nadu"
+    if clean in ["west_bengal", "wb", "westbengal"]:
+        return "west_bengal"
+    if clean in ["uttar_pradesh", "up", "uttarpradesh"]:
+        return "uttar_pradesh"
+    if clean in ["uttarakhand", "uk", "uttaranchal"]:
+        return "uttarakhand"
+    if clean in ["sikkim", "sk"]:
+        return "sikkim"
+    if clean in ["arunachal_pradesh", "arunachal", "ar"]:
+        return "arunachal_pradesh"
+    if clean in ["nagaland", "nl"]:
+        return "nagaland"
+    if clean in ["meghalaya", "ml"]:
+        return "meghalaya"
+    return "andhra_pradesh"
 
 def is_mizoram(state_id: Optional[str]) -> bool:
     if not state_id:
@@ -41,7 +63,7 @@ class HazardService:
         return "ap"
 
     def _load_data(self, state_id: Optional[str] = "andhra_pradesh"):
-        key = self._get_state_key(state_id)
+        key = resolve_state_key(state_id)
         if key in self._cache:
             return self._cache[key]
 
@@ -59,10 +81,42 @@ class HazardService:
             csv_path = haz_dir / "tn_taluk_multi_hazard_exposure.csv"
             geojson_path = haz_dir / "tn_taluk_multi_hazard_exposure.geojson"
             surge_included = True
+            surge_reason = "None"
+        elif key == "uttar_pradesh":
+            csv_path = haz_dir / "up_tehsil_multi_hazard_exposure.csv"
+            geojson_path = haz_dir / "up_tehsil_multi_hazard_exposure.geojson"
+            surge_included = False
+            surge_reason = "Inland northern state: Direct coastal storm surge is Not Applicable (0.0). Recurrent riverine flood inundation across Ganga, Yamuna, Ghaghara, Rapti, and Ramganga river basins & BIS IS 875 wind models applied."
+        elif key == "uttarakhand":
+            csv_path = haz_dir / "uk_tehsil_multi_hazard_exposure.csv"
+            geojson_path = haz_dir / "uk_tehsil_multi_hazard_exposure.geojson"
+            surge_included = False
+            surge_reason = "Inland Himalayan state: Direct coastal storm surge is Not Applicable (0.0). Trans-Himalayan flash flood / GLOF recurrence across Bhagirathi, Alaknanda, and Mandakini basins, high-relief slope/landslide constraints, and BIS IS 875 wind models applied."
+        elif key == "sikkim":
+            csv_path = haz_dir / "sk_subdivision_multi_hazard_exposure.csv"
+            geojson_path = haz_dir / "sk_subdivision_multi_hazard_exposure.geojson"
+            surge_included = False
+            surge_reason = "Inland Eastern Himalayan state: Direct coastal storm surge is Not Applicable (0.0). Teesta basin Glacial Lake Outburst Floods (GLOF), catastrophic flash flood runoff, steep mountain slope landslide hazards, and BIS IS 875 wind models applied."
+        elif key == "arunachal_pradesh":
+            csv_path = haz_dir / "ar_circle_multi_hazard_exposure.csv"
+            geojson_path = haz_dir / "ar_circle_multi_hazard_exposure.geojson"
+            surge_included = False
+            surge_reason = "Inland Eastern Himalayan state: Direct coastal storm surge is Not Applicable (0.0). Major river basin flash flood & landslide dam-burst risks (Siang, Subansiri, Kameng, Dibang, Lohit), steep mountain slope landslide hazards, and BIS IS 875 wind models applied."
+        elif key == "nagaland":
+            csv_path = haz_dir / "nl_circle_multi_hazard_exposure.csv"
+            geojson_path = haz_dir / "nl_circle_multi_hazard_exposure.geojson"
+            surge_included = False
+            surge_reason = "Inland northeastern state: Direct coastal storm surge is Not Applicable (0.0). Naga Hills steep mountain slope landslide hazards, Dhansiri-Doyang-Dikhu-Tizu riverine & flash flood recurrence, and BIS IS 875 wind models applied."
+        elif key == "meghalaya":
+            csv_path = haz_dir / "ml_block_multi_hazard_exposure.csv"
+            geojson_path = haz_dir / "ml_block_multi_hazard_exposure.geojson"
+            surge_included = False
+            surge_reason = "Inland hill state atop Shillong Plateau: Direct coastal storm surge is Not Applicable (0.0). Cherrapunji/Mawsynram extreme rainfall, southern escarpment flash flood & landslide susceptibility, northern riverine flood recurrence, and BIS IS 875 (55 m/s) wind models applied."
         else:
             csv_path = haz_dir / "mandal_multi_hazard_exposure.csv"
             geojson_path = haz_dir / "ap_mandal_multi_hazard_exposure.geojson"
             surge_included = False
+            surge_reason = "Open-access coastal surge inundation layer requires dynamic hydrodynamic modeling (e.g. ADCIRC). Historical tropical storm buffers applied as proxy."
 
         if not csv_path.exists():
             raise FileNotFoundError(f"Hazard data not found at {csv_path}")
@@ -71,6 +125,7 @@ class HazardService:
             "exposure_df": pd.read_csv(csv_path),
             "geojson_path": geojson_path,
             "surge_included": surge_included,
+            "surge_reason": surge_reason,
             "geojson": None
         }
         self._cache[key] = data
@@ -143,7 +198,7 @@ class HazardService:
             },
             top_exposed_mandals=top_5,
             storm_surge_included=data["surge_included"],
-            storm_surge_exclusion_reason="None" if data["surge_included"] else "Open-access coastal surge inundation layer requires dynamic hydrodynamic modeling (e.g. ADCIRC). Historical tropical storm buffers applied as proxy.",
+            storm_surge_exclusion_reason=data["surge_reason"],
             methodology_note="Calculated using verified open hazard datasets: JRC Global Surface Water 30m, NOAA IBTrACS Bay of Bengal tracks, BMTPC IS 875 wind speeds, and CGIAR SRTM 90m slope."
         )
 

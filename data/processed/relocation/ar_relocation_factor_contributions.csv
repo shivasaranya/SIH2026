@@ -1,0 +1,209 @@
+mandal_id,mandal_name,district_name,hazard_factor_pct,sensitivity_factor_pct,capacity_factor_pct,access_factor_pct,dominant_factor
+AR_CIR_001,Kitpi,Tawang,44.7,19.25,23.66,12.38,Hazard Exposure
+AR_CIR_002,Lumla,Tawang,44.43,19.45,23.83,12.29,Hazard Exposure
+AR_CIR_003,Tawang,Tawang,44.16,19.64,24.01,12.2,Hazard Exposure
+AR_CIR_004,Jang,Tawang,43.89,19.83,24.18,12.1,Hazard Exposure
+AR_CIR_005,Lhou,Tawang,43.63,20.02,24.34,12.01,Hazard Exposure
+AR_CIR_006,Mukto,Tawang,43.37,20.21,24.5,11.92,Hazard Exposure
+AR_CIR_007,Thingbu,Tawang,43.11,20.39,24.67,11.83,Hazard Exposure
+AR_CIR_008,Dudunghar,Tawang,42.86,20.57,24.82,11.75,Hazard Exposure
+AR_CIR_009,Zemithang,Tawang,42.61,20.75,24.98,11.66,Hazard Exposure
+AR_CIR_010,Rupa,West Kameng,45.41,19.32,22.65,12.62,Hazard Exposure
+AR_CIR_011,Kamengbari Doimara,West Kameng,45.12,19.52,22.84,12.52,Hazard Exposure
+AR_CIR_012,Bomdila,West Kameng,44.85,19.71,23.02,12.43,Hazard Exposure
+AR_CIR_013,Shergaon,West Kameng,44.57,19.91,23.2,12.33,Hazard Exposure
+AR_CIR_014,Dirang,West Kameng,44.3,20.1,23.37,12.23,Hazard Exposure
+AR_CIR_015,Nafra,West Kameng,44.02,20.29,23.55,12.14,Hazard Exposure
+AR_CIR_016,Kalaktang,West Kameng,43.77,20.47,23.72,12.05,Hazard Exposure
+AR_CIR_017,Singchung,West Kameng,43.5,20.65,23.89,11.96,Hazard Exposure
+AR_CIR_018,Jamiri,West Kameng,43.25,20.83,24.05,11.87,Hazard Exposure
+AR_CIR_019,Thrizino,West Kameng,42.99,21.01,24.22,11.78,Hazard Exposure
+AR_CIR_020,Bhalukpong,West Kameng,42.75,21.18,24.38,11.7,Hazard Exposure
+AR_CIR_021,Thembang,West Kameng,42.5,21.35,24.54,11.61,Hazard Exposure
+AR_CIR_022,Balemu,West Kameng,42.26,21.52,24.7,11.53,Hazard Exposure
+AR_CIR_023,Buragaon,West Kameng,42.02,21.69,24.85,11.44,Hazard Exposure
+AR_CIR_024,Seppa,East Kameng,44.86,21.72,21.33,12.09,Hazard Exposure
+AR_CIR_025,Khenawa,East Kameng,44.59,21.9,21.52,12.0,Hazard Exposure
+AR_CIR_026,Lada,East Kameng,44.33,22.07,21.7,11.91,Hazard Exposure
+AR_CIR_027,Sawa,East Kameng,44.06,22.24,21.88,11.82,Hazard Exposure
+AR_CIR_028,Pizirang Veo,East Kameng,43.81,22.4,22.06,11.73,Hazard Exposure
+AR_CIR_029,Richukrong,East Kameng,43.56,22.56,22.23,11.65,Hazard Exposure
+AR_CIR_030,Gyawe Purang,East Kameng,43.3,22.73,22.4,11.56,Hazard Exposure
+AR_CIR_031,Pipu Dipu,East Kameng,43.06,22.88,22.58,11.48,Hazard Exposure
+AR_CIR_032,Bameng,East Kameng,42.82,23.04,22.75,11.4,Hazard Exposure
+AR_CIR_033,Bana,East Kameng,42.57,23.19,22.92,11.32,Hazard Exposure
+AR_CIR_034,Pakoti,East Kameng,42.34,23.35,23.08,11.24,Hazard Exposure
+AR_CIR_035,Debeyar Co,East Kameng,42.1,23.5,23.24,11.16,Hazard Exposure
+AR_CIR_036,Dissing Passo,Pakke Kessang,47.08,27.22,10.8,14.9,Hazard Exposure
+AR_CIR_037,Pakke Kessang,Pakke Kessang,46.73,27.38,11.12,14.76,Hazard Exposure
+AR_CIR_038,Leporiang,Pakke Kessang,46.38,27.55,11.45,14.62,Hazard Exposure
+AR_CIR_039,Sangdupota Basar Nello,Pakke Kessang,46.05,27.7,11.76,14.49,Hazard Exposure
+AR_CIR_040,Seijosa,Pakke Kessang,45.71,27.86,12.07,14.36,Hazard Exposure
+AR_CIR_041,Passa Valley,Pakke Kessang,45.39,28.0,12.38,14.23,Hazard Exposure
+AR_CIR_042,Parang,Papum Pare,38.71,20.44,27.42,13.44,Hazard Exposure
+AR_CIR_043,Itanagar,Papum Pare,38.48,20.6,27.59,13.33,Hazard Exposure
+AR_CIR_044,Gumto,Papum Pare,38.23,20.8,27.74,13.22,Hazard Exposure
+AR_CIR_045,Naharlagun,Papum Pare,37.99,21.0,27.89,13.11,Hazard Exposure
+AR_CIR_046,Doimukh,Papum Pare,37.75,21.19,28.05,13.0,Hazard Exposure
+AR_CIR_047,Toru,Papum Pare,37.52,21.39,28.2,12.9,Hazard Exposure
+AR_CIR_048,Sagalee,Papum Pare,37.29,21.57,28.34,12.8,Hazard Exposure
+AR_CIR_049,Taraso,Papum Pare,37.07,21.76,28.48,12.69,Hazard Exposure
+AR_CIR_050,Banderdewa,Papum Pare,36.85,21.94,28.62,12.59,Hazard Exposure
+AR_CIR_051,Balijan,Papum Pare,36.63,22.12,28.76,12.49,Hazard Exposure
+AR_CIR_052,Borum,Papum Pare,36.41,22.29,28.9,12.4,Hazard Exposure
+AR_CIR_053,Koloriang,Kurung Kumey,44.02,22.85,21.35,11.78,Hazard Exposure
+AR_CIR_054,Sarli,Kurung Kumey,43.76,23.01,21.53,11.69,Hazard Exposure
+AR_CIR_055,Damin,Kurung Kumey,43.51,23.17,21.71,11.61,Hazard Exposure
+AR_CIR_056,Chayangtajo,Kurung Kumey,43.26,23.33,21.89,11.53,Hazard Exposure
+AR_CIR_057,Taksing,Kurung Kumey,43.02,23.48,22.06,11.44,Hazard Exposure
+AR_CIR_058,Pipsorang,Kurung Kumey,42.77,23.63,22.23,11.36,Hazard Exposure
+AR_CIR_059,Patuk,Kurung Kumey,42.54,23.78,22.4,11.28,Hazard Exposure
+AR_CIR_060,Limeking,Kurung Kumey,42.3,23.93,22.57,11.2,Hazard Exposure
+AR_CIR_061,Phassang,Kurung Kumey,42.07,24.07,22.73,11.12,Hazard Exposure
+AR_CIR_062,Polosang,Kurung Kumey,41.88,24.15,22.92,11.06,Hazard Exposure
+AR_CIR_063,Yangte,Kra Daadi,45.5,23.37,18.77,12.36,Hazard Exposure
+AR_CIR_064,Nyapin,Kra Daadi,45.22,23.54,18.98,12.26,Hazard Exposure
+AR_CIR_065,Mengio,Kra Daadi,44.94,23.7,19.19,12.17,Hazard Exposure
+AR_CIR_066,Sangram,Kra Daadi,44.68,23.85,19.39,12.07,Hazard Exposure
+AR_CIR_067,Pistana,Kra Daadi,44.4,24.02,19.6,11.98,Hazard Exposure
+AR_CIR_068,Palin,Kra Daadi,44.14,24.17,19.79,11.89,Hazard Exposure
+AR_CIR_069,Tali,Kra Daadi,43.88,24.32,19.99,11.81,Hazard Exposure
+AR_CIR_070,Chambang,Kra Daadi,43.63,24.48,20.18,11.72,Hazard Exposure
+AR_CIR_071,Tarak Lengdi Cicle,Kra Daadi,43.37,24.62,20.37,11.64,Hazard Exposure
+AR_CIR_072,Nyobia,Kra Daadi,43.13,24.77,20.56,11.55,Hazard Exposure
+AR_CIR_073,Deed,Kra Daadi,42.89,24.89,20.75,11.47,Hazard Exposure
+AR_CIR_074,Silsango,Kra Daadi,42.69,24.96,20.95,11.4,Hazard Exposure
+AR_CIR_075,Kakoi,Lower Subansiri,39.05,20.97,27.65,12.33,Hazard Exposure
+AR_CIR_076,Kimin,Lower Subansiri,38.82,21.15,27.79,12.23,Hazard Exposure
+AR_CIR_077,Ziro,Lower Subansiri,38.6,21.33,27.94,12.14,Hazard Exposure
+AR_CIR_078,Old Ziro,Lower Subansiri,38.38,21.5,28.07,12.05,Hazard Exposure
+AR_CIR_079,Yachuli,Lower Subansiri,38.15,21.68,28.21,11.96,Hazard Exposure
+AR_CIR_080,Yazali,Lower Subansiri,37.94,21.85,28.34,11.87,Hazard Exposure
+AR_CIR_081,Dollungmukh,Kamle,42.11,23.24,22.36,12.28,Hazard Exposure
+AR_CIR_082,Kamporijo,Kamle,41.86,23.4,22.55,12.19,Hazard Exposure
+AR_CIR_083,Raga,Kamle,41.61,23.57,22.73,12.1,Hazard Exposure
+AR_CIR_084,Gangte,Kamle,41.36,23.73,22.9,12.01,Hazard Exposure
+AR_CIR_085,Daporijo,Upper Subansiri,44.74,21.68,21.96,11.62,Hazard Exposure
+AR_CIR_086,Dumporijo,Upper Subansiri,44.48,21.84,22.14,11.54,Hazard Exposure
+AR_CIR_087,Segi Gusar,Upper Subansiri,44.22,22.01,22.31,11.45,Hazard Exposure
+AR_CIR_088,Gite Ripa,Upper Subansiri,43.97,22.17,22.48,11.37,Hazard Exposure
+AR_CIR_089,Chetam Peer Yapu,Upper Subansiri,43.73,22.33,22.65,11.29,Hazard Exposure
+AR_CIR_090,Puchi Geko,Upper Subansiri,43.48,22.49,22.82,11.21,Hazard Exposure
+AR_CIR_091,Giba,Upper Subansiri,43.24,22.64,22.98,11.13,Hazard Exposure
+AR_CIR_092,Taliha,Upper Subansiri,43.0,22.8,23.14,11.06,Hazard Exposure
+AR_CIR_093,Maro,Upper Subansiri,42.77,22.95,23.3,10.98,Hazard Exposure
+AR_CIR_094,Nilling,Upper Subansiri,42.54,23.1,23.46,10.91,Hazard Exposure
+AR_CIR_095,Gepen,Upper Subansiri,42.31,23.24,23.61,10.83,Hazard Exposure
+AR_CIR_096,Kaying,West Siang,43.4,21.6,22.29,12.7,Hazard Exposure
+AR_CIR_097,Koyu,West Siang,43.13,21.79,22.48,12.6,Hazard Exposure
+AR_CIR_098,Kamba,West Siang,42.86,21.96,22.67,12.5,Hazard Exposure
+AR_CIR_099,Aalo,West Siang,42.6,22.14,22.85,12.41,Hazard Exposure
+AR_CIR_100,Jomlo Mobuk,West Siang,42.34,22.32,23.03,12.31,Hazard Exposure
+AR_CIR_101,Bagra,West Siang,42.09,22.49,23.21,12.22,Hazard Exposure
+AR_CIR_102,Kombo,West Siang,41.83,22.66,23.38,12.12,Hazard Exposure
+AR_CIR_103,Nikte Kodum,West Siang,41.58,22.83,23.56,12.03,Hazard Exposure
+AR_CIR_104,Pidi,Shi Yomi,49.73,24.15,13.26,12.85,Hazard Exposure
+AR_CIR_105,Payeng,Shi Yomi,49.4,24.32,13.53,12.75,Hazard Exposure
+AR_CIR_106,Monigong,Shi Yomi,49.08,24.49,13.78,12.65,Hazard Exposure
+AR_CIR_107,Mechuka,Shi Yomi,48.76,24.65,14.04,12.55,Hazard Exposure
+AR_CIR_108,Nacho,Shi Yomi,48.46,24.8,14.29,12.45,Hazard Exposure
+AR_CIR_109,Siyum,Shi Yomi,48.15,24.96,14.54,12.35,Hazard Exposure
+AR_CIR_110,Darak,Shi Yomi,47.85,25.11,14.78,12.26,Hazard Exposure
+AR_CIR_111,Tato,Shi Yomi,47.58,25.28,14.96,12.17,Hazard Exposure
+AR_CIR_112,Tirbin,Leparada,47.1,24.81,13.67,14.42,Hazard Exposure
+AR_CIR_113,New Seren,Leparada,46.77,24.98,13.96,14.29,Hazard Exposure
+AR_CIR_114,Liromoba,Leparada,46.43,25.16,14.25,14.16,Hazard Exposure
+AR_CIR_115,Yomcha,Leparada,46.1,25.34,14.53,14.04,Hazard Exposure
+AR_CIR_116,Daring,Leparada,45.78,25.51,14.79,13.92,Hazard Exposure
+AR_CIR_117,Baririjo,Leparada,45.46,25.68,15.06,13.8,Hazard Exposure
+AR_CIR_118,Basar,Leparada,45.15,25.84,15.33,13.68,Hazard Exposure
+AR_CIR_119,Sago,Leparada,44.84,26.01,15.59,13.56,Hazard Exposure
+AR_CIR_120,Likabali,Lower Siang,42.29,23.6,21.04,13.08,Hazard Exposure
+AR_CIR_121,Sibe,Lower Siang,42.02,23.77,21.24,12.97,Hazard Exposure
+AR_CIR_122,Kangku,Lower Siang,41.75,23.94,21.44,12.86,Hazard Exposure
+AR_CIR_123,Gensi,Lower Siang,41.49,24.11,21.64,12.76,Hazard Exposure
+AR_CIR_124,Geku,Siang,44.26,21.87,21.84,12.03,Hazard Exposure
+AR_CIR_125,Rebo Perging,Siang,43.99,22.04,22.03,11.95,Hazard Exposure
+AR_CIR_126,Riga,Siang,43.73,22.21,22.2,11.86,Hazard Exposure
+AR_CIR_127,Pangin,Siang,43.47,22.37,22.38,11.77,Hazard Exposure
+AR_CIR_128,Kebang,Siang,43.22,22.54,22.56,11.68,Hazard Exposure
+AR_CIR_129,Rumgong,Siang,42.98,22.7,22.73,11.6,Hazard Exposure
+AR_CIR_130,Nari,East Siang,41.32,23.04,20.95,14.69,Hazard Exposure
+AR_CIR_131,Ruksin,East Siang,41.07,23.27,21.08,14.57,Hazard Exposure
+AR_CIR_132,Oyan,East Siang,40.79,23.46,21.31,14.44,Hazard Exposure
+AR_CIR_133,Bilat,East Siang,40.5,23.65,21.54,14.31,Hazard Exposure
+AR_CIR_134,Pasighat,East Siang,40.22,23.84,21.76,14.19,Hazard Exposure
+AR_CIR_135,Mebo,East Siang,39.94,24.03,21.97,14.06,Hazard Exposure
+AR_CIR_136,Namsing,East Siang,39.68,24.2,22.18,13.94,Hazard Exposure
+AR_CIR_137,Mopom Adipasi,East Siang,39.41,24.39,22.39,13.82,Hazard Exposure
+AR_CIR_138,Katan,East Siang,39.15,24.56,22.6,13.7,Hazard Exposure
+AR_CIR_139,Tinali Paglam,East Siang,38.89,24.73,22.8,13.58,Hazard Exposure
+AR_CIR_140,Kora,East Siang,38.64,24.9,22.99,13.47,Hazard Exposure
+AR_CIR_141,Tuting,Upper Siang,47.04,21.6,19.5,11.86,Hazard Exposure
+AR_CIR_142,Yingkiong,Upper Siang,46.76,21.77,19.69,11.77,Hazard Exposure
+AR_CIR_143,Jengging,Upper Siang,46.48,21.94,19.89,11.69,Hazard Exposure
+AR_CIR_144,Gelling,Upper Siang,46.22,22.1,20.08,11.6,Hazard Exposure
+AR_CIR_145,Mariyang,Upper Siang,45.94,22.27,20.27,11.52,Hazard Exposure
+AR_CIR_146,Boleng,Upper Siang,45.68,22.43,20.45,11.44,Hazard Exposure
+AR_CIR_147,Payum,Upper Siang,45.42,22.59,20.64,11.36,Hazard Exposure
+AR_CIR_148,Migging,Upper Siang,45.16,22.75,20.82,11.27,Hazard Exposure
+AR_CIR_149,Palling,Upper Siang,44.99,22.95,20.85,11.22,Hazard Exposure
+AR_CIR_150,Singa,Upper Siang,44.61,23.29,20.87,11.23,Hazard Exposure
+AR_CIR_151,Mipi,Dibang Valley,49.59,22.9,14.47,13.03,Hazard Exposure
+AR_CIR_152,Anini,Dibang Valley,49.26,23.08,14.73,12.93,Hazard Exposure
+AR_CIR_153,Etalin,Dibang Valley,48.94,23.25,14.98,12.82,Hazard Exposure
+AR_CIR_154,Anelih,Dibang Valley,48.62,23.42,15.23,12.72,Hazard Exposure
+AR_CIR_155,Dambuen,Dibang Valley,48.31,23.59,15.48,12.62,Hazard Exposure
+AR_CIR_156,Desali,Lower Dibang Valley,41.03,23.45,21.47,14.05,Hazard Exposure
+AR_CIR_157,Roing,Lower Dibang Valley,40.75,23.63,21.69,13.93,Hazard Exposure
+AR_CIR_158,Kronli (Arzoo Circle),Lower Dibang Valley,40.48,23.81,21.9,13.81,Hazard Exposure
+AR_CIR_159,Hunli,Lower Dibang Valley,40.21,23.99,22.11,13.69,Hazard Exposure
+AR_CIR_160,Dambuk,Lower Dibang Valley,39.94,24.17,22.31,13.57,Hazard Exposure
+AR_CIR_161,Koronu,Lower Dibang Valley,39.68,24.35,22.51,13.46,Hazard Exposure
+AR_CIR_162,Parbuk,Lower Dibang Valley,39.43,24.51,22.71,13.35,Hazard Exposure
+AR_CIR_163,Chaglagam,Anjaw,47.5,22.78,17.32,12.4,Hazard Exposure
+AR_CIR_164,Hawai,Anjaw,47.21,22.95,17.54,12.31,Hazard Exposure
+AR_CIR_165,Metengliang,Anjaw,46.91,23.12,17.75,12.21,Hazard Exposure
+AR_CIR_166,Goiliang,Anjaw,46.63,23.28,17.97,12.12,Hazard Exposure
+AR_CIR_167,Vijoynagar,Anjaw,46.34,23.45,18.19,12.03,Hazard Exposure
+AR_CIR_168,Manchal,Anjaw,46.06,23.6,18.4,11.94,Hazard Exposure
+AR_CIR_169,Walong,Anjaw,45.78,23.76,18.61,11.85,Hazard Exposure
+AR_CIR_170,Kibithoo,Anjaw,45.55,23.93,18.75,11.77,Hazard Exposure
+AR_CIR_171,Sunpura,Lohit,41.15,23.53,21.25,14.07,Hazard Exposure
+AR_CIR_172,Tezu,Lohit,40.87,23.72,21.46,13.94,Hazard Exposure
+AR_CIR_173,Chongkham,Lohit,40.6,23.9,21.68,13.82,Hazard Exposure
+AR_CIR_174,Hayuliang,Lohit,40.33,24.08,21.89,13.7,Hazard Exposure
+AR_CIR_175,Miao,Lohit,40.06,24.26,22.1,13.59,Hazard Exposure
+AR_CIR_176,Wakro,Lohit,39.8,24.43,22.3,13.47,Hazard Exposure
+AR_CIR_177,Tikhak Rima Putok,Lohit,39.54,24.6,22.5,13.36,Hazard Exposure
+AR_CIR_178,Bordumsa,Namsai,35.42,22.09,28.76,13.74,Hazard Exposure
+AR_CIR_179,Piyong,Namsai,34.93,22.51,28.8,13.76,Hazard Exposure
+AR_CIR_180,Kharsang,Namsai,34.64,22.86,28.76,13.74,Hazard Exposure
+AR_CIR_181,Jairampur,Namsai,34.42,23.05,28.91,13.62,Hazard Exposure
+AR_CIR_182,Lathao,Namsai,34.21,23.23,29.06,13.51,Hazard Exposure
+AR_CIR_183,Lekang Mahadevpur,Namsai,34.0,23.41,29.2,13.39,Hazard Exposure
+AR_CIR_184,Diyun,Namsai,33.79,23.59,29.34,13.28,Hazard Exposure
+AR_CIR_185,Namsai,Namsai,33.58,23.77,29.48,13.17,Hazard Exposure
+AR_CIR_186,Khimiyang,Changlang,37.09,20.83,30.11,11.97,Hazard Exposure
+AR_CIR_187,Changlang,Changlang,36.89,21.01,30.23,11.88,Hazard Exposure
+AR_CIR_188,Manmao,Changlang,36.68,21.18,30.34,11.8,Hazard Exposure
+AR_CIR_189,Lyngok Longtoi,Changlang,36.48,21.35,30.46,11.71,Hazard Exposure
+AR_CIR_190,Nampong,Changlang,36.28,21.52,30.58,11.62,Hazard Exposure
+AR_CIR_191,Renuk,Changlang,36.08,21.69,30.69,11.54,Hazard Exposure
+AR_CIR_192,Namtok,Changlang,35.88,21.86,30.8,11.46,Hazard Exposure
+AR_CIR_193,Yatdam,Changlang,35.69,22.02,30.92,11.37,Hazard Exposure
+AR_CIR_194,Soha,Changlang,35.5,22.18,31.02,11.29,Hazard Exposure
+AR_CIR_195,Kantang,Changlang,35.32,22.34,31.13,11.21,Hazard Exposure
+AR_CIR_196,Lawnu,Tirap,43.04,22.82,21.76,12.38,Hazard Exposure
+AR_CIR_197,Deomali,Tirap,42.78,22.99,21.95,12.28,Hazard Exposure
+AR_CIR_198,Khonsa,Tirap,42.52,23.16,22.14,12.19,Hazard Exposure
+AR_CIR_199,Dadam,Tirap,42.27,23.32,22.31,12.09,Hazard Exposure
+AR_CIR_200,Laju,Tirap,42.01,23.48,22.5,12.0,Hazard Exposure
+AR_CIR_201,Borduria,Tirap,41.77,23.64,22.67,11.91,Hazard Exposure
+AR_CIR_202,Longo,Tirap,41.53,23.8,22.84,11.83,Hazard Exposure
+AR_CIR_203,Katang,Tirap,41.29,23.96,23.01,11.74,Hazard Exposure
+AR_CIR_204,Longding,Longding,38.89,21.7,28.04,11.38,Hazard Exposure
+AR_CIR_205,Kanubari,Longding,38.68,21.86,28.16,11.3,Hazard Exposure
+AR_CIR_206,Pumao,Longding,38.47,22.03,28.29,11.22,Hazard Exposure
+AR_CIR_207,Pangchao,Longding,38.26,22.19,28.42,11.14,Hazard Exposure
+AR_CIR_208,Wakka,Longding,38.06,22.34,28.54,11.06,Hazard Exposure

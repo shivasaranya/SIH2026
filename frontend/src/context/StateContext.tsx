@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { setActiveStateId } from '../services/api';
 
 export type StateId = 'andhra_pradesh' | 'tamil_nadu' | 'mizoram' | 'himachal_pradesh';
 
@@ -10,6 +11,7 @@ export interface StateConfig {
   adminUnitPlural: string; // 'Mandals' | 'Taluks' | 'R.D. Blocks'
   districtCount: number;
   adminUnitCount: number;
+  candidateHostsCount: number;
   center: [number, number];
   bounds: [[number, number], [number, number]];
   isCoastal: boolean;
@@ -26,6 +28,7 @@ export const STATE_CONFIGS: Record<StateId, StateConfig> = {
     adminUnitPlural: 'Mandals',
     districtCount: 26,
     adminUnitCount: 696,
+    candidateHostsCount: 51,
     center: [15.90, 80.76],
     bounds: [
       [12.60, 76.75],
@@ -43,6 +46,7 @@ export const STATE_CONFIGS: Record<StateId, StateConfig> = {
     adminUnitPlural: 'Taluks',
     districtCount: 38,
     adminUnitCount: 302,
+    candidateHostsCount: 38,
     center: [11.1271, 78.6569],
     bounds: [
       [8.08, 76.24],
@@ -109,6 +113,24 @@ export const StateProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       if (hash.includes('/tn') || hash.includes('/tamil') || hash.includes('tamil_nadu')) {
         return 'tamil_nadu';
       }
+      if (hash.includes('/uk') || hash.includes('/uttarakhand') || hash.includes('/uttaranchal')) {
+        return 'uttarakhand';
+      }
+      if (hash.includes('/up') || hash.includes('/uttar') || hash.includes('uttar_pradesh')) {
+        return 'uttar_pradesh';
+      }
+      if (hash.includes('/sk') || hash.includes('/sikkim')) {
+        return 'sikkim';
+      }
+      if (hash.includes('/ar') || hash.includes('/arunachal')) {
+        return 'arunachal_pradesh';
+      }
+      if (hash.includes('/nl') || hash.includes('/nagaland')) {
+        return 'nagaland';
+      }
+      if (hash.includes('/ml') || hash.includes('/meghalaya')) {
+        return 'meghalaya';
+      }
     }
     return 'andhra_pradesh';
   };
@@ -116,7 +138,12 @@ export const StateProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   const [stateId, setStateIdState] = useState<StateId>(getInitialState);
 
   // Keep API client active state synchronized
+  useEffect(() => {
+    setActiveStateId(stateId);
+  }, [stateId]);
+
   const setStateId = (newId: StateId) => {
+    setActiveStateId(newId);
     setStateIdState(newId);
   };
 
@@ -144,7 +171,7 @@ export const StateProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       } else if (hash.includes('/hp') || hash.includes('/himachal')) {
         setStateIdState('himachal_pradesh');
       } else if (hash.includes('/ap') || hash.includes('/andhra')) {
-        setStateIdState('andhra_pradesh');
+        setStateId('andhra_pradesh');
       }
     };
     window.addEventListener('hashchange', handleHash);

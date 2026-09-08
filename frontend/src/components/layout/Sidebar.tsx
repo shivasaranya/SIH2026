@@ -139,7 +139,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab, onSelectTab }) => {
         ))}
       </div>
 
-      {/* Pilot State Card pinned at bottom */}
+      {/* State Card pinned at bottom */}
       {!collapsed && (
         <div className="p-3 border-t border-slate-100 space-y-2 bg-slate-50/70 shrink-0">
           <div className="bg-indigo-50/60 border border-indigo-100 rounded-xl p-2.5 flex items-center gap-2.5 shadow-xs">

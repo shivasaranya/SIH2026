@@ -1,0 +1,476 @@
+mandal_id,mandal_name,district_id,district_name,current_district_id,current_district_name,topsis_score,priority_category,primary_factor,secondary_factor,hazard_exposure_contribution_pct,demographic_sensitivity_contribution_pct,capacity_stress_contribution_pct,accessibility_constraint_contribution_pct
+OD_BLOCK_001,Anugul,anugul,Anugul,anugul,Anugul,0.3164,LOW,Hazard Exposure,Demographic Sensitivity,36.5,27.9,17.9,17.6
+OD_BLOCK_002,Athmallik,anugul,Anugul,anugul,Anugul,0.3459,LOW,Hazard Exposure,Demographic Sensitivity,41.9,29.4,26.8,1.9
+OD_BLOCK_003,Banarpal,anugul,Anugul,anugul,Anugul,0.2566,LOW,Demographic Sensitivity,Hazard Exposure,29.2,33.0,20.0,17.8
+OD_BLOCK_004,Bantala,anugul,Anugul,anugul,Anugul,0.2868,LOW,Demographic Sensitivity,Hazard Exposure,29.9,30.9,22.3,16.9
+OD_BLOCK_005,Bhusan Steel Limited,anugul,Anugul,anugul,Anugul,0.2871,LOW,Hazard Exposure,Demographic Sensitivity,47.3,29.9,14.2,8.5
+OD_BLOCK_006,Bikrampur,anugul,Anugul,anugul,Anugul,0.2059,LOW,Hazard Exposure,Demographic Sensitivity,42.3,34.7,7.4,15.6
+OD_BLOCK_007,Chhendipada,anugul,Anugul,anugul,Anugul,0.3758,LOW,Hazard Exposure,Demographic Sensitivity,41.0,26.7,24.4,8.0
+OD_BLOCK_008,Colliery,anugul,Anugul,anugul,Anugul,0.2515,LOW,Hazard Exposure,Demographic Sensitivity,51.8,33.3,12.7,2.2
+OD_BLOCK_009,Handapa,anugul,Anugul,anugul,Anugul,0.3041,LOW,Hazard Exposure,Demographic Sensitivity,34.1,31.4,27.2,7.4
+OD_BLOCK_010,Industrial,anugul,Anugul,anugul,Anugul,0.2926,LOW,Hazard Exposure,Demographic Sensitivity,43.8,29.4,16.0,10.8
+OD_BLOCK_011,Jarapada,anugul,Anugul,anugul,Anugul,0.3713,LOW,Hazard Exposure,Demographic Sensitivity,37.0,25.0,15.5,22.6
+OD_BLOCK_012,Kaniha,anugul,Anugul,anugul,Anugul,0.3738,LOW,Hazard Exposure,Demographic Sensitivity,34.9,25.0,17.1,23.0
+OD_BLOCK_013,Khamar,anugul,Anugul,anugul,Anugul,0.3104,LOW,Demographic Sensitivity,Hazard Exposure,30.8,31.5,29.2,8.5
+OD_BLOCK_014,Kiakata,anugul,Anugul,anugul,Anugul,0.2222,LOW,Hazard Exposure,Demographic Sensitivity,38.9,37.1,21.6,2.4
+OD_BLOCK_015,Kishorenagar,anugul,Anugul,anugul,Anugul,0.4087,MODERATE,Hazard Exposure,Demographic Sensitivity,32.8,23.9,22.2,21.1
+OD_BLOCK_016,N.T.P.C.,anugul,Anugul,anugul,Anugul,0.2338,LOW,Hazard Exposure,Demographic Sensitivity,45.7,32.6,6.3,15.3
+OD_BLOCK_017,Nalco,anugul,Anugul,anugul,Anugul,0.2869,LOW,Hazard Exposure,Demographic Sensitivity,46.9,29.6,4.5,19.1
+OD_BLOCK_018,Palalahada,anugul,Anugul,anugul,Anugul,0.3344,LOW,Hazard Exposure,Demographic Sensitivity,34.1,29.9,29.1,6.9
+OD_BLOCK_019,Purunakot,anugul,Anugul,anugul,Anugul,0.4396,MODERATE,Hazard Exposure,Demographic Sensitivity,37.9,23.1,22.4,16.6
+OD_BLOCK_020,Rengali Damsite,anugul,Anugul,anugul,Anugul,0.3288,LOW,Hazard Exposure,Demographic Sensitivity,36.6,27.2,17.5,18.7
+OD_BLOCK_021,Samal Barrage,anugul,Anugul,anugul,Anugul,0.2446,LOW,Hazard Exposure,Demographic Sensitivity,38.8,33.5,20.0,7.7
+OD_BLOCK_022,Talcher Sadar,anugul,Anugul,anugul,Anugul,0.2887,LOW,Hazard Exposure,Demographic Sensitivity,45.1,30.7,18.8,5.3
+OD_BLOCK_023,Thakurgarh,anugul,Anugul,anugul,Anugul,0.327,LOW,Hazard Exposure,Demographic Sensitivity,29.7,28.9,25.3,16.2
+OD_BLOCK_024,Balangir,balangir,Balangir,balangir,Balangir,0.3613,LOW,Hazard Exposure,Capacity Stress,41.3,26.0,26.8,5.9
+OD_BLOCK_025,Bangomunda,balangir,Balangir,balangir,Balangir,0.3508,LOW,Hazard Exposure,Demographic Sensitivity,43.7,24.6,16.9,14.8
+OD_BLOCK_026,Belpara,balangir,Balangir,balangir,Balangir,0.3932,MODERATE,Hazard Exposure,Demographic Sensitivity,39.9,23.5,23.0,13.6
+OD_BLOCK_027,Kantabanji,balangir,Balangir,balangir,Balangir,0.2791,LOW,Hazard Exposure,Demographic Sensitivity,34.5,30.3,26.1,9.0
+OD_BLOCK_028,Khaprakhol,balangir,Balangir,balangir,Balangir,0.3792,LOW,Hazard Exposure,Demographic Sensitivity,44.5,24.9,24.1,6.5
+OD_BLOCK_029,Loisinga,balangir,Balangir,balangir,Balangir,0.3649,LOW,Hazard Exposure,Demographic Sensitivity,32.2,24.4,24.1,19.3
+OD_BLOCK_030,Patnagarh,balangir,Balangir,balangir,Balangir,0.3283,LOW,Hazard Exposure,Demographic Sensitivity,31.3,26.8,25.9,16.0
+OD_BLOCK_031,Saintala,balangir,Balangir,balangir,Balangir,0.3172,LOW,Hazard Exposure,Demographic Sensitivity,40.5,27.6,24.4,7.5
+OD_BLOCK_032,Sindhekela,balangir,Balangir,balangir,Balangir,0.3483,LOW,Hazard Exposure,Demographic Sensitivity,41.6,25.2,21.2,12.0
+OD_BLOCK_033,Titlagarh,balangir,Balangir,balangir,Balangir,0.389,MODERATE,Hazard Exposure,Demographic Sensitivity,36.0,22.9,20.6,20.5
+OD_BLOCK_034,Turekela,balangir,Balangir,balangir,Balangir,0.3307,LOW,Hazard Exposure,Demographic Sensitivity,45.4,27.2,23.0,4.5
+OD_BLOCK_035,Tushura,balangir,Balangir,balangir,Balangir,0.3385,LOW,Capacity Stress,Demographic Sensitivity,25.4,26.6,26.9,21.0
+OD_BLOCK_036,Balaramgadi Marine,baleshwar,Baleshwar,baleshwar,Baleshwar,0.6678,HIGH,Hazard Exposure,Demographic Sensitivity,63.1,22.9,7.9,6.1
+OD_BLOCK_037,Baleshwar (M),baleshwar,Baleshwar,baleshwar,Baleshwar,0.5894,HIGH,Hazard Exposure,Demographic Sensitivity,51.7,24.7,9.6,14.0
+OD_BLOCK_038,Baleshwar Sadar,baleshwar,Baleshwar,baleshwar,Baleshwar,0.7355,VERY HIGH,Hazard Exposure,Demographic Sensitivity,60.7,21.5,13.9,3.9
+OD_BLOCK_039,Baliapal,baleshwar,Baleshwar,baleshwar,Baleshwar,0.6613,HIGH,Hazard Exposure,Demographic Sensitivity,54.9,23.9,15.6,5.7
+OD_BLOCK_040,Bampada,baleshwar,Baleshwar,baleshwar,Baleshwar,0.6125,HIGH,Hazard Exposure,Demographic Sensitivity,65.5,24.7,5.8,4.0
+OD_BLOCK_041,Basta,baleshwar,Baleshwar,baleshwar,Baleshwar,0.7474,VERY HIGH,Hazard Exposure,Demographic Sensitivity,55.2,21.4,12.4,11.0
+OD_BLOCK_042,Berhampur,baleshwar,Baleshwar,baleshwar,Baleshwar,0.7806,VERY HIGH,Hazard Exposure,Demographic Sensitivity,56.7,20.7,13.3,9.3
+OD_BLOCK_043,Bhograi,baleshwar,Baleshwar,baleshwar,Baleshwar,0.6899,VERY HIGH,Hazard Exposure,Demographic Sensitivity,59.8,23.0,14.5,2.6
+OD_BLOCK_044,Chandipur,baleshwar,Baleshwar,baleshwar,Baleshwar,0.6241,HIGH,Hazard Exposure,Demographic Sensitivity,63.2,24.8,10.0,2.0
+OD_BLOCK_045,Jaleswar,baleshwar,Baleshwar,baleshwar,Baleshwar,0.6275,HIGH,Hazard Exposure,Demographic Sensitivity,53.9,24.6,15.0,6.4
+OD_BLOCK_046,Kamarda,baleshwar,Baleshwar,baleshwar,Baleshwar,0.5358,MODERATE,Hazard Exposure,Demographic Sensitivity,56.1,27.8,14.1,2.0
+OD_BLOCK_047,Khaira,baleshwar,Baleshwar,baleshwar,Baleshwar,0.788,VERY HIGH,Hazard Exposure,Demographic Sensitivity,52.5,20.2,12.9,14.4
+OD_BLOCK_048,Nilagiri,baleshwar,Baleshwar,baleshwar,Baleshwar,0.6631,HIGH,Hazard Exposure,Demographic Sensitivity,49.5,22.9,13.5,14.1
+OD_BLOCK_049,Oupada,baleshwar,Baleshwar,baleshwar,Baleshwar,0.7587,VERY HIGH,Hazard Exposure,Demographic Sensitivity,56.2,21.2,12.8,9.8
+OD_BLOCK_050,Raibania,baleshwar,Baleshwar,baleshwar,Baleshwar,0.7597,VERY HIGH,Hazard Exposure,Demographic Sensitivity,54.0,21.4,14.3,10.3
+OD_BLOCK_051,Remuna,baleshwar,Baleshwar,baleshwar,Baleshwar,0.7827,VERY HIGH,Hazard Exposure,Demographic Sensitivity,52.4,20.3,12.8,14.5
+OD_BLOCK_052,Rupsa,baleshwar,Baleshwar,baleshwar,Baleshwar,0.6225,HIGH,Hazard Exposure,Demographic Sensitivity,68.3,24.1,5.4,2.2
+OD_BLOCK_053,Sahadevkhunta,baleshwar,Baleshwar,baleshwar,Baleshwar,0.547,HIGH,Hazard Exposure,Demographic Sensitivity,65.1,27.5,5.0,2.4
+OD_BLOCK_054,Similia,baleshwar,Baleshwar,baleshwar,Baleshwar,0.7259,VERY HIGH,Hazard Exposure,Demographic Sensitivity,50.6,21.4,13.0,15.1
+OD_BLOCK_055,Singla,baleshwar,Baleshwar,baleshwar,Baleshwar,0.5841,HIGH,Hazard Exposure,Demographic Sensitivity,54.7,26.2,16.8,2.3
+OD_BLOCK_056,Soro,baleshwar,Baleshwar,baleshwar,Baleshwar,0.5696,HIGH,Hazard Exposure,Demographic Sensitivity,50.9,26.1,16.1,6.9
+OD_BLOCK_057,Ambabhona,bargarh,Bargarh,bargarh,Bargarh,0.2856,LOW,Hazard Exposure,Capacity Stress,32.4,17.8,31.3,18.5
+OD_BLOCK_058,Attabira,bargarh,Bargarh,bargarh,Bargarh,0.3169,LOW,Hazard Exposure,Capacity Stress,48.6,16.9,30.9,3.6
+OD_BLOCK_059,Barapali,bargarh,Bargarh,bargarh,Bargarh,0.2714,LOW,Hazard Exposure,Capacity Stress,43.5,18.9,32.7,4.8
+OD_BLOCK_060,Bargarh,bargarh,Bargarh,bargarh,Bargarh,0.2537,LOW,Hazard Exposure,Capacity Stress,57.4,18.2,21.2,3.2
+OD_BLOCK_061,Bargarh Sadar,bargarh,Bargarh,bargarh,Bargarh,0.2523,LOW,Hazard Exposure,Capacity Stress,41.9,17.4,22.5,18.2
+OD_BLOCK_062,Bhatli,bargarh,Bargarh,bargarh,Bargarh,0.3651,LOW,Hazard Exposure,Capacity Stress,42.7,14.2,26.2,16.9
+OD_BLOCK_063,Bheden,bargarh,Bargarh,bargarh,Bargarh,0.305,LOW,Hazard Exposure,Capacity Stress,49.5,17.2,30.1,3.2
+OD_BLOCK_064,Bijepur,bargarh,Bargarh,bargarh,Bargarh,0.3395,LOW,Hazard Exposure,Capacity Stress,44.6,14.5,21.8,19.1
+OD_BLOCK_065,Burdenp.S.,bargarh,Bargarh,bargarh,Bargarh,0.4007,MODERATE,Hazard Exposure,Capacity Stress,42.5,12.9,22.3,22.3
+OD_BLOCK_066,Gaisilet,bargarh,Bargarh,bargarh,Bargarh,0.3425,LOW,Hazard Exposure,Capacity Stress,33.7,14.8,26.7,24.8
+OD_BLOCK_067,Jharbandha,bargarh,Bargarh,bargarh,Bargarh,0.3506,LOW,Hazard Exposure,Capacity Stress,34.6,14.5,26.3,24.5
+OD_BLOCK_068,Melchhamunda,bargarh,Bargarh,bargarh,Bargarh,0.2547,LOW,Hazard Exposure,Capacity Stress,43.9,19.3,31.1,5.7
+OD_BLOCK_069,Padmapur,bargarh,Bargarh,bargarh,Bargarh,0.2928,LOW,Hazard Exposure,Capacity Stress,36.6,16.5,26.1,20.8
+OD_BLOCK_070,Paikamal,bargarh,Bargarh,bargarh,Bargarh,0.3019,LOW,Hazard Exposure,Capacity Stress,41.7,17.3,32.3,8.6
+OD_BLOCK_071,Sohela,bargarh,Bargarh,bargarh,Bargarh,0.2949,LOW,Hazard Exposure,Capacity Stress,45.5,16.8,27.5,10.2
+OD_BLOCK_072,Baudh Sadar,baudh,Baudh,baudh,Baudh,0.5243,MODERATE,Hazard Exposure,Capacity Stress,50.0,18.5,18.8,12.7
+OD_BLOCK_073,Baunsuni,baudh,Baudh,baudh,Baudh,0.4808,MODERATE,Hazard Exposure,Demographic Sensitivity,61.3,20.7,13.7,4.3
+OD_BLOCK_074,Harbhanga,baudh,Baudh,baudh,Baudh,0.5943,HIGH,Hazard Exposure,Demographic Sensitivity,53.0,17.0,16.0,13.9
+OD_BLOCK_075,Kantamal,baudh,Baudh,baudh,Baudh,0.5417,HIGH,Hazard Exposure,Demographic Sensitivity,58.1,19.0,18.0,4.9
+OD_BLOCK_076,Manamunda,baudh,Baudh,baudh,Baudh,0.4661,MODERATE,Hazard Exposure,Demographic Sensitivity,47.6,19.8,19.8,12.8
+OD_BLOCK_077,Puruna Katak,baudh,Baudh,baudh,Baudh,0.4102,MODERATE,Hazard Exposure,Demographic Sensitivity,47.8,21.3,17.8,13.2
+OD_BLOCK_078,Agarpada,bhadrak,Bhadrak,bhadrak,Bhadrak,0.6233,HIGH,Hazard Exposure,Demographic Sensitivity,49.2,27.8,10.8,12.2
+OD_BLOCK_079,Bansada,bhadrak,Bhadrak,bhadrak,Bhadrak,0.6846,VERY HIGH,Hazard Exposure,Demographic Sensitivity,50.7,26.8,14.4,8.1
+OD_BLOCK_080,Bant,bhadrak,Bhadrak,bhadrak,Bhadrak,0.6583,HIGH,Hazard Exposure,Demographic Sensitivity,54.7,27.6,11.4,6.3
+OD_BLOCK_081,Basudebpur,bhadrak,Bhadrak,bhadrak,Bhadrak,0.6545,HIGH,Hazard Exposure,Demographic Sensitivity,52.8,27.9,14.7,4.5
+OD_BLOCK_082,Bhadrak Rural,bhadrak,Bhadrak,bhadrak,Bhadrak,0.8355,VERY HIGH,Hazard Exposure,Demographic Sensitivity,52.5,23.2,13.9,10.4
+OD_BLOCK_083,Bhandari Pokhari,bhadrak,Bhadrak,bhadrak,Bhadrak,0.7619,VERY HIGH,Hazard Exposure,Demographic Sensitivity,54.6,24.9,14.8,5.7
+OD_BLOCK_084,Chandabali,bhadrak,Bhadrak,bhadrak,Bhadrak,0.6898,VERY HIGH,Hazard Exposure,Demographic Sensitivity,58.6,26.7,13.6,1.1
+OD_BLOCK_085,Dhamanagar,bhadrak,Bhadrak,bhadrak,Bhadrak,0.6083,HIGH,Hazard Exposure,Demographic Sensitivity,50.3,28.9,12.9,7.9
+OD_BLOCK_086,Dhamara Marine,bhadrak,Bhadrak,bhadrak,Bhadrak,0.6174,HIGH,Hazard Exposure,Demographic Sensitivity,57.8,27.9,5.0,9.4
+OD_BLOCK_087,Dhusuri,bhadrak,Bhadrak,bhadrak,Bhadrak,0.7444,VERY HIGH,Hazard Exposure,Demographic Sensitivity,54.9,24.9,11.2,8.9
+OD_BLOCK_088,Naikanidihi,bhadrak,Bhadrak,bhadrak,Bhadrak,0.699,VERY HIGH,Hazard Exposure,Demographic Sensitivity,48.6,26.1,14.2,11.0
+OD_BLOCK_089,Tihidi,bhadrak,Bhadrak,bhadrak,Bhadrak,0.8062,VERY HIGH,Hazard Exposure,Demographic Sensitivity,53.8,23.4,12.0,10.7
+OD_BLOCK_090,Athagad,cuttack,Cuttack,cuttack,Cuttack,0.4244,MODERATE,Hazard Exposure,Demographic Sensitivity,55.6,25.6,16.5,2.4
+OD_BLOCK_091,Badamba,cuttack,Cuttack,cuttack,Cuttack,0.4858,MODERATE,Hazard Exposure,Demographic Sensitivity,50.8,22.7,17.3,9.3
+OD_BLOCK_092,Baidyeswar,cuttack,Cuttack,cuttack,Cuttack,0.4787,MODERATE,Hazard Exposure,Demographic Sensitivity,45.2,21.6,12.9,20.4
+OD_BLOCK_093,Banki,cuttack,Cuttack,cuttack,Cuttack,0.5543,HIGH,Hazard Exposure,Demographic Sensitivity,48.8,20.2,15.0,16.0
+OD_BLOCK_094,Barang,cuttack,Cuttack,cuttack,Cuttack,0.4963,MODERATE,Hazard Exposure,Demographic Sensitivity,54.7,22.5,12.7,10.2
+OD_BLOCK_095,C.R.R.I.,cuttack,Cuttack,cuttack,Cuttack,0.3866,MODERATE,Hazard Exposure,Demographic Sensitivity,58.2,26.5,6.6,8.8
+OD_BLOCK_096,Choudwar,cuttack,Cuttack,cuttack,Cuttack,0.4427,MODERATE,Hazard Exposure,Demographic Sensitivity,54.3,24.8,17.3,3.5
+OD_BLOCK_097,Cuttack (M.Corp.) P.S,cuttack,Cuttack,cuttack,Cuttack,0.5566,HIGH,Hazard Exposure,Demographic Sensitivity,54.3,20.9,14.1,10.7
+OD_BLOCK_098,Cuttack Sadar,cuttack,Cuttack,cuttack,Cuttack,0.526,MODERATE,Hazard Exposure,Demographic Sensitivity,45.6,20.5,14.9,19.0
+OD_BLOCK_099,Gobindpur,cuttack,Cuttack,cuttack,Cuttack,0.5023,MODERATE,Hazard Exposure,Demographic Sensitivity,58.1,23.2,16.5,2.1
+OD_BLOCK_100,Gurudijhatia,cuttack,Cuttack,cuttack,Cuttack,0.4657,MODERATE,Hazard Exposure,Demographic Sensitivity,48.3,22.5,13.4,15.8
+OD_BLOCK_101,Jagatpur,cuttack,Cuttack,cuttack,Cuttack,0.4528,MODERATE,Hazard Exposure,Demographic Sensitivity,52.4,23.4,12.2,12.0
+OD_BLOCK_102,Kandarpur,cuttack,Cuttack,cuttack,Cuttack,0.4434,MODERATE,Hazard Exposure,Demographic Sensitivity,56.9,23.9,6.5,12.7
+OD_BLOCK_103,Kanpur,cuttack,Cuttack,cuttack,Cuttack,0.5752,HIGH,Hazard Exposure,Demographic Sensitivity,52.5,20.1,14.0,13.4
+OD_BLOCK_104,Khuntuni,cuttack,Cuttack,cuttack,Cuttack,0.5026,MODERATE,Hazard Exposure,Demographic Sensitivity,60.1,23.3,14.8,1.7
+OD_BLOCK_105,Kishannagar,cuttack,Cuttack,cuttack,Cuttack,0.4028,MODERATE,Hazard Exposure,Demographic Sensitivity,49.3,24.9,14.6,11.2
+OD_BLOCK_106,Mahanga,cuttack,Cuttack,cuttack,Cuttack,0.4768,MODERATE,Hazard Exposure,Demographic Sensitivity,52.0,23.0,15.5,9.5
+OD_BLOCK_107,Narasinghpur,cuttack,Cuttack,cuttack,Cuttack,0.4707,MODERATE,Hazard Exposure,Demographic Sensitivity,43.4,21.9,15.6,19.2
+OD_BLOCK_108,Nemalo,cuttack,Cuttack,cuttack,Cuttack,0.3327,LOW,Hazard Exposure,Demographic Sensitivity,50.9,28.3,14.6,6.2
+OD_BLOCK_109,Niali,cuttack,Cuttack,cuttack,Cuttack,0.4481,MODERATE,Hazard Exposure,Demographic Sensitivity,46.0,23.1,16.7,14.2
+OD_BLOCK_110,Nischintakoili,cuttack,Cuttack,cuttack,Cuttack,0.4424,MODERATE,Hazard Exposure,Demographic Sensitivity,49.0,23.4,14.2,13.4
+OD_BLOCK_111,Olatapur,cuttack,Cuttack,cuttack,Cuttack,0.4012,MODERATE,Hazard Exposure,Demographic Sensitivity,56.6,26.6,15.1,1.7
+OD_BLOCK_112,Salepur,cuttack,Cuttack,cuttack,Cuttack,0.5114,MODERATE,Hazard Exposure,Demographic Sensitivity,58.2,23.0,17.3,1.5
+OD_BLOCK_113,Tangi,cuttack,Cuttack,cuttack,Cuttack,0.434,MODERATE,Hazard Exposure,Demographic Sensitivity,54.3,24.9,16.3,4.5
+OD_BLOCK_114,Tigiria,cuttack,Cuttack,cuttack,Cuttack,0.5639,HIGH,Hazard Exposure,Demographic Sensitivity,54.5,20.5,12.0,13.0
+OD_BLOCK_115,Barkot,debagarh,Debagarh,debagarh,Debagarh,0.2898,LOW,Hazard Exposure,Demographic Sensitivity,50.8,23.4,23.0,2.8
+OD_BLOCK_116,Debagarh,debagarh,Debagarh,debagarh,Debagarh,0.3291,LOW,Hazard Exposure,Capacity Stress,45.5,22.7,29.8,2.0
+OD_BLOCK_117,Kundheigola,debagarh,Debagarh,debagarh,Debagarh,0.2457,LOW,Hazard Exposure,Capacity Stress,35.4,26.9,29.4,8.3
+OD_BLOCK_118,Reamal,debagarh,Debagarh,debagarh,Debagarh,0.3407,LOW,Hazard Exposure,Capacity Stress,38.1,20.3,24.9,16.6
+OD_BLOCK_119,Balimi,dhenkanal,Dhenkanal,dhenkanal,Dhenkanal,0.3504,LOW,Hazard Exposure,Demographic Sensitivity,46.7,26.4,14.8,12.1
+OD_BLOCK_120,Bhuban,dhenkanal,Dhenkanal,dhenkanal,Dhenkanal,0.3513,LOW,Hazard Exposure,Demographic Sensitivity,31.3,25.8,18.6,24.3
+OD_BLOCK_121,Dhenkanal Sadar,dhenkanal,Dhenkanal,dhenkanal,Dhenkanal,0.3861,MODERATE,Hazard Exposure,Demographic Sensitivity,42.0,26.2,26.0,5.9
+OD_BLOCK_122,Gandia,dhenkanal,Dhenkanal,dhenkanal,Dhenkanal,0.3268,LOW,Hazard Exposure,Demographic Sensitivity,34.1,28.9,26.6,10.5
+OD_BLOCK_123,Hindol,dhenkanal,Dhenkanal,dhenkanal,Dhenkanal,0.2926,LOW,Hazard Exposure,Demographic Sensitivity,42.2,29.3,18.9,9.6
+OD_BLOCK_124,Kamakshyanagar,dhenkanal,Dhenkanal,dhenkanal,Dhenkanal,0.3524,LOW,Hazard Exposure,Demographic Sensitivity,41.0,27.7,25.5,5.8
+OD_BLOCK_125,Kankadahad,dhenkanal,Dhenkanal,dhenkanal,Dhenkanal,0.3908,MODERATE,Hazard Exposure,Demographic Sensitivity,33.2,24.4,22.9,19.5
+OD_BLOCK_126,Motunga,dhenkanal,Dhenkanal,dhenkanal,Dhenkanal,0.3089,LOW,Hazard Exposure,Demographic Sensitivity,43.8,30.4,23.8,2.0
+OD_BLOCK_127,Nihalprasad,dhenkanal,Dhenkanal,dhenkanal,Dhenkanal,0.3374,LOW,Hazard Exposure,Demographic Sensitivity,36.5,26.1,14.6,22.9
+OD_BLOCK_128,Parajang,dhenkanal,Dhenkanal,dhenkanal,Dhenkanal,0.3551,LOW,Hazard Exposure,Demographic Sensitivity,42.2,28.5,27.4,1.9
+OD_BLOCK_129,Rasol,dhenkanal,Dhenkanal,dhenkanal,Dhenkanal,0.4703,MODERATE,Hazard Exposure,Demographic Sensitivity,39.9,21.6,20.8,17.7
+OD_BLOCK_130,Tumusingha,dhenkanal,Dhenkanal,dhenkanal,Dhenkanal,0.4018,MODERATE,Hazard Exposure,Demographic Sensitivity,48.1,25.9,23.3,2.7
+OD_BLOCK_131,Adava,gajapati,Gajapati,gajapati,Gajapati,0.5428,HIGH,Hazard Exposure,Demographic Sensitivity,49.4,26.2,23.1,1.4
+OD_BLOCK_132,Garabandha,gajapati,Gajapati,gajapati,Gajapati,0.5512,HIGH,Hazard Exposure,Demographic Sensitivity,53.9,26.0,16.7,3.5
+OD_BLOCK_133,Gurandi,gajapati,Gajapati,gajapati,Gajapati,0.4758,MODERATE,Hazard Exposure,Demographic Sensitivity,43.7,27.0,18.1,11.1
+OD_BLOCK_134,Kasinagar,gajapati,Gajapati,gajapati,Gajapati,0.5356,MODERATE,Hazard Exposure,Demographic Sensitivity,52.5,26.1,15.5,5.9
+OD_BLOCK_135,Mohana,gajapati,Gajapati,gajapati,Gajapati,0.638,HIGH,Hazard Exposure,Demographic Sensitivity,47.3,22.6,18.1,12.0
+OD_BLOCK_136,Paralakhemundi,gajapati,Gajapati,gajapati,Gajapati,0.4086,MODERATE,Hazard Exposure,Demographic Sensitivity,46.0,29.5,13.2,11.3
+OD_BLOCK_137,R.Udayagiri,gajapati,Gajapati,gajapati,Gajapati,0.586,HIGH,Hazard Exposure,Demographic Sensitivity,43.9,23.8,22.8,9.5
+OD_BLOCK_138,Ramagiri,gajapati,Gajapati,gajapati,Gajapati,0.4638,MODERATE,Hazard Exposure,Demographic Sensitivity,46.9,28.2,18.5,6.3
+OD_BLOCK_139,Rayagada,gajapati,Gajapati,gajapati,Gajapati,0.4718,MODERATE,Hazard Exposure,Demographic Sensitivity,42.6,26.5,15.0,15.9
+OD_BLOCK_140,Serango,gajapati,Gajapati,gajapati,Gajapati,0.5344,MODERATE,Hazard Exposure,Demographic Sensitivity,41.8,24.7,19.5,14.0
+OD_BLOCK_141,Arjyapalli Marine,ganjam,Ganjam,ganjam,Ganjam,0.5812,HIGH,Hazard Exposure,Demographic Sensitivity,61.0,21.7,5.5,11.7
+OD_BLOCK_142,Asika,ganjam,Ganjam,ganjam,Ganjam,0.7088,VERY HIGH,Hazard Exposure,Demographic Sensitivity,54.4,19.1,12.8,13.8
+OD_BLOCK_143,Badagada,ganjam,Ganjam,ganjam,Ganjam,0.5887,HIGH,Hazard Exposure,Demographic Sensitivity,51.3,22.0,17.2,9.5
+OD_BLOCK_144,Bhanjanagar,ganjam,Ganjam,ganjam,Ganjam,0.7543,VERY HIGH,Hazard Exposure,Demographic Sensitivity,54.9,18.4,14.1,12.6
+OD_BLOCK_145,Brahmapur (M.Corp.),ganjam,Ganjam,ganjam,Ganjam,0.5613,HIGH,Hazard Exposure,Demographic Sensitivity,66.5,23.4,7.0,3.0
+OD_BLOCK_146,Brahmapur Sadar,ganjam,Ganjam,ganjam,Ganjam,0.5987,HIGH,Hazard Exposure,Demographic Sensitivity,51.7,21.2,12.0,15.1
+OD_BLOCK_147,Buguda,ganjam,Ganjam,ganjam,Ganjam,0.6744,HIGH,Hazard Exposure,Demographic Sensitivity,57.1,20.4,16.1,6.3
+OD_BLOCK_148,Chamakhandi,ganjam,Ganjam,ganjam,Ganjam,0.6643,HIGH,Hazard Exposure,Demographic Sensitivity,52.9,19.6,11.6,15.8
+OD_BLOCK_149,Chhatrapur,ganjam,Ganjam,ganjam,Ganjam,0.5702,HIGH,Hazard Exposure,Demographic Sensitivity,58.5,23.0,12.4,6.1
+OD_BLOCK_150,Dharakote,ganjam,Ganjam,ganjam,Ganjam,0.6939,VERY HIGH,Hazard Exposure,Demographic Sensitivity,56.2,19.0,10.0,14.8
+OD_BLOCK_151,Digapahandi,ganjam,Ganjam,ganjam,Ganjam,0.7903,VERY HIGH,Hazard Exposure,Demographic Sensitivity,58.5,17.4,13.3,10.8
+OD_BLOCK_152,Gangapur,ganjam,Ganjam,ganjam,Ganjam,0.6314,HIGH,Hazard Exposure,Demographic Sensitivity,59.8,21.6,16.2,2.4
+OD_BLOCK_153,Ganjam,ganjam,Ganjam,ganjam,Ganjam,0.5847,HIGH,Hazard Exposure,Demographic Sensitivity,57.5,21.1,5.0,16.4
+OD_BLOCK_154,Golanthara,ganjam,Ganjam,ganjam,Ganjam,0.6533,HIGH,Hazard Exposure,Demographic Sensitivity,53.9,20.1,11.7,14.2
+OD_BLOCK_155,Gopalpur,ganjam,Ganjam,ganjam,Ganjam,0.6483,HIGH,Hazard Exposure,Demographic Sensitivity,57.7,20.2,9.3,12.7
+OD_BLOCK_156,Hinjili,ganjam,Ganjam,ganjam,Ganjam,0.7662,VERY HIGH,Hazard Exposure,Demographic Sensitivity,58.0,17.9,12.5,11.7
+OD_BLOCK_157,Jagannath Prasad,ganjam,Ganjam,ganjam,Ganjam,0.686,VERY HIGH,Hazard Exposure,Demographic Sensitivity,60.3,20.1,15.5,4.1
+OD_BLOCK_158,Jarada,ganjam,Ganjam,ganjam,Ganjam,0.6946,VERY HIGH,Hazard Exposure,Demographic Sensitivity,59.8,19.9,15.2,5.1
+OD_BLOCK_159,Kabisuryanagar,ganjam,Ganjam,ganjam,Ganjam,0.6233,HIGH,Hazard Exposure,Demographic Sensitivity,61.6,21.9,15.3,1.3
+OD_BLOCK_160,Khalikote,ganjam,Ganjam,ganjam,Ganjam,0.5382,MODERATE,Hazard Exposure,Demographic Sensitivity,59.1,24.3,15.1,1.4
+OD_BLOCK_161,Kodala,ganjam,Ganjam,ganjam,Ganjam,0.6245,HIGH,Hazard Exposure,Demographic Sensitivity,60.2,21.8,14.8,3.2
+OD_BLOCK_162,Nuagaon,ganjam,Ganjam,ganjam,Ganjam,0.7763,VERY HIGH,Hazard Exposure,Demographic Sensitivity,54.5,17.9,14.5,13.1
+OD_BLOCK_163,Patapur,ganjam,Ganjam,ganjam,Ganjam,0.571,HIGH,Hazard Exposure,Demographic Sensitivity,56.0,23.2,17.9,2.9
+OD_BLOCK_164,Polasara,ganjam,Ganjam,ganjam,Ganjam,0.6075,HIGH,Hazard Exposure,Demographic Sensitivity,57.6,22.2,16.7,3.5
+OD_BLOCK_165,Purusottampur,ganjam,Ganjam,ganjam,Ganjam,0.7153,VERY HIGH,Hazard Exposure,Demographic Sensitivity,55.3,18.9,12.1,13.7
+OD_BLOCK_166,Rambha,ganjam,Ganjam,ganjam,Ganjam,0.7234,VERY HIGH,Hazard Exposure,Demographic Sensitivity,57.5,19.1,13.3,10.1
+OD_BLOCK_167,Seragad,ganjam,Ganjam,ganjam,Ganjam,0.6467,HIGH,Hazard Exposure,Demographic Sensitivity,62.7,20.5,8.4,8.3
+OD_BLOCK_168,Surada,ganjam,Ganjam,ganjam,Ganjam,0.6982,VERY HIGH,Hazard Exposure,Demographic Sensitivity,56.4,19.7,14.4,9.5
+OD_BLOCK_169,Tarasingi,ganjam,Ganjam,ganjam,Ganjam,0.6584,HIGH,Hazard Exposure,Demographic Sensitivity,54.0,20.5,15.0,10.4
+OD_BLOCK_170,Abhyachandpur,jagatsinghapur,Jagatsinghapur,jagatsinghapur,Jagatsinghapur,0.6428,HIGH,Hazard Exposure,Demographic Sensitivity,64.6,16.0,10.9,8.5
+OD_BLOCK_171,Balikuda,jagatsinghapur,Jagatsinghapur,jagatsinghapur,Jagatsinghapur,0.6721,HIGH,Hazard Exposure,Accessibility Constraint,55.7,15.0,13.1,16.1
+OD_BLOCK_172,Biridi,jagatsinghapur,Jagatsinghapur,jagatsinghapur,Jagatsinghapur,0.5485,HIGH,Hazard Exposure,Demographic Sensitivity,61.5,18.5,15.3,4.7
+OD_BLOCK_173,Ersama,jagatsinghapur,Jagatsinghapur,jagatsinghapur,Jagatsinghapur,0.5995,HIGH,Hazard Exposure,Demographic Sensitivity,56.7,16.7,13.2,13.4
+OD_BLOCK_174,Jagatsinghapur,jagatsinghapur,Jagatsinghapur,jagatsinghapur,Jagatsinghapur,0.6965,VERY HIGH,Hazard Exposure,Demographic Sensitivity,59.4,15.0,14.3,11.3
+OD_BLOCK_175,Kujang,jagatsinghapur,Jagatsinghapur,jagatsinghapur,Jagatsinghapur,0.6235,HIGH,Hazard Exposure,Demographic Sensitivity,61.5,16.6,14.0,7.8
+OD_BLOCK_176,Naugaon,jagatsinghapur,Jagatsinghapur,jagatsinghapur,Jagatsinghapur,0.6156,HIGH,Hazard Exposure,Demographic Sensitivity,63.1,17.0,14.9,5.1
+OD_BLOCK_177,Paradeep Lock,jagatsinghapur,Jagatsinghapur,jagatsinghapur,Jagatsinghapur,0.7189,VERY HIGH,Hazard Exposure,Demographic Sensitivity,60.4,14.1,11.6,13.9
+OD_BLOCK_178,Paradip,jagatsinghapur,Jagatsinghapur,jagatsinghapur,Jagatsinghapur,0.6381,HIGH,Hazard Exposure,Demographic Sensitivity,63.3,16.3,12.8,7.6
+OD_BLOCK_179,Tirtol,jagatsinghapur,Jagatsinghapur,jagatsinghapur,Jagatsinghapur,0.7186,VERY HIGH,Hazard Exposure,Capacity Stress,62.9,14.5,14.6,8.0
+OD_BLOCK_180,Badachana,jajapur,Jajapur,jajapur,Jajapur,0.6759,HIGH,Hazard Exposure,Demographic Sensitivity,48.9,24.6,15.8,10.7
+OD_BLOCK_181,Balichandrapur,jajapur,Jajapur,jajapur,Jajapur,0.5551,HIGH,Hazard Exposure,Demographic Sensitivity,49.6,28.7,19.4,2.3
+OD_BLOCK_182,Bari - Ramachandrapur,jajapur,Jajapur,jajapur,Jajapur,0.6607,HIGH,Hazard Exposure,Demographic Sensitivity,45.9,24.4,15.5,14.3
+OD_BLOCK_183,Binjharpur,jajapur,Jajapur,jajapur,Jajapur,0.543,HIGH,Hazard Exposure,Demographic Sensitivity,47.0,28.9,20.3,3.9
+OD_BLOCK_184,Dharmasala,jajapur,Jajapur,jajapur,Jajapur,0.5394,MODERATE,Hazard Exposure,Demographic Sensitivity,42.7,27.9,18.3,11.0
+OD_BLOCK_185,Jajapur,jajapur,Jajapur,jajapur,Jajapur,0.7012,VERY HIGH,Hazard Exposure,Demographic Sensitivity,48.0,23.7,14.6,13.7
+OD_BLOCK_186,Jajapur Road,jajapur,Jajapur,jajapur,Jajapur,0.5824,HIGH,Hazard Exposure,Demographic Sensitivity,43.2,26.1,15.6,15.1
+OD_BLOCK_187,Jajpur Sadar,jajapur,Jajapur,jajapur,Jajapur,0.6121,HIGH,Hazard Exposure,Demographic Sensitivity,51.9,26.8,15.4,5.9
+OD_BLOCK_188,Jakhapura,jajapur,Jajapur,jajapur,Jajapur,0.5711,HIGH,Hazard Exposure,Demographic Sensitivity,50.3,27.8,14.6,7.3
+OD_BLOCK_189,Jenapur,jajapur,Jajapur,jajapur,Jajapur,0.6222,HIGH,Hazard Exposure,Demographic Sensitivity,49.8,26.4,17.2,6.7
+OD_BLOCK_190,Kaliapani,jajapur,Jajapur,jajapur,Jajapur,0.5816,HIGH,Hazard Exposure,Demographic Sensitivity,48.5,27.6,19.1,4.9
+OD_BLOCK_191,Kalinganagar,jajapur,Jajapur,jajapur,Jajapur,0.633,HIGH,Hazard Exposure,Demographic Sensitivity,51.1,26.2,16.4,6.3
+OD_BLOCK_192,Korai,jajapur,Jajapur,jajapur,Jajapur,0.6579,HIGH,Hazard Exposure,Demographic Sensitivity,44.5,24.2,16.3,15.0
+OD_BLOCK_193,Kuakhia,jajapur,Jajapur,jajapur,Jajapur,0.6288,HIGH,Hazard Exposure,Demographic Sensitivity,53.4,26.6,18.2,1.8
+OD_BLOCK_194,Mangalpur,jajapur,Jajapur,jajapur,Jajapur,0.5666,HIGH,Hazard Exposure,Demographic Sensitivity,42.1,26.7,17.5,13.8
+OD_BLOCK_195,Panikoili,jajapur,Jajapur,jajapur,Jajapur,0.5535,HIGH,Hazard Exposure,Demographic Sensitivity,52.2,28.9,15.8,3.1
+OD_BLOCK_196,Sukinda,jajapur,Jajapur,jajapur,Jajapur,0.6839,HIGH,Hazard Exposure,Demographic Sensitivity,49.2,24.6,16.8,9.4
+OD_BLOCK_197,Tomka,jajapur,Jajapur,jajapur,Jajapur,0.5303,MODERATE,Hazard Exposure,Demographic Sensitivity,46.9,28.8,16.2,8.0
+OD_BLOCK_198,Badmal,jharsuguda,Jharsuguda,jharsuguda,Jharsuguda,0.2874,LOW,Demographic Sensitivity,Hazard Exposure,28.7,29.0,16.0,26.3
+OD_BLOCK_199,Banaharapali,jharsuguda,Jharsuguda,jharsuguda,Jharsuguda,0.284,LOW,Hazard Exposure,Demographic Sensitivity,41.3,30.0,22.2,6.4
+OD_BLOCK_200,Belpahar,jharsuguda,Jharsuguda,jharsuguda,Jharsuguda,0.3149,LOW,Hazard Exposure,Demographic Sensitivity,44.8,26.5,8.7,20.0
+OD_BLOCK_201,Brajarajnagar,jharsuguda,Jharsuguda,jharsuguda,Jharsuguda,0.3398,LOW,Hazard Exposure,Demographic Sensitivity,43.7,26.3,19.6,10.4
+OD_BLOCK_202,Jharsuguda,jharsuguda,Jharsuguda,jharsuguda,Jharsuguda,0.3807,LOW,Hazard Exposure,Demographic Sensitivity,41.2,23.8,15.6,19.4
+OD_BLOCK_203,Kolabira,jharsuguda,Jharsuguda,jharsuguda,Jharsuguda,0.266,LOW,Hazard Exposure,Demographic Sensitivity,43.8,30.7,19.9,5.6
+OD_BLOCK_204,Laikera,jharsuguda,Jharsuguda,jharsuguda,Jharsuguda,0.346,LOW,Hazard Exposure,Capacity Stress,34.8,27.6,28.6,9.0
+OD_BLOCK_205,Lakhanpur,jharsuguda,Jharsuguda,jharsuguda,Jharsuguda,0.287,LOW,Demographic Sensitivity,Hazard Exposure,32.5,33.3,31.1,3.0
+OD_BLOCK_206,Orient,jharsuguda,Jharsuguda,jharsuguda,Jharsuguda,0.265,LOW,Hazard Exposure,Demographic Sensitivity,40.4,29.9,4.8,24.9
+OD_BLOCK_207,Rengali,jharsuguda,Jharsuguda,jharsuguda,Jharsuguda,0.2848,LOW,Hazard Exposure,Demographic Sensitivity,39.0,31.9,26.9,2.1
+OD_BLOCK_208,Biswanathpur,kalahandi,Kalahandi,kalahandi,Kalahandi,0.5047,MODERATE,Hazard Exposure,Demographic Sensitivity,47.8,19.0,16.7,16.4
+OD_BLOCK_209,Dharamgarh,kalahandi,Kalahandi,kalahandi,Kalahandi,0.3919,MODERATE,Hazard Exposure,Capacity Stress,34.3,22.2,24.6,18.8
+OD_BLOCK_210,Golamunda,kalahandi,Kalahandi,kalahandi,Kalahandi,0.3551,LOW,Hazard Exposure,Demographic Sensitivity,49.6,25.2,22.5,2.6
+OD_BLOCK_211,Jayapatna,kalahandi,Kalahandi,kalahandi,Kalahandi,0.4187,MODERATE,Hazard Exposure,Capacity Stress,40.2,21.7,25.0,13.1
+OD_BLOCK_212,Junagarh,kalahandi,Kalahandi,kalahandi,Kalahandi,0.4228,MODERATE,Hazard Exposure,Capacity Stress,39.6,22.4,30.0,8.1
+OD_BLOCK_213,Kegaon,kalahandi,Kalahandi,kalahandi,Kalahandi,0.4365,MODERATE,Hazard Exposure,Capacity Stress,46.2,22.6,29.0,2.2
+OD_BLOCK_214,Kesinga,kalahandi,Kalahandi,kalahandi,Kalahandi,0.4827,MODERATE,Hazard Exposure,Capacity Stress,47.8,21.1,29.4,1.7
+OD_BLOCK_215,Kokasara,kalahandi,Kalahandi,kalahandi,Kalahandi,0.4227,MODERATE,Hazard Exposure,Capacity Stress,45.4,22.8,27.6,4.2
+OD_BLOCK_216,Lanjigarh,kalahandi,Kalahandi,kalahandi,Kalahandi,0.4924,MODERATE,Hazard Exposure,Capacity Stress,50.7,20.5,24.5,4.3
+OD_BLOCK_217,Madanpur Rampur,kalahandi,Kalahandi,kalahandi,Kalahandi,0.4536,MODERATE,Hazard Exposure,Capacity Stress,41.6,20.9,27.1,10.3
+OD_BLOCK_218,Narala,kalahandi,Kalahandi,kalahandi,Kalahandi,0.4367,MODERATE,Hazard Exposure,Capacity Stress,42.5,21.4,25.7,10.3
+OD_BLOCK_219,Sadar,kalahandi,Kalahandi,kalahandi,Kalahandi,0.4346,MODERATE,Hazard Exposure,Capacity Stress,48.5,22.5,26.2,2.7
+OD_BLOCK_220,Thuamul Rampur,kalahandi,Kalahandi,kalahandi,Kalahandi,0.4976,MODERATE,Hazard Exposure,Capacity Stress,45.6,19.9,26.1,8.4
+OD_BLOCK_221,Baliguda,kandhamal,Kandhamal,kandhamal,Kandhamal,0.431,MODERATE,Hazard Exposure,Demographic Sensitivity,35.8,26.8,19.4,18.1
+OD_BLOCK_222,Belaghar,kandhamal,Kandhamal,kandhamal,Kandhamal,0.439,MODERATE,Hazard Exposure,Demographic Sensitivity,43.1,28.6,24.3,4.0
+OD_BLOCK_223,Brahmanigaon,kandhamal,Kandhamal,kandhamal,Kandhamal,0.5254,MODERATE,Hazard Exposure,Demographic Sensitivity,44.3,24.7,20.9,10.2
+OD_BLOCK_224,Chakapada,kandhamal,Kandhamal,kandhamal,Kandhamal,0.4135,MODERATE,Hazard Exposure,Demographic Sensitivity,43.5,29.1,20.8,6.5
+OD_BLOCK_225,Daringbadi,kandhamal,Kandhamal,kandhamal,Kandhamal,0.4475,MODERATE,Hazard Exposure,Demographic Sensitivity,47.8,28.7,22.0,1.5
+OD_BLOCK_226,G.Udayagiri,kandhamal,Kandhamal,kandhamal,Kandhamal,0.4314,MODERATE,Hazard Exposure,Demographic Sensitivity,35.1,26.8,20.3,17.7
+OD_BLOCK_227,Gochhapada,kandhamal,Kandhamal,kandhamal,Kandhamal,0.4692,MODERATE,Hazard Exposure,Demographic Sensitivity,35.6,25.2,20.0,19.3
+OD_BLOCK_228,Khajuripada,kandhamal,Kandhamal,kandhamal,Kandhamal,0.3798,LOW,Hazard Exposure,Demographic Sensitivity,46.2,31.5,20.5,1.8
+OD_BLOCK_229,Kotagarh,kandhamal,Kandhamal,kandhamal,Kandhamal,0.483,MODERATE,Hazard Exposure,Demographic Sensitivity,44.2,26.5,22.9,6.4
+OD_BLOCK_230,Nuagaon,kandhamal,Kandhamal,kandhamal,Kandhamal,0.4134,MODERATE,Hazard Exposure,Demographic Sensitivity,46.4,28.8,16.5,8.3
+OD_BLOCK_231,Phiringia,kandhamal,Kandhamal,kandhamal,Kandhamal,0.5465,HIGH,Hazard Exposure,Demographic Sensitivity,46.8,24.6,22.3,6.3
+OD_BLOCK_232,Phulabani,kandhamal,Kandhamal,kandhamal,Kandhamal,0.5012,MODERATE,Hazard Exposure,Demographic Sensitivity,43.8,25.1,18.5,12.6
+OD_BLOCK_233,Phulabani Town,kandhamal,Kandhamal,kandhamal,Kandhamal,0.4298,MODERATE,Hazard Exposure,Demographic Sensitivity,57.0,29.6,11.8,1.6
+OD_BLOCK_234,Raikia,kandhamal,Kandhamal,kandhamal,Kandhamal,0.4247,MODERATE,Hazard Exposure,Demographic Sensitivity,47.5,29.4,20.7,2.4
+OD_BLOCK_235,Sarangagarh,kandhamal,Kandhamal,kandhamal,Kandhamal,0.3939,MODERATE,Hazard Exposure,Demographic Sensitivity,42.6,29.8,20.4,7.1
+OD_BLOCK_236,Tikabali,kandhamal,Kandhamal,kandhamal,Kandhamal,0.4189,MODERATE,Hazard Exposure,Demographic Sensitivity,39.1,29.1,25.4,6.4
+OD_BLOCK_237,Tumudibandha,kandhamal,Kandhamal,kandhamal,Kandhamal,0.3752,LOW,Hazard Exposure,Demographic Sensitivity,46.3,31.5,19.6,2.6
+OD_BLOCK_238,Aali,kendrapara,Kendrapara,kendrapara,Kendrapara,0.7861,VERY HIGH,Hazard Exposure,Demographic Sensitivity,56.2,19.5,13.4,10.8
+OD_BLOCK_239,Derabish,kendrapara,Kendrapara,kendrapara,Kendrapara,0.7185,VERY HIGH,Hazard Exposure,Demographic Sensitivity,62.1,20.6,10.9,6.4
+OD_BLOCK_240,Jamboo Marine,kendrapara,Kendrapara,kendrapara,Kendrapara,0.593,HIGH,Hazard Exposure,Demographic Sensitivity,58.5,24.7,14.5,2.3
+OD_BLOCK_241,Kendrapara,kendrapara,Kendrapara,kendrapara,Kendrapara,0.6997,VERY HIGH,Hazard Exposure,Demographic Sensitivity,53.9,21.4,13.3,11.5
+OD_BLOCK_242,Kendrapara Sadar,kendrapara,Kendrapara,kendrapara,Kendrapara,0.6469,HIGH,Hazard Exposure,Demographic Sensitivity,63.1,21.9,6.0,8.9
+OD_BLOCK_243,Mahakalapada,kendrapara,Kendrapara,kendrapara,Kendrapara,0.6976,VERY HIGH,Hazard Exposure,Demographic Sensitivity,55.5,21.7,14.4,8.4
+OD_BLOCK_244,Marsaghai,kendrapara,Kendrapara,kendrapara,Kendrapara,0.7188,VERY HIGH,Hazard Exposure,Demographic Sensitivity,57.9,21.1,13.2,7.8
+OD_BLOCK_245,Nikirai,kendrapara,Kendrapara,kendrapara,Kendrapara,0.692,VERY HIGH,Hazard Exposure,Demographic Sensitivity,61.4,21.6,11.8,5.2
+OD_BLOCK_246,Patkura,kendrapara,Kendrapara,kendrapara,Kendrapara,0.7022,VERY HIGH,Hazard Exposure,Demographic Sensitivity,58.8,21.7,15.0,4.5
+OD_BLOCK_247,Pattamundai,kendrapara,Kendrapara,kendrapara,Kendrapara,0.7124,VERY HIGH,Hazard Exposure,Demographic Sensitivity,52.1,20.9,13.8,13.2
+OD_BLOCK_248,Rajkanika,kendrapara,Kendrapara,kendrapara,Kendrapara,0.7549,VERY HIGH,Hazard Exposure,Demographic Sensitivity,54.3,19.6,11.4,14.8
+OD_BLOCK_249,Rajnagar,kendrapara,Kendrapara,kendrapara,Kendrapara,0.7482,VERY HIGH,Hazard Exposure,Demographic Sensitivity,54.5,20.2,12.6,12.7
+OD_BLOCK_250,Anandapur,kendujhar,Kendujhar,kendujhar,Kendujhar,0.354,LOW,Demographic Sensitivity,Hazard Exposure,27.4,32.3,20.2,20.0
+OD_BLOCK_251,Bamebari,kendujhar,Kendujhar,kendujhar,Kendujhar,0.2939,LOW,Demographic Sensitivity,Hazard Exposure,31.1,38.1,21.8,9.1
+OD_BLOCK_252,Barbil,kendujhar,Kendujhar,kendujhar,Kendujhar,0.2873,LOW,Demographic Sensitivity,Hazard Exposure,29.5,38.0,19.9,12.6
+OD_BLOCK_253,Baria,kendujhar,Kendujhar,kendujhar,Kendujhar,0.3548,LOW,Demographic Sensitivity,Hazard Exposure,31.9,32.1,19.2,16.9
+OD_BLOCK_254,Bolani,kendujhar,Kendujhar,kendujhar,Kendujhar,0.2032,LOW,Demographic Sensitivity,Hazard Exposure,38.8,47.0,6.7,7.5
+OD_BLOCK_255,Champua,kendujhar,Kendujhar,kendujhar,Kendujhar,0.3384,LOW,Hazard Exposure,Demographic Sensitivity,35.2,33.7,20.1,11.1
+OD_BLOCK_256,Daitari,kendujhar,Kendujhar,kendujhar,Kendujhar,0.3755,LOW,Hazard Exposure,Demographic Sensitivity,40.4,31.9,19.4,8.2
+OD_BLOCK_257,Ghasipura,kendujhar,Kendujhar,kendujhar,Kendujhar,0.3216,LOW,Demographic Sensitivity,Hazard Exposure,29.4,37.3,26.3,6.9
+OD_BLOCK_258,Ghatgaon,kendujhar,Kendujhar,kendujhar,Kendujhar,0.3709,LOW,Hazard Exposure,Demographic Sensitivity,36.5,33.0,24.1,6.5
+OD_BLOCK_259,Harichandanpur,kendujhar,Kendujhar,kendujhar,Kendujhar,0.4536,MODERATE,Hazard Exposure,Demographic Sensitivity,35.3,27.2,20.3,17.2
+OD_BLOCK_260,Jhumpura,kendujhar,Kendujhar,kendujhar,Kendujhar,0.3167,LOW,Demographic Sensitivity,Hazard Exposure,26.8,34.6,14.1,24.5
+OD_BLOCK_261,Joda,kendujhar,Kendujhar,kendujhar,Kendujhar,0.2922,LOW,Demographic Sensitivity,Hazard Exposure,35.4,38.4,21.1,5.0
+OD_BLOCK_262,Kanjipani,kendujhar,Kendujhar,kendujhar,Kendujhar,0.3456,LOW,Demographic Sensitivity,Hazard Exposure,32.1,33.7,22.7,11.5
+OD_BLOCK_263,Kendujhar Sadar,kendujhar,Kendujhar,kendujhar,Kendujhar,0.4016,MODERATE,Hazard Exposure,Demographic Sensitivity,30.6,29.6,21.8,18.0
+OD_BLOCK_264,Kendujhar Town,kendujhar,Kendujhar,kendujhar,Kendujhar,0.3942,MODERATE,Hazard Exposure,Demographic Sensitivity,30.0,29.5,18.9,21.6
+OD_BLOCK_265,Nandipada,kendujhar,Kendujhar,kendujhar,Kendujhar,0.3264,LOW,Demographic Sensitivity,Hazard Exposure,31.3,34.5,20.7,13.5
+OD_BLOCK_266,Nayakote,kendujhar,Kendujhar,kendujhar,Kendujhar,0.3043,LOW,Demographic Sensitivity,Hazard Exposure,28.9,39.5,26.6,5.0
+OD_BLOCK_267,Pandapara,kendujhar,Kendujhar,kendujhar,Kendujhar,0.3464,LOW,Demographic Sensitivity,Hazard Exposure,26.0,34.0,24.3,15.8
+OD_BLOCK_268,Patana,kendujhar,Kendujhar,kendujhar,Kendujhar,0.3988,MODERATE,Hazard Exposure,Demographic Sensitivity,31.4,29.8,21.6,17.2
+OD_BLOCK_269,Rugudi,kendujhar,Kendujhar,kendujhar,Kendujhar,0.3287,LOW,Hazard Exposure,Demographic Sensitivity,34.1,33.0,13.0,19.9
+OD_BLOCK_270,Sainkul,kendujhar,Kendujhar,kendujhar,Kendujhar,0.2871,LOW,Hazard Exposure,Demographic Sensitivity,39.5,39.1,19.5,2.0
+OD_BLOCK_271,Soso,kendujhar,Kendujhar,kendujhar,Kendujhar,0.3211,LOW,Demographic Sensitivity,Hazard Exposure,29.3,35.9,23.2,11.6
+OD_BLOCK_272,Telkoi,kendujhar,Kendujhar,kendujhar,Kendujhar,0.3587,LOW,Hazard Exposure,Demographic Sensitivity,38.8,34.2,23.7,3.2
+OD_BLOCK_273,Turumunga,kendujhar,Kendujhar,kendujhar,Kendujhar,0.3177,LOW,Hazard Exposure,Demographic Sensitivity,38.2,36.2,20.7,4.9
+OD_BLOCK_274,Airfield (Kapila Prasad),khordha,Khordha,khordha,Khordha,0.4596,MODERATE,Hazard Exposure,Demographic Sensitivity,57.4,25.6,13.0,4.1
+OD_BLOCK_275,Balianta,khordha,Khordha,khordha,Khordha,0.5157,MODERATE,Hazard Exposure,Demographic Sensitivity,59.4,24.2,14.9,1.5
+OD_BLOCK_276,Balipatna,khordha,Khordha,khordha,Khordha,0.4955,MODERATE,Hazard Exposure,Demographic Sensitivity,56.6,24.7,17.2,1.5
+OD_BLOCK_277,Balugaon,khordha,Khordha,khordha,Khordha,0.5128,MODERATE,Hazard Exposure,Demographic Sensitivity,50.6,22.9,15.1,11.4
+OD_BLOCK_278,Banapur,khordha,Khordha,khordha,Khordha,0.4445,MODERATE,Hazard Exposure,Demographic Sensitivity,48.8,25.3,18.0,7.9
+OD_BLOCK_279,Begunia,khordha,Khordha,khordha,Khordha,0.5137,MODERATE,Hazard Exposure,Demographic Sensitivity,53.5,23.6,16.6,6.3
+OD_BLOCK_280,Bhubaneswar (M.Corp.),khordha,Khordha,khordha,Khordha,0.5353,MODERATE,Hazard Exposure,Demographic Sensitivity,49.8,22.2,15.1,13.0
+OD_BLOCK_281,Bolagad,khordha,Khordha,khordha,Khordha,0.433,MODERATE,Hazard Exposure,Demographic Sensitivity,51.2,25.7,15.2,7.8
+OD_BLOCK_282,Chandaka,khordha,Khordha,khordha,Khordha,0.3932,MODERATE,Hazard Exposure,Demographic Sensitivity,43.3,26.5,18.4,11.8
+OD_BLOCK_283,Jankia,khordha,Khordha,khordha,Khordha,0.5365,MODERATE,Hazard Exposure,Demographic Sensitivity,51.4,22.3,14.2,12.1
+OD_BLOCK_284,Jatani,khordha,Khordha,khordha,Khordha,0.4988,MODERATE,Hazard Exposure,Demographic Sensitivity,51.2,23.6,16.1,9.2
+OD_BLOCK_285,Khandagiri,khordha,Khordha,khordha,Khordha,0.4956,MODERATE,Hazard Exposure,Demographic Sensitivity,53.7,22.9,6.5,16.9
+OD_BLOCK_286,Khordha,khordha,Khordha,khordha,Khordha,0.5934,HIGH,Hazard Exposure,Demographic Sensitivity,49.4,20.7,16.1,13.7
+OD_BLOCK_287,Khordha Sadar,khordha,Khordha,khordha,Khordha,0.5639,HIGH,Hazard Exposure,Demographic Sensitivity,53.3,21.8,14.4,10.5
+OD_BLOCK_288,Lingaraj,khordha,Khordha,khordha,Khordha,0.4675,MODERATE,Hazard Exposure,Demographic Sensitivity,67.1,26.2,5.1,1.6
+OD_BLOCK_289,Mancheswar,khordha,Khordha,khordha,Khordha,0.3191,LOW,Hazard Exposure,Demographic Sensitivity,51.1,29.9,6.4,12.7
+OD_BLOCK_290,Nandankanan,khordha,Khordha,khordha,Khordha,0.449,MODERATE,Hazard Exposure,Demographic Sensitivity,50.1,24.1,7.3,18.5
+OD_BLOCK_291,Nirakarpur,khordha,Khordha,khordha,Khordha,0.4161,MODERATE,Hazard Exposure,Demographic Sensitivity,43.3,24.9,14.1,17.6
+OD_BLOCK_292,Saheednagar,khordha,Khordha,khordha,Khordha,0.398,MODERATE,Hazard Exposure,Demographic Sensitivity,56.7,27.2,6.3,9.8
+OD_BLOCK_293,Tamando,khordha,Khordha,khordha,Khordha,0.389,MODERATE,Hazard Exposure,Demographic Sensitivity,57.3,27.9,8.2,6.6
+OD_BLOCK_294,Tangi,khordha,Khordha,khordha,Khordha,0.5077,MODERATE,Hazard Exposure,Demographic Sensitivity,47.5,22.9,17.2,12.4
+OD_BLOCK_295,Uttara P.S,khordha,Khordha,khordha,Khordha,0.4222,MODERATE,Hazard Exposure,Demographic Sensitivity,50.3,25.0,4.9,19.8
+OD_BLOCK_296,Bandhugaon,koraput,Koraput,koraput,Koraput,0.4724,MODERATE,Hazard Exposure,Demographic Sensitivity,49.5,24.4,22.7,3.4
+OD_BLOCK_297,Bhairabsingipur,koraput,Koraput,koraput,Koraput,0.4849,MODERATE,Hazard Exposure,Demographic Sensitivity,50.6,24.3,23.6,1.5
+OD_BLOCK_298,Boipariguda,koraput,Koraput,koraput,Koraput,0.4288,MODERATE,Hazard Exposure,Capacity Stress,43.6,26.4,28.4,1.6
+OD_BLOCK_299,Boriguma,koraput,Koraput,koraput,Koraput,0.4814,MODERATE,Hazard Exposure,Demographic Sensitivity,39.7,22.3,20.5,17.5
+OD_BLOCK_300,Damonjodi,koraput,Koraput,koraput,Koraput,0.3834,LOW,Hazard Exposure,Demographic Sensitivity,41.4,26.1,20.0,12.4
+OD_BLOCK_301,Dasamantapur,koraput,Koraput,koraput,Koraput,0.5758,HIGH,Hazard Exposure,Capacity Stress,48.9,21.0,22.1,8.0
+OD_BLOCK_302,Jeypore,koraput,Koraput,koraput,Koraput,0.4862,MODERATE,Hazard Exposure,Demographic Sensitivity,49.0,23.5,20.0,7.4
+OD_BLOCK_303,Kakiriguma,koraput,Koraput,koraput,Koraput,0.4873,MODERATE,Hazard Exposure,Demographic Sensitivity,52.7,23.9,19.0,4.4
+OD_BLOCK_304,Koraput,koraput,Koraput,koraput,Koraput,0.4108,MODERATE,Hazard Exposure,Capacity Stress,42.7,27.2,28.5,1.7
+OD_BLOCK_305,Koraput Town,koraput,Koraput,koraput,Koraput,0.5065,MODERATE,Hazard Exposure,Demographic Sensitivity,45.1,21.6,14.5,18.9
+OD_BLOCK_306,Kotiya,koraput,Koraput,koraput,Koraput,0.2546,LOW,Hazard Exposure,Demographic Sensitivity,44.4,32.1,11.4,12.1
+OD_BLOCK_307,Kotpad,koraput,Koraput,koraput,Koraput,0.3787,LOW,Hazard Exposure,Demographic Sensitivity,42.9,27.7,24.4,4.9
+OD_BLOCK_308,Kundura,koraput,Koraput,koraput,Koraput,0.5161,MODERATE,Hazard Exposure,Demographic Sensitivity,47.2,22.5,22.0,8.3
+OD_BLOCK_309,Lakshmipur,koraput,Koraput,koraput,Koraput,0.382,LOW,Hazard Exposure,Demographic Sensitivity,45.6,27.8,23.2,3.4
+OD_BLOCK_310,Machh Kund,koraput,Koraput,koraput,Koraput,0.4335,MODERATE,Hazard Exposure,Demographic Sensitivity,41.9,24.6,22.4,11.1
+OD_BLOCK_311,Nandapur,koraput,Koraput,koraput,Koraput,0.4188,MODERATE,Hazard Exposure,Demographic Sensitivity,34.9,24.5,23.4,17.2
+OD_BLOCK_312,Narayanpatana,koraput,Koraput,koraput,Koraput,0.4222,MODERATE,Hazard Exposure,Demographic Sensitivity,37.2,24.6,23.1,15.1
+OD_BLOCK_313,Padua,koraput,Koraput,koraput,Koraput,0.5543,HIGH,Hazard Exposure,Capacity Stress,52.1,22.1,24.4,1.4
+OD_BLOCK_314,Pottangi,koraput,Koraput,koraput,Koraput,0.5091,MODERATE,Hazard Exposure,Capacity Stress,46.5,23.1,26.8,3.5
+OD_BLOCK_315,Similiguda,koraput,Koraput,koraput,Koraput,0.3334,LOW,Hazard Exposure,Demographic Sensitivity,42.8,27.9,15.9,13.4
+OD_BLOCK_316,Sunabeda,koraput,Koraput,koraput,Koraput,0.4251,MODERATE,Hazard Exposure,Demographic Sensitivity,55.9,26.3,15.6,2.2
+OD_BLOCK_317,Chitrakonda,malkangiri,Malkangiri,malkangiri,Malkangiri,0.5589,HIGH,Hazard Exposure,Demographic Sensitivity,40.6,30.9,20.7,7.7
+OD_BLOCK_318,Jodamba,malkangiri,Malkangiri,malkangiri,Malkangiri,0.5224,MODERATE,Hazard Exposure,Demographic Sensitivity,38.6,31.8,18.4,11.2
+OD_BLOCK_319,Kalimela,malkangiri,Malkangiri,malkangiri,Malkangiri,0.6077,HIGH,Hazard Exposure,Demographic Sensitivity,44.1,29.6,20.2,6.1
+OD_BLOCK_320,M.V. 79,malkangiri,Malkangiri,malkangiri,Malkangiri,0.6155,HIGH,Hazard Exposure,Demographic Sensitivity,46.4,29.6,17.3,6.8
+OD_BLOCK_321,Malkangiri,malkangiri,Malkangiri,malkangiri,Malkangiri,0.6835,HIGH,Hazard Exposure,Demographic Sensitivity,40.4,26.0,18.4,15.2
+OD_BLOCK_322,Mathili,malkangiri,Malkangiri,malkangiri,Malkangiri,0.5657,HIGH,Hazard Exposure,Demographic Sensitivity,38.9,29.7,17.1,14.2
+OD_BLOCK_323,Motu,malkangiri,Malkangiri,malkangiri,Malkangiri,0.5068,MODERATE,Hazard Exposure,Demographic Sensitivity,33.6,31.1,17.2,18.0
+OD_BLOCK_324,Mudulipada,malkangiri,Malkangiri,malkangiri,Malkangiri,0.4935,MODERATE,Hazard Exposure,Demographic Sensitivity,38.0,32.3,14.5,15.3
+OD_BLOCK_325,Orkel,malkangiri,Malkangiri,malkangiri,Malkangiri,0.4872,MODERATE,Hazard Exposure,Demographic Sensitivity,37.7,32.8,15.9,13.5
+OD_BLOCK_326,Paparmetla,malkangiri,Malkangiri,malkangiri,Malkangiri,0.4618,MODERATE,Hazard Exposure,Demographic Sensitivity,41.4,34.4,12.5,11.7
+OD_BLOCK_327,Podia,malkangiri,Malkangiri,malkangiri,Malkangiri,0.5618,HIGH,Hazard Exposure,Demographic Sensitivity,37.2,29.8,19.9,13.1
+OD_BLOCK_328,Badampahar,mayurbhanj,Mayurbhanj,mayurbhanj,Mayurbhanj,0.3905,MODERATE,Hazard Exposure,Demographic Sensitivity,37.5,26.1,18.6,17.8
+OD_BLOCK_329,Bahalda,mayurbhanj,Mayurbhanj,mayurbhanj,Mayurbhanj,0.3196,LOW,Hazard Exposure,Demographic Sensitivity,43.1,30.1,17.4,9.5
+OD_BLOCK_330,Baisinga,mayurbhanj,Mayurbhanj,mayurbhanj,Mayurbhanj,0.3612,LOW,Hazard Exposure,Demographic Sensitivity,43.1,28.9,21.7,6.2
+OD_BLOCK_331,Bangiriposi,mayurbhanj,Mayurbhanj,mayurbhanj,Mayurbhanj,0.3798,LOW,Hazard Exposure,Demographic Sensitivity,31.3,26.9,22.7,19.1
+OD_BLOCK_332,Baripada (M),mayurbhanj,Mayurbhanj,mayurbhanj,Mayurbhanj,0.3034,LOW,Hazard Exposure,Demographic Sensitivity,39.3,30.3,6.5,24.0
+OD_BLOCK_333,Baripada Sadar,mayurbhanj,Mayurbhanj,mayurbhanj,Mayurbhanj,0.4669,MODERATE,Hazard Exposure,Demographic Sensitivity,41.1,23.9,21.7,13.3
+OD_BLOCK_334,Baripada Town,mayurbhanj,Mayurbhanj,mayurbhanj,Mayurbhanj,0.1771,LOW,Hazard Exposure,Demographic Sensitivity,46.7,42.3,7.2,3.8
+OD_BLOCK_335,Barsahi,mayurbhanj,Mayurbhanj,mayurbhanj,Mayurbhanj,0.3793,LOW,Hazard Exposure,Demographic Sensitivity,44.0,28.9,24.1,3.0
+OD_BLOCK_336,Betanati,mayurbhanj,Mayurbhanj,mayurbhanj,Mayurbhanj,0.4262,MODERATE,Hazard Exposure,Demographic Sensitivity,40.8,25.2,20.3,13.6
+OD_BLOCK_337,Bisoi,mayurbhanj,Mayurbhanj,mayurbhanj,Mayurbhanj,0.4209,MODERATE,Hazard Exposure,Demographic Sensitivity,39.1,24.7,16.6,19.6
+OD_BLOCK_338,Chandua,mayurbhanj,Mayurbhanj,mayurbhanj,Mayurbhanj,0.3977,MODERATE,Hazard Exposure,Demographic Sensitivity,41.0,26.5,20.4,12.1
+OD_BLOCK_339,Ghagarbeda,mayurbhanj,Mayurbhanj,mayurbhanj,Mayurbhanj,0.3354,LOW,Hazard Exposure,Demographic Sensitivity,38.0,28.2,10.2,23.6
+OD_BLOCK_340,Gorumahisani,mayurbhanj,Mayurbhanj,mayurbhanj,Mayurbhanj,0.3588,LOW,Hazard Exposure,Demographic Sensitivity,45.1,30.0,23.1,1.8
+OD_BLOCK_341,Jamda,mayurbhanj,Mayurbhanj,mayurbhanj,Mayurbhanj,0.3757,LOW,Hazard Exposure,Demographic Sensitivity,34.0,26.6,19.0,20.4
+OD_BLOCK_342,Jashipur,mayurbhanj,Mayurbhanj,mayurbhanj,Mayurbhanj,0.374,LOW,Hazard Exposure,Demographic Sensitivity,40.2,29.0,25.9,4.9
+OD_BLOCK_343,Jharpokharia,mayurbhanj,Mayurbhanj,mayurbhanj,Mayurbhanj,0.4349,MODERATE,Hazard Exposure,Demographic Sensitivity,41.9,24.7,18.1,15.3
+OD_BLOCK_344,Kaptipada,mayurbhanj,Mayurbhanj,mayurbhanj,Mayurbhanj,0.3804,LOW,Hazard Exposure,Demographic Sensitivity,44.9,26.9,15.4,12.9
+OD_BLOCK_345,Karanjia,mayurbhanj,Mayurbhanj,mayurbhanj,Mayurbhanj,0.3935,MODERATE,Hazard Exposure,Demographic Sensitivity,42.0,26.8,20.4,10.9
+OD_BLOCK_346,Khunta,mayurbhanj,Mayurbhanj,mayurbhanj,Mayurbhanj,0.4297,MODERATE,Hazard Exposure,Demographic Sensitivity,38.2,24.6,19.4,17.9
+OD_BLOCK_347,Koliana,mayurbhanj,Mayurbhanj,mayurbhanj,Mayurbhanj,0.4223,MODERATE,Hazard Exposure,Demographic Sensitivity,34.7,24.6,19.3,21.4
+OD_BLOCK_348,Mahuldiha,mayurbhanj,Mayurbhanj,mayurbhanj,Mayurbhanj,0.3974,MODERATE,Hazard Exposure,Demographic Sensitivity,34.1,25.7,19.8,20.5
+OD_BLOCK_349,Muruda,mayurbhanj,Mayurbhanj,mayurbhanj,Mayurbhanj,0.296,LOW,Hazard Exposure,Demographic Sensitivity,35.5,33.2,24.4,7.0
+OD_BLOCK_350,Rairangpur,mayurbhanj,Mayurbhanj,mayurbhanj,Mayurbhanj,0.4137,MODERATE,Hazard Exposure,Demographic Sensitivity,35.0,24.8,18.4,21.7
+OD_BLOCK_351,Rairangpur Town,mayurbhanj,Mayurbhanj,mayurbhanj,Mayurbhanj,0.2507,LOW,Hazard Exposure,Demographic Sensitivity,51.4,35.4,10.7,2.5
+OD_BLOCK_352,Raruan,mayurbhanj,Mayurbhanj,mayurbhanj,Mayurbhanj,0.4764,MODERATE,Hazard Exposure,Demographic Sensitivity,39.1,23.0,19.7,18.2
+OD_BLOCK_353,Rasagobindapur,mayurbhanj,Mayurbhanj,mayurbhanj,Mayurbhanj,0.4069,MODERATE,Hazard Exposure,Demographic Sensitivity,41.6,25.6,16.7,16.1
+OD_BLOCK_354,Sharata,mayurbhanj,Mayurbhanj,mayurbhanj,Mayurbhanj,0.2954,LOW,Hazard Exposure,Demographic Sensitivity,36.5,32.6,22.8,8.0
+OD_BLOCK_355,Suliapada,mayurbhanj,Mayurbhanj,mayurbhanj,Mayurbhanj,0.3357,LOW,Hazard Exposure,Demographic Sensitivity,39.5,30.1,22.6,7.8
+OD_BLOCK_356,Thakurmunda,mayurbhanj,Mayurbhanj,mayurbhanj,Mayurbhanj,0.4341,MODERATE,Hazard Exposure,Demographic Sensitivity,42.7,25.7,23.3,8.4
+OD_BLOCK_357,Tiring,mayurbhanj,Mayurbhanj,mayurbhanj,Mayurbhanj,0.364,LOW,Hazard Exposure,Demographic Sensitivity,36.6,27.1,17.2,19.1
+OD_BLOCK_358,Udala,mayurbhanj,Mayurbhanj,mayurbhanj,Mayurbhanj,0.4281,MODERATE,Hazard Exposure,Demographic Sensitivity,36.8,24.4,18.9,19.9
+OD_BLOCK_359,Chandahandi,nabarangapur,Nabarangapur,nabarangapur,Nabarangapur,0.4293,MODERATE,Hazard Exposure,Demographic Sensitivity,38.6,33.5,22.1,5.9
+OD_BLOCK_360,Dabugan,nabarangapur,Nabarangapur,nabarangapur,Nabarangapur,0.5386,MODERATE,Hazard Exposure,Demographic Sensitivity,45.7,29.3,21.3,3.6
+OD_BLOCK_361,Jharigan,nabarangapur,Nabarangapur,nabarangapur,Nabarangapur,0.4597,MODERATE,Hazard Exposure,Demographic Sensitivity,40.6,31.9,21.1,6.4
+OD_BLOCK_362,Khatiguda,nabarangapur,Nabarangapur,nabarangapur,Nabarangapur,0.4521,MODERATE,Hazard Exposure,Demographic Sensitivity,35.8,30.8,18.7,14.7
+OD_BLOCK_363,Kodinga,nabarangapur,Nabarangapur,nabarangapur,Nabarangapur,0.4604,MODERATE,Hazard Exposure,Demographic Sensitivity,39.3,32.0,22.8,5.9
+OD_BLOCK_364,Kosagumuda,nabarangapur,Nabarangapur,nabarangapur,Nabarangapur,0.4384,MODERATE,Hazard Exposure,Demographic Sensitivity,41.6,33.5,21.7,3.1
+OD_BLOCK_365,Kundei,nabarangapur,Nabarangapur,nabarangapur,Nabarangapur,0.581,HIGH,Hazard Exposure,Demographic Sensitivity,41.1,26.3,17.5,15.0
+OD_BLOCK_366,Nabarangapur P.S,nabarangapur,Nabarangapur,nabarangapur,Nabarangapur,0.5605,HIGH,Hazard Exposure,Demographic Sensitivity,41.5,27.5,20.2,10.7
+OD_BLOCK_367,Paparahandi,nabarangapur,Nabarangapur,nabarangapur,Nabarangapur,0.6138,HIGH,Hazard Exposure,Demographic Sensitivity,45.6,26.5,20.9,6.9
+OD_BLOCK_368,Raighar,nabarangapur,Nabarangapur,nabarangapur,Nabarangapur,0.6527,HIGH,Hazard Exposure,Demographic Sensitivity,45.6,25.3,21.1,8.0
+OD_BLOCK_369,Tentulikhunti,nabarangapur,Nabarangapur,nabarangapur,Nabarangapur,0.5075,MODERATE,Hazard Exposure,Demographic Sensitivity,38.6,28.5,16.9,16.0
+OD_BLOCK_370,Umarkote,nabarangapur,Nabarangapur,nabarangapur,Nabarangapur,0.4338,MODERATE,Hazard Exposure,Demographic Sensitivity,38.7,33.6,23.5,4.1
+OD_BLOCK_371,Banigochha,nayagarh,Nayagarh,nayagarh,Nayagarh,0.4933,MODERATE,Hazard Exposure,Demographic Sensitivity,47.1,19.5,18.0,15.5
+OD_BLOCK_372,Dasapalla,nayagarh,Nayagarh,nayagarh,Nayagarh,0.4989,MODERATE,Hazard Exposure,Capacity Stress,52.9,20.4,20.5,6.1
+OD_BLOCK_373,Fategarh,nayagarh,Nayagarh,nayagarh,Nayagarh,0.5256,MODERATE,Hazard Exposure,Demographic Sensitivity,54.4,19.7,18.6,7.4
+OD_BLOCK_374,Gania,nayagarh,Nayagarh,nayagarh,Nayagarh,0.5046,MODERATE,Hazard Exposure,Capacity Stress,49.4,19.8,20.8,10.0
+OD_BLOCK_375,Itamati,nayagarh,Nayagarh,nayagarh,Nayagarh,0.5044,MODERATE,Hazard Exposure,Demographic Sensitivity,48.6,18.9,13.7,18.8
+OD_BLOCK_376,Khandapada,nayagarh,Nayagarh,nayagarh,Nayagarh,0.4498,MODERATE,Hazard Exposure,Demographic Sensitivity,54.5,22.3,21.3,1.9
+OD_BLOCK_377,Nayagarh,nayagarh,Nayagarh,nayagarh,Nayagarh,0.4946,MODERATE,Hazard Exposure,Demographic Sensitivity,57.6,20.2,12.2,9.9
+OD_BLOCK_378,Nayagarh Sadar,nayagarh,Nayagarh,nayagarh,Nayagarh,0.481,MODERATE,Hazard Exposure,Demographic Sensitivity,58.6,21.5,18.2,1.7
+OD_BLOCK_379,Nuagaon,nayagarh,Nayagarh,nayagarh,Nayagarh,0.5795,HIGH,Hazard Exposure,Demographic Sensitivity,55.4,17.9,12.7,14.0
+OD_BLOCK_380,Odagaon,nayagarh,Nayagarh,nayagarh,Nayagarh,0.5957,HIGH,Hazard Exposure,Demographic Sensitivity,59.9,18.4,18.1,3.5
+OD_BLOCK_381,Ranapur,nayagarh,Nayagarh,nayagarh,Nayagarh,0.6176,HIGH,Hazard Exposure,Demographic Sensitivity,56.3,17.5,16.0,10.2
+OD_BLOCK_382,Sarankul,nayagarh,Nayagarh,nayagarh,Nayagarh,0.5974,HIGH,Hazard Exposure,Demographic Sensitivity,56.4,18.1,17.5,8.0
+OD_BLOCK_383,Boden,nuapada,Nuapada,nuapada,Nuapada,0.4177,MODERATE,Hazard Exposure,Demographic Sensitivity,34.9,23.4,21.4,20.3
+OD_BLOCK_384,Jonk,nuapada,Nuapada,nuapada,Nuapada,0.3072,LOW,Hazard Exposure,Demographic Sensitivity,30.1,29.4,22.5,18.1
+OD_BLOCK_385,Khariar,nuapada,Nuapada,nuapada,Nuapada,0.31,LOW,Hazard Exposure,Demographic Sensitivity,36.0,29.1,22.4,12.5
+OD_BLOCK_386,Komna,nuapada,Nuapada,nuapada,Nuapada,0.4233,MODERATE,Hazard Exposure,Demographic Sensitivity,34.1,23.2,21.7,21.0
+OD_BLOCK_387,Nuapada,nuapada,Nuapada,nuapada,Nuapada,0.4115,MODERATE,Hazard Exposure,Demographic Sensitivity,36.7,23.4,18.0,21.9
+OD_BLOCK_388,Sinapali,nuapada,Nuapada,nuapada,Nuapada,0.3627,LOW,Hazard Exposure,Demographic Sensitivity,37.8,26.5,23.1,12.6
+OD_BLOCK_389,Astaranga,puri,Puri,puri,Puri,0.6225,HIGH,Hazard Exposure,Demographic Sensitivity,52.7,22.5,12.8,12.0
+OD_BLOCK_390,Brahmagiri,puri,Puri,puri,Puri,0.6872,VERY HIGH,Hazard Exposure,Demographic Sensitivity,57.7,21.6,14.8,5.9
+OD_BLOCK_391,Chandanpur,puri,Puri,puri,Puri,0.6026,HIGH,Hazard Exposure,Demographic Sensitivity,53.5,23.2,13.1,10.2
+OD_BLOCK_392,Delanga,puri,Puri,puri,Puri,0.7627,VERY HIGH,Hazard Exposure,Demographic Sensitivity,59.2,18.8,10.6,11.4
+OD_BLOCK_393,Gadisagada,puri,Puri,puri,Puri,0.7741,VERY HIGH,Hazard Exposure,Demographic Sensitivity,59.8,19.0,12.9,8.2
+OD_BLOCK_394,Gop,puri,Puri,puri,Puri,0.7675,VERY HIGH,Hazard Exposure,Demographic Sensitivity,58.3,19.3,12.4,10.1
+OD_BLOCK_395,Kakatpur,puri,Puri,puri,Puri,0.5967,HIGH,Hazard Exposure,Demographic Sensitivity,60.9,24.1,12.3,2.8
+OD_BLOCK_396,Konark,puri,Puri,puri,Puri,0.6454,HIGH,Hazard Exposure,Demographic Sensitivity,50.6,21.6,12.8,14.9
+OD_BLOCK_397,Krushna Prasad,puri,Puri,puri,Puri,0.6261,HIGH,Hazard Exposure,Demographic Sensitivity,52.1,22.7,15.7,9.5
+OD_BLOCK_398,Nimapada,puri,Puri,puri,Puri,0.774,VERY HIGH,Hazard Exposure,Demographic Sensitivity,53.6,19.2,13.8,13.4
+OD_BLOCK_399,Pipili,puri,Puri,puri,Puri,0.7255,VERY HIGH,Hazard Exposure,Demographic Sensitivity,57.2,20.6,13.8,8.4
+OD_BLOCK_400,Puri (M),puri,Puri,puri,Puri,0.6311,HIGH,Hazard Exposure,Demographic Sensitivity,59.6,21.9,6.4,12.1
+OD_BLOCK_401,Ramachandi,puri,Puri,puri,Puri,0.5207,MODERATE,Hazard Exposure,Demographic Sensitivity,56.6,26.5,15.4,1.4
+OD_BLOCK_402,Sadar,puri,Puri,puri,Puri,0.7411,VERY HIGH,Hazard Exposure,Demographic Sensitivity,57.1,20.2,14.1,8.6
+OD_BLOCK_403,Satyabadi,puri,Puri,puri,Puri,0.6724,HIGH,Hazard Exposure,Demographic Sensitivity,61.2,21.9,13.5,3.4
+OD_BLOCK_404,Ambadala,rayagada,Rayagada,rayagada,Rayagada,0.5397,MODERATE,Hazard Exposure,Demographic Sensitivity,43.7,22.8,21.1,12.4
+OD_BLOCK_405,Andirakanch,rayagada,Rayagada,rayagada,Rayagada,0.3758,LOW,Hazard Exposure,Demographic Sensitivity,43.1,27.5,8.7,20.7
+OD_BLOCK_406,Bishamakatak,rayagada,Rayagada,rayagada,Rayagada,0.5401,MODERATE,Hazard Exposure,Demographic Sensitivity,46.4,23.0,19.1,11.5
+OD_BLOCK_407,Chandrapur,rayagada,Rayagada,rayagada,Rayagada,0.5139,MODERATE,Hazard Exposure,Demographic Sensitivity,42.7,23.2,19.0,15.2
+OD_BLOCK_408,Doraguda,rayagada,Rayagada,rayagada,Rayagada,0.4247,MODERATE,Hazard Exposure,Demographic Sensitivity,39.2,26.0,19.8,15.0
+OD_BLOCK_409,Gudari,rayagada,Rayagada,rayagada,Rayagada,0.5242,MODERATE,Hazard Exposure,Capacity Stress,36.4,22.2,23.5,17.9
+OD_BLOCK_410,Gunupur,rayagada,Rayagada,rayagada,Rayagada,0.4406,MODERATE,Hazard Exposure,Demographic Sensitivity,33.3,25.5,25.1,16.1
+OD_BLOCK_411,Kalyanasingpur,rayagada,Rayagada,rayagada,Rayagada,0.5683,HIGH,Hazard Exposure,Capacity Stress,48.5,22.9,23.8,4.8
+OD_BLOCK_412,Kashipur,rayagada,Rayagada,rayagada,Rayagada,0.4918,MODERATE,Hazard Exposure,Capacity Stress,46.9,25.6,26.0,1.5
+OD_BLOCK_413,Muniguda,rayagada,Rayagada,rayagada,Rayagada,0.5049,MODERATE,Hazard Exposure,Demographic Sensitivity,51.7,25.3,21.5,1.5
+OD_BLOCK_414,Padmapur,rayagada,Rayagada,rayagada,Rayagada,0.527,MODERATE,Hazard Exposure,Demographic Sensitivity,51.1,24.6,22.9,1.4
+OD_BLOCK_415,Puttasing,rayagada,Rayagada,rayagada,Rayagada,0.5228,MODERATE,Hazard Exposure,Demographic Sensitivity,42.8,23.2,21.6,12.4
+OD_BLOCK_416,Rayagada,rayagada,Rayagada,rayagada,Rayagada,0.4143,MODERATE,Hazard Exposure,Demographic Sensitivity,43.7,28.7,25.9,1.7
+OD_BLOCK_417,Seskhal,rayagada,Rayagada,rayagada,Rayagada,0.4066,MODERATE,Hazard Exposure,Demographic Sensitivity,38.5,26.6,19.0,15.9
+OD_BLOCK_418,Tikiri,rayagada,Rayagada,rayagada,Rayagada,0.5407,MODERATE,Hazard Exposure,Demographic Sensitivity,43.5,22.4,18.2,15.9
+OD_BLOCK_419,Ainthapali,sambalpur,Sambalpur,sambalpur,Sambalpur,0.437,MODERATE,Hazard Exposure,Accessibility Constraint,62.8,15.2,3.8,18.1
+OD_BLOCK_420,Burla,sambalpur,Sambalpur,sambalpur,Sambalpur,0.5009,MODERATE,Hazard Exposure,Accessibility Constraint,53.7,13.4,16.0,16.9
+OD_BLOCK_421,Charamal,sambalpur,Sambalpur,sambalpur,Sambalpur,0.5308,MODERATE,Hazard Exposure,Capacity Stress,56.8,13.4,19.5,10.3
+OD_BLOCK_422,Dhama,sambalpur,Sambalpur,sambalpur,Sambalpur,0.4796,MODERATE,Hazard Exposure,Capacity Stress,52.5,13.9,18.4,15.2
+OD_BLOCK_423,Dhanupali,sambalpur,Sambalpur,sambalpur,Sambalpur,0.4604,MODERATE,Hazard Exposure,Demographic Sensitivity,66.6,15.0,4.6,13.8
+OD_BLOCK_424,Govindpur,sambalpur,Sambalpur,sambalpur,Sambalpur,0.5071,MODERATE,Hazard Exposure,Capacity Stress,56.5,13.6,16.5,13.4
+OD_BLOCK_425,Hirakud,sambalpur,Sambalpur,sambalpur,Sambalpur,0.4386,MODERATE,Hazard Exposure,Demographic Sensitivity,63.3,15.7,15.2,5.8
+OD_BLOCK_426,Jamankira,sambalpur,Sambalpur,sambalpur,Sambalpur,0.41,MODERATE,Hazard Exposure,Capacity Stress,50.8,16.0,25.5,7.7
+OD_BLOCK_427,Jujomura,sambalpur,Sambalpur,sambalpur,Sambalpur,0.451,MODERATE,Hazard Exposure,Capacity Stress,56.8,15.1,20.2,7.9
+OD_BLOCK_428,Katarbaga,sambalpur,Sambalpur,sambalpur,Sambalpur,0.3937,MODERATE,Hazard Exposure,Capacity Stress,49.6,15.6,19.0,15.8
+OD_BLOCK_429,Kisinda,sambalpur,Sambalpur,sambalpur,Sambalpur,0.485,MODERATE,Hazard Exposure,Capacity Stress,56.8,14.4,20.4,8.5
+OD_BLOCK_430,Kochinda,sambalpur,Sambalpur,sambalpur,Sambalpur,0.4045,MODERATE,Hazard Exposure,Capacity Stress,54.9,16.6,25.0,3.4
+OD_BLOCK_431,Mahulpalli,sambalpur,Sambalpur,sambalpur,Sambalpur,0.4303,MODERATE,Hazard Exposure,Capacity Stress,49.2,15.2,23.8,11.9
+OD_BLOCK_432,Naktideul,sambalpur,Sambalpur,sambalpur,Sambalpur,0.4988,MODERATE,Hazard Exposure,Accessibility Constraint,51.3,13.4,17.3,18.0
+OD_BLOCK_433,Rairakhol,sambalpur,Sambalpur,sambalpur,Sambalpur,0.5586,HIGH,Hazard Exposure,Capacity Stress,57.4,12.9,18.5,11.2
+OD_BLOCK_434,Rengali,sambalpur,Sambalpur,sambalpur,Sambalpur,0.4546,MODERATE,Hazard Exposure,Demographic Sensitivity,65.2,15.1,10.0,9.7
+OD_BLOCK_435,Sadar,sambalpur,Sambalpur,sambalpur,Sambalpur,0.4055,MODERATE,Hazard Exposure,Demographic Sensitivity,61.3,15.9,10.8,12.0
+OD_BLOCK_436,Sambalpur (M),sambalpur,Sambalpur,sambalpur,Sambalpur,0.3286,LOW,Hazard Exposure,Demographic Sensitivity,66.1,18.9,8.3,6.7
+OD_BLOCK_437,Sasan,sambalpur,Sambalpur,sambalpur,Sambalpur,0.3884,MODERATE,Hazard Exposure,Capacity Stress,53.6,16.1,18.2,12.1
+OD_BLOCK_438,Thelkoloi,sambalpur,Sambalpur,sambalpur,Sambalpur,0.3577,LOW,Hazard Exposure,Demographic Sensitivity,52.9,16.8,15.6,14.6
+OD_BLOCK_439,Binika,subarnapur,Subarnapur,subarnapur,Subarnapur,0.5241,MODERATE,Hazard Exposure,Capacity Stress,55.0,13.8,18.7,12.5
+OD_BLOCK_440,Biramaharajpur,subarnapur,Subarnapur,subarnapur,Subarnapur,0.5151,MODERATE,Hazard Exposure,Capacity Stress,64.0,14.8,18.4,2.8
+OD_BLOCK_441,Dunguripali,subarnapur,Subarnapur,subarnapur,Subarnapur,0.5173,MODERATE,Hazard Exposure,Capacity Stress,59.5,14.5,20.8,5.3
+OD_BLOCK_442,Rampur,subarnapur,Subarnapur,subarnapur,Subarnapur,0.4331,MODERATE,Hazard Exposure,Accessibility Constraint,54.5,15.3,13.0,17.1
+OD_BLOCK_443,Sonapur,subarnapur,Subarnapur,subarnapur,Subarnapur,0.4228,MODERATE,Hazard Exposure,Capacity Stress,53.8,15.8,18.1,12.3
+OD_BLOCK_444,Subalaya,subarnapur,Subarnapur,subarnapur,Subarnapur,0.5242,MODERATE,Hazard Exposure,Accessibility Constraint,50.4,13.2,16.4,20.0
+OD_BLOCK_445,Tarbha,subarnapur,Subarnapur,subarnapur,Subarnapur,0.4546,MODERATE,Hazard Exposure,Capacity Stress,56.0,15.6,21.2,7.2
+OD_BLOCK_446,Ulunda,subarnapur,Subarnapur,subarnapur,Subarnapur,0.4499,MODERATE,Hazard Exposure,Capacity Stress,54.3,15.6,22.2,7.8
+OD_BLOCK_447,Banei,sundargarh,Sundargarh,sundargarh,Sundargarh,0.3857,MODERATE,Hazard Exposure,Demographic Sensitivity,37.0,27.6,18.7,16.7
+OD_BLOCK_448,Baragaon,sundargarh,Sundargarh,sundargarh,Sundargarh,0.401,MODERATE,Hazard Exposure,Demographic Sensitivity,34.4,26.8,20.2,18.6
+OD_BLOCK_449,Bhasma,sundargarh,Sundargarh,sundargarh,Sundargarh,0.2993,LOW,Demographic Sensitivity,Hazard Exposure,28.5,33.6,21.8,16.2
+OD_BLOCK_450,Biramitrapur,sundargarh,Sundargarh,sundargarh,Sundargarh,0.4018,MODERATE,Hazard Exposure,Demographic Sensitivity,34.6,27.1,21.8,16.5
+OD_BLOCK_451,Bisra,sundargarh,Sundargarh,sundargarh,Sundargarh,0.3818,LOW,Hazard Exposure,Demographic Sensitivity,36.3,28.4,22.2,13.2
+OD_BLOCK_452,Bondamunda,sundargarh,Sundargarh,sundargarh,Sundargarh,0.2796,LOW,Demographic Sensitivity,Hazard Exposure,31.1,33.7,11.6,23.6
+OD_BLOCK_453,Brahmani Tarang,sundargarh,Sundargarh,sundargarh,Sundargarh,0.3673,LOW,Hazard Exposure,Demographic Sensitivity,38.6,28.7,18.9,13.8
+OD_BLOCK_454,Chandiposh,sundargarh,Sundargarh,sundargarh,Sundargarh,0.3602,LOW,Hazard Exposure,Demographic Sensitivity,41.3,29.6,19.7,9.4
+OD_BLOCK_455,Dharuadihi,sundargarh,Sundargarh,sundargarh,Sundargarh,0.3509,LOW,Hazard Exposure,Demographic Sensitivity,43.1,29.9,17.7,9.3
+OD_BLOCK_456,Gurundia,sundargarh,Sundargarh,sundargarh,Sundargarh,0.3744,LOW,Hazard Exposure,Demographic Sensitivity,40.1,30.5,25.8,3.6
+OD_BLOCK_457,Hatibari,sundargarh,Sundargarh,sundargarh,Sundargarh,0.264,LOW,Demographic Sensitivity,Hazard Exposure,34.5,38.3,23.7,3.5
+OD_BLOCK_458,Hemgir,sundargarh,Sundargarh,sundargarh,Sundargarh,0.3601,LOW,Hazard Exposure,Demographic Sensitivity,37.5,32.1,28.5,1.8
+OD_BLOCK_459,Kamarposh Balang,sundargarh,Sundargarh,sundargarh,Sundargarh,0.3324,LOW,Demographic Sensitivity,Hazard Exposure,30.2,30.9,21.4,17.5
+OD_BLOCK_460,Kinjirkela,sundargarh,Sundargarh,sundargarh,Sundargarh,0.3805,LOW,Hazard Exposure,Demographic Sensitivity,39.8,28.9,22.0,9.3
+OD_BLOCK_461,Koida,sundargarh,Sundargarh,sundargarh,Sundargarh,0.3542,LOW,Hazard Exposure,Demographic Sensitivity,37.4,30.2,22.4,10.0
+OD_BLOCK_462,Kutra,sundargarh,Sundargarh,sundargarh,Sundargarh,0.3606,LOW,Hazard Exposure,Demographic Sensitivity,39.4,30.4,23.3,6.9
+OD_BLOCK_463,Lahunipara,sundargarh,Sundargarh,sundargarh,Sundargarh,0.4284,MODERATE,Hazard Exposure,Demographic Sensitivity,37.9,26.4,22.7,13.0
+OD_BLOCK_464,Lathikata,sundargarh,Sundargarh,sundargarh,Sundargarh,0.3322,LOW,Demographic Sensitivity,Hazard Exposure,26.2,31.0,20.7,22.1
+OD_BLOCK_465,Lephripara,sundargarh,Sundargarh,sundargarh,Sundargarh,0.3739,LOW,Hazard Exposure,Demographic Sensitivity,38.2,29.2,22.8,9.8
+OD_BLOCK_466,Mahulapada,sundargarh,Sundargarh,sundargarh,Sundargarh,0.3381,LOW,Hazard Exposure,Demographic Sensitivity,31.7,30.3,20.6,17.4
+OD_BLOCK_467,Raghunathapali,sundargarh,Sundargarh,sundargarh,Sundargarh,0.2693,LOW,Hazard Exposure,Demographic Sensitivity,50.6,35.0,4.2,10.2
+OD_BLOCK_468,Raiboga,sundargarh,Sundargarh,sundargarh,Sundargarh,0.328,LOW,Hazard Exposure,Demographic Sensitivity,41.7,32.9,22.7,2.7
+OD_BLOCK_469,Rajagangapur,sundargarh,Sundargarh,sundargarh,Sundargarh,0.3575,LOW,Hazard Exposure,Demographic Sensitivity,35.7,31.1,26.4,6.9
+OD_BLOCK_470,Raurkela (M),sundargarh,Sundargarh,sundargarh,Sundargarh,0.2726,LOW,Hazard Exposure,Demographic Sensitivity,38.3,34.5,17.7,9.4
+OD_BLOCK_471,Sundargarh,sundargarh,Sundargarh,sundargarh,Sundargarh,0.3534,LOW,Hazard Exposure,Demographic Sensitivity,42.2,31.1,22.6,4.1
+OD_BLOCK_472,Sundargarh Town,sundargarh,Sundargarh,sundargarh,Sundargarh,0.2418,LOW,Hazard Exposure,Demographic Sensitivity,38.2,35.8,11.4,14.5
+OD_BLOCK_473,Talasara,sundargarh,Sundargarh,sundargarh,Sundargarh,0.3868,MODERATE,Hazard Exposure,Demographic Sensitivity,34.9,27.4,19.0,18.7
+OD_BLOCK_474,Tangarapali,sundargarh,Sundargarh,sundargarh,Sundargarh,0.2337,LOW,Demographic Sensitivity,Hazard Exposure,36.3,38.1,4.2,21.5
+OD_BLOCK_475,Tikaetpali,sundargarh,Sundargarh,sundargarh,Sundargarh,0.3118,LOW,Demographic Sensitivity,Hazard Exposure,30.3,32.3,21.2,16.3

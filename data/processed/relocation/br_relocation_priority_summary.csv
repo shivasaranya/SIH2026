@@ -1,0 +1,2 @@
+state_code,state_name,total_mandals,total_mandals_ranked,very_high_priority_count,high_priority_count,moderate_priority_count,low_priority_count,insufficient_data_count,mean_topsis_score,max_topsis_score,min_topsis_score,ahp_consistency_ratio,host_zone_count,processing_timestamp
+BR,Bihar,534,534,54,106,214,160,0,0.4763,0.9114,0.066,0.0038,23,2026-09-06

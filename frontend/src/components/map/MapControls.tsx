@@ -2,6 +2,7 @@ import React from 'react';
 import type { DemographicMetricKey } from '../../types/gis';
 import { METRIC_CONFIGS } from '../../utils/mapUtils';
 import { Layers, Eye, EyeOff, RotateCcw, AlertTriangle, ShieldCheck, Home, Activity, Compass } from 'lucide-react';
+import { useActiveState } from '../../context/StateContext';
 
 interface MapControlsProps {
   activeMetric: DemographicMetricKey;
@@ -30,6 +31,7 @@ export const MapControls: React.FC<MapControlsProps> = ({
   onToggleHabitationsWms,
   onResetView,
 }) => {
+  const { currentState } = useActiveState();
   return (
     <div className="bg-slate-900/95 backdrop-blur-md border border-slate-800/90 rounded-2xl p-4 text-xs shadow-2xl space-y-4 max-w-xs max-h-[calc(100vh-14rem)] overflow-y-auto custom-scrollbar">
       {/* 1. Relocation Planning Priorities */}
@@ -236,14 +238,14 @@ export const MapControls: React.FC<MapControlsProps> = ({
           <button
             onClick={onResetView}
             className="flex items-center space-x-1 text-[10px] text-slate-400 hover:text-slate-200 bg-slate-800 px-2 py-1 rounded-lg border border-slate-700 transition"
-            title="Reset to Andhra Pradesh Extent"
+            title={`Reset to ${currentState.name} Extent`}
           >
             <RotateCcw className="w-3 h-3" />
             <span>Reset View</span>
           </button>
         </div>
 
-        {/* Mandal Layer Toggle */}
+        {/* Admin Unit Layer Toggle */}
         <button
           onClick={onToggleMandals}
           className={`w-full flex items-center justify-between px-3 py-1.5 rounded-xl transition-all text-xs ${
@@ -254,7 +256,7 @@ export const MapControls: React.FC<MapControlsProps> = ({
         >
           <div className="flex items-center space-x-2">
             {showMandals ? <Eye className="w-3.5 h-3.5" /> : <EyeOff className="w-3.5 h-3.5" />}
-            <span>Mandal Boundaries (696)</span>
+            <span>{currentState.adminUnitName} Boundaries ({currentState.adminUnitCount})</span>
           </div>
           <span className="text-[10px] font-mono opacity-80">Vector</span>
         </button>

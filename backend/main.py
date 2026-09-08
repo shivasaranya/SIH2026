@@ -58,6 +58,16 @@ async def root():
     }
 
 
+@app.get("/health", summary="Health Check")
+async def health_check():
+    return {
+        "status": "ok",
+        "project": settings.APP_NAME,
+        "version": settings.VERSION,
+        "supported_states": ["andhra_pradesh", "assam", "bihar", "tamil_nadu", "west_bengal", "odisha", "uttar_pradesh", "uttarakhand", "sikkim", "arunachal_pradesh", "nagaland", "meghalaya"]
+    }
+
+
 if __name__ == "__main__":
     uvicorn.run(
         "main:app",

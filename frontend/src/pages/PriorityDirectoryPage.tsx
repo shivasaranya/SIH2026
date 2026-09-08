@@ -397,12 +397,12 @@ export const PriorityDirectoryPage: React.FC<PriorityDirectoryPageProps> = ({ on
                 ) : filteredMandals.length === 0 ? (
                   <tr>
                     <td colSpan={10} className="py-12 text-center text-slate-400">
-                      No mandals match the selected filters.
+                      No {currentState.adminUnitPlural.toLowerCase()} match the selected filters.
                     </td>
                   </tr>
                 ) : (
                   filteredMandals.map((m, idx) => {
-                    const mname = m.mandal_name || m.DMNAME || 'Mandal';
+                    const mname = m.mandal_name || m.DMNAME || currentState.adminUnitName;
                     const dname = m.current_district_name || m.DNAME || 'District';
                     const pop = Number(m.population_total ?? 0);
 

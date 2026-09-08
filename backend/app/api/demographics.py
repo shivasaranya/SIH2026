@@ -15,7 +15,7 @@ router = APIRouter(prefix="/demographics", tags=["Demographics"])
     summary="Get Statewide and District Demographic Summaries"
 )
 async def get_summary(
-    state_id: Optional[str] = Query("andhra_pradesh", description="State identifier ('andhra_pradesh' or 'tamil_nadu')")
+    state_id: Optional[str] = Query("andhra_pradesh", description="State identifier ('andhra_pradesh', 'assam', or 'tamil_nadu')")
 ) -> StateDemographicSummary:
     """
     Returns total demographic indicators aggregated across the selected state and broken down by modern districts.
@@ -32,7 +32,7 @@ async def get_summary(
 )
 async def get_district_demographics(
     district_id: str = Path(..., description="The standardized district slug"),
-    state_id: Optional[str] = Query("andhra_pradesh", description="State identifier ('andhra_pradesh' or 'tamil_nadu')")
+    state_id: Optional[str] = Query("andhra_pradesh", description="State identifier ('andhra_pradesh', 'assam', or 'tamil_nadu')")
 ) -> DistrictDetailResponse:
     """
     Returns demographic indicators for the requested district along with a granular breakdown of its constituent administrative units.

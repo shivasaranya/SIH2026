@@ -1,0 +1,2 @@
+state_code,state_name,total_mandals,total_mandals_ranked,very_high_priority_count,high_priority_count,moderate_priority_count,low_priority_count,insufficient_data_count,mean_topsis_score,max_topsis_score,min_topsis_score,ahp_consistency_ratio,host_zone_count,processing_timestamp
+WB,West Bengal,346,346,35,69,139,103,0,0.4323,0.7704,0.1009,0.0038,23,2026-09-06

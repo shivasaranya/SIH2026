@@ -1,0 +1,5 @@
+criterion_code,criterion_name,weight,percentage,source
+C1,Hazard Exposure,0.4231,42.31,Teesta Basin GLOF + Landslide + Wind
+C2,Evacuation Sensitivity,0.2274,22.74,Census 2011 Child 0-6 + Non-worker + HH Size
+C3,Capacity Stress,0.2274,22.74,Shelter + Bed + Water + Safe Land Deficit
+C4,Accessibility Constraint,0.1221,12.21,Mountain Road Network Corridor Constraints

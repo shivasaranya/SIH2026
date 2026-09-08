@@ -1,0 +1,461 @@
+source_mandal_id,source_mandal_name,source_district_id,source_district_name,candidate_mandal_id,candidate_mandal_name,candidate_district_id,candidate_district_name,distance_km,candidate_safe_area_fraction,candidate_hazard_exposure,candidate_population
+ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,0.0,0.68,0.378,102671
+ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,19.7,0.72,0.4055,28689
+ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,38.0,0.68,0.378,108648
+ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,ML_BLOCK_019,Bajengdoba,ML_DIST_09,North Garo Hills,40.8,0.76,0.433,21671
+ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,53.1,0.72,0.4055,31517
+ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,124.8,0.76,0.433,66439
+ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,158.1,0.72,0.4055,70973
+ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,166.3,0.68,0.378,84256
+ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,169.0,0.8,0.378,37172
+ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,190.2,0.68,0.378,196883
+ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,0.0,0.72,0.4055,28689
+ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,18.5,0.68,0.378,108648
+ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,19.7,0.68,0.378,102671
+ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,ML_BLOCK_019,Bajengdoba,ML_DIST_09,North Garo Hills,27.2,0.76,0.433,21671
+ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,36.3,0.72,0.4055,31517
+ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,113.3,0.76,0.433,66439
+ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,146.4,0.72,0.4055,70973
+ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,156.2,0.68,0.378,84256
+ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,160.5,0.8,0.378,37172
+ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,183.5,0.68,0.378,196883
+ML_BLOCK_003,Dambo Rongjeng,ML_DIST_08,East Garo Hills,ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,19.4,0.72,0.4055,31517
+ML_BLOCK_003,Dambo Rongjeng,ML_DIST_08,East Garo Hills,ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,23.9,0.72,0.4055,28689
+ML_BLOCK_003,Dambo Rongjeng,ML_DIST_08,East Garo Hills,ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,27.3,0.68,0.378,108648
+ML_BLOCK_003,Dambo Rongjeng,ML_DIST_08,East Garo Hills,ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,36.2,0.68,0.378,102671
+ML_BLOCK_003,Dambo Rongjeng,ML_DIST_08,East Garo Hills,ML_BLOCK_019,Bajengdoba,ML_DIST_09,North Garo Hills,45.9,0.76,0.433,21671
+ML_BLOCK_003,Dambo Rongjeng,ML_DIST_08,East Garo Hills,ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,89.8,0.76,0.433,66439
+ML_BLOCK_003,Dambo Rongjeng,ML_DIST_08,East Garo Hills,ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,123.0,0.72,0.4055,70973
+ML_BLOCK_003,Dambo Rongjeng,ML_DIST_08,East Garo Hills,ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,132.4,0.68,0.378,84256
+ML_BLOCK_003,Dambo Rongjeng,ML_DIST_08,East Garo Hills,ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,136.6,0.8,0.378,37172
+ML_BLOCK_003,Dambo Rongjeng,ML_DIST_08,East Garo Hills,ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,159.7,0.68,0.378,196883
+ML_BLOCK_004,Saipung,ML_DIST_06,East Jaintia Hills,ML_BLOCK_041,Laskein,ML_DIST_05,West Jaintia Hills,32.0,0.72,0.4055,40946
+ML_BLOCK_004,Saipung,ML_DIST_06,East Jaintia Hills,ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,48.7,0.68,0.378,196883
+ML_BLOCK_004,Saipung,ML_DIST_06,East Jaintia Hills,ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,76.4,0.8,0.378,37172
+ML_BLOCK_004,Saipung,ML_DIST_06,East Jaintia Hills,ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,89.8,0.68,0.378,84256
+ML_BLOCK_004,Saipung,ML_DIST_06,East Jaintia Hills,ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,108.1,0.72,0.4055,70973
+ML_BLOCK_004,Saipung,ML_DIST_06,East Jaintia Hills,ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,126.3,0.76,0.433,66439
+ML_BLOCK_004,Saipung,ML_DIST_06,East Jaintia Hills,ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,198.3,0.72,0.4055,31517
+ML_BLOCK_004,Saipung,ML_DIST_06,East Jaintia Hills,ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,223.8,0.72,0.4055,28689
+ML_BLOCK_004,Saipung,ML_DIST_06,East Jaintia Hills,ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,225.0,0.68,0.378,108648
+ML_BLOCK_004,Saipung,ML_DIST_06,East Jaintia Hills,ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,227.9,0.68,0.378,102671
+ML_BLOCK_005,Khliehriat,ML_DIST_06,East Jaintia Hills,ML_BLOCK_041,Laskein,ML_DIST_05,West Jaintia Hills,34.1,0.72,0.4055,40946
+ML_BLOCK_005,Khliehriat,ML_DIST_06,East Jaintia Hills,ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,35.7,0.68,0.378,196883
+ML_BLOCK_005,Khliehriat,ML_DIST_06,East Jaintia Hills,ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,59.6,0.8,0.378,37172
+ML_BLOCK_005,Khliehriat,ML_DIST_06,East Jaintia Hills,ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,74.4,0.68,0.378,84256
+ML_BLOCK_005,Khliehriat,ML_DIST_06,East Jaintia Hills,ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,92.4,0.72,0.4055,70973
+ML_BLOCK_005,Khliehriat,ML_DIST_06,East Jaintia Hills,ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,105.0,0.76,0.433,66439
+ML_BLOCK_005,Khliehriat,ML_DIST_06,East Jaintia Hills,ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,173.0,0.72,0.4055,31517
+ML_BLOCK_005,Khliehriat,ML_DIST_06,East Jaintia Hills,ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,197.3,0.72,0.4055,28689
+ML_BLOCK_005,Khliehriat,ML_DIST_06,East Jaintia Hills,ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,199.3,0.68,0.378,108648
+ML_BLOCK_005,Khliehriat,ML_DIST_06,East Jaintia Hills,ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,200.7,0.68,0.378,102671
+ML_BLOCK_006,Pynursla,ML_DIST_01,East Khasi Hills,ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,51.9,0.68,0.378,196883
+ML_BLOCK_006,Pynursla,ML_DIST_01,East Khasi Hills,ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,52.6,0.8,0.378,37172
+ML_BLOCK_006,Pynursla,ML_DIST_01,East Khasi Hills,ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,64.9,0.68,0.378,84256
+ML_BLOCK_006,Pynursla,ML_DIST_01,East Khasi Hills,ML_BLOCK_041,Laskein,ML_DIST_05,West Jaintia Hills,69.0,0.72,0.4055,40946
+ML_BLOCK_006,Pynursla,ML_DIST_01,East Khasi Hills,ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,74.1,0.76,0.433,66439
+ML_BLOCK_006,Pynursla,ML_DIST_01,East Khasi Hills,ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,77.5,0.72,0.4055,70973
+ML_BLOCK_006,Pynursla,ML_DIST_01,East Khasi Hills,ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,129.4,0.72,0.4055,31517
+ML_BLOCK_006,Pynursla,ML_DIST_01,East Khasi Hills,ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,150.8,0.72,0.4055,28689
+ML_BLOCK_006,Pynursla,ML_DIST_01,East Khasi Hills,ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,153.2,0.68,0.378,102671
+ML_BLOCK_006,Pynursla,ML_DIST_01,East Khasi Hills,ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,154.3,0.68,0.378,108648
+ML_BLOCK_007,Mawsynram,ML_DIST_01,East Khasi Hills,ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,70.2,0.76,0.433,66439
+ML_BLOCK_007,Mawsynram,ML_DIST_01,East Khasi Hills,ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,76.5,0.8,0.378,37172
+ML_BLOCK_007,Mawsynram,ML_DIST_01,East Khasi Hills,ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,83.5,0.68,0.378,84256
+ML_BLOCK_007,Mawsynram,ML_DIST_01,East Khasi Hills,ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,86.0,0.68,0.378,196883
+ML_BLOCK_007,Mawsynram,ML_DIST_01,East Khasi Hills,ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,89.0,0.72,0.4055,70973
+ML_BLOCK_007,Mawsynram,ML_DIST_01,East Khasi Hills,ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,100.2,0.72,0.4055,31517
+ML_BLOCK_007,Mawsynram,ML_DIST_01,East Khasi Hills,ML_BLOCK_041,Laskein,ML_DIST_05,West Jaintia Hills,105.6,0.72,0.4055,40946
+ML_BLOCK_007,Mawsynram,ML_DIST_01,East Khasi Hills,ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,116.3,0.72,0.4055,28689
+ML_BLOCK_007,Mawsynram,ML_DIST_01,East Khasi Hills,ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,116.6,0.68,0.378,102671
+ML_BLOCK_007,Mawsynram,ML_DIST_01,East Khasi Hills,ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,122.4,0.68,0.378,108648
+ML_BLOCK_008,Mawkynrew,ML_DIST_01,East Khasi Hills,ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,31.4,0.68,0.378,196883
+ML_BLOCK_008,Mawkynrew,ML_DIST_01,East Khasi Hills,ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,33.7,0.8,0.378,37172
+ML_BLOCK_008,Mawkynrew,ML_DIST_01,East Khasi Hills,ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,47.6,0.68,0.378,84256
+ML_BLOCK_008,Mawkynrew,ML_DIST_01,East Khasi Hills,ML_BLOCK_041,Laskein,ML_DIST_05,West Jaintia Hills,50.7,0.72,0.4055,40946
+ML_BLOCK_008,Mawkynrew,ML_DIST_01,East Khasi Hills,ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,62.7,0.72,0.4055,70973
+ML_BLOCK_008,Mawkynrew,ML_DIST_01,East Khasi Hills,ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,67.9,0.76,0.433,66439
+ML_BLOCK_008,Mawkynrew,ML_DIST_01,East Khasi Hills,ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,134.4,0.72,0.4055,31517
+ML_BLOCK_008,Mawkynrew,ML_DIST_01,East Khasi Hills,ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,159.7,0.72,0.4055,28689
+ML_BLOCK_008,Mawkynrew,ML_DIST_01,East Khasi Hills,ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,160.9,0.68,0.378,108648
+ML_BLOCK_008,Mawkynrew,ML_DIST_01,East Khasi Hills,ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,164.4,0.68,0.378,102671
+ML_BLOCK_009,Sohiong,ML_DIST_01,East Khasi Hills,ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,38.0,0.76,0.433,66439
+ML_BLOCK_009,Sohiong,ML_DIST_01,East Khasi Hills,ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,39.2,0.8,0.378,37172
+ML_BLOCK_009,Sohiong,ML_DIST_01,East Khasi Hills,ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,43.7,0.68,0.378,84256
+ML_BLOCK_009,Sohiong,ML_DIST_01,East Khasi Hills,ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,49.1,0.72,0.4055,70973
+ML_BLOCK_009,Sohiong,ML_DIST_01,East Khasi Hills,ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,57.3,0.68,0.378,196883
+ML_BLOCK_009,Sohiong,ML_DIST_01,East Khasi Hills,ML_BLOCK_041,Laskein,ML_DIST_05,West Jaintia Hills,79.9,0.72,0.4055,40946
+ML_BLOCK_009,Sohiong,ML_DIST_01,East Khasi Hills,ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,100.0,0.72,0.4055,31517
+ML_BLOCK_009,Sohiong,ML_DIST_01,East Khasi Hills,ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,126.6,0.72,0.4055,28689
+ML_BLOCK_009,Sohiong,ML_DIST_01,East Khasi Hills,ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,126.8,0.68,0.378,108648
+ML_BLOCK_009,Sohiong,ML_DIST_01,East Khasi Hills,ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,132.9,0.68,0.378,102671
+ML_BLOCK_010,Khatarshnong Laitkroh,ML_DIST_01,East Khasi Hills,ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,47.3,0.8,0.378,37172
+ML_BLOCK_010,Khatarshnong Laitkroh,ML_DIST_01,East Khasi Hills,ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,55.3,0.68,0.378,196883
+ML_BLOCK_010,Khatarshnong Laitkroh,ML_DIST_01,East Khasi Hills,ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,56.9,0.68,0.378,84256
+ML_BLOCK_010,Khatarshnong Laitkroh,ML_DIST_01,East Khasi Hills,ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,58.8,0.76,0.433,66439
+ML_BLOCK_010,Khatarshnong Laitkroh,ML_DIST_01,East Khasi Hills,ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,66.6,0.72,0.4055,70973
+ML_BLOCK_010,Khatarshnong Laitkroh,ML_DIST_01,East Khasi Hills,ML_BLOCK_041,Laskein,ML_DIST_05,West Jaintia Hills,75.6,0.72,0.4055,40946
+ML_BLOCK_010,Khatarshnong Laitkroh,ML_DIST_01,East Khasi Hills,ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,113.8,0.72,0.4055,31517
+ML_BLOCK_010,Khatarshnong Laitkroh,ML_DIST_01,East Khasi Hills,ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,136.6,0.72,0.4055,28689
+ML_BLOCK_010,Khatarshnong Laitkroh,ML_DIST_01,East Khasi Hills,ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,139.3,0.68,0.378,108648
+ML_BLOCK_010,Khatarshnong Laitkroh,ML_DIST_01,East Khasi Hills,ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,140.3,0.68,0.378,102671
+ML_BLOCK_011,Shella Bholaganj,ML_DIST_01,East Khasi Hills,ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,66.4,0.8,0.378,37172
+ML_BLOCK_011,Shella Bholaganj,ML_DIST_01,East Khasi Hills,ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,71.8,0.76,0.433,66439
+ML_BLOCK_011,Shella Bholaganj,ML_DIST_01,East Khasi Hills,ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,71.8,0.68,0.378,196883
+ML_BLOCK_011,Shella Bholaganj,ML_DIST_01,East Khasi Hills,ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,75.8,0.68,0.378,84256
+ML_BLOCK_011,Shella Bholaganj,ML_DIST_01,East Khasi Hills,ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,84.4,0.72,0.4055,70973
+ML_BLOCK_011,Shella Bholaganj,ML_DIST_01,East Khasi Hills,ML_BLOCK_041,Laskein,ML_DIST_05,West Jaintia Hills,90.4,0.72,0.4055,40946
+ML_BLOCK_011,Shella Bholaganj,ML_DIST_01,East Khasi Hills,ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,113.7,0.72,0.4055,31517
+ML_BLOCK_011,Shella Bholaganj,ML_DIST_01,East Khasi Hills,ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,132.0,0.72,0.4055,28689
+ML_BLOCK_011,Shella Bholaganj,ML_DIST_01,East Khasi Hills,ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,133.0,0.68,0.378,102671
+ML_BLOCK_011,Shella Bholaganj,ML_DIST_01,East Khasi Hills,ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,137.1,0.68,0.378,108648
+ML_BLOCK_012,Mawphlang,ML_DIST_01,East Khasi Hills,ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,48.7,0.76,0.433,66439
+ML_BLOCK_012,Mawphlang,ML_DIST_01,East Khasi Hills,ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,51.8,0.8,0.378,37172
+ML_BLOCK_012,Mawphlang,ML_DIST_01,East Khasi Hills,ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,57.9,0.68,0.378,84256
+ML_BLOCK_012,Mawphlang,ML_DIST_01,East Khasi Hills,ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,63.5,0.72,0.4055,70973
+ML_BLOCK_012,Mawphlang,ML_DIST_01,East Khasi Hills,ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,65.7,0.68,0.378,196883
+ML_BLOCK_012,Mawphlang,ML_DIST_01,East Khasi Hills,ML_BLOCK_041,Laskein,ML_DIST_05,West Jaintia Hills,87.3,0.72,0.4055,40946
+ML_BLOCK_012,Mawphlang,ML_DIST_01,East Khasi Hills,ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,98.9,0.72,0.4055,31517
+ML_BLOCK_012,Mawphlang,ML_DIST_01,East Khasi Hills,ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,122.2,0.72,0.4055,28689
+ML_BLOCK_012,Mawphlang,ML_DIST_01,East Khasi Hills,ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,124.5,0.68,0.378,108648
+ML_BLOCK_012,Mawphlang,ML_DIST_01,East Khasi Hills,ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,126.5,0.68,0.378,102671
+ML_BLOCK_013,Mawryngkneng,ML_DIST_01,East Khasi Hills,ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,16.1,0.8,0.378,37172
+ML_BLOCK_013,Mawryngkneng,ML_DIST_01,East Khasi Hills,ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,23.4,0.68,0.378,196883
+ML_BLOCK_013,Mawryngkneng,ML_DIST_01,East Khasi Hills,ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,30.4,0.68,0.378,84256
+ML_BLOCK_013,Mawryngkneng,ML_DIST_01,East Khasi Hills,ML_BLOCK_041,Laskein,ML_DIST_05,West Jaintia Hills,46.2,0.72,0.4055,40946
+ML_BLOCK_013,Mawryngkneng,ML_DIST_01,East Khasi Hills,ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,46.8,0.72,0.4055,70973
+ML_BLOCK_013,Mawryngkneng,ML_DIST_01,East Khasi Hills,ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,58.4,0.76,0.433,66439
+ML_BLOCK_013,Mawryngkneng,ML_DIST_01,East Khasi Hills,ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,131.9,0.72,0.4055,31517
+ML_BLOCK_013,Mawryngkneng,ML_DIST_01,East Khasi Hills,ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,159.3,0.68,0.378,108648
+ML_BLOCK_013,Mawryngkneng,ML_DIST_01,East Khasi Hills,ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,160.1,0.72,0.4055,28689
+ML_BLOCK_013,Mawryngkneng,ML_DIST_01,East Khasi Hills,ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,166.8,0.68,0.378,102671
+ML_BLOCK_014,Mylliem,ML_DIST_01,East Khasi Hills,ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,26.8,0.8,0.378,37172
+ML_BLOCK_014,Mylliem,ML_DIST_01,East Khasi Hills,ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,35.9,0.68,0.378,84256
+ML_BLOCK_014,Mylliem,ML_DIST_01,East Khasi Hills,ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,41.3,0.68,0.378,196883
+ML_BLOCK_014,Mylliem,ML_DIST_01,East Khasi Hills,ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,47.0,0.72,0.4055,70973
+ML_BLOCK_014,Mylliem,ML_DIST_01,East Khasi Hills,ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,47.3,0.76,0.433,66439
+ML_BLOCK_014,Mylliem,ML_DIST_01,East Khasi Hills,ML_BLOCK_041,Laskein,ML_DIST_05,West Jaintia Hills,63.8,0.72,0.4055,40946
+ML_BLOCK_014,Mylliem,ML_DIST_01,East Khasi Hills,ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,115.6,0.72,0.4055,31517
+ML_BLOCK_014,Mylliem,ML_DIST_01,East Khasi Hills,ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,142.7,0.68,0.378,108648
+ML_BLOCK_014,Mylliem,ML_DIST_01,East Khasi Hills,ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,142.7,0.72,0.4055,28689
+ML_BLOCK_014,Mylliem,ML_DIST_01,East Khasi Hills,ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,149.0,0.68,0.378,102671
+ML_BLOCK_015,Mawpat,ML_DIST_01,East Khasi Hills,ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,14.2,0.8,0.378,37172
+ML_BLOCK_015,Mawpat,ML_DIST_01,East Khasi Hills,ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,24.6,0.68,0.378,84256
+ML_BLOCK_015,Mawpat,ML_DIST_01,East Khasi Hills,ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,33.2,0.68,0.378,196883
+ML_BLOCK_015,Mawpat,ML_DIST_01,East Khasi Hills,ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,38.5,0.72,0.4055,70973
+ML_BLOCK_015,Mawpat,ML_DIST_01,East Khasi Hills,ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,47.4,0.76,0.433,66439
+ML_BLOCK_015,Mawpat,ML_DIST_01,East Khasi Hills,ML_BLOCK_041,Laskein,ML_DIST_05,West Jaintia Hills,56.1,0.72,0.4055,40946
+ML_BLOCK_015,Mawpat,ML_DIST_01,East Khasi Hills,ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,121.6,0.72,0.4055,31517
+ML_BLOCK_015,Mawpat,ML_DIST_01,East Khasi Hills,ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,149.2,0.68,0.378,108648
+ML_BLOCK_015,Mawpat,ML_DIST_01,East Khasi Hills,ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,150.6,0.72,0.4055,28689
+ML_BLOCK_015,Mawpat,ML_DIST_01,East Khasi Hills,ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,158.0,0.68,0.378,102671
+ML_BLOCK_016,Mawlai,ML_DIST_01,East Khasi Hills,ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,23.7,0.8,0.378,37172
+ML_BLOCK_016,Mawlai,ML_DIST_01,East Khasi Hills,ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,29.5,0.68,0.378,84256
+ML_BLOCK_016,Mawlai,ML_DIST_01,East Khasi Hills,ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,38.7,0.72,0.4055,70973
+ML_BLOCK_016,Mawlai,ML_DIST_01,East Khasi Hills,ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,39.4,0.76,0.433,66439
+ML_BLOCK_016,Mawlai,ML_DIST_01,East Khasi Hills,ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,44.1,0.68,0.378,196883
+ML_BLOCK_016,Mawlai,ML_DIST_01,East Khasi Hills,ML_BLOCK_041,Laskein,ML_DIST_05,West Jaintia Hills,67.0,0.72,0.4055,40946
+ML_BLOCK_016,Mawlai,ML_DIST_01,East Khasi Hills,ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,110.9,0.72,0.4055,31517
+ML_BLOCK_016,Mawlai,ML_DIST_01,East Khasi Hills,ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,138.4,0.68,0.378,108648
+ML_BLOCK_016,Mawlai,ML_DIST_01,East Khasi Hills,ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,139.5,0.72,0.4055,28689
+ML_BLOCK_016,Mawlai,ML_DIST_01,East Khasi Hills,ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,146.8,0.68,0.378,102671
+ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,0.0,0.68,0.378,108648
+ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,18.5,0.72,0.4055,28689
+ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,ML_BLOCK_019,Bajengdoba,ML_DIST_09,North Garo Hills,20.4,0.76,0.433,21671
+ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,28.1,0.72,0.4055,31517
+ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,38.0,0.68,0.378,102671
+ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,108.2,0.76,0.433,66439
+ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,140.3,0.72,0.4055,70973
+ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,151.9,0.68,0.378,84256
+ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,157.8,0.8,0.378,37172
+ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,182.4,0.68,0.378,196883
+ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,0.0,0.72,0.4055,31517
+ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,28.1,0.68,0.378,108648
+ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,36.3,0.72,0.4055,28689
+ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,ML_BLOCK_019,Bajengdoba,ML_DIST_09,North Garo Hills,48.4,0.76,0.433,21671
+ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,53.1,0.68,0.378,102671
+ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,80.1,0.76,0.433,66439
+ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,112.4,0.72,0.4055,70973
+ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,123.9,0.68,0.378,84256
+ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,129.9,0.8,0.378,37172
+ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,154.8,0.68,0.378,196883
+ML_BLOCK_019,Bajengdoba,ML_DIST_09,North Garo Hills,ML_BLOCK_019,Bajengdoba,ML_DIST_09,North Garo Hills,0.0,0.76,0.433,21671
+ML_BLOCK_019,Bajengdoba,ML_DIST_09,North Garo Hills,ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,20.4,0.68,0.378,108648
+ML_BLOCK_019,Bajengdoba,ML_DIST_09,North Garo Hills,ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,27.2,0.72,0.4055,28689
+ML_BLOCK_019,Bajengdoba,ML_DIST_09,North Garo Hills,ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,40.8,0.68,0.378,102671
+ML_BLOCK_019,Bajengdoba,ML_DIST_09,North Garo Hills,ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,48.4,0.72,0.4055,31517
+ML_BLOCK_019,Bajengdoba,ML_DIST_09,North Garo Hills,ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,128.4,0.76,0.433,66439
+ML_BLOCK_019,Bajengdoba,ML_DIST_09,North Garo Hills,ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,160.2,0.72,0.4055,70973
+ML_BLOCK_019,Bajengdoba,ML_DIST_09,North Garo Hills,ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,172.2,0.68,0.378,84256
+ML_BLOCK_019,Bajengdoba,ML_DIST_09,North Garo Hills,ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,178.2,0.8,0.378,37172
+ML_BLOCK_019,Bajengdoba,ML_DIST_09,North Garo Hills,ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,202.8,0.68,0.378,196883
+ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,0.0,0.68,0.378,84256
+ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,15.0,0.8,0.378,37172
+ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,18.3,0.72,0.4055,70973
+ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,41.1,0.68,0.378,196883
+ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,43.9,0.76,0.433,66439
+ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,ML_BLOCK_041,Laskein,ML_DIST_05,West Jaintia Hills,60.8,0.72,0.4055,40946
+ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,123.9,0.72,0.4055,31517
+ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,151.9,0.68,0.378,108648
+ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,156.2,0.72,0.4055,28689
+ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,166.3,0.68,0.378,102671
+ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,0.0,0.72,0.4055,70973
+ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,18.3,0.68,0.378,84256
+ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,32.7,0.8,0.378,37172
+ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,33.3,0.76,0.433,66439
+ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,59.5,0.68,0.378,196883
+ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,ML_BLOCK_041,Laskein,ML_DIST_05,West Jaintia Hills,78.7,0.72,0.4055,40946
+ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,112.4,0.72,0.4055,31517
+ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,140.3,0.68,0.378,108648
+ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,146.4,0.72,0.4055,28689
+ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,158.1,0.68,0.378,102671
+ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,0.0,0.76,0.433,66439
+ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,33.3,0.72,0.4055,70973
+ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,43.9,0.68,0.378,84256
+ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,51.9,0.8,0.378,37172
+ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,78.9,0.68,0.378,196883
+ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,80.1,0.72,0.4055,31517
+ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,ML_BLOCK_041,Laskein,ML_DIST_05,West Jaintia Hills,101.2,0.72,0.4055,40946
+ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,108.2,0.68,0.378,108648
+ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,113.3,0.72,0.4055,28689
+ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,124.8,0.68,0.378,102671
+ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,0.0,0.8,0.378,37172
+ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,15.0,0.68,0.378,84256
+ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,27.8,0.68,0.378,196883
+ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,32.7,0.72,0.4055,70973
+ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,ML_BLOCK_041,Laskein,ML_DIST_05,West Jaintia Hills,49.4,0.72,0.4055,40946
+ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,51.9,0.76,0.433,66439
+ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,129.9,0.72,0.4055,31517
+ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,157.8,0.68,0.378,108648
+ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,160.5,0.72,0.4055,28689
+ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,169.0,0.68,0.378,102671
+ML_BLOCK_024,Rongara,ML_DIST_10,South Garo Hills,ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,41.8,0.68,0.378,102671
+ML_BLOCK_024,Rongara,ML_DIST_10,South Garo Hills,ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,53.6,0.72,0.4055,28689
+ML_BLOCK_024,Rongara,ML_DIST_10,South Garo Hills,ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,68.4,0.72,0.4055,31517
+ML_BLOCK_024,Rongara,ML_DIST_10,South Garo Hills,ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,69.8,0.68,0.378,108648
+ML_BLOCK_024,Rongara,ML_DIST_10,South Garo Hills,ML_BLOCK_019,Bajengdoba,ML_DIST_09,North Garo Hills,80.2,0.76,0.433,21671
+ML_BLOCK_024,Rongara,ML_DIST_10,South Garo Hills,ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,114.4,0.76,0.433,66439
+ML_BLOCK_024,Rongara,ML_DIST_10,South Garo Hills,ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,146.3,0.72,0.4055,70973
+ML_BLOCK_024,Rongara,ML_DIST_10,South Garo Hills,ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,149.2,0.8,0.378,37172
+ML_BLOCK_024,Rongara,ML_DIST_10,South Garo Hills,ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,150.0,0.68,0.378,84256
+ML_BLOCK_024,Rongara,ML_DIST_10,South Garo Hills,ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,166.2,0.68,0.378,196883
+ML_BLOCK_025,Baghmara,ML_DIST_10,South Garo Hills,ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,24.4,0.68,0.378,102671
+ML_BLOCK_025,Baghmara,ML_DIST_10,South Garo Hills,ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,40.8,0.72,0.4055,28689
+ML_BLOCK_025,Baghmara,ML_DIST_10,South Garo Hills,ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,58.9,0.68,0.378,108648
+ML_BLOCK_025,Baghmara,ML_DIST_10,South Garo Hills,ML_BLOCK_019,Bajengdoba,ML_DIST_09,North Garo Hills,65.0,0.76,0.433,21671
+ML_BLOCK_025,Baghmara,ML_DIST_10,South Garo Hills,ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,65.5,0.72,0.4055,31517
+ML_BLOCK_025,Baghmara,ML_DIST_10,South Garo Hills,ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,124.8,0.76,0.433,66439
+ML_BLOCK_025,Baghmara,ML_DIST_10,South Garo Hills,ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,157.6,0.72,0.4055,70973
+ML_BLOCK_025,Baghmara,ML_DIST_10,South Garo Hills,ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,163.2,0.68,0.378,84256
+ML_BLOCK_025,Baghmara,ML_DIST_10,South Garo Hills,ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,163.8,0.8,0.378,37172
+ML_BLOCK_025,Baghmara,ML_DIST_10,South Garo Hills,ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,182.4,0.68,0.378,196883
+ML_BLOCK_026,Chokpot,ML_DIST_10,South Garo Hills,ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,22.0,0.68,0.378,102671
+ML_BLOCK_026,Chokpot,ML_DIST_10,South Garo Hills,ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,41.3,0.72,0.4055,28689
+ML_BLOCK_026,Chokpot,ML_DIST_10,South Garo Hills,ML_BLOCK_019,Bajengdoba,ML_DIST_09,North Garo Hills,57.6,0.76,0.433,21671
+ML_BLOCK_026,Chokpot,ML_DIST_10,South Garo Hills,ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,59.1,0.68,0.378,108648
+ML_BLOCK_026,Chokpot,ML_DIST_10,South Garo Hills,ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,74.8,0.72,0.4055,31517
+ML_BLOCK_026,Chokpot,ML_DIST_10,South Garo Hills,ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,143.1,0.76,0.433,66439
+ML_BLOCK_026,Chokpot,ML_DIST_10,South Garo Hills,ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,176.4,0.72,0.4055,70973
+ML_BLOCK_026,Chokpot,ML_DIST_10,South Garo Hills,ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,183.2,0.68,0.378,84256
+ML_BLOCK_026,Chokpot,ML_DIST_10,South Garo Hills,ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,184.7,0.8,0.378,37172
+ML_BLOCK_026,Chokpot,ML_DIST_10,South Garo Hills,ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,204.4,0.68,0.378,196883
+ML_BLOCK_027,Gasuapara,ML_DIST_10,South Garo Hills,ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,37.6,0.68,0.378,102671
+ML_BLOCK_027,Gasuapara,ML_DIST_10,South Garo Hills,ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,57.2,0.72,0.4055,28689
+ML_BLOCK_027,Gasuapara,ML_DIST_10,South Garo Hills,ML_BLOCK_019,Bajengdoba,ML_DIST_09,North Garo Hills,73.6,0.76,0.433,21671
+ML_BLOCK_027,Gasuapara,ML_DIST_10,South Garo Hills,ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,75.2,0.68,0.378,108648
+ML_BLOCK_027,Gasuapara,ML_DIST_10,South Garo Hills,ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,89.4,0.72,0.4055,31517
+ML_BLOCK_027,Gasuapara,ML_DIST_10,South Garo Hills,ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,153.6,0.76,0.433,66439
+ML_BLOCK_027,Gasuapara,ML_DIST_10,South Garo Hills,ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,186.6,0.72,0.4055,70973
+ML_BLOCK_027,Gasuapara,ML_DIST_10,South Garo Hills,ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,192.2,0.68,0.378,84256
+ML_BLOCK_027,Gasuapara,ML_DIST_10,South Garo Hills,ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,192.6,0.8,0.378,37172
+ML_BLOCK_027,Gasuapara,ML_DIST_10,South Garo Hills,ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,210.7,0.68,0.378,196883
+ML_BLOCK_028,Zikzak,ML_DIST_11,South West Garo Hills,ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,69.8,0.68,0.378,102671
+ML_BLOCK_028,Zikzak,ML_DIST_11,South West Garo Hills,ML_BLOCK_019,Bajengdoba,ML_DIST_09,North Garo Hills,81.2,0.76,0.433,21671
+ML_BLOCK_028,Zikzak,ML_DIST_11,South West Garo Hills,ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,82.8,0.72,0.4055,28689
+ML_BLOCK_028,Zikzak,ML_DIST_11,South West Garo Hills,ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,94.8,0.68,0.378,108648
+ML_BLOCK_028,Zikzak,ML_DIST_11,South West Garo Hills,ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,119.0,0.72,0.4055,31517
+ML_BLOCK_028,Zikzak,ML_DIST_11,South West Garo Hills,ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,194.5,0.76,0.433,66439
+ML_BLOCK_028,Zikzak,ML_DIST_11,South West Garo Hills,ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,227.8,0.72,0.4055,70973
+ML_BLOCK_028,Zikzak,ML_DIST_11,South West Garo Hills,ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,236.1,0.68,0.378,84256
+ML_BLOCK_028,Zikzak,ML_DIST_11,South West Garo Hills,ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,238.5,0.8,0.378,37172
+ML_BLOCK_028,Zikzak,ML_DIST_11,South West Garo Hills,ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,258.8,0.68,0.378,196883
+ML_BLOCK_029,Betasing,ML_DIST_11,South West Garo Hills,ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,64.1,0.68,0.378,102671
+ML_BLOCK_029,Betasing,ML_DIST_11,South West Garo Hills,ML_BLOCK_019,Bajengdoba,ML_DIST_09,North Garo Hills,68.9,0.76,0.433,21671
+ML_BLOCK_029,Betasing,ML_DIST_11,South West Garo Hills,ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,74.2,0.72,0.4055,28689
+ML_BLOCK_029,Betasing,ML_DIST_11,South West Garo Hills,ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,84.2,0.68,0.378,108648
+ML_BLOCK_029,Betasing,ML_DIST_11,South West Garo Hills,ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,109.8,0.72,0.4055,31517
+ML_BLOCK_029,Betasing,ML_DIST_11,South West Garo Hills,ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,187.3,0.76,0.433,66439
+ML_BLOCK_029,Betasing,ML_DIST_11,South West Garo Hills,ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,220.5,0.72,0.4055,70973
+ML_BLOCK_029,Betasing,ML_DIST_11,South West Garo Hills,ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,229.6,0.68,0.378,84256
+ML_BLOCK_029,Betasing,ML_DIST_11,South West Garo Hills,ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,232.9,0.8,0.378,37172
+ML_BLOCK_029,Betasing,ML_DIST_11,South West Garo Hills,ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,254.3,0.68,0.378,196883
+ML_BLOCK_030,Damalgre,ML_DIST_11,South West Garo Hills,ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,53.6,0.68,0.378,102671
+ML_BLOCK_030,Damalgre,ML_DIST_11,South West Garo Hills,ML_BLOCK_019,Bajengdoba,ML_DIST_09,North Garo Hills,61.4,0.76,0.433,21671
+ML_BLOCK_030,Damalgre,ML_DIST_11,South West Garo Hills,ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,64.4,0.72,0.4055,28689
+ML_BLOCK_030,Damalgre,ML_DIST_11,South West Garo Hills,ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,75.4,0.68,0.378,108648
+ML_BLOCK_030,Damalgre,ML_DIST_11,South West Garo Hills,ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,100.3,0.72,0.4055,31517
+ML_BLOCK_030,Damalgre,ML_DIST_11,South West Garo Hills,ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,177.2,0.76,0.433,66439
+ML_BLOCK_030,Damalgre,ML_DIST_11,South West Garo Hills,ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,210.4,0.72,0.4055,70973
+ML_BLOCK_030,Damalgre,ML_DIST_11,South West Garo Hills,ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,219.4,0.68,0.378,84256
+ML_BLOCK_030,Damalgre,ML_DIST_11,South West Garo Hills,ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,222.5,0.8,0.378,37172
+ML_BLOCK_030,Damalgre,ML_DIST_11,South West Garo Hills,ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,243.8,0.68,0.378,196883
+ML_BLOCK_031,Mawkyrwat,ML_DIST_03,South West Khasi Hills,ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,63.7,0.76,0.433,66439
+ML_BLOCK_031,Mawkyrwat,ML_DIST_03,South West Khasi Hills,ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,75.3,0.72,0.4055,31517
+ML_BLOCK_031,Mawkyrwat,ML_DIST_03,South West Khasi Hills,ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,87.1,0.8,0.378,37172
+ML_BLOCK_031,Mawkyrwat,ML_DIST_03,South West Khasi Hills,ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,90.1,0.68,0.378,84256
+ML_BLOCK_031,Mawkyrwat,ML_DIST_03,South West Khasi Hills,ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,90.4,0.72,0.4055,70973
+ML_BLOCK_031,Mawkyrwat,ML_DIST_03,South West Khasi Hills,ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,90.8,0.72,0.4055,28689
+ML_BLOCK_031,Mawkyrwat,ML_DIST_03,South West Khasi Hills,ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,92.0,0.68,0.378,102671
+ML_BLOCK_031,Mawkyrwat,ML_DIST_03,South West Khasi Hills,ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,96.7,0.68,0.378,108648
+ML_BLOCK_031,Mawkyrwat,ML_DIST_03,South West Khasi Hills,ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,102.7,0.68,0.378,196883
+ML_BLOCK_031,Mawkyrwat,ML_DIST_03,South West Khasi Hills,ML_BLOCK_019,Bajengdoba,ML_DIST_09,North Garo Hills,115.5,0.76,0.433,21671
+ML_BLOCK_032,Ranikor,ML_DIST_03,South West Khasi Hills,ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,73.5,0.72,0.4055,31517
+ML_BLOCK_032,Ranikor,ML_DIST_03,South West Khasi Hills,ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,74.9,0.68,0.378,102671
+ML_BLOCK_032,Ranikor,ML_DIST_03,South West Khasi Hills,ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,78.4,0.72,0.4055,28689
+ML_BLOCK_032,Ranikor,ML_DIST_03,South West Khasi Hills,ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,85.6,0.76,0.433,66439
+ML_BLOCK_032,Ranikor,ML_DIST_03,South West Khasi Hills,ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,88.7,0.68,0.378,108648
+ML_BLOCK_032,Ranikor,ML_DIST_03,South West Khasi Hills,ML_BLOCK_019,Bajengdoba,ML_DIST_09,North Garo Hills,105.1,0.76,0.433,21671
+ML_BLOCK_032,Ranikor,ML_DIST_03,South West Khasi Hills,ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,112.2,0.8,0.378,37172
+ML_BLOCK_032,Ranikor,ML_DIST_03,South West Khasi Hills,ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,114.4,0.72,0.4055,70973
+ML_BLOCK_032,Ranikor,ML_DIST_03,South West Khasi Hills,ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,115.1,0.68,0.378,84256
+ML_BLOCK_032,Ranikor,ML_DIST_03,South West Khasi Hills,ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,127.0,0.68,0.378,196883
+ML_BLOCK_033,Rongram,ML_DIST_07,West Garo Hills,ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,28.2,0.68,0.378,102671
+ML_BLOCK_033,Rongram,ML_DIST_07,West Garo Hills,ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,35.4,0.72,0.4055,28689
+ML_BLOCK_033,Rongram,ML_DIST_07,West Garo Hills,ML_BLOCK_019,Bajengdoba,ML_DIST_09,North Garo Hills,35.7,0.76,0.433,21671
+ML_BLOCK_033,Rongram,ML_DIST_07,West Garo Hills,ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,46.7,0.68,0.378,108648
+ML_BLOCK_033,Rongram,ML_DIST_07,West Garo Hills,ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,71.2,0.72,0.4055,31517
+ML_BLOCK_033,Rongram,ML_DIST_07,West Garo Hills,ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,148.6,0.76,0.433,66439
+ML_BLOCK_033,Rongram,ML_DIST_07,West Garo Hills,ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,181.7,0.72,0.4055,70973
+ML_BLOCK_033,Rongram,ML_DIST_07,West Garo Hills,ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,191.2,0.68,0.378,84256
+ML_BLOCK_033,Rongram,ML_DIST_07,West Garo Hills,ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,194.9,0.8,0.378,37172
+ML_BLOCK_033,Rongram,ML_DIST_07,West Garo Hills,ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,217.1,0.68,0.378,196883
+ML_BLOCK_034,Dadenggiri,ML_DIST_07,West Garo Hills,ML_BLOCK_019,Bajengdoba,ML_DIST_09,North Garo Hills,32.1,0.76,0.433,21671
+ML_BLOCK_034,Dadenggiri,ML_DIST_07,West Garo Hills,ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,45.2,0.68,0.378,102671
+ML_BLOCK_034,Dadenggiri,ML_DIST_07,West Garo Hills,ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,45.5,0.72,0.4055,28689
+ML_BLOCK_034,Dadenggiri,ML_DIST_07,West Garo Hills,ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,49.9,0.68,0.378,108648
+ML_BLOCK_034,Dadenggiri,ML_DIST_07,West Garo Hills,ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,77.4,0.72,0.4055,31517
+ML_BLOCK_034,Dadenggiri,ML_DIST_07,West Garo Hills,ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,157.2,0.76,0.433,66439
+ML_BLOCK_034,Dadenggiri,ML_DIST_07,West Garo Hills,ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,189.8,0.72,0.4055,70973
+ML_BLOCK_034,Dadenggiri,ML_DIST_07,West Garo Hills,ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,200.7,0.68,0.378,84256
+ML_BLOCK_034,Dadenggiri,ML_DIST_07,West Garo Hills,ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,205.6,0.8,0.378,37172
+ML_BLOCK_034,Dadenggiri,ML_DIST_07,West Garo Hills,ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,228.9,0.68,0.378,196883
+ML_BLOCK_035,Tikrikilla,ML_DIST_07,West Garo Hills,ML_BLOCK_019,Bajengdoba,ML_DIST_09,North Garo Hills,15.7,0.76,0.433,21671
+ML_BLOCK_035,Tikrikilla,ML_DIST_07,West Garo Hills,ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,36.1,0.68,0.378,108648
+ML_BLOCK_035,Tikrikilla,ML_DIST_07,West Garo Hills,ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,39.7,0.72,0.4055,28689
+ML_BLOCK_035,Tikrikilla,ML_DIST_07,West Garo Hills,ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,48.4,0.68,0.378,102671
+ML_BLOCK_035,Tikrikilla,ML_DIST_07,West Garo Hills,ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,64.1,0.72,0.4055,31517
+ML_BLOCK_035,Tikrikilla,ML_DIST_07,West Garo Hills,ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,144.0,0.76,0.433,66439
+ML_BLOCK_035,Tikrikilla,ML_DIST_07,West Garo Hills,ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,175.7,0.72,0.4055,70973
+ML_BLOCK_035,Tikrikilla,ML_DIST_07,West Garo Hills,ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,187.8,0.68,0.378,84256
+ML_BLOCK_035,Tikrikilla,ML_DIST_07,West Garo Hills,ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,193.9,0.8,0.378,37172
+ML_BLOCK_035,Tikrikilla,ML_DIST_07,West Garo Hills,ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,218.5,0.68,0.378,196883
+ML_BLOCK_036,Dalu,ML_DIST_07,West Garo Hills,ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,48.6,0.68,0.378,102671
+ML_BLOCK_036,Dalu,ML_DIST_07,West Garo Hills,ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,65.7,0.72,0.4055,28689
+ML_BLOCK_036,Dalu,ML_DIST_07,West Garo Hills,ML_BLOCK_019,Bajengdoba,ML_DIST_09,North Garo Hills,73.4,0.76,0.433,21671
+ML_BLOCK_036,Dalu,ML_DIST_07,West Garo Hills,ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,81.4,0.68,0.378,108648
+ML_BLOCK_036,Dalu,ML_DIST_07,West Garo Hills,ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,101.3,0.72,0.4055,31517
+ML_BLOCK_036,Dalu,ML_DIST_07,West Garo Hills,ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,172.1,0.76,0.433,66439
+ML_BLOCK_036,Dalu,ML_DIST_07,West Garo Hills,ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,205.4,0.72,0.4055,70973
+ML_BLOCK_036,Dalu,ML_DIST_07,West Garo Hills,ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,212.3,0.68,0.378,84256
+ML_BLOCK_036,Dalu,ML_DIST_07,West Garo Hills,ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,213.7,0.8,0.378,37172
+ML_BLOCK_036,Dalu,ML_DIST_07,West Garo Hills,ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,232.9,0.68,0.378,196883
+ML_BLOCK_037,Gambegre,ML_DIST_07,West Garo Hills,ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,40.2,0.68,0.378,102671
+ML_BLOCK_037,Gambegre,ML_DIST_07,West Garo Hills,ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,54.4,0.72,0.4055,28689
+ML_BLOCK_037,Gambegre,ML_DIST_07,West Garo Hills,ML_BLOCK_019,Bajengdoba,ML_DIST_09,North Garo Hills,58.3,0.76,0.433,21671
+ML_BLOCK_037,Gambegre,ML_DIST_07,West Garo Hills,ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,68.3,0.68,0.378,108648
+ML_BLOCK_037,Gambegre,ML_DIST_07,West Garo Hills,ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,90.7,0.72,0.4055,31517
+ML_BLOCK_037,Gambegre,ML_DIST_07,West Garo Hills,ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,165.0,0.76,0.433,66439
+ML_BLOCK_037,Gambegre,ML_DIST_07,West Garo Hills,ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,198.3,0.72,0.4055,70973
+ML_BLOCK_037,Gambegre,ML_DIST_07,West Garo Hills,ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,206.4,0.68,0.378,84256
+ML_BLOCK_037,Gambegre,ML_DIST_07,West Garo Hills,ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,208.9,0.8,0.378,37172
+ML_BLOCK_037,Gambegre,ML_DIST_07,West Garo Hills,ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,229.5,0.68,0.378,196883
+ML_BLOCK_038,Selsella,ML_DIST_07,West Garo Hills,ML_BLOCK_019,Bajengdoba,ML_DIST_09,North Garo Hills,52.7,0.76,0.433,21671
+ML_BLOCK_038,Selsella,ML_DIST_07,West Garo Hills,ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,58.8,0.68,0.378,102671
+ML_BLOCK_038,Selsella,ML_DIST_07,West Garo Hills,ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,63.9,0.72,0.4055,28689
+ML_BLOCK_038,Selsella,ML_DIST_07,West Garo Hills,ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,70.3,0.68,0.378,108648
+ML_BLOCK_038,Selsella,ML_DIST_07,West Garo Hills,ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,97.4,0.72,0.4055,31517
+ML_BLOCK_038,Selsella,ML_DIST_07,West Garo Hills,ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,176.8,0.76,0.433,66439
+ML_BLOCK_038,Selsella,ML_DIST_07,West Garo Hills,ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,209.6,0.72,0.4055,70973
+ML_BLOCK_038,Selsella,ML_DIST_07,West Garo Hills,ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,220.0,0.68,0.378,84256
+ML_BLOCK_038,Selsella,ML_DIST_07,West Garo Hills,ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,224.3,0.8,0.378,37172
+ML_BLOCK_038,Selsella,ML_DIST_07,West Garo Hills,ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,247.0,0.68,0.378,196883
+ML_BLOCK_039,Demdema,ML_DIST_07,West Garo Hills,ML_BLOCK_019,Bajengdoba,ML_DIST_09,North Garo Hills,42.4,0.76,0.433,21671
+ML_BLOCK_039,Demdema,ML_DIST_07,West Garo Hills,ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,61.5,0.72,0.4055,28689
+ML_BLOCK_039,Demdema,ML_DIST_07,West Garo Hills,ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,62.3,0.68,0.378,108648
+ML_BLOCK_039,Demdema,ML_DIST_07,West Garo Hills,ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,63.0,0.68,0.378,102671
+ML_BLOCK_039,Demdema,ML_DIST_07,West Garo Hills,ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,90.4,0.72,0.4055,31517
+ML_BLOCK_039,Demdema,ML_DIST_07,West Garo Hills,ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,170.5,0.76,0.433,66439
+ML_BLOCK_039,Demdema,ML_DIST_07,West Garo Hills,ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,202.5,0.72,0.4055,70973
+ML_BLOCK_039,Demdema,ML_DIST_07,West Garo Hills,ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,214.3,0.68,0.378,84256
+ML_BLOCK_039,Demdema,ML_DIST_07,West Garo Hills,ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,219.9,0.8,0.378,37172
+ML_BLOCK_039,Demdema,ML_DIST_07,West Garo Hills,ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,243.9,0.68,0.378,196883
+ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,0.0,0.68,0.378,196883
+ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,ML_BLOCK_041,Laskein,ML_DIST_05,West Jaintia Hills,22.9,0.72,0.4055,40946
+ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,27.8,0.8,0.378,37172
+ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,41.1,0.68,0.378,84256
+ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,59.5,0.72,0.4055,70973
+ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,78.9,0.76,0.433,66439
+ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,154.8,0.72,0.4055,31517
+ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,182.4,0.68,0.378,108648
+ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,183.5,0.72,0.4055,28689
+ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,190.2,0.68,0.378,102671
+ML_BLOCK_041,Laskein,ML_DIST_05,West Jaintia Hills,ML_BLOCK_041,Laskein,ML_DIST_05,West Jaintia Hills,0.0,0.72,0.4055,40946
+ML_BLOCK_041,Laskein,ML_DIST_05,West Jaintia Hills,ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,22.9,0.68,0.378,196883
+ML_BLOCK_041,Laskein,ML_DIST_05,West Jaintia Hills,ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,49.4,0.8,0.378,37172
+ML_BLOCK_041,Laskein,ML_DIST_05,West Jaintia Hills,ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,60.8,0.68,0.378,84256
+ML_BLOCK_041,Laskein,ML_DIST_05,West Jaintia Hills,ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,78.7,0.72,0.4055,70973
+ML_BLOCK_041,Laskein,ML_DIST_05,West Jaintia Hills,ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,101.2,0.76,0.433,66439
+ML_BLOCK_041,Laskein,ML_DIST_05,West Jaintia Hills,ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,177.7,0.72,0.4055,31517
+ML_BLOCK_041,Laskein,ML_DIST_05,West Jaintia Hills,ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,205.3,0.68,0.378,108648
+ML_BLOCK_041,Laskein,ML_DIST_05,West Jaintia Hills,ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,206.3,0.72,0.4055,28689
+ML_BLOCK_041,Laskein,ML_DIST_05,West Jaintia Hills,ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,212.8,0.68,0.378,102671
+ML_BLOCK_042,Amlarem,ML_DIST_05,West Jaintia Hills,ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,38.3,0.68,0.378,196883
+ML_BLOCK_042,Amlarem,ML_DIST_05,West Jaintia Hills,ML_BLOCK_041,Laskein,ML_DIST_05,West Jaintia Hills,49.0,0.72,0.4055,40946
+ML_BLOCK_042,Amlarem,ML_DIST_05,West Jaintia Hills,ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,52.3,0.8,0.378,37172
+ML_BLOCK_042,Amlarem,ML_DIST_05,West Jaintia Hills,ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,67.0,0.68,0.378,84256
+ML_BLOCK_042,Amlarem,ML_DIST_05,West Jaintia Hills,ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,83.3,0.72,0.4055,70973
+ML_BLOCK_042,Amlarem,ML_DIST_05,West Jaintia Hills,ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,89.1,0.76,0.433,66439
+ML_BLOCK_042,Amlarem,ML_DIST_05,West Jaintia Hills,ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,152.1,0.72,0.4055,31517
+ML_BLOCK_042,Amlarem,ML_DIST_05,West Jaintia Hills,ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,175.0,0.72,0.4055,28689
+ML_BLOCK_042,Amlarem,ML_DIST_05,West Jaintia Hills,ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,177.8,0.68,0.378,108648
+ML_BLOCK_042,Amlarem,ML_DIST_05,West Jaintia Hills,ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,177.9,0.68,0.378,102671
+ML_BLOCK_043,Mawshynrut,ML_DIST_02,West Khasi Hills,ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,33.1,0.72,0.4055,31517
+ML_BLOCK_043,Mawshynrut,ML_DIST_02,West Khasi Hills,ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,46.2,0.72,0.4055,28689
+ML_BLOCK_043,Mawshynrut,ML_DIST_02,West Khasi Hills,ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,51.3,0.68,0.378,108648
+ML_BLOCK_043,Mawshynrut,ML_DIST_02,West Khasi Hills,ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,52.1,0.68,0.378,102671
+ML_BLOCK_043,Mawshynrut,ML_DIST_02,West Khasi Hills,ML_BLOCK_019,Bajengdoba,ML_DIST_09,North Garo Hills,70.0,0.76,0.433,21671
+ML_BLOCK_043,Mawshynrut,ML_DIST_02,West Khasi Hills,ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,74.4,0.76,0.433,66439
+ML_BLOCK_043,Mawshynrut,ML_DIST_02,West Khasi Hills,ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,107.5,0.72,0.4055,70973
+ML_BLOCK_043,Mawshynrut,ML_DIST_02,West Khasi Hills,ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,114.5,0.68,0.378,84256
+ML_BLOCK_043,Mawshynrut,ML_DIST_02,West Khasi Hills,ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,116.9,0.8,0.378,37172
+ML_BLOCK_043,Mawshynrut,ML_DIST_02,West Khasi Hills,ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,138.4,0.68,0.378,196883
+ML_BLOCK_044,Nongstoin,ML_DIST_02,West Khasi Hills,ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,51.5,0.72,0.4055,31517
+ML_BLOCK_044,Nongstoin,ML_DIST_02,West Khasi Hills,ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,53.7,0.76,0.433,66439
+ML_BLOCK_044,Nongstoin,ML_DIST_02,West Khasi Hills,ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,72.4,0.72,0.4055,28689
+ML_BLOCK_044,Nongstoin,ML_DIST_02,West Khasi Hills,ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,75.2,0.68,0.378,108648
+ML_BLOCK_044,Nongstoin,ML_DIST_02,West Khasi Hills,ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,78.2,0.68,0.378,102671
+ML_BLOCK_044,Nongstoin,ML_DIST_02,West Khasi Hills,ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,85.4,0.72,0.4055,70973
+ML_BLOCK_044,Nongstoin,ML_DIST_02,West Khasi Hills,ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,90.2,0.68,0.378,84256
+ML_BLOCK_044,Nongstoin,ML_DIST_02,West Khasi Hills,ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,91.3,0.8,0.378,37172
+ML_BLOCK_044,Nongstoin,ML_DIST_02,West Khasi Hills,ML_BLOCK_019,Bajengdoba,ML_DIST_09,North Garo Hills,94.9,0.76,0.433,21671
+ML_BLOCK_044,Nongstoin,ML_DIST_02,West Khasi Hills,ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,112.1,0.68,0.378,196883
+ML_BLOCK_045,Mairang,ML_DIST_02,West Khasi Hills,ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,22.5,0.76,0.433,66439
+ML_BLOCK_045,Mairang,ML_DIST_02,West Khasi Hills,ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,45.4,0.72,0.4055,70973
+ML_BLOCK_045,Mairang,ML_DIST_02,West Khasi Hills,ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,47.4,0.68,0.378,84256
+ML_BLOCK_045,Mairang,ML_DIST_02,West Khasi Hills,ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,48.7,0.8,0.378,37172
+ML_BLOCK_045,Mairang,ML_DIST_02,West Khasi Hills,ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,71.8,0.68,0.378,196883
+ML_BLOCK_045,Mairang,ML_DIST_02,West Khasi Hills,ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,83.2,0.72,0.4055,31517
+ML_BLOCK_045,Mairang,ML_DIST_02,West Khasi Hills,ML_BLOCK_041,Laskein,ML_DIST_05,West Jaintia Hills,94.7,0.72,0.4055,40946
+ML_BLOCK_045,Mairang,ML_DIST_02,West Khasi Hills,ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,110.6,0.68,0.378,108648
+ML_BLOCK_045,Mairang,ML_DIST_02,West Khasi Hills,ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,112.1,0.72,0.4055,28689
+ML_BLOCK_045,Mairang,ML_DIST_02,West Khasi Hills,ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,120.3,0.68,0.378,102671
+ML_BLOCK_046,Mawthadraishan,ML_DIST_02,West Khasi Hills,ML_BLOCK_022,Jirang,ML_DIST_04,Ribhoi,39.8,0.76,0.433,66439
+ML_BLOCK_046,Mawthadraishan,ML_DIST_02,West Khasi Hills,ML_BLOCK_021,Umling,ML_DIST_04,Ribhoi,67.5,0.72,0.4055,70973
+ML_BLOCK_046,Mawthadraishan,ML_DIST_02,West Khasi Hills,ML_BLOCK_023,Bhoirymbong,ML_DIST_04,Ribhoi,68.9,0.8,0.378,37172
+ML_BLOCK_046,Mawthadraishan,ML_DIST_02,West Khasi Hills,ML_BLOCK_020,Umsning,ML_DIST_04,Ribhoi,69.3,0.68,0.378,84256
+ML_BLOCK_046,Mawthadraishan,ML_DIST_02,West Khasi Hills,ML_BLOCK_018,Kharkutta,ML_DIST_09,North Garo Hills,71.3,0.72,0.4055,31517
+ML_BLOCK_046,Mawthadraishan,ML_DIST_02,West Khasi Hills,ML_BLOCK_040,Thadlaskein,ML_DIST_05,West Jaintia Hills,88.9,0.68,0.378,196883
+ML_BLOCK_046,Mawthadraishan,ML_DIST_02,West Khasi Hills,ML_BLOCK_002,Songsak,ML_DIST_08,East Garo Hills,95.5,0.72,0.4055,28689
+ML_BLOCK_046,Mawthadraishan,ML_DIST_02,West Khasi Hills,ML_BLOCK_017,Resubelpara,ML_DIST_09,North Garo Hills,96.9,0.68,0.378,108648
+ML_BLOCK_046,Mawthadraishan,ML_DIST_02,West Khasi Hills,ML_BLOCK_001,Samanda,ML_DIST_08,East Garo Hills,101.4,0.68,0.378,102671
+ML_BLOCK_046,Mawthadraishan,ML_DIST_02,West Khasi Hills,ML_BLOCK_041,Laskein,ML_DIST_05,West Jaintia Hills,111.4,0.72,0.4055,40946

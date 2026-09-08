@@ -1,0 +1,5 @@
+criterion_id,criterion_name,weight,eigenvalue,cr
+C1,Multi-Hazard Physical Exposure,0.4231,4.0102,0.0038
+C2,Demographic Sensitivity,0.2274,4.0102,0.0038
+C3,Capacity Stress / Deficit,0.2274,4.0102,0.0038
+C4,Accessibility / Evacuation Constraint,0.1221,4.0102,0.0038

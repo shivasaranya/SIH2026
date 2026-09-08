@@ -155,6 +155,35 @@ export const GISMap: React.FC<GISMapProps> = ({
     };
   }, []);
 
+  // 1b. Handle State Switch Transition (Re-center & re-fit bounds)
+  const prevStateIdRef = useRef(currentState.id);
+  useEffect(() => {
+    if (currentState.id !== prevStateIdRef.current) {
+      prevStateIdRef.current = currentState.id;
+      const map = mapInstanceRef.current;
+      if (map) {
+        if (vulnerabilityLayerRef.current) {
+          map.removeLayer(vulnerabilityLayerRef.current);
+          vulnerabilityLayerRef.current = null;
+        }
+        if (districtsLayerRef.current) {
+          map.removeLayer(districtsLayerRef.current);
+          districtsLayerRef.current = null;
+        }
+        if (mandalsLayerRef.current) {
+          map.removeLayer(mandalsLayerRef.current);
+          mandalsLayerRef.current = null;
+        }
+        map.invalidateSize();
+        map.fitBounds(L.latLngBounds(currentState.bounds), {
+          padding: [16, 16],
+          animate: false,
+          maxZoom: 8.5,
+        });
+      }
+    }
+  }, [currentState.id, currentState.bounds]);
+
   // 2. Handle Reset View Trigger (Comfortably show complete state with padding)
   const prevResetTriggerRef = useRef(resetViewTrigger);
   useEffect(() => {

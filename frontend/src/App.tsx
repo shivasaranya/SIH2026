@@ -67,6 +67,30 @@ function AppContent() {
     const hash = window.location.hash.toLowerCase();
     if (hash === '#government/select-state' || hash === '#government/states') return 'government_state_selection';
     if (
+      hash.startsWith('#government/ml') ||
+      hash.startsWith('#government/meghalaya') ||
+      hash.startsWith('#government/nl') ||
+      hash.startsWith('#government/nagaland') ||
+      hash.startsWith('#government/ar') ||
+      hash.startsWith('#government/arunachal') ||
+      hash.startsWith('#government/sk') ||
+      hash.startsWith('#government/sikkim') ||
+      hash.startsWith('#government/uk') ||
+      hash.startsWith('#government/uttarakhand') ||
+      hash.startsWith('#government/uttaranchal') ||
+      hash.startsWith('#government/od') ||
+      hash.startsWith('#government/odisha') ||
+      hash.startsWith('#government/orissa') ||
+      hash.startsWith('#government/wb') ||
+      hash.startsWith('#government/west_bengal') ||
+      hash.startsWith('#government/bengal') ||
+      hash.startsWith('#government/br') ||
+      hash.startsWith('#government/bihar') ||
+      hash.startsWith('#government/up') ||
+      hash.startsWith('#government/uttar_pradesh') ||
+      hash.startsWith('#government/uttar') ||
+      hash.startsWith('#government/as') ||
+      hash.startsWith('#government/assam') ||
       hash.startsWith('#government/ap') || 
       hash.startsWith('#government/tn') || 
       hash.startsWith('#government/mz') || 
