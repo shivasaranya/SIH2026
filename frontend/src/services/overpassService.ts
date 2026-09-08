@@ -408,7 +408,10 @@ export async function fetchNearbyPOIs(
       }
 
       const json = await response.json();
-      const elements: any[] = json.elements || [];
+      if (!json || !json.elements || !Array.isArray(json.elements)) {
+        return [];
+      }
+      const elements: any[] = json.elements;
 
       const results: OverpassPOI[] = elements
         .filter((el) => el.type === 'node' && el.lat && el.lon && el.tags)
