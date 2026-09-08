@@ -75,7 +75,7 @@
               ],
               [
                 93.91390228271501,
-                7.0
+                7
               ],
               [
                 93.94550323486357,
@@ -5523,7 +5523,7 @@
               ],
               [
                 92.90805816650396,
-                13.0
+                13
               ],
               [
                 92.93852233886736,
@@ -6051,7 +6051,7 @@
       "properties": {
         "state_name": "Telangana",
         "is_implemented": true,
-        "pilot_status": "OPERATIONAL_STATE"
+        "pilot_status": "OPERATIONAL"
       },
       "geometry": {
         "type": "Polygon",
@@ -7482,7 +7482,7 @@
       "properties": {
         "state_name": "Andhra Pradesh",
         "is_implemented": true,
-        "pilot_status": "IMPLEMENTED"
+        "pilot_status": "PILOT"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -17909,7 +17909,7 @@
       "properties": {
         "state_name": "Goa",
         "is_implemented": true,
-        "pilot_status": "OPERATIONAL_STATE"
+        "pilot_status": "OPERATIONAL"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -28971,8 +28971,8 @@
       "type": "Feature",
       "properties": {
         "state_name": "Jharkhand",
-        "is_implemented": false,
-        "pilot_status": "COMING_SOON"
+        "is_implemented": true,
+        "pilot_status": "OPERATIONAL"
       },
       "geometry": {
         "type": "Polygon",
@@ -30659,7 +30659,7 @@
       "properties": {
         "state_name": "Karnataka",
         "is_implemented": true,
-        "pilot_status": "OPERATIONAL_STATE"
+        "pilot_status": "OPERATIONAL"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -37074,7 +37074,7 @@
       "properties": {
         "state_name": "Madhya Pradesh",
         "is_implemented": true,
-        "pilot_status": "OPERATIONAL_STATE"
+        "pilot_status": "OPERATIONAL"
       },
       "geometry": {
         "type": "Polygon",
@@ -45189,8 +45189,8 @@
       "type": "Feature",
       "properties": {
         "state_name": "Manipur",
-        "is_implemented": false,
-        "pilot_status": "COMING_SOON"
+        "is_implemented": true,
+        "pilot_status": "OPERATIONAL"
       },
       "geometry": {
         "type": "Polygon",
@@ -48706,7 +48706,7 @@
                 20.710710525512695
               ],
               [
-                87.0,
+                87,
                 20.695280075073356
               ],
               [
@@ -51911,7 +51911,7 @@
       "properties": {
         "state_name": "Rajasthan",
         "is_implemented": true,
-        "pilot_status": "OPERATIONAL_STATE"
+        "pilot_status": "OPERATIONAL"
       },
       "geometry": {
         "type": "Polygon",
@@ -54957,7 +54957,7 @@
       "properties": {
         "state_name": "Tamil Nadu",
         "is_implemented": true,
-        "pilot_status": "OPERATIONAL_STATE"
+        "pilot_status": "OPERATIONAL"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -58014,7 +58014,7 @@
       "properties": {
         "state_name": "Tripura",
         "is_implemented": true,
-        "pilot_status": "OPERATIONAL_STATE"
+        "pilot_status": "OPERATIONAL"
       },
       "geometry": {
         "type": "Polygon",

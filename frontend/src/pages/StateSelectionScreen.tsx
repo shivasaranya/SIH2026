@@ -1,12 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import { 
-  Search, 
-  ArrowRight, 
+import {
+  Search,
+  ArrowRight,
   ArrowLeft,
-  Layers, 
-  Clock, 
+  Layers,
+  Clock,
   X,
   UserCheck,
   HeartHandshake,
@@ -162,7 +162,18 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
 
         layer.addTo(map);
         geojsonLayerRef.current = layer;
-        
+
+        // Bring small/landlocked states to front so they are not hidden
+        // by overlapping neighboring state boundaries (e.g. Jharkhand under Bihar/West Bengal)
+        const statesToBringForward = ['Jharkhand', 'Sikkim', 'Chandigarh', 'Delhi', 'Goa', 'Puducherry'];
+        layer.eachLayer((l) => {
+          const lAny = l as L.Path & { feature?: GeoJSON.Feature };
+          const props = lAny.feature?.properties as StateFeatureProperties | undefined;
+          if (props && statesToBringForward.includes(props.state_name)) {
+            (l as L.Path).bringToFront();
+          }
+        });
+
         // Fit view strictly to India boundaries with tight padding to maximize map scale
         try {
           const bounds = layer.getBounds();
@@ -502,11 +513,26 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
     { name: 'Karnataka', status: 'Operational State', isPilot: true },
     { name: 'Goa', status: 'Operational State', isPilot: true },
     { name: 'Manipur', status: 'Operational State', isPilot: true },
+    { name: 'Jharkhand', status: 'Operational State', isPilot: true },
     { name: 'Odisha', status: 'Coming Soon', isPilot: false },
     { name: 'Kerala', status: 'Coming Soon', isPilot: false },
     { name: 'Maharashtra', status: 'Coming Soon', isPilot: false },
     { name: 'Gujarat', status: 'Coming Soon', isPilot: false },
     { name: 'West Bengal', status: 'Coming Soon', isPilot: false },
+    { name: 'Bihar', status: 'Coming Soon', isPilot: false },
+    { name: 'Chhattisgarh', status: 'Coming Soon', isPilot: false },
+    { name: 'Uttar Pradesh', status: 'Coming Soon', isPilot: false },
+    { name: 'Assam', status: 'Coming Soon', isPilot: false },
+    { name: 'Punjab', status: 'Coming Soon', isPilot: false },
+    { name: 'Haryana', status: 'Coming Soon', isPilot: false },
+    { name: 'Himachal Pradesh', status: 'Coming Soon', isPilot: false },
+    { name: 'Uttarakhand', status: 'Coming Soon', isPilot: false },
+    { name: 'Jammu and Kashmir', status: 'Coming Soon', isPilot: false },
+    { name: 'Arunachal Pradesh', status: 'Coming Soon', isPilot: false },
+    { name: 'Meghalaya', status: 'Coming Soon', isPilot: false },
+    { name: 'Mizoram', status: 'Coming Soon', isPilot: false },
+    { name: 'Nagaland', status: 'Coming Soon', isPilot: false },
+    { name: 'Sikkim', status: 'Coming Soon', isPilot: false },
   ];
 
   const filteredStates = allStates.filter((s) =>
@@ -515,11 +541,11 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
 
   return (
     <div className="relative min-h-screen w-full bg-[#FBF9F4] text-slate-800 flex flex-col justify-between overflow-x-hidden select-none font-sans">
-      
+
       {/* Top Header Bar */}
       <header className="relative z-20 w-full px-6 sm:px-10 pt-4 pb-3 border-b border-stone-200/80 bg-white/80 backdrop-blur-md shadow-sm">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          
+
           {/* Left: National Emblem & Return Button */}
           <div className="flex items-center gap-4">
             <button
@@ -534,9 +560,9 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
             <div className="h-6 w-[1px] bg-stone-200 hidden sm:block" />
 
             <div className="flex items-center gap-3">
-              <img 
-                src="/images/emblem_india.jpg" 
-                alt="National Emblem of India" 
+              <img
+                src="/images/emblem_india.jpg"
+                alt="National Emblem of India"
                 className="h-9 sm:h-10 w-auto object-contain mix-blend-multiply"
               />
               <div className="flex flex-col">
@@ -573,7 +599,7 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
 
       {/* Main Container - Fully Expanded */}
       <main className="relative z-10 flex-1 flex flex-col max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-5 space-y-4">
-        
+
         {/* Title & National Status Banner */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-white border border-stone-200/90 rounded-2xl px-5 py-3 shadow-sm">
           <div>
@@ -603,7 +629,7 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
 
         {/* Large Expanded Single India Map Card */}
         <div className="relative flex-1 min-h-[660px] sm:min-h-[720px] lg:min-h-[780px] rounded-3xl border border-stone-200/90 bg-white overflow-hidden shadow-xl shadow-stone-300/30 flex flex-col w-full">
-          
+
           {/* Top-Left: Map Legend Overlay */}
           <div className="absolute top-4 left-4 z-[400] bg-white/95 backdrop-blur-md border border-stone-200 rounded-2xl p-3.5 shadow-md space-y-2.5 max-w-xs pointer-events-auto">
             <div className="flex items-center gap-2 text-xs font-bold text-slate-800 border-b border-stone-100 pb-1.5">
@@ -611,7 +637,7 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
               <span>National Boundary Layer</span>
             </div>
             <div className="space-y-2 text-[11px]">
-              <div 
+              <div
                 onClick={() => onSelectState('Andhra Pradesh')}
                 className="flex items-center justify-between gap-3 cursor-pointer p-1.5 rounded-xl hover:bg-emerald-50 transition border border-transparent hover:border-emerald-200"
               >
@@ -623,7 +649,7 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
                   ACTIVE PILOT
                 </span>
               </div>
-              <div 
+              <div
                 onClick={() => onSelectState('Tamil Nadu')}
                 className="flex items-center justify-between gap-3 cursor-pointer p-1.5 rounded-xl hover:bg-emerald-50 transition border border-transparent hover:border-emerald-200"
               >
@@ -635,7 +661,7 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
                   OPERATIONAL
                 </span>
               </div>
-              <div 
+              <div
                 onClick={() => onSelectState('Tripura')}
                 className="flex items-center justify-between gap-3 cursor-pointer p-1.5 rounded-xl hover:bg-emerald-50 transition border border-transparent hover:border-emerald-200"
               >
@@ -647,7 +673,7 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
                   OPERATIONAL
                 </span>
               </div>
-              <div 
+              <div
                 onClick={() => onSelectState('Telangana')}
                 className="flex items-center justify-between gap-3 cursor-pointer p-1.5 rounded-xl hover:bg-emerald-50 transition border border-transparent hover:border-emerald-200"
               >
@@ -659,7 +685,7 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
                   OPERATIONAL
                 </span>
               </div>
-              <div 
+              <div
                 onClick={() => onSelectState('Rajasthan')}
                 className="flex items-center justify-between gap-3 cursor-pointer p-1.5 rounded-xl hover:bg-emerald-50 transition border border-transparent hover:border-emerald-200"
               >
@@ -671,7 +697,7 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
                   OPERATIONAL
                 </span>
               </div>
-              <div 
+              <div
                 onClick={() => onSelectState('Madhya Pradesh')}
                 className="flex items-center justify-between gap-3 cursor-pointer p-1.5 rounded-xl hover:bg-emerald-50 transition border border-transparent hover:border-emerald-200"
               >
@@ -683,7 +709,7 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
                   OPERATIONAL
                 </span>
               </div>
-              <div 
+              <div
                 onClick={() => onSelectState('Karnataka')}
                 className="flex items-center justify-between gap-3 cursor-pointer p-1.5 rounded-xl hover:bg-emerald-50 transition border border-transparent hover:border-emerald-200"
               >
@@ -695,7 +721,7 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
                   OPERATIONAL
                 </span>
               </div>
-              <div 
+              <div
                 onClick={() => onSelectState('Goa')}
                 className="flex items-center justify-between gap-3 cursor-pointer p-1.5 rounded-xl hover:bg-emerald-50 transition border border-transparent hover:border-emerald-200"
               >
@@ -707,13 +733,25 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
                   OPERATIONAL
                 </span>
               </div>
-              <div 
+              <div
                 onClick={() => onSelectState('Manipur')}
                 className="flex items-center justify-between gap-3 cursor-pointer p-1.5 rounded-xl hover:bg-emerald-50 transition border border-transparent hover:border-emerald-200"
               >
                 <span className="flex items-center gap-2 text-[#145A36] font-bold">
                   <span className="w-3.5 h-3.5 rounded-md bg-[#1E7446] border border-[#145A36] shadow-sm" />
                   Manipur
+                </span>
+                <span className="font-mono text-[9px] px-2 py-0.5 rounded-full bg-emerald-100 text-[#145A36] font-extrabold">
+                  OPERATIONAL
+                </span>
+              </div>
+              <div
+                onClick={() => onSelectState('Jharkhand')}
+                className="flex items-center justify-between gap-3 cursor-pointer p-1.5 rounded-xl hover:bg-emerald-50 transition border border-transparent hover:border-emerald-200"
+              >
+                <span className="flex items-center gap-2 text-[#145A36] font-bold">
+                  <span className="w-3.5 h-3.5 rounded-md bg-[#1E7446] border border-[#145A36] shadow-sm" />
+                  Jharkhand
                 </span>
                 <span className="font-mono text-[9px] px-2 py-0.5 rounded-full bg-emerald-100 text-[#145A36] font-extrabold">
                   OPERATIONAL
@@ -756,7 +794,7 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
 
             <div className="space-y-2 my-2.5">
               {/* Andhra Pradesh Quick Tile */}
-              <div 
+              <div
                 onClick={() => onSelectState('Andhra Pradesh')}
                 className="bg-[#FAF8F3] hover:bg-emerald-50/60 transition cursor-pointer p-2.5 rounded-xl border border-stone-200/60 flex items-center justify-between"
               >
@@ -771,7 +809,7 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
               </div>
 
               {/* Tamil Nadu Quick Tile */}
-              <div 
+              <div
                 onClick={() => onSelectState('Tamil Nadu')}
                 className="bg-[#FAF8F3] hover:bg-emerald-50/60 transition cursor-pointer p-2.5 rounded-xl border border-stone-200/60 flex items-center justify-between"
               >
@@ -786,7 +824,7 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
               </div>
 
               {/* Tripura Quick Tile */}
-              <div 
+              <div
                 onClick={() => onSelectState('Tripura')}
                 className="bg-[#FAF8F3] hover:bg-emerald-50/60 transition cursor-pointer p-2.5 rounded-xl border border-stone-200/60 flex items-center justify-between"
               >
@@ -801,7 +839,7 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
               </div>
 
               {/* Telangana Quick Tile */}
-              <div 
+              <div
                 onClick={() => onSelectState('Telangana')}
                 className="bg-[#FAF8F3] hover:bg-emerald-50/60 transition cursor-pointer p-2.5 rounded-xl border border-stone-200/60 flex items-center justify-between"
               >
@@ -816,7 +854,7 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
               </div>
 
               {/* Rajasthan Quick Tile */}
-              <div 
+              <div
                 onClick={() => onSelectState('Rajasthan')}
                 className="bg-[#FAF8F3] hover:bg-emerald-50/60 transition cursor-pointer p-2.5 rounded-xl border border-stone-200/60 flex items-center justify-between"
               >
@@ -831,7 +869,7 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
               </div>
 
               {/* Madhya Pradesh Quick Tile */}
-              <div 
+              <div
                 onClick={() => onSelectState('Madhya Pradesh')}
                 className="bg-[#FAF8F3] hover:bg-emerald-50/60 transition cursor-pointer p-2.5 rounded-xl border border-stone-200/60 flex items-center justify-between"
               >
@@ -846,7 +884,7 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
               </div>
 
               {/* Karnataka Quick Tile */}
-              <div 
+              <div
                 onClick={() => onSelectState('Karnataka')}
                 className="bg-[#FAF8F3] hover:bg-emerald-50/60 transition cursor-pointer p-2.5 rounded-xl border border-stone-200/60 flex items-center justify-between"
               >
@@ -861,7 +899,7 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
               </div>
 
               {/* Goa Quick Tile */}
-              <div 
+              <div
                 onClick={() => onSelectState('Goa')}
                 className="bg-[#FAF8F3] hover:bg-emerald-50/60 transition cursor-pointer p-2.5 rounded-xl border border-stone-200/60 flex items-center justify-between"
               >
@@ -876,7 +914,7 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
               </div>
 
               {/* Manipur Quick Tile */}
-              <div 
+              <div
                 onClick={() => onSelectState('Manipur')}
                 className="bg-[#FAF8F3] hover:bg-emerald-50/60 transition cursor-pointer p-2.5 rounded-xl border border-stone-200/60 flex items-center justify-between"
               >
@@ -886,6 +924,21 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
                     <span className="text-[9px] font-mono px-1.5 py-0.2 bg-emerald-100 text-emerald-800 rounded font-bold">ACTIVE</span>
                   </div>
                   <div className="text-[10px] text-slate-500 mt-0.5">16 Districts &bull; 51 Sub-Divisions</div>
+                </div>
+                <ArrowRight className="w-3.5 h-3.5 text-[#1E7446]" />
+              </div>
+
+              {/* Jharkhand Quick Tile */}
+              <div
+                onClick={() => onSelectState('Jharkhand')}
+                className="bg-[#FAF8F3] hover:bg-emerald-50/60 transition cursor-pointer p-2.5 rounded-xl border border-stone-200/60 flex items-center justify-between"
+              >
+                <div>
+                  <div className="text-xs font-bold text-slate-800 flex items-center gap-1.5">
+                    <span>Jharkhand</span>
+                    <span className="text-[9px] font-mono px-1.5 py-0.2 bg-emerald-100 text-emerald-800 rounded font-bold">ACTIVE</span>
+                  </div>
+                  <div className="text-[10px] text-slate-500 mt-0.5">24 Districts &bull; 260 Blocks</div>
                 </div>
                 <ArrowRight className="w-3.5 h-3.5 text-[#1E7446]" />
               </div>
@@ -899,9 +952,9 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
           </div>
 
           {/* Leaflet Single India Map DOM Element (Full Canvas) */}
-          <div 
-            ref={mapContainerRef} 
-            className="w-full h-full min-h-[660px] sm:min-h-[720px] lg:min-h-[780px] z-0 bg-[#FAF8F3]" 
+          <div
+            ref={mapContainerRef}
+            className="w-full h-full min-h-[660px] sm:min-h-[720px] lg:min-h-[780px] z-0 bg-[#FAF8F3]"
           />
 
           {/* Loading Indicator */}
@@ -931,9 +984,8 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
                   className="w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs hover:bg-stone-50 text-left transition"
                 >
                   <span className="text-slate-800 font-medium">{s.name}</span>
-                  <span className={`text-[9px] font-mono px-2 py-0.5 rounded-full ${
-                    s.isPilot ? 'bg-emerald-100 text-[#145A36] font-bold' : 'bg-stone-100 text-slate-500'
-                  }`}>
+                  <span className={`text-[9px] font-mono px-2 py-0.5 rounded-full ${s.isPilot ? 'bg-emerald-100 text-[#145A36] font-bold' : 'bg-stone-100 text-slate-500'
+                    }`}>
                     {s.status}
                   </span>
                 </button>
