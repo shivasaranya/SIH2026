@@ -14,7 +14,8 @@ import {
   ChevronLeft,
   ChevronRight,
   Target,
-  Shield
+  Shield,
+  Home
 } from 'lucide-react';
 import type { ActiveTab } from '../../types';
 
@@ -28,10 +29,21 @@ interface SidebarProps {
 export const Sidebar: React.FC<SidebarProps> = ({ activeTab, onSelectTab }) => {
   const [collapsed, setCollapsed] = useState(false);
   const { currentState } = useActiveState();
-  const isJK = currentState.id === 'jammu_kashmir';
+  const isAP = currentState.id === 'andhra_pradesh';
+  const isMZ = currentState.id === 'mizoram';
   const isTN = currentState.id === 'tamil_nadu';
+  const isJK = currentState.id === 'jammu_kashmir';
   const isMP = currentState.id === 'madhya_pradesh';
-  const priorityCount = isMP ? '422' : isJK ? '197' : isTN ? '302' : '680';
+  const isHP = currentState.id === 'himachal_pradesh';
+  const priorityCount = isMP ? '422' : isJK ? '197' : isMZ ? '26' : isHP ? '172' : isTN ? '302' : '680';
+
+  const assessmentItems = [
+    { id: 'hazard' as ActiveTab, label: 'Hazard Risk', icon: AlertTriangle },
+    { id: 'vulnerability' as ActiveTab, label: 'Community Vulnerability', icon: Users },
+    { id: 'capacity' as ActiveTab, label: 'Emergency Capacity', icon: Scale },
+    { id: 'relocation' as ActiveTab, label: 'Relocation Planning', icon: MapPin },
+    ...(isAP ? [{ id: 'village' as ActiveTab, label: 'Village Habitation Analysis', icon: Home, badge: '17K' }] : [])
+  ];
 
   const sections = [
     {
@@ -43,12 +55,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab, onSelectTab }) => {
     },
     {
       title: 'ASSESSMENT',
-      items: [
-        { id: 'hazard' as ActiveTab, label: 'Hazard Risk', icon: AlertTriangle },
-        { id: 'vulnerability' as ActiveTab, label: 'Community Vulnerability', icon: Users },
-        { id: 'capacity' as ActiveTab, label: 'Emergency Capacity', icon: Scale },
-        { id: 'relocation' as ActiveTab, label: 'Relocation Planning', icon: MapPin },
-      ]
+      items: assessmentItems
     },
     {
       title: 'DECISION SUPPORT',
@@ -135,7 +142,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab, onSelectTab }) => {
         ))}
       </div>
 
-      {/* Pilot State Card pinned at bottom */}
+      {/* State Card pinned at bottom */}
       {!collapsed && (
         <div className="p-3 border-t border-slate-100 space-y-2 bg-slate-50/70 shrink-0">
           <div className="bg-indigo-50/60 border border-indigo-100 rounded-xl p-2.5 flex items-center gap-2.5 shadow-xs">
@@ -143,7 +150,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab, onSelectTab }) => {
               <Shield className="w-4 h-4 text-white" />
             </div>
             <div className="min-w-0 flex-1">
-              <div className="text-[8.5px] font-bold uppercase tracking-wider text-indigo-600">{currentState.id === 'andhra_pradesh' ? 'Pilot State' : 'Operational State'}</div>
+              <div className="text-[8.5px] font-bold uppercase tracking-wider text-indigo-600">Active State</div>
               <div className="text-xs font-black text-slate-800 truncate leading-tight">{currentState.name}</div>
             </div>
           </div>

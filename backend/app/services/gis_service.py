@@ -3,46 +3,50 @@ from pathlib import Path
 from typing import Dict, Any, Optional
 import pandas as pd
 from app.core.config import settings
-from app.core.state_config import resolve_state_key, get_state_config
-
+from app.core.state_registry import state_registry, get_state_key
 
 class GISService:
     def __init__(self):
-        self._districts_cache: Dict[str, Dict[str, Any]] = {}
-        self._mandals_cache: Dict[str, Dict[str, Any]] = {}
+        self._cached_districts: Dict[str, Dict[str, Any]] = {}
+        self._cached_mandals: Dict[str, Dict[str, Any]] = {}
 
     def get_districts_geojson(self, state_id: str = "andhra_pradesh") -> Dict[str, Any]:
-        key = resolve_state_key(state_id)
-        if key in self._districts_cache:
-            return self._districts_cache[key]
+        key = get_state_key(state_id)
+        if key in self._cached_districts:
+            return self._cached_districts[key]
 
-        cfg = get_state_config(state_id)
-        dist_path = settings.PROCESSED_ADMIN_DIR / cfg.districts_file
-        if not dist_path.exists():
-            raise FileNotFoundError(f"{cfg.state_name} districts GeoJSON not found at {dist_path}")
+        state_meta = state_registry.get_state(key)
+        dist_path = state_meta.districts_geojson
+
+        if not dist_path or not dist_path.exists():
+            raise FileNotFoundError(f"Districts GeoJSON for {key} not found at {dist_path}")
+
         with open(dist_path, "r", encoding="utf-8") as f:
             data = json.load(f)
-        self._districts_cache[key] = data
+
+        self._cached_districts[key] = data
         return data
 
     def get_mandals_geojson(self, district_id: Optional[str] = None, state_id: str = "andhra_pradesh") -> Dict[str, Any]:
-        key = resolve_state_key(state_id)
-        cfg = get_state_config(state_id)
+        key = get_state_key(state_id)
 
-        if key not in self._mandals_cache:
-            if key == "ap":
+        if key not in self._cached_mandals:
+            state_meta = state_registry.get_state(key)
+
+            if key == "andhra_pradesh":
                 mand_path = settings.RAW_ADMIN_DIR / "AndhraPradesh_Mandals.geojson"
                 if not mand_path.exists():
                     fallback_path = settings.DATA_DIR / "processed" / "hazard" / "mandal_exposure" / "ap_mandal_multi_hazard_exposure.geojson"
                     if fallback_path.exists():
                         with open(fallback_path, "r", encoding="utf-8") as f:
-                            self._mandals_cache[key] = json.load(f)
+                            self._cached_mandals[key] = json.load(f)
                     else:
                         raise FileNotFoundError(f"Mandals GeoJSON not found at {mand_path} or {fallback_path}")
                 else:
                     with open(mand_path, "r", encoding="utf-8") as f:
                         raw_mandals = json.load(f)
 
+                    # Preload crosswalk
                     cw_path = settings.PROCESSED_CENSUS_DIR / "ap_village_demographics.csv"
                     demo_df = pd.read_csv(cw_path)
                     m_lookup = {}
@@ -70,31 +74,35 @@ class GISService:
                         enriched_feat["properties"] = props
                         enriched_features.append(enriched_feat)
 
-                    self._mandals_cache[key] = {
+                    self._cached_mandals[key] = {
                         "type": "FeatureCollection",
                         "features": enriched_features
                     }
-            else:
-                m_path = settings.PROCESSED_ADMIN_DIR / cfg.mandals_file
-                if not m_path.exists():
-                    m_path = settings.DATA_DIR / "processed" / "relocation" / cfg.relocation_geojson
-                if not m_path.exists():
-                    raise FileNotFoundError(f"{cfg.state_name} sub-districts GeoJSON not found at {m_path}")
-                with open(m_path, "r", encoding="utf-8") as f:
-                    self._mandals_cache[key] = json.load(f)
 
-        features = self._mandals_cache[key]["features"]
+            else:
+                units_path = state_meta.admin_units_geojson
+                if not units_path or not units_path.exists():
+                    # Fallback to relocation priority geojson
+                    units_path = state_meta.relocation_geojson
+                if not units_path or not units_path.exists():
+                    raise FileNotFoundError(f"Admin units GeoJSON for {key} not found at {units_path}")
+
+                with open(units_path, "r", encoding="utf-8") as f:
+                    self._cached_mandals[key] = json.load(f)
+
+        full_geojson = self._cached_mandals[key]
+
         if district_id:
             did_clean = district_id.strip().lower()
             filtered = [
-                f for f in features
+                f for f in full_geojson.get("features", [])
                 if str(f.get("properties", {}).get("current_district_id", "")).lower() == did_clean or
                    str(f.get("properties", {}).get("district_id", "")).lower() == did_clean or
+                   str(f.get("properties", {}).get("district_code", "")).lower() == did_clean or
                    str(f.get("properties", {}).get("current_district_code", "")).lower() == did_clean
             ]
             return {"type": "FeatureCollection", "features": filtered}
 
-        return self._mandals_cache[key]
-
+        return full_geojson
 
 gis_service = GISService()

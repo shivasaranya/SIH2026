@@ -79,7 +79,7 @@ export const SimulationPage: React.FC = () => {
     }
   };
 
-  const rankedCount = currentState.id === 'jammu_kashmir' ? 197 : currentState.id === 'tamil_nadu' ? 302 : 680;
+  const rankedCount = currentState.id === 'madhya_pradesh' ? 422 : currentState.id === 'jammu_kashmir' ? 197 : currentState.id === 'mizoram' ? 26 : currentState.id === 'himachal_pradesh' ? 172 : currentState.id === 'tamil_nadu' ? 302 : 680;
 
   return (
     <div className="flex-1 overflow-y-auto custom-scrollbar p-3.5 sm:p-5 bg-transparent text-slate-800 select-none">
@@ -280,7 +280,7 @@ export const SimulationPage: React.FC = () => {
                     </h2>
                   </div>
                   <span className="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-50 text-slate-600 border border-slate-200 font-semibold">
-                    {simulationResult.mandals?.length || 680} Mandals Re-Ranked
+                    {simulationResult.mandals?.length || rankedCount} {currentState.adminUnitPlural} Re-Ranked
                   </span>
                 </div>
 
@@ -318,40 +318,38 @@ export const SimulationPage: React.FC = () => {
                 {/* TOP SENSITIVITY SHIFTS TABLE */}
                 <div className="space-y-2">
                   <h3 className="text-xs font-bold uppercase tracking-wider text-slate-700">
-                    Highest Sensitivity Shifts (Sample Mandals)
+                    Highest Sensitivity Shifts (Sample {currentState.adminUnitPlural})
                   </h3>
                   <div className="overflow-x-auto custom-scrollbar border border-slate-200 rounded-xl">
                     <table className="w-full text-left text-xs">
                       <thead className="bg-slate-50/80 text-[10px] text-slate-500 font-bold uppercase border-b border-slate-200">
                         <tr>
-                          <th className="py-2.5 px-3">Mandal</th>
+                          <th className="py-2.5 px-3">{currentState.adminUnitName}</th>
                           <th className="py-2.5 px-3">District</th>
                           <th className="py-2.5 px-3 text-right">Baseline TOPSIS</th>
                           <th className="py-2.5 px-3 text-right">Scenario TOPSIS</th>
-                          <th className="py-2.5 px-3 text-center">Rank Shift</th>
+                          <th className="py-2.5 px-3 text-right">Delta</th>
+                          <th className="py-2.5 px-3 text-center">Priority Status</th>
                         </tr>
                       </thead>
-                      <tbody className="divide-y divide-slate-100 text-slate-700">
+                      <tbody className="divide-y divide-slate-100">
                         {simulationResult.mandals?.slice(0, 8).map((m, idx) => {
-                          const rankDelta = m.rank_change ?? 0;
+                          const delta = m.score_change ?? ((m.scenario_topsis_score ?? 0) - (m.baseline_topsis_score ?? 0));
+                          const baseScore = m.baseline_topsis_score ?? 0;
+                          const scenScore = m.scenario_topsis_score ?? 0;
                           return (
-                            <tr key={idx} className="hover:bg-slate-50/80">
+                            <tr key={idx} className="hover:bg-slate-50/60 transition">
                               <td className="py-2 px-3 font-bold text-slate-900 uppercase">{m.mandal_name}</td>
-                              <td className="py-2 px-3 text-slate-500">{m.current_district_name || 'District'}</td>
-                              <td className="py-2 px-3 text-right font-mono text-slate-600">
-                                {m.baseline_topsis_score?.toFixed(4) || '0.7901'}
+                              <td className="py-2 px-3 text-slate-600">{m.current_district_name}</td>
+                              <td className="py-2 px-3 text-right font-mono text-slate-500">{baseScore.toFixed(4)}</td>
+                              <td className="py-2 px-3 text-right font-mono font-bold text-indigo-700">{scenScore.toFixed(4)}</td>
+                              <td className={`py-2 px-3 text-right font-mono font-bold ${delta > 0 ? 'text-rose-600' : 'text-emerald-600'}`}>
+                                {delta > 0 ? `+${delta.toFixed(4)}` : delta.toFixed(4)}
                               </td>
-                              <td className="py-2 px-3 text-right font-mono font-bold text-emerald-600">
-                                {m.scenario_topsis_score?.toFixed(4) || '0.7822'}
-                              </td>
-                              <td className="py-2 px-3 text-center font-mono font-bold">
-                                {rankDelta > 0 ? (
-                                  <span className="text-rose-600">+{rankDelta} &uarr;</span>
-                                ) : rankDelta < 0 ? (
-                                  <span className="text-emerald-600">{rankDelta} &darr;</span>
-                                ) : (
-                                  <span className="text-slate-400">0</span>
-                                )}
+                              <td className="py-2 px-3 text-center">
+                                <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-slate-100 text-slate-700">
+                                  {m.scenario_category || 'HIGH'}
+                                </span>
                               </td>
                             </tr>
                           );
@@ -362,7 +360,7 @@ export const SimulationPage: React.FC = () => {
                 </div>
 
                 <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-[10px] text-slate-500 shadow-2xs">
-                  <em>Illustrative hazard sensitivity perturbation — NOT a forecast.</em> TOPSIS relative closeness is recalculated dynamically across all 680 mandals using adjusted normalized decision matrix weights.
+                  <em>Illustrative hazard sensitivity perturbation — NOT a forecast.</em> TOPSIS relative closeness is recalculated dynamically across all {rankedCount} {currentState.adminUnitPlural.toLowerCase()} using adjusted normalized decision matrix weights.
                 </div>
               </div>
             ) : (

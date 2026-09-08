@@ -1,0 +1,173 @@
+mandal_id,tehsil_id,mandal_name,tehsil_name,current_district_id,current_district_name,mandal_area_sqkm,flood_exposure_score,flood_exposure_index,cyclone_exposure_score,cyclone_exposure_index,wind_exposure_score,wind_exposure_index,slope_exposure_score,slope_exposure_index,earthquake_exposure_score,seismic_zone,snow_avalanche_exposure_score,multi_hazard_exposure_index,multi_hazard_exposure_score,multi_hazard_category,hazard_category,surge_exposure_score,surge_included
+HP_TEHSIL_001,HP_TEHSIL_001,Bharari,Bharari,bilaspur,Bilaspur,93.37,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_002,HP_TEHSIL_002,Bilaspur Sadar,Bilaspur Sadar,bilaspur,Bilaspur,176.2,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_003,HP_TEHSIL_003,Ghumarwin,Ghumarwin,bilaspur,Bilaspur,186.84,0.46,0.46,0.0,0.0,0.425,0.425,0.42,0.42,0.65,IV,0.0,0.4355,0.4355,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_004,HP_TEHSIL_004,Jhanduta,Jhanduta,bilaspur,Bilaspur,332.44,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_005,HP_TEHSIL_005,Naina Devi,Naina Devi,bilaspur,Bilaspur,252.2,0.52,0.52,0.0,0.0,0.425,0.425,0.56,0.56,0.65,IV,0.0,0.4965,0.4965,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_006,HP_TEHSIL_006,Namhol,Namhol,bilaspur,Bilaspur,101.05,0.48,0.48,0.0,0.0,0.425,0.425,0.48,0.48,0.65,IV,0.0,0.4605,0.4605,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_007,HP_TEHSIL_007,Bhalai,Bhalai,chamba,Chamba,118.3,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_008,HP_TEHSIL_008,Bhattiyat,Bhattiyat,chamba,Chamba,179.96,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_009,HP_TEHSIL_009,Brahmaur,Brahmaur,chamba,Chamba,851.82,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_010,HP_TEHSIL_010,Chamba,Chamba,chamba,Chamba,798.09,0.6,0.6,0.0,0.0,0.425,0.425,0.72,0.72,0.65,IV,0.0,0.5685,0.5685,High,High Hazard,0.0,False
+HP_TEHSIL_011,HP_TEHSIL_011,Chaurah,Chaurah,chamba,Chamba,1090.94,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_012,HP_TEHSIL_012,Dalhousie,Dalhousie,chamba,Chamba,162.53,0.5,0.5,0.0,0.0,0.425,0.425,0.71,0.71,0.65,IV,0.0,0.545,0.545,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_013,HP_TEHSIL_013,Dharwala,Dharwala,chamba,Chamba,191.11,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_014,HP_TEHSIL_014,Holi,Holi,chamba,Chamba,696.58,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_015,HP_TEHSIL_015,Kakira,Kakira,chamba,Chamba,60.26,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_016,HP_TEHSIL_016,Pangi,Pangi,chamba,Chamba,1516.41,0.74,0.74,0.0,0.0,0.425,0.425,0.9,0.9,0.9,V,0.8,0.818,0.818,Very High,Very High Hazard,0.0,False
+HP_TEHSIL_017,HP_TEHSIL_017,Pukhri,Pukhri,chamba,Chamba,91.53,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_018,HP_TEHSIL_018,Saluni,Saluni,chamba,Chamba,366.9,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_019,HP_TEHSIL_019,Sihunta,Sihunta,chamba,Chamba,258.3,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_020,HP_TEHSIL_020,Barsar,Barsar,hamirpur,Hamirpur,119.54,0.45,0.45,0.0,0.0,0.225,0.225,0.55,0.55,0.65,IV,0.0,0.463,0.463,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_021,HP_TEHSIL_021,Bhoranj,Bhoranj,hamirpur,Hamirpur,149.71,0.4,0.4,0.0,0.0,0.225,0.225,0.38,0.38,0.65,IV,0.0,0.3935,0.3935,Low,Low Hazard,0.0,False
+HP_TEHSIL_022,HP_TEHSIL_022,Bhota,Bhota,hamirpur,Hamirpur,49.32,0.45,0.45,0.0,0.0,0.225,0.225,0.55,0.55,0.65,IV,0.0,0.463,0.463,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_023,HP_TEHSIL_023,Dhatwal,Dhatwal,hamirpur,Hamirpur,123.16,0.45,0.45,0.0,0.0,0.225,0.225,0.55,0.55,0.65,IV,0.0,0.463,0.463,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_024,HP_TEHSIL_024,Galore,Galore,hamirpur,Hamirpur,62.0,0.45,0.45,0.0,0.0,0.225,0.225,0.55,0.55,0.65,IV,0.0,0.463,0.463,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_025,HP_TEHSIL_025,Hamirpur,Hamirpur,hamirpur,Hamirpur,162.8,0.38,0.38,0.0,0.0,0.225,0.225,0.34,0.34,0.65,IV,0.0,0.3755,0.3755,Low,Low Hazard,0.0,False
+HP_TEHSIL_026,HP_TEHSIL_026,Kangoo,Kangoo,hamirpur,Hamirpur,54.05,0.45,0.45,0.0,0.0,0.225,0.225,0.55,0.55,0.65,IV,0.0,0.463,0.463,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_027,HP_TEHSIL_027,Nadaun,Nadaun,hamirpur,Hamirpur,118.54,0.44,0.44,0.0,0.0,0.225,0.225,0.36,0.36,0.65,IV,0.0,0.3945,0.3945,Low,Low Hazard,0.0,False
+HP_TEHSIL_028,HP_TEHSIL_028,Tauni Devi Bamson,Tauni Devi Bamson,hamirpur,Hamirpur,86.66,0.45,0.45,0.0,0.0,0.225,0.225,0.55,0.55,0.65,IV,0.0,0.463,0.463,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_029,HP_TEHSIL_029,Tira Sujanpur,Tira Sujanpur,hamirpur,Hamirpur,174.04,0.45,0.45,0.0,0.0,0.225,0.225,0.55,0.55,0.65,IV,0.0,0.463,0.463,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_030,HP_TEHSIL_030,Alampur,Alampur,kangra,Kangra,45.54,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_031,HP_TEHSIL_031,Baijnath,Baijnath,kangra,Kangra,250.08,0.52,0.52,0.0,0.0,0.425,0.425,0.65,0.65,0.65,IV,0.0,0.528,0.528,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_032,HP_TEHSIL_032,Baroh,Baroh,kangra,Kangra,124.55,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_033,HP_TEHSIL_033,Bhawarna,Bhawarna,kangra,Kangra,41.41,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_034,HP_TEHSIL_034,Chadiyar,Chadiyar,kangra,Kangra,40.46,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_035,HP_TEHSIL_035,Dadasiba,Dadasiba,kangra,Kangra,113.81,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_036,HP_TEHSIL_036,Dareeni,Dareeni,kangra,Kangra,59.79,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_037,HP_TEHSIL_037,Dera Gopipur,Dera Gopipur,kangra,Kangra,173.01,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_038,HP_TEHSIL_038,Dharmsala,Dharmsala,kangra,Kangra,328.7,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_039,HP_TEHSIL_039,Dhira,Dhira,kangra,Kangra,79.56,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_040,HP_TEHSIL_040,Fatehpur,Fatehpur,kangra,Kangra,326.34,0.4,0.4,0.0,0.0,0.425,0.425,0.42,0.42,0.65,IV,0.0,0.4235,0.4235,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_041,HP_TEHSIL_041,Gangath,Gangath,kangra,Kangra,140.33,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_042,HP_TEHSIL_042,Harchakian,Harchakian,kangra,Kangra,60.94,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_043,HP_TEHSIL_043,Haripur,Haripur,kangra,Kangra,289.24,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_044,HP_TEHSIL_044,Indora,Indora,kangra,Kangra,309.11,0.38,0.38,0.0,0.0,0.425,0.425,0.44,0.44,0.65,IV,0.0,0.4265,0.4265,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_045,HP_TEHSIL_045,Jaisinghpur,Jaisinghpur,kangra,Kangra,138.69,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_046,HP_TEHSIL_046,Jaswan,Jaswan,kangra,Kangra,124.86,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_047,HP_TEHSIL_047,Jawalamukhi,Jawalamukhi,kangra,Kangra,93.27,0.4,0.4,0.0,0.0,0.425,0.425,0.46,0.46,0.65,IV,0.0,0.4375,0.4375,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_048,HP_TEHSIL_048,Jawali,Jawali,kangra,Kangra,153.03,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_049,HP_TEHSIL_049,Kangra,Kangra,kangra,Kangra,169.43,0.46,0.46,0.0,0.0,0.425,0.425,0.52,0.52,0.65,IV,0.0,0.4705,0.4705,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_050,HP_TEHSIL_050,Khundian,Khundian,kangra,Kangra,94.46,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_051,HP_TEHSIL_051,Kotla,Kotla,kangra,Kangra,117.64,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_052,HP_TEHSIL_052,Lagru,Lagru,kangra,Kangra,32.33,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_053,HP_TEHSIL_053,Majheen,Majheen,kangra,Kangra,45.09,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_054,HP_TEHSIL_054,Multhan,Multhan,kangra,Kangra,992.35,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_055,HP_TEHSIL_055,Nagrota Bagwan,Nagrota Bagwan,kangra,Kangra,109.87,0.44,0.44,0.0,0.0,0.425,0.425,0.56,0.56,0.65,IV,0.0,0.4805,0.4805,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_056,HP_TEHSIL_056,Nagrota Surian,Nagrota Surian,kangra,Kangra,51.1,0.4,0.4,0.0,0.0,0.425,0.425,0.52,0.52,0.65,IV,0.0,0.4585,0.4585,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_057,HP_TEHSIL_057,Nurpur,Nurpur,kangra,Kangra,370.85,0.42,0.42,0.0,0.0,0.425,0.425,0.44,0.44,0.65,IV,0.0,0.4345,0.4345,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_058,HP_TEHSIL_058,Palampur,Palampur,kangra,Kangra,300.85,0.54,0.54,0.0,0.0,0.425,0.425,0.68,0.68,0.65,IV,0.0,0.5425,0.5425,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_059,HP_TEHSIL_059,Panchrukhi,Panchrukhi,kangra,Kangra,43.62,0.42,0.42,0.0,0.0,0.425,0.425,0.62,0.62,0.65,IV,0.0,0.4975,0.4975,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_060,HP_TEHSIL_060,Pragpur,Pragpur,kangra,Kangra,52.84,0.36,0.36,0.0,0.0,0.425,0.425,0.4,0.4,0.65,IV,0.0,0.4085,0.4085,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_061,HP_TEHSIL_061,Rakkar,Rakkar,kangra,Kangra,92.55,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_062,HP_TEHSIL_062,Shahpur,Shahpur,kangra,Kangra,198.84,0.46,0.46,0.0,0.0,0.425,0.425,0.54,0.54,0.65,IV,0.0,0.4775,0.4775,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_063,HP_TEHSIL_063,Sulah,Sulah,kangra,Kangra,0.28,0.4,0.4,0.0,0.0,0.425,0.425,0.5,0.5,0.65,IV,0.0,0.4515,0.4515,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_064,HP_TEHSIL_064,Thural,Thural,kangra,Kangra,53.2,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_065,HP_TEHSIL_065,Hangrang,Hangrang,kinnaur,Kinnaur,601.0,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_066,HP_TEHSIL_066,Kalpa,Kalpa,kinnaur,Kinnaur,368.04,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_067,HP_TEHSIL_067,Morang,Morang,kinnaur,Kinnaur,1680.3,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_068,HP_TEHSIL_068,Nichar,Nichar,kinnaur,Kinnaur,996.41,0.78,0.78,0.0,0.0,0.425,0.425,0.92,0.92,0.9,V,0.84,0.8378,0.8378,Very High,Very High Hazard,0.0,False
+HP_TEHSIL_069,HP_TEHSIL_069,Poo,Poo,kinnaur,Kinnaur,972.68,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_070,HP_TEHSIL_070,Sangla,Sangla,kinnaur,Kinnaur,1344.29,0.76,0.76,0.0,0.0,0.425,0.425,0.9,0.9,0.9,V,0.85,0.828,0.828,Very High,Very High Hazard,0.0,False
+HP_TEHSIL_071,HP_TEHSIL_071,Tapri,Tapri,kinnaur,Kinnaur,122.98,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_072,HP_TEHSIL_072,Ani,Ani,kullu,Kullu,280.41,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_073,HP_TEHSIL_073,Banjar,Banjar,kullu,Kullu,969.0,0.66,0.66,0.0,0.0,0.425,0.425,0.84,0.84,0.9,V,0.7,0.769,0.769,Very High,Very High Hazard,0.0,False
+HP_TEHSIL_074,HP_TEHSIL_074,Bhuntar,Bhuntar,kullu,Kullu,2199.25,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_075,HP_TEHSIL_075,Kullu,Kullu,kullu,Kullu,584.64,0.68,0.68,0.0,0.0,0.425,0.425,0.72,0.72,0.65,IV,0.0,0.5845,0.5845,High,High Hazard,0.0,False
+HP_TEHSIL_076,HP_TEHSIL_076,Manali,Manali,kullu,Kullu,699.7,0.74,0.74,0.0,0.0,0.425,0.425,0.88,0.88,0.9,V,0.82,0.8134,0.8134,Very High,Very High Hazard,0.0,False
+HP_TEHSIL_077,HP_TEHSIL_077,Nirmand,Nirmand,kullu,Kullu,342.62,0.6,0.6,0.0,0.0,0.425,0.425,0.8,0.8,0.65,IV,0.55,0.6625,0.6625,High,High Hazard,0.0,False
+HP_TEHSIL_078,HP_TEHSIL_078,Nither,Nither,kullu,Kullu,77.36,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_079,HP_TEHSIL_079,Sainj,Sainj,kullu,Kullu,250.6,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_080,HP_TEHSIL_080,Lahul,Lahul,lahul___spiti,Lahul & Spiti,4584.15,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_081,HP_TEHSIL_081,Spiti,Spiti,lahul___spiti,Lahul & Spiti,6918.7,0.7,0.7,0.0,0.0,0.425,0.425,0.91,0.91,0.9,V,0.9,0.8255,0.8255,Very High,Very High Hazard,0.0,False
+HP_TEHSIL_082,HP_TEHSIL_082,Udaipur,Udaipur,lahul___spiti,Lahul & Spiti,1876.71,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_083,HP_TEHSIL_083,Aut,Aut,mandi,Mandi,153.28,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_084,HP_TEHSIL_084,Baldwara,Baldwara,mandi,Mandi,87.52,0.48,0.48,0.0,0.0,0.425,0.425,0.6,0.6,0.65,IV,0.0,0.5025,0.5025,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_085,HP_TEHSIL_085,Balh,Balh,mandi,Mandi,145.68,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_086,HP_TEHSIL_086,Bali Chowki,Bali Chowki,mandi,Mandi,197.18,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_087,HP_TEHSIL_087,Bhadrota,Bhadrota,mandi,Mandi,81.31,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_088,HP_TEHSIL_088,Chachyot,Chachyot,mandi,Mandi,240.13,0.54,0.54,0.0,0.0,0.425,0.425,0.7,0.7,0.65,IV,0.0,0.5495,0.5495,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_089,HP_TEHSIL_089,Chhatri,Chhatri,mandi,Mandi,66.2,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_090,HP_TEHSIL_090,Dehar,Dehar,mandi,Mandi,113.46,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_091,HP_TEHSIL_091,Dharmpur,Dharmpur,mandi,Mandi,71.78,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_092,HP_TEHSIL_092,Jogindarnagar,Jogindarnagar,mandi,Mandi,198.21,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_093,HP_TEHSIL_093,Karsog,Karsog,mandi,Mandi,465.9,0.6,0.6,0.0,0.0,0.425,0.425,0.76,0.76,0.65,IV,0.0,0.5825,0.5825,High,High Hazard,0.0,False
+HP_TEHSIL_094,HP_TEHSIL_094,Katoula,Katoula,mandi,Mandi,158.21,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_095,HP_TEHSIL_095,Kotli,Kotli,mandi,Mandi,92.39,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_096,HP_TEHSIL_096,Lad Bharol,Lad Bharol,mandi,Mandi,100.17,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_097,HP_TEHSIL_097,Makridi,Makridi,mandi,Mandi,62.98,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_098,HP_TEHSIL_098,Mandap,Mandap,mandi,Mandi,50.49,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_099,HP_TEHSIL_099,Mandi,Mandi,mandi,Mandi,241.91,0.52,0.52,0.0,0.0,0.425,0.425,0.6,0.6,0.65,IV,0.0,0.5105,0.5105,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_100,HP_TEHSIL_100,Nihri,Nihri,mandi,Mandi,233.15,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_101,HP_TEHSIL_101,Padhar,Padhar,mandi,Mandi,228.67,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_102,HP_TEHSIL_102,Pangna,Pangna,mandi,Mandi,98.23,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_103,HP_TEHSIL_103,Rewalsar,Rewalsar,mandi,Mandi,87.28,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_104,HP_TEHSIL_104,Sandhol,Sandhol,mandi,Mandi,67.43,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_105,HP_TEHSIL_105,Sarkaghat,Sarkaghat,mandi,Mandi,85.32,0.5,0.5,0.0,0.0,0.425,0.425,0.58,0.58,0.65,IV,0.0,0.4995,0.4995,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_106,HP_TEHSIL_106,Sundarnagar,Sundarnagar,mandi,Mandi,138.53,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_107,HP_TEHSIL_107,Thunag,Thunag,mandi,Mandi,227.72,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_108,HP_TEHSIL_108,Tihra,Tihra,mandi,Mandi,44.39,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_109,HP_TEHSIL_109,Tikken,Tikken,mandi,Mandi,134.22,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_110,HP_TEHSIL_110,Chaupal,Chaupal,shimla,Shimla,294.84,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_111,HP_TEHSIL_111,Cheta,Cheta,shimla,Shimla,53.55,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_112,HP_TEHSIL_112,Chirgaon,Chirgaon,shimla,Shimla,500.82,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_113,HP_TEHSIL_113,Deha,Deha,shimla,Shimla,102.05,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_114,HP_TEHSIL_114,Dhami,Dhami,shimla,Shimla,44.39,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_115,HP_TEHSIL_115,Dodra Kwar,Dodra Kwar,shimla,Shimla,330.1,0.66,0.66,0.0,0.0,0.425,0.425,0.82,0.82,0.65,IV,0.72,0.7019,0.7019,Very High,Very High Hazard,0.0,False
+HP_TEHSIL_116,HP_TEHSIL_116,Jalog,Jalog,shimla,Shimla,124.81,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_117,HP_TEHSIL_117,Jangla,Jangla,shimla,Shimla,115.24,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_118,HP_TEHSIL_118,Jubbal,Jubbal,shimla,Shimla,107.28,0.58,0.58,0.0,0.0,0.425,0.425,0.74,0.74,0.65,IV,0.48,0.6291,0.6291,High,High Hazard,0.0,False
+HP_TEHSIL_119,HP_TEHSIL_119,Junga,Junga,shimla,Shimla,116.15,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_120,HP_TEHSIL_120,Kotgarh,Kotgarh,shimla,Shimla,61.34,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_121,HP_TEHSIL_121,Kotkhai,Kotkhai,shimla,Shimla,252.15,0.56,0.56,0.0,0.0,0.425,0.425,0.72,0.72,0.65,IV,0.0,0.5605,0.5605,High,High Hazard,0.0,False
+HP_TEHSIL_122,HP_TEHSIL_122,Kumharsain,Kumharsain,shimla,Shimla,158.46,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_123,HP_TEHSIL_123,Kupvi,Kupvi,shimla,Shimla,105.34,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_124,HP_TEHSIL_124,Nankhari,Nankhari,shimla,Shimla,145.86,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_125,HP_TEHSIL_125,Nerua,Nerua,shimla,Shimla,353.75,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_126,HP_TEHSIL_126,Rampur,Rampur,shimla,Shimla,430.66,0.64,0.64,0.0,0.0,0.425,0.425,0.78,0.78,0.65,IV,0.6,0.6695,0.6695,High,High Hazard,0.0,False
+HP_TEHSIL_127,HP_TEHSIL_127,Rohru,Rohru,shimla,Shimla,260.5,0.68,0.68,0.0,0.0,0.425,0.425,0.8,0.8,0.65,IV,0.65,0.6905,0.6905,High,High Hazard,0.0,False
+HP_TEHSIL_128,HP_TEHSIL_128,Sarahan,Sarahan,shimla,Shimla,87.67,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_129,HP_TEHSIL_129,Sarawati Nagar,Sarawati Nagar,shimla,Shimla,186.29,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_130,HP_TEHSIL_130,Seoni,Seoni,shimla,Shimla,114.96,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_131,HP_TEHSIL_131,Shimla ( Rural ),Shimla ( Rural ),shimla,Shimla,308.99,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_132,HP_TEHSIL_132,Shimla (urban),Shimla (urban),shimla,Shimla,28.31,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_133,HP_TEHSIL_133,Taklech,Taklech,shimla,Shimla,283.39,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_134,HP_TEHSIL_134,Theog,Theog,shimla,Shimla,378.44,0.52,0.52,0.0,0.0,0.425,0.425,0.68,0.68,0.65,IV,0.0,0.5385,0.5385,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_135,HP_TEHSIL_135,Tikar,Tikar,shimla,Shimla,69.45,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_136,HP_TEHSIL_136,Dadahu,Dadahu,sirmaur,Sirmaur,118.33,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_137,HP_TEHSIL_137,Haripurdhar,Haripurdhar,sirmaur,Sirmaur,61.08,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_138,HP_TEHSIL_138,Kamrau,Kamrau,sirmaur,Sirmaur,194.51,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_139,HP_TEHSIL_139,Nahan,Nahan,sirmaur,Sirmaur,430.21,0.48,0.48,0.0,0.0,0.425,0.425,0.52,0.52,0.65,IV,0.0,0.4745,0.4745,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_140,HP_TEHSIL_140,Narag,Narag,sirmaur,Sirmaur,120.54,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_141,HP_TEHSIL_141,Nohra,Nohra,sirmaur,Sirmaur,185.26,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_142,HP_TEHSIL_142,Pachhad,Pachhad,sirmaur,Sirmaur,260.34,0.44,0.44,0.0,0.0,0.425,0.425,0.6,0.6,0.65,IV,0.0,0.4945,0.4945,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_143,HP_TEHSIL_143,Pajhota,Pajhota,sirmaur,Sirmaur,140.42,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_144,HP_TEHSIL_144,Paonta Sahib,Paonta Sahib,sirmaur,Sirmaur,555.81,0.52,0.52,0.0,0.0,0.425,0.425,0.44,0.44,0.65,IV,0.0,0.4545,0.4545,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_145,HP_TEHSIL_145,Rajgarh,Rajgarh,sirmaur,Sirmaur,230.05,0.52,0.52,0.0,0.0,0.425,0.425,0.66,0.66,0.65,IV,0.0,0.5315,0.5315,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_146,HP_TEHSIL_146,Renuka,Renuka,sirmaur,Sirmaur,199.65,0.6,0.6,0.0,0.0,0.425,0.425,0.7,0.7,0.65,IV,0.0,0.5615,0.5615,High,High Hazard,0.0,False
+HP_TEHSIL_147,HP_TEHSIL_147,Ronhat,Ronhat,sirmaur,Sirmaur,95.47,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_148,HP_TEHSIL_148,Shalai,Shalai,sirmaur,Sirmaur,155.08,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_149,HP_TEHSIL_149,Arki,Arki,solan,Solan,177.89,0.42,0.42,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.473,0.473,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_150,HP_TEHSIL_150,Baddi,Baddi,solan,Solan,222.47,0.48,0.48,0.0,0.0,0.425,0.425,0.36,0.36,0.4,III,0.0,0.356,0.356,Low,Low Hazard,0.0,False
+HP_TEHSIL_151,HP_TEHSIL_151,Darlaghat,Darlaghat,solan,Solan,154.31,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_152,HP_TEHSIL_152,Kandaghat,Kandaghat,solan,Solan,163.93,0.4,0.4,0.0,0.0,0.425,0.425,0.52,0.52,0.65,IV,0.0,0.4585,0.4585,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_153,HP_TEHSIL_153,Kasauli,Kasauli,solan,Solan,170.74,0.44,0.44,0.0,0.0,0.425,0.425,0.58,0.58,0.65,IV,0.0,0.4875,0.4875,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_154,HP_TEHSIL_154,Krishangarh,Krishangarh,solan,Solan,113.35,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_155,HP_TEHSIL_155,Kunihar,Kunihar,solan,Solan,49.16,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_156,HP_TEHSIL_156,Mamlig,Mamlig,solan,Solan,70.97,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_157,HP_TEHSIL_157,Nalagarh,Nalagarh,solan,Solan,205.76,0.46,0.46,0.0,0.0,0.425,0.425,0.42,0.42,0.4,III,0.0,0.373,0.373,Low,Low Hazard,0.0,False
+HP_TEHSIL_158,HP_TEHSIL_158,Panjehra,Panjehra,solan,Solan,145.42,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_159,HP_TEHSIL_159,Ramshahr,Ramshahr,solan,Solan,189.27,0.45,0.45,0.0,0.0,0.425,0.425,0.55,0.55,0.65,IV,0.0,0.479,0.479,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_160,HP_TEHSIL_160,Solan,Solan,solan,Solan,249.97,0.38,0.38,0.0,0.0,0.425,0.425,0.5,0.5,0.65,IV,0.0,0.4475,0.4475,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_161,HP_TEHSIL_161,Amb,Amb,una,Una,281.79,0.4,0.4,0.0,0.0,0.225,0.225,0.28,0.28,0.4,III,0.0,0.296,0.296,Low,Low Hazard,0.0,False
+HP_TEHSIL_162,HP_TEHSIL_162,Bangana,Bangana,una,Una,174.54,0.44,0.44,0.0,0.0,0.225,0.225,0.34,0.34,0.4,III,0.0,0.325,0.325,Low,Low Hazard,0.0,False
+HP_TEHSIL_163,HP_TEHSIL_163,Bharwain,Bharwain,una,Una,87.91,0.45,0.45,0.0,0.0,0.225,0.225,0.55,0.55,0.65,IV,0.0,0.463,0.463,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_164,HP_TEHSIL_164,Birhu Kalan,Birhu Kalan,una,Una,119.01,0.45,0.45,0.0,0.0,0.225,0.225,0.55,0.55,0.65,IV,0.0,0.463,0.463,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_165,HP_TEHSIL_165,Dulahar,Dulahar,una,Una,64.96,0.45,0.45,0.0,0.0,0.225,0.225,0.55,0.55,0.65,IV,0.0,0.463,0.463,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_166,HP_TEHSIL_166,Gagret,Gagret,una,Una,67.77,0.42,0.42,0.0,0.0,0.225,0.225,0.32,0.32,0.4,III,0.0,0.314,0.314,Low,Low Hazard,0.0,False
+HP_TEHSIL_167,HP_TEHSIL_167,Ghanari,Ghanari,una,Una,143.03,0.45,0.45,0.0,0.0,0.225,0.225,0.55,0.55,0.65,IV,0.0,0.463,0.463,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_168,HP_TEHSIL_168,Haroli,Haroli,una,Una,128.77,0.44,0.44,0.0,0.0,0.225,0.225,0.3,0.3,0.4,III,0.0,0.311,0.311,Low,Low Hazard,0.0,False
+HP_TEHSIL_169,HP_TEHSIL_169,Ispur,Ispur,una,Una,94.54,0.45,0.45,0.0,0.0,0.225,0.225,0.55,0.55,0.65,IV,0.0,0.463,0.463,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_170,HP_TEHSIL_170,Jol,Jol,una,Una,121.81,0.45,0.45,0.0,0.0,0.225,0.225,0.55,0.55,0.65,IV,0.0,0.463,0.463,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_171,HP_TEHSIL_171,Mehatpur,Mehatpur,una,Una,60.44,0.45,0.45,0.0,0.0,0.225,0.225,0.55,0.55,0.65,IV,0.0,0.463,0.463,Moderate,Moderate Hazard,0.0,False
+HP_TEHSIL_172,HP_TEHSIL_172,Una,Una,una,Una,163.44,0.46,0.46,0.0,0.0,0.225,0.225,0.32,0.32,0.4,III,0.0,0.322,0.322,Low,Low Hazard,0.0,False

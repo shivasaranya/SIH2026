@@ -15,6 +15,8 @@ import { PriorityDirectoryPage } from './pages/PriorityDirectoryPage';
 import { LandingScreen } from './pages/LandingScreen';
 import { StateSelectionScreen } from './pages/StateSelectionScreen';
 import { CitizenPage } from './pages/CitizenPage';
+import { VillageAnalysisPage } from './pages/VillageAnalysisPage';
+import { VillageAnalysisReportPage } from './pages/VillageAnalysisReportPage';
 import { StateProvider, useActiveState } from './context/StateContext';
 import { setActiveStateId } from './services/api';
 import type { ActiveTab } from './types';
@@ -28,7 +30,35 @@ export type PortalRole =
 
 function AppContent() {
   const { currentState, stateId, setStateId, selectStateByName } = useActiveState();
-  const [activeTab, setActiveTab] = useState<ActiveTab>('gis');
+  // Determine initial tab from URL hash
+  const getInitialTab = (): ActiveTab => {
+    if (typeof window === 'undefined') return 'gis';
+    const hash = window.location.hash.toLowerCase();
+    if (hash.includes('village') && hash.includes('report')) return 'village_report';
+    if (hash.includes('village')) return 'village';
+    if (hash.includes('hosts') || hash.includes('safer-locations')) return 'hosts';
+    if (hash.includes('relocation')) return 'relocation';
+    if (hash.includes('priority')) return 'priority_directory';
+    if (hash.includes('hazard')) return 'hazard';
+    if (hash.includes('capacity')) return 'capacity';
+    if (hash.includes('vulnerability')) return 'vulnerability';
+    if (hash.includes('simulation')) return 'simulation';
+    if (hash.includes('actions')) return 'actions';
+    if (hash.includes('methodology')) return 'methodology';
+    if (hash.includes('data')) return 'data';
+    if (hash.includes('dashboard')) return 'dashboard';
+    return 'gis';
+  };
+
+  const getInitialVillageCode = (): number | null => {
+    if (typeof window === 'undefined') return null;
+    const hash = window.location.hash.toLowerCase();
+    const match = hash.match(/\/village\/(\d+)/i);
+    return match ? parseInt(match[1], 10) : null;
+  };
+
+  const [activeTab, setActiveTab] = useState<ActiveTab>(getInitialTab);
+  const [selectedVillageCode, setSelectedVillageCode] = useState<number | null>(getInitialVillageCode);
   const [selectedMandalForGIS, setSelectedMandalForGIS] = useState<MandalProperties | null>(null);
   
   // Determine initial portal view from URL hash
@@ -37,16 +67,46 @@ function AppContent() {
     const hash = window.location.hash.toLowerCase();
     if (hash === '#government/select-state' || hash === '#government/states') return 'government_state_selection';
     if (
+      hash.startsWith('#government/ml') ||
+      hash.startsWith('#government/meghalaya') ||
+      hash.startsWith('#government/nl') ||
+      hash.startsWith('#government/nagaland') ||
+      hash.startsWith('#government/ar') ||
+      hash.startsWith('#government/arunachal') ||
+      hash.startsWith('#government/sk') ||
+      hash.startsWith('#government/sikkim') ||
+      hash.startsWith('#government/uk') ||
+      hash.startsWith('#government/uttarakhand') ||
+      hash.startsWith('#government/uttaranchal') ||
+      hash.startsWith('#government/od') ||
+      hash.startsWith('#government/odisha') ||
+      hash.startsWith('#government/orissa') ||
+      hash.startsWith('#government/wb') ||
+      hash.startsWith('#government/west_bengal') ||
+      hash.startsWith('#government/bengal') ||
+      hash.startsWith('#government/br') ||
+      hash.startsWith('#government/bihar') ||
+      hash.startsWith('#government/up') ||
+      hash.startsWith('#government/uttar_pradesh') ||
+      hash.startsWith('#government/uttar') ||
+      hash.startsWith('#government/as') ||
+      hash.startsWith('#government/assam') ||
       hash.startsWith('#government/ap') || 
       hash.startsWith('#government/tn') || 
+      hash.startsWith('#government/mz') || 
+      hash.startsWith('#government/hp') || 
       hash.startsWith('#government/jk') || 
       hash.startsWith('#government/mp') || 
       hash.startsWith('#government/andhra') || 
       hash.startsWith('#government/tamil') || 
+      hash.startsWith('#government/mizoram') || 
+      hash.startsWith('#government/himachal') || 
       hash.startsWith('#government/jammu') || 
       hash.startsWith('#government/kashmir') || 
       hash.startsWith('#government/madhya') || 
-      hash === '#government'
+      hash === '#government' ||
+      hash.includes('hosts') ||
+      hash.includes('safer-locations')
     ) {
       return 'government_portal';
     }
@@ -56,28 +116,53 @@ function AppContent() {
 
   const [portalRole, setPortalRole] = useState<PortalRole>(getInitialPortal);
 
-  // Sync state and role with hash changes
+  // Sync state, tab, and role with hash changes
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.toLowerCase();
+      const villageMatch = hash.match(/\/village\/(\d+)/i);
+      const isReport = hash.includes('/report');
+      if (villageMatch) {
+        const vCode = parseInt(villageMatch[1], 10);
+        setSelectedVillageCode(vCode);
+        setActiveTab(isReport ? 'village_report' : 'village');
+        setPortalRole('government_portal');
+        setStateId('andhra_pradesh');
+        setActiveStateId('andhra_pradesh');
+        return;
+      }
       if (hash === '#government/select-state' || hash === '#government/states') {
         setPortalRole('government_state_selection');
+      } else if (hash.includes('/mz') || hash.includes('/mizoram')) {
+        setPortalRole('government_portal');
+        setStateId('mizoram');
+        setActiveStateId('mizoram');
+        if (hash.includes('hosts')) setActiveTab('hosts');
       } else if (hash.includes('/tn') || hash.includes('/tamil')) {
         setPortalRole('government_portal');
         setStateId('tamil_nadu');
         setActiveStateId('tamil_nadu');
+        if (hash.includes('hosts')) setActiveTab('hosts');
+      } else if (hash.includes('/hp') || hash.includes('/himachal')) {
+        setPortalRole('government_portal');
+        setStateId('himachal_pradesh');
+        setActiveStateId('himachal_pradesh');
+        if (hash.includes('hosts')) setActiveTab('hosts');
       } else if (hash.includes('/jk') || hash.includes('/kashmir') || hash.includes('/jammu')) {
         setPortalRole('government_portal');
         setStateId('jammu_kashmir');
         setActiveStateId('jammu_kashmir');
+        if (hash.includes('hosts')) setActiveTab('hosts');
       } else if (hash.includes('/mp') || hash.includes('/madhya')) {
         setPortalRole('government_portal');
         setStateId('madhya_pradesh');
         setActiveStateId('madhya_pradesh');
-      } else if (hash.includes('/ap') || hash.includes('/andhra') || hash === '#government') {
+        if (hash.includes('hosts')) setActiveTab('hosts');
+      } else if (hash.includes('/ap') || hash.includes('/andhra') || hash === '#government' || hash.includes('hosts') || hash.includes('safer-locations')) {
         setPortalRole('government_portal');
         setStateId('andhra_pradesh');
         setActiveStateId('andhra_pradesh');
+        if (hash.includes('hosts') || hash.includes('safer-locations')) setActiveTab('hosts');
       } else if (hash === '#citizen' || hash.startsWith('#citizen/')) {
         setPortalRole('citizen');
       } else {
@@ -107,15 +192,18 @@ function AppContent() {
 
   // From State Selection: Choose state
   const handleSelectState = (stateName: string) => {
+    const isMZ = stateName.toLowerCase().includes('mizo');
     const isTN = stateName.toLowerCase().includes('tamil');
+    const isHP = stateName.toLowerCase().includes('himachal');
     const isJK = stateName.toLowerCase().includes('kashmir') || stateName.toLowerCase().includes('jammu');
     const isMP = stateName.toLowerCase().includes('madhya') || stateName.toLowerCase() === 'mp';
-    const targetStateId = isJK ? 'jammu_kashmir' : isTN ? 'tamil_nadu' : isMP ? 'madhya_pradesh' : 'andhra_pradesh';
+    const targetStateId = isMZ ? 'mizoram' : isTN ? 'tamil_nadu' : isHP ? 'himachal_pradesh' : isJK ? 'jammu_kashmir' : isMP ? 'madhya_pradesh' : 'andhra_pradesh';
     selectStateByName(stateName);
     setActiveStateId(targetStateId);
     setSelectedMandalForGIS(null);
     setPortalRole('government_portal');
-    window.location.hash = isJK ? '#government/jk' : isTN ? '#government/tn' : isMP ? '#government/mp' : '#government/ap';
+    const hashPath = isMZ ? '#government/mz' : isTN ? '#government/tn' : isHP ? '#government/hp' : isJK ? '#government/jk' : isMP ? '#government/mp' : '#government/ap';
+    window.location.hash = hashPath;
   };
 
   const handleNavigateToStateSelection = () => {
@@ -154,15 +242,62 @@ function AppContent() {
   }
 
   // Government Decision-Support Dashboard (Active State Implementation: AP or TN)
+  const getStatePrefix = (sId: string) => {
+    if (sId === 'mizoram') return 'government/mz';
+    if (sId === 'tamil_nadu') return 'government/tn';
+    if (sId === 'himachal_pradesh') return 'government/hp';
+    return 'government/ap';
+  };
+
   const renderContent = () => {
     switch (activeTab) {
       case 'gis':
         return (
           <GISPage 
-            key={`gis-${stateId}`} 
+            key={`gis-${stateId}`}
             initialMetric="topsis_score" 
             initialSelectedMandal={selectedMandalForGIS} 
             onNavigateToTab={setActiveTab} 
+            onNavigateToVillage={(vCode) => {
+              setSelectedVillageCode(vCode);
+              setActiveTab('village');
+              window.location.hash = `#${getStatePrefix(stateId)}/village/${vCode}`;
+            }}
+          />
+        );
+      case 'village':
+        return (
+          <VillageAnalysisPage
+            key={`village-${selectedVillageCode || 588383}`}
+            villageCode={selectedVillageCode || 588383}
+            onSelectVillage={(vCode) => {
+              setSelectedVillageCode(vCode);
+              window.location.hash = `#${getStatePrefix(stateId)}/village/${vCode}`;
+            }}
+            onBackToRiskMap={() => {
+              setActiveTab('gis');
+              window.location.hash = `#${getStatePrefix(stateId)}/gis`;
+            }}
+            onNavigateToActionPlan={() => {
+              setActiveTab('actions');
+              window.location.hash = `#${getStatePrefix(stateId)}/actions`;
+            }}
+            onNavigateToReport={(vCode) => {
+              setSelectedVillageCode(vCode);
+              setActiveTab('village_report');
+              window.location.hash = `#${getStatePrefix(stateId)}/village/${vCode}/report`;
+            }}
+          />
+        );
+      case 'village_report':
+        return (
+          <VillageAnalysisReportPage
+            key={`village-report-${selectedVillageCode || 588383}`}
+            villageCode={selectedVillageCode || 588383}
+            onBackToVillage={() => {
+              setActiveTab('village');
+              window.location.hash = `#${getStatePrefix(stateId)}/village/${selectedVillageCode || 588383}`;
+            }}
           />
         );
       case 'priority_directory':
@@ -200,6 +335,11 @@ function AppContent() {
     }
   };
 
+  const handleSelectTab = (tab: ActiveTab) => {
+    setActiveTab(tab);
+    window.location.hash = `#${getStatePrefix(stateId)}/${tab}`;
+  };
+
   return (
     <div className="h-screen w-screen overflow-hidden bg-[#f8fafc] text-slate-900 flex flex-col font-sans select-none">
       <Header 
@@ -209,7 +349,7 @@ function AppContent() {
         onSelectState={handleSelectState}
       />
       <div className="flex-1 flex overflow-hidden">
-        <Sidebar activeTab={activeTab} onSelectTab={setActiveTab} />
+        <Sidebar activeTab={activeTab} onSelectTab={handleSelectTab} />
         <main key={stateId} className="flex-1 flex flex-col overflow-hidden p-2 sm:p-2.5 gap-2.5 bg-[#f4f6fa]">
           {renderContent()}
         </main>

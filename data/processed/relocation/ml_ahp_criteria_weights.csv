@@ -1,0 +1,5 @@
+criterion_id,criterion_name,weight,description
+C1,Hazard Exposure,0.45,"High extreme precipitation, flash flood, steep slope terrain & storm wind exposure"
+C2,Demographic Sensitivity,0.25,"Dependent children 0-6, non-workers & household density ratio"
+C3,Carrying Capacity Deficit,0.18,"Normative healthcare beds, safe habitable land & water supply headroom"
+C4,Accessibility Constraint,0.12,"Terrain egress slope, hill road density & transit isolation"

@@ -14,10 +14,12 @@ export const StateOverviewCards: React.FC<StateOverviewCardsProps> = ({ summary,
   const isJK = currentState.id === 'jammu_kashmir';
   const isTN = currentState.id === 'tamil_nadu';
   const isMP = currentState.id === 'madhya_pradesh';
+  const isMZ = currentState.id === 'mizoram';
+  const isHP = currentState.id === 'himachal_pradesh';
   const unitLabel = `${currentState.adminUnitPlural} Assessed`;
   const unitCount = currentState.adminUnitCount.toString();
-  const rankedUnits = isMP ? '422' : isJK ? '197' : isTN ? '302' : '680';
-  const hostCount = isMP ? '80' : isJK ? '8' : isTN ? '38' : '51';
+  const rankedUnits = isMP ? '422' : isJK ? '197' : isMZ ? '26' : isHP ? '172' : isTN ? '302' : '680';
+  const hostCount = isMP ? '80' : isJK ? '8' : isMZ ? '5' : isHP ? '12' : isTN ? '38' : '51';
 
   const cards = [
     {

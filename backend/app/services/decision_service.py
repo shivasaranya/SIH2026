@@ -12,35 +12,150 @@ from app.decision.schemas import (
 )
 
 
-from app.core.state_config import resolve_state_key, get_state_config
+def resolve_state_key(state_id: Optional[str]) -> str:
+    if not state_id:
+        return "andhra_pradesh"
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    if clean in ["mizoram", "mz", "mizo"]:
+        return "mizoram"
+    if clean in ["himachal_pradesh", "hp", "himachal"]:
+        return "himachal_pradesh"
+    if clean in ["jammu_kashmir", "jammu_and_kashmir", "jk", "j_k", "jammukashmir"]:
+        return "jammu_kashmir"
+    if clean in ["madhya_pradesh", "mp", "madhyapradesh"]:
+        return "madhya_pradesh"
+    if clean in ["tamil_nadu", "tn", "tamilnadu"]:
+        return "tamil_nadu"
+    if clean in ["odisha", "od", "or", "orissa"]:
+        return "odisha"
+    if clean in ["assam", "as"]:
+        return "assam"
+    if clean in ["bihar", "br"]:
+        return "bihar"
+    if clean in ["west_bengal", "wb", "westbengal"]:
+        return "west_bengal"
+    if clean in ["uttar_pradesh", "up", "uttarpradesh"]:
+        return "uttar_pradesh"
+    if clean in ["uttarakhand", "uk", "uttaranchal"]:
+        return "uttarakhand"
+    if clean in ["sikkim", "sk"]:
+        return "sikkim"
+    if clean in ["arunachal_pradesh", "arunachal", "ar"]:
+        return "arunachal_pradesh"
+    if clean in ["nagaland", "nl"]:
+        return "nagaland"
+    if clean in ["meghalaya", "ml"]:
+        return "meghalaya"
+    return "andhra_pradesh"
+def is_mizoram(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["mizoram", "mz", "mizo"]
 
+def is_hp(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["himachal_pradesh", "hp", "himachal"]
+
+def is_jk(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["jammu_kashmir", "jammu_and_kashmir", "jk", "j_k", "jammukashmir"]
+
+def is_mp(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["madhya_pradesh", "mp", "madhyapradesh"]
 
 class DecisionService:
     def __init__(self):
         self._cache: Dict[str, Dict[str, Any]] = {}
 
-    def _detect_state(self, mandal_id: str, state_id: Optional[str] = None) -> str:
-        target = mandal_id.strip().upper()
-        if target.startswith("TN_"):
-            return "tamil_nadu"
-        if target.startswith("JK_"):
-            return "jammu_kashmir"
-        if target.startswith("MP_"):
-            return "madhya_pradesh"
-        return state_id or "andhra_pradesh"
+    def _get_state_key(self, state_id: Optional[str]) -> str:
+        if key in ["jammu_kashmir", "jk"]:
+            sdma_agency = "JKDMA"
+            pwd_agency = "JK PWD (R&B)"
+            phc_agency = "JK Health Directorate"
+            jal_agency = "JK Jal Shakti"
+            rev_agency = "JK Revenue Dept"
+        elif key in ["madhya_pradesh", "mp"]:
+            sdma_agency = "MPSDMA"
+            pwd_agency = "MP PWD"
+            phc_agency = "MP Public Health & Family Welfare"
+            jal_agency = "MP Public Health Engineering"
+            rev_agency = "MP Revenue Dept"
+        elif is_mizoram(state_id):
+            return "mz"
+        if is_tn(state_id):
+            return "tn"
+        if is_hp(state_id):
+            return "hp"
+        if is_jk(state_id):
+            return "jk"
+        if is_mp(state_id):
+            return "mp"
+        return "ap"
 
     def _load_data(self, state_id: Optional[str] = "andhra_pradesh"):
         key = resolve_state_key(state_id)
         if key in self._cache:
             return self._cache[key]
 
-        cfg = get_state_config(state_id)
         reloc_dir = settings.DATA_DIR / "processed" / "relocation"
         cap_dir = settings.DATA_DIR / "processed" / "capacity"
 
-        reloc_csv = reloc_dir / cfg.relocation_csv
-        cap_csv = cap_dir / cfg.capacity_adequacy_csv
-        hosts_csv = cap_dir / cfg.host_candidates_csv
+        if key in ["mz", "mizoram"]:
+            reloc_csv = reloc_dir / "mizoram_subdistrict_relocation_priority.csv"
+            cap_csv = cap_dir / "mizoram_subdistrict_capacity_adequacy.csv"
+            hosts_csv = cap_dir / "mizoram_host_zone_candidates.csv"
+        elif key in ["hp", "himachal_pradesh"]:
+            reloc_csv = reloc_dir / "hp_tehsil_relocation_priority.csv"
+            cap_csv = cap_dir / "hp_tehsil_capacity_adequacy.csv"
+            hosts_csv = cap_dir / "hp_host_zone_candidates.csv"
+        elif key in ["jk", "jammu_kashmir"]:
+            reloc_csv = reloc_dir / "jk_tehsil_relocation_priority.csv"
+            cap_csv = cap_dir / "jk_tehsil_capacity_adequacy.csv"
+            hosts_csv = cap_dir / "jk_host_zone_candidates.csv"
+        elif key in ["mp", "madhya_pradesh"]:
+            reloc_csv = reloc_dir / "mp_tehsil_relocation_priority.csv"
+            cap_csv = cap_dir / "mp_tehsil_capacity_adequacy.csv"
+            hosts_csv = cap_dir / "mp_host_zone_candidates.csv"
+        elif key in ["tn", "tamil_nadu"]:
+            reloc_csv = reloc_dir / "tn_taluk_relocation_priority.csv"
+            cap_csv = cap_dir / "tn_taluk_capacity_adequacy.csv"
+            hosts_csv = cap_dir / "tn_host_zone_candidates.csv"
+        elif key == "uttar_pradesh":
+            reloc_csv = reloc_dir / "up_tehsil_relocation_priority.csv"
+            cap_csv = cap_dir / "up_tehsil_capacity_adequacy.csv"
+            hosts_csv = cap_dir / "up_host_zone_candidates.csv"
+        elif key == "uttarakhand":
+            reloc_csv = reloc_dir / "uk_tehsil_relocation_priority.csv"
+            cap_csv = cap_dir / "uk_tehsil_capacity_adequacy.csv"
+            hosts_csv = cap_dir / "uk_host_zone_candidates.csv"
+        elif key == "sikkim":
+            reloc_csv = reloc_dir / "sk_subdivision_relocation_priority.csv"
+            cap_csv = cap_dir / "sk_subdivision_capacity_adequacy.csv"
+            hosts_csv = cap_dir / "sk_host_zone_candidates.csv"
+        elif key == "arunachal_pradesh":
+            reloc_csv = reloc_dir / "ar_circle_relocation_priority.csv"
+            cap_csv = cap_dir / "ar_circle_capacity_adequacy.csv"
+            hosts_csv = cap_dir / "ar_host_zone_candidates.csv"
+        elif key == "nagaland":
+            reloc_csv = reloc_dir / "nl_circle_relocation_priority.csv"
+            cap_csv = cap_dir / "nl_circle_capacity_adequacy.csv"
+            hosts_csv = cap_dir / "nl_host_zone_candidates.csv"
+        elif key == "meghalaya":
+            reloc_csv = reloc_dir / "ml_block_relocation_priority.csv"
+            cap_csv = cap_dir / "ml_block_capacity_adequacy.csv"
+            hosts_csv = cap_dir / "ml_host_zone_candidates.csv"
+        else:
+            reloc_csv = reloc_dir / "mandal_relocation_priority.csv"
+            cap_csv = cap_dir / "mandal_capacity_adequacy.csv"
+            hosts_csv = cap_dir / "host_zone_candidates.csv"
 
         if not reloc_csv.exists() or not cap_csv.exists() or not hosts_csv.exists():
             raise FileNotFoundError(f"Required processed datasets (relocation, capacity, host_candidates) not found for {key}.")
@@ -60,26 +175,51 @@ class DecisionService:
             return match.iloc[0]
         return None
 
-    def _find_mandal_pair(self, mandal_id: str, state_id: Optional[str] = "andhra_pradesh"):
-        det_state = self._detect_state(mandal_id, state_id)
-        data = self._load_data(det_state)
+    def get_capacity_gap_assessment(self, mandal_id: str, state_id: Optional[str] = "andhra_pradesh") -> Optional[CapacityGapAssessment]:
+        target = mandal_id.strip().upper()
+        if target.startswith("WB_"):
+            detected_state = "west_bengal"
+        elif target.startswith("BR_"):
+            detected_state = "bihar"
+        elif target.startswith("AS_"):
+            detected_state = "assam"
+        elif target.startswith("TN_"):
+            detected_state = "tamil_nadu"
+        elif target.startswith("OD_"):
+            detected_state = "odisha"
+        elif target.startswith("UP_"):
+            detected_state = "uttar_pradesh"
+        elif target.startswith("UK_"):
+            detected_state = "uttarakhand"
+        elif target.startswith("SK_"):
+            detected_state = "sikkim"
+        elif target.startswith("AR_"):
+            detected_state = "arunachal_pradesh"
+        elif target.startswith("NL_"):
+            detected_state = "nagaland"
+        elif target.startswith("ML_"):
+            detected_state = "meghalaya"
+        else:
+            detected_state = state_id
+
+        data = self._load_data(detected_state)
         r_row = self._find_mandal(data["reloc_df"], mandal_id)
         c_row = self._find_mandal(data["cap_df"], mandal_id)
-        if r_row is not None and c_row is not None:
-            return r_row, c_row, det_state
-        for s_key in ["ap", "tn", "jk", "mp"]:
-            if s_key != resolve_state_key(det_state):
-                alt_data = self._load_data(s_key)
-                r = self._find_mandal(alt_data["reloc_df"], mandal_id)
-                c = self._find_mandal(alt_data["cap_df"], mandal_id)
-                if r is not None and c is not None:
-                    return r, c, s_key
-        return None, None, det_state
 
-    def get_capacity_gap_assessment(self, mandal_id: str, state_id: Optional[str] = "andhra_pradesh") -> Optional[CapacityGapAssessment]:
-        r_row, c_row, det_state = self._find_mandal_pair(mandal_id, state_id)
         if r_row is None or c_row is None:
-            return None
+            for s in ["andhra_pradesh", "assam", "bihar", "tamil_nadu", "west_bengal", "odisha", "uttar_pradesh", "uttarakhand", "sikkim", "arunachal_pradesh", "nagaland", "meghalaya"]:
+                if s == detected_state:
+                    continue
+                try:
+                    s_data = self._load_data(s)
+                    r_row = self._find_mandal(s_data["reloc_df"], mandal_id) or r_row
+                    c_row = self._find_mandal(s_data["cap_df"], mandal_id) or c_row
+                    if r_row is not None and c_row is not None:
+                        break
+                except Exception:
+                    pass
+
+        if r_row is None or c_row is None:
             return None
 
         pop = int(c_row.get("population_total", 0))
@@ -92,15 +232,15 @@ class DecisionService:
         shelter_gap_persons = None
         if pd.isna(shelter_cap) or shelter_cap is None:
             shelter_gap_status = "NON_APPLICABLE_OR_INSUFFICIENT_DATA"
-            shelter_note = "No designated cyclone multi-purpose shelters recorded; inland or non-cyclone zone."
+            shelter_note = "No designated cyclone multi-purpose shelters recorded; inland riverine or non-cyclone zone."
             shelter_cap_val = None
         else:
             shelter_cap_val = int(shelter_cap)
-            # Indicative planning target: 15% of population in coastal surge zone
+            # Indicative planning target: 15% of population in coastal surge / flood zone
             indicative_shelter_need = int(pop * 0.15)
             shelter_gap_persons = max(0, indicative_shelter_need - shelter_cap_val)
             shelter_gap_status = "DEFICIT_IDENTIFIED" if shelter_gap_persons > 0 else "ADEQUATE"
-            shelter_note = f"Verified capacity: {shelter_cap_val:,} persons. Indicative planning deficit (15% surge target): {shelter_gap_persons:,} persons."
+            shelter_note = f"Verified capacity: {shelter_cap_val:,} persons. Indicative planning deficit (15% surge/flood target): {shelter_gap_persons:,} persons."
 
         # 2. Health Bed Gap (IPHS 2022 Norm: 1.0 bed per 1,000 rural/mandal population)
         normative_bed_target = round((pop / 1000.0) * 1.0, 1)
@@ -158,7 +298,7 @@ class DecisionService:
         # Summary
         p_bot = str(r_row.get("primary_bottleneck", "health_infrastructure")).replace("_", " ").upper()
         overall_summary = (
-            f"Mandal {m_name} ({d_name}) has an indicative planning population of {pop:,}. "
+            f"Administrative unit {m_name} ({d_name}) has an indicative planning population of {pop:,}. "
             f"The primary physical infrastructure bottleneck is {p_bot}. "
             f"Key deficits include: Health ({health_gap_status}), Safe Land ({safe_gap_status}), and Water/Sanitation ({water_gap_status})."
         )
@@ -197,11 +337,143 @@ class DecisionService:
         )
 
     def get_action_plan(self, mandal_id: str, state_id: Optional[str] = "andhra_pradesh") -> Optional[ActionPlanResponse]:
-        r_row, c_row, det_state = self._find_mandal_pair(mandal_id, state_id)
+        target = mandal_id.strip().upper()
+        if target.startswith("WB_"):
+            detected_state = "west_bengal"
+        elif target.startswith("BR_"):
+            detected_state = "bihar"
+        elif target.startswith("AS_"):
+            detected_state = "assam"
+        elif target.startswith("TN_"):
+            detected_state = "tamil_nadu"
+        elif target.startswith("OD_"):
+            detected_state = "odisha"
+        elif target.startswith("UP_"):
+            detected_state = "uttar_pradesh"
+        elif target.startswith("UK_"):
+            detected_state = "uttarakhand"
+        elif target.startswith("SK_"):
+            detected_state = "sikkim"
+        elif target.startswith("AR_"):
+            detected_state = "arunachal_pradesh"
+        elif target.startswith("NL_"):
+            detected_state = "nagaland"
+        elif target.startswith("ML_"):
+            detected_state = "meghalaya"
+        else:
+            detected_state = state_id
+
+        data = self._load_data(detected_state)
+        r_row = self._find_mandal(data["reloc_df"], mandal_id)
+        c_row = self._find_mandal(data["cap_df"], mandal_id)
+
+        if r_row is None or c_row is None:
+            for s in ["andhra_pradesh", "assam", "bihar", "tamil_nadu", "west_bengal", "odisha", "uttar_pradesh", "uttarakhand", "sikkim", "arunachal_pradesh", "nagaland", "meghalaya"]:
+                if s == detected_state:
+                    continue
+                try:
+                    s_data = self._load_data(s)
+                    r_row = self._find_mandal(s_data["reloc_df"], mandal_id) or r_row
+                    c_row = self._find_mandal(s_data["cap_df"], mandal_id) or c_row
+                    if r_row is not None and c_row is not None:
+                        detected_state = s
+                        break
+                except Exception:
+                    pass
+
         if r_row is None or c_row is None:
             return None
 
-        cfg = get_state_config(det_state)
+        state_key = resolve_state_key(detected_state)
+        if state_key == "bihar":
+            sdma_agency = "BSDMA / Disaster Management Department, Bihar"
+            pwd_agency = "Bihar RWD / Road Construction Dept / Bihar Police"
+            health_agency = "Health Department, Government of Bihar"
+            wcd_agency = "Social Welfare Department, Bihar / ICDS Anganwadi"
+            irrigation_agency = "Water Resources Department (WRD), Bihar"
+            rws_agency = "Public Health Engineering Department (PHED), Bihar"
+            edu_agency = "Education Department, Government of Bihar"
+        elif state_key == "west_bengal":
+            sdma_agency = "WBDMD / Disaster Management & Civil Defence Dept, West Bengal"
+            pwd_agency = "West Bengal PWD / Irrigation & Waterways Dept / WB Police"
+            health_agency = "Department of Health & Family Welfare, Government of West Bengal"
+            wcd_agency = "Department of Women & Child Development and Social Welfare, WB / ICDS"
+            irrigation_agency = "Irrigation & Waterways Department (I&WD), West Bengal"
+            rws_agency = "Public Health Engineering Department (PHED), West Bengal"
+            edu_agency = "School Education Department, Government of West Bengal"
+        elif state_key == "assam":
+            sdma_agency = "ASDMA / Revenue & Disaster Management Dept"
+            pwd_agency = "Assam PWD (Roads) / District Police"
+            health_agency = "Health & Family Welfare Department, Assam"
+            wcd_agency = "Women & Child Development, Assam / Anganwadi Network"
+            irrigation_agency = "Assam Water Resources Department / District Administration"
+            rws_agency = "Public Health Engineering Department (PHED), Assam"
+            edu_agency = "Elementary / Secondary Education Department, Assam"
+        elif state_key == "tamil_nadu":
+            sdma_agency = "TNSDMA / Revenue Administration"
+            pwd_agency = "TN Highways & Minor Ports / Police"
+            health_agency = "TN Health & Family Welfare Department"
+            wcd_agency = "Social Welfare & Women Empowerment Dept, TN"
+            irrigation_agency = "TN Water Resources Department"
+            rws_agency = "TWAD Board / Rural Development & Panchayat Raj"
+            edu_agency = "School Education Department, TN"
+        elif state_key == "sikkim":
+            sdma_agency = "SSDMA / Land Revenue & Disaster Management Dept, Sikkim"
+            pwd_agency = "Sikkim Roads & Bridges Dept / BRO Swastik / Sikkim Police"
+            health_agency = "Health & Family Welfare Department, Government of Sikkim"
+            wcd_agency = "Women & Child Development Department, Sikkim / ICDS"
+            irrigation_agency = "Water Resources Department (WRD), Sikkim"
+            rws_agency = "Rural Development Department (RDD - Drinking Water & Sanitation), Sikkim"
+            edu_agency = "Education Department, Government of Sikkim"
+        elif state_key == "arunachal_pradesh":
+            sdma_agency = "APSDMA / Department of Disaster Management, Government of Arunachal Pradesh"
+            pwd_agency = "Arunachal PWD (Highways) / Border Roads Organisation (BRO) / Police"
+            health_agency = "Department of Health & Family Welfare, Government of Arunachal Pradesh"
+            wcd_agency = "Department of Social Justice, Empowerment & Tribal Affairs, AP / ICDS"
+            irrigation_agency = "Water Resources Department (WRD), Arunachal Pradesh"
+            rws_agency = "Public Health Engineering & Water Supply Department (PHE&WS), Arunachal Pradesh"
+            edu_agency = "Department of School Education, Government of Arunachal Pradesh"
+        elif state_key == "nagaland":
+            sdma_agency = "Nagaland State Disaster Management Authority (NSDMA) / Home Department"
+            pwd_agency = "Nagaland PWD (Roads & Bridges) / Border Roads Organisation (BRO / Sewak)"
+            health_agency = "Department of Health & Family Welfare, Government of Nagaland"
+            wcd_agency = "Department of Social Welfare, Nagaland / Anganwadi Network"
+            irrigation_agency = "Water Resources Department, Nagaland / Doyang River Basin Authority"
+            rws_agency = "Public Health Engineering Department (PHED), Nagaland"
+            edu_agency = "Department of School Education, Nagaland"
+        elif state_key == "meghalaya":
+            sdma_agency = "Meghalaya State Disaster Management Authority (MSDMA) / Revenue & Disaster Management Dept"
+            pwd_agency = "Meghalaya PWD (Roads) / NHIDCL / Meghalaya Police"
+            health_agency = "Department of Health & Family Welfare, Government of Meghalaya"
+            wcd_agency = "Social Welfare Department, Meghalaya / ICDS Anganwadi Network"
+            irrigation_agency = "Water Resources Department (WRD), Meghalaya / Soil & Water Conservation Dept"
+            rws_agency = "Public Health Engineering Department (PHED), Meghalaya"
+            edu_agency = "Education Department, Government of Meghalaya"
+        elif state_key in ["jammu_kashmir", "jk"]:
+            sdma_agency = "JKDMA / Department of Disaster Management, Relief, Rehabilitation & Reconstruction"
+            pwd_agency = "JK PWD (R&B) / Border Roads Organisation (BRO Beacon/Sampark)"
+            health_agency = "Health & Medical Education Department, Jammu & Kashmir"
+            wcd_agency = "Social Welfare Department, J&K / ICDS Anganwadi Network"
+            irrigation_agency = "Jal Shakti (Irrigation & Flood Control) Department, J&K"
+            rws_agency = "Jal Shakti (PHE / Rural Water Supply), J&K"
+            edu_agency = "School Education Department, Jammu & Kashmir"
+        elif state_key in ["madhya_pradesh", "mp"]:
+            sdma_agency = "MPSDMA / Home Department, Government of Madhya Pradesh"
+            pwd_agency = "Madhya Pradesh PWD / MPRDC / MP Police"
+            health_agency = "Public Health and Medical Education Department, MP"
+            wcd_agency = "Women & Child Development Department, MP / Anganwadi Network"
+            irrigation_agency = "Water Resources Department (Narmada Valley Development Authority / WRD), MP"
+            rws_agency = "Public Health Engineering Department (PHED), Madhya Pradesh"
+            edu_agency = "School Education Department, Madhya Pradesh"
+        else:
+            sdma_agency = "APSDMA / Revenue Department"
+            pwd_agency = "AP Roads & Buildings Department / District Police"
+            health_agency = "AP Health, Medical & Family Welfare Department"
+            wcd_agency = "Women Development & Child Welfare / Anganwadi Network"
+            irrigation_agency = "District Administration / Irrigation & Water Resources"
+            rws_agency = "Rural Water Supply & Sanitation (RWS&S)"
+            edu_agency = "School Education Department / NCRMP Cell"
+
         m_id = str(r_row.get("mandal_id", mandal_id))
         m_name = str(r_row.get("mandal_name", "Unknown"))
         d_name = str(r_row.get("current_district_name", "Unknown"))
@@ -226,10 +498,10 @@ class DecisionService:
                     horizon="IMMEDIATE_EMERGENCY",
                     category="EVACUATION_ACCESS",
                     title="Audit Alternate Egress Corridors & Road Chokepoints",
-                    description=f"Deploy local R&B engineers to verify culverts, bridge clearances, and unpaved evacuation routes in {m_name}.",
+                    description=f"Deploy local engineers to verify culverts, bridge clearances, and unpaved evacuation routes in {m_name}.",
                     trigger_condition=f"Accessibility constraint ({acc_constraint:.2f}) exceeds threshold 0.30.",
                     priority_level="CRITICAL" if reloc_cat == "VERY HIGH" else "HIGH",
-                    responsible_agency=f"{cfg.state_code} Roads & Buildings Department / District Police"
+                    responsible_agency=pwd_agency
                 )
             )
             short_term.append(
@@ -238,25 +510,25 @@ class DecisionService:
                     horizon="SHORT_TERM_MITIGATION",
                     category="EVACUATION_ACCESS",
                     title="All-Weather Road Reinforcement & Raising",
-                    description="Prioritize elevating flood-prone road causeways connecting low-lying habitations to major state highways.",
-                    trigger_condition="High road vulnerability to seasonal inundation.",
+                    description="Prioritize elevating flood-prone road causeways connecting low-lying habitations to major arterial highways.",
+                    trigger_condition="High road vulnerability to seasonal inundation or landslide disruptions.",
                     priority_level="HIGH",
-                    responsible_agency=f"{cfg.state_code} Rural Development & Panchayati Raj"
+                    responsible_agency=pwd_agency
                 )
             )
 
-        # Rule 2: Cyclone / Multi-Hazard Exposure
+        # Rule 2: Multi-Hazard Exposure
         if haz_exp > 0.40:
             immediate.append(
                 ActionPlanItem(
                     action_id="ACT_IMM_HAZ_01",
                     horizon="IMMEDIATE_EMERGENCY",
                     category="SHELTER",
-                    title="Pre-Monsoon Multipurpose Shelter Readiness Check",
-                    description=f"Inspect backup generator power, emergency food rations, and sanitation supplies in designated cyclone/flood shelters.",
+                    title="Pre-Monsoon Flood & Cyclone Shelter Readiness Check",
+                    description="Inspect backup generator power, emergency food rations, elevated flood platforms, and sanitation supplies in designated relief facilities.",
                     trigger_condition=f"Hazard exposure index ({haz_exp:.2f}) exceeds high risk threshold 0.40.",
                     priority_level="CRITICAL",
-                    responsible_agency=f"{cfg.state_code}DMA / Revenue Department"
+                    responsible_agency=sdma_agency
                 )
             )
 
@@ -268,13 +540,12 @@ class DecisionService:
                     horizon="IMMEDIATE_EMERGENCY",
                     category="FEASIBILITY_STUDY",
                     title="Priority Evacuation Roster for Vulnerable Households",
-                    description="Compile village-level rosters of children (0–6), women, SC/ST households, and non-worker dependents for early assisted evacuation.",
+                    description="Compile village/ward-level rosters of children (0–6), women, vulnerable dependent households, and non-worker dependents for early assisted evacuation.",
                     trigger_condition=f"Demographic sensitivity index ({demo_sens:.2f}) reflects high vulnerable cohort concentrations.",
                     priority_level="CRITICAL",
-                    responsible_agency="Women Development & Child Welfare / Anganwadi Network"
+                    responsible_agency=wcd_agency
                 )
             )
-
 
         # Rule 4: Primary Bottleneck Specific Actions
         if "HEALTH" in primary_bot.upper():
@@ -284,10 +555,10 @@ class DecisionService:
                     horizon="SHORT_TERM_MITIGATION",
                     category="HEALTH_MEDICAL",
                     title="Pre-position Mobile Medical Units & Essential Drug Kits",
-                    description="Establish pre-identified medical referral corridors to secondary care hospitals in adjacent safer mandals.",
+                    description="Establish pre-identified medical referral corridors to secondary care hospitals in adjacent safer administrative units.",
                     trigger_condition="Primary physical constraint is Health Bed & Facility Adequacy.",
                     priority_level="HIGH",
-                    responsible_agency=f"{cfg.state_code} Health & Medical Education Department"
+                    responsible_agency=health_agency
                 )
             )
         elif "SHELTER" in primary_bot.upper():
@@ -300,7 +571,7 @@ class DecisionService:
                     description="Conduct structural audits of robust concrete institutional buildings to supplement verified shelter capacity.",
                     trigger_condition="Primary physical constraint is Designated Cyclone/Flood Shelter Capacity.",
                     priority_level="HIGH",
-                    responsible_agency=f"School Education Department / {cfg.state_code}DMA Cell"
+                    responsible_agency=edu_agency
                 )
             )
         elif "WATER" in primary_bot.upper() or "SANITATION" in primary_bot.upper():
@@ -313,7 +584,7 @@ class DecisionService:
                     description="Secure elevated water storage tanks and distribute chlorine water purification tablets to flood-exposed habitations.",
                     trigger_condition="Primary physical constraint is Water Access and Sanitation Coverage.",
                     priority_level="HIGH",
-                    responsible_agency=f"Jal Shakti / Rural Water Supply & Sanitation ({cfg.state_code})"
+                    responsible_agency=rws_agency
                 )
             )
 
@@ -326,9 +597,9 @@ class DecisionService:
                     category="SAFE_LAND_SITING",
                     title="Joint Revenue & GIS Micro-Siting of Candidate Host Land",
                     description=f"Initiate human validation of screened candidate host zones with safe land headroom within 30–50 km radius of {m_name}.",
-                    trigger_condition=f"Mandal categorized as {reloc_cat} relocation priority (TOPSIS Score: {r_row.get('topsis_score', 0):.3f}).",
+                    trigger_condition=f"Administrative unit categorized as {reloc_cat} relocation priority (TOPSIS Score: {r_row.get('topsis_score', 0):.3f}).",
                     priority_level="CRITICAL" if reloc_cat == "VERY HIGH" else "HIGH",
-                    responsible_agency="District Collectorate (Revenue) / Town & Country Planning"
+                    responsible_agency="District Collectorate / Deputy Commissioner (Revenue) / Town & Country Planning"
                 )
             )
             long_term.append(
@@ -350,10 +621,10 @@ class DecisionService:
                     horizon="LONG_TERM_PLANNING",
                     category="SAFE_LAND_SITING",
                     title="In-Situ Risk Mitigation & Infrastructure Hardening",
-                    description="Enhance storm drainage channels, coastal green belts, and building code enforcement for existing habitations.",
-                    trigger_condition=f"Mandal categorized as {reloc_cat} priority (suitable for in-situ protection).",
+                    description="Enhance storm drainage channels, riverbank embankments, and building code enforcement for existing habitations.",
+                    trigger_condition=f"Administrative unit categorized as {reloc_cat} priority (suitable for in-situ protection).",
                     priority_level="MEDIUM",
-                    responsible_agency="District Administration / Irrigation & Water Resources"
+                    responsible_agency=irrigation_agency
                 )
             )
 
@@ -377,24 +648,54 @@ class DecisionService:
         )
 
     def compare_source_and_host(self, source_id: str, host_id: str, state_id: Optional[str] = "andhra_pradesh") -> Optional[SourceHostComparisonResponse]:
-        det_state = self._detect_state(source_id, state_id)
-        data = self._load_data(det_state)
+        target_s = source_id.strip().upper()
+        target_h = host_id.strip().upper()
+        if target_s.startswith("WB_") or target_h.startswith("WB_"):
+            detected_state = "west_bengal"
+        elif target_s.startswith("BR_") or target_h.startswith("BR_"):
+            detected_state = "bihar"
+        elif target_s.startswith("AS_") or target_h.startswith("AS_"):
+            detected_state = "assam"
+        elif target_s.startswith("TN_") or target_h.startswith("TN_"):
+            detected_state = "tamil_nadu"
+        elif target_s.startswith("OD_") or target_h.startswith("OD_"):
+            detected_state = "odisha"
+        elif target_s.startswith("UP_") or target_h.startswith("UP_"):
+            detected_state = "uttar_pradesh"
+        elif target_s.startswith("UK_") or target_h.startswith("UK_"):
+            detected_state = "uttarakhand"
+        elif target_s.startswith("SK_") or target_h.startswith("SK_"):
+            detected_state = "sikkim"
+        elif target_s.startswith("AR_") or target_h.startswith("AR_"):
+            detected_state = "arunachal_pradesh"
+        elif target_s.startswith("NL_") or target_h.startswith("NL_"):
+            detected_state = "nagaland"
+        elif target_s.startswith("ML_") or target_h.startswith("ML_"):
+            detected_state = "meghalaya"
+        else:
+            detected_state = state_id
+
+        data = self._load_data(detected_state)
         s_reloc = self._find_mandal(data["reloc_df"], source_id)
         s_cap = self._find_mandal(data["cap_df"], source_id)
         h_reloc = self._find_mandal(data["reloc_df"], host_id)
         h_cap = self._find_mandal(data["cap_df"], host_id)
 
         if s_reloc is None or s_cap is None or h_reloc is None or h_cap is None:
-            for s_key in ["ap", "tn", "jk"]:
-                if s_key != resolve_state_key(det_state):
-                    alt_data = self._load_data(s_key)
-                    s_reloc = s_reloc if s_reloc is not None else self._find_mandal(alt_data["reloc_df"], source_id)
-                    s_cap = s_cap if s_cap is not None else self._find_mandal(alt_data["cap_df"], source_id)
-                    h_reloc = h_reloc if h_reloc is not None else self._find_mandal(alt_data["reloc_df"], host_id)
-                    h_cap = h_cap if h_cap is not None else self._find_mandal(alt_data["cap_df"], host_id)
+            for s in ["andhra_pradesh", "assam", "bihar", "tamil_nadu", "west_bengal", "odisha", "uttar_pradesh", "uttarakhand", "sikkim", "arunachal_pradesh", "nagaland", "meghalaya"]:
+                if s == detected_state:
+                    continue
+                try:
+                    s_data = self._load_data(s)
+                    s_reloc = self._find_mandal(s_data["reloc_df"], source_id) or s_reloc
+                    s_cap = self._find_mandal(s_data["cap_df"], source_id) or s_cap
+                    h_reloc = self._find_mandal(s_data["reloc_df"], host_id) or h_reloc
+                    h_cap = self._find_mandal(s_data["cap_df"], host_id) or h_cap
                     if s_reloc is not None and s_cap is not None and h_reloc is not None and h_cap is not None:
-                        data = alt_data
+                        data = s_data
                         break
+                except Exception:
+                    pass
 
         if s_reloc is None or s_cap is None or h_reloc is None or h_cap is None:
             return None
@@ -473,14 +774,14 @@ class DecisionService:
         if host_data["capacity_condition"] == "CAPACITY-CONSTRAINED":
             concerns.append(f"Candidate host is currently categorized as CAPACITY-CONSTRAINED; influx requires secondary facility expansion.")
         if host_data["primary_bottleneck"] != "N/A":
-            concerns.append(f"Host mandal's existing limiting component is {host_data['primary_bottleneck'].replace('_', ' ').upper()}.")
+            concerns.append(f"Host administrative unit's existing limiting component is {host_data['primary_bottleneck'].replace('_', ' ').upper()}.")
         if (host_data["water_sanitation_adequacy"] or 1.0) < 0.75:
-            concerns.append("Host mandal has below-average baseline water and sanitation coverage.")
+            concerns.append("Host administrative unit has below-average baseline water and sanitation coverage.")
 
         # Missing / Unverified Information
         missing_info: List[str] = []
         if pd.isna(h_cap.get("shelter_count")) or h_cap.get("shelter_count") == 0:
-            missing_info.append("Inland host mandal has zero designated cyclone shelters (temporary school/community facility audits required).")
+            missing_info.append("Inland host unit has zero designated cyclone shelters (temporary school/community facility audits required).")
         if host_data["data_completeness"] < 1.0:
             missing_info.append(f"Data completeness is {host_data['data_completeness']*100:.0f}% (certain utility inventories missing).")
         missing_info.append("Legal land tenure, agricultural zonation, and municipal water expansion capacity require local revenue verification.")
@@ -507,16 +808,23 @@ class DecisionService:
         hosts_df = data["hosts_df"].copy()
 
         pop_mask = df_r["ranking_status"] != "INSUFFICIENT_DATA"
-        df_valid = df_r[pop_mask]
+        df_valid = df_r[pop_mask].copy()
 
         vh_cnt = int((df_r["relocation_priority_category"] == "VERY HIGH").sum())
         h_cnt = int((df_r["relocation_priority_category"] == "HIGH").sum())
         cap_constr_cnt = int((df_c["capacity_condition"] == "CAPACITY-CONSTRAINED").sum())
         cap_sev_cnt = int((df_c["capacity_condition"] == "CAPACITY-SEVERELY-CONSTRAINED").sum())
-        host_cnt = hosts_df["candidate_mandal_id"].nunique()
+
+        h_id_col = "candidate_mandal_id" if "candidate_mandal_id" in hosts_df.columns else "candidate_host_id"
+        h_name_col = "candidate_mandal_name" if "candidate_mandal_name" in hosts_df.columns else "candidate_host_name"
+        host_cnt = hosts_df[h_id_col].nunique() if h_id_col in hosts_df.columns else 0
         insuf_cnt = int((~pop_mask).sum())
 
-        # Top Action Mandals (Very High Priority with largest population)
+        pop_col = "population_total" if "population_total" in df_valid.columns else "total_population"
+        if "population_total" not in df_valid.columns and "total_population" in df_valid.columns:
+            df_valid["population_total"] = df_valid["total_population"]
+
+        # Top Action Units (Very High Priority with largest population)
         top_action = df_valid.sort_values(by=["topsis_score", "population_total"], ascending=[False, False]).head(10)[
             ["mandal_id", "mandal_name", "current_district_name", "population_total", "topsis_score", "relocation_priority_category", "primary_priority_factor", "primary_bottleneck"]
         ].to_dict(orient="records")
@@ -525,8 +833,12 @@ class DecisionService:
         bot_dist = df_valid["primary_bottleneck"].value_counts().to_dict()
 
         # Top Host Candidates (Hosts appearing most frequently as top-3 nearest candidate)
-        top_hosts = hosts_df.groupby(["candidate_mandal_id", "candidate_mandal_name"]).size().reset_index(name="source_mandals_served")
-        top_hosts = top_hosts.sort_values(by="source_mandals_served", ascending=False).head(10).to_dict(orient="records")
+        if h_id_col in hosts_df.columns and h_name_col in hosts_df.columns:
+            top_hosts_df = hosts_df.groupby([h_id_col, h_name_col]).size().reset_index(name="source_mandals_served")
+            top_hosts_df.rename(columns={h_id_col: "candidate_mandal_id", h_name_col: "candidate_mandal_name"}, inplace=True)
+            top_hosts = top_hosts_df.sort_values(by="source_mandals_served", ascending=False).head(10).to_dict(orient="records")
+        else:
+            top_hosts = []
 
         disclaimer = (
             "STATEWIDE ACTION DASHBOARD — DECISION SUPPORT PROTOTYPE. Aggregates multi-criteria relocation priorities (Phase 4), "
@@ -549,3 +861,4 @@ class DecisionService:
 
 
 decision_service = DecisionService()
+

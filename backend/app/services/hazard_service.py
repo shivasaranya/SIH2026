@@ -3,29 +3,155 @@ from pathlib import Path
 from typing import Dict, Any, List, Optional
 import pandas as pd
 from app.core.config import settings
-from app.core.state_config import resolve_state_key, get_state_config
 from app.hazard.schemas import (
     MandalHazardExposureItem,
     MandalExposureListResponse,
     HazardSummaryResponse,
 )
 
+def resolve_state_key(state_id: Optional[str]) -> str:
+    if not state_id:
+        return "andhra_pradesh"
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    if clean in ["mizoram", "mz", "mizo"]:
+        return "mizoram"
+    if clean in ["himachal_pradesh", "hp", "himachal"]:
+        return "himachal_pradesh"
+    if clean in ["jammu_kashmir", "jammu_and_kashmir", "jk", "j_k", "jammukashmir"]:
+        return "jammu_kashmir"
+    if clean in ["madhya_pradesh", "mp", "madhyapradesh"]:
+        return "madhya_pradesh"
+    if clean in ["tamil_nadu", "tn", "tamilnadu"]:
+        return "tamil_nadu"
+    if clean in ["odisha", "od", "or", "orissa"]:
+        return "odisha"
+    if clean in ["assam", "as"]:
+        return "assam"
+    if clean in ["bihar", "br"]:
+        return "bihar"
+    if clean in ["west_bengal", "wb", "westbengal"]:
+        return "west_bengal"
+    if clean in ["uttar_pradesh", "up", "uttarpradesh"]:
+        return "uttar_pradesh"
+    if clean in ["uttarakhand", "uk", "uttaranchal"]:
+        return "uttarakhand"
+    if clean in ["sikkim", "sk"]:
+        return "sikkim"
+    if clean in ["arunachal_pradesh", "arunachal", "ar"]:
+        return "arunachal_pradesh"
+    if clean in ["nagaland", "nl"]:
+        return "nagaland"
+    if clean in ["meghalaya", "ml"]:
+        return "meghalaya"
+    return "andhra_pradesh"
+def is_mizoram(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["mizoram", "mz", "mizo"]
+
+def is_hp(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["himachal_pradesh", "hp", "himachal"]
+
+def is_jk(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["jammu_kashmir", "jammu_and_kashmir", "jk", "j_k", "jammukashmir"]
+
+def is_mp(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["madhya_pradesh", "mp", "madhyapradesh"]
 
 class HazardService:
     def __init__(self):
         self._cache: Dict[str, Dict[str, Any]] = {}
+
+    def _get_state_key(self, state_id: Optional[str]) -> str:
+        if is_mizoram(state_id):
+            return "mz"
+        if is_tn(state_id):
+            return "tn"
+        if is_hp(state_id):
+            return "hp"
+        if is_jk(state_id):
+            return "jk"
+        if is_mp(state_id):
+            return "mp"
+        return "ap"
 
     def _load_data(self, state_id: Optional[str] = "andhra_pradesh"):
         key = resolve_state_key(state_id)
         if key in self._cache:
             return self._cache[key]
 
-        cfg = get_state_config(state_id)
         haz_dir = settings.DATA_DIR / "processed" / "hazard" / "mandal_exposure"
 
-        csv_path = haz_dir / cfg.hazard_csv
-        geojson_path = haz_dir / cfg.hazard_geojson
-        surge_included = (key == "tn")
+        if key in ["mz", "mizoram"]:
+            csv_path = haz_dir / "mizoram_subdistrict_multi_hazard_exposure.csv"
+            geojson_path = haz_dir / "mizoram_subdistrict_multi_hazard_exposure.geojson"
+            surge_included = False
+            surge_reason = "Inland northeastern state: Direct coastal storm surge is Not Applicable (0.0). Flash flood & landslide models applied."
+        elif key in ["hp", "himachal_pradesh"]:
+            csv_path = haz_dir / "hp_tehsil_multi_hazard_exposure.csv"
+            geojson_path = haz_dir / "hp_tehsil_multi_hazard_exposure.geojson"
+            surge_included = False
+            surge_reason = "Inland Himalayan state: Direct coastal storm surge is Not Applicable (0.0). High-relief slope & flash flood models applied."
+        elif key in ["jk", "jammu_kashmir"]:
+            csv_path = haz_dir / "jk_tehsil_multi_hazard_exposure.csv"
+            geojson_path = haz_dir / "jk_tehsil_multi_hazard_exposure.geojson"
+            surge_included = False
+            surge_reason = "Inland Himalayan territory: Direct coastal storm surge is Not Applicable (0.0). Inland flood and seismic models applied."
+        elif key in ["mp", "madhya_pradesh"]:
+            csv_path = haz_dir / "mp_tehsil_multi_hazard_exposure.csv"
+            geojson_path = haz_dir / "mp_tehsil_multi_hazard_exposure.geojson"
+            surge_included = False
+            surge_reason = "Inland central state: Direct coastal storm surge is Not Applicable (0.0). Riverine basin inundation models applied."
+        elif key in ["tn", "tamil_nadu"]:
+            csv_path = haz_dir / "tn_taluk_multi_hazard_exposure.csv"
+            geojson_path = haz_dir / "tn_taluk_multi_hazard_exposure.geojson"
+            surge_included = True
+            surge_reason = "None"
+        elif key == "uttar_pradesh":
+            csv_path = haz_dir / "up_tehsil_multi_hazard_exposure.csv"
+            geojson_path = haz_dir / "up_tehsil_multi_hazard_exposure.geojson"
+            surge_included = False
+            surge_reason = "Inland northern state: Direct coastal storm surge is Not Applicable (0.0). Recurrent riverine flood inundation across Ganga, Yamuna, Ghaghara, Rapti, and Ramganga river basins & BIS IS 875 wind models applied."
+        elif key == "uttarakhand":
+            csv_path = haz_dir / "uk_tehsil_multi_hazard_exposure.csv"
+            geojson_path = haz_dir / "uk_tehsil_multi_hazard_exposure.geojson"
+            surge_included = False
+            surge_reason = "Inland Himalayan state: Direct coastal storm surge is Not Applicable (0.0). Trans-Himalayan flash flood / GLOF recurrence across Bhagirathi, Alaknanda, and Mandakini basins, high-relief slope/landslide constraints, and BIS IS 875 wind models applied."
+        elif key == "sikkim":
+            csv_path = haz_dir / "sk_subdivision_multi_hazard_exposure.csv"
+            geojson_path = haz_dir / "sk_subdivision_multi_hazard_exposure.geojson"
+            surge_included = False
+            surge_reason = "Inland Eastern Himalayan state: Direct coastal storm surge is Not Applicable (0.0). Teesta basin Glacial Lake Outburst Floods (GLOF), catastrophic flash flood runoff, steep mountain slope landslide hazards, and BIS IS 875 wind models applied."
+        elif key == "arunachal_pradesh":
+            csv_path = haz_dir / "ar_circle_multi_hazard_exposure.csv"
+            geojson_path = haz_dir / "ar_circle_multi_hazard_exposure.geojson"
+            surge_included = False
+            surge_reason = "Inland Eastern Himalayan state: Direct coastal storm surge is Not Applicable (0.0). Major river basin flash flood & landslide dam-burst risks (Siang, Subansiri, Kameng, Dibang, Lohit), steep mountain slope landslide hazards, and BIS IS 875 wind models applied."
+        elif key == "nagaland":
+            csv_path = haz_dir / "nl_circle_multi_hazard_exposure.csv"
+            geojson_path = haz_dir / "nl_circle_multi_hazard_exposure.geojson"
+            surge_included = False
+            surge_reason = "Inland northeastern state: Direct coastal storm surge is Not Applicable (0.0). Naga Hills steep mountain slope landslide hazards, Dhansiri-Doyang-Dikhu-Tizu riverine & flash flood recurrence, and BIS IS 875 wind models applied."
+        elif key == "meghalaya":
+            csv_path = haz_dir / "ml_block_multi_hazard_exposure.csv"
+            geojson_path = haz_dir / "ml_block_multi_hazard_exposure.geojson"
+            surge_included = False
+            surge_reason = "Inland hill state atop Shillong Plateau: Direct coastal storm surge is Not Applicable (0.0). Cherrapunji/Mawsynram extreme rainfall, southern escarpment flash flood & landslide susceptibility, northern riverine flood recurrence, and BIS IS 875 (55 m/s) wind models applied."
+        else:
+            csv_path = haz_dir / "mandal_multi_hazard_exposure.csv"
+            geojson_path = haz_dir / "ap_mandal_multi_hazard_exposure.geojson"
+            surge_included = False
+            surge_reason = "Open-access coastal surge inundation layer requires dynamic hydrodynamic modeling (e.g. ADCIRC). Historical tropical storm buffers applied as proxy."
 
         if not csv_path.exists():
             raise FileNotFoundError(f"Hazard data not found at {csv_path}")
@@ -34,6 +160,7 @@ class HazardService:
             "exposure_df": pd.read_csv(csv_path),
             "geojson_path": geojson_path,
             "surge_included": surge_included,
+            "surge_reason": surge_reason,
             "geojson": None
         }
         self._cache[key] = data
@@ -51,14 +178,16 @@ class HazardService:
 
     def get_mandal_detail(self, mandal_id: str, state_id: Optional[str] = "andhra_pradesh") -> Optional[MandalHazardExposureItem]:
         target = mandal_id.strip().upper()
-        if target.startswith("TN_"):
-            detected_state = "tamil_nadu"
+        if target.startswith("MZ_"):
+            detected_state = "mizoram"
         elif target.startswith("JK_"):
             detected_state = "jammu_kashmir"
         elif target.startswith("MP_"):
             detected_state = "madhya_pradesh"
+        elif target.startswith("TN_"):
+            detected_state = "tamil_nadu"
         else:
-            detected_state = state_id or "andhra_pradesh"
+            detected_state = state_id
 
         data = self._load_data(detected_state)
         df = data["exposure_df"]
@@ -67,18 +196,18 @@ class HazardService:
             (df["mandal_id"] == target) |
             (df["mandal_name"].str.upper() == target)
         ]
-        if match.empty:
-            # Fallback across all cached or registered states
-            for s_key in ["ap", "tn", "jk", "mp"]:
-                if s_key != resolve_state_key(detected_state):
-                    alt_data = self._load_data(s_key)
-                    match = alt_data["exposure_df"][
-                        (alt_data["exposure_df"]["mandal_id"] == target) |
-                        (alt_data["exposure_df"]["mandal_name"].str.upper() == target)
-                    ]
-                    if not match.empty:
-                        break
-
+        if match.empty and detected_state != "tamil_nadu" and detected_state != "mizoram":
+            tn_data = self._load_data("tamil_nadu")
+            match = tn_data["exposure_df"][
+                (tn_data["exposure_df"]["mandal_id"] == target) |
+                (tn_data["exposure_df"]["mandal_name"].str.upper() == target)
+            ]
+        if match.empty and detected_state != "mizoram":
+            mz_data = self._load_data("mizoram")
+            match = mz_data["exposure_df"][
+                (mz_data["exposure_df"]["mandal_id"] == target) |
+                (mz_data["exposure_df"]["mandal_name"].str.upper() == target)
+            ]
         if match.empty:
             return None
         return MandalHazardExposureItem(**match.iloc[0].to_dict())
@@ -108,16 +237,8 @@ class HazardService:
             },
             top_exposed_mandals=top_5,
             storm_surge_included=data["surge_included"],
-            storm_surge_exclusion_reason="None" if data["surge_included"] else (
-                "Inland mountain territory: Tropical cyclone storm surge not applicable per national disaster guidelines."
-                if resolve_state_key(state_id) == "jk"
-                else (
-                    "Inland central territory: Tropical cyclone storm surge not applicable per national disaster guidelines."
-                    if resolve_state_key(state_id) == "mp"
-                    else "Open-access coastal surge inundation layer requires dynamic hydrodynamic modeling. Historical tropical storm buffers applied as proxy."
-                )
-            ),
-            methodology_note="Calculated using verified open hazard datasets: JRC Global Surface Water 30m, NOAA IBTrACS, BMTPC IS 875 wind speeds, and CGIAR SRTM 90m slope."
+            storm_surge_exclusion_reason=data["surge_reason"],
+            methodology_note="Calculated using verified open hazard datasets: JRC Global Surface Water 30m, NOAA IBTrACS Bay of Bengal tracks, BMTPC IS 875 wind speeds, and CGIAR SRTM 90m slope."
         )
 
     def get_geojson(self, district_id: Optional[str] = None, state_id: Optional[str] = "andhra_pradesh") -> Dict[str, Any]:
@@ -139,6 +260,5 @@ class HazardService:
             "type": "FeatureCollection",
             "features": filtered
         }
-
 
 hazard_service = HazardService()

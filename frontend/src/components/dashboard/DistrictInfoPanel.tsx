@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import type { DistrictDetailResponse } from '../../types/demographics';
+import { useActiveState } from '../../context/StateContext';
 import { X, Users, Home, Briefcase, Search, AlertCircle } from 'lucide-react';
 
 interface DistrictInfoPanelProps {
@@ -13,6 +14,7 @@ export const DistrictInfoPanel: React.FC<DistrictInfoPanelProps> = ({
   loading,
   onClose,
 }) => {
+  const { currentState } = useActiveState();
   const [searchMandal, setSearchMandal] = useState('');
 
   if (loading) {
@@ -46,11 +48,11 @@ export const DistrictInfoPanel: React.FC<DistrictInfoPanelProps> = ({
           <div className="flex items-center space-x-2">
             <h3 className="font-bold text-lg text-white tracking-tight">{district.district_name}</h3>
             <span className="text-[10px] uppercase font-mono px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
-              26 Districts AP
+              {currentState.districtCount} Districts {currentState.code}
             </span>
           </div>
           <p className="text-xs text-slate-400 mt-0.5">
-            {district.mandal_count} Mandals • {district.village_count.toLocaleString()} Villages
+            {district.mandal_count} {currentState.adminUnitPlural} • {district.village_count.toLocaleString()} Villages
           </p>
         </div>
         <button
@@ -145,11 +147,11 @@ export const DistrictInfoPanel: React.FC<DistrictInfoPanelProps> = ({
           </div>
         </div>
 
-        {/* Mandals List with Search */}
+        {/* Administrative Units List with Search */}
         <div>
           <div className="flex items-center justify-between mb-2">
             <span className="text-xs font-semibold text-slate-300">
-              Mandals in {district.district_name} ({mandals.length})
+              {currentState.adminUnitPlural} in {district.district_name} ({mandals.length})
             </span>
           </div>
 
@@ -157,7 +159,7 @@ export const DistrictInfoPanel: React.FC<DistrictInfoPanelProps> = ({
             <Search className="w-3.5 h-3.5 text-slate-400 absolute left-2.5 top-2.5" />
             <input
               type="text"
-              placeholder="Search mandal..."
+              placeholder={`Search ${currentState.adminUnitName.toLowerCase()}...`}
               value={searchMandal}
               onChange={(e) => setSearchMandal(e.target.value)}
               className="w-full bg-slate-800/80 border border-slate-700 rounded-lg pl-8 pr-3 py-1.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500/60"
@@ -187,7 +189,7 @@ export const DistrictInfoPanel: React.FC<DistrictInfoPanelProps> = ({
         <div className="bg-amber-500/10 border border-amber-500/20 rounded-lg p-2.5 flex items-start space-x-2 text-[11px] text-amber-300">
           <AlertCircle className="w-4 h-4 shrink-0 mt-0.5 text-amber-400" />
           <p className="leading-tight">
-            <strong>Census 2011 Data:</strong> Figures represent Primary Census Abstract (PCA) values spatially mapped to modern 26-district boundaries.
+            <strong>Census 2011 Data:</strong> Figures represent Primary Census Abstract (PCA) values spatially mapped to modern {currentState.districtCount}-district boundaries.
           </p>
         </div>
       </div>

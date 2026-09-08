@@ -1,6 +1,7 @@
 import React from 'react';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
+import { useActiveState } from '../context/StateContext';
 
 interface PlaceholderViewProps {
   title: string;
@@ -19,6 +20,7 @@ export const PlaceholderView: React.FC<PlaceholderViewProps> = ({
   deliverables,
   onLaunchGIS,
 }) => {
+  const { currentState } = useActiveState();
   return (
     <div className="bg-slate-900/90 backdrop-blur-md border border-slate-800/90 rounded-2xl p-8 max-w-3xl mx-auto my-6 text-center space-y-6 shadow-2xl animate-in fade-in duration-200">
       <div className="mx-auto w-16 h-16 rounded-2xl bg-indigo-500/15 border border-indigo-500/30 text-indigo-400 flex items-center justify-center shadow-lg shadow-indigo-500/10">
@@ -63,7 +65,7 @@ export const PlaceholderView: React.FC<PlaceholderViewProps> = ({
       )}
 
       <p className="text-[11px] text-slate-500 max-w-md mx-auto">
-        Fully integrated with Andhra Pradesh (696 Mandals), Census 2011 PCA demographic crosswalk, and Phase 4 MCDA TOPSIS engine.
+        Fully integrated with {currentState.name} ({currentState.adminUnitCount} {currentState.adminUnitPlural}), Census 2011 PCA demographic crosswalk, and Phase 4 MCDA TOPSIS engine.
       </p>
     </div>
   );

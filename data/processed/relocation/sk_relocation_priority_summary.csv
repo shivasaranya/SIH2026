@@ -1,0 +1,2 @@
+state_name,state_code,total_subdivisions,total_subdivisions_ranked,very_high_priority_count,high_priority_count,moderate_priority_count,low_priority_count,topsis_min_score,topsis_max_score,topsis_mean_score,ahp_consistency_ratio,candidate_host_zones_count
+Sikkim,SK,16,16,2,4,5,5,0.0846,0.9031,0.4335,0.0038,4

@@ -50,6 +50,7 @@ interface GISPageProps {
   initialOpenSimulation?: boolean;
   initialSelectedMandal?: MandalProperties | null;
   onNavigateToTab?: (tab: ActiveTab) => void;
+  onNavigateToVillage?: (villageCode: number) => void;
 }
 
 import { useActiveState } from '../context/StateContext';
@@ -59,6 +60,7 @@ export const GISPage: React.FC<GISPageProps> = ({
   initialOpenSimulation = false,
   initialSelectedMandal = null,
   onNavigateToTab,
+  onNavigateToVillage,
 }) => {
   const { currentState } = useActiveState();
   // Data State
@@ -77,6 +79,7 @@ export const GISPage: React.FC<GISPageProps> = ({
   const [loadingData, setLoadingData] = useState<boolean>(true);
   const [loadingDistrict, setLoadingDistrict] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [isOfflineFallback, setIsOfflineFallback] = useState<boolean>(false);
 
   // Interactive Map Controls
   const [activeMetric, setActiveMetric] = useState<DemographicMetricKey>(initialMetric);
@@ -130,11 +133,14 @@ export const GISPage: React.FC<GISPageProps> = ({
     'health_beds',
   ].includes(activeMetric);
 
-  // Reset selections on state change
+  // Reset selections & layers on state change
   useEffect(() => {
     setSelectedMandal(null);
     setSelectedDistrictId(null);
     setMandalsGeoJson(null);
+    setDistrictsGeoJson(null);
+    setVulnerabilityGeoJson(null);
+    setDemographicsSummary(null);
   }, [currentState.id]);
 
   // Initial Data Load
@@ -143,52 +149,80 @@ export const GISPage: React.FC<GISPageProps> = ({
     async function loadInitialData() {
       setLoadingData(true);
       setErrorMessage(null);
+      setIsOfflineFallback(false);
       try {
-        const [districts, summary, vulnGeo, capGeo, relocGeo] = await Promise.all([
-          fetchDistrictsGeoJson(currentState.id),
-          fetchDemographicsSummary(currentState.id),
-          fetchVulnerabilityGeoJson(undefined, currentState.id),
-          fetchCapacityGeoJson(undefined, currentState.id),
-          fetchRelocationGeoJson(undefined, currentState.id),
-        ]);
-        if (isMounted) {
-          setDistrictsGeoJson(districts);
-          setDemographicsSummary(summary);
+        const districts = await fetchDistrictsGeoJson(currentState.id);
+        if (isMounted) setDistrictsGeoJson(districts);
 
-          const capMap = new Map<string, any>();
-          for (const f of capGeo.features) {
-            const mid = f.properties?.mandal_id;
-            if (mid) capMap.set(mid, f.properties);
-          }
+        try {
+          const [summary, vulnGeo, capGeo, relocGeo] = await Promise.all([
+            fetchDemographicsSummary(currentState.id),
+            fetchVulnerabilityGeoJson(undefined, currentState.id),
+            fetchCapacityGeoJson(undefined, currentState.id),
+            fetchRelocationGeoJson(undefined, currentState.id),
+          ]);
+          if (isMounted) {
+            setDemographicsSummary(summary);
 
-          const relocMap = new Map<string, any>();
-          for (const f of relocGeo.features) {
-            const mid = f.properties?.mandal_id;
-            if (mid) relocMap.set(mid, f.properties);
-          }
-
-          const mergedFeatures = vulnGeo.features.map((f: any) => {
-            const mid = f.properties?.mandal_id;
-            const capProps = mid ? capMap.get(mid) : {};
-            const relocProps = mid ? relocMap.get(mid) : {};
-            return {
-              ...f,
-              properties: {
-                ...f.properties,
-                ...capProps,
-                ...relocProps,
-              },
+            const getUnitId = (props: any): string => {
+              return String(
+                props?.mandal_id ||
+                props?.circle_id ||
+                props?.block_id ||
+                props?.tehsil_id ||
+                props?.taluk_id ||
+                props?.subdivision_id ||
+                props?.mandal_code ||
+                props?.block_code ||
+                props?.circle_code ||
+                props?.tehsil_code ||
+                ''
+              ).trim();
             };
-          });
 
-          setVulnerabilityGeoJson({
-            type: 'FeatureCollection',
-            features: mergedFeatures,
-          });
+            const capMap = new Map<string, any>();
+            for (const f of capGeo.features) {
+              const mid = getUnitId(f.properties);
+              if (mid) capMap.set(mid, f.properties);
+            }
+
+            const relocMap = new Map<string, any>();
+            for (const f of relocGeo.features) {
+              const mid = getUnitId(f.properties);
+              if (mid) relocMap.set(mid, f.properties);
+            }
+
+            const mergedFeatures = vulnGeo.features.map((f: any) => {
+              const mid = getUnitId(f.properties);
+              const capProps = mid ? (capMap.get(mid) || {}) : {};
+              const relocProps = mid ? (relocMap.get(mid) || {}) : {};
+              const unitName = f.properties?.mandal_name || f.properties?.block_name || f.properties?.circle_name || f.properties?.tehsil_name || f.properties?.taluk_name || f.properties?.subdivision_name || mid;
+              return {
+                ...f,
+                properties: {
+                  ...f.properties,
+                  mandal_id: mid || f.properties?.mandal_id,
+                  mandal_name: unitName,
+                  ...capProps,
+                  ...relocProps,
+                },
+              };
+            });
+
+            setVulnerabilityGeoJson({
+              type: 'FeatureCollection',
+              features: mergedFeatures,
+            });
+          }
+        } catch (backendErr: any) {
+          console.warn('Backend dynamic layers unavailable, using static boundaries:', backendErr);
+          if (isMounted) {
+            setIsOfflineFallback(true);
+          }
         }
       } catch (err: any) {
         if (isMounted) {
-          setErrorMessage(err.message || 'Failed to load GIS and demographic data.');
+          setErrorMessage(err.message || 'Failed to load GIS data.');
         }
       } finally {
         if (isMounted) {
@@ -337,7 +371,7 @@ export const GISPage: React.FC<GISPageProps> = ({
     },
     {
       id: 'safe_area_fraction' as DemographicMetricKey,
-      label: `Candidate Host Locations (${currentState.id === 'jammu_kashmir' ? 8 : currentState.id === 'tamil_nadu' ? 38 : 51})`,
+      label: `Candidate Host Locations (${currentState.id === 'madhya_pradesh' ? 80 : currentState.id === 'jammu_kashmir' ? 8 : currentState.id === 'tamil_nadu' ? 38 : currentState.id === 'mizoram' ? 5 : currentState.id === 'himachal_pradesh' ? 15 : 51})`,
       sub: 'Safe Habitable Area Fraction',
       icon: ShieldCheck,
       color: 'text-purple-500',
@@ -361,6 +395,23 @@ export const GISPage: React.FC<GISPageProps> = ({
           >
             <RefreshCw className="w-3 h-3" />
             <span>Reload Application</span>
+          </button>
+        </div>
+      )}
+
+      {/* OFFLINE RESILIENCE BANNER */}
+      {isOfflineFallback && !errorMessage && (
+        <div className="bg-amber-500/95 text-amber-950 px-4 py-2 text-xs font-semibold flex items-center justify-between shrink-0 shadow-sm border-b border-amber-600/30">
+          <div className="flex items-center space-x-2">
+            <AlertTriangle className="w-4 h-4 shrink-0 text-amber-950" />
+            <span>Backend offline - showing limited data</span>
+          </div>
+          <button
+            onClick={() => window.location.reload()}
+            className="flex items-center space-x-1 underline hover:text-amber-900 font-bold"
+          >
+            <RefreshCw className="w-3 h-3" />
+            <span>Retry Connection</span>
           </button>
         </div>
       )}
@@ -701,6 +752,13 @@ export const GISPage: React.FC<GISPageProps> = ({
                   onClose={() => setSelectedMandal(null)}
                   onNavigateToActionPlan={() => onNavigateToTab?.('actions')}
                   onNavigateToDirectory={() => onNavigateToTab?.('priority_directory')}
+                  onNavigateToVillage={(code) => {
+                    if (onNavigateToVillage) {
+                      onNavigateToVillage(code);
+                    } else {
+                      window.location.hash = `#government/ap/village/${code}`;
+                    }
+                  }}
                 />
               </div>
             ) : (

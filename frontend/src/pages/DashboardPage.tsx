@@ -18,23 +18,25 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({ onNavigateToGIS })
   const isJK = currentState.id === 'jammu_kashmir';
   const isTN = currentState.id === 'tamil_nadu';
   const isMP = currentState.id === 'madhya_pradesh';
+  const isMZ = currentState.id === 'mizoram';
+  const isHP = currentState.id === 'himachal_pradesh';
 
   const [counts, setCounts] = useState({
     districts: currentState.districtCount,
     mandals: currentState.adminUnitCount,
-    ranked: isMP ? 422 : isJK ? 197 : isTN ? 302 : 680,
-    insufficient: (isMP || isJK || isTN) ? 0 : 16,
-    candidateHosts: isMP ? 80 : isJK ? 8 : isTN ? 41 : 51,
-    veryHigh: isMP ? 63 : isJK ? 20 : isTN ? 30 : 34,
-    high: isMP ? 85 : isJK ? 39 : isTN ? 60 : 136,
-    moderate: isMP ? 147 : isJK ? 79 : isTN ? 121 : 272,
-    low: isMP ? 127 : isJK ? 59 : isTN ? 91 : 238
+    ranked: isMP ? 422 : isJK ? 197 : isMZ ? 26 : isHP ? 172 : isTN ? 302 : 680,
+    insufficient: (isMP || isJK || isTN || isMZ || isHP) ? 0 : 16,
+    candidateHosts: isMP ? 80 : isJK ? 8 : isMZ ? 5 : isHP ? 15 : isTN ? 41 : 51,
+    veryHigh: isMP ? 63 : isJK ? 20 : isMZ ? 2 : isHP ? 46 : isTN ? 30 : 34,
+    high: isMP ? 85 : isJK ? 39 : isMZ ? 5 : isHP ? 80 : isTN ? 60 : 136,
+    moderate: isMP ? 147 : isJK ? 79 : isMZ ? 11 : isHP ? 46 : isTN ? 121 : 272,
+    low: isMP ? 127 : isJK ? 59 : isMZ ? 8 : isHP ? 0 : isTN ? 91 : 238
   });
 
   useEffect(() => {
     let isMounted = true;
 
-    fetchRelocationGeoJson()
+    fetchRelocationGeoJson(undefined, currentState.id)
       .then((geo) => {
         if (!isMounted) return;
         let vh = 0, h = 0, m = 0, l = 0, ins = 0;
@@ -62,11 +64,11 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({ onNavigateToGIS })
           mandals: geo.features.length || currentState.adminUnitCount,
           ranked: geo.features.length - ins,
           insufficient: ins,
-          candidateHosts: isMP ? 80 : isJK ? 8 : isTN ? 41 : 51,
-          veryHigh: vh || (isMP ? 63 : isJK ? 20 : isTN ? 30 : 34),
-          high: h || (isMP ? 85 : isJK ? 39 : isTN ? 60 : 136),
-          moderate: m || (isMP ? 147 : isJK ? 79 : isTN ? 121 : 272),
-          low: l || (isMP ? 127 : isJK ? 59 : isTN ? 91 : 238)
+          candidateHosts: isMP ? 80 : isJK ? 8 : isMZ ? 5 : isHP ? 15 : isTN ? 41 : 51,
+          veryHigh: vh || (isMP ? 63 : isJK ? 20 : isMZ ? 2 : isHP ? 46 : isTN ? 30 : 34),
+          high: h || (isMP ? 85 : isJK ? 39 : isMZ ? 5 : isHP ? 80 : isTN ? 60 : 136),
+          moderate: m || (isMP ? 147 : isJK ? 79 : isMZ ? 11 : isHP ? 46 : isTN ? 121 : 272),
+          low: l || (isMP ? 127 : isJK ? 59 : isMZ ? 8 : isHP ? 0 : isTN ? 91 : 238)
         }));
       })
       .catch((err) => {
