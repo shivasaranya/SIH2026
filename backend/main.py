@@ -37,12 +37,20 @@ app.add_middleware(
 app.include_router(api_router, prefix="/api")
 
 
+ALL_SUPPORTED_STATES = [
+    "andhra_pradesh", "tamil_nadu", "mizoram", "himachal_pradesh",
+    "assam", "bihar", "west_bengal", "odisha",
+    "uttar_pradesh", "uttarakhand", "sikkim",
+    "arunachal_pradesh", "nagaland", "meghalaya"
+]
+
 @app.get("/health", summary="Direct Health Check")
 async def health():
     return {
         "status": "healthy",
         "service": settings.APP_NAME,
-        "supported_states": ["andhra_pradesh", "tamil_nadu", "mizoram", "himachal_pradesh"]
+        "version": settings.VERSION,
+        "supported_states": ALL_SUPPORTED_STATES
     }
 
 @app.get("/", summary="Root Index")
@@ -51,20 +59,10 @@ async def root():
         "message": f"Welcome to {settings.APP_NAME} Decision-Support Platform",
         "sih_problem": settings.SIH_CODE,
         "pilot": settings.PILOT_STATE,
-        "supported_states": ["andhra_pradesh", "tamil_nadu", "mizoram"],
+        "supported_states": ALL_SUPPORTED_STATES,
         "phase": "PHASE 0 — PROJECT FOUNDATION",
         "docs": "/docs",
         "health": "/api/health"
-    }
-
-
-@app.get("/health", summary="Health Check")
-async def health_check():
-    return {
-        "status": "ok",
-        "project": settings.APP_NAME,
-        "version": settings.VERSION,
-        "supported_states": ["andhra_pradesh", "assam", "bihar", "tamil_nadu", "west_bengal", "odisha", "uttar_pradesh", "uttarakhand", "sikkim", "arunachal_pradesh", "nagaland", "meghalaya"]
     }
 
 

@@ -85,12 +85,18 @@ def test_get_mandal_villages_urban_zero_villages():
     assert data["has_village_data"] is False
     assert "unavailable" in data["note"].lower()
 
-def test_get_mandal_villages_tn_graceful():
+def test_get_mandal_villages_tn_live():
+    """TN village endpoint is now live — TN_TALUK_001 (Andimadam) has 38 real Census 2011 villages."""
     response = client.get("/api/demographics/mandal/TN_TALUK_001/villages?state_id=tamil_nadu")
     assert response.status_code == 200
     data = response.json()
-    assert data["total_villages"] == 0
-    assert data["has_village_data"] is False
+    assert data["total_villages"] == 38
+    assert data["has_village_data"] is True
+    assert data["mandal_name"] == "Andimadam" or len(data["villages"]) == 38
+    # All returned villages must have a village_code
+    for v in data["villages"]:
+        assert "village_code" in v
+        assert int(v["village_code"]) > 0
 
 def test_get_mandal_villages_by_name_and_district():
     response = client.get("/api/demographics/mandal/Tadepalligudem/villages?district_id=West+Godavari")

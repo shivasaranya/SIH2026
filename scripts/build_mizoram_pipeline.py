@@ -276,11 +276,11 @@ def build_pipeline():
         slope_risk = SLOPE_RISK_BY_BLOCK.get(bname, 0.70)
         flood_risk = FLOOD_RISK_BY_BLOCK.get(bname, 0.30)
         wind_risk = 0.78  # 55 m/s Zone A normalized
-        cyclone_risk = 0.35 # Inland depression / cloudburst exposure
+        cyclone_risk = 0.00 # Zero fake data policy: inland mountainous state >180km from coastline
 
         # Multi-hazard index weighted for hilly terrain:
-        # Slope/Landslide (0.45), Riverine Flood (0.25), Wind (0.20), Cyclonic Squall (0.10)
-        mhei = round(0.45 * slope_risk + 0.25 * flood_risk + 0.20 * wind_risk + 0.10 * cyclone_risk, 4)
+        # Slope/Landslide (0.40), Riverine Flood (0.35), Wind (0.25), Cyclonic (0.00)
+        mhei = round(0.40 * slope_risk + 0.35 * flood_risk + 0.25 * wind_risk + 0.00 * cyclone_risk, 4)
         mhei = max(0.10, min(0.95, mhei))
 
         if mhei >= 0.65:
@@ -381,6 +381,12 @@ def build_pipeline():
 
         village_cnt = max(8, int(round(area / 18.0)))
 
+        # Exact demographic distribution (ensuring male + female = total, and adult_male + adult_female + p06 = total)
+        p06_m = int(round(t_p06 * 0.51))
+        p06_f = t_p06 - p06_m
+        adult_m_pop = t_male - p06_m
+        adult_f_pop = t_female - p06_f
+
         demo_records.append({
             "mandal_id": bid,
             "block_id": bid,
@@ -399,13 +405,13 @@ def build_pipeline():
             "households": t_hh,
             "workers": t_work,
             "non_workers": t_nonwork,
-            "adult_male_pop": t_male - int(t_p06 * 0.51),
-            "adult_female_pop": t_female - int(t_p06 * 0.49),
+            "adult_male_pop": adult_m_pop,
+            "adult_female_pop": adult_f_pop,
             "child_pop": t_p06,
             "female_share": round(t_female / max(1, t_pop), 4),
             "child_share_0_6": child_share,
-            "adult_male_share": round((t_male - int(t_p06 * 0.51)) / max(1, t_pop), 4),
-            "adult_female_share": round((t_female - int(t_p06 * 0.49)) / max(1, t_pop), 4),
+            "adult_male_share": round(adult_m_pop / max(1, t_pop), 4),
+            "adult_female_share": round(adult_f_pop / max(1, t_pop), 4),
             "data_year": 2011,
             "data_source": "Census of India 2011 Primary Census Abstract (PCA) Mizoram"
         })
@@ -655,7 +661,8 @@ def build_pipeline():
     R = X / denom
 
     # Weighted Normalized Decision Matrix
-    weights = np.array([0.35, 0.25, 0.20, 0.20])
+    # Approved Saaty pairwise comparison matrix (CR = 0.003836 < 0.10)
+    weights = np.array([0.4231, 0.2274, 0.2274, 0.1221])
     V = R * weights
 
     # Ideal Best (A+) and Ideal Worst (A-) - all 4 are cost/risk criteria
@@ -684,9 +691,13 @@ def build_pipeline():
         c_score = round(float(closeness[i]), 4)
         r_rank = rank_map[i]
 
-        if r_rank <= 7:
+        # Approved score-based cutoffs from implementation specification:
+        # VERY HIGH: >= 0.65, HIGH: 0.50 - 0.65, MODERATE: 0.35 - 0.50, LOW: < 0.35
+        if c_score >= 0.65:
             p_tier = "VERY HIGH"
-        elif r_rank <= 18:
+        elif c_score >= 0.50:
+            p_tier = "HIGH"
+        elif c_score >= 0.35:
             p_tier = "MODERATE"
         else:
             p_tier = "LOW"
@@ -697,8 +708,8 @@ def build_pipeline():
         area_val = float(sub_gdf.loc[sub_gdf['block_id'] == bid, 'area_sqkm'].values[0])
         quad_val = str(vuln_df.loc[vuln_df['block_id'] == bid, 'priority_quadrant'].values[0])
 
-        # Factor contributions
-        w_vals = [h_val * 0.35, v_val * 0.25, c_val * 0.20, acc_val * 0.20]
+        # Factor contributions (using approved AHP weights)
+        w_vals = [h_val * 0.4231, v_val * 0.2274, c_val * 0.2274, acc_val * 0.1221]
         tot_w = max(0.001, sum(w_vals))
         c1_pct = round((w_vals[0] / tot_w) * 100, 1)
         c2_pct = round((w_vals[1] / tot_w) * 100, 1)
@@ -758,10 +769,10 @@ def build_pipeline():
             "current_district_id": did,
             "current_district_name": dname,
             "relocation_priority_category": p_tier,
-            "hazard_contribution": round(h_val * 0.35, 4),
-            "vulnerability_contribution": round(v_val * 0.25, 4),
-            "capacity_contribution": round(c_val * 0.20, 4),
-            "accessibility_contribution": round(acc_val * 0.20, 4)
+            "hazard_contribution": round(h_val * 0.4231, 4),
+            "vulnerability_contribution": round(v_val * 0.2274, 4),
+            "capacity_contribution": round(c_val * 0.2274, 4),
+            "accessibility_contribution": round(acc_val * 0.1221, 4)
         })
 
     reloc_df = pd.DataFrame(reloc_records).sort_values('relocation_priority_rank').reset_index(drop=True)
@@ -771,10 +782,21 @@ def build_pipeline():
     factors_df = pd.DataFrame(factors_records)
     factors_df.to_csv(DIR_RELOC / "mizoram_relocation_factor_contributions.csv", index=False)
 
+    # Save AHP weights file
+    ahp_records = [
+        {"criterion_id": "C1", "criterion_name": "hazard_exposure", "weight": 0.4231, "weight_percent": 42.31, "saaty_scale_rationale": "Hilly terrain slope/landslide, river valley flash flood, and wind exposure"},
+        {"criterion_id": "C2", "criterion_name": "demographic_sensitivity", "weight": 0.2274, "weight_percent": 22.74, "saaty_scale_rationale": "Evacuation assistance sensitivity (Census 2011 PCA children, non-workers, household size)"},
+        {"criterion_id": "C3", "criterion_name": "capacity_stress", "weight": 0.2274, "weight_percent": 22.74, "saaty_scale_rationale": "Multi-factor emergency shelter deficit, steep slope safe land scarcity, hospital bed stress"},
+        {"criterion_id": "C4", "criterion_name": "accessibility_constraint", "weight": 0.1221, "weight_percent": 12.21, "saaty_scale_rationale": "Mountain road network isolation, seasonal monsoon slide cutoff risk"}
+    ]
+    pd.DataFrame(ahp_records).to_csv(DIR_RELOC / "mizoram_ahp_weights.csv", index=False)
+    print(f"Saved {DIR_RELOC / 'mizoram_ahp_weights.csv'}")
+
     summary_record = [{
         "state": "Mizoram",
         "total_units": N_BLOCKS,
         "very_high_priority_count": int((reloc_df['priority_tier'] == "VERY HIGH").sum()),
+        "high_priority_count": int((reloc_df['priority_tier'] == "HIGH").sum()),
         "moderate_priority_count": int((reloc_df['priority_tier'] == "MODERATE").sum()),
         "low_priority_count": int((reloc_df['priority_tier'] == "LOW").sum()),
         "insufficient_data_count": 0,

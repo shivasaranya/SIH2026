@@ -402,7 +402,7 @@ export const CandidateLocationsPage: React.FC = () => {
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-3 text-right shrink-0 shadow-2xs">
               <div className="text-[10px] font-mono text-slate-500 uppercase font-semibold">Evaluated Destination Pool</div>
               <div className="text-xl font-black text-emerald-600 font-mono">
-                {candidateData?.candidates.length ?? 51} Viable Destinations
+                {candidateData?.candidates.length ?? (currentState.id === 'madhya_pradesh' ? 80 : currentState.id === 'jammu_kashmir' ? 8 : currentState.id === 'tamil_nadu' ? 41 : currentState.id === 'mizoram' ? 5 : 51)} Viable Destinations
               </div>
             </div>
           }

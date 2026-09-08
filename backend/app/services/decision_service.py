@@ -11,74 +11,28 @@ from app.decision.schemas import (
     ActionDashboardSummary,
 )
 
-def resolve_state_key(state_id: Optional[str]) -> str:
-    if not state_id:
-        return "andhra_pradesh"
-    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
-    if clean in ["ap", "andhra_pradesh", "andhra", "andhrapradesh"]:
-        return "andhra_pradesh"
-    if clean in ["rajasthan", "rj"]:
-        return "rajasthan"
-    if clean in ["madhya_pradesh", "mp", "madhyapradesh"]:
-        return "madhya_pradesh"
-    if clean in ["telangana", "tg", "ts"]:
-        return "telangana"
-    if clean in ["tripura", "tr"]:
-        return "tripura"
-    if clean in ["karnataka", "ka"]:
-        return "karnataka"
-    if clean in ["goa", "ga"]:
-        return "goa"
-    if clean in ["jharkhand", "jh"]:
-        return "jharkhand"
-    if clean in ["delhi", "dl"]:
-        return "delhi"
-    if clean in ["jammu_and_kashmir", "jk", "jammu_kashmir"]:
-        return "jammu_and_kashmir"
-    if clean in ["ladakh", "la"]:
-        return "ladakh"
-    if clean in ["manipur", "mn"]:
-        return "manipur"
-    if clean in ["odisha", "od", "or", "orissa"]:
-        return "odisha"
-    if clean in ["assam", "as"]:
-        return "assam"
-    if clean in ["bihar", "br"]:
-        return "bihar"
-    if clean in ["tamil_nadu", "tn", "tamilnadu"]:
-        return "tamil_nadu"
-    if clean in ["west_bengal", "wb", "westbengal", "bengal"]:
-        return "west_bengal"
-    if clean in ["uttar_pradesh", "up", "uttarpradesh"]:
-        return "uttar_pradesh"
-    if clean in ["uttarakhand", "uk", "uttaranchal"]:
-        return "uttarakhand"
-    if clean in ["sikkim", "sk"]:
-        return "sikkim"
-    if clean in ["arunachal_pradesh", "arunachal", "ar"]:
-        return "arunachal_pradesh"
-    if clean in ["nagaland", "nl"]:
-        return "nagaland"
-    if clean in ["meghalaya", "ml"]:
-        return "meghalaya"
-    if clean in ["gujarat", "gj", "guj"]:
-        return "gujarat"
-    if clean in ["kerala", "kl", "kerela"]:
-        return "kerala"
-    if clean in ["maharashtra", "mh", "maharastra"]:
-        return "maharashtra"
-    if clean in ["haryana", "hr"]:
-        return "haryana"
-    if clean in ["punjab", "pb"]:
-        return "punjab"
-    if clean in ["chhattisgarh", "cg", "chhatisgarh", "chattisgarh", "ct"]:
-        return "chhattisgarh"
-    if clean in ["mizoram", "mz", "mizo"]:
-        return "mizoram"
-    if clean in ["himachal_pradesh", "hp", "himachal"]:
-        return "himachal_pradesh"
-    return "andhra_pradesh"
+from app.core.state_registry import state_registry, get_state_key
 
+def resolve_state_key(state_id: Optional[str]) -> str:
+    return get_state_key(state_id)
+
+def is_mizoram(state_id: Optional[str]) -> bool:
+    return get_state_key(state_id) == "mizoram"
+
+def is_hp(state_id: Optional[str]) -> bool:
+    return get_state_key(state_id) == "himachal_pradesh"
+
+def is_jk(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["jammu_kashmir", "jammu_and_kashmir", "jk", "j_k", "jammukashmir"]
+
+def is_mp(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["madhya_pradesh", "mp", "madhyapradesh"]
 class DecisionService:
     def __init__(self):
         self._cache: Dict[str, Dict[str, Any]] = {}
@@ -100,113 +54,29 @@ class DecisionService:
         return df
 
     def _get_state_key(self, state_id: Optional[str]) -> str:
-        if is_mizoram(state_id):
-            return "mz"
-        if is_tn(state_id):
-            return "tn"
-        if is_hp(state_id):
-            return "hp"
-        return "ap"
-
+        return get_state_key(state_id)
 
     def _load_data(self, state_id: Optional[str] = "andhra_pradesh"):
-        key = resolve_state_key(state_id)
+        key = get_state_key(state_id)
         if key in self._cache:
             return self._cache[key]
+
+        meta = state_registry.get_state(key)
+        reloc_csv = meta.relocation_csv
+        cap_csv = meta.capacity_adequacy_csv
+        hosts_csv = meta.host_candidates_csv
 
         reloc_dir = settings.DATA_DIR / "processed" / "relocation"
         cap_dir = settings.DATA_DIR / "processed" / "capacity"
 
-        if key in ["mz", "mizoram"]:
-            reloc_csv = reloc_dir / "mizoram_subdistrict_relocation_priority.csv"
-            cap_csv = cap_dir / "mizoram_subdistrict_capacity_adequacy.csv"
-            hosts_csv = cap_dir / "mizoram_host_zone_candidates.csv"
-        elif key in ["hp", "himachal_pradesh"]:
-            reloc_csv = reloc_dir / "hp_tehsil_relocation_priority.csv"
-            cap_csv = cap_dir / "hp_tehsil_capacity_adequacy.csv"
-            hosts_csv = cap_dir / "hp_host_zone_candidates.csv"
-        elif key in ["tn", "tamil_nadu"]:
-            reloc_csv = reloc_dir / "tn_taluk_relocation_priority.csv"
-            cap_csv = cap_dir / "tn_taluk_capacity_adequacy.csv"
-            hosts_csv = cap_dir / "tn_host_zone_candidates.csv"
-        elif key in ["wb", "west_bengal"]:
-            reloc_csv = reloc_dir / "wb_block_relocation_priority.csv"
-            cap_csv = cap_dir / "wb_block_capacity_adequacy.csv"
-            hosts_csv = cap_dir / "wb_host_zone_candidates.csv"
-        elif key in ["br", "bihar"]:
-            reloc_csv = reloc_dir / "br_block_relocation_priority.csv"
-            cap_csv = cap_dir / "br_block_capacity_adequacy.csv"
-            hosts_csv = cap_dir / "br_host_zone_candidates.csv"
-        elif key in ["as", "assam"]:
-            reloc_csv = reloc_dir / "as_circle_relocation_priority.csv"
-            cap_csv = cap_dir / "as_circle_capacity_adequacy.csv"
-            hosts_csv = cap_dir / "as_host_zone_candidates.csv"
-        elif key in ["od", "odisha"]:
-            reloc_csv = reloc_dir / "od_block_relocation_priority.csv"
-            cap_csv = cap_dir / "od_block_capacity_adequacy.csv"
-            hosts_csv = cap_dir / "od_host_zone_candidates.csv"
-        elif key == "uttar_pradesh":
-            reloc_csv = reloc_dir / "up_tehsil_relocation_priority.csv"
-            cap_csv = cap_dir / "up_tehsil_capacity_adequacy.csv"
-            hosts_csv = cap_dir / "up_host_zone_candidates.csv"
-        elif key == "uttarakhand":
-            reloc_csv = reloc_dir / "uk_tehsil_relocation_priority.csv"
-            cap_csv = cap_dir / "uk_tehsil_capacity_adequacy.csv"
-            hosts_csv = cap_dir / "uk_host_zone_candidates.csv"
-        elif key == "sikkim":
-            reloc_csv = reloc_dir / "sk_subdivision_relocation_priority.csv"
-            cap_csv = cap_dir / "sk_subdivision_capacity_adequacy.csv"
-            hosts_csv = cap_dir / "sk_host_zone_candidates.csv"
-        elif key == "arunachal_pradesh":
-            reloc_csv = reloc_dir / "ar_circle_relocation_priority.csv"
-            cap_csv = cap_dir / "ar_circle_capacity_adequacy.csv"
-            hosts_csv = cap_dir / "ar_host_zone_candidates.csv"
-        elif key == "nagaland":
-            reloc_csv = reloc_dir / "nl_circle_relocation_priority.csv"
-            cap_csv = cap_dir / "nl_circle_capacity_adequacy.csv"
-            hosts_csv = cap_dir / "nl_host_zone_candidates.csv"
-        elif key == "meghalaya":
-            reloc_csv = reloc_dir / "ml_block_relocation_priority.csv"
-            cap_csv = cap_dir / "ml_block_capacity_adequacy.csv"
-            hosts_csv = cap_dir / "ml_host_zone_candidates.csv"
-        elif key == "gujarat":
-            reloc_csv = reloc_dir / "gujarat_taluka_relocation_priority.csv"
-            cap_csv = cap_dir / "gujarat_taluka_capacity_adequacy.csv"
-            hosts_csv = cap_dir / "gujarat_host_zone_candidates.csv"
-        elif key == "kerala":
-            reloc_csv = reloc_dir / "kerala_taluka_relocation_priority.csv"
-            cap_csv = cap_dir / "kerala_taluka_capacity_adequacy.csv"
-            hosts_csv = cap_dir / "kerala_host_zone_candidates.csv"
-        elif key == "maharashtra":
-            reloc_csv = reloc_dir / "maharashtra_taluka_relocation_priority.csv"
-            cap_csv = cap_dir / "maharashtra_taluka_capacity_adequacy.csv"
-            hosts_csv = cap_dir / "maharashtra_host_zone_candidates.csv"
-        elif key == "haryana":
-            reloc_csv = reloc_dir / "haryana_taluka_relocation_priority.csv"
-            cap_csv = cap_dir / "haryana_taluka_capacity_adequacy.csv"
-            hosts_csv = cap_dir / "haryana_host_zone_candidates.csv"
-        elif key == "punjab":
-            reloc_csv = reloc_dir / "punjab_taluka_relocation_priority.csv"
-            cap_csv = cap_dir / "punjab_taluka_capacity_adequacy.csv"
-            hosts_csv = cap_dir / "punjab_host_zone_candidates.csv"
-        elif key == "chhattisgarh":
-            reloc_csv = reloc_dir / "chhattisgarh_taluka_relocation_priority.csv"
-            cap_csv = cap_dir / "chhattisgarh_taluka_capacity_adequacy.csv"
-            hosts_csv = cap_dir / "chhattisgarh_host_zone_candidates.csv"
-        elif key == "rajasthan":
-            reloc_csv = reloc_dir / "rajasthan_tehsil_relocation_priority.csv"
-            cap_csv = cap_dir / "rajasthan_tehsil_capacity_adequacy.csv"
-            hosts_csv = cap_dir / "host_zone_candidates.csv"
-        elif (reloc_dir / f"{key}_relocation_priority.csv").exists():
-            reloc_csv = reloc_dir / f"{key}_relocation_priority.csv"
-            cap_csv = cap_dir / f"{key}_capacity_adequacy.csv"
+        if not reloc_csv or not reloc_csv.exists():
+            reloc_csv = reloc_dir / f"{key}_relocation_priority.csv" if (reloc_dir / f"{key}_relocation_priority.csv").exists() else reloc_dir / "mandal_relocation_priority.csv"
+        if not cap_csv or not cap_csv.exists():
+            cap_csv = cap_dir / f"{key}_capacity_adequacy.csv" if (cap_dir / f"{key}_capacity_adequacy.csv").exists() else cap_dir / "mandal_capacity_adequacy.csv"
+        if not hosts_csv or not hosts_csv.exists():
             hosts_csv = cap_dir / f"{key}_host_zone_candidates.csv" if (cap_dir / f"{key}_host_zone_candidates.csv").exists() else cap_dir / "host_zone_candidates.csv"
-        else:
-            reloc_csv = reloc_dir / "mandal_relocation_priority.csv"
-            cap_csv = cap_dir / "mandal_capacity_adequacy.csv"
-            hosts_csv = cap_dir / "host_zone_candidates.csv"
 
-        if not reloc_csv.exists() or not cap_csv.exists() or not hosts_csv.exists():
+        if not reloc_csv or not cap_csv or not hosts_csv or not reloc_csv.exists() or not cap_csv.exists() or not hosts_csv.exists():
             raise FileNotFoundError(f"Required processed datasets (relocation, capacity, host_candidates) not found for {key}.")
 
         data = {
@@ -255,6 +125,14 @@ class DecisionService:
             detected_state = "nagaland"
         elif target.startswith("ML_"):
             detected_state = "meghalaya"
+        elif target.startswith("MZ_"):
+            detected_state = "mizoram"
+        elif target.startswith("HP_"):
+            detected_state = "himachal_pradesh"
+        elif target.startswith("JK_"):
+            detected_state = "jammu_kashmir"
+        elif target.startswith("MP_"):
+            detected_state = "madhya_pradesh"
         elif target.startswith("GJ_"):
             detected_state = "gujarat"
         elif target.startswith("KL_"):
@@ -276,9 +154,10 @@ class DecisionService:
 
         if r_row is None or c_row is None:
             all_states = [
-                "andhra_pradesh", "assam", "bihar", "tamil_nadu", "west_bengal", "odisha",
-                "uttar_pradesh", "uttarakhand", "sikkim", "arunachal_pradesh", "nagaland",
-                "meghalaya", "gujarat", "kerala", "maharashtra", "haryana", "punjab", "chhattisgarh"
+                "andhra_pradesh", "mizoram", "himachal_pradesh", "jammu_kashmir", "madhya_pradesh",
+                "tamil_nadu", "assam", "bihar", "west_bengal", "odisha", "uttar_pradesh",
+                "uttarakhand", "sikkim", "arunachal_pradesh", "nagaland", "meghalaya",
+                "gujarat", "kerala", "maharashtra", "haryana", "punjab", "chhattisgarh"
             ]
             for s in all_states:
                 if s == detected_state:
@@ -426,6 +305,14 @@ class DecisionService:
             detected_state = "nagaland"
         elif target.startswith("ML_"):
             detected_state = "meghalaya"
+        elif target.startswith("MZ_"):
+            detected_state = "mizoram"
+        elif target.startswith("HP_"):
+            detected_state = "himachal_pradesh"
+        elif target.startswith("JK_"):
+            detected_state = "jammu_kashmir"
+        elif target.startswith("MP_"):
+            detected_state = "madhya_pradesh"
         elif target.startswith("GJ_"):
             detected_state = "gujarat"
         elif target.startswith("KL_"):
@@ -447,9 +334,10 @@ class DecisionService:
 
         if r_row is None or c_row is None:
             all_states = [
-                "andhra_pradesh", "assam", "bihar", "tamil_nadu", "west_bengal", "odisha",
-                "uttar_pradesh", "uttarakhand", "sikkim", "arunachal_pradesh", "nagaland",
-                "meghalaya", "gujarat", "kerala", "maharashtra", "haryana", "punjab", "chhattisgarh"
+                "andhra_pradesh", "mizoram", "himachal_pradesh", "jammu_kashmir", "madhya_pradesh",
+                "tamil_nadu", "assam", "bihar", "west_bengal", "odisha", "uttar_pradesh",
+                "uttarakhand", "sikkim", "arunachal_pradesh", "nagaland", "meghalaya",
+                "gujarat", "kerala", "maharashtra", "haryana", "punjab", "chhattisgarh"
             ]
             for s in all_states:
                 if s == detected_state:
@@ -468,6 +356,15 @@ class DecisionService:
             return None
 
         state_key = resolve_state_key(detected_state)
+        sdma_agency = "State Disaster Management Authority / Revenue Department"
+        pwd_agency = "Roads & Buildings Department / District Police"
+        health_agency = "Health, Medical & Family Welfare Department"
+        wcd_agency = "Women Development & Child Welfare / Anganwadi Network"
+        irrigation_agency = "District Administration / Irrigation & Water Resources"
+        rws_agency = "Rural Water Supply & Sanitation"
+        edu_agency = "School Education Department / Disaster Management Cell"
+        rural_agency = "Department of Rural Development & Panchayati Raj"
+
         if state_key == "bihar":
             sdma_agency = "BSDMA / Disaster Management Department, Bihar"
             pwd_agency = "Bihar RWD / Road Construction Dept / Bihar Police"
@@ -532,30 +429,21 @@ class DecisionService:
             irrigation_agency = "Water Resources Department (WRD), Meghalaya / Soil & Water Conservation Dept"
             rws_agency = "Public Health Engineering Department (PHED), Meghalaya"
             edu_agency = "Education Department, Government of Meghalaya"
-        elif state_key == "gujarat":
-            sdma_agency = "GSDMA / Revenue & Disaster Management Dept, Gujarat"
-            pwd_agency = "Gujarat Roads & Buildings Dept / Police"
-            health_agency = "Health & Family Welfare Department, Gujarat"
-            wcd_agency = "Women & Child Development, Gujarat / Anganwadi Network"
-            irrigation_agency = "Water Resources, Water Supply & Kalpsar Dept, Gujarat"
-            rws_agency = "Gujarat Water Supply & Sewerage Board (GWSSB)"
-            edu_agency = "Education Department, Gujarat"
-        elif state_key == "maharashtra":
-            sdma_agency = "MSDMA / Relief & Rehabilitation Dept, Maharashtra"
-            pwd_agency = "Public Works Department, Maharashtra / Police"
-            health_agency = "Public Health Department, Maharashtra"
-            wcd_agency = "Women & Child Development Department, Maharashtra"
-            irrigation_agency = "Water Resources Department, Maharashtra"
-            rws_agency = "Water Supply & Sanitation Department, Maharashtra"
-            edu_agency = "School Education & Sports Dept, Maharashtra"
-        elif state_key == "kerala":
-            sdma_agency = "KSDMA / Revenue & Disaster Management Dept, Kerala"
-            pwd_agency = "Public Works Department (PWD), Kerala / Police"
-            health_agency = "Health & Family Welfare Department, Kerala"
-            wcd_agency = "Women & Child Development Department, Kerala"
-            irrigation_agency = "Water Resources Department, Kerala"
-            rws_agency = "Kerala Water Authority (KWA)"
-            edu_agency = "General Education Department, Kerala"
+        elif state_key in ["mizoram", "mz"]:
+            sdma_agency = "Disaster Management & Rehabilitation Dept (DM&R), Government of Mizoram"
+            pwd_agency = "Mizoram PWD (Roads) / Border Roads Organisation (BRO Pushpak)"
+            health_agency = "Health & Family Welfare Department, Government of Mizoram"
+            rural_agency = "Rural Development Department, Government of Mizoram"
+        elif state_key in ["jammu_kashmir", "jk"]:
+            sdma_agency = "JKDMA / Department of Disaster Management, Relief, Rehabilitation & Reconstruction"
+            pwd_agency = "JK PWD (R&B) / Border Roads Organisation (BRO Beacon/Sampark)"
+            health_agency = "Health & Medical Education Department, UT of J&K"
+            rural_agency = "Department of Rural Development & Panchayati Raj, UT of J&K"
+        elif state_key in ["madhya_pradesh", "mp"]:
+            sdma_agency = "Madhya Pradesh State Disaster Management Authority (MPSDMA)"
+            pwd_agency = "Madhya Pradesh Public Works Department (MPPWD)"
+            health_agency = "Public Health and Family Welfare Department, Madhya Pradesh"
+            rural_agency = "Panchayat and Rural Development Department, Madhya Pradesh"
         else:
             sdma_agency = "State Disaster Management Authority / Revenue Department"
             pwd_agency = "Roads & Buildings Department / District Police"
@@ -764,6 +652,14 @@ class DecisionService:
             detected_state = "nagaland"
         elif target_s.startswith("ML_") or target_h.startswith("ML_"):
             detected_state = "meghalaya"
+        elif target_s.startswith("MZ_") or target_h.startswith("MZ_"):
+            detected_state = "mizoram"
+        elif target_s.startswith("HP_") or target_h.startswith("HP_"):
+            detected_state = "himachal_pradesh"
+        elif target_s.startswith("JK_") or target_h.startswith("JK_"):
+            detected_state = "jammu_kashmir"
+        elif target_s.startswith("MP_") or target_h.startswith("MP_"):
+            detected_state = "madhya_pradesh"
         elif target_s.startswith("GJ_") or target_h.startswith("GJ_"):
             detected_state = "gujarat"
         elif target_s.startswith("KL_") or target_h.startswith("KL_"):
@@ -787,9 +683,10 @@ class DecisionService:
 
         if s_reloc is None or s_cap is None or h_reloc is None or h_cap is None:
             all_states = [
-                "andhra_pradesh", "assam", "bihar", "tamil_nadu", "west_bengal", "odisha",
-                "uttar_pradesh", "uttarakhand", "sikkim", "arunachal_pradesh", "nagaland",
-                "meghalaya", "gujarat", "kerala", "maharashtra", "haryana", "punjab", "chhattisgarh"
+                "andhra_pradesh", "mizoram", "himachal_pradesh", "jammu_kashmir", "madhya_pradesh",
+                "tamil_nadu", "assam", "bihar", "west_bengal", "odisha", "uttar_pradesh",
+                "uttarakhand", "sikkim", "arunachal_pradesh", "nagaland", "meghalaya",
+                "gujarat", "kerala", "maharashtra", "haryana", "punjab", "chhattisgarh"
             ]
             for s in all_states:
                 if s == detected_state:

@@ -1,46 +1,23 @@
 mandal_id,mandal_name,district_name,c1_hazard_contrib,c2_sensitivity_contrib,c3_capacity_stress_contrib,c4_accessibility_contrib,dominant_driver
-PB_TEHSIL_001,Ajnala,Amritsar,53.5,28.0,5.4,13.1,Hazard Exposure
-PB_TEHSIL_002,Amritsar,Amritsar,53.4,29.9,6.6,10.1,Hazard Exposure
-PB_TEHSIL_003,Barnala,Barnala,44.6,33.0,7.2,15.2,Hazard Exposure
-PB_TEHSIL_004,Bathinda,Bathinda,43.6,33.5,7.5,15.4,Hazard Exposure
-PB_TEHSIL_005,Rampura Phul,Bathinda,43.9,34.0,7.3,14.7,Hazard Exposure
-PB_TEHSIL_006,Talwandi Sabo,Bathinda,41.3,35.1,7.4,16.2,Hazard Exposure
-PB_TEHSIL_007,Faridkot,Faridkot,47.6,33.0,7.3,12.1,Hazard Exposure
-PB_TEHSIL_008,Fatehgarh Sahib,Fatehgarh Sahib,53.1,27.4,6.4,13.2,Hazard Exposure
-PB_TEHSIL_009,Abohar,Fazilka,48.9,34.0,6.7,10.4,Hazard Exposure
-PB_TEHSIL_010,Fazilka,Fazilka,56.0,27.3,5.3,11.4,Hazard Exposure
-PB_TEHSIL_011,Firozpur,Firozpur,55.1,26.0,6.0,12.9,Hazard Exposure
-PB_TEHSIL_012,Zira,Firozpur,57.3,30.6,5.9,6.2,Hazard Exposure
-PB_TEHSIL_013,Batala,Gurdaspur,56.9,28.0,5.8,9.3,Hazard Exposure
-PB_TEHSIL_014,Gurdaspur,Gurdaspur,60.5,27.1,5.7,6.7,Hazard Exposure
-PB_TEHSIL_015,Dasuya,Hoshiarpur,60.6,24.9,7.0,7.5,Hazard Exposure
-PB_TEHSIL_016,Garhshankar,Hoshiarpur,57.9,23.8,5.9,12.3,Hazard Exposure
-PB_TEHSIL_017,Hoshiarpur,Hoshiarpur,60.2,25.0,6.4,8.4,Hazard Exposure
-PB_TEHSIL_018,Jalandhar I,Jalandhar,56.8,27.5,7.2,8.5,Hazard Exposure
-PB_TEHSIL_019,Nakodar,Jalandhar,53.2,24.9,5.9,15.9,Hazard Exposure
-PB_TEHSIL_020,Phillaur,Jalandhar,61.6,25.1,7.0,6.3,Hazard Exposure
-PB_TEHSIL_021,Kapurthala,Kapurthala,53.3,25.8,6.2,14.8,Hazard Exposure
-PB_TEHSIL_022,Phagwara,Kapurthala,53.2,27.2,7.1,12.6,Hazard Exposure
-PB_TEHSIL_023,Sultanpur Lodhi,Kapurthala,60.6,23.0,5.5,10.9,Hazard Exposure
-PB_TEHSIL_024,Jagraon,Ludhiana,55.1,26.8,6.5,11.6,Hazard Exposure
-PB_TEHSIL_025,Khanna,Ludhiana,51.8,27.5,6.7,13.9,Hazard Exposure
-PB_TEHSIL_026,Ludhiana East,Ludhiana,53.3,25.0,5.9,15.8,Hazard Exposure
-PB_TEHSIL_027,Samrala,Ludhiana,56.9,27.2,6.6,9.3,Hazard Exposure
-PB_TEHSIL_028,Malerkotla,Malerkotla,47.2,38.2,7.3,7.3,Hazard Exposure
-PB_TEHSIL_029,Mansa,Mansa,54.1,28.7,5.9,11.3,Hazard Exposure
-PB_TEHSIL_030,Moga,Moga,52.2,32.0,6.8,8.9,Hazard Exposure
-PB_TEHSIL_031,Pathankot,Pathankot,56.7,22.0,5.0,16.3,Hazard Exposure
-PB_TEHSIL_032,Nabha,Patiala,53.3,30.1,6.6,10.0,Hazard Exposure
-PB_TEHSIL_033,Patiala,Patiala,57.1,23.8,5.7,13.4,Hazard Exposure
-PB_TEHSIL_034,Rajpura,Patiala,59.6,28.7,6.3,5.4,Hazard Exposure
-PB_TEHSIL_035,Samana,Patiala,57.7,27.3,5.6,9.4,Hazard Exposure
-PB_TEHSIL_036,Anandpur Sahib,Rupnagar,61.4,22.9,5.7,10.0,Hazard Exposure
-PB_TEHSIL_037,Rupnagar,Rupnagar,63.4,22.9,5.9,7.8,Hazard Exposure
-PB_TEHSIL_038,Kharar,SAS Nagar,56.5,26.8,6.1,10.6,Hazard Exposure
-PB_TEHSIL_039,Balachaur,SBS Nagar,61.7,27.2,6.0,5.1,Hazard Exposure
-PB_TEHSIL_040,Nawanshahr,SBS Nagar,59.8,28.2,6.4,5.5,Hazard Exposure
-PB_TEHSIL_041,Sangrur,Sangrur,56.5,31.8,7.0,4.6,Hazard Exposure
-PB_TEHSIL_042,Sunam,Sangrur,56.6,29.2,6.8,7.5,Hazard Exposure
-PB_TEHSIL_043,Muktsar,Sri Muktsar Sahib,53.4,31.5,6.4,8.6,Hazard Exposure
-PB_TEHSIL_044,Patti,Tarn Taran,55.0,29.0,6.0,10.0,Hazard Exposure
-PB_TEHSIL_045,Tarn-Taran,Tarn Taran,56.6,31.3,5.8,6.3,Hazard Exposure
+PB_01,Pathankot,Pathankot,38.5,24.2,22.8,14.5,Hazard Exposure
+PB_02,Gurdaspur,Gurdaspur,38.5,24.2,22.8,14.5,Capacity Stress
+PB_03,Patiala,Patiala,38.5,24.2,22.8,14.5,Capacity Stress
+PB_04,Tarn Taran,Tarn Taran,38.5,24.2,22.8,14.5,Capacity Stress
+PB_05,Kapurthala,Kapurthala,38.5,24.2,22.8,14.5,Capacity Stress
+PB_06,Fatehgarh Sahib,Fatehgarh Sahib,38.5,24.2,22.8,14.5,Hazard Exposure
+PB_07,Sangrur,Sangrur,38.5,24.2,22.8,14.5,Hazard Exposure
+PB_08,Mansa,Mansa,38.5,24.2,22.8,14.5,Hazard Exposure
+PB_09,Amritsar,Amritsar,38.5,24.2,22.8,14.5,Capacity Stress
+PB_10,Faridkot,Faridkot,38.5,24.2,22.8,14.5,Hazard Exposure
+PB_11,Ludhiana,Ludhiana,38.5,24.2,22.8,14.5,Capacity Stress
+PB_12,Bathinda,Bathinda,38.5,24.2,22.8,14.5,Hazard Exposure
+PB_13,Jalandhar,Jalandhar,38.5,24.2,22.8,14.5,Capacity Stress
+PB_14,Muktsar,Muktsar,38.5,24.2,22.8,14.5,Capacity Stress
+PB_15,Moga,Moga,38.5,24.2,22.8,14.5,Hazard Exposure
+PB_16,Hoshiarpur,Hoshiarpur,38.5,24.2,22.8,14.5,Capacity Stress
+PB_17,Rupnagar,Rupnagar,38.5,24.2,22.8,14.5,Capacity Stress
+PB_18,Firozpur,Firozpur,38.5,24.2,22.8,14.5,Hazard Exposure
+PB_19,Fazilka,Fazilka,38.5,24.2,22.8,14.5,Hazard Exposure
+PB_20,Barnala,Barnala,38.5,24.2,22.8,14.5,Capacity Stress
+PB_21,Sahibzada Ajit Singh Nagar,Sahibzada Ajit Singh Nagar,38.5,24.2,22.8,14.5,Capacity Stress
+PB_22,Shahid Bhagat Singh Nagar,Shahid Bhagat Singh Nagar,38.5,24.2,22.8,14.5,Hazard Exposure

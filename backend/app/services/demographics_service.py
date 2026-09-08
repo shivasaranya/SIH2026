@@ -4,6 +4,7 @@ from pathlib import Path
 from typing import Dict, List, Optional, Any, Tuple
 import pandas as pd
 from app.core.config import settings
+from app.core.state_registry import state_registry, get_state_key
 from app.demographics.schemas import (
     DistrictDemographicSummary,
     StateDemographicSummary,
@@ -25,329 +26,131 @@ def normalize_name(s: Any) -> str:
     s = re.sub(r'[^A-Z0-9]', '', s.upper())
     return s
 
-MANDAL_ALIASES = {
-    ('alluri_sitharama_raju', 'ARUKUVALLEY'): 'ARAKUVALLEY',
-    ('alluri_sitharama_raju', 'GKVEEDHI'): 'GUDEMKOTHAVEEDHI',
-    ('alluri_sitharama_raju', 'MUNCHINGIPUTTU'): 'MUNCHINGIPUTTU',
-    ('alluri_sitharama_raju', 'PEDABAYALU'): 'PEDABAYALU',
-    ('anakapalli', 'ANAKAPALLI'): 'ANAKAPALLE',
-    ('anakapalli', 'NAKKAPALLI'): 'NAKKAPALLE',
-    ('anakapalli', 'RAVIKAMATAM'): 'RAVIKAMATHAM',
-    ('eluru', 'UNGUTUR'): 'UNGUTURU',
-    ('palnadu', 'SAVALYAPURAM'): 'SAVALYAPURAM',
-    ('palnadu', 'CHILAKALURIPET'): 'CHILAKALURIPET',
-    ('bapatla', 'CHERUKUPALLE'): 'CHERUKUPALLE',
-    ('annamayya', 'VAYALPAD'): 'VALMIKIPURAM',
-    ('vizianagaram', 'REGIDIAMADALAVALASA'): 'REGIDIAMADALAVALASA',
-    ('anakapalli', 'DEVARAPALLE'): 'DEVARAPALLE',
-    ('parvathipuram_manyam', 'SEETHANAGARAM'): 'SEETHANAGARAM',
-    ('anakapalli', 'KKOTAPADU'): 'KKOTAPADU',
-    ('alluri_sitharama_raju', 'GMADUGULA'): 'GMADUGULA',
-    ('alluri_sitharama_raju', 'YRAMAVARAM'): 'YRAMAVARAM',
-    ('east_godavari', 'RAJAHMUNDRYRURAL'): 'RAJAHMUNDRYRURAL',
-    ('east_godavari', 'SEETHANAGARAM'): 'SEETHANAGARAM',
-}
-
 def resolve_state_key(state_id: Optional[str]) -> str:
-    if not state_id:
-        return "ap"
-    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
-    if clean in ["mizoram", "mz", "mizo"]:
-        return "mz"
-    if clean in ["himachal_pradesh", "hp", "himachal"]:
-        return "hp"
-    if clean in ["tamil_nadu", "tn", "tamilnadu"]:
-        return "tn"
-    if clean in ["ap", "andhra_pradesh", "andhra", "andhrapradesh"]:
-        return "andhra_pradesh"
-    if clean in ["odisha", "od", "or", "orissa"]:
-        return "odisha"
-    if clean in ["assam", "as"]:
-        return "assam"
-    if clean in ["bihar", "br"]:
-        return "bihar"
-    if clean in ["west_bengal", "wb", "westbengal", "bengal"]:
-        return "west_bengal"
-    if clean in ["uttar_pradesh", "up", "uttarpradesh"]:
-        return "uttar_pradesh"
-    if clean in ["uttarakhand", "uk", "uttaranchal"]:
-        return "uttarakhand"
-    if clean in ["sikkim", "sk"]:
-        return "sikkim"
-    if clean in ["arunachal_pradesh", "arunachal", "ar"]:
-        return "arunachal_pradesh"
-    if clean in ["nagaland", "nl"]:
-        return "nagaland"
-    if clean in ["meghalaya", "ml"]:
-        return "meghalaya"
-    if clean in ["gujarat", "gj", "guj"]:
-        return "gujarat"
-    if clean in ["kerala", "kl", "kerela"]:
-        return "kerala"
-    if clean in ["maharashtra", "mh", "maharastra"]:
-        return "maharashtra"
-    if clean in ["haryana", "hr"]:
-        return "haryana"
-    if clean in ["punjab", "pb"]:
-        return "punjab"
-    if clean in ["chhattisgarh", "cg", "chhatisgarh", "chattisgarh", "ct"]:
-        return "chhattisgarh"
-    if clean in ["rajasthan", "rj"]:
-        return "rajasthan"
-    if clean in ["telangana", "tg", "ts"]:
-        return "telangana"
-    if clean in ["madhya_pradesh", "mp", "madhyapradesh"]:
-        return "madhya_pradesh"
-    if clean in ["tripura", "tr"]:
-        return "tripura"
-    if clean in ["karnataka", "ka"]:
-        return "karnataka"
-    if clean in ["goa", "ga"]:
-        return "goa"
-    if clean in ["jharkhand", "jh"]:
-        return "jharkhand"
-    if clean in ["delhi", "dl"]:
-        return "delhi"
-    if clean in ["jammu_and_kashmir", "jk"]:
-        return "jammu_and_kashmir"
-    if clean in ["ladakh", "la"]:
-        return "ladakh"
-    if clean in ["manipur", "mn"]:
-        return "manipur"
-    return "andhra_pradesh"
-
+    return get_state_key(state_id)
 def is_tn(state_id: Optional[str]) -> bool:
-    return resolve_state_key(state_id) == "tn"
+    return get_state_key(state_id) == "tamil_nadu"
 
 def is_mizoram(state_id: Optional[str]) -> bool:
-    return resolve_state_key(state_id) == "mz"
+    return get_state_key(state_id) == "mizoram"
 
-def is_hp(state_id: Optional[str]) -> bool:
-    return resolve_state_key(state_id) == "hp"
+MANDAL_ALIASES = {
+    ("alluri_sitharama_raju", "GUDEMKOTHAVEEDHI"): "GKVEEDHI",
+    ("alluri_sitharama_raju", "CHINTAPALLE"): "CHINTHAPALLE",
+    ("alluri_sitharama_raju", "KOYYURU"): "KOYYURU",
+    ("alluri_sitharama_raju", "RAMPACHODAVARAM"): "RAMPACHODAVARAM",
+    ("chittoor", "GUDIPALA"): "GUDIPALA",
+    ("chittoor", "NAGARI"): "NAGARI",
+    ("east_godavari", "RAJAHMUNDRYRURAL"): "RAJAHMUNDRYRURAL",
+    ("east_godavari", "RAJAHMUNDRYURBAN"): "RAJAHMUNDRYURBAN",
+    ("guntur", "GUNTURURBAN"): "GUNTURURBAN",
+    ("guntur", "GUNTURRURAL"): "GUNTURRURAL",
+    ("kakinada", "KAKINADARURAL"): "KAKINADARURAL",
+    ("kakinada", "KAKINADAURBAN"): "KAKINADAURBAN",
+    ("kurnool", "KURNOOLURBAN"): "KURNOOLURBAN",
+    ("kurnool", "KURNOOLRURAL"): "KURNOOL",
+    ("ntr", "VIJAYAWADAURBAN"): "VIJAYAWADAURBAN",
+    ("ntr", "VIJAYAWADARURAL"): "VIJAYAWADARURAL",
+    ("sri_potti_sriramulu_nellore", "NELLOREURBAN"): "NELLOREURBAN",
+    ("sri_potti_sriramulu_nellore", "NELLORERURAL"): "NELLORERURAL",
+    ("tirupati", "TIRUPATIURBAN"): "TIRUPATIURBAN",
+    ("tirupati", "TIRUPATIRURAL"): "TIRUPATIRURAL",
+    ("visakhapatnam", "VISAKHAPATNAMURBAN"): "VISAKHAPATNAMURBAN",
+    ("west_godavari", "TADEPALLIGUDEM"): "TADEPALLIGUDEM",
+    ("west_godavari", "BHIMAVARAM"): "BHIMAVARAM",
+    ("tirupati", "TADA"): "TADA",
+}
 
+TALUK_ALIASES = {
+    'UNNURPETTAI': 'ULUNDURPETTAI',
+    'UNNURPET': 'ULUNDURPETTAI',
+    'ULUNDURPET': 'ULUNDURPETTAI',
+    'UDUMALAIPET': 'UDUMALAIPETTAI',
+}
+
+
+def is_jk(state_id: Optional[str]) -> bool:
+    return resolve_state_key(state_id) in ["jk", "jammu_kashmir"]
+
+def is_mp(state_id: Optional[str]) -> bool:
+    return resolve_state_key(state_id) in ["mp", "madhya_pradesh"]
 
 class DemographicsService:
     def __init__(self):
         self._cache: Dict[str, Dict[str, Any]] = {}
         self._village_df: Optional[pd.DataFrame] = None
         self._reloc_df: Optional[pd.DataFrame] = None
+        self._tn_village_df: Optional[pd.DataFrame] = None
+        self._tn_taluk_df: Optional[pd.DataFrame] = None
+
+    def _init_tn_village_data(self) -> None:
+        if self._tn_village_df is None:
+            csv_path = settings.PROCESSED_CENSUS_DIR / "tn_village_demographics.csv"
+            if csv_path.exists():
+                df_vill = pd.read_csv(csv_path)
+                df_vill["m_norm"] = df_vill["mandal_name"].apply(normalize_name)
+                df_vill["mandal_code"] = df_vill["mandal_code"].astype(str).str.strip()
+                df_vill["current_district_code"] = df_vill["current_district_code"].astype(str).str.strip()
+                self._tn_village_df = df_vill
+            else:
+                self._tn_village_df = pd.DataFrame()
+
+        if self._tn_taluk_df is None:
+            t_path = settings.PROCESSED_CENSUS_DIR / "tn_taluk_demographics.csv"
+            if t_path.exists():
+                df_t = pd.read_csv(t_path)
+                df_t["m_norm"] = df_t["taluk_name"].apply(normalize_name)
+                df_t["taluk_id"] = df_t["taluk_id"].astype(str).str.strip()
+                df_t["current_district_id"] = df_t["current_district_id"].astype(str).str.strip()
+                self._tn_taluk_df = df_t
+            else:
+                self._tn_taluk_df = pd.DataFrame()
 
     def _get_state_key(self, state_id: Optional[str]) -> str:
-        if is_mizoram(state_id):
-            return "mz"
-        if is_tn(state_id):
-            return "tn"
-        if is_hp(state_id):
-            return "hp"
-        return "ap"
+        return get_state_key(state_id)
 
     def _load_data(self, state_id: Optional[str] = "andhra_pradesh"):
-        key = resolve_state_key(state_id)
+        key = get_state_key(state_id)
         if key in self._cache:
             return self._cache[key]
 
-        if key == "mz":
-            csv_path = settings.PROCESSED_CENSUS_DIR / "mizoram_rd_block_demographics.csv"
-            state_name = "Mizoram"
-            state_code = "MZ"
-            code_col = "current_district_id"
-            name_col = "current_district_name"
-            m_code_col = "block_id"
-            m_name_col = "block_name"
-        elif key == "hp":
-            csv_path = settings.PROCESSED_CENSUS_DIR / "hp_tehsil_demographics.csv"
-            state_name = "Himachal Pradesh"
-            state_code = "HP"
-            code_col = "current_district_id"
-            name_col = "current_district_name"
-            m_code_col = "tehsil_id"
-            m_name_col = "tehsil_name"
-        elif key == "tn":
-            csv_path = settings.PROCESSED_CENSUS_DIR / "tn_taluk_demographics.csv"
-            state_name = "Tamil Nadu"
-            state_code = "TN"
-            code_col = "current_district_id"
-            name_col = "current_district_name"
-            m_code_col = "taluk_id"
-            m_name_col = "taluk_name"
-        elif key == "uttar_pradesh":
-            csv_path = settings.PROCESSED_CENSUS_DIR / "up_tehsil_demographics.csv"
-            state_name = "Uttar Pradesh"
-            state_code = "UP"
-            code_col = "current_district_id"
-            name_col = "current_district_name"
-            m_code_col = "tehsil_id"
-            m_name_col = "tehsil_name"
-        elif key == "uttarakhand":
-            csv_path = settings.PROCESSED_CENSUS_DIR / "uk_tehsil_demographics.csv"
-            state_name = "Uttarakhand"
-            state_code = "UK"
-            code_col = "current_district_id"
-            name_col = "current_district_name"
-            m_code_col = "tehsil_id"
-            m_name_col = "tehsil_name"
-        elif key == "sikkim":
-            csv_path = settings.PROCESSED_CENSUS_DIR / "sk_subdivision_demographics.csv"
-            state_name = "Sikkim"
-            state_code = "SK"
-            code_col = "district_id"
-            name_col = "district_name"
-            m_code_col = "subdivision_id"
-            m_name_col = "subdivision_name"
-        elif key == "arunachal_pradesh":
-            csv_path = settings.PROCESSED_CENSUS_DIR / "ar_circle_demographics.csv"
-            state_name = "Arunachal Pradesh"
-            state_code = "AR"
-            code_col = "district_id"
-            name_col = "district_name"
-            m_code_col = "circle_id"
-            m_name_col = "circle_name"
-        elif key == "nagaland":
-            csv_path = settings.PROCESSED_CENSUS_DIR / "nl_circle_demographics.csv"
-            state_name = "Nagaland"
-            state_code = "NL"
-            code_col = "district_id"
-            name_col = "district_name"
-            m_code_col = "circle_id"
-            m_name_col = "circle_name"
-        elif key == "meghalaya":
-            csv_path = settings.PROCESSED_CENSUS_DIR / "ml_block_demographics.csv"
-            state_name = "Meghalaya"
-            state_code = "ML"
-            code_col = "district_id"
-            name_col = "district_name"
-            m_code_col = "block_id"
-            m_name_col = "block_name"
-        elif key == "gujarat":
-            csv_path = settings.PROCESSED_CENSUS_DIR / "gujarat_taluka_demographics.csv"
-            state_name = "Gujarat"
-            state_code = "GJ"
-            code_col = "current_district_id"
-            name_col = "current_district_name"
-            m_code_col = "mandal_code"
-            m_name_col = "mandal_name"
-        elif key == "kerala":
-            csv_path = settings.PROCESSED_CENSUS_DIR / "kerala_taluka_demographics.csv"
-            state_name = "Kerala"
-            state_code = "KL"
-            code_col = "current_district_id"
-            name_col = "current_district_name"
-            m_code_col = "mandal_code"
-            m_name_col = "mandal_name"
-        elif key == "maharashtra":
-            csv_path = settings.PROCESSED_CENSUS_DIR / "maharashtra_taluka_demographics.csv"
-            state_name = "Maharashtra"
-            state_code = "MH"
-            code_col = "current_district_id"
-            name_col = "current_district_name"
-            m_code_col = "mandal_code"
-            m_name_col = "mandal_name"
-        elif key == "haryana":
-            csv_path = settings.PROCESSED_CENSUS_DIR / "haryana_taluka_demographics.csv"
-            state_name = "Haryana"
-            state_code = "HR"
-            code_col = "current_district_id"
-            name_col = "current_district_name"
-            m_code_col = "mandal_code"
-            m_name_col = "mandal_name"
-        elif key == "punjab":
-            csv_path = settings.PROCESSED_CENSUS_DIR / "punjab_taluka_demographics.csv"
-            state_name = "Punjab"
-            state_code = "PB"
-            code_col = "current_district_id"
-            name_col = "current_district_name"
-            m_code_col = "mandal_code"
-            m_name_col = "mandal_name"
-        elif key == "chhattisgarh":
-            csv_path = settings.PROCESSED_CENSUS_DIR / "chhattisgarh_taluka_demographics.csv"
-            state_name = "Chhattisgarh"
-            state_code = "CG"
-            code_col = "current_district_id"
-            name_col = "current_district_name"
-            m_code_col = "mandal_code"
-            m_name_col = "mandal_name"
-        elif key == "rajasthan":
-            csv_path = settings.PROCESSED_CENSUS_DIR / "rajasthan_tehsil_demographics.csv"
-            state_name = "Rajasthan"
-            state_code = "RJ"
-            code_col = "current_district_id"
-            name_col = "current_district_name"
-            m_code_col = "tehsil_id"
-            m_name_col = "tehsil_name"
-        elif key == "odisha":
-            csv_path = settings.PROCESSED_CENSUS_DIR / "od_block_demographics.csv"
-            state_name = "Odisha"
-            state_code = "OD"
-            code_col = "current_district_id"
-            name_col = "current_district_name"
-            m_code_col = "block_id"
-            m_name_col = "block_name"
-        elif key == "west_bengal":
-            csv_path = settings.PROCESSED_CENSUS_DIR / "wb_block_demographics.csv"
-            state_name = "West Bengal"
-            state_code = "WB"
-            code_col = "current_district_id"
-            name_col = "current_district_name"
-            m_code_col = "block_id"
-            m_name_col = "block_name"
-        elif key == "bihar":
-            csv_path = settings.PROCESSED_CENSUS_DIR / "br_block_demographics.csv"
-            state_name = "Bihar"
-            state_code = "BR"
-            code_col = "current_district_id"
-            name_col = "current_district_name"
-            m_code_col = "block_id"
-            m_name_col = "block_name"
-        elif key == "assam":
-            csv_path = settings.PROCESSED_CENSUS_DIR / "as_circle_demographics.csv"
-            state_name = "Assam"
-            state_code = "AS"
-            code_col = "current_district_id"
-            name_col = "current_district_name"
-            m_code_col = "circle_id"
-            m_name_col = "circle_name"
-        elif (settings.PROCESSED_CENSUS_DIR / f"{key}_demographics.csv").exists():
-            csv_path = settings.PROCESSED_CENSUS_DIR / f"{key}_demographics.csv"
-            _state_names = {
-                "madhya_pradesh": ("Madhya Pradesh", "MP"),
-                "telangana": ("Telangana", "TG"),
-                "tripura": ("Tripura", "TR"),
-                "karnataka": ("Karnataka", "KA"),
-                "goa": ("Goa", "GA"),
-                "jharkhand": ("Jharkhand", "JH"),
-                "delhi": ("Delhi", "DL"),
-                "jammu_and_kashmir": ("Jammu & Kashmir", "JK"),
-                "ladakh": ("Ladakh", "LA"),
-                "manipur": ("Manipur", "MN"),
-            }
-            s_meta = _state_names.get(key, (key.replace("_", " ").title(), key[:2].upper()))
-            state_name = s_meta[0]
-            state_code = s_meta[1]
-            code_col = "current_district_id"
-            name_col = "current_district_name"
-            m_code_col = "mandal_id"
-            m_name_col = "mandal_name"
-        elif (settings.PROCESSED_CENSUS_DIR / f"{key}_tehsil_demographics.csv").exists():
-            csv_path = settings.PROCESSED_CENSUS_DIR / f"{key}_tehsil_demographics.csv"
-            state_name = key.replace("_", " ").title()
-            state_code = key[:2].upper()
-            code_col = "current_district_id"
-            name_col = "current_district_name"
-            m_code_col = "tehsil_id"
-            m_name_col = "tehsil_name"
-        else:
-            csv_path = settings.PROCESSED_CENSUS_DIR / "ap_village_demographics.csv"
-            state_name = "Andhra Pradesh"
-            state_code = "AP"
+        meta = state_registry.get_state(key)
+        csv_path = meta.census_csv
+        state_name = meta.name
+        state_code = meta.code
+
+        if not csv_path or not csv_path.exists():
+            alt_path = settings.PROCESSED_CENSUS_DIR / f"{key}_demographics.csv"
+            if alt_path.exists():
+                csv_path = alt_path
+            else:
+                raise FileNotFoundError(f"Demographics dataset not found at {csv_path}")
+
+        df = pd.read_csv(csv_path)
+
+        # Standardize column mappings
+        if key == "andhra_pradesh":
             code_col = "current_district_code"
             name_col = "current_district_name"
             m_code_col = "mandal_code"
             m_name_col = "mandal_name"
-
-        if not csv_path.exists():
-            raise FileNotFoundError(f"Demographics dataset not found at {csv_path}")
-
-        df = pd.read_csv(csv_path)
+        else:
+            code_col = "current_district_id" if "current_district_id" in df.columns else "district_id"
+            name_col = "current_district_name" if "current_district_name" in df.columns else "district_name"
+            if "mandal_id" in df.columns and "mandal_name" in df.columns:
+                m_code_col, m_name_col = "mandal_id", "mandal_name"
+            elif "circle_id" in df.columns and "circle_name" in df.columns:
+                m_code_col, m_name_col = "circle_id", "circle_name"
+            elif "tehsil_id" in df.columns and "tehsil_name" in df.columns:
+                m_code_col, m_name_col = "tehsil_id", "tehsil_name"
+            elif "block_id" in df.columns and "block_name" in df.columns:
+                m_code_col, m_name_col = "block_id", "block_name"
+            elif "subdivision_id" in df.columns and "subdivision_name" in df.columns:
+                m_code_col, m_name_col = "subdivision_id", "subdivision_name"
+            elif "taluk_id" in df.columns and "taluk_name" in df.columns:
+                m_code_col, m_name_col = "taluk_id", "taluk_name"
+            else:
+                m_code_col, m_name_col = "mandal_code", "mandal_name"
 
         # Standardize column naming if needed
         if code_col not in df.columns:
@@ -389,15 +192,20 @@ class DemographicsService:
             "arunachal_pradesh": 5589,
             "nagaland": 1428,
             "meghalaya": 6839,
-            "gujarat": 18225,
-            "kerala": 1553,
-            "maharashtra": 43665,
-            "haryana": 6841,
-            "punjab": 12581,
-            "chhattisgarh": 20126,
+            "mizoram": 830,
+            "himachal_pradesh": 20690,
         }
         state_benchmark_villages = STATE_VILLAGE_BENCHMARKS.get(key, 10000)
-        state_total_pop = max(1, df['population_total'].sum())
+
+        # Harmonize common column names for population & demographics
+        pop_col = "population_total" if "population_total" in df.columns else ("total_population" if "total_population" in df.columns else "population")
+        hh_col = "households" if "households" in df.columns else ("total_households" if "total_households" in df.columns else "households")
+        p06_col = "population_0_6" if "population_0_6" in df.columns else ("children_0_6" if "children_0_6" in df.columns else "child_pop")
+        sc_col = "population_sc" if "population_sc" in df.columns else ("sc_population" if "sc_population" in df.columns else "scheduled_castes")
+        st_col = "population_st" if "population_st" in df.columns else ("st_population" if "st_population" in df.columns else "scheduled_tribes")
+        work_col = "workers" if "workers" in df.columns else ("total_workers" if "total_workers" in df.columns else "workers_total")
+
+        state_total_pop = max(1, df[pop_col].sum() if pop_col in df.columns else 1)
 
         grouped = df.groupby([code_col, name_col])
         district_list: List[DistrictDemographicSummary] = []
@@ -405,31 +213,31 @@ class DemographicsService:
         district_details: Dict[str, DistrictDetailResponse] = {}
 
         for (did, dname), grp in grouped:
-            pop = int(grp['population_total'].sum())
-            hh = int(grp['households'].sum())
-            p06 = int(grp['population_0_6'].sum())
-            sc = int(grp['population_sc'].sum()) if 'population_sc' in grp.columns else int(pop * 0.07)
-            st = int(grp['population_st'].sum()) if 'population_st' in grp.columns else int(pop * 0.12)
-            workers = int(grp['workers'].sum())
-            mandals = int(grp[m_code_col].nunique()) if m_code_col in grp.columns else len(grp)
+            pop = int(grp[pop_col].sum()) if pop_col in grp.columns else 0
+            hh = int(grp[hh_col].sum()) if hh_col in grp.columns else int(pop / 4.5)
+            p06 = int(grp[p06_col].sum()) if p06_col in grp.columns else int(pop * 0.11)
+            sc = int(grp[sc_col].sum()) if sc_col in grp.columns else int(pop * 0.07)
+            st = int(grp[st_col].sum()) if st_col in grp.columns else int(pop * 0.12)
+            workers = int(grp[work_col].sum()) if work_col in grp.columns else int(pop * 0.45)
+            mandals = int(grp[m_code_col].nunique())
 
             p06_pct = round((p06 / pop * 100) if pop > 0 else 0.0, 2)
             sc_pct = round((sc / pop * 100) if pop > 0 else 0.0, 2)
             st_pct = round((st / pop * 100) if pop > 0 else 0.0, 2)
 
-            # Mandal / Unit breakdown
-            mandal_grp = grp.groupby([m_code_col, m_name_col]) if (m_code_col in grp.columns and m_name_col in grp.columns) else [(1, grp)]
+            # Mandal / Subunit breakdown
+            mandal_grp = grp.groupby([m_code_col, m_name_col])
             mandal_list: List[MandalDemographicSummary] = []
             for (mid, mname), m_sub in mandal_grp:
-                mpop = int(m_sub['population_total'].sum())
-                mhh = int(m_sub['households'].sum())
-                mp06 = int(m_sub['population_0_6'].sum())
-                msc = int(m_sub['population_sc'].sum()) if 'population_sc' in m_sub.columns else int(mpop * 0.07)
-                mst = int(m_sub['population_st'].sum()) if 'population_st' in m_sub.columns else int(mpop * 0.12)
-                mwork = int(m_sub['workers'].sum())
+                mpop = int(m_sub[pop_col].sum()) if pop_col in m_sub.columns else 0
+                mhh = int(m_sub[hh_col].sum()) if hh_col in m_sub.columns else int(mpop / 4.5)
+                mp06 = int(m_sub[p06_col].sum()) if p06_col in m_sub.columns else int(mpop * 0.11)
+                msc = int(m_sub[sc_col].sum()) if sc_col in m_sub.columns else int(mpop * 0.07)
+                mst = int(m_sub[st_col].sum()) if st_col in m_sub.columns else int(mpop * 0.12)
+                mwork = int(m_sub[work_col].sum()) if work_col in m_sub.columns else int(mpop * 0.45)
 
-                if 'village_count' in m_sub.columns and int(m_sub['village_count'].sum()) > 0:
-                    mvill = int(m_sub['village_count'].sum())
+                if "village_count" in m_sub.columns and int(m_sub["village_count"].sum()) > len(m_sub):
+                    mvill = int(m_sub["village_count"].sum())
                 elif key == "andhra_pradesh":
                     mvill = int(len(m_sub))
                 else:
@@ -440,7 +248,7 @@ class DemographicsService:
                 mst_pct = round((mst / mpop * 100) if mpop > 0 else 0.0, 2)
 
                 mandal_list.append(MandalDemographicSummary(
-                    mandal_code=mid,
+                    mandal_code=str(mid),
                     mandal_name=str(mname),
                     current_district_id=str(did).lower(),
                     current_district_name=str(dname),
@@ -456,7 +264,7 @@ class DemographicsService:
                     village_count=mvill
                 ))
 
-            villages = int(len(grp)) if key == "andhra_pradesh" else sum(m.village_count for m in mandal_list)
+            villages = int(len(grp)) if key in ["ap", "andhra_pradesh"] else sum(m.village_count for m in mandal_list)
 
             d_summary = DistrictDemographicSummary(
                 district_id=str(did).lower(),
@@ -488,15 +296,13 @@ class DemographicsService:
             district_details[str(did).lower()] = d_detail
             district_details[str(dname).lower()] = d_detail
 
-        district_list.sort(key=lambda x: x.district_name)
-
         tot_pop = int(df['population_total'].sum())
         tot_hh = int(df['households'].sum())
         tot_p06 = int(df['population_0_6'].sum())
         tot_sc = int(df['population_sc'].sum()) if 'population_sc' in df.columns else int(tot_pop * 0.07)
         tot_st = int(df['population_st'].sum()) if 'population_st' in df.columns else int(tot_pop * 0.12)
         tot_work = int(df['workers'].sum())
-        tot_villages = int(len(df)) if key == "andhra_pradesh" else sum(d.village_count for d in district_list)
+        tot_villages = int(len(df)) if key in ["ap", "andhra_pradesh"] else sum(d.village_count for d in district_list)
 
         state_summary = StateDemographicSummary(
             state_name=state_name,
@@ -569,6 +375,109 @@ class DemographicsService:
         district_id: Optional[str] = None
     ) -> MandalVillageListResponse:
         if is_tn(state_id):
+            self._init_tn_village_data()
+            if self._tn_village_df is None or self._tn_village_df.empty:
+                return MandalVillageListResponse(
+                    mandal_id=mandal_id,
+                    mandal_name=mandal_id,
+                    district_name="",
+                    district_code="",
+                    total_villages=0,
+                    villages=[],
+                    has_village_data=False,
+                    note="Tamil Nadu village dataset not found."
+                )
+
+            clean_query = mandal_id.strip()
+            q_norm = normalize_name(clean_query)
+            q_norm = TALUK_ALIASES.get(q_norm, q_norm)
+            resolved_did = re.sub(r'[^a-z0-9]+', '_', district_id.strip().lower()).strip('_') if district_id else ""
+
+            # 1. Crosswalk through administrative taluk directory if available
+            target_taluk_id = None
+            if self._tn_taluk_df is not None and not self._tn_taluk_df.empty:
+                t_row = self._tn_taluk_df[self._tn_taluk_df["taluk_id"].str.upper() == clean_query.upper()]
+                if t_row.empty and resolved_did:
+                    t_row = self._tn_taluk_df[
+                        (self._tn_taluk_df["current_district_id"] == resolved_did) &
+                        (self._tn_taluk_df["m_norm"] == q_norm)
+                    ]
+                if t_row.empty:
+                    t_row = self._tn_taluk_df[self._tn_taluk_df["m_norm"] == q_norm]
+                if not t_row.empty:
+                    target_taluk_id = str(t_row.iloc[0]["taluk_id"])
+
+            # 2. Filter villages by resolved taluk_id, or direct code, or name
+            sub = pd.DataFrame()
+            if target_taluk_id:
+                sub = self._tn_village_df[self._tn_village_df["mandal_code"].str.upper() == target_taluk_id.upper()]
+
+            if sub.empty:
+                sub = self._tn_village_df[self._tn_village_df["mandal_code"].str.upper() == clean_query.upper()]
+
+            if sub.empty:
+                if resolved_did:
+                    sub = self._tn_village_df[
+                        (self._tn_village_df["current_district_code"] == resolved_did) &
+                        (self._tn_village_df["m_norm"] == q_norm)
+                    ]
+                if sub.empty:
+                    sub = self._tn_village_df[self._tn_village_df["m_norm"] == q_norm]
+
+            if sub.empty:
+                return MandalVillageListResponse(
+                    mandal_id=clean_query,
+                    mandal_name=clean_query,
+                    district_name="",
+                    district_code=resolved_did,
+                    total_villages=0,
+                    villages=[],
+                    has_village_data=False,
+                    note=f"No Census villages found for taluk '{clean_query}'."
+                )
+
+            resolved_mid = str(sub.iloc[0]["mandal_code"])
+            resolved_mname = str(sub.iloc[0]["mandal_name"])
+            resolved_did = str(sub.iloc[0]["current_district_code"])
+            resolved_dname = str(sub.iloc[0]["current_district_name"])
+
+            sub_sorted = sub.sort_values(by=["village_name"], ascending=True)
+            village_items: List[VillageItem] = []
+            for _, row in sub_sorted.iterrows():
+                village_items.append(VillageItem(
+                    village_code=str(row["village_code"]),
+                    village_name=str(row["village_name"]),
+                    mandal_name=resolved_mname,
+                    mandal_code=resolved_mid,
+                    district_name=resolved_dname,
+                    district_code=resolved_did,
+                    population_total=int(row.get("population_total", 0) or 0),
+                    households=int(row.get("households", 0) or 0),
+                    population_male=int(row.get("population_male", 0) or 0),
+                    population_female=int(row.get("population_female", 0) or 0),
+                    population_0_6=int(row.get("population_0_6", 0) or 0) if pd.notna(row.get("population_0_6")) else 0,
+                    population_sc=int(row.get("population_sc", 0) or 0) if pd.notna(row.get("population_sc")) else 0,
+                    population_st=int(row.get("population_st", 0) or 0) if pd.notna(row.get("population_st")) else 0,
+                    workers=int(row.get("workers", 0) or 0) if pd.notna(row.get("workers")) else 0,
+                    non_workers=int(row.get("non_workers", 0) or 0) if pd.notna(row.get("non_workers")) else 0,
+                    data_year=2011,
+                    has_geometry=True,
+                    geometry_note="Survey of India Cadastral Boundary Available"
+                ))
+
+            return MandalVillageListResponse(
+                mandal_id=resolved_mid,
+                mandal_name=resolved_mname,
+                district_name=resolved_dname,
+                district_code=resolved_did,
+                total_villages=len(village_items),
+                villages=village_items,
+                has_village_data=True,
+                note=f"Loaded {len(village_items)} Census 2011 villages."
+            )
+
+        key = get_state_key(state_id)
+        if key != "andhra_pradesh":
             return MandalVillageListResponse(
                 mandal_id=mandal_id,
                 mandal_name=mandal_id,
@@ -577,7 +486,7 @@ class DemographicsService:
                 total_villages=0,
                 villages=[],
                 has_village_data=False,
-                note="Village data unavailable for this unit (Taluk-level Census dataset active)."
+                note="Village data unavailable for this unit."
             )
 
         self._init_ap_village_data()
@@ -597,7 +506,6 @@ class DemographicsService:
         clean_query = mandal_id.strip()
         q_norm = normalize_name(clean_query)
 
-        # 1. Resolve mandal from reloc_df
         resolved_mid = clean_query
         resolved_mname = clean_query
         resolved_did = re.sub(r'[^a-z0-9]+', '_', district_id.strip().lower()).strip('_') if district_id else ""
@@ -605,7 +513,6 @@ class DemographicsService:
         sub = pd.DataFrame()
 
         if self._reloc_df is not None and not self._reloc_df.empty:
-            # Match by exact mandal_id
             m_row = self._reloc_df[self._reloc_df["mandal_id"].str.upper() == clean_query.upper()]
             if m_row.empty and resolved_did:
                 m_row = self._reloc_df[(self._reloc_df["current_district_id"] == resolved_did) & (self._reloc_df["m_norm"] == q_norm)]
@@ -627,7 +534,6 @@ class DemographicsService:
                     (self._village_df["m_norm"] == m_norm)
                 ]
 
-        # 2. Fallback: match directly against df_vill if not resolved via reloc_df
         if sub.empty:
             if resolved_did:
                 sub = self._village_df[
@@ -654,7 +560,6 @@ class DemographicsService:
                 note="Village data unavailable in Census 2011 directory for this mandal."
             )
 
-        # Sort villages alphabetically
         sub_sorted = sub.sort_values(by=["village_name"], ascending=True)
         village_items: List[VillageItem] = []
 
@@ -704,3 +609,4 @@ class DemographicsService:
         )
 
 demographics_service = DemographicsService()
+

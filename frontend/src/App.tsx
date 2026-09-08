@@ -153,6 +153,7 @@ function AppContent() {
     selectStateByName(stateName);
     setStateId(targetStateId);
     setActiveStateId(targetStateId);
+
     setSelectedMandalForGIS(null);
     setPortalRole('government_portal');
     window.location.hash = `#government/${slug}`;

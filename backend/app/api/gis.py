@@ -14,7 +14,9 @@ async def get_districts(
     CRS: EPSG:4326 (WGS84).
     """
     try:
-        return gis_service.get_districts_geojson(state_id=state_id or state or "andhra_pradesh")
+        resolved = state_id or state or "andhra_pradesh"
+        print(f"[GIS API] get_districts called with state_id='{state_id}', state='{state}' -> resolved='{resolved}'")
+        return gis_service.get_districts_geojson(state_id=resolved)
     except FileNotFoundError as e:
         raise HTTPException(status_code=500, detail=str(e))
 

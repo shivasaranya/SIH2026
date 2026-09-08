@@ -5,7 +5,7 @@
   "description": "Sahayata (RakshaSethu) - Multi-Hazard Relocation Decision Support System",
   "scripts": {
     "dev": "npm --prefix frontend run dev",
-    "backend": "python run_backend.py",
+    "backend": ".\\.venv\\Scripts\\python.exe run_backend.py",
     "build": "npm --prefix frontend run build",
     "lint": "npm --prefix frontend run lint",
     "preview": "npm --prefix frontend run preview",

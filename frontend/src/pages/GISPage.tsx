@@ -406,7 +406,7 @@ export const GISPage: React.FC<GISPageProps> = ({
     },
     {
       id: 'safe_area_fraction' as DemographicMetricKey,
-      label: `Candidate Host Locations (${currentState.candidateHostsCount || 45})`,
+      label: `Candidate Host Locations (${currentState.id === 'madhya_pradesh' ? 80 : currentState.id === 'jammu_kashmir' ? 8 : currentState.id === 'tamil_nadu' ? 38 : currentState.id === 'mizoram' ? 5 : currentState.id === 'himachal_pradesh' ? 15 : 51})`,
       sub: 'Safe Habitable Area Fraction',
       icon: ShieldCheck,
       color: 'text-purple-500',

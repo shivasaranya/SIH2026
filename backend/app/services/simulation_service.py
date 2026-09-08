@@ -51,63 +51,16 @@ PRESETS = [
     ),
 ]
 
-def resolve_state_key(state_id: Optional[str]) -> str:
-    if not state_id:
-        return "andhra_pradesh"
-    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
-    if clean in ["ap", "andhra_pradesh", "andhra", "andhrapradesh"]:
-        return "andhra_pradesh"
-    if clean in ["odisha", "od", "or", "orissa"]:
-        return "odisha"
-    if clean in ["assam", "as"]:
-        return "assam"
-    if clean in ["bihar", "br"]:
-        return "bihar"
-    if clean in ["tamil_nadu", "tn", "tamilnadu"]:
-        return "tamil_nadu"
-    if clean in ["west_bengal", "wb", "westbengal", "bengal"]:
-        return "west_bengal"
-    if clean in ["uttar_pradesh", "up", "uttarpradesh"]:
-        return "uttar_pradesh"
-    if clean in ["uttarakhand", "uk", "uttaranchal"]:
-        return "uttarakhand"
-    if clean in ["sikkim", "sk"]:
-        return "sikkim"
-    if clean in ["arunachal_pradesh", "arunachal", "ar"]:
-        return "arunachal_pradesh"
-    if clean in ["nagaland", "nl"]:
-        return "nagaland"
-    if clean in ["meghalaya", "ml"]:
-        return "meghalaya"
-    if clean in ["gujarat", "gj", "guj"]:
-        return "gujarat"
-    if clean in ["kerala", "kl", "kerela"]:
-        return "kerala"
-    if clean in ["maharashtra", "mh", "maharastra"]:
-        return "maharashtra"
-    if clean in ["haryana", "hr"]:
-        return "haryana"
-    if clean in ["punjab", "pb"]:
-        return "punjab"
-    if clean in ["chhattisgarh", "cg", "chhatisgarh", "chattisgarh", "ct"]:
-        return "chhattisgarh"
-    if clean in ["mizoram", "mz", "mizo"]:
-        return "mizoram"
-    if clean in ["himachal_pradesh", "hp", "himachal"]:
-        return "himachal_pradesh"
-    return "andhra_pradesh"
 
+from app.core.state_registry import state_registry, get_state_key
+
+def resolve_state_key(state_id: Optional[str]) -> str:
+    return get_state_key(state_id)
 def is_mizoram(state_id: Optional[str]) -> bool:
-    if not state_id:
-        return False
-    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
-    return clean in ["mizoram", "mz", "mizo"]
+    return get_state_key(state_id) == "mizoram"
 
 def is_hp(state_id: Optional[str]) -> bool:
-    if not state_id:
-        return False
-    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
-    return clean in ["himachal_pradesh", "hp", "himachal"]
+    return get_state_key(state_id) == "himachal_pradesh"
 
 def is_tn(state_id: Optional[str]) -> bool:
     if not state_id:
@@ -115,67 +68,34 @@ def is_tn(state_id: Optional[str]) -> bool:
     clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
     return clean in ["tamil_nadu", "tn", "tamilnadu"]
 
+def is_jk(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["jammu_kashmir", "jammu_and_kashmir", "jk", "j_k", "jammukashmir"]
+
+def is_mp(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["madhya_pradesh", "mp", "madhyapradesh"]
+
 class SimulationService:
     def __init__(self):
         self._cache: Dict[str, Dict[str, Any]] = {}
 
     def _get_state_key(self, state_id: Optional[str]) -> str:
-        if is_mizoram(state_id):
-            return "mz"
-        if is_tn(state_id):
-            return "tn"
-        if is_hp(state_id):
-            return "hp"
-        return "ap"
+        return get_state_key(state_id)
 
     def _load_data(self, state_id: Optional[str] = "andhra_pradesh"):
-        key = resolve_state_key(state_id)
+        key = get_state_key(state_id)
         if key in self._cache:
             return self._cache[key]
 
-        reloc_dir = settings.DATA_DIR / "processed" / "relocation"
-        if key in ["mz", "mizoram"]:
-            master_csv = reloc_dir / "mizoram_subdistrict_relocation_priority.csv"
-        elif key in ["hp", "himachal_pradesh"]:
-            master_csv = reloc_dir / "hp_tehsil_relocation_priority.csv"
-        elif key in ["tn", "tamil_nadu"]:
-            master_csv = reloc_dir / "tn_taluk_relocation_priority.csv"
-        elif key == "odisha":
-            master_csv = reloc_dir / "od_block_relocation_priority.csv"
-        elif key == "bihar":
-            master_csv = reloc_dir / "br_block_relocation_priority.csv"
-        elif key == "west_bengal":
-            master_csv = reloc_dir / "wb_block_relocation_priority.csv"
-        elif key == "assam":
-            master_csv = reloc_dir / "as_circle_relocation_priority.csv"
-        elif key == "uttar_pradesh":
-            master_csv = reloc_dir / "up_tehsil_relocation_priority.csv"
-        elif key == "uttarakhand":
-            master_csv = reloc_dir / "uk_tehsil_relocation_priority.csv"
-        elif key == "sikkim":
-            master_csv = reloc_dir / "sk_subdivision_relocation_priority.csv"
-        elif key == "arunachal_pradesh":
-            master_csv = reloc_dir / "ar_circle_relocation_priority.csv"
-        elif key == "nagaland":
-            master_csv = reloc_dir / "nl_circle_relocation_priority.csv"
-        elif key == "meghalaya":
-            master_csv = reloc_dir / "ml_block_relocation_priority.csv"
-        elif key == "gujarat":
-            master_csv = reloc_dir / "gujarat_taluka_relocation_priority.csv"
-        elif key == "kerala":
-            master_csv = reloc_dir / "kerala_taluka_relocation_priority.csv"
-        elif key == "maharashtra":
-            master_csv = reloc_dir / "maharashtra_taluka_relocation_priority.csv"
-        elif key == "haryana":
-            master_csv = reloc_dir / "haryana_taluka_relocation_priority.csv"
-        elif key == "punjab":
-            master_csv = reloc_dir / "punjab_taluka_relocation_priority.csv"
-        elif key == "chhattisgarh":
-            master_csv = reloc_dir / "chhattisgarh_taluka_relocation_priority.csv"
-        else:
-            master_csv = reloc_dir / "mandal_relocation_priority.csv"
+        meta = state_registry.get_state(key)
+        master_csv = meta.relocation_csv
 
-        if not master_csv.exists():
+        if not master_csv or not master_csv.exists():
             raise FileNotFoundError(f"Relocation priority dataset not found at {master_csv}")
         master_df = pd.read_csv(master_csv)
 
@@ -549,7 +469,15 @@ class SimulationService:
         state: Optional[str] = None,
     ) -> Optional[MandalSimulationComparisonItem]:
         target = mandal_id.strip().upper()
-        if target.startswith("BR_"):
+        if target.startswith("MZ_"):
+            detected_state = "mizoram"
+        elif target.startswith("JK_"):
+            detected_state = "jammu_kashmir"
+        elif target.startswith("MP_"):
+            detected_state = "madhya_pradesh"
+        elif target.startswith("HP_"):
+            detected_state = "himachal_pradesh"
+        elif target.startswith("BR_"):
             detected_state = "bihar"
         elif target.startswith("AS_"):
             detected_state = "assam"
@@ -571,6 +499,14 @@ class SimulationService:
             detected_state = "nagaland"
         elif target.startswith("ML_"):
             detected_state = "meghalaya"
+        elif target.startswith("MZ_"):
+            detected_state = "mizoram"
+        elif target.startswith("HP_"):
+            detected_state = "himachal_pradesh"
+        elif target.startswith("JK_"):
+            detected_state = "jammu_kashmir"
+        elif target.startswith("MP_"):
+            detected_state = "madhya_pradesh"
         elif target.startswith("GJ_"):
             detected_state = "gujarat"
         elif target.startswith("KL_"):
@@ -592,9 +528,10 @@ class SimulationService:
                 return item
 
         all_states = [
-            "andhra_pradesh", "assam", "tamil_nadu", "west_bengal", "bihar", "odisha",
-            "uttar_pradesh", "uttarakhand", "sikkim", "arunachal_pradesh", "nagaland",
-            "meghalaya", "gujarat", "kerala", "maharashtra", "haryana", "punjab", "chhattisgarh"
+            "andhra_pradesh", "mizoram", "himachal_pradesh", "jammu_kashmir", "madhya_pradesh",
+            "tamil_nadu", "assam", "bihar", "west_bengal", "odisha", "uttar_pradesh",
+            "uttarakhand", "sikkim", "arunachal_pradesh", "nagaland", "meghalaya",
+            "gujarat", "kerala", "maharashtra", "haryana", "punjab", "chhattisgarh"
         ]
         for s in all_states:
             if s == detected_state:

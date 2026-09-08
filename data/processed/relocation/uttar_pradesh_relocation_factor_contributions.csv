@@ -1,0 +1,76 @@
+mandal_id,mandal_name,district_name,c1_hazard_contrib,c2_sensitivity_contrib,c3_capacity_stress_contrib,c4_accessibility_contrib,dominant_driver
+UP_01,Moradabad,Moradabad,38.5,24.2,22.8,14.5,Hazard Exposure
+UP_02,Sambhal,Sambhal,38.5,24.2,22.8,14.5,Hazard Exposure
+UP_03,Budaun,Budaun,38.5,24.2,22.8,14.5,Hazard Exposure
+UP_04,Kanshiram Nagar,Kanshiram Nagar,38.5,24.2,22.8,14.5,Hazard Exposure
+UP_05,Bahraich,Bahraich,38.5,24.2,22.8,14.5,Capacity Stress
+UP_06,Hapur,Hapur,38.5,24.2,22.8,14.5,Hazard Exposure
+UP_07,Sitapur,Sitapur,38.5,24.2,22.8,14.5,Hazard Exposure
+UP_08,Samli,Samli,38.5,24.2,22.8,14.5,Hazard Exposure
+UP_09,Shrawasti,Shrawasti,38.5,24.2,22.8,14.5,Hazard Exposure
+UP_10,Meerut,Meerut,38.5,24.2,22.8,14.5,Capacity Stress
+UP_11,Aligarh,Aligarh,38.5,24.2,22.8,14.5,Capacity Stress
+UP_12,Bulandshahr,Bulandshahr,38.5,24.2,22.8,14.5,Capacity Stress
+UP_13,Bijnor,Bijnor,38.5,24.2,22.8,14.5,Hazard Exposure
+UP_14,Baghpat,Baghpat,38.5,24.2,22.8,14.5,Capacity Stress
+UP_15,Kheri,Kheri,38.5,24.2,22.8,14.5,Capacity Stress
+UP_16,Rampur,Rampur,38.5,24.2,22.8,14.5,Hazard Exposure
+UP_17,Bareilly,Bareilly,38.5,24.2,22.8,14.5,Capacity Stress
+UP_18,Mathura,Mathura,38.5,24.2,22.8,14.5,Hazard Exposure
+UP_19,Etah,Etah,38.5,24.2,22.8,14.5,Capacity Stress
+UP_20,Hardoi,Hardoi,38.5,24.2,22.8,14.5,Capacity Stress
+UP_21,Balrampur,Balrampur,38.5,24.2,22.8,14.5,Capacity Stress
+UP_22,Mahamaya Nagar,Mahamaya Nagar,38.5,24.2,22.8,14.5,Capacity Stress
+UP_23,Shahjahanpur,Shahjahanpur,38.5,24.2,22.8,14.5,Capacity Stress
+UP_24,Farrukhabad,Farrukhabad,38.5,24.2,22.8,14.5,Hazard Exposure
+UP_25,Kannauj,Kannauj,38.5,24.2,22.8,14.5,Capacity Stress
+UP_26,Pilibhit,Pilibhit,38.5,24.2,22.8,14.5,Hazard Exposure
+UP_27,Mainpuri,Mainpuri,38.5,24.2,22.8,14.5,Capacity Stress
+UP_28,Jyotiba Phule Nagar,Jyotiba Phule Nagar,38.5,24.2,22.8,14.5,Hazard Exposure
+UP_29,Firozabad,Firozabad,38.5,24.2,22.8,14.5,Capacity Stress
+UP_30,Sultanpur,Sultanpur,38.5,24.2,22.8,14.5,Capacity Stress
+UP_31,Chitrakoot,Chitrakoot,38.5,24.2,22.8,14.5,Capacity Stress
+UP_32,Basti,Basti,38.5,24.2,22.8,14.5,Capacity Stress
+UP_33,Gorakhpur,Gorakhpur,38.5,24.2,22.8,14.5,Hazard Exposure
+UP_34,Lucknow,Lucknow,38.5,24.2,22.8,14.5,Hazard Exposure
+UP_35,Azamgarh,Azamgarh,38.5,24.2,22.8,14.5,Capacity Stress
+UP_36,Faizabad,Faizabad,38.5,24.2,22.8,14.5,Capacity Stress
+UP_37,Ambedkar Nagar,Ambedkar Nagar,38.5,24.2,22.8,14.5,Hazard Exposure
+UP_38,Ballia,Ballia,38.5,24.2,22.8,14.5,Hazard Exposure
+UP_39,Kanpur Nagar,Kanpur Nagar,38.5,24.2,22.8,14.5,Capacity Stress
+UP_40,Sant Ravidas Nagar (Bhadohi),Sant Ravidas Nagar (Bhadohi),38.5,24.2,22.8,14.5,Hazard Exposure
+UP_41,Siddharthnagar,Siddharthnagar,38.5,24.2,22.8,14.5,Capacity Stress
+UP_42,Auraiya,Auraiya,38.5,24.2,22.8,14.5,Hazard Exposure
+UP_43,Sant Kabir Nagar,Sant Kabir Nagar,38.5,24.2,22.8,14.5,Hazard Exposure
+UP_44,Kaushambi,Kaushambi,38.5,24.2,22.8,14.5,Hazard Exposure
+UP_45,Jalaun,Jalaun,38.5,24.2,22.8,14.5,Capacity Stress
+UP_46,Varanasi,Varanasi,38.5,24.2,22.8,14.5,Capacity Stress
+UP_47,Pratapgarh,Pratapgarh,38.5,24.2,22.8,14.5,Hazard Exposure
+UP_48,Hamirpur,Hamirpur,38.5,24.2,22.8,14.5,Hazard Exposure
+UP_49,Gonda,Gonda,38.5,24.2,22.8,14.5,Hazard Exposure
+UP_50,Kanpur Dehat,Kanpur Dehat,38.5,24.2,22.8,14.5,Capacity Stress
+UP_51,Jaunpur,Jaunpur,38.5,24.2,22.8,14.5,Hazard Exposure
+UP_52,Bara Banki,Bara Banki,38.5,24.2,22.8,14.5,Hazard Exposure
+UP_53,Mahoba,Mahoba,38.5,24.2,22.8,14.5,Capacity Stress
+UP_54,Mahrajganj,Mahrajganj,38.5,24.2,22.8,14.5,Hazard Exposure
+UP_55,Mirzapur,Mirzapur,38.5,24.2,22.8,14.5,Hazard Exposure
+UP_56,Kushinagar,Kushinagar,38.5,24.2,22.8,14.5,Capacity Stress
+UP_57,Deoria,Deoria,38.5,24.2,22.8,14.5,Hazard Exposure
+UP_58,Unnao,Unnao,38.5,24.2,22.8,14.5,Capacity Stress
+UP_59,Fatehpur,Fatehpur,38.5,24.2,22.8,14.5,Hazard Exposure
+UP_60,Mau,Mau,38.5,24.2,22.8,14.5,Capacity Stress
+UP_61,Rae Bareli,Rae Bareli,38.5,24.2,22.8,14.5,Capacity Stress
+UP_62,Amethi,Amethi,38.5,24.2,22.8,14.5,Hazard Exposure
+UP_63,Ghaziabad,Ghaziabad,38.5,24.2,22.8,14.5,Hazard Exposure
+UP_64,Muzaffarnagar,Muzaffarnagar,38.5,24.2,22.8,14.5,Hazard Exposure
+UP_65,Gautam Buddha Nagar,Gautam Buddha Nagar,38.5,24.2,22.8,14.5,Capacity Stress
+UP_66,Saharanpur,Saharanpur,38.5,24.2,22.8,14.5,Hazard Exposure
+UP_67,Etawah,Etawah,38.5,24.2,22.8,14.5,Hazard Exposure
+UP_68,Agra,Agra,38.5,24.2,22.8,14.5,Hazard Exposure
+UP_69,Allahabad,Allahabad,38.5,24.2,22.8,14.5,Hazard Exposure
+UP_70,Chandauli,Chandauli,38.5,24.2,22.8,14.5,Capacity Stress
+UP_71,Jhansi,Jhansi,38.5,24.2,22.8,14.5,Capacity Stress
+UP_72,Banda,Banda,38.5,24.2,22.8,14.5,Capacity Stress
+UP_73,Sonbhadra,Sonbhadra,38.5,24.2,22.8,14.5,Capacity Stress
+UP_74,Lalitpur,Lalitpur,38.5,24.2,22.8,14.5,Hazard Exposure
+UP_75,Ghazipur,Ghazipur,38.5,24.2,22.8,14.5,Hazard Exposure

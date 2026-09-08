@@ -7,3 +7,8 @@ httpx>=0.27.0
 # pandas pinned to 2.2.x — pandas 3.x pulls in pyarrow which is blocked
 # by the Windows Application Control policy on this system
 pandas>=2.2.0,<3.0.0
+numpy>=1.24.0
+geopandas>=1.0.0
+rasterio>=1.4.0
+shapely>=2.0.0
+openpyxl>=3.1.0

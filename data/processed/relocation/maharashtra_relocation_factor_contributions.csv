@@ -1,318 +1,37 @@
-mandal_id,taluka_id,mandal_name,taluka_name,current_district_id,current_district_name,primary_priority_factor,secondary_priority_factor,factor_contrib_hazard_pct,factor_contrib_demographic_pct,factor_contrib_capacity_pct,factor_contrib_accessibility_pct
-MH_TALUKA_001,MH_TALUKA_001,Mahal,Mahal,ahmadnagar,Ahmadnagar,Demographic Sensitivity,Hazard Exposure,27.7,36.6,15.2,20.5
-MH_TALUKA_002,MH_TALUKA_002,Shrirampur,Shrirampur,ahmadnagar,Ahmadnagar,Demographic Sensitivity,Hazard Exposure,32.4,33.3,14.7,19.6
-MH_TALUKA_003,MH_TALUKA_003,Kopargaon,Kopargaon,ahmadnagar,Ahmadnagar,Demographic Sensitivity,Hazard Exposure,30.9,34.4,18.4,16.3
-MH_TALUKA_004,MH_TALUKA_004,Pathardi,Pathardi,ahmadnagar,Ahmadnagar,Hazard Exposure,Demographic Sensitivity,32.3,32.3,14.7,20.6
-MH_TALUKA_005,MH_TALUKA_005,Nevasa,Nevasa,ahmadnagar,Ahmadnagar,Demographic Sensitivity,Hazard Exposure,31.8,33.7,21.9,12.6
-MH_TALUKA_006,MH_TALUKA_006,Mahal,Mahal,ahmadnagar,Ahmadnagar,Hazard Exposure,Demographic Sensitivity,33.8,33.6,18.2,14.4
-MH_TALUKA_007,MH_TALUKA_007,Shrigonda,Shrigonda,ahmadnagar,Ahmadnagar,Demographic Sensitivity,Hazard Exposure,28.9,39.3,17.9,13.8
-MH_TALUKA_008,MH_TALUKA_008,Karjat,Karjat,ahmadnagar,Ahmadnagar,Hazard Exposure,Demographic Sensitivity,53.7,26.4,17.8,2.1
-MH_TALUKA_009,MH_TALUKA_009,Sangamner,Sangamner,ahmadnagar,Ahmadnagar,Demographic Sensitivity,Hazard Exposure,26.3,30.9,17.1,25.8
-MH_TALUKA_010,MH_TALUKA_010,Mahal,Mahal,ahmadnagar,Ahmadnagar,Demographic Sensitivity,Hazard Exposure,31.5,38.1,18.5,11.8
-MH_TALUKA_011,MH_TALUKA_011,Rahuri,Rahuri,ahmadnagar,Ahmadnagar,Demographic Sensitivity,Hazard Exposure,31.0,38.9,16.8,13.2
-MH_TALUKA_012,MH_TALUKA_012,Shevgaon,Shevgaon,ahmadnagar,Ahmadnagar,Demographic Sensitivity,Hazard Exposure,31.0,32.8,20.3,15.9
-MH_TALUKA_013,MH_TALUKA_013,Parner,Parner,ahmadnagar,Ahmadnagar,Hazard Exposure,Demographic Sensitivity,36.2,36.2,15.6,11.9
-MH_TALUKA_014,MH_TALUKA_014,Akola1,Akola1,akola,Akola,Demographic Sensitivity,Hazard Exposure,28.7,36.1,16.3,18.9
-MH_TALUKA_015,MH_TALUKA_015,Murtijapur,Murtijapur,akola,Akola,Demographic Sensitivity,Hazard Exposure,28.2,30.8,13.8,27.2
-MH_TALUKA_016,MH_TALUKA_016,Balapur,Balapur,akola,Akola,Demographic Sensitivity,Hazard Exposure,27.5,34.7,16.4,21.4
-MH_TALUKA_017,MH_TALUKA_017,Barshitakli,Barshitakli,akola,Akola,Demographic Sensitivity,Hazard Exposure,28.4,37.5,16.2,17.9
-MH_TALUKA_018,MH_TALUKA_018,Patur,Patur,akola,Akola,Hazard Exposure,Demographic Sensitivity,32.0,31.2,14.2,22.5
-MH_TALUKA_019,MH_TALUKA_019,Telhara,Telhara,akola,Akola,Demographic Sensitivity,Hazard Exposure,30.5,42.6,18.2,8.7
-MH_TALUKA_020,MH_TALUKA_020,Akot,Akot,akola,Akola,Demographic Sensitivity,Hazard Exposure,25.7,39.5,16.5,18.4
-MH_TALUKA_021,MH_TALUKA_021,Chandur Railway,Chandur Railway,amravati,Amravati,Hazard Exposure,Demographic Sensitivity,33.6,29.0,15.3,22.1
-MH_TALUKA_022,MH_TALUKA_022,Nandgaon-Khandeshwar,Nandgaon-Khandeshwar,amravati,Amravati,Demographic Sensitivity,Hazard Exposure,28.4,41.2,24.0,6.4
-MH_TALUKA_023,MH_TALUKA_023,Bhatkuli,Bhatkuli,amravati,Amravati,Demographic Sensitivity,Hazard Exposure,32.0,40.6,16.4,11.1
-MH_TALUKA_024,MH_TALUKA_024,Warud,Warud,amravati,Amravati,Hazard Exposure,Demographic Sensitivity,37.0,30.6,18.6,13.8
-MH_TALUKA_025,MH_TALUKA_025,Daryapur,Daryapur,amravati,Amravati,Demographic Sensitivity,Hazard Exposure,32.9,41.4,18.9,6.8
-MH_TALUKA_026,MH_TALUKA_026,Teosa,Teosa,amravati,Amravati,Hazard Exposure,Demographic Sensitivity,36.6,35.8,19.6,7.9
-MH_TALUKA_027,MH_TALUKA_027,Amravati,Amravati,amravati,Amravati,Hazard Exposure,Demographic Sensitivity,36.1,25.5,19.8,18.6
-MH_TALUKA_028,MH_TALUKA_028,Chikhaldara,Chikhaldara,amravati,Amravati,Demographic Sensitivity,Hazard Exposure,24.5,42.9,15.9,16.8
-MH_TALUKA_029,MH_TALUKA_029,Achalpur,Achalpur,amravati,Amravati,Demographic Sensitivity,Hazard Exposure,28.2,30.5,15.7,25.6
-MH_TALUKA_030,MH_TALUKA_030,Melghat,Melghat,amravati,Amravati,Hazard Exposure,Demographic Sensitivity,37.3,36.7,17.9,8.0
-MH_TALUKA_031,MH_TALUKA_031,Anjangaon Surji,Anjangaon Surji,amravati,Amravati,Demographic Sensitivity,Hazard Exposure,27.6,36.4,15.3,20.6
-MH_TALUKA_032,MH_TALUKA_032,Morshi,Morshi,amravati,Amravati,Demographic Sensitivity,Hazard Exposure,29.4,43.7,20.4,6.4
-MH_TALUKA_033,MH_TALUKA_033,Melghat,Melghat,amravati,Amravati,Demographic Sensitivity,Hazard Exposure,29.9,37.7,15.6,16.8
-MH_TALUKA_034,MH_TALUKA_034,Chandurbazar,Chandurbazar,amravati,Amravati,Demographic Sensitivity,Hazard Exposure,32.3,34.3,22.4,11.0
-MH_TALUKA_035,MH_TALUKA_035,Soegaon,Soegaon,aurangabad,Aurangabad,Hazard Exposure,Demographic Sensitivity,35.1,31.5,19.0,14.4
-MH_TALUKA_036,MH_TALUKA_036,Vaijapur,Vaijapur,aurangabad,Aurangabad,Hazard Exposure,Demographic Sensitivity,36.4,32.3,16.3,15.1
-MH_TALUKA_037,MH_TALUKA_037,Sillod,Sillod,aurangabad,Aurangabad,Demographic Sensitivity,Hazard Exposure,31.2,38.3,17.6,12.9
-MH_TALUKA_038,MH_TALUKA_038,Kannad,Kannad,aurangabad,Aurangabad,Demographic Sensitivity,Hazard Exposure,30.0,39.6,16.9,13.5
-MH_TALUKA_039,MH_TALUKA_039,Aurangabad,Aurangabad,aurangabad,Aurangabad,Demographic Sensitivity,Accessibility Constraint,23.0,31.4,17.1,28.5
-MH_TALUKA_040,MH_TALUKA_040,Vaijapur,Vaijapur,aurangabad,Aurangabad,Demographic Sensitivity,Hazard Exposure,31.6,35.4,17.1,15.9
-MH_TALUKA_041,MH_TALUKA_041,Gangapur,Gangapur,aurangabad,Aurangabad,Demographic Sensitivity,Accessibility Constraint,24.6,33.6,15.5,26.3
-MH_TALUKA_042,MH_TALUKA_042,Paithan,Paithan,aurangabad,Aurangabad,Demographic Sensitivity,Accessibility Constraint,24.7,32.5,15.7,27.1
-MH_TALUKA_043,MH_TALUKA_043,Khuldabad,Khuldabad,aurangabad,Aurangabad,Demographic Sensitivity,Hazard Exposure,26.9,34.6,18.4,20.2
-MH_TALUKA_044,MH_TALUKA_044,Vaijapur,Vaijapur,aurangabad,Aurangabad,Hazard Exposure,Demographic Sensitivity,35.5,28.4,15.7,20.3
-MH_TALUKA_045,MH_TALUKA_045,Lakhandur,Lakhandur,bhandara,Bhandara,Demographic Sensitivity,Hazard Exposure,31.0,36.0,19.5,13.6
-MH_TALUKA_046,MH_TALUKA_046,Tumsar,Tumsar,bhandara,Bhandara,Hazard Exposure,Demographic Sensitivity,38.7,27.1,13.0,21.2
-MH_TALUKA_047,MH_TALUKA_047,Pauni,Pauni,bhandara,Bhandara,Hazard Exposure,Demographic Sensitivity,48.0,24.5,15.0,12.5
-MH_TALUKA_048,MH_TALUKA_048,Bhandara,Bhandara,bhandara,Bhandara,Hazard Exposure,Demographic Sensitivity,42.5,23.8,17.0,16.7
-MH_TALUKA_049,MH_TALUKA_049,Sakoli,Sakoli,bhandara,Bhandara,Demographic Sensitivity,Hazard Exposure,33.3,33.4,21.0,12.3
-MH_TALUKA_050,MH_TALUKA_050,Mohadi,Mohadi,bhandara,Bhandara,Hazard Exposure,Demographic Sensitivity,43.7,26.1,16.4,13.8
-MH_TALUKA_051,MH_TALUKA_051,Ambejogai,Ambejogai,bid,Bid,Demographic Sensitivity,Hazard Exposure,30.6,36.8,19.4,13.1
-MH_TALUKA_052,MH_TALUKA_052,Ashti1,Ashti1,bid,Bid,Demographic Sensitivity,Hazard Exposure,29.1,30.2,14.6,26.1
-MH_TALUKA_053,MH_TALUKA_053,Bid,Bid,bid,Bid,Demographic Sensitivity,Hazard Exposure,29.0,33.8,16.1,21.1
-MH_TALUKA_054,MH_TALUKA_054,Ambejogai,Ambejogai,bid,Bid,Demographic Sensitivity,Accessibility Constraint,25.3,34.4,14.1,26.3
-MH_TALUKA_055,MH_TALUKA_055,Georai,Georai,bid,Bid,Demographic Sensitivity,Hazard Exposure,27.6,32.0,18.5,21.9
-MH_TALUKA_056,MH_TALUKA_056,Manjlegaon,Manjlegaon,bid,Bid,Demographic Sensitivity,Hazard Exposure,32.1,34.4,22.4,11.0
-MH_TALUKA_057,MH_TALUKA_057,Kaij,Kaij,bid,Bid,Demographic Sensitivity,Hazard Exposure,31.6,31.8,16.4,20.2
-MH_TALUKA_058,MH_TALUKA_058,Patoda,Patoda,bid,Bid,Demographic Sensitivity,Hazard Exposure,33.0,35.2,16.1,15.7
-MH_TALUKA_059,MH_TALUKA_059,Motala,Motala,buldana,Buldana,Demographic Sensitivity,Hazard Exposure,26.8,35.7,17.4,20.1
-MH_TALUKA_060,MH_TALUKA_060,Shegaon,Shegaon,buldana,Buldana,Demographic Sensitivity,Hazard Exposure,30.2,35.3,19.4,15.0
-MH_TALUKA_061,MH_TALUKA_061,Khamgaon,Khamgaon,buldana,Buldana,Demographic Sensitivity,Hazard Exposure,32.9,34.3,16.9,15.9
-MH_TALUKA_062,MH_TALUKA_062,Lonar,Lonar,buldana,Buldana,Demographic Sensitivity,Hazard Exposure,28.9,39.0,18.3,13.9
-MH_TALUKA_063,MH_TALUKA_063,Chikhli,Chikhli,buldana,Buldana,Demographic Sensitivity,Hazard Exposure,31.8,32.4,17.3,18.4
-MH_TALUKA_064,MH_TALUKA_064,Nandura,Nandura,buldana,Buldana,Hazard Exposure,Demographic Sensitivity,40.0,35.7,21.0,3.3
-MH_TALUKA_065,MH_TALUKA_065,Buldana,Buldana,buldana,Buldana,Demographic Sensitivity,Hazard Exposure,32.4,37.0,18.8,11.8
-MH_TALUKA_066,MH_TALUKA_066,Mehkar,Mehkar,buldana,Buldana,Demographic Sensitivity,Hazard Exposure,31.5,34.1,16.6,17.8
-MH_TALUKA_067,MH_TALUKA_067,Sindkhed Raja,Sindkhed Raja,buldana,Buldana,Demographic Sensitivity,Hazard Exposure,30.7,34.9,15.1,19.4
-MH_TALUKA_068,MH_TALUKA_068,Deolgaon Raja,Deolgaon Raja,buldana,Buldana,Demographic Sensitivity,Hazard Exposure,28.3,31.3,15.7,24.7
-MH_TALUKA_069,MH_TALUKA_069,Sangrampur,Sangrampur,buldana,Buldana,Demographic Sensitivity,Hazard Exposure,30.8,39.2,16.8,13.2
-MH_TALUKA_070,MH_TALUKA_070,Malkapur,Malkapur,buldana,Buldana,Demographic Sensitivity,Hazard Exposure,26.3,38.8,16.7,18.1
-MH_TALUKA_071,MH_TALUKA_071,Nagbhir,Nagbhir,chandrapur,Chandrapur,Demographic Sensitivity,Hazard Exposure,26.9,33.6,14.0,25.6
-MH_TALUKA_072,MH_TALUKA_072,Chimur,Chimur,chandrapur,Chandrapur,Demographic Sensitivity,Hazard Exposure,24.4,34.2,19.3,22.1
-MH_TALUKA_073,MH_TALUKA_073,Brahmapuri,Brahmapuri,chandrapur,Chandrapur,Demographic Sensitivity,Hazard Exposure,32.1,40.4,15.2,12.3
-MH_TALUKA_074,MH_TALUKA_074,Mul,Mul,chandrapur,Chandrapur,Demographic Sensitivity,Hazard Exposure,33.3,34.9,17.0,14.8
-MH_TALUKA_075,MH_TALUKA_075,Chandrapur,Chandrapur,chandrapur,Chandrapur,Demographic Sensitivity,Hazard Exposure,30.8,40.5,17.1,11.7
-MH_TALUKA_076,MH_TALUKA_076,Rajura,Rajura,chandrapur,Chandrapur,Hazard Exposure,Demographic Sensitivity,32.4,28.7,14.0,24.9
-MH_TALUKA_077,MH_TALUKA_077,Sindewahi,Sindewahi,chandrapur,Chandrapur,Demographic Sensitivity,Hazard Exposure,25.7,40.9,18.7,14.8
-MH_TALUKA_078,MH_TALUKA_078,Bhadravati,Bhadravati,chandrapur,Chandrapur,Hazard Exposure,Demographic Sensitivity,35.4,32.8,19.8,12.0
-MH_TALUKA_079,MH_TALUKA_079,Warora,Warora,chandrapur,Chandrapur,Demographic Sensitivity,Hazard Exposure,30.9,34.5,20.1,14.5
-MH_TALUKA_080,MH_TALUKA_080,Gondpipri,Gondpipri,chandrapur,Chandrapur,Demographic Sensitivity,Hazard Exposure,26.9,34.8,18.8,19.5
-MH_TALUKA_081,MH_TALUKA_081,Sakri,Sakri,dhule,Dhule,Hazard Exposure,Demographic Sensitivity,41.2,34.7,21.0,3.1
-MH_TALUKA_082,MH_TALUKA_082,Shirpur,Shirpur,dhule,Dhule,Demographic Sensitivity,Hazard Exposure,29.1,36.1,15.9,18.9
-MH_TALUKA_083,MH_TALUKA_083,Sindkhede,Sindkhede,dhule,Dhule,Hazard Exposure,Demographic Sensitivity,34.2,31.4,16.5,17.9
-MH_TALUKA_084,MH_TALUKA_084,Dhule,Dhule,dhule,Dhule,Demographic Sensitivity,Hazard Exposure,29.0,38.2,19.7,13.0
-MH_TALUKA_085,MH_TALUKA_085,Shirpur,Shirpur,dhule,Dhule,Demographic Sensitivity,Hazard Exposure,30.2,32.8,16.1,20.9
-MH_TALUKA_086,MH_TALUKA_086,Kurkheda,Kurkheda,gadchiroli,Gadchiroli,Demographic Sensitivity,Hazard Exposure,28.6,43.2,19.5,8.7
-MH_TALUKA_087,MH_TALUKA_087,Armori,Armori,gadchiroli,Gadchiroli,Demographic Sensitivity,Hazard Exposure,31.7,33.2,20.2,14.9
-MH_TALUKA_088,MH_TALUKA_088,Dhanora,Dhanora,gadchiroli,Gadchiroli,Demographic Sensitivity,Hazard Exposure,28.5,33.2,18.1,20.2
-MH_TALUKA_089,MH_TALUKA_089,Sironcha,Sironcha,gadchiroli,Gadchiroli,Demographic Sensitivity,Hazard Exposure,31.8,36.7,17.1,14.4
-MH_TALUKA_090,MH_TALUKA_090,Etapalli,Etapalli,gadchiroli,Gadchiroli,Demographic Sensitivity,Hazard Exposure,33.9,37.5,16.8,11.7
-MH_TALUKA_091,MH_TALUKA_091,Chamorshi,Chamorshi,gadchiroli,Gadchiroli,Hazard Exposure,Demographic Sensitivity,38.3,32.1,18.5,11.2
-MH_TALUKA_092,MH_TALUKA_092,Aheri,Aheri,gadchiroli,Gadchiroli,Demographic Sensitivity,Hazard Exposure,29.6,34.3,14.5,21.6
-MH_TALUKA_093,MH_TALUKA_093,Gadchiroli,Gadchiroli,gadchiroli,Gadchiroli,Hazard Exposure,Demographic Sensitivity,33.8,30.3,20.5,15.4
-MH_TALUKA_094,MH_TALUKA_094,Salekasa,Salekasa,gondiya,Gondiya,Hazard Exposure,Demographic Sensitivity,33.7,33.4,19.4,13.5
-MH_TALUKA_095,MH_TALUKA_095,Gondiya,Gondiya,gondiya,Gondiya,Demographic Sensitivity,Hazard Exposure,34.2,35.6,17.5,12.7
-MH_TALUKA_096,MH_TALUKA_096,Amgaon,Amgaon,gondiya,Gondiya,Demographic Sensitivity,Hazard Exposure,28.2,35.3,15.6,20.9
-MH_TALUKA_097,MH_TALUKA_097,Deori,Deori,gondiya,Gondiya,Hazard Exposure,Demographic Sensitivity,29.1,28.5,16.5,25.9
-MH_TALUKA_098,MH_TALUKA_098,Tirora,Tirora,gondiya,Gondiya,Hazard Exposure,Demographic Sensitivity,34.6,33.2,17.9,14.2
-MH_TALUKA_099,MH_TALUKA_099,Arjuni Morgaon,Arjuni Morgaon,gondiya,Gondiya,Hazard Exposure,Demographic Sensitivity,29.5,29.3,15.6,25.6
-MH_TALUKA_100,MH_TALUKA_100,Goregaon,Goregaon,gondiya,Gondiya,Demographic Sensitivity,Hazard Exposure,30.3,36.4,17.6,15.7
-MH_TALUKA_101,MH_TALUKA_101,Kalamnuri,Kalamnuri,hingoli,Hingoli,Hazard Exposure,Demographic Sensitivity,34.9,31.3,17.6,16.2
-MH_TALUKA_102,MH_TALUKA_102,Basmath,Basmath,hingoli,Hingoli,Demographic Sensitivity,Hazard Exposure,27.0,32.8,19.6,20.6
-MH_TALUKA_103,MH_TALUKA_103,Hingoli,Hingoli,hingoli,Hingoli,Demographic Sensitivity,Accessibility Constraint,23.4,36.2,16.5,23.8
-MH_TALUKA_104,MH_TALUKA_104,Pachora,Pachora,jalgaon,Jalgaon,Hazard Exposure,Demographic Sensitivity,33.9,33.7,16.9,15.5
-MH_TALUKA_105,MH_TALUKA_105,Bhadgaon,Bhadgaon,jalgaon,Jalgaon,Demographic Sensitivity,Hazard Exposure,27.2,36.7,19.1,17.0
-MH_TALUKA_106,MH_TALUKA_106,Jamner,Jamner,jalgaon,Jalgaon,Demographic Sensitivity,Hazard Exposure,32.4,33.5,20.6,13.5
-MH_TALUKA_107,MH_TALUKA_107,Chalisgaon,Chalisgaon,jalgaon,Jalgaon,Demographic Sensitivity,Hazard Exposure,30.0,46.8,19.4,3.8
-MH_TALUKA_108,MH_TALUKA_108,Bhusawal,Bhusawal,jalgaon,Jalgaon,Demographic Sensitivity,Hazard Exposure,30.8,33.0,16.2,20.0
-MH_TALUKA_109,MH_TALUKA_109,Erandol,Erandol,jalgaon,Jalgaon,Demographic Sensitivity,Hazard Exposure,27.1,31.5,20.2,21.3
-MH_TALUKA_110,MH_TALUKA_110,Jalgaon,Jalgaon,jalgaon,Jalgaon,Hazard Exposure,Demographic Sensitivity,34.7,29.9,15.2,20.1
-MH_TALUKA_111,MH_TALUKA_111,Muktainagar (Edalabad),Muktainagar (Edalabad),jalgaon,Jalgaon,Demographic Sensitivity,Hazard Exposure,30.6,31.8,15.2,22.4
-MH_TALUKA_112,MH_TALUKA_112,Chopda,Chopda,jalgaon,Jalgaon,Demographic Sensitivity,Hazard Exposure,28.7,36.5,17.0,17.7
-MH_TALUKA_113,MH_TALUKA_113,Yawal,Yawal,jalgaon,Jalgaon,Demographic Sensitivity,Hazard Exposure,31.5,37.8,18.5,12.2
-MH_TALUKA_114,MH_TALUKA_114,Parola,Parola,jalgaon,Jalgaon,Demographic Sensitivity,Hazard Exposure,22.8,41.2,16.7,19.2
-MH_TALUKA_115,MH_TALUKA_115,Raver,Raver,jalgaon,Jalgaon,Demographic Sensitivity,Hazard Exposure,25.3,39.3,15.1,20.2
-MH_TALUKA_116,MH_TALUKA_116,Jalgaon,Jalgaon,jalgaon,Jalgaon,Demographic Sensitivity,Hazard Exposure,27.1,37.6,15.1,20.2
-MH_TALUKA_117,MH_TALUKA_117,Amalner,Amalner,jalgaon,Jalgaon,Demographic Sensitivity,Hazard Exposure,27.3,39.0,16.5,17.2
-MH_TALUKA_118,MH_TALUKA_118,Bhokardan,Bhokardan,jalna,Jalna,Demographic Sensitivity,Hazard Exposure,26.3,38.6,17.3,17.8
-MH_TALUKA_119,MH_TALUKA_119,Jafferabad,Jafferabad,jalna,Jalna,Demographic Sensitivity,Hazard Exposure,30.4,30.9,14.4,24.3
-MH_TALUKA_120,MH_TALUKA_120,Ambad,Ambad,jalna,Jalna,Demographic Sensitivity,Hazard Exposure,30.3,32.9,18.5,18.4
-MH_TALUKA_121,MH_TALUKA_121,Jafferabad,Jafferabad,jalna,Jalna,Demographic Sensitivity,Hazard Exposure,34.5,34.7,16.7,14.1
-MH_TALUKA_122,MH_TALUKA_122,Jalna,Jalna,jalna,Jalna,Demographic Sensitivity,Hazard Exposure,28.8,36.0,17.6,17.5
-MH_TALUKA_123,MH_TALUKA_123,Shirol,Shirol,kolhapur,Kolhapur,Hazard Exposure,Demographic Sensitivity,46.0,24.0,12.0,18.0
-MH_TALUKA_124,MH_TALUKA_124,Ajra,Ajra,kolhapur,Kolhapur,Hazard Exposure,Demographic Sensitivity,48.6,25.4,11.8,14.2
-MH_TALUKA_125,MH_TALUKA_125,Gadhinglaj,Gadhinglaj,kolhapur,Kolhapur,Hazard Exposure,Demographic Sensitivity,39.6,26.5,17.4,16.5
-MH_TALUKA_126,MH_TALUKA_126,Shahuwadi,Shahuwadi,kolhapur,Kolhapur,Hazard Exposure,Demographic Sensitivity,43.4,22.3,14.3,19.9
-MH_TALUKA_127,MH_TALUKA_127,Bhudargad,Bhudargad,kolhapur,Kolhapur,Hazard Exposure,Demographic Sensitivity,44.9,20.8,14.8,19.5
-MH_TALUKA_128,MH_TALUKA_128,Radhanagari,Radhanagari,kolhapur,Kolhapur,Hazard Exposure,Demographic Sensitivity,50.9,24.7,15.8,8.6
-MH_TALUKA_129,MH_TALUKA_129,Chandgad,Chandgad,kolhapur,Kolhapur,Hazard Exposure,Demographic Sensitivity,44.1,22.4,18.6,14.8
-MH_TALUKA_130,MH_TALUKA_130,Karvir,Karvir,kolhapur,Kolhapur,Hazard Exposure,Demographic Sensitivity,47.5,24.9,15.1,12.5
-MH_TALUKA_131,MH_TALUKA_131,Bavda,Bavda,kolhapur,Kolhapur,Hazard Exposure,Demographic Sensitivity,41.5,28.1,15.8,14.6
-MH_TALUKA_132,MH_TALUKA_132,Kagal,Kagal,kolhapur,Kolhapur,Hazard Exposure,Demographic Sensitivity,39.9,33.6,14.7,11.8
-MH_TALUKA_133,MH_TALUKA_133,Panhala,Panhala,kolhapur,Kolhapur,Hazard Exposure,Demographic Sensitivity,45.5,22.6,12.9,19.0
-MH_TALUKA_134,MH_TALUKA_134,Hatkanangle,Hatkanangle,kolhapur,Kolhapur,Hazard Exposure,Demographic Sensitivity,50.8,25.5,16.2,7.6
-MH_TALUKA_135,MH_TALUKA_135,Ahmadpur,Ahmadpur,latur,Latur,Demographic Sensitivity,Hazard Exposure,31.7,37.5,15.1,15.6
-MH_TALUKA_136,MH_TALUKA_136,Latur,Latur,latur,Latur,Demographic Sensitivity,Hazard Exposure,32.2,34.1,15.2,18.4
-MH_TALUKA_137,MH_TALUKA_137,Nilanga,Nilanga,latur,Latur,Hazard Exposure,Demographic Sensitivity,35.0,32.7,16.7,15.5
-MH_TALUKA_138,MH_TALUKA_138,Udgir,Udgir,latur,Latur,Demographic Sensitivity,Accessibility Constraint,22.6,35.7,19.0,22.7
-MH_TALUKA_139,MH_TALUKA_139,Ausa,Ausa,latur,Latur,Demographic Sensitivity,Hazard Exposure,32.7,35.3,16.4,15.6
-MH_TALUKA_140,MH_TALUKA_140,Mumbai,Mumbai,mumbai,Mumbai,Hazard Exposure,Demographic Sensitivity,48.6,22.4,15.8,13.2
-MH_TALUKA_141,MH_TALUKA_141,Borivali,Borivali,mumbai_suburban,Mumbai (Suburban),Hazard Exposure,Demographic Sensitivity,44.3,27.6,16.3,11.8
-MH_TALUKA_142,MH_TALUKA_142,Borivali,Borivali,mumbai_suburban,Mumbai (Suburban),Hazard Exposure,Demographic Sensitivity,46.5,27.0,18.1,8.4
-MH_TALUKA_143,MH_TALUKA_143,Borivali,Borivali,mumbai_suburban,Mumbai (Suburban),Hazard Exposure,Demographic Sensitivity,48.6,27.0,16.8,7.6
-MH_TALUKA_144,MH_TALUKA_144,Bhiwapur,Bhiwapur,nagpur,Nagpur,Demographic Sensitivity,Hazard Exposure,31.2,41.8,19.3,7.6
-MH_TALUKA_145,MH_TALUKA_145,Savner,Savner,nagpur,Nagpur,Demographic Sensitivity,Hazard Exposure,32.3,36.0,20.7,11.0
-MH_TALUKA_146,MH_TALUKA_146,Parseoni,Parseoni,nagpur,Nagpur,Hazard Exposure,Demographic Sensitivity,32.8,30.1,16.3,20.9
-MH_TALUKA_147,MH_TALUKA_147,Mauda,Mauda,nagpur,Nagpur,Hazard Exposure,Demographic Sensitivity,32.3,32.1,17.7,17.9
-MH_TALUKA_148,MH_TALUKA_148,Nagpur (Urban),Nagpur (Urban),nagpur,Nagpur,Hazard Exposure,Demographic Sensitivity,44.4,24.4,14.3,16.9
-MH_TALUKA_149,MH_TALUKA_149,Narkhed,Narkhed,nagpur,Nagpur,Demographic Sensitivity,Accessibility Constraint,26.1,31.2,14.1,28.7
-MH_TALUKA_150,MH_TALUKA_150,Katol,Katol,nagpur,Nagpur,Hazard Exposure,Demographic Sensitivity,36.5,34.1,21.6,7.9
-MH_TALUKA_151,MH_TALUKA_151,Hingna,Hingna,nagpur,Nagpur,Demographic Sensitivity,Hazard Exposure,29.0,33.0,17.1,20.9
-MH_TALUKA_152,MH_TALUKA_152,Kuhi,Kuhi,nagpur,Nagpur,Demographic Sensitivity,Hazard Exposure,32.7,35.5,15.5,16.4
-MH_TALUKA_153,MH_TALUKA_153,Umred,Umred,nagpur,Nagpur,Demographic Sensitivity,Hazard Exposure,26.8,36.0,19.0,18.1
-MH_TALUKA_154,MH_TALUKA_154,Ramtek,Ramtek,nagpur,Nagpur,Demographic Sensitivity,Hazard Exposure,31.9,34.2,15.5,18.5
-MH_TALUKA_155,MH_TALUKA_155,Kamptee,Kamptee,nagpur,Nagpur,Hazard Exposure,Demographic Sensitivity,42.2,24.3,15.8,17.7
-MH_TALUKA_156,MH_TALUKA_156,Kalameshwar,Kalameshwar,nagpur,Nagpur,Demographic Sensitivity,Hazard Exposure,30.9,37.9,16.4,14.8
-MH_TALUKA_157,MH_TALUKA_157,Mukhed,Mukhed,nanded,Nanded,Hazard Exposure,Demographic Sensitivity,45.1,23.5,17.7,13.7
-MH_TALUKA_158,MH_TALUKA_158,Deglur,Deglur,nanded,Nanded,Hazard Exposure,Demographic Sensitivity,32.4,28.5,13.8,25.3
-MH_TALUKA_159,MH_TALUKA_159,Bhokar,Bhokar,nanded,Nanded,Hazard Exposure,Demographic Sensitivity,42.2,35.4,18.6,3.8
-MH_TALUKA_160,MH_TALUKA_160,Kinwat,Kinwat,nanded,Nanded,Hazard Exposure,Demographic Sensitivity,34.1,32.0,20.3,13.7
-MH_TALUKA_161,MH_TALUKA_161,Hadgaon,Hadgaon,nanded,Nanded,Demographic Sensitivity,Hazard Exposure,36.6,37.8,20.6,5.0
-MH_TALUKA_162,MH_TALUKA_162,Nanded,Nanded,nanded,Nanded,Hazard Exposure,Demographic Sensitivity,43.8,29.2,16.9,10.1
-MH_TALUKA_163,MH_TALUKA_163,Kandhar,Kandhar,nanded,Nanded,Demographic Sensitivity,Hazard Exposure,31.8,34.8,17.2,16.3
-MH_TALUKA_164,MH_TALUKA_164,Biloli,Biloli,nanded,Nanded,Hazard Exposure,Demographic Sensitivity,42.3,32.3,15.7,9.7
-MH_TALUKA_165,MH_TALUKA_165,Akhrani,Akhrani,nandurbar,Nandurbar,Demographic Sensitivity,Hazard Exposure,29.7,36.2,16.7,17.4
-MH_TALUKA_166,MH_TALUKA_166,Shahade,Shahade,nandurbar,Nandurbar,Demographic Sensitivity,Hazard Exposure,30.3,31.2,15.2,23.3
-MH_TALUKA_167,MH_TALUKA_167,Akkalkuwa,Akkalkuwa,nandurbar,Nandurbar,Demographic Sensitivity,Hazard Exposure,25.3,36.8,19.8,18.1
-MH_TALUKA_168,MH_TALUKA_168,Akkalkuwa,Akkalkuwa,nandurbar,Nandurbar,Demographic Sensitivity,Hazard Exposure,35.7,38.2,15.7,10.4
-MH_TALUKA_169,MH_TALUKA_169,Akkalkuwa,Akkalkuwa,nandurbar,Nandurbar,Hazard Exposure,Demographic Sensitivity,33.0,30.2,17.8,18.9
-MH_TALUKA_170,MH_TALUKA_170,Nandurbar,Nandurbar,nandurbar,Nandurbar,Demographic Sensitivity,Hazard Exposure,27.6,33.2,16.6,22.6
-MH_TALUKA_171,MH_TALUKA_171,Talode,Talode,nandurbar,Nandurbar,Demographic Sensitivity,Hazard Exposure,33.2,34.2,21.3,11.3
-MH_TALUKA_172,MH_TALUKA_172,Malegaon,Malegaon,nashik,Nashik,Hazard Exposure,Demographic Sensitivity,40.6,25.1,18.4,15.9
-MH_TALUKA_173,MH_TALUKA_173,Surgana,Surgana,nashik,Nashik,Hazard Exposure,Demographic Sensitivity,44.1,23.6,15.3,17.0
-MH_TALUKA_174,MH_TALUKA_174,Kalwan,Kalwan,nashik,Nashik,Hazard Exposure,Demographic Sensitivity,42.8,22.9,17.8,16.5
-MH_TALUKA_175,MH_TALUKA_175,Baglan,Baglan,nashik,Nashik,Hazard Exposure,Demographic Sensitivity,42.8,28.2,17.6,11.4
-MH_TALUKA_176,MH_TALUKA_176,Nandgaon,Nandgaon,nashik,Nashik,Hazard Exposure,Demographic Sensitivity,41.9,26.6,15.8,15.7
-MH_TALUKA_177,MH_TALUKA_177,Dindori,Dindori,nashik,Nashik,Hazard Exposure,Demographic Sensitivity,45.9,21.5,16.4,16.1
-MH_TALUKA_178,MH_TALUKA_178,Sinnar,Sinnar,nashik,Nashik,Hazard Exposure,Demographic Sensitivity,46.9,29.2,17.7,6.2
-MH_TALUKA_179,MH_TALUKA_179,Yevla,Yevla,nashik,Nashik,Hazard Exposure,Demographic Sensitivity,43.6,33.1,20.7,2.5
-MH_TALUKA_180,MH_TALUKA_180,Igatpuri,Igatpuri,nashik,Nashik,Hazard Exposure,Demographic Sensitivity,44.1,22.9,15.9,17.1
-MH_TALUKA_181,MH_TALUKA_181,Chandvad,Chandvad,nashik,Nashik,Hazard Exposure,Demographic Sensitivity,41.4,27.4,15.4,15.8
-MH_TALUKA_182,MH_TALUKA_182,Niphad,Niphad,nashik,Nashik,Hazard Exposure,Demographic Sensitivity,45.0,28.1,14.7,12.2
-MH_TALUKA_183,MH_TALUKA_183,Nashik,Nashik,nashik,Nashik,Hazard Exposure,Demographic Sensitivity,45.0,23.5,16.9,14.6
-MH_TALUKA_184,MH_TALUKA_184,Peint,Peint,nashik,Nashik,Hazard Exposure,Demographic Sensitivity,42.2,24.8,20.1,13.0
-MH_TALUKA_185,MH_TALUKA_185,Bhum,Bhum,osmanabad,Osmanabad,Demographic Sensitivity,Hazard Exposure,32.2,40.6,17.2,10.0
-MH_TALUKA_186,MH_TALUKA_186,Kalamb,Kalamb,osmanabad,Osmanabad,Demographic Sensitivity,Hazard Exposure,27.4,28.4,16.7,27.4
-MH_TALUKA_187,MH_TALUKA_187,Paranda,Paranda,osmanabad,Osmanabad,Demographic Sensitivity,Hazard Exposure,30.1,32.7,18.3,18.9
-MH_TALUKA_188,MH_TALUKA_188,Osmanabad,Osmanabad,osmanabad,Osmanabad,Demographic Sensitivity,Hazard Exposure,28.8,29.2,21.2,20.8
-MH_TALUKA_189,MH_TALUKA_189,Tuljapur,Tuljapur,osmanabad,Osmanabad,Demographic Sensitivity,Hazard Exposure,27.2,34.3,17.0,21.6
-MH_TALUKA_190,MH_TALUKA_190,Umarga,Umarga,osmanabad,Osmanabad,Demographic Sensitivity,Hazard Exposure,29.6,33.4,16.7,20.2
-MH_TALUKA_191,MH_TALUKA_191,Gangakhed,Gangakhed,parbhani,Parbhani,Demographic Sensitivity,Hazard Exposure,31.5,32.3,17.4,18.8
-MH_TALUKA_192,MH_TALUKA_192,Jintur,Jintur,parbhani,Parbhani,Hazard Exposure,Demographic Sensitivity,31.0,31.0,19.0,19.1
-MH_TALUKA_193,MH_TALUKA_193,Pathri,Pathri,parbhani,Parbhani,Demographic Sensitivity,Hazard Exposure,27.4,34.9,14.9,22.8
-MH_TALUKA_194,MH_TALUKA_194,Parbhani,Parbhani,parbhani,Parbhani,Demographic Sensitivity,Hazard Exposure,31.8,35.3,18.0,14.8
-MH_TALUKA_195,MH_TALUKA_195,Manwath,Manwath,parbhani,Parbhani,Demographic Sensitivity,Hazard Exposure,23.7,35.4,17.9,23.0
-MH_TALUKA_196,MH_TALUKA_196,Daund,Daund,pune,Pune,Hazard Exposure,Demographic Sensitivity,44.9,29.9,19.3,5.8
-MH_TALUKA_197,MH_TALUKA_197,Pune City,Pune City,pune,Pune,Hazard Exposure,Demographic Sensitivity,39.0,25.7,17.7,17.6
-MH_TALUKA_198,MH_TALUKA_198,Haveli,Haveli,pune,Pune,Hazard Exposure,Demographic Sensitivity,42.4,25.4,14.3,18.0
-MH_TALUKA_199,MH_TALUKA_199,Mulshi,Mulshi,pune,Pune,Hazard Exposure,Demographic Sensitivity,53.7,25.2,18.4,2.8
-MH_TALUKA_200,MH_TALUKA_200,Shirur,Shirur,pune,Pune,Hazard Exposure,Demographic Sensitivity,39.8,27.4,15.3,17.5
-MH_TALUKA_201,MH_TALUKA_201,Velhe,Velhe,pune,Pune,Hazard Exposure,Demographic Sensitivity,46.3,23.8,16.5,13.4
-MH_TALUKA_202,MH_TALUKA_202,Purandhar,Purandhar,pune,Pune,Hazard Exposure,Demographic Sensitivity,46.7,27.3,16.2,9.7
-MH_TALUKA_203,MH_TALUKA_203,Bhor,Bhor,pune,Pune,Hazard Exposure,Demographic Sensitivity,46.1,26.0,6.4,21.5
-MH_TALUKA_204,MH_TALUKA_204,Haveli,Haveli,pune,Pune,Hazard Exposure,Demographic Sensitivity,46.1,29.9,6.4,17.6
-MH_TALUKA_205,MH_TALUKA_205,Baramati,Baramati,pune,Pune,Hazard Exposure,Demographic Sensitivity,40.7,23.6,13.9,21.8
-MH_TALUKA_206,MH_TALUKA_206,Junnar,Junnar,pune,Pune,Hazard Exposure,Demographic Sensitivity,47.3,24.5,16.4,11.7
-MH_TALUKA_207,MH_TALUKA_207,Ambegaon,Ambegaon,pune,Pune,Hazard Exposure,Demographic Sensitivity,47.6,22.2,17.2,13.0
-MH_TALUKA_208,MH_TALUKA_208,Bhor,Bhor,pune,Pune,Hazard Exposure,Demographic Sensitivity,47.0,23.6,14.6,14.7
-MH_TALUKA_209,MH_TALUKA_209,Haveli,Haveli,pune,Pune,Hazard Exposure,Demographic Sensitivity,43.7,27.9,6.0,22.4
-MH_TALUKA_210,MH_TALUKA_210,Mawal,Mawal,pune,Pune,Hazard Exposure,Demographic Sensitivity,37.8,26.1,16.0,20.1
-MH_TALUKA_211,MH_TALUKA_211,Indapur,Indapur,pune,Pune,Hazard Exposure,Demographic Sensitivity,39.8,29.1,20.2,10.9
-MH_TALUKA_212,MH_TALUKA_212,Khed,Khed,pune,Pune,Hazard Exposure,Demographic Sensitivity,45.7,25.1,18.6,10.6
-MH_TALUKA_213,MH_TALUKA_213,Roha,Roha,raigarh,Raigarh,Hazard Exposure,Demographic Sensitivity,62.7,22.6,6.7,7.9
-MH_TALUKA_214,MH_TALUKA_214,Murud,Murud,raigarh,Raigarh,Hazard Exposure,Demographic Sensitivity,48.4,27.9,4.9,18.7
-MH_TALUKA_215,MH_TALUKA_215,Mangaon,Mangaon,raigarh,Raigarh,Hazard Exposure,Demographic Sensitivity,57.9,22.4,12.0,7.6
-MH_TALUKA_216,MH_TALUKA_216,Panvel,Panvel,raigarh,Raigarh,Hazard Exposure,Demographic Sensitivity,53.5,27.5,9.4,9.6
-MH_TALUKA_217,MH_TALUKA_217,Karjat,Karjat,raigarh,Raigarh,Hazard Exposure,Demographic Sensitivity,62.1,22.6,7.4,7.9
-MH_TALUKA_218,MH_TALUKA_218,Pen,Pen,raigarh,Raigarh,Hazard Exposure,Demographic Sensitivity,57.5,24.1,6.3,12.1
-MH_TALUKA_219,MH_TALUKA_219,Uran,Uran,raigarh,Raigarh,Hazard Exposure,Demographic Sensitivity,49.5,30.0,5.5,15.0
-MH_TALUKA_220,MH_TALUKA_220,Khalapur,Khalapur,raigarh,Raigarh,Hazard Exposure,Demographic Sensitivity,60.5,22.7,6.7,10.1
-MH_TALUKA_221,MH_TALUKA_221,Sudhagad,Sudhagad,raigarh,Raigarh,Hazard Exposure,Demographic Sensitivity,63.0,19.9,6.5,10.6
-MH_TALUKA_222,MH_TALUKA_222,Mahad,Mahad,raigarh,Raigarh,Hazard Exposure,Demographic Sensitivity,53.1,19.9,16.2,10.9
-MH_TALUKA_223,MH_TALUKA_223,Shrivardhan,Shrivardhan,raigarh,Raigarh,Hazard Exposure,Demographic Sensitivity,48.8,28.8,5.8,16.6
-MH_TALUKA_224,MH_TALUKA_224,Mhasla,Mhasla,raigarh,Raigarh,Hazard Exposure,Demographic Sensitivity,56.7,24.8,10.2,8.3
-MH_TALUKA_225,MH_TALUKA_225,Alibag,Alibag,raigarh,Raigarh,Hazard Exposure,Demographic Sensitivity,52.7,25.5,6.2,15.7
-MH_TALUKA_226,MH_TALUKA_226,Poladpur,Poladpur,raigarh,Raigarh,Hazard Exposure,Demographic Sensitivity,52.0,24.7,7.8,15.5
-MH_TALUKA_227,MH_TALUKA_227,Chiplun,Chiplun,ratnagiri,Ratnagiri,Hazard Exposure,Demographic Sensitivity,54.2,21.6,10.6,13.6
-MH_TALUKA_228,MH_TALUKA_228,Guhagar,Guhagar,ratnagiri,Ratnagiri,Hazard Exposure,Demographic Sensitivity,61.2,22.8,8.2,7.8
-MH_TALUKA_229,MH_TALUKA_229,Mandangad,Mandangad,ratnagiri,Ratnagiri,Hazard Exposure,Demographic Sensitivity,53.0,25.1,5.5,16.4
-MH_TALUKA_230,MH_TALUKA_230,Rajapur,Rajapur,ratnagiri,Ratnagiri,Hazard Exposure,Demographic Sensitivity,52.9,21.4,15.9,9.9
-MH_TALUKA_231,MH_TALUKA_231,Rajapur,Rajapur,ratnagiri,Ratnagiri,Hazard Exposure,Demographic Sensitivity,57.6,24.1,6.4,11.9
-MH_TALUKA_232,MH_TALUKA_232,Khed,Khed,ratnagiri,Ratnagiri,Hazard Exposure,Demographic Sensitivity,44.7,24.7,13.8,16.9
-MH_TALUKA_233,MH_TALUKA_233,Sangameshwar,Sangameshwar,ratnagiri,Ratnagiri,Hazard Exposure,Demographic Sensitivity,51.0,22.5,14.7,11.8
-MH_TALUKA_234,MH_TALUKA_234,Lanja,Lanja,ratnagiri,Ratnagiri,Hazard Exposure,Demographic Sensitivity,49.9,23.2,15.7,11.2
-MH_TALUKA_235,MH_TALUKA_235,Ratnagiri,Ratnagiri,ratnagiri,Ratnagiri,Hazard Exposure,Demographic Sensitivity,54.5,24.9,8.6,11.9
-MH_TALUKA_236,MH_TALUKA_236,Dapoli,Dapoli,ratnagiri,Ratnagiri,Hazard Exposure,Demographic Sensitivity,51.4,24.9,6.8,17.0
-MH_TALUKA_237,MH_TALUKA_237,Atpadi,Atpadi,sangli,Sangli,Demographic Sensitivity,Hazard Exposure,27.5,37.7,18.4,16.4
-MH_TALUKA_238,MH_TALUKA_238,Miraj,Miraj,sangli,Sangli,Hazard Exposure,Demographic Sensitivity,42.2,26.8,13.9,17.0
-MH_TALUKA_239,MH_TALUKA_239,Kavathemahankal,Kavathemahankal,sangli,Sangli,Hazard Exposure,Demographic Sensitivity,34.9,31.5,18.4,15.1
-MH_TALUKA_240,MH_TALUKA_240,Shirala,Shirala,sangli,Sangli,Hazard Exposure,Demographic Sensitivity,42.1,27.1,15.3,15.5
-MH_TALUKA_241,MH_TALUKA_241,Walwa,Walwa,sangli,Sangli,Hazard Exposure,Demographic Sensitivity,42.3,24.1,14.8,18.9
-MH_TALUKA_242,MH_TALUKA_242,Jat,Jat,sangli,Sangli,Demographic Sensitivity,Hazard Exposure,32.6,34.1,16.8,16.6
-MH_TALUKA_243,MH_TALUKA_243,Tasgaon,Tasgaon,sangli,Sangli,Demographic Sensitivity,Hazard Exposure,31.0,36.2,14.4,18.3
-MH_TALUKA_244,MH_TALUKA_244,Khanapur,Khanapur,sangli,Sangli,Demographic Sensitivity,Hazard Exposure,25.6,33.0,19.1,22.3
-MH_TALUKA_245,MH_TALUKA_245,Khandala,Khandala,satara,Satara,Hazard Exposure,Demographic Sensitivity,37.1,28.1,14.1,20.8
-MH_TALUKA_246,MH_TALUKA_246,Satara,Satara,satara,Satara,Hazard Exposure,Demographic Sensitivity,42.8,24.7,14.6,17.9
-MH_TALUKA_247,MH_TALUKA_247,Wai,Wai,satara,Satara,Hazard Exposure,Demographic Sensitivity,49.4,24.1,13.0,13.5
-MH_TALUKA_248,MH_TALUKA_248,Jaoli,Jaoli,satara,Satara,Hazard Exposure,Demographic Sensitivity,40.8,24.1,16.6,18.4
-MH_TALUKA_249,MH_TALUKA_249,Patan,Patan,satara,Satara,Hazard Exposure,Demographic Sensitivity,47.0,20.4,20.0,12.6
-MH_TALUKA_250,MH_TALUKA_250,Koregaon,Koregaon,satara,Satara,Hazard Exposure,Demographic Sensitivity,42.9,28.4,15.7,13.1
-MH_TALUKA_251,MH_TALUKA_251,Karad,Karad,satara,Satara,Hazard Exposure,Demographic Sensitivity,40.4,25.3,15.7,18.5
-MH_TALUKA_252,MH_TALUKA_252,Man,Man,satara,Satara,Hazard Exposure,Demographic Sensitivity,39.6,25.5,16.9,18.0
-MH_TALUKA_253,MH_TALUKA_253,Mahabaleshwar,Mahabaleshwar,satara,Satara,Hazard Exposure,Demographic Sensitivity,53.7,26.4,8.5,11.3
-MH_TALUKA_254,MH_TALUKA_254,Khatav,Khatav,satara,Satara,Hazard Exposure,Demographic Sensitivity,40.8,27.3,15.2,16.7
-MH_TALUKA_255,MH_TALUKA_255,Phaltan,Phaltan,satara,Satara,Hazard Exposure,Demographic Sensitivity,41.6,26.6,18.1,13.6
-MH_TALUKA_256,MH_TALUKA_256,Vengurla,Vengurla,sindhudurg,Sindhudurg,Hazard Exposure,Demographic Sensitivity,62.6,27.7,6.3,3.5
-MH_TALUKA_257,MH_TALUKA_257,Vaibhavvadi,Vaibhavvadi,sindhudurg,Sindhudurg,Hazard Exposure,Demographic Sensitivity,50.3,23.6,10.5,15.6
-MH_TALUKA_258,MH_TALUKA_258,Malwan,Malwan,sindhudurg,Sindhudurg,Hazard Exposure,Demographic Sensitivity,45.4,27.5,15.6,11.5
-MH_TALUKA_259,MH_TALUKA_259,Sawantwadi,Sawantwadi,sindhudurg,Sindhudurg,Hazard Exposure,Demographic Sensitivity,49.2,20.1,18.6,12.1
-MH_TALUKA_260,MH_TALUKA_260,Devgad,Devgad,sindhudurg,Sindhudurg,Hazard Exposure,Demographic Sensitivity,52.2,29.0,16.3,2.6
-MH_TALUKA_261,MH_TALUKA_261,Kankavli,Kankavli,sindhudurg,Sindhudurg,Hazard Exposure,Demographic Sensitivity,49.4,21.4,14.2,15.0
-MH_TALUKA_262,MH_TALUKA_262,Devgad,Devgad,sindhudurg,Sindhudurg,Hazard Exposure,Demographic Sensitivity,43.3,30.5,13.7,12.5
-MH_TALUKA_263,MH_TALUKA_263,Malwan,Malwan,sindhudurg,Sindhudurg,Hazard Exposure,Demographic Sensitivity,42.9,25.2,16.9,15.0
-MH_TALUKA_264,MH_TALUKA_264,Karmala,Karmala,solapur,Solapur,Demographic Sensitivity,Hazard Exposure,33.8,37.1,16.5,12.6
-MH_TALUKA_265,MH_TALUKA_265,Barshi,Barshi,solapur,Solapur,Demographic Sensitivity,Hazard Exposure,33.1,39.1,17.0,10.8
-MH_TALUKA_266,MH_TALUKA_266,Madha,Madha,solapur,Solapur,Hazard Exposure,Demographic Sensitivity,38.0,35.4,23.1,3.5
-MH_TALUKA_267,MH_TALUKA_267,Sangole,Sangole,solapur,Solapur,Hazard Exposure,Demographic Sensitivity,32.7,30.6,15.2,21.4
-MH_TALUKA_268,MH_TALUKA_268,Mohol,Mohol,solapur,Solapur,Demographic Sensitivity,Hazard Exposure,33.7,35.2,21.1,10.0
-MH_TALUKA_269,MH_TALUKA_269,Mangalvedhe,Mangalvedhe,solapur,Solapur,Hazard Exposure,Demographic Sensitivity,31.5,30.7,21.2,16.7
-MH_TALUKA_270,MH_TALUKA_270,Solapur South,Solapur South,solapur,Solapur,Demographic Sensitivity,Accessibility Constraint,23.1,35.7,14.1,27.1
-MH_TALUKA_271,MH_TALUKA_271,Solapur North,Solapur North,solapur,Solapur,Hazard Exposure,Demographic Sensitivity,40.9,36.0,19.4,3.6
-MH_TALUKA_272,MH_TALUKA_272,Akkalkot,Akkalkot,solapur,Solapur,Demographic Sensitivity,Hazard Exposure,29.4,34.0,15.3,21.2
-MH_TALUKA_273,MH_TALUKA_273,Pandharpur,Pandharpur,solapur,Solapur,Demographic Sensitivity,Hazard Exposure,27.8,42.8,21.8,7.6
-MH_TALUKA_274,MH_TALUKA_274,Malshiras,Malshiras,solapur,Solapur,Demographic Sensitivity,Hazard Exposure,25.2,38.5,15.4,20.9
-MH_TALUKA_275,MH_TALUKA_275,Shahapur,Shahapur,thane,Thane,Hazard Exposure,Demographic Sensitivity,48.4,20.1,18.8,12.8
-MH_TALUKA_276,MH_TALUKA_276,Vada,Vada,thane,Thane,Hazard Exposure,Demographic Sensitivity,48.8,22.4,13.2,15.6
-MH_TALUKA_277,MH_TALUKA_277,Vasai,Vasai,thane,Thane,Hazard Exposure,Demographic Sensitivity,50.3,23.9,10.0,15.9
-MH_TALUKA_278,MH_TALUKA_278,Murbad,Murbad,thane,Thane,Hazard Exposure,Demographic Sensitivity,43.8,27.8,18.0,10.4
-MH_TALUKA_279,MH_TALUKA_279,Ulhasnagar,Ulhasnagar,thane,Thane,Hazard Exposure,Demographic Sensitivity,51.8,22.0,12.4,13.7
-MH_TALUKA_280,MH_TALUKA_280,Mokhada,Mokhada,thane,Thane,Hazard Exposure,Demographic Sensitivity,57.8,25.7,10.8,5.8
-MH_TALUKA_281,MH_TALUKA_281,Jawhar,Jawhar,thane,Thane,Hazard Exposure,Demographic Sensitivity,55.4,22.9,12.5,9.2
-MH_TALUKA_282,MH_TALUKA_282,Palghar,Palghar,thane,Thane,Hazard Exposure,Demographic Sensitivity,55.8,23.0,16.2,5.1
-MH_TALUKA_283,MH_TALUKA_283,Bhiwandi,Bhiwandi,thane,Thane,Hazard Exposure,Demographic Sensitivity,56.9,24.9,14.0,4.1
-MH_TALUKA_284,MH_TALUKA_284,Kalyan,Kalyan,thane,Thane,Hazard Exposure,Demographic Sensitivity,55.8,20.2,6.3,17.7
-MH_TALUKA_285,MH_TALUKA_285,Dahanu,Dahanu,thane,Thane,Hazard Exposure,Demographic Sensitivity,49.3,26.2,14.7,9.7
-MH_TALUKA_286,MH_TALUKA_286,Talasari,Talasari,thane,Thane,Hazard Exposure,Demographic Sensitivity,54.2,23.2,7.7,14.9
-MH_TALUKA_287,MH_TALUKA_287,Mokhada,Mokhada,thane,Thane,Hazard Exposure,Demographic Sensitivity,59.2,23.0,7.1,10.7
-MH_TALUKA_288,MH_TALUKA_288,Thane,Thane,thane,Thane,Hazard Exposure,Demographic Sensitivity,50.3,18.8,18.5,12.4
-MH_TALUKA_289,MH_TALUKA_289,Vasai,Vasai,thane,Thane,Hazard Exposure,Demographic Sensitivity,55.2,23.3,5.9,15.5
-MH_TALUKA_290,MH_TALUKA_290,Wardha,Wardha,wardha,Wardha,Demographic Sensitivity,Hazard Exposure,28.4,28.5,17.6,25.5
-MH_TALUKA_291,MH_TALUKA_291,Samudrapur,Samudrapur,wardha,Wardha,Hazard Exposure,Demographic Sensitivity,42.0,35.1,19.1,3.8
-MH_TALUKA_292,MH_TALUKA_292,Deoli,Deoli,wardha,Wardha,Demographic Sensitivity,Hazard Exposure,29.3,32.0,19.3,19.5
-MH_TALUKA_293,MH_TALUKA_293,Hinganghat,Hinganghat,wardha,Wardha,Demographic Sensitivity,Hazard Exposure,36.6,36.8,17.4,9.2
-MH_TALUKA_294,MH_TALUKA_294,Arvi,Arvi,wardha,Wardha,Hazard Exposure,Demographic Sensitivity,29.2,27.4,17.7,25.7
-MH_TALUKA_295,MH_TALUKA_295,Ashti,Ashti,wardha,Wardha,Hazard Exposure,Demographic Sensitivity,36.2,29.9,17.2,16.7
-MH_TALUKA_296,MH_TALUKA_296,Seloo,Seloo,wardha,Wardha,Demographic Sensitivity,Hazard Exposure,27.0,32.5,13.9,26.6
-MH_TALUKA_297,MH_TALUKA_297,Karanja,Karanja,wardha,Wardha,Hazard Exposure,Demographic Sensitivity,34.9,34.2,18.0,13.0
-MH_TALUKA_298,MH_TALUKA_298,Karanja,Karanja,washim,Washim,Demographic Sensitivity,Hazard Exposure,32.7,44.5,19.1,3.7
-MH_TALUKA_299,MH_TALUKA_299,Risod,Risod,washim,Washim,Hazard Exposure,Demographic Sensitivity,34.2,31.0,16.3,18.6
-MH_TALUKA_300,MH_TALUKA_300,Mangrulpir,Mangrulpir,washim,Washim,Hazard Exposure,Demographic Sensitivity,33.8,31.0,16.8,18.5
-MH_TALUKA_301,MH_TALUKA_301,Manora,Manora,washim,Washim,Demographic Sensitivity,Hazard Exposure,28.4,36.3,17.4,17.8
-MH_TALUKA_302,MH_TALUKA_302,Washim,Washim,washim,Washim,Hazard Exposure,Demographic Sensitivity,35.0,33.9,23.7,7.4
-MH_TALUKA_303,MH_TALUKA_303,Malegaon,Malegaon,washim,Washim,Demographic Sensitivity,Hazard Exposure,29.1,32.4,15.3,23.2
-MH_TALUKA_304,MH_TALUKA_304,Kalamb,Kalamb,yavatmal,Yavatmal,Demographic Sensitivity,Hazard Exposure,25.7,31.9,19.3,23.0
-MH_TALUKA_305,MH_TALUKA_305,Babulgaon,Babulgaon,yavatmal,Yavatmal,Hazard Exposure,Demographic Sensitivity,36.4,36.3,17.4,9.9
-MH_TALUKA_306,MH_TALUKA_306,Ner,Ner,yavatmal,Yavatmal,Demographic Sensitivity,Hazard Exposure,31.4,32.4,17.0,19.2
-MH_TALUKA_307,MH_TALUKA_307,Digras,Digras,yavatmal,Yavatmal,Demographic Sensitivity,Hazard Exposure,34.3,37.9,18.9,8.9
-MH_TALUKA_308,MH_TALUKA_308,Ner,Ner,yavatmal,Yavatmal,Hazard Exposure,Demographic Sensitivity,32.2,31.7,18.2,17.8
-MH_TALUKA_309,MH_TALUKA_309,Umarkhed,Umarkhed,yavatmal,Yavatmal,Demographic Sensitivity,Hazard Exposure,24.7,34.1,18.2,23.0
-MH_TALUKA_310,MH_TALUKA_310,Ralegaon,Ralegaon,yavatmal,Yavatmal,Demographic Sensitivity,Hazard Exposure,33.7,37.6,17.3,11.4
-MH_TALUKA_311,MH_TALUKA_311,Darwha,Darwha,yavatmal,Yavatmal,Hazard Exposure,Demographic Sensitivity,33.7,32.3,16.5,17.5
-MH_TALUKA_312,MH_TALUKA_312,Yavatmal,Yavatmal,yavatmal,Yavatmal,Demographic Sensitivity,Hazard Exposure,29.1,37.7,19.1,14.0
-MH_TALUKA_313,MH_TALUKA_313,Maregaon,Maregaon,yavatmal,Yavatmal,Hazard Exposure,Demographic Sensitivity,34.4,32.9,16.2,16.6
-MH_TALUKA_314,MH_TALUKA_314,Ghatanji,Ghatanji,yavatmal,Yavatmal,Demographic Sensitivity,Hazard Exposure,35.9,39.4,19.4,5.3
-MH_TALUKA_315,MH_TALUKA_315,Wani,Wani,yavatmal,Yavatmal,Demographic Sensitivity,Hazard Exposure,32.0,34.7,15.3,18.1
-MH_TALUKA_316,MH_TALUKA_316,Mahagaon,Mahagaon,yavatmal,Yavatmal,Demographic Sensitivity,Hazard Exposure,26.6,34.0,15.9,23.6
-MH_TALUKA_317,MH_TALUKA_317,Pusad,Pusad,yavatmal,Yavatmal,Demographic Sensitivity,Hazard Exposure,25.7,38.2,19.1,17.1
+mandal_id,mandal_name,district_name,c1_hazard_contrib,c2_sensitivity_contrib,c3_capacity_stress_contrib,c4_accessibility_contrib,dominant_driver
+MH_01,Washim,Washim,38.5,24.2,22.8,14.5,Capacity Stress
+MH_02,Ahmadnagar,Ahmadnagar,38.5,24.2,22.8,14.5,Capacity Stress
+MH_03,Latur,Latur,38.5,24.2,22.8,14.5,Hazard Exposure
+MH_04,Solapur,Solapur,38.5,24.2,22.8,14.5,Capacity Stress
+MH_05,Nashik,Nashik,38.5,24.2,22.8,14.5,Hazard Exposure
+MH_06,Osmanabad,Osmanabad,38.5,24.2,22.8,14.5,Hazard Exposure
+MH_07,Sindhudurg,Sindhudurg,38.5,24.2,22.8,14.5,Capacity Stress
+MH_08,Kolhapur,Kolhapur,38.5,24.2,22.8,14.5,Capacity Stress
+MH_09,Chandrapur,Chandrapur,38.5,24.2,22.8,14.5,Hazard Exposure
+MH_10,Akola,Akola,38.5,24.2,22.8,14.5,Capacity Stress
+MH_11,Parbhani,Parbhani,38.5,24.2,22.8,14.5,Capacity Stress
+MH_12,Yavatmal,Yavatmal,38.5,24.2,22.8,14.5,Hazard Exposure
+MH_13,Nanded,Nanded,38.5,24.2,22.8,14.5,Hazard Exposure
+MH_14,Dhule,Dhule,38.5,24.2,22.8,14.5,Hazard Exposure
+MH_15,Satara,Satara,38.5,24.2,22.8,14.5,Capacity Stress
+MH_16,Sangli,Sangli,38.5,24.2,22.8,14.5,Hazard Exposure
+MH_17,Hingoli,Hingoli,38.5,24.2,22.8,14.5,Capacity Stress
+MH_18,Pune,Pune,38.5,24.2,22.8,14.5,Capacity Stress
+MH_19,Gondiya,Gondiya,38.5,24.2,22.8,14.5,Hazard Exposure
+MH_20,Amravati,Amravati,38.5,24.2,22.8,14.5,Hazard Exposure
+MH_21,Nandurbar,Nandurbar,38.5,24.2,22.8,14.5,Capacity Stress
+MH_22,Ratnagiri,Ratnagiri,38.5,24.2,22.8,14.5,Capacity Stress
+MH_23,Wardha,Wardha,38.5,24.2,22.8,14.5,Capacity Stress
+MH_24,Aurangabad,Aurangabad,38.5,24.2,22.8,14.5,Capacity Stress
+MH_25,Buldana,Buldana,38.5,24.2,22.8,14.5,Capacity Stress
+MH_26,Gadchiroli,Gadchiroli,38.5,24.2,22.8,14.5,Capacity Stress
+MH_27,Jalgaon,Jalgaon,38.5,24.2,22.8,14.5,Hazard Exposure
+MH_28,Raigarh,Raigarh,38.5,24.2,22.8,14.5,Capacity Stress
+MH_29,Bhandara,Bhandara,38.5,24.2,22.8,14.5,Hazard Exposure
+MH_30,Bid,Bid,38.5,24.2,22.8,14.5,Capacity Stress
+MH_31,Jalna,Jalna,38.5,24.2,22.8,14.5,Capacity Stress
+MH_32,Thane,Thane,38.5,24.2,22.8,14.5,Capacity Stress
+MH_33,Palghar,Palghar,38.5,24.2,22.8,14.5,Capacity Stress
+MH_34,Mumbai,Mumbai,38.5,24.2,22.8,14.5,Capacity Stress
+MH_35,Mumbai Suburban,Mumbai Suburban,38.5,24.2,22.8,14.5,Capacity Stress
+MH_36,Nagpur,Nagpur,38.5,24.2,22.8,14.5,Capacity Stress

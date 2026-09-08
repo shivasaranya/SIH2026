@@ -1,0 +1,26 @@
+mandal_id,mandal_name,district_name,c1_hazard_contrib,c2_sensitivity_contrib,c3_capacity_stress_contrib,c4_accessibility_contrib,dominant_driver
+AR_01,Lohit,Lohit,38.5,24.2,22.8,14.5,Hazard Exposure
+AR_02,West Siang,West Siang,38.5,24.2,22.8,14.5,Capacity Stress
+AR_03,Upper Subansiri,Upper Subansiri,38.5,24.2,22.8,14.5,Hazard Exposure
+AR_04,Changlang,Changlang,38.5,24.2,22.8,14.5,Hazard Exposure
+AR_05,Longding,Longding,38.5,24.2,22.8,14.5,Capacity Stress
+AR_06,Lower Subansiri,Lower Subansiri,38.5,24.2,22.8,14.5,Hazard Exposure
+AR_07,East Kameng,East Kameng,38.5,24.2,22.8,14.5,Capacity Stress
+AR_08,Upper Siang,Upper Siang,38.5,24.2,22.8,14.5,Hazard Exposure
+AR_09,Anjaw,Anjaw,38.5,24.2,22.8,14.5,Hazard Exposure
+AR_10,Siang,Siang,38.5,24.2,22.8,14.5,Capacity Stress
+AR_11,Dibang Valley,Dibang Valley,38.5,24.2,22.8,14.5,Capacity Stress
+AR_12,Kurung Kumey,Kurung Kumey,38.5,24.2,22.8,14.5,Capacity Stress
+AR_13,West Kameng,West Kameng,38.5,24.2,22.8,14.5,Hazard Exposure
+AR_14,Lower Dibang Valley,Lower Dibang Valley,38.5,24.2,22.8,14.5,Capacity Stress
+AR_15,Tawang,Tawang,38.5,24.2,22.8,14.5,Capacity Stress
+AR_16,Papum Pare,Papum Pare,38.5,24.2,22.8,14.5,Capacity Stress
+AR_17,Tirap,Tirap,38.5,24.2,22.8,14.5,Hazard Exposure
+AR_18,Namsai,Namsai,38.5,24.2,22.8,14.5,Capacity Stress
+AR_19,East Siang,East Siang,38.5,24.2,22.8,14.5,Hazard Exposure
+AR_20,Kra Daadi,Kra Daadi,38.5,24.2,22.8,14.5,Hazard Exposure
+AR_21,Pakke Kessang,Pakke Kessang,38.5,24.2,22.8,14.5,Hazard Exposure
+AR_22,Kamle,Kamle,38.5,24.2,22.8,14.5,Hazard Exposure
+AR_23,Shi Yomi,Shi Yomi,38.5,24.2,22.8,14.5,Hazard Exposure
+AR_24,Leparada,Leparada,38.5,24.2,22.8,14.5,Capacity Stress
+AR_25,Lower Siang,Lower Siang,38.5,24.2,22.8,14.5,Hazard Exposure

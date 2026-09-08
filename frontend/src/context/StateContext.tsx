@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { setActiveStateId } from '../services/api';
 
-export type StateId = 
+export type KnownStateId = 
   | 'andhra_pradesh' 
   | 'tamil_nadu' 
   | 'mizoram' 
@@ -31,14 +31,17 @@ export type StateId =
   | 'jharkhand'
   | 'delhi'
   | 'jammu_and_kashmir'
+  | 'jammu_kashmir'
   | 'ladakh'
   | 'manipur';
+
+export type StateId = KnownStateId | (string & {});
 
 export interface StateConfig {
   id: StateId;
   name: string;
   code: string;
-  adminUnitName: string; // 'Mandal' | 'Taluk' | 'Tehsil' | 'R.D. Block'
+  adminUnitName: string; // 'Mandal' | 'Taluk' | 'Tehsil' | 'Taluka' | 'R.D. Block' | 'Circle' | 'Subdivision' | 'Block'
   adminUnitPlural: string;
   districtCount: number;
   adminUnitCount: number;
@@ -50,7 +53,7 @@ export interface StateConfig {
   tagline: string;
 }
 
-export const STATE_CONFIGS: Record<StateId, StateConfig> = {
+export const STATE_CONFIGS: Record<string, StateConfig> = {
   andhra_pradesh: {
     id: 'andhra_pradesh',
     name: 'Andhra Pradesh',
@@ -614,6 +617,38 @@ export const STATE_CONFIGS: Record<StateId, StateConfig> = {
 /**
  * Maps any state name, code, slug, or search term into a valid StateId
  */
+
+// Alias for jammu_kashmir compatibility
+if (STATE_CONFIGS.jammu_and_kashmir && !STATE_CONFIGS.jammu_kashmir) {
+  STATE_CONFIGS.jammu_kashmir = {
+    ...STATE_CONFIGS.jammu_and_kashmir,
+    id: 'jammu_kashmir',
+  };
+}
+
+// ─── Generic config for any non-operational state ────────────────────────────
+export const buildGenericConfig = (stateId: string): StateConfig => {
+  const name = stateId
+    .split(/[-_]/)
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(' ');
+  return {
+    id: stateId,
+    name,
+    code: stateId.slice(0, 2).toUpperCase(),
+    adminUnitName: 'Unit',
+    adminUnitPlural: 'Units',
+    districtCount: 0,
+    adminUnitCount: 0,
+    candidateHostsCount: 0,
+    center: [22.5, 82.0],
+    bounds: [[8.0, 68.0], [37.0, 97.5]],
+    isCoastal: false,
+    sdmaName: `${name} State Disaster Management Authority`,
+    tagline: `${name} — Disaster Risk Reduction & Resettlement Decision Platform`,
+  };
+};
+
 export function resolveStateId(input: string): StateId {
   if (!input) return 'andhra_pradesh';
   const clean = input.trim().toLowerCase().replace(/[-_]/g, ' ');
@@ -692,6 +727,15 @@ export function getStateSlug(id: StateId): string {
   return id.replace(/_/g, '-');
 }
 
+// ─── Aliases & Resolvers for upstream compatibility ──────────────────────────
+export const stateIdFromName = (name: string): string => resolveStateId(name);
+export const stateIdFromHash = (hash: string): string => {
+  const slug = hash.toLowerCase().replace('#government/', '').split('/')[0];
+  return resolveStateId(slug);
+};
+export const parseStateIdFromHash = stateIdFromHash;
+export const parseStateIdFromName = stateIdFromName;
+
 interface StateContextType {
   currentState: StateConfig;
   stateId: StateId;
@@ -711,6 +755,10 @@ export const StateProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       const match = fullUrl.match(/government\/([a-z0-9_-]+)/i);
       if (match && match[1] && match[1] !== 'select-state' && match[1] !== 'states') {
         return resolveStateId(match[1]);
+      }
+      const hash = window.location.hash.toLowerCase();
+      if (hash.startsWith('#government') && !hash.includes('select-state') && !hash.includes('/states')) {
+        return stateIdFromHash(hash);
       }
     }
     return 'andhra_pradesh';
@@ -752,8 +800,11 @@ export const StateProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     };
   }, []);
 
-  const currentState = STATE_CONFIGS[stateId] || STATE_CONFIGS.andhra_pradesh;
-  const availableStates = Object.values(STATE_CONFIGS);
+  const currentState = STATE_CONFIGS[stateId] ?? buildGenericConfig(stateId);
+  // Deduplicate availableStates (in case jammu_kashmir alias exists)
+  const availableStates = Object.values(STATE_CONFIGS).filter(
+    (s, idx, arr) => arr.findIndex((x) => x.name === s.name) === idx
+  );
 
   return (
     <StateContext.Provider

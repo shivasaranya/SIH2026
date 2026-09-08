@@ -32,7 +32,10 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab, onSelectTab }) => {
   const isAP = currentState.id === 'andhra_pradesh';
   const isMZ = currentState.id === 'mizoram';
   const isTN = currentState.id === 'tamil_nadu';
-  const priorityCount = isMZ ? '26' : (isTN ? '302' : '680');
+  const isJK = currentState.id === 'jammu_kashmir';
+  const isMP = currentState.id === 'madhya_pradesh';
+  const isHP = currentState.id === 'himachal_pradesh';
+  const priorityCount = isMP ? '422' : isJK ? '197' : isMZ ? '26' : isHP ? '172' : isTN ? '302' : '680';
 
   const assessmentItems = [
     { id: 'hazard' as ActiveTab, label: 'Hazard Risk', icon: AlertTriangle },

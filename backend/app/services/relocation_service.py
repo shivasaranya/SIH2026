@@ -19,85 +19,15 @@ from app.capacity.schemas import (
     HostZoneCandidateListResponse,
 )
 
-def resolve_state_key(state_id: Optional[str]) -> str:
-    if not state_id:
-        return "andhra_pradesh"
-    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
-    if clean in ["ap", "andhra_pradesh", "andhra", "andhrapradesh"]:
-        return "andhra_pradesh"
-    if clean in ["rajasthan", "rj"]:
-        return "rajasthan"
-    if clean in ["madhya_pradesh", "mp", "madhyapradesh"]:
-        return "madhya_pradesh"
-    if clean in ["telangana", "tg", "ts"]:
-        return "telangana"
-    if clean in ["tripura", "tr"]:
-        return "tripura"
-    if clean in ["karnataka", "ka"]:
-        return "karnataka"
-    if clean in ["goa", "ga"]:
-        return "goa"
-    if clean in ["jharkhand", "jh"]:
-        return "jharkhand"
-    if clean in ["delhi", "dl"]:
-        return "delhi"
-    if clean in ["jammu_and_kashmir", "jk", "jammu_kashmir"]:
-        return "jammu_and_kashmir"
-    if clean in ["ladakh", "la"]:
-        return "ladakh"
-    if clean in ["manipur", "mn"]:
-        return "manipur"
-    if clean in ["odisha", "od", "or", "orissa"]:
-        return "odisha"
-    if clean in ["assam", "as"]:
-        return "assam"
-    if clean in ["bihar", "br"]:
-        return "bihar"
-    if clean in ["tamil_nadu", "tn", "tamilnadu"]:
-        return "tamil_nadu"
-    if clean in ["west_bengal", "wb", "westbengal", "bengal"]:
-        return "west_bengal"
-    if clean in ["uttar_pradesh", "up", "uttarpradesh"]:
-        return "uttar_pradesh"
-    if clean in ["uttarakhand", "uk", "uttaranchal"]:
-        return "uttarakhand"
-    if clean in ["sikkim", "sk"]:
-        return "sikkim"
-    if clean in ["arunachal_pradesh", "arunachal", "ar"]:
-        return "arunachal_pradesh"
-    if clean in ["nagaland", "nl"]:
-        return "nagaland"
-    if clean in ["meghalaya", "ml"]:
-        return "meghalaya"
-    if clean in ["gujarat", "gj", "guj"]:
-        return "gujarat"
-    if clean in ["kerala", "kl", "kerela"]:
-        return "kerala"
-    if clean in ["maharashtra", "mh", "maharastra"]:
-        return "maharashtra"
-    if clean in ["haryana", "hr"]:
-        return "haryana"
-    if clean in ["punjab", "pb"]:
-        return "punjab"
-    if clean in ["chhattisgarh", "cg", "chhatisgarh", "chattisgarh", "ct"]:
-        return "chhattisgarh"
-    if clean in ["mizoram", "mz", "mizo"]:
-        return "mizoram"
-    if clean in ["himachal_pradesh", "hp", "himachal"]:
-        return "himachal_pradesh"
-    return clean
+from app.core.state_registry import state_registry, get_state_key
 
+def resolve_state_key(state_id: Optional[str]) -> str:
+    return get_state_key(state_id)
 def is_mizoram(state_id: Optional[str]) -> bool:
-    if not state_id:
-        return False
-    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
-    return clean in ["mizoram", "mz", "mizo"]
+    return get_state_key(state_id) == "mizoram"
 
 def is_hp(state_id: Optional[str]) -> bool:
-    if not state_id:
-        return False
-    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
-    return clean in ["himachal_pradesh", "hp", "himachal"]
+    return get_state_key(state_id) == "himachal_pradesh"
 
 def is_tn(state_id: Optional[str]) -> bool:
     if not state_id:
@@ -105,30 +35,63 @@ def is_tn(state_id: Optional[str]) -> bool:
     clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
     return clean in ["tamil_nadu", "tn", "tamilnadu"]
 
+def is_jk(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["jammu_kashmir", "jammu_and_kashmir", "jk", "j_k", "jammukashmir"]
+
+def is_mp(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["madhya_pradesh", "mp", "madhyapradesh"]
+
 class RelocationService:
     def __init__(self):
         self._cache: Dict[str, Dict[str, Any]] = {}
 
     def _get_state_key(self, state_id: Optional[str]) -> str:
-        if is_mizoram(state_id):
-            return "mz"
-        if is_tn(state_id):
-            return "tn"
-        if is_hp(state_id):
-            return "hp"
-        return "ap"
+        return get_state_key(state_id)
 
     def _load_data(self, state_id: Optional[str] = "andhra_pradesh"):
-        key = resolve_state_key(state_id)
+        key = get_state_key(state_id)
         if key in self._cache:
             return self._cache[key]
 
         reloc_dir = settings.DATA_DIR / "processed" / "relocation"
         cap_dir = settings.DATA_DIR / "processed" / "capacity"
 
+        meta = state_registry.get_state(key)
+        master_csv = meta.relocation_csv
+        factors_csv = meta.factors_csv
+        ahp_csv = meta.ahp_weights_csv
+        sum_csv = meta.relocation_summary_csv
+        host_csv = meta.host_candidates_csv
+        cap_csv = meta.capacity_adequacy_csv
+        geojson_path = meta.relocation_geojson
+        if not geojson_path or not geojson_path.exists():
+            geojson_path = meta.admin_units_geojson
+
         sum_csv = None
         cap_csv = None
-        if key in ["mz", "mizoram"]:
+        if key in ["ap", "andhra_pradesh"]:
+            master_csv = reloc_dir / "mandal_relocation_priority.csv"
+            factors_csv = reloc_dir / "relocation_factor_contributions.csv"
+            ahp_csv = reloc_dir / "ahp_weights.csv"
+            sum_csv = reloc_dir / "relocation_priority_summary.csv"
+            host_csv = cap_dir / "host_zone_candidates.csv"
+            cap_csv = cap_dir / "mandal_capacity_adequacy.csv"
+            geojson_path = reloc_dir / "ap_mandal_relocation_priority.geojson"
+        elif meta.relocation_csv and meta.relocation_csv.exists():
+            master_csv = meta.relocation_csv
+            factors_csv = meta.factors_csv if meta.factors_csv and meta.factors_csv.exists() else (reloc_dir / "relocation_factor_contributions.csv")
+            ahp_csv = meta.ahp_weights_csv if meta.ahp_weights_csv and meta.ahp_weights_csv.exists() else (reloc_dir / "ahp_weights.csv")
+            sum_csv = meta.relocation_summary_csv if meta.relocation_summary_csv and meta.relocation_summary_csv.exists() else None
+            host_csv = meta.host_candidates_csv if meta.host_candidates_csv and meta.host_candidates_csv.exists() else (cap_dir / "host_zone_candidates.csv")
+            cap_csv = meta.capacity_adequacy_csv
+            geojson_path = meta.relocation_geojson if meta.relocation_geojson and meta.relocation_geojson.exists() else meta.admin_units_geojson
+        elif key in ["mz", "mizoram"]:
             master_csv = reloc_dir / "mizoram_subdistrict_relocation_priority.csv"
             factors_csv = reloc_dir / "mizoram_relocation_factor_contributions.csv"
             ahp_csv = reloc_dir / "mizoram_ahp_weights.csv"
@@ -319,7 +282,7 @@ class RelocationService:
             cap_csv = cap_dir / "mandal_capacity_adequacy.csv"
             geojson_path = reloc_dir / "ap_mandal_relocation_priority.geojson"
 
-        if not master_csv.exists():
+        if not master_csv or not master_csv.exists():
             raise FileNotFoundError(f"Relocation priority dataset not found at {master_csv}")
 
         reloc_df = pd.read_csv(master_csv)
@@ -432,6 +395,10 @@ class RelocationService:
         target = mandal_id.strip().upper()
         if target.startswith("MZ_"):
             detected_state = "mizoram"
+        elif target.startswith("JK_"):
+            detected_state = "jammu_kashmir"
+        elif target.startswith("MP_"):
+            detected_state = "madhya_pradesh"
         elif target.startswith("TN_"):
             detected_state = "tamil_nadu"
         elif target.startswith("HP_"):
@@ -674,6 +641,10 @@ class RelocationService:
         target = mandal_id.strip().upper()
         if target.startswith("MZ_"):
             detected_state = "mizoram"
+        elif target.startswith("JK_"):
+            detected_state = "jammu_kashmir"
+        elif target.startswith("MP_"):
+            detected_state = "madhya_pradesh"
         elif target.startswith("TN_"):
             detected_state = "tamil_nadu"
         elif target.startswith("HP_"):
@@ -775,12 +746,7 @@ class RelocationService:
         # 2. Locate origin mandal
         s_reloc_m = reloc_df[(reloc_df["mandal_id"] == target) | (reloc_df["mandal_name"].str.upper() == target)]
         if s_reloc_m.empty:
-            for fallback_state in [
-                "tamil_nadu", "mizoram", "himachal_pradesh", "andhra_pradesh", "odisha",
-                "west_bengal", "bihar", "assam", "uttar_pradesh", "uttarakhand", "sikkim",
-                "arunachal_pradesh", "nagaland", "meghalaya", "gujarat", "kerala",
-                "maharashtra", "haryana", "punjab", "chhattisgarh"
-            ]:
+            for fallback_state in [s.id for s in state_registry.get_all_states()]:
                 if fallback_state == detected_state:
                     continue
                 fb_data = self._load_data(fallback_state)

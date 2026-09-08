@@ -21,7 +21,8 @@ import {
   Focus,
   Search,
   FileText,
-  RefreshCw
+  RefreshCw,
+  Info
 } from 'lucide-react';
 import type {
   VillageHazardResponse,
@@ -1056,7 +1057,7 @@ export const VillageAnalysisPage: React.FC<VillageAnalysisPageProps> = ({
     if (!relocData || !relocData.recommended_centers) return {};
     const tiers: Record<string, VillageRelocationCandidate[]> = {
       'WITHIN VILLAGE': [],
-      'NEARBY / SAME MANDAL': [],
+      'WITHIN MANDAL': [],
       'ADJACENT MANDAL': [],
       'SAME DISTRICT': [],
       'REGIONAL FALLBACK': [],
@@ -1064,8 +1065,11 @@ export const VillageAnalysisPage: React.FC<VillageAnalysisPageProps> = ({
 
     relocData.recommended_centers.forEach((c) => {
       let cat: string = c.proximity_category || 'REGIONAL FALLBACK';
-      if (cat === 'SAME MANDAL') {
-        cat = 'NEARBY / SAME MANDAL';
+      if (cat === 'SAME MANDAL' || cat === 'NEARBY / SAME MANDAL') {
+        cat = 'WITHIN MANDAL';
+      }
+      if (c.location_tier === 'IN_VILLAGE') {
+        cat = 'WITHIN VILLAGE';
       }
       if (!tiers[cat]) tiers[cat] = [];
       tiers[cat].push(c);
@@ -2113,46 +2117,49 @@ export const VillageAnalysisPage: React.FC<VillageAnalysisPageProps> = ({
             </div>
           </div>
 
-          {/* Card 4: Recommended Relocation Centers (4-Tier Proximity Hierarchy + Closer Rejection Audit) */}
+          {/* Card 4: Recommended Relocation Centers (Location / Proximity Hierarchy) */}
           <div className="bg-white border border-slate-200/90 rounded-2xl p-3.5 space-y-2.5 shadow-2xs">
             <div className="flex items-center justify-between border-b border-slate-100 pb-2">
               <span className="text-[11px] font-bold text-slate-900 uppercase tracking-wider flex items-center gap-1.5">
-                <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+                <ShieldCheck className="w-3.5 h-3.5 text-indigo-600" />
                 <span>Candidate Host Relocation Centers</span>
               </span>
               <span className="text-[9px] font-mono text-slate-400 font-semibold">Decision Support</span>
             </div>
 
-            {/* Planning Intensity Selector */}
+            {/* Selection Hierarchy Banner */}
+            <div className="text-[10px] text-slate-600 bg-slate-50 border border-slate-200 p-2.5 rounded-xl leading-tight space-y-1">
+              <div className="font-bold text-slate-800 text-[10px]">
+                Selection hierarchy: Safety &rarr; Capacity &rarr; Accessibility &rarr; Soft Proximity Preference
+              </div>
+              <div className="text-[9px] text-slate-500">
+                No arbitrary distance cutoff. Proximity is a soft preference; candidates are ranked by multi-hazard safety and capacity headroom.
+              </div>
+            </div>
+
+            {/* Geographic Proximity Scope Selector */}
             <div className="space-y-1">
-              <span className="text-[9px] font-bold text-slate-500 uppercase tracking-wider">Planning Intensity</span>
+              <span className="text-[9px] font-bold text-slate-500 uppercase tracking-wider">Search Scope / Proximity</span>
               <div className="flex gap-1.5 flex-wrap">
                 {([
-                  { key: 'low' as const, label: 'LOW INTENSITY', desc: 'Within-Village Potential Facilities', color: 'emerald' },
-                  { key: 'high' as const, label: 'HIGH INTENSITY', desc: 'Within Mandal', color: 'amber' },
-                  { key: 'very_high' as const, label: 'VERY HIGH INTENSITY', desc: 'Outside Mandal', color: 'rose' },
-                ]).map(({ key, label, desc, color }) => {
+                  { key: 'low' as const, label: 'WITHIN VILLAGE', desc: 'In-Village Potential Facilities' },
+                  { key: 'high' as const, label: 'WITHIN MANDAL', desc: 'Same-Mandal Host Candidates' },
+                  { key: 'very_high' as const, label: 'REGIONAL OPTIONS', desc: 'Adjacent & Regional Candidates' },
+                ]).map(({ key, label, desc }) => {
                   const isActive = planningIntensity === key;
-                  const colorMap: Record<string, string> = {
-                    emerald: isActive
-                      ? 'bg-emerald-600 text-white border-emerald-700 shadow-sm'
-                      : 'bg-emerald-50 text-emerald-700 border-emerald-200 hover:bg-emerald-100',
-                    amber: isActive
-                      ? 'bg-amber-500 text-white border-amber-600 shadow-sm'
-                      : 'bg-amber-50 text-amber-700 border-amber-200 hover:bg-amber-100',
-                    rose: isActive
-                      ? 'bg-rose-600 text-white border-rose-700 shadow-sm'
-                      : 'bg-rose-50 text-rose-700 border-rose-200 hover:bg-rose-100',
-                  };
                   return (
                     <button
                       key={key}
-                      id={`intensity-btn-${key}`}
+                      id={`scope-btn-${key}`}
                       onClick={() => setPlanningIntensity(key)}
-                      className={`text-[9px] font-black px-2 py-1 rounded-lg border transition-all leading-tight ${colorMap[color]}`}
+                      className={`text-[9px] font-black px-2.5 py-1.5 rounded-lg border transition-all leading-tight cursor-pointer ${
+                        isActive
+                          ? 'bg-indigo-600 text-white border-indigo-700 shadow-xs'
+                          : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100 hover:text-slate-900'
+                      }`}
                     >
                       <div>{label}</div>
-                      <div className={`text-[8px] font-medium mt-0.5 ${isActive ? 'opacity-80' : 'opacity-60'}`}>{desc}</div>
+                      <div className={`text-[8px] font-normal mt-0.5 ${isActive ? 'text-indigo-100' : 'text-slate-500'}`}>{desc}</div>
                     </button>
                   );
                 })}
@@ -2164,13 +2171,8 @@ export const VillageAnalysisPage: React.FC<VillageAnalysisPageProps> = ({
               )}
             </div>
 
-            <div className="text-[10px] text-slate-500 bg-emerald-50/60 border border-emerald-200/60 p-2 rounded-xl leading-tight space-y-1">
-              <div>
-                <strong>Hierarchy:</strong> Safety First &gt; Capacity &gt; Accessibility &gt; Soft Proximity Preference. No arbitrary distance cutoffs.
-              </div>
-              <div className="text-[9px] text-slate-600 font-medium border-t border-emerald-200/40 pt-1 leading-normal">
-                Mapped facilities are potential locations identified from connected public datasets. Final structural safety, occupancy, emergency suitability and authorization require local authority verification.
-              </div>
+            <div className="text-[9px] text-slate-500 bg-slate-50/70 border border-slate-100 p-2 rounded-xl leading-normal">
+              Mapped facilities are potential locations identified from connected public datasets. Final structural safety, occupancy, emergency suitability and authorization require local authority verification.
             </div>
 
             {loadingReloc ? (
@@ -2179,87 +2181,97 @@ export const VillageAnalysisPage: React.FC<VillageAnalysisPageProps> = ({
               </div>
             ) : relocData ? (
               <div className="space-y-3">
-                {/* 1. Low Intensity Message when no verified facility exists in-village */}
+                {/* Clean In-Village Facility Status when no verified facility exists in-village */}
                 {planningIntensity === 'low' && (!relocData.recommended_centers || relocData.recommended_centers.length === 0) && (
-                  <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-1.5">
-                    <div className="flex items-center gap-1.5 text-slate-700 text-[11px] font-bold">
-                      <AlertTriangle className="w-3.5 h-3.5 shrink-0 text-amber-500" />
-                      <span>In-Village Facility Status</span>
+                  <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+                    <div className="flex items-center gap-1.5 text-slate-700 text-[11px] font-bold uppercase tracking-wide">
+                      <Info className="w-3.5 h-3.5 shrink-0 text-slate-500" />
+                      <span>IN-VILLAGE FACILITY STATUS</span>
                     </div>
                     <p className="text-[11px] text-slate-900 font-bold leading-tight">
-                      No verified facility mapped inside this village.
+                      No verified relocation facility mapped inside this village.
                     </p>
-                    <p className="text-[9.5px] text-slate-500 leading-tight">
-                      No verified disaster-manageable shelter or public facility is cataloged within Census Village {villageCode} in the connected dataset.
+                    <p className="text-[9.5px] text-slate-600 leading-relaxed">
+                      Potential relocation candidates are therefore searched using the approved hierarchy: same mandal &rarr; adjacent mandal &rarr; same district &rarr; regional fallback.
                     </p>
-                    <div className="pt-1 flex items-center gap-2">
+                    <div className="pt-1 flex items-center gap-2 flex-wrap">
                       <button
                         onClick={() => setPlanningIntensity('high')}
-                        className="text-[9px] font-bold px-2 py-1 bg-amber-500 hover:bg-amber-600 text-white rounded-lg transition shadow-2xs"
+                        className="text-[9.5px] font-bold px-2.5 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg transition shadow-2xs cursor-pointer flex items-center gap-1"
                       >
-                        HIGH INTENSITY (Within Mandal) &rarr;
+                        <span>VIEW WITHIN-MANDAL OPTIONS</span>
+                        <span>&rarr;</span>
                       </button>
                       <button
                         onClick={() => setPlanningIntensity('very_high')}
-                        className="text-[9px] font-bold px-2 py-1 bg-rose-600 hover:bg-rose-700 text-white rounded-lg transition shadow-2xs"
+                        className="text-[9.5px] font-bold px-2.5 py-1.5 bg-slate-700 hover:bg-slate-800 text-white rounded-lg transition shadow-2xs cursor-pointer flex items-center gap-1"
                       >
-                        VERY HIGH (Outside Mandal) &rarr;
+                        <span>VIEW ADJACENT/SAME-DISTRICT OPTIONS</span>
+                        <span>&rarr;</span>
                       </button>
                     </div>
                   </div>
                 )}
 
-                {/* 2. Fallback Notice when no candidate found in other tiers */}
+                {/* Notice when no candidate found in expanded search */}
                 {planningIntensity !== 'low' && (!relocData.recommended_centers || relocData.recommended_centers.length === 0) && (
-                  <div className="p-2.5 bg-amber-50/90 border border-amber-200 rounded-xl space-y-1">
-                    <div className="flex items-center gap-1.5 text-amber-800 text-[11px] font-bold">
-                      <AlertTriangle className="w-3.5 h-3.5 shrink-0 text-amber-600" />
+                  <div className="p-2.5 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+                    <div className="flex items-center gap-1.5 text-slate-700 text-[11px] font-bold">
+                      <Info className="w-3.5 h-3.5 shrink-0 text-slate-500" />
                       <span>Proximity Search Result</span>
                     </div>
-                    <p className="text-[11px] text-amber-900 font-bold leading-tight">
+                    <p className="text-[11px] text-slate-900 font-bold leading-tight">
                       No verified suitable nearby candidate was found in the current dataset.
                     </p>
-                    <p className="text-[9.5px] text-amber-800/90 leading-tight">
-                      Displaying nearest qualified fallback candidates meeting verified safety (≥50% safe land), capacity, and accessibility criteria.
+                    <p className="text-[9.5px] text-slate-600 leading-tight">
+                      Displaying nearest qualified fallback candidates meeting verified safety (&ge;50% safe land), capacity, and accessibility criteria.
                     </p>
                   </div>
                 )}
 
-                {/* Grouped by 4-Tier Geographic Search Hierarchy */}
-                {(['WITHIN VILLAGE', 'NEARBY / SAME MANDAL', 'ADJACENT MANDAL', 'SAME DISTRICT', 'REGIONAL FALLBACK'] as const).map((tierName) => {
+                {/* Grouped by Location / Proximity Hierarchy */}
+                {(['WITHIN VILLAGE', 'WITHIN MANDAL', 'ADJACENT MANDAL', 'SAME DISTRICT', 'REGIONAL FALLBACK'] as const).map((tierName) => {
                   const candidates = groupedCandidates[tierName];
                   if (!candidates || candidates.length === 0) return null;
 
                   const tierColor =
                     tierName === 'WITHIN VILLAGE'
                       ? 'bg-teal-50 text-teal-800 border-teal-200'
-                      : tierName === 'NEARBY / SAME MANDAL'
+                      : tierName === 'WITHIN MANDAL'
                       ? 'bg-emerald-50 text-emerald-800 border-emerald-200'
                       : tierName === 'ADJACENT MANDAL'
-                      ? 'bg-blue-50 text-blue-800 border-blue-200'
+                      ? 'bg-sky-50 text-sky-800 border-sky-200'
                       : tierName === 'SAME DISTRICT'
                       ? 'bg-indigo-50 text-indigo-800 border-indigo-200'
-                      : 'bg-slate-100 text-slate-800 border-slate-200';
+                      : 'bg-slate-100 text-slate-700 border-slate-200';
 
-                  const tierLabel =
+                  const tierSubtext =
                     tierName === 'WITHIN VILLAGE'
-                      ? 'WITHIN-VILLAGE POTENTIAL FACILITIES'
-                      : tierName === 'NEARBY / SAME MANDAL'
-                      ? (planningIntensity === 'high' ? 'WITHIN MANDAL' : 'NEARBY / SAME MANDAL')
-                      : (tierName === 'REGIONAL FALLBACK' ? 'OUTSIDE MANDAL' : tierName);
+                      ? 'Potential facilities located inside the selected village'
+                      : tierName === 'WITHIN MANDAL'
+                      ? 'Potential candidate hosts elsewhere within the same mandal'
+                      : tierName === 'ADJACENT MANDAL'
+                      ? 'Potential candidate hosts in nearby/adjacent mandals'
+                      : tierName === 'SAME DISTRICT'
+                      ? 'Potential candidate hosts elsewhere in the same district'
+                      : 'Candidate hosts farther away when closer qualified options are unavailable';
 
                   return (
                     <div key={tierName} className="space-y-2 pt-1">
                       {/* Tier Category Header */}
                       <div className="flex items-center justify-between px-1">
-                        <span className={`text-[9px] font-black px-2 py-0.5 rounded border uppercase tracking-wider ${tierColor}`}>
-                          {tierLabel}
-                        </span>
-                        <span className="text-[9px] font-mono text-slate-400">
-                          {candidates.length} {candidates.length === 1 ? 'facility' : 'facilities'}
+                        <div>
+                          <span className={`text-[9.5px] font-black px-2 py-0.5 rounded border uppercase tracking-wider ${tierColor}`}>
+                            {tierName}
+                          </span>
+                          <span className="text-[8.5px] text-slate-500 ml-2 hidden sm:inline">
+                            {tierSubtext}
+                          </span>
+                        </div>
+                        <span className="text-[9px] font-mono text-slate-400 font-semibold">
+                          {candidates.length} {candidates.length === 1 ? 'candidate' : 'candidates'}
                         </span>
                       </div>
-
                       {/* Candidate Cards */}
                       {candidates.map((center, idx) => (
                         <div

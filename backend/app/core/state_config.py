@@ -904,6 +904,8 @@ STATE_ALIASES = {
     "mn": "manipur"
 }
 
+SUPPORTED_STATES["jammu_kashmir"] = SUPPORTED_STATES["jammu_and_kashmir"]
+
 def resolve_state_config(state_key: Optional[str] = None) -> StateConfig:
     """
     Resolves the StateConfig for a given state string (defaulting to 'ap' for backward compatibility).
