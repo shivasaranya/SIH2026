@@ -82,15 +82,16 @@ export const GISMap: React.FC<GISMapProps> = ({
 
   const fitToStateBounds = (targetMap: L.Map, animated: boolean = false) => {
     let bounds: L.LatLngBounds | null = null;
+    const stateBounds = L.latLngBounds(currentState.bounds);
     if (vulnerabilityLayerRef.current && vulnerabilityLayerRef.current.getLayers().length > 0) {
       const b = vulnerabilityLayerRef.current.getBounds();
-      if (b.isValid()) bounds = b;
+      if (b.isValid() && stateBounds.intersects(b.pad(0.5))) bounds = b;
     }
     if (!bounds && districtsLayerRef.current && districtsLayerRef.current.getLayers().length > 0) {
       const b = districtsLayerRef.current.getBounds();
-      if (b.isValid()) bounds = b;
+      if (b.isValid() && stateBounds.intersects(b.pad(0.5))) bounds = b;
     }
-    const targetBounds = bounds || L.latLngBounds(currentState.bounds);
+    const targetBounds = bounds || stateBounds;
     targetMap.fitBounds(targetBounds, {
       padding: [16, 16],
       animate: animated,
@@ -209,14 +210,20 @@ export const GISMap: React.FC<GISMapProps> = ({
     // In analytical mode (Vulnerability/Hazard/Sensitivity), districts serve as subtle context boundary outlines
     const metricConfig = METRIC_CONFIGS[activeMetric];
 
+    const hasVulnFeatures = Boolean(
+      vulnerabilityGeoJson &&
+      vulnerabilityGeoJson.features &&
+      vulnerabilityGeoJson.features.length > 0
+    );
+
     const layer = L.geoJSON(districtsGeoJson as any, {
       pane: 'districtsPane',
-      interactive: !isAnalyticalMode,
+      interactive: !isAnalyticalMode || !hasVulnFeatures,
       style: (feature) => {
         const did = feature?.properties?.district_id;
         const isSelected = did === selectedDistrictId;
 
-        if (isAnalyticalMode) {
+        if (isAnalyticalMode && hasVulnFeatures) {
           return {
             fillColor: 'transparent',
             fillOpacity: 0,
@@ -245,7 +252,7 @@ export const GISMap: React.FC<GISMapProps> = ({
         const val = getMetricValue(activeMetric, summary);
         const formattedVal = metricConfig.colorScale.formatter(val);
 
-        if (!isAnalyticalMode) {
+        if (!isAnalyticalMode || !hasVulnFeatures) {
           featureLayer.bindTooltip(
             `<div class="p-1 text-xs">
               <strong class="text-sm font-bold text-white">${dname}</strong><br/>
@@ -271,7 +278,7 @@ export const GISMap: React.FC<GISMapProps> = ({
           },
           mouseout: (e) => {
             const target = e.target;
-            if (did !== selectedDistrictId && !isAnalyticalMode) {
+            if (did !== selectedDistrictId && (!isAnalyticalMode || !hasVulnFeatures)) {
               target.setStyle({
                 weight: 1.2,
                 color: '#64748b',
@@ -280,7 +287,7 @@ export const GISMap: React.FC<GISMapProps> = ({
             }
           },
           click: (e) => {
-            if (!isAnalyticalMode) {
+            if (!isAnalyticalMode || !hasVulnFeatures) {
               L.DomEvent.stopPropagation(e);
               onSelectDistrict(did);
               const bounds = (featureLayer as any).getBounds();
@@ -594,8 +601,11 @@ export const GISMap: React.FC<GISMapProps> = ({
 
     if (!selectedMandal && !selectedDistrictId) {
       const b = layer.getBounds();
-      if (b.isValid()) {
+      const stateBounds = L.latLngBounds(currentState.bounds);
+      if (b.isValid() && stateBounds.intersects(b.pad(0.5))) {
         map.fitBounds(b, { padding: [16, 16], maxZoom: 8.5 });
+      } else {
+        map.fitBounds(stateBounds, { padding: [16, 16], maxZoom: 8.5 });
       }
     }
   }, [vulnerabilityGeoJson, activeMetric, priorityFilter, selectedMandal, onSelectMandal, isAnalyticalMode]);

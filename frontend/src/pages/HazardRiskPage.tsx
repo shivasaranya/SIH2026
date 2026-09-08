@@ -25,7 +25,7 @@ export const HazardRiskPage: React.FC<HazardRiskPageProps> = () => {
 
   useEffect(() => {
     let isMounted = true;
-    fetchVulnerabilityGeoJson()
+    fetchVulnerabilityGeoJson(undefined, currentState.id)
       .then((geo) => {
         if (!isMounted) return;
         const props = geo.features.map((f: any) => f.properties as MandalProperties);

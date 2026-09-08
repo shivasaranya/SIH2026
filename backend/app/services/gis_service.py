@@ -49,6 +49,28 @@ def resolve_state_key(state_id: Optional[str]) -> str:
         return "punjab"
     if clean in ["chhattisgarh", "cg", "chhatisgarh", "chattisgarh", "ct"]:
         return "chhattisgarh"
+    if clean in ["rajasthan", "rj"]:
+        return "rajasthan"
+    if clean in ["telangana", "tg", "ts"]:
+        return "telangana"
+    if clean in ["madhya_pradesh", "mp", "madhyapradesh"]:
+        return "madhya_pradesh"
+    if clean in ["tripura", "tr"]:
+        return "tripura"
+    if clean in ["karnataka", "ka"]:
+        return "karnataka"
+    if clean in ["goa", "ga"]:
+        return "goa"
+    if clean in ["jharkhand", "jh"]:
+        return "jharkhand"
+    if clean in ["delhi", "dl"]:
+        return "delhi"
+    if clean in ["jammu_and_kashmir", "jk", "jammu_kashmir"]:
+        return "jammu_and_kashmir"
+    if clean in ["ladakh", "la"]:
+        return "ladakh"
+    if clean in ["manipur", "mn"]:
+        return "manipur"
     return "andhra_pradesh"
 
 
@@ -83,6 +105,17 @@ class GISService:
             "mizoram": "mizoram_11_districts.geojson",
             "himachal_pradesh": "himachal_pradesh_12_districts.geojson",
             "andhra_pradesh": "andhra_pradesh_26_districts.geojson",
+            "rajasthan": "rajasthan_33_districts.geojson",
+            "telangana": "telangana_districts.geojson",
+            "madhya_pradesh": "madhya_pradesh_districts.geojson",
+            "tripura": "tripura_districts.geojson",
+            "karnataka": "karnataka_districts.geojson",
+            "goa": "goa_districts.geojson",
+            "jharkhand": "jharkhand_districts.geojson",
+            "delhi": "delhi_districts.geojson",
+            "jammu_and_kashmir": "jammu_and_kashmir_districts.geojson",
+            "ladakh": "ladakh_districts.geojson",
+            "manipur": "manipur_districts.geojson",
         }
 
         filename = DISTRICT_FILES.get(key, "andhra_pradesh_26_districts.geojson")
@@ -326,8 +359,19 @@ class GISService:
                 with open(mand_path, "r", encoding="utf-8") as f:
                     self._cached_mandals[key] = json.load(f)
 
+            elif key == "rajasthan":
+                mand_path = settings.PROCESSED_ADMIN_DIR / "rajasthan_tehsils.geojson"
+                if not mand_path.exists():
+                    mand_path = settings.DATA_DIR / "processed" / "relocation" / "rajasthan_tehsil_relocation_priority.geojson"
+                with open(mand_path, "r", encoding="utf-8") as f:
+                    self._cached_mandals[key] = json.load(f)
+
+            elif (settings.PROCESSED_ADMIN_DIR / f"{key}_units.geojson").exists():
+                with open(settings.PROCESSED_ADMIN_DIR / f"{key}_units.geojson", "r", encoding="utf-8") as f:
+                    self._cached_mandals[key] = json.load(f)
+
             else:
-                # Default fallback using state_registry or error
+                # Default fallback using state_registry or districts geojson
                 try:
                     state_meta = state_registry.get_state(key)
                     units_path = state_meta.admin_units_geojson or state_meta.relocation_geojson
@@ -335,9 +379,9 @@ class GISService:
                         with open(units_path, "r", encoding="utf-8") as f:
                             self._cached_mandals[key] = json.load(f)
                     else:
-                        raise FileNotFoundError(f"Admin units GeoJSON for {key} not found at {units_path}")
-                except Exception as e:
-                    raise FileNotFoundError(f"Admin units GeoJSON for {key} could not be resolved: {e}")
+                        self._cached_mandals[key] = self.get_districts_geojson(key)
+                except Exception:
+                    self._cached_mandals[key] = self.get_districts_geojson(key)
 
         full_geojson = self._cached_mandals[key]
 

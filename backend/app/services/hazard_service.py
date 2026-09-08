@@ -15,6 +15,28 @@ def resolve_state_key(state_id: Optional[str]) -> str:
     clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
     if clean in ["ap", "andhra_pradesh", "andhra", "andhrapradesh"]:
         return "andhra_pradesh"
+    if clean in ["rajasthan", "rj"]:
+        return "rajasthan"
+    if clean in ["madhya_pradesh", "mp", "madhyapradesh"]:
+        return "madhya_pradesh"
+    if clean in ["telangana", "tg", "ts"]:
+        return "telangana"
+    if clean in ["tripura", "tr"]:
+        return "tripura"
+    if clean in ["karnataka", "ka"]:
+        return "karnataka"
+    if clean in ["goa", "ga"]:
+        return "goa"
+    if clean in ["jharkhand", "jh"]:
+        return "jharkhand"
+    if clean in ["delhi", "dl"]:
+        return "delhi"
+    if clean in ["jammu_and_kashmir", "jk", "jammu_kashmir"]:
+        return "jammu_and_kashmir"
+    if clean in ["ladakh", "la"]:
+        return "ladakh"
+    if clean in ["manipur", "mn"]:
+        return "manipur"
     if clean in ["odisha", "od", "or", "orissa"]:
         return "odisha"
     if clean in ["assam", "as"]:
@@ -53,7 +75,7 @@ def resolve_state_key(state_id: Optional[str]) -> str:
         return "mizoram"
     if clean in ["himachal_pradesh", "hp", "himachal"]:
         return "himachal_pradesh"
-    return "andhra_pradesh"
+    return clean
 
 def is_mizoram(state_id: Optional[str]) -> bool:
     if not state_id:
@@ -87,15 +109,17 @@ class HazardService:
 
         haz_dir = settings.DATA_DIR / "processed" / "hazard" / "mandal_exposure"
 
-        if key == "mz":
+        if key in ["mz", "mizoram"]:
             csv_path = haz_dir / "mizoram_subdistrict_multi_hazard_exposure.csv"
             geojson_path = haz_dir / "mizoram_subdistrict_multi_hazard_exposure.geojson"
             surge_included = False
-        elif key == "hp":
+            surge_reason = "Inland hilly northeastern state: Direct coastal storm surge is Not Applicable (0.0). Landslide susceptibility, flash floods, and cyclone wind models applied."
+        elif key in ["hp", "himachal_pradesh"]:
             csv_path = haz_dir / "hp_tehsil_multi_hazard_exposure.csv"
             geojson_path = haz_dir / "hp_tehsil_multi_hazard_exposure.geojson"
             surge_included = False
-        elif key == "tn":
+            surge_reason = "Inland Himalayan state: Direct coastal storm surge is Not Applicable (0.0). Flash floods, cloudbursts, steep slope landslides, and wind models applied."
+        elif key in ["tn", "tamil_nadu"]:
             csv_path = haz_dir / "tn_taluk_multi_hazard_exposure.csv"
             geojson_path = haz_dir / "tn_taluk_multi_hazard_exposure.geojson"
             surge_included = True
@@ -160,6 +184,36 @@ class HazardService:
             geojson_path = haz_dir / "chhattisgarh_taluka_multi_hazard_exposure.geojson"
             surge_included = False
             surge_reason = "Inland central state: Mahanadi river basin flood recurrence & wind models applied."
+        elif key == "rajasthan":
+            csv_path = haz_dir / "rajasthan_tehsil_multi_hazard_exposure.csv"
+            geojson_path = haz_dir / "rajasthan_tehsil_multi_hazard_exposure.geojson"
+            surge_included = False
+            surge_reason = "Arid desert state: Extreme heatwave, drought, flash floods, and wind hazards."
+        elif key == "odisha":
+            csv_path = haz_dir / "od_block_multi_hazard_exposure.csv"
+            geojson_path = haz_dir / "od_block_multi_hazard_exposure.geojson"
+            surge_included = True
+            surge_reason = "Bay of Bengal cyclone belt: Coastal storm surge and Mahanadi delta riverine flooding."
+        elif key == "west_bengal":
+            csv_path = haz_dir / "wb_block_multi_hazard_exposure.csv"
+            geojson_path = haz_dir / "wb_block_multi_hazard_exposure.geojson"
+            surge_included = True
+            surge_reason = "Sundarbans delta storm surge, Gangetic riverine flooding, and nor'wester windstorms."
+        elif key == "bihar":
+            csv_path = haz_dir / "br_block_multi_hazard_exposure.csv"
+            geojson_path = haz_dir / "br_block_multi_hazard_exposure.geojson"
+            surge_included = False
+            surge_reason = "Inland Gangetic basin: Chronic Kosi, Gandak, and Ganga riverine flood inundation."
+        elif key == "assam":
+            csv_path = haz_dir / "as_circle_multi_hazard_exposure.csv"
+            geojson_path = haz_dir / "as_circle_multi_hazard_exposure.geojson"
+            surge_included = False
+            surge_reason = "Brahmaputra and Barak river basin catastrophic flood inundation and erosion."
+        elif (haz_dir / f"{key}_multi_hazard_exposure.csv").exists():
+            csv_path = haz_dir / f"{key}_multi_hazard_exposure.csv"
+            geojson_path = haz_dir / f"{key}_multi_hazard_exposure.geojson"
+            surge_included = False
+            surge_reason = f"Decision-support multi-hazard exposure baseline for {key}."
         else:
             csv_path = haz_dir / "mandal_multi_hazard_exposure.csv"
             geojson_path = haz_dir / "ap_mandal_multi_hazard_exposure.geojson"

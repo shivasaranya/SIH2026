@@ -11,17 +11,15 @@ interface StateOverviewCardsProps {
 export const StateOverviewCards: React.FC<StateOverviewCardsProps> = ({ summary, loading }) => {
   const { currentState } = useActiveState();
 
-  const isTN = currentState.id === 'tamil_nadu';
-  const isMZ = currentState.id === 'mizoram';
   const unitLabel = `${currentState.adminUnitPlural} Assessed`;
   const unitCount = currentState.adminUnitCount.toString();
-  const rankedUnits = isMZ ? '26' : (isTN ? '302' : '680');
-  const hostCount = isMZ ? '5' : (isTN ? '38' : '51');
+  const rankedUnits = currentState.adminUnitCount.toString();
+  const hostCount = currentState.candidateHostsCount.toString();
 
   const cards = [
     {
       label: 'Districts Evaluated',
-      value: summary ? `${summary.total_districts}` : `${currentState.districtCount}`,
+      value: (summary && summary.state_code === currentState.code) ? `${summary.total_districts}` : `${currentState.districtCount}`,
       sub: `All ${currentState.districtCount} Admin Districts`,
       icon: Building2,
       color: 'text-sky-400',

@@ -17,6 +17,28 @@ def resolve_state_key(state_id: Optional[str]) -> str:
     clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
     if clean in ["ap", "andhra_pradesh", "andhra", "andhrapradesh"]:
         return "andhra_pradesh"
+    if clean in ["rajasthan", "rj"]:
+        return "rajasthan"
+    if clean in ["madhya_pradesh", "mp", "madhyapradesh"]:
+        return "madhya_pradesh"
+    if clean in ["telangana", "tg", "ts"]:
+        return "telangana"
+    if clean in ["tripura", "tr"]:
+        return "tripura"
+    if clean in ["karnataka", "ka"]:
+        return "karnataka"
+    if clean in ["goa", "ga"]:
+        return "goa"
+    if clean in ["jharkhand", "jh"]:
+        return "jharkhand"
+    if clean in ["delhi", "dl"]:
+        return "delhi"
+    if clean in ["jammu_and_kashmir", "jk", "jammu_kashmir"]:
+        return "jammu_and_kashmir"
+    if clean in ["ladakh", "la"]:
+        return "ladakh"
+    if clean in ["manipur", "mn"]:
+        return "manipur"
     if clean in ["odisha", "od", "or", "orissa"]:
         return "odisha"
     if clean in ["assam", "as"]:
@@ -51,19 +73,11 @@ def resolve_state_key(state_id: Optional[str]) -> str:
         return "punjab"
     if clean in ["chhattisgarh", "cg", "chhatisgarh", "chattisgarh", "ct"]:
         return "chhattisgarh"
+    if clean in ["mizoram", "mz", "mizo"]:
+        return "mizoram"
+    if clean in ["himachal_pradesh", "hp", "himachal"]:
+        return "himachal_pradesh"
     return "andhra_pradesh"
-
-def is_mizoram(state_id: Optional[str]) -> bool:
-    if not state_id:
-        return False
-    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
-    return clean in ["mizoram", "mz", "mizo"]
-
-def is_hp(state_id: Optional[str]) -> bool:
-    if not state_id:
-        return False
-    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
-    return clean in ["himachal_pradesh", "hp", "himachal"]
 
 class DecisionService:
     def __init__(self):
@@ -103,18 +117,34 @@ class DecisionService:
         reloc_dir = settings.DATA_DIR / "processed" / "relocation"
         cap_dir = settings.DATA_DIR / "processed" / "capacity"
 
-        if key == "mz":
+        if key in ["mz", "mizoram"]:
             reloc_csv = reloc_dir / "mizoram_subdistrict_relocation_priority.csv"
             cap_csv = cap_dir / "mizoram_subdistrict_capacity_adequacy.csv"
             hosts_csv = cap_dir / "mizoram_host_zone_candidates.csv"
-        elif key == "hp":
+        elif key in ["hp", "himachal_pradesh"]:
             reloc_csv = reloc_dir / "hp_tehsil_relocation_priority.csv"
             cap_csv = cap_dir / "hp_tehsil_capacity_adequacy.csv"
             hosts_csv = cap_dir / "hp_host_zone_candidates.csv"
-        elif key == "tn":
+        elif key in ["tn", "tamil_nadu"]:
             reloc_csv = reloc_dir / "tn_taluk_relocation_priority.csv"
             cap_csv = cap_dir / "tn_taluk_capacity_adequacy.csv"
             hosts_csv = cap_dir / "tn_host_zone_candidates.csv"
+        elif key in ["wb", "west_bengal"]:
+            reloc_csv = reloc_dir / "wb_block_relocation_priority.csv"
+            cap_csv = cap_dir / "wb_block_capacity_adequacy.csv"
+            hosts_csv = cap_dir / "wb_host_zone_candidates.csv"
+        elif key in ["br", "bihar"]:
+            reloc_csv = reloc_dir / "br_block_relocation_priority.csv"
+            cap_csv = cap_dir / "br_block_capacity_adequacy.csv"
+            hosts_csv = cap_dir / "br_host_zone_candidates.csv"
+        elif key in ["as", "assam"]:
+            reloc_csv = reloc_dir / "as_circle_relocation_priority.csv"
+            cap_csv = cap_dir / "as_circle_capacity_adequacy.csv"
+            hosts_csv = cap_dir / "as_host_zone_candidates.csv"
+        elif key in ["od", "odisha"]:
+            reloc_csv = reloc_dir / "od_block_relocation_priority.csv"
+            cap_csv = cap_dir / "od_block_capacity_adequacy.csv"
+            hosts_csv = cap_dir / "od_host_zone_candidates.csv"
         elif key == "uttar_pradesh":
             reloc_csv = reloc_dir / "up_tehsil_relocation_priority.csv"
             cap_csv = cap_dir / "up_tehsil_capacity_adequacy.csv"
@@ -163,6 +193,14 @@ class DecisionService:
             reloc_csv = reloc_dir / "chhattisgarh_taluka_relocation_priority.csv"
             cap_csv = cap_dir / "chhattisgarh_taluka_capacity_adequacy.csv"
             hosts_csv = cap_dir / "chhattisgarh_host_zone_candidates.csv"
+        elif key == "rajasthan":
+            reloc_csv = reloc_dir / "rajasthan_tehsil_relocation_priority.csv"
+            cap_csv = cap_dir / "rajasthan_tehsil_capacity_adequacy.csv"
+            hosts_csv = cap_dir / "host_zone_candidates.csv"
+        elif (reloc_dir / f"{key}_relocation_priority.csv").exists():
+            reloc_csv = reloc_dir / f"{key}_relocation_priority.csv"
+            cap_csv = cap_dir / f"{key}_capacity_adequacy.csv"
+            hosts_csv = cap_dir / f"{key}_host_zone_candidates.csv" if (cap_dir / f"{key}_host_zone_candidates.csv").exists() else cap_dir / "host_zone_candidates.csv"
         else:
             reloc_csv = reloc_dir / "mandal_relocation_priority.csv"
             cap_csv = cap_dir / "mandal_capacity_adequacy.csv"

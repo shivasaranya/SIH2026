@@ -92,6 +92,28 @@ def resolve_state_key(state_id: Optional[str]) -> str:
         return "punjab"
     if clean in ["chhattisgarh", "cg", "chhatisgarh", "chattisgarh", "ct"]:
         return "chhattisgarh"
+    if clean in ["rajasthan", "rj"]:
+        return "rajasthan"
+    if clean in ["telangana", "tg", "ts"]:
+        return "telangana"
+    if clean in ["madhya_pradesh", "mp", "madhyapradesh"]:
+        return "madhya_pradesh"
+    if clean in ["tripura", "tr"]:
+        return "tripura"
+    if clean in ["karnataka", "ka"]:
+        return "karnataka"
+    if clean in ["goa", "ga"]:
+        return "goa"
+    if clean in ["jharkhand", "jh"]:
+        return "jharkhand"
+    if clean in ["delhi", "dl"]:
+        return "delhi"
+    if clean in ["jammu_and_kashmir", "jk"]:
+        return "jammu_and_kashmir"
+    if clean in ["ladakh", "la"]:
+        return "ladakh"
+    if clean in ["manipur", "mn"]:
+        return "manipur"
     return "andhra_pradesh"
 
 def is_tn(state_id: Optional[str]) -> bool:
@@ -244,6 +266,75 @@ class DemographicsService:
             name_col = "current_district_name"
             m_code_col = "mandal_code"
             m_name_col = "mandal_name"
+        elif key == "rajasthan":
+            csv_path = settings.PROCESSED_CENSUS_DIR / "rajasthan_tehsil_demographics.csv"
+            state_name = "Rajasthan"
+            state_code = "RJ"
+            code_col = "current_district_id"
+            name_col = "current_district_name"
+            m_code_col = "tehsil_id"
+            m_name_col = "tehsil_name"
+        elif key == "odisha":
+            csv_path = settings.PROCESSED_CENSUS_DIR / "od_block_demographics.csv"
+            state_name = "Odisha"
+            state_code = "OD"
+            code_col = "current_district_id"
+            name_col = "current_district_name"
+            m_code_col = "block_id"
+            m_name_col = "block_name"
+        elif key == "west_bengal":
+            csv_path = settings.PROCESSED_CENSUS_DIR / "wb_block_demographics.csv"
+            state_name = "West Bengal"
+            state_code = "WB"
+            code_col = "current_district_id"
+            name_col = "current_district_name"
+            m_code_col = "block_id"
+            m_name_col = "block_name"
+        elif key == "bihar":
+            csv_path = settings.PROCESSED_CENSUS_DIR / "br_block_demographics.csv"
+            state_name = "Bihar"
+            state_code = "BR"
+            code_col = "current_district_id"
+            name_col = "current_district_name"
+            m_code_col = "block_id"
+            m_name_col = "block_name"
+        elif key == "assam":
+            csv_path = settings.PROCESSED_CENSUS_DIR / "as_circle_demographics.csv"
+            state_name = "Assam"
+            state_code = "AS"
+            code_col = "current_district_id"
+            name_col = "current_district_name"
+            m_code_col = "circle_id"
+            m_name_col = "circle_name"
+        elif (settings.PROCESSED_CENSUS_DIR / f"{key}_demographics.csv").exists():
+            csv_path = settings.PROCESSED_CENSUS_DIR / f"{key}_demographics.csv"
+            _state_names = {
+                "madhya_pradesh": ("Madhya Pradesh", "MP"),
+                "telangana": ("Telangana", "TG"),
+                "tripura": ("Tripura", "TR"),
+                "karnataka": ("Karnataka", "KA"),
+                "goa": ("Goa", "GA"),
+                "jharkhand": ("Jharkhand", "JH"),
+                "delhi": ("Delhi", "DL"),
+                "jammu_and_kashmir": ("Jammu & Kashmir", "JK"),
+                "ladakh": ("Ladakh", "LA"),
+                "manipur": ("Manipur", "MN"),
+            }
+            s_meta = _state_names.get(key, (key.replace("_", " ").title(), key[:2].upper()))
+            state_name = s_meta[0]
+            state_code = s_meta[1]
+            code_col = "current_district_id"
+            name_col = "current_district_name"
+            m_code_col = "mandal_id"
+            m_name_col = "mandal_name"
+        elif (settings.PROCESSED_CENSUS_DIR / f"{key}_tehsil_demographics.csv").exists():
+            csv_path = settings.PROCESSED_CENSUS_DIR / f"{key}_tehsil_demographics.csv"
+            state_name = key.replace("_", " ").title()
+            state_code = key[:2].upper()
+            code_col = "current_district_id"
+            name_col = "current_district_name"
+            m_code_col = "tehsil_id"
+            m_name_col = "tehsil_name"
         else:
             csv_path = settings.PROCESSED_CENSUS_DIR / "ap_village_demographics.csv"
             state_name = "Andhra Pradesh"

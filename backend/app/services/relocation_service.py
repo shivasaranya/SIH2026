@@ -25,6 +25,28 @@ def resolve_state_key(state_id: Optional[str]) -> str:
     clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
     if clean in ["ap", "andhra_pradesh", "andhra", "andhrapradesh"]:
         return "andhra_pradesh"
+    if clean in ["rajasthan", "rj"]:
+        return "rajasthan"
+    if clean in ["madhya_pradesh", "mp", "madhyapradesh"]:
+        return "madhya_pradesh"
+    if clean in ["telangana", "tg", "ts"]:
+        return "telangana"
+    if clean in ["tripura", "tr"]:
+        return "tripura"
+    if clean in ["karnataka", "ka"]:
+        return "karnataka"
+    if clean in ["goa", "ga"]:
+        return "goa"
+    if clean in ["jharkhand", "jh"]:
+        return "jharkhand"
+    if clean in ["delhi", "dl"]:
+        return "delhi"
+    if clean in ["jammu_and_kashmir", "jk", "jammu_kashmir"]:
+        return "jammu_and_kashmir"
+    if clean in ["ladakh", "la"]:
+        return "ladakh"
+    if clean in ["manipur", "mn"]:
+        return "manipur"
     if clean in ["odisha", "od", "or", "orissa"]:
         return "odisha"
     if clean in ["assam", "as"]:
@@ -63,7 +85,7 @@ def resolve_state_key(state_id: Optional[str]) -> str:
         return "mizoram"
     if clean in ["himachal_pradesh", "hp", "himachal"]:
         return "himachal_pradesh"
-    return "andhra_pradesh"
+    return clean
 
 def is_mizoram(state_id: Optional[str]) -> bool:
     if not state_id:
@@ -264,6 +286,30 @@ class RelocationService:
             ahp_csv = reloc_dir / "chhattisgarh_ahp_weights.csv"
             host_csv = cap_dir / "chhattisgarh_host_zone_candidates.csv"
             geojson_path = reloc_dir / "chhattisgarh_taluka_relocation_priority.geojson"
+        elif key == "rajasthan":
+            master_csv = reloc_dir / "rajasthan_tehsil_relocation_priority.csv"
+            factors_csv = reloc_dir / "relocation_factor_contributions.csv"
+            ahp_csv = reloc_dir / "haryana_ahp_weights.csv"
+            sum_csv = None
+            host_csv = cap_dir / "host_zone_candidates.csv"
+            cap_csv = cap_dir / "rajasthan_tehsil_capacity_adequacy.csv"
+            geojson_path = reloc_dir / "rajasthan_tehsil_relocation_priority.geojson"
+        elif (reloc_dir / f"{key}_relocation_priority.csv").exists():
+            master_csv = reloc_dir / f"{key}_relocation_priority.csv"
+            factors_csv = reloc_dir / f"{key}_relocation_factor_contributions.csv"
+            if not factors_csv.exists():
+                factors_csv = reloc_dir / "relocation_factor_contributions.csv"
+            ahp_csv = reloc_dir / f"{key}_ahp_weights.csv"
+            if not ahp_csv.exists():
+                ahp_csv = reloc_dir / "ahp_weights.csv"
+            sum_csv = reloc_dir / f"{key}_relocation_priority_summary.csv"
+            if not sum_csv.exists():
+                sum_csv = None
+            host_csv = cap_dir / f"{key}_host_zone_candidates.csv"
+            if not host_csv.exists():
+                host_csv = cap_dir / "host_zone_candidates.csv"
+            cap_csv = cap_dir / f"{key}_capacity_adequacy.csv"
+            geojson_path = reloc_dir / f"{key}_relocation_priority.geojson"
         else:
             master_csv = reloc_dir / "mandal_relocation_priority.csv"
             factors_csv = reloc_dir / "relocation_factor_contributions.csv"
@@ -319,13 +365,27 @@ class RelocationService:
                 pass
 
 
+        if cap_csv is None or not cap_csv.exists():
+            for pot_cap in [
+                cap_dir / f"{key}_capacity_adequacy.csv",
+                cap_dir / f"{key}_taluka_capacity_adequacy.csv",
+                cap_dir / f"{key}_tehsil_capacity_adequacy.csv",
+                cap_dir / f"{key}_block_capacity_adequacy.csv",
+                cap_dir / f"{key}_subdistrict_capacity_adequacy.csv",
+                cap_dir / f"{key}_capacity_components.csv",
+                cap_dir / "mandal_capacity_adequacy.csv"
+            ]:
+                if pot_cap.exists():
+                    cap_csv = pot_cap
+                    break
+
         data = {
             "reloc_df": reloc_df,
             "factors_df": factors_df,
-            "ahp_df": pd.read_csv(ahp_csv) if ahp_csv.exists() else None,
-            "summary_df": pd.read_csv(sum_csv) if sum_csv and sum_csv.exists() else None,
-            "host_df": pd.read_csv(host_csv) if host_csv.exists() else None,
-            "cap_df": pd.read_csv(cap_csv) if cap_csv.exists() else None,
+            "ahp_df": pd.read_csv(ahp_csv) if ahp_csv is not None and ahp_csv.exists() else None,
+            "summary_df": pd.read_csv(sum_csv) if sum_csv is not None and sum_csv.exists() else None,
+            "host_df": pd.read_csv(host_csv) if host_csv is not None and host_csv.exists() else None,
+            "cap_df": pd.read_csv(cap_csv) if cap_csv is not None and cap_csv.exists() else None,
             "geojson_path": geojson_path,
             "geojson": None,
             "centroids_7755": centroids_7755,

@@ -1,0 +1,10 @@
+state_id,state_name,state_code,current_district_id,current_district_name,district_id,district_name,mandal_id,mandal_name,total_population,population_total,population_male,population_female,population_0_6,population_sc,population_st,households,workers,non_workers,area_sqkm,total_villages,villages_count
+delhi,Delhi,DL,DL_06,North West,DL_06,North West,DL_U_001,North West,197599,197599,102583,95016,28055,31365,27277,40326,86943,110656,508.94,56,56
+delhi,Delhi,DL,DL_04,North,DL_04,North,DL_U_002,North,305295,305295,155306,149989,44783,41598,36115,62305,134329,170966,75.0,10,10
+delhi,Delhi,DL,DL_05,North East,DL_05,North East,DL_U_003,North East,173862,173862,89667,84195,21165,20974,35421,35482,76499,97363,70.3,10,10
+delhi,Delhi,DL,DL_08,South West,DL_08,South West,DL_U_004,South West,242589,242589,123354,119235,30184,31151,32621,49507,106739,135850,489.26,54,54
+delhi,Delhi,DL,DL_02,East,DL_02,East,DL_U_005,East,247893,247893,127101,120792,28108,38106,42322,50590,109072,138821,70.85,10,10
+delhi,Delhi,DL,DL_01,Central,DL_01,Central,DL_U_006,Central,193980,193980,99685,94295,24264,33680,35996,39587,85351,108629,21.3,10,10
+delhi,Delhi,DL,DL_03,New Delhi,DL_03,New Delhi,DL_U_007,New Delhi,243151,243151,126853,116298,27576,36301,50099,49622,106986,136165,41.31,10,10
+delhi,Delhi,DL,DL_07,South,DL_07,South,DL_U_008,South,254760,254760,130251,124509,35748,43673,37375,51991,112094,142666,281.24,31,31
+delhi,Delhi,DL,DL_09,West,DL_09,West,DL_U_009,West,222244,222244,114000,108244,32922,31332,19628,45355,97787,124457,151.51,16,16

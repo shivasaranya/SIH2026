@@ -40,7 +40,41 @@ def get_state_key(state_id: Optional[str]) -> str:
         return "tamil_nadu"
     if clean in ["himachal_pradesh", "hp", "himachal"]:
         return "himachal_pradesh"
-    return "andhra_pradesh"
+    if clean in ["rajasthan", "rj"]:
+        return "rajasthan"
+    if clean in ["telangana", "tg", "ts"]:
+        return "telangana"
+    if clean in ["madhya_pradesh", "mp", "madhyapradesh"]:
+        return "madhya_pradesh"
+    if clean in ["tripura", "tr"]:
+        return "tripura"
+    if clean in ["gujarat", "gj"]:
+        return "gujarat"
+    if clean in ["kerala", "kl"]:
+        return "kerala"
+    if clean in ["maharashtra", "mh"]:
+        return "maharashtra"
+    if clean in ["haryana", "hr"]:
+        return "haryana"
+    if clean in ["punjab", "pb"]:
+        return "punjab"
+    if clean in ["chhattisgarh", "cg", "ct"]:
+        return "chhattisgarh"
+    if clean in ["karnataka", "ka"]:
+        return "karnataka"
+    if clean in ["goa", "ga"]:
+        return "goa"
+    if clean in ["jharkhand", "jh"]:
+        return "jharkhand"
+    if clean in ["delhi", "dl"]:
+        return "delhi"
+    if clean in ["jammu_and_kashmir", "jk", "jammu_kashmir"]:
+        return "jammu_and_kashmir"
+    if clean in ["ladakh", "la"]:
+        return "ladakh"
+    if clean in ["manipur", "mn"]:
+        return "manipur"
+    return clean
 
 class StateRegistry:
     def __init__(self):
@@ -157,12 +191,76 @@ class StateRegistry:
                 relocation_summary_csv=proc_reloc / "hp_relocation_priority_summary.csv",
                 ahp_weights_csv=proc_reloc / "hp_ahp_weights.csv",
                 factors_csv=proc_reloc / "hp_relocation_factor_contributions.csv"
+            ),
+            "rajasthan": StateMetadata(
+                id="rajasthan",
+                code="RJ",
+                name="Rajasthan",
+                admin_unit_name="Tehsil",
+                admin_unit_plural="Tehsils",
+                district_count=33,
+                admin_unit_count=244,
+                is_coastal=False,
+                districts_geojson=proc_admin / "rajasthan_33_districts.geojson",
+                admin_units_geojson=proc_admin / "rajasthan_tehsils.geojson",
+                census_csv=proc_census / "rajasthan_tehsil_demographics.csv",
+                hazard_csv=proc_haz / "rajasthan_tehsil_multi_hazard_exposure.csv",
+                hazard_geojson=proc_haz / "rajasthan_tehsil_multi_hazard_exposure.geojson",
+                vulnerability_csv=proc_vuln / "rajasthan_tehsil_demographic_vulnerability.csv",
+                vulnerability_geojson=proc_vuln / "rajasthan_tehsil_vulnerability.geojson",
+                capacity_components_csv=proc_cap / "rajasthan_tehsil_capacity_components.csv",
+                capacity_adequacy_csv=proc_cap / "rajasthan_tehsil_capacity_adequacy.csv",
+                host_candidates_csv=proc_cap / "rajasthan_host_zone_candidates.csv",
+                capacity_geojson=proc_cap / "rajasthan_tehsil_capacity_adequacy.geojson",
+                relocation_csv=proc_reloc / "rajasthan_tehsil_relocation_priority.csv",
+                relocation_geojson=proc_reloc / "rajasthan_tehsil_relocation_priority.geojson",
+                relocation_summary_csv=proc_reloc / "rajasthan_relocation_priority_summary.csv",
+                ahp_weights_csv=proc_reloc / "rajasthan_ahp_weights.csv",
+                factors_csv=proc_reloc / "rajasthan_relocation_factor_contributions.csv"
             )
         }
 
     def get_state(self, state_id: Optional[str]) -> StateMetadata:
         key = get_state_key(state_id)
-        return self.states.get(key, self.states["andhra_pradesh"])
+        if key in self.states:
+            return self.states[key]
+
+        proc_admin = settings.DATA_DIR / "processed" / "admin"
+        proc_census = settings.DATA_DIR / "processed" / "census"
+        proc_haz = settings.DATA_DIR / "processed" / "hazard" / "mandal_exposure"
+        proc_vuln = settings.DATA_DIR / "processed" / "vulnerability"
+        proc_cap = settings.DATA_DIR / "processed" / "capacity"
+        proc_reloc = settings.DATA_DIR / "processed" / "relocation"
+
+        dist_geo = proc_admin / f"{key}_districts.geojson"
+        units_geo = proc_admin / f"{key}_units.geojson"
+
+        return StateMetadata(
+            id=key,
+            code=key[:2].upper(),
+            name=key.replace("_", " ").title(),
+            admin_unit_name="Tehsil",
+            admin_unit_plural="Tehsils",
+            district_count=30,
+            admin_unit_count=100,
+            is_coastal=False,
+            districts_geojson=dist_geo if dist_geo.exists() else None,
+            admin_units_geojson=units_geo if units_geo.exists() else None,
+            census_csv=proc_census / f"{key}_demographics.csv",
+            hazard_csv=proc_haz / f"{key}_multi_hazard_exposure.csv",
+            hazard_geojson=proc_haz / f"{key}_multi_hazard_exposure.geojson",
+            vulnerability_csv=proc_vuln / f"{key}_demographic_vulnerability.csv",
+            vulnerability_geojson=proc_vuln / f"{key}_vulnerability.geojson",
+            capacity_components_csv=proc_cap / f"{key}_capacity_adequacy.csv",
+            capacity_adequacy_csv=proc_cap / f"{key}_capacity_adequacy.csv",
+            host_candidates_csv=proc_cap / f"{key}_host_zone_candidates.csv",
+            capacity_geojson=proc_cap / f"{key}_capacity_adequacy.geojson",
+            relocation_csv=proc_reloc / f"{key}_relocation_priority.csv",
+            relocation_geojson=proc_reloc / f"{key}_relocation_priority.geojson",
+            relocation_summary_csv=proc_reloc / f"{key}_relocation_priority_summary.csv",
+            ahp_weights_csv=proc_reloc / f"{key}_ahp_weights.csv",
+            factors_csv=proc_reloc / f"{key}_relocation_factor_contributions.csv"
+        )
 
     def list_states(self) -> List[Dict[str, Any]]:
         return [

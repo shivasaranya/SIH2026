@@ -7,8 +7,14 @@ import pandas as pd
 import geopandas as gpd
 from shapely.geometry import shape, Point, Polygon, MultiPolygon, mapping
 from shapely.validation import make_valid
-import rasterio
-from rasterio.mask import mask
+try:
+    import rasterio
+    from rasterio.mask import mask
+    HAS_RASTERIO = True
+except ImportError:
+    rasterio = None
+    mask = None
+    HAS_RASTERIO = False
 
 from app.core.config import settings
 from app.village.schemas import (
@@ -281,7 +287,7 @@ class VillageSpatialService:
 
     def _sample_flood(self, geom_4326) -> Dict[str, Any]:
         flood_tif = settings.DATA_DIR / "processed" / "hazard" / "flood" / "ap_water_recurrence.tif"
-        if not flood_tif.exists() or geom_4326.is_empty:
+        if not HAS_RASTERIO or not flood_tif.exists() or geom_4326.is_empty:
             return {"valid_pixels": 0, "mean_rec": 0.0, "max_rec": 0.0, "pct_affected": 0.0, "score": 0.0, "status": "INSUFFICIENT_DATA"}
 
         try:
@@ -311,7 +317,7 @@ class VillageSpatialService:
 
     def _sample_slope(self, geom_7755) -> Dict[str, Any]:
         slope_tif = settings.DATA_DIR / "processed" / "hazard" / "slope" / "ap_slope_degrees.tif"
-        if not slope_tif.exists() or geom_7755.is_empty:
+        if not HAS_RASTERIO or not slope_tif.exists() or geom_7755.is_empty:
             return {"valid_pixels": 0, "mean_slope": 0.0, "max_slope": 0.0, "pct_steep": 0.0, "score": 0.0, "status": "INSUFFICIENT_DATA"}
 
         try:

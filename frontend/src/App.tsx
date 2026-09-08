@@ -17,7 +17,7 @@ import { StateSelectionScreen } from './pages/StateSelectionScreen';
 import { CitizenPage } from './pages/CitizenPage';
 import { VillageAnalysisPage } from './pages/VillageAnalysisPage';
 import { VillageAnalysisReportPage } from './pages/VillageAnalysisReportPage';
-import { StateProvider, useActiveState } from './context/StateContext';
+import { StateProvider, useActiveState, resolveStateId, getStateSlug } from './context/StateContext';
 import { setActiveStateId } from './services/api';
 import type { ActiveTab } from './types';
 import type { MandalProperties } from './types/gis';
@@ -61,73 +61,39 @@ function AppContent() {
   const [selectedVillageCode, setSelectedVillageCode] = useState<number | null>(getInitialVillageCode);
   const [selectedMandalForGIS, setSelectedMandalForGIS] = useState<MandalProperties | null>(null);
   
-  // Determine initial portal view from URL hash
+  // Determine initial portal view from URL hash or pathname
   const getInitialPortal = (): PortalRole => {
     if (typeof window === 'undefined') return 'landing';
     const hash = window.location.hash.toLowerCase();
-    if (hash === '#government/select-state' || hash === '#government/states') return 'government_state_selection';
+    const pathname = window.location.pathname.toLowerCase();
+    if (hash === '#government/select-state' || hash === '#government/states' || pathname === '/government/select-state') {
+      return 'government_state_selection';
+    }
     if (
-      hash.startsWith('#government/ml') ||
-      hash.startsWith('#government/meghalaya') ||
-      hash.startsWith('#government/nl') ||
-      hash.startsWith('#government/nagaland') ||
-      hash.startsWith('#government/ar') ||
-      hash.startsWith('#government/arunachal') ||
-      hash.startsWith('#government/sk') ||
-      hash.startsWith('#government/sikkim') ||
-      hash.startsWith('#government/uk') ||
-      hash.startsWith('#government/uttarakhand') ||
-      hash.startsWith('#government/uttaranchal') ||
-      hash.startsWith('#government/od') ||
-      hash.startsWith('#government/odisha') ||
-      hash.startsWith('#government/orissa') ||
-      hash.startsWith('#government/wb') ||
-      hash.startsWith('#government/west_bengal') ||
-      hash.startsWith('#government/bengal') ||
-      hash.startsWith('#government/br') ||
-      hash.startsWith('#government/bihar') ||
-      hash.startsWith('#government/up') ||
-      hash.startsWith('#government/uttar_pradesh') ||
-      hash.startsWith('#government/uttar') ||
-      hash.startsWith('#government/as') ||
-      hash.startsWith('#government/assam') ||
-      hash.startsWith('#government/ap') ||
-      hash.startsWith('#government/tn') ||
-      hash.startsWith('#government/mz') ||
-      hash.startsWith('#government/hp') ||
-      hash.startsWith('#government/mizoram') ||
-      hash.startsWith('#government/himachal') ||
-      hash.startsWith('#government/tamil') ||
-      hash.startsWith('#government/gujarat') ||
-      hash.startsWith('#government/gj') ||
-      hash.startsWith('#government/kerala') ||
-      hash.startsWith('#government/kl') ||
-      hash.startsWith('#government/maharashtra') ||
-      hash.startsWith('#government/mh') ||
-      hash.startsWith('#government/haryana') ||
-      hash.startsWith('#government/hr') ||
-      hash.startsWith('#government/punjab') ||
-      hash.startsWith('#government/pb') ||
-      hash.startsWith('#government/chhattisgarh') ||
-      hash.startsWith('#government/cg') ||
+      hash.startsWith('#government/') ||
       hash === '#government' ||
+      pathname.startsWith('/government/') ||
+      pathname === '/government' ||
       hash.includes('hosts') ||
       hash.includes('safer-locations')
     ) {
       return 'government_portal';
     }
-    if (hash === '#citizen' || hash.startsWith('#citizen/')) return 'citizen';
+    if (hash === '#citizen' || hash.startsWith('#citizen/') || pathname.startsWith('/citizen')) return 'citizen';
     return 'landing';
   };
 
   const [portalRole, setPortalRole] = useState<PortalRole>(getInitialPortal);
 
-  // Sync state, tab, and role with hash changes
+  // Sync state, tab, and role with hash and URL changes
   useEffect(() => {
-    const handleHashChange = () => {
+    const handleUrlSync = () => {
       const hash = window.location.hash.toLowerCase();
-      const villageMatch = hash.match(/\/village\/(\d+)/i);
-      const isReport = hash.includes('/report');
+      const pathname = window.location.pathname.toLowerCase();
+      const fullUrl = `${pathname}${hash}`;
+
+      const villageMatch = fullUrl.match(/\/village\/(\d+)/i);
+      const isReport = fullUrl.includes('/report');
       if (villageMatch) {
         const vCode = parseInt(villageMatch[1], 10);
         setSelectedVillageCode(vCode);
@@ -137,65 +103,30 @@ function AppContent() {
         setActiveStateId('andhra_pradesh');
         return;
       }
-      if (hash === '#government/select-state' || hash === '#government/states') {
+      if (hash === '#government/select-state' || hash === '#government/states' || pathname === '/government/select-state') {
         setPortalRole('government_state_selection');
-      } else if (hash.includes('/mz') || hash.includes('/mizoram')) {
+      } else if (fullUrl.includes('government/') || hash === '#government' || pathname === '/government') {
         setPortalRole('government_portal');
-        setStateId('mizoram');
-        setActiveStateId('mizoram');
-        if (hash.includes('hosts')) setActiveTab('hosts');
-      } else if (hash.includes('/tn') || hash.includes('/tamil')) {
-        setPortalRole('government_portal');
-        setStateId('tamil_nadu');
-        setActiveStateId('tamil_nadu');
-        if (hash.includes('hosts')) setActiveTab('hosts');
-      } else if (hash.includes('/hp') || hash.includes('/himachal')) {
-        setPortalRole('government_portal');
-        setStateId('himachal_pradesh');
-        setActiveStateId('himachal_pradesh');
-        if (hash.includes('hosts')) setActiveTab('hosts');
-      } else if (hash.includes('/up') || hash.includes('/uttar_pradesh') || hash.includes('/uttar')) {
-        setPortalRole('government_portal');
-        setStateId('uttar_pradesh');
-        setActiveStateId('uttar_pradesh');
-      } else if (hash.includes('/gujarat') || hash.includes('/gj')) {
-        setPortalRole('government_portal');
-        setStateId('gujarat');
-        setActiveStateId('gujarat');
-      } else if (hash.includes('/kerala') || hash.includes('/kl') || hash.includes('/kerela')) {
-        setPortalRole('government_portal');
-        setStateId('kerala');
-        setActiveStateId('kerala');
-      } else if (hash.includes('/maharashtra') || hash.includes('/mh') || hash.includes('/maharastra')) {
-        setPortalRole('government_portal');
-        setStateId('maharashtra');
-        setActiveStateId('maharashtra');
-      } else if (hash.includes('/haryana') || hash.includes('/hr')) {
-        setPortalRole('government_portal');
-        setStateId('haryana');
-        setActiveStateId('haryana');
-      } else if (hash.includes('/punjab') || hash.includes('/pb')) {
-        setPortalRole('government_portal');
-        setStateId('punjab');
-        setActiveStateId('punjab');
-      } else if (hash.includes('/chhattisgarh') || hash.includes('/cg') || hash.includes('/ct')) {
-        setPortalRole('government_portal');
-        setStateId('chhattisgarh');
-        setActiveStateId('chhattisgarh');
-      } else if (hash.includes('/ap') || hash.includes('/andhra') || hash === '#government' || hash.includes('hosts') || hash.includes('safer-locations')) {
-        setPortalRole('government_portal');
-        setStateId('andhra_pradesh');
-        setActiveStateId('andhra_pradesh');
-        if (hash.includes('hosts') || hash.includes('safer-locations')) setActiveTab('hosts');
-      } else if (hash === '#citizen' || hash.startsWith('#citizen/')) {
+        const match = fullUrl.match(/government\/([a-z0-9_-]+)/i);
+        if (match && match[1] && match[1] !== 'select-state' && match[1] !== 'states') {
+          const resolved = resolveStateId(match[1]);
+          setStateId(resolved);
+          setActiveStateId(resolved);
+        }
+        if (fullUrl.includes('hosts') || fullUrl.includes('safer-locations')) setActiveTab('hosts');
+      } else if (hash === '#citizen' || hash.startsWith('#citizen/') || pathname.startsWith('/citizen')) {
         setPortalRole('citizen');
       } else {
         setPortalRole('landing');
       }
     };
 
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
+    window.addEventListener('hashchange', handleUrlSync);
+    window.addEventListener('popstate', handleUrlSync);
+    return () => {
+      window.removeEventListener('hashchange', handleUrlSync);
+      window.removeEventListener('popstate', handleUrlSync);
+    };
   }, [setStateId]);
 
   // Keep API module-level state aligned with active stateId
@@ -214,37 +145,20 @@ function AppContent() {
     }
   };
 
-  // From State Selection: Choose state
+  // From State Selection: Choose state dynamically
   const handleSelectState = (stateName: string) => {
-    const isMZ = stateName.toLowerCase().includes('mizo');
-    const isHP = stateName.toLowerCase().includes('himachal') || stateName.toLowerCase() === 'hp';
-    const isGJ = stateName.toLowerCase().includes('gujarat') || stateName.toLowerCase() === 'gj';
-    const isKL = stateName.toLowerCase().includes('kerala') || stateName.toLowerCase().includes('kerela') || stateName.toLowerCase() === 'kl';
-    const isMH = stateName.toLowerCase().includes('maharashtra') || stateName.toLowerCase().includes('maharastra') || stateName.toLowerCase() === 'mh';
-    const isHR = stateName.toLowerCase().includes('haryana') || stateName.toLowerCase() === 'hr';
-    const isPB = stateName.toLowerCase().includes('punjab') || stateName.toLowerCase() === 'pb';
-    const isCG = stateName.toLowerCase().includes('chhattisgarh') || stateName.toLowerCase().includes('chhatisgarh') || stateName.toLowerCase() === 'cg' || stateName.toLowerCase() === 'ct';
-    const isML = stateName.toLowerCase().includes('meghalaya') || stateName.toLowerCase() === 'ml';
-    const isNL = stateName.toLowerCase().includes('nagaland') || stateName.toLowerCase() === 'nl';
-    const isAR = stateName.toLowerCase().includes('arunachal') || stateName.toLowerCase() === 'ar';
-    const isSK = stateName.toLowerCase().includes('sikkim') || stateName.toLowerCase() === 'sk';
-    const isUK = stateName.toLowerCase().includes('uttarakhand') || stateName.toLowerCase().includes('uttaranchal') || stateName.toLowerCase() === 'uk';
-    const isOD = stateName.toLowerCase().includes('odisha') || stateName.toLowerCase().includes('orissa') || stateName.toLowerCase() === 'od';
-    const isWB = stateName.toLowerCase().includes('bengal') || stateName.toLowerCase() === 'wb';
-    const isAS = stateName.toLowerCase().includes('assam');
-    const isTN = stateName.toLowerCase().includes('tamil');
-    const isBR = stateName.toLowerCase().includes('bihar');
-    const isUP = !isUK && (stateName.toLowerCase().includes('uttar') || stateName.toLowerCase() === 'up');
-
-    const targetStateId: any = isMZ ? 'mizoram' : (isHP ? 'himachal_pradesh' : (isGJ ? 'gujarat' : (isKL ? 'kerala' : (isMH ? 'maharashtra' : (isHR ? 'haryana' : (isPB ? 'punjab' : (isCG ? 'chhattisgarh' : (isML ? 'meghalaya' : (isNL ? 'nagaland' : (isAR ? 'arunachal_pradesh' : (isSK ? 'sikkim' : (isUK ? 'uttarakhand' : (isOD ? 'odisha' : (isWB ? 'west_bengal' : (isAS ? 'assam' : (isTN ? 'tamil_nadu' : (isBR ? 'bihar' : (isUP ? 'uttar_pradesh' : 'andhra_pradesh'))))))))))))))))));
-
-    const slug = isMZ ? 'mz' : (isHP ? 'hp' : (isGJ ? 'gujarat' : (isKL ? 'kerala' : (isMH ? 'maharashtra' : (isHR ? 'haryana' : (isPB ? 'punjab' : (isCG ? 'chhattisgarh' : (isML ? 'ml' : (isNL ? 'nl' : (isAR ? 'ar' : (isSK ? 'sk' : (isUK ? 'uk' : (isOD ? 'od' : (isWB ? 'wb' : (isAS ? 'as' : (isTN ? 'tn' : (isBR ? 'br' : (isUP ? 'up' : 'ap'))))))))))))))))));
+    const targetStateId = resolveStateId(stateName);
+    const slug = getStateSlug(targetStateId);
 
     selectStateByName(stateName);
+    setStateId(targetStateId);
     setActiveStateId(targetStateId);
     setSelectedMandalForGIS(null);
     setPortalRole('government_portal');
     window.location.hash = `#government/${slug}`;
+    if (window.history && window.history.pushState) {
+      window.history.pushState(null, '', `/government/${slug}`);
+    }
   };
 
   const handleNavigateToStateSelection = () => {
@@ -284,11 +198,7 @@ function AppContent() {
 
   // Government Decision-Support Dashboard
   const getStatePrefix = (sId: string) => {
-    if (sId === 'mizoram') return 'government/mz';
-    if (sId === 'tamil_nadu') return 'government/tn';
-    if (sId === 'himachal_pradesh') return 'government/hp';
-    if (sId === 'andhra_pradesh') return 'government/ap';
-    return `government/${sId.replace('_', '')}`;
+    return `government/${sId.replace(/_/g, '-')}`;
   };
   const renderContent = () => {
     switch (activeTab) {

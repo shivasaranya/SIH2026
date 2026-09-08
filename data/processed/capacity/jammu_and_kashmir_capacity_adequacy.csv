@@ -1,0 +1,21 @@
+state_id,state_name,state_code,current_district_id,current_district_name,district_id,district_name,mandal_id,mandal_name,total_population,population_total,population_male,population_female,population_0_6,population_sc,population_st,households,workers,non_workers,area_sqkm,total_villages,villages_count
+jammu_and_kashmir,Jammu & Kashmir,JK,JK_05,Gilghit,JK_05,Gilghit,JK_U_001,Gilghit,156535,156535,79852,76683,20750,20848,26737,31945,68875,87660,3411.43,379,379
+jammu_and_kashmir,Jammu & Kashmir,JK,JK_05,Gilghit,JK_05,Gilghit,JK_U_002,Gilghit,268160,268160,136031,132129,32565,45665,33243,54726,117990,150170,5352.39,594,594
+jammu_and_kashmir,Jammu & Kashmir,JK,JK_05,Gilghit,JK_05,Gilghit,JK_U_003,Gilghit,337504,337504,176931,160573,43058,49392,57251,68878,148501,189003,5234.78,581,581
+jammu_and_kashmir,Jammu & Kashmir,JK,JK_05,Gilghit,JK_05,Gilghit,JK_U_004,Gilghit,195599,195599,100550,95049,24561,30688,34047,39918,86063,109536,7643.62,849,849
+jammu_and_kashmir,Jammu & Kashmir,JK,JK_03,Baramula,JK_03,Baramula,JK_U_005,Baramula,288516,288516,145948,142568,40289,34974,55874,58880,126947,161569,6899.72,766,766
+jammu_and_kashmir,Jammu & Kashmir,JK,JK_07,Kupwara,JK_07,Kupwara,JK_U_006,Kupwara,309236,309236,157163,152073,44030,40564,52175,63109,136063,173173,2429.54,269,269
+jammu_and_kashmir,Jammu & Kashmir,JK,JK_01,,JK_01,,JK_U_007,,173862,173862,89166,84696,24389,24916,36194,35482,76499,97363,17893.71,1988,1988
+jammu_and_kashmir,Jammu & Kashmir,JK,JK_12,Srinagar,JK_12,Srinagar,JK_U_008,Srinagar,200612,200612,101949,98663,28490,31533,40257,40941,88269,112343,2469.29,274,274
+jammu_and_kashmir,Jammu & Kashmir,JK,JK_01,Anantnag,JK_01,Anantnag,JK_U_009,Anantnag,204019,204019,103142,100877,24660,31259,23143,41636,89768,114251,5095.23,566,566
+jammu_and_kashmir,Jammu & Kashmir,JK,JK_04,Doda,JK_04,Doda,JK_U_010,Doda,199085,199085,103925,95160,22529,30309,35064,40629,87597,111488,14100.86,1566,1566
+jammu_and_kashmir,Jammu & Kashmir,JK,JK_10,Punch,JK_10,Punch,JK_U_011,Punch,214174,214174,109893,104281,27376,32990,22221,43708,94236,119938,5292.34,588,588
+jammu_and_kashmir,Jammu & Kashmir,JK,JK_09,Pulwama,JK_09,Pulwama,JK_U_012,Pulwama,246687,246687,129122,117565,29478,39640,41838,50344,108542,138145,1762.02,195,195
+jammu_and_kashmir,Jammu & Kashmir,JK,JK_02,Badgam,JK_02,Badgam,JK_U_013,Badgam,195072,195072,102016,93056,23413,31778,38503,39810,85831,109241,1542.42,171,171
+jammu_and_kashmir,Jammu & Kashmir,JK,JK_05,Gilghit,JK_05,Gilghit,JK_U_014,Gilghit,219803,219803,111831,107972,30568,38873,43785,44857,96713,123090,42463.27,4718,4718
+jammu_and_kashmir,Jammu & Kashmir,JK,JK_08,Leh (Ladakh),JK_08,Leh (Ladakh),JK_U_015,Leh,182136,182136,92001,90135,24025,28085,34190,37170,80139,101997,128312.28,14256,14256
+jammu_and_kashmir,Jammu & Kashmir,JK,JK_06,Kathua,JK_06,Kathua,JK_U_016,Kathua,160925,160925,84321,76604,19271,23678,28931,32841,70807,90118,2938.86,326,326
+jammu_and_kashmir,Jammu & Kashmir,JK,JK_05,Gilghit,JK_05,Gilghit,JK_U_017,Gilghit,290479,290479,152431,138048,37632,48983,59541,59281,127810,162669,5171.94,574,574
+jammu_and_kashmir,Jammu & Kashmir,JK,JK_11,Rajauri,JK_11,Rajauri,JK_U_018,Rajauri,319093,319093,161658,157435,37204,54762,63031,65121,140400,178693,2301.02,255,255
+jammu_and_kashmir,Jammu & Kashmir,JK,JK_13,Udhampur,JK_13,Udhampur,JK_U_019,Udhampur,190649,190649,98848,91801,28212,25616,25343,38907,83885,106764,5569.28,618,618
+jammu_and_kashmir,Jammu & Kashmir,JK,JK_01,,JK_01,,JK_U_020,,218860,218860,110741,108119,32493,36532,24009,44665,96298,122562,3390.91,376,376
