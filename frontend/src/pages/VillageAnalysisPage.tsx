@@ -41,6 +41,7 @@ import {
   fetchVillageRelocationCenters,
   fetchVillagePois,
 } from '../services/api';
+import { fetchNearbyPOIs } from '../services/overpassService';
 
 interface VillageAnalysisPageProps {
   villageCode: number;
@@ -241,15 +242,109 @@ export const VillageAnalysisPage: React.FC<VillageAnalysisPageProps> = ({
     return () => { isMounted = false; };
   }, [planningIntensity, selectedSector, activeDisaster]);
 
-  // Fetch Real OpenStreetMap POIs
+  // Fetch Real OpenStreetMap POIs (Live Overpass API Integration across all 9 categories)
   useEffect(() => {
     if (!villageCode) return;
     const controller = new AbortController();
     setLoadingPois(true);
 
     fetchVillagePois(villageCode, poiSearchRadius, activeDisaster, controller.signal)
-      .then((res) => {
-        setPoiResponse(res);
+      .then(async (res) => {
+        let finalResponse = res;
+        if (geomData?.centroid_lat && geomData?.centroid_lon) {
+          try {
+            const liveOverpassPOIs = await fetchNearbyPOIs(
+              geomData.centroid_lat,
+              geomData.centroid_lon,
+              poiSearchRadius * 1000,
+              controller.signal
+            );
+
+            if (liveOverpassPOIs && liveOverpassPOIs.length > 0) {
+              const existingIds = new Set((res.pois || []).map((p) => String(p.osm_id)));
+              const newPoiItems: VillagePoiItem[] = [];
+
+              const calcDist = (lat1: number, lon1: number, lat2: number, lon2: number) => {
+                const R = 6371;
+                const dLat = ((lat2 - lat1) * Math.PI) / 180;
+                const dLon = ((lon2 - lon1) * Math.PI) / 180;
+                const a =
+                  Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                  Math.cos((lat1 * Math.PI) / 180) *
+                    Math.cos((lat2 * Math.PI) / 180) *
+                    Math.sin(dLon / 2) *
+                    Math.sin(dLon / 2);
+                return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+              };
+
+              liveOverpassPOIs.forEach((op) => {
+                const osmIdStr = `node_${op.id}`;
+                if (!existingIds.has(osmIdStr)) {
+                  existingIds.add(osmIdStr);
+                  const dist = calcDist(
+                    geomData.centroid_lat!,
+                    geomData.centroid_lon!,
+                    op.lat,
+                    op.lon
+                  );
+                  const isInside = dist <= 1.5;
+
+                  let filterCat = 'Other';
+                  if (op.group === 'education') filterCat = 'Schools';
+                  else if (op.group === 'medical') filterCat = op.subType.includes('Pharm') ? 'Pharmacies' : 'Hospitals';
+                  else if (op.group === 'emergency') filterCat = 'Shelters';
+                  else if (op.group === 'government') filterCat = op.subType.includes('Police') ? 'Police' : op.subType.includes('Fire') ? 'Fire' : 'Government';
+                  else if (op.group === 'daily_needs') filterCat = 'Shops / Markets';
+                  else if (op.group === 'transport') filterCat = op.subType.includes('Petrol') ? 'Petrol Pumps' : 'Transport';
+                  else if (op.group === 'food_lifestyle') filterCat = 'Food / Hotels';
+                  else if (op.group === 'financial') filterCat = 'Banks / ATMs';
+                  else if (op.group === 'others') filterCat = 'Religious Places';
+
+                  newPoiItems.push({
+                    osm_id: osmIdStr,
+                    name: op.name,
+                    category: op.group.toUpperCase(),
+                    filter_category: filterCat,
+                    subcategory: op.subType,
+                    latitude: op.lat,
+                    longitude: op.lon,
+                    is_inside: isInside,
+                    distance_km: Number(dist.toFixed(2)),
+                    direction: null,
+                    source: 'OpenStreetMap Live Overpass',
+                    address: op.rawTags['addr:street'] || null,
+                    opening_hours: op.rawTags.opening_hours || null,
+                    phone: op.rawTags.phone || null,
+                    website: op.rawTags.website || null,
+                  });
+                }
+              });
+
+              const mergedPois = [...(res.pois || []), ...newPoiItems];
+              const catCounts: Record<string, number> = {};
+              mergedPois.forEach((p) => {
+                catCounts[p.filter_category] = (catCounts[p.filter_category] || 0) + 1;
+              });
+              const categoriesSummary = Object.entries(catCounts).map(([cat, count]) => ({
+                category: cat,
+                count,
+              }));
+
+              finalResponse = {
+                ...res,
+                pois: mergedPois,
+                total_pois: mergedPois.length,
+                inside_count: mergedPois.filter((p) => p.is_inside).length,
+                nearby_count: mergedPois.filter((p) => !p.is_inside).length,
+                categories_summary: categoriesSummary,
+              };
+            }
+          } catch (e) {
+            // fallback
+          }
+        }
+
+        setPoiResponse(finalResponse);
         setLoadingPois(false);
       })
       .catch(() => {
@@ -261,7 +356,7 @@ export const VillageAnalysisPage: React.FC<VillageAnalysisPageProps> = ({
     return () => {
       controller.abort();
     };
-  }, [villageCode, poiSearchRadius, activeDisaster]);
+  }, [villageCode, poiSearchRadius, activeDisaster, geomData?.centroid_lat, geomData?.centroid_lon]);
 
 
   // Priority Styling Helpers
