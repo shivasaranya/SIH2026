@@ -397,12 +397,12 @@ export const PriorityDirectoryPage: React.FC<PriorityDirectoryPageProps> = ({ on
                 ) : filteredMandals.length === 0 ? (
                   <tr>
                     <td colSpan={10} className="py-12 text-center text-slate-400">
-                      No mandals match the selected filters.
+                      No {currentState.adminUnitPlural.toLowerCase()} match the selected filters.
                     </td>
                   </tr>
                 ) : (
                   filteredMandals.map((m, idx) => {
-                    const mname = m.mandal_name || m.DMNAME || 'Mandal';
+                    const mname = m.mandal_name || m.DMNAME || currentState.adminUnitName;
                     const dname = m.current_district_name || m.DNAME || 'District';
                     const pop = Number(m.population_total ?? 0);
 
@@ -483,10 +483,10 @@ export const PriorityDirectoryPage: React.FC<PriorityDirectoryPageProps> = ({ on
 
           <div className="p-3.5 border-t border-slate-100 bg-slate-50/60 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-500 gap-2">
             <div>
-              <strong>Data Governance:</strong> 680 populated mandals ranked via TOPSIS MCDA engine. 16 unpopulated geometries are marked as <em>INSUFFICIENT DATA</em>.
+              <strong>Data Governance:</strong> {mandals.length} {currentState.adminUnitPlural.toLowerCase()} ranked via TOPSIS MCDA engine.
             </div>
             <div className="font-mono text-slate-400">
-              Verified Dataset &bull; Andhra Pradesh State Disaster Decision Support
+              Verified Dataset &bull; {currentState.name} State Disaster Decision Support
             </div>
           </div>
         </div>

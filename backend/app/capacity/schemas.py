@@ -192,6 +192,11 @@ class HostZoneCandidateItem(BaseModel):
     candidate_water_sanitation_adequacy: float
     candidate_road_accessibility: float
     candidate_safe_area_fraction: float
+    candidate_district_name: Optional[str] = None
+    safe_habitable_land_pct: Optional[float] = None
+    available_headroom_persons: Optional[int] = None
+    composite_score: Optional[float] = None
+    suitability_explanation: Optional[str] = None
     host_candidate_reason: str
     host_candidate_status: str
 

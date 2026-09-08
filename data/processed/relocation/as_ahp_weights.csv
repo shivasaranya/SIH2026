@@ -1,0 +1,5 @@
+criterion_id,criterion_name,weight,weight_percent,saaty_scale,saaty_scale_rationale
+C1,Hazard Exposure,0.4231,42.31,High Physical Trigger (Flood/Wind/Slope),High Physical Trigger (Flood/Wind/Slope)
+C2,Demographic Sensitivity,0.2274,22.74,Social Vulnerability (Children/Non-workers/HH size),Social Vulnerability (Children/Non-workers/HH size)
+C3,Capacity Stress,0.2274,22.74,In-situ Infrastructure Deficit (Shelters/Beds/Water),In-situ Infrastructure Deficit (Shelters/Beds/Water)
+C4,Accessibility Constraint,0.1221,12.21,Corridor Isolation (Road Density),Corridor Isolation (Road Density)

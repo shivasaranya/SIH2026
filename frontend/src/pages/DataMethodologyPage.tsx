@@ -81,16 +81,16 @@ export const DataMethodologyPage: React.FC<DataMethodologyPageProps> = ({
     },
     {
       name: 'Multi-Purpose Cyclone Shelter Registry (NCRMP)',
-      source: 'National Cyclone Risk Mitigation Project (NCRMP) / NDMA / APSDMA',
+      source: `National Cyclone Risk Mitigation Project (NCRMP) / NDMA / ${currentState.sdmaName}`,
       year: 'Phase I & II Asset Registry',
-      res: '1,053 Designated Shelters Across AP',
+      res: `Designated Shelters Across ${currentState.name}`,
       classification: 'OFFICIAL',
-      use: 'Verified emergency shelter capacity per mandal and shelter deficit calculations.',
+      use: `Verified emergency shelter capacity per ${currentState.adminUnitName.toLowerCase()} and shelter deficit calculations.`,
       limitations: 'Reflects designated asset capacity registry; live real-time shelter availability requires field check.'
     },
     {
       name: 'Road Network Evacuation Corridors & Density',
-      source: 'OpenStreetMap (OSM) Contributors & NRDMS AP State Spatial Road Network',
+      source: `OpenStreetMap (OSM) Contributors & State Spatial Road Network (${currentState.code})`,
       year: '2023 Extract',
       res: 'Vector Line Network (National, State, District & Rural Roads)',
       classification: 'OPEN / OFFICIAL HYBRID',

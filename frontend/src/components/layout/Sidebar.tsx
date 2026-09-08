@@ -28,8 +28,7 @@ interface SidebarProps {
 export const Sidebar: React.FC<SidebarProps> = ({ activeTab, onSelectTab }) => {
   const [collapsed, setCollapsed] = useState(false);
   const { currentState } = useActiveState();
-  const isTN = currentState.id === 'tamil_nadu';
-  const priorityCount = isTN ? '302' : '680';
+  const priorityCount = `${currentState.adminUnitCount}`;
 
   const sections = [
     {
@@ -133,7 +132,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab, onSelectTab }) => {
         ))}
       </div>
 
-      {/* Pilot State Card pinned at bottom */}
+      {/* State Card pinned at bottom */}
       {!collapsed && (
         <div className="p-3 border-t border-slate-100 space-y-2 bg-slate-50/70 shrink-0">
           <div className="bg-indigo-50/60 border border-indigo-100 rounded-xl p-2.5 flex items-center gap-2.5 shadow-xs">
@@ -141,8 +140,12 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab, onSelectTab }) => {
               <Shield className="w-4 h-4 text-white" />
             </div>
             <div className="min-w-0 flex-1">
-              <div className="text-[8.5px] font-bold uppercase tracking-wider text-indigo-600">Pilot State</div>
-              <div className="text-xs font-black text-slate-800 truncate leading-tight">Andhra Pradesh</div>
+              <div className="text-[8.5px] font-bold uppercase tracking-wider text-indigo-600">
+                {currentState.id === 'andhra_pradesh' ? 'Pilot State' : 'Operational State'}
+              </div>
+              <div className="text-xs font-black text-slate-800 truncate leading-tight">
+                {currentState.name}
+              </div>
             </div>
           </div>
 
@@ -152,7 +155,9 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab, onSelectTab }) => {
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
               Engine
             </span>
-            <span className="font-mono font-semibold text-slate-600">696 Mandals</span>
+            <span className="font-mono font-semibold text-slate-600">
+              {currentState.adminUnitCount} {currentState.adminUnitPlural}
+            </span>
           </div>
         </div>
       )}

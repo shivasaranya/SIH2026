@@ -1,0 +1,2 @@
+state_id,state_name,state_code,total_districts,total_mandals,total_mandals_ranked,total_population,very_high_count,high_count,moderate_count,low_count,mean_topsis_score,max_topsis_score,min_topsis_score,p90_threshold,p70_threshold,p30_threshold,candidate_hosts_count,ahp_consistency_ratio,methodology
+uttar_pradesh,Uttar Pradesh,UP,75,351,351,206130143,37,69,140,105,0.5057,0.9009,0.2657,0.7365,0.5801,0.4048,43,0.0038,Validated Saaty AHP (4 Criteria) + TOPSIS Closeness Ranking

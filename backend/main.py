@@ -1,3 +1,11 @@
+import sys
+from pathlib import Path
+
+# Ensure backend directory is in sys.path
+backend_dir = Path(__file__).resolve().parent
+if str(backend_dir) not in sys.path:
+    sys.path.insert(0, str(backend_dir))
+
 import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -38,6 +46,16 @@ async def root():
         "phase": "PHASE 0 — PROJECT FOUNDATION",
         "docs": "/docs",
         "health": "/api/health"
+    }
+
+
+@app.get("/health", summary="Health Check")
+async def health_check():
+    return {
+        "status": "ok",
+        "project": settings.APP_NAME,
+        "version": settings.VERSION,
+        "supported_states": ["andhra_pradesh", "assam", "bihar", "tamil_nadu", "west_bengal", "odisha", "uttar_pradesh", "uttarakhand", "sikkim", "arunachal_pradesh", "nagaland", "meghalaya"]
     }
 
 

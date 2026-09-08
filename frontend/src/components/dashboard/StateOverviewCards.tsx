@@ -11,11 +11,10 @@ interface StateOverviewCardsProps {
 export const StateOverviewCards: React.FC<StateOverviewCardsProps> = ({ summary, loading }) => {
   const { currentState } = useActiveState();
 
-  const isTN = currentState.id === 'tamil_nadu';
   const unitLabel = `${currentState.adminUnitPlural} Assessed`;
   const unitCount = currentState.adminUnitCount.toString();
-  const rankedUnits = isTN ? '302' : '680';
-  const hostCount = isTN ? '38' : '51';
+  const rankedUnits = summary ? `${summary.total_mandals}` : `${currentState.adminUnitCount}`;
+  const hostCount = `${currentState.candidateHostsCount}`;
 
   const cards = [
     {

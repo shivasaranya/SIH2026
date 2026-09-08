@@ -21,10 +21,44 @@ interface StateSelectionScreenProps {
 }
 
 interface StateFeatureProperties {
-  state_name: string;
-  is_implemented: boolean;
-  pilot_status: string;
+  state_name?: string;
+  NAME_1?: string;
+  st_nm?: string;
+  name?: string;
+  is_implemented?: boolean;
+  pilot_status?: string;
 }
+
+const OPERATIONAL_STATES_SET = new Set([
+  'andhra pradesh',
+  'assam',
+  'bihar',
+  'tamil nadu',
+  'west bengal',
+  'odisha',
+  'orissa',
+  'uttar pradesh',
+  'uttarakhand',
+  'uttaranchal',
+  'sikkim',
+  'arunachal pradesh',
+  'nagaland',
+  'meghalaya'
+]);
+
+const resolveStateProps = (rawProps?: StateFeatureProperties) => {
+  const rawName = rawProps?.state_name || rawProps?.NAME_1 || rawProps?.st_nm || rawProps?.name || '';
+  let normalizedName = String(rawName).trim();
+  if (normalizedName.toLowerCase() === 'orissa') normalizedName = 'Odisha';
+  if (normalizedName.toLowerCase() === 'uttaranchal') normalizedName = 'Uttarakhand';
+
+  const isImplemented = Boolean(rawProps?.is_implemented) || OPERATIONAL_STATES_SET.has(normalizedName.toLowerCase());
+  return {
+    stateName: normalizedName,
+    isImplemented,
+    pilotStatus: rawProps?.pilot_status || (normalizedName === 'Andhra Pradesh' ? 'PILOT' : 'OPERATIONAL')
+  };
+};
 
 export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
   onSelectState,
@@ -73,8 +107,7 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
 
         const layer = L.geoJSON(geoData, {
           style: (feature) => {
-            const props = feature?.properties as StateFeatureProperties;
-            const isImplemented = Boolean(props?.is_implemented);
+            const { isImplemented } = resolveStateProps(feature?.properties);
 
             if (isImplemented) {
               return {
@@ -93,9 +126,7 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
             };
           },
           onEachFeature: (feature, featureLayer) => {
-            const props = feature.properties as StateFeatureProperties;
-            const stateName = props.state_name;
-            const isImplemented = Boolean(props.is_implemented);
+            const { stateName, isImplemented } = resolveStateProps(feature?.properties);
 
             // Custom warm tooltip
             featureLayer.bindTooltip(
@@ -235,6 +266,316 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
         tnMarker.on('click', () => onSelectState('Tamil Nadu'));
         tnMarker.addTo(map);
 
+        // Add prominent Assam marker label at coordinates [26.20, 92.93]
+        const asLabelIcon = L.divIcon({
+          className: 'as-marker-badge',
+          html: `<div style="
+            background: #1E7446;
+            color: #FFFFFF;
+            font-family: inherit;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 5px 10px;
+            border-radius: 9999px;
+            box-shadow: 0 4px 14px rgba(20, 90, 54, 0.4);
+            border: 2px solid #FFFFFF;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            transform: scale(1.02);
+          ">
+            <span style="display:inline-block; width:7px; height:7px; background:#4ade80; border-radius:50%; box-shadow: 0 0 6px #4ade80;"></span>
+            Assam (Operational)
+          </div>`,
+          iconSize: [140, 28],
+          iconAnchor: [70, 14],
+        });
+
+        const asMarker = L.marker([26.70, 93.30], { icon: asLabelIcon, interactive: true });
+        asMarker.on('click', () => onSelectState('Assam'));
+        asMarker.addTo(map);
+
+        // Add prominent Bihar marker label at coordinates [25.60, 85.14]
+        const brLabelIcon = L.divIcon({
+          className: 'br-marker-badge',
+          html: `<div style="
+            background: #1E7446;
+            color: #FFFFFF;
+            font-family: inherit;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 5px 10px;
+            border-radius: 9999px;
+            box-shadow: 0 4px 14px rgba(20, 90, 54, 0.4);
+            border: 2px solid #FFFFFF;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            transform: scale(1.02);
+          ">
+            <span style="display:inline-block; width:7px; height:7px; background:#4ade80; border-radius:50%; box-shadow: 0 0 6px #4ade80;"></span>
+            Bihar (Operational)
+          </div>`,
+          iconSize: [140, 28],
+          iconAnchor: [70, 14],
+        });
+
+        const brMarker = L.marker([25.60, 85.14], { icon: brLabelIcon, interactive: true });
+        brMarker.on('click', () => onSelectState('Bihar'));
+        brMarker.addTo(map);
+
+        // Add prominent West Bengal marker label at coordinates [22.98, 87.85]
+        const wbLabelIcon = L.divIcon({
+          className: 'wb-marker-badge',
+          html: `<div style="
+            background: #1E7446;
+            color: #FFFFFF;
+            font-family: inherit;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 5px 10px;
+            border-radius: 9999px;
+            box-shadow: 0 4px 14px rgba(20, 90, 54, 0.4);
+            border: 2px solid #FFFFFF;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            transform: scale(1.02);
+          ">
+            <span style="display:inline-block; width:7px; height:7px; background:#4ade80; border-radius:50%; box-shadow: 0 0 6px #4ade80;"></span>
+            West Bengal (Operational)
+          </div>`,
+          iconSize: [160, 28],
+          iconAnchor: [80, 14],
+        });
+
+        const wbMarker = L.marker([22.98, 87.85], { icon: wbLabelIcon, interactive: true });
+        wbMarker.on('click', () => onSelectState('West Bengal'));
+        wbMarker.addTo(map);
+
+        // Add prominent Odisha marker label at coordinates [20.95, 85.09]
+        const odLabelIcon = L.divIcon({
+          className: 'od-marker-badge',
+          html: `<div style="
+            background: #1E7446;
+            color: #FFFFFF;
+            font-family: inherit;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 5px 10px;
+            border-radius: 9999px;
+            box-shadow: 0 4px 14px rgba(20, 90, 54, 0.4);
+            border: 2px solid #FFFFFF;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            transform: scale(1.02);
+          ">
+            <span style="display:inline-block; width:7px; height:7px; background:#4ade80; border-radius:50%; box-shadow: 0 0 6px #4ade80;"></span>
+            Odisha (Operational)
+          </div>`,
+          iconSize: [150, 28],
+          iconAnchor: [75, 14],
+        });
+
+        const odMarker = L.marker([20.95, 85.09], { icon: odLabelIcon, interactive: true });
+        odMarker.on('click', () => onSelectState('Odisha'));
+        odMarker.addTo(map);
+
+        // Add prominent Uttar Pradesh marker label at coordinates [26.85, 80.95]
+        const upLabelIcon = L.divIcon({
+          className: 'up-marker-badge',
+          html: `<div style="
+            background: #1E7446;
+            color: #FFFFFF;
+            font-family: inherit;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 5px 10px;
+            border-radius: 9999px;
+            box-shadow: 0 4px 14px rgba(20, 90, 54, 0.4);
+            border: 2px solid #FFFFFF;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            transform: scale(1.02);
+          ">
+            <span style="display:inline-block; width:7px; height:7px; background:#4ade80; border-radius:50%; box-shadow: 0 0 6px #4ade80;"></span>
+            Uttar Pradesh (Operational)
+          </div>`,
+          iconSize: [175, 28],
+          iconAnchor: [87, 14],
+        });
+
+        const upMarker = L.marker([26.85, 80.95], { icon: upLabelIcon, interactive: true });
+        upMarker.on('click', () => onSelectState('Uttar Pradesh'));
+        upMarker.addTo(map);
+
+        // Add prominent Uttarakhand marker label at coordinates [30.06, 79.01]
+        const ukLabelIcon = L.divIcon({
+          className: 'uk-marker-badge',
+          html: `<div style="
+            background: #1E7446;
+            color: #FFFFFF;
+            font-family: inherit;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 5px 10px;
+            border-radius: 9999px;
+            box-shadow: 0 4px 14px rgba(20, 90, 54, 0.4);
+            border: 2px solid #FFFFFF;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            transform: scale(1.02);
+          ">
+            <span style="display:inline-block; width:7px; height:7px; background:#4ade80; border-radius:50%; box-shadow: 0 0 6px #4ade80;"></span>
+            Uttarakhand (Operational)
+          </div>`,
+          iconSize: [165, 28],
+          iconAnchor: [82, 14],
+        });
+
+        const ukMarker = L.marker([30.06, 79.01], { icon: ukLabelIcon, interactive: true });
+        ukMarker.on('click', () => onSelectState('Uttarakhand'));
+        ukMarker.addTo(map);
+
+        // Add prominent Sikkim marker label at coordinates [27.53, 88.51]
+        const skLabelIcon = L.divIcon({
+          className: 'sk-marker-badge',
+          html: `<div style="
+            background: #1E7446;
+            color: #FFFFFF;
+            font-family: inherit;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 5px 10px;
+            border-radius: 9999px;
+            box-shadow: 0 4px 14px rgba(20, 90, 54, 0.4);
+            border: 2px solid #FFFFFF;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            transform: scale(1.02);
+          ">
+            <span style="display:inline-block; width:7px; height:7px; background:#4ade80; border-radius:50%; box-shadow: 0 0 6px #4ade80;"></span>
+            Sikkim (Operational)
+          </div>`,
+          iconSize: [145, 28],
+          iconAnchor: [72, 14],
+        });
+
+        const skMarker = L.marker([27.53, 88.51], { icon: skLabelIcon, interactive: true });
+        skMarker.on('click', () => onSelectState('Sikkim'));
+        skMarker.addTo(map);
+
+        // Add prominent Arunachal Pradesh marker label at coordinates [28.04, 94.68]
+        const arLabelIcon = L.divIcon({
+          className: 'ar-marker-badge',
+          html: `<div style="
+            background: #1E7446;
+            color: #FFFFFF;
+            font-family: inherit;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 5px 10px;
+            border-radius: 9999px;
+            box-shadow: 0 4px 14px rgba(20, 90, 54, 0.4);
+            border: 2px solid #FFFFFF;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            transform: scale(1.02);
+          ">
+            <span style="display:inline-block; width:7px; height:7px; background:#4ade80; border-radius:50%; box-shadow: 0 0 6px #4ade80;"></span>
+            Arunachal Pradesh (Operational)
+          </div>`,
+          iconSize: [195, 28],
+          iconAnchor: [97, 14],
+        });
+
+        const arMarker = L.marker([28.04, 94.68], { icon: arLabelIcon, interactive: true });
+        arMarker.on('click', () => onSelectState('Arunachal Pradesh'));
+        arMarker.addTo(map);
+
+        // Add prominent Nagaland marker label at coordinates [26.16, 94.56]
+        const nlLabelIcon = L.divIcon({
+          className: 'nl-marker-badge',
+          html: `<div style="
+            background: #1E7446;
+            color: #FFFFFF;
+            font-family: inherit;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 5px 10px;
+            border-radius: 9999px;
+            box-shadow: 0 4px 14px rgba(20, 90, 54, 0.4);
+            border: 2px solid #FFFFFF;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            transform: scale(1.02);
+          ">
+            <span style="display:inline-block; width:7px; height:7px; background:#4ade80; border-radius:50%; box-shadow: 0 0 6px #4ade80;"></span>
+            Nagaland (Operational)
+          </div>`,
+          iconSize: [155, 28],
+          iconAnchor: [77, 14],
+        });
+
+        const nlMarker = L.marker([26.16, 94.56], { icon: nlLabelIcon, interactive: true });
+        nlMarker.on('click', () => onSelectState('Nagaland'));
+        nlMarker.addTo(map);
+
+        // Add prominent Meghalaya marker label at coordinates [25.58, 91.89]
+        const mlLabelIcon = L.divIcon({
+          className: 'ml-marker-badge',
+          html: `<div style="
+            background: #1E7446;
+            color: #FFFFFF;
+            font-family: inherit;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 5px 10px;
+            border-radius: 9999px;
+            box-shadow: 0 4px 14px rgba(20, 90, 54, 0.4);
+            border: 2px solid #FFFFFF;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            transform: scale(1.02);
+          ">
+            <span style="display:inline-block; width:7px; height:7px; background:#4ade80; border-radius:50%; box-shadow: 0 0 6px #4ade80;"></span>
+            Meghalaya (Operational)
+          </div>`,
+          iconSize: [160, 28],
+          iconAnchor: [80, 14],
+        });
+
+        const mlMarker = L.marker([25.35, 91.25], { icon: mlLabelIcon, interactive: true });
+        mlMarker.on('click', () => onSelectState('Meghalaya'));
+        mlMarker.addTo(map);
+
         // Force invalidate size after DOM layout settles to ensure full expansion
         setTimeout(() => {
           if (mapInstanceRef.current) {
@@ -277,13 +618,21 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
   // Major states quick lookup
   const allStates = [
     { name: 'Andhra Pradesh', status: 'Operational Pilot', isPilot: true },
+    { name: 'Assam', status: 'Operational State', isPilot: true },
+    { name: 'Bihar', status: 'Operational State', isPilot: true },
     { name: 'Tamil Nadu', status: 'Operational State', isPilot: true },
-    { name: 'Odisha', status: 'Coming Soon', isPilot: false },
+    { name: 'West Bengal', status: 'Operational State', isPilot: true },
+    { name: 'Odisha', status: 'Operational State', isPilot: true },
+    { name: 'Uttar Pradesh', status: 'Operational State', isPilot: true },
+    { name: 'Uttarakhand', status: 'Operational State', isPilot: true },
+    { name: 'Sikkim', status: 'Operational State', isPilot: true },
+    { name: 'Arunachal Pradesh', status: 'Operational State', isPilot: true },
+    { name: 'Nagaland', status: 'Operational State', isPilot: true },
+    { name: 'Meghalaya', status: 'Operational State', isPilot: true },
     { name: 'Kerala', status: 'Coming Soon', isPilot: false },
     { name: 'Karnataka', status: 'Coming Soon', isPilot: false },
     { name: 'Maharashtra', status: 'Coming Soon', isPilot: false },
     { name: 'Gujarat', status: 'Coming Soon', isPilot: false },
-    { name: 'West Bengal', status: 'Coming Soon', isPilot: false },
     { name: 'Telangana', status: 'Coming Soon', isPilot: false },
     { name: 'Goa', status: 'Coming Soon', isPilot: false },
   ];
@@ -403,12 +752,120 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
                 </span>
               </div>
               <div 
+                onClick={() => onSelectState('Assam')}
+                className="flex items-center justify-between gap-3 cursor-pointer p-1.5 rounded-xl hover:bg-emerald-50 transition border border-transparent hover:border-emerald-200"
+              >
+                <span className="flex items-center gap-2 text-[#145A36] font-bold">
+                  <span className="w-3.5 h-3.5 rounded-md bg-[#1E7446] border border-[#145A36] shadow-sm" />
+                  Assam
+                </span>
+                <span className="font-mono text-[9px] px-2 py-0.5 rounded-full bg-emerald-100 text-[#145A36] font-extrabold">
+                  OPERATIONAL
+                </span>
+              </div>
+              <div 
+                onClick={() => onSelectState('Bihar')}
+                className="flex items-center justify-between gap-3 cursor-pointer p-1.5 rounded-xl hover:bg-emerald-50 transition border border-transparent hover:border-emerald-200"
+              >
+                <span className="flex items-center gap-2 text-[#145A36] font-bold">
+                  <span className="w-3.5 h-3.5 rounded-md bg-[#1E7446] border border-[#145A36] shadow-sm" />
+                  Bihar
+                </span>
+                <span className="font-mono text-[9px] px-2 py-0.5 rounded-full bg-emerald-100 text-[#145A36] font-extrabold">
+                  OPERATIONAL
+                </span>
+              </div>
+              <div 
                 onClick={() => onSelectState('Tamil Nadu')}
                 className="flex items-center justify-between gap-3 cursor-pointer p-1.5 rounded-xl hover:bg-emerald-50 transition border border-transparent hover:border-emerald-200"
               >
                 <span className="flex items-center gap-2 text-[#145A36] font-bold">
                   <span className="w-3.5 h-3.5 rounded-md bg-[#1E7446] border border-[#145A36] shadow-sm" />
                   Tamil Nadu
+                </span>
+                <span className="font-mono text-[9px] px-2 py-0.5 rounded-full bg-emerald-100 text-[#145A36] font-extrabold">
+                  OPERATIONAL
+                </span>
+              </div>
+              <div 
+                onClick={() => onSelectState('Odisha')}
+                className="flex items-center justify-between gap-3 cursor-pointer p-1.5 rounded-xl hover:bg-emerald-50 transition border border-transparent hover:border-emerald-200"
+              >
+                <span className="flex items-center gap-2 text-[#145A36] font-bold">
+                  <span className="w-3.5 h-3.5 rounded-md bg-[#1E7446] border border-[#145A36] shadow-sm" />
+                  Odisha
+                </span>
+                <span className="font-mono text-[9px] px-2 py-0.5 rounded-full bg-emerald-100 text-[#145A36] font-extrabold">
+                  OPERATIONAL
+                </span>
+              </div>
+              <div 
+                onClick={() => onSelectState('Uttar Pradesh')}
+                className="flex items-center justify-between gap-3 cursor-pointer p-1.5 rounded-xl hover:bg-emerald-50 transition border border-transparent hover:border-emerald-200"
+              >
+                <span className="flex items-center gap-2 text-[#145A36] font-bold">
+                  <span className="w-3.5 h-3.5 rounded-md bg-[#1E7446] border border-[#145A36] shadow-sm" />
+                  Uttar Pradesh
+                </span>
+                <span className="font-mono text-[9px] px-2 py-0.5 rounded-full bg-emerald-100 text-[#145A36] font-extrabold">
+                  OPERATIONAL
+                </span>
+              </div>
+              <div 
+                onClick={() => onSelectState('Uttarakhand')}
+                className="flex items-center justify-between gap-3 cursor-pointer p-1.5 rounded-xl hover:bg-emerald-50 transition border border-transparent hover:border-emerald-200"
+              >
+                <span className="flex items-center gap-2 text-[#145A36] font-bold">
+                  <span className="w-3.5 h-3.5 rounded-md bg-[#1E7446] border border-[#145A36] shadow-sm" />
+                  Uttarakhand
+                </span>
+                <span className="font-mono text-[9px] px-2 py-0.5 rounded-full bg-emerald-100 text-[#145A36] font-extrabold">
+                  OPERATIONAL
+                </span>
+              </div>
+              <div 
+                onClick={() => onSelectState('Sikkim')}
+                className="flex items-center justify-between gap-3 cursor-pointer p-1.5 rounded-xl hover:bg-emerald-50 transition border border-transparent hover:border-emerald-200"
+              >
+                <span className="flex items-center gap-2 text-[#145A36] font-bold">
+                  <span className="w-3.5 h-3.5 rounded-md bg-[#1E7446] border border-[#145A36] shadow-sm" />
+                  Sikkim
+                </span>
+                <span className="font-mono text-[9px] px-2 py-0.5 rounded-full bg-emerald-100 text-[#145A36] font-extrabold">
+                  OPERATIONAL
+                </span>
+              </div>
+              <div 
+                onClick={() => onSelectState('Arunachal Pradesh')}
+                className="flex items-center justify-between gap-3 cursor-pointer p-1.5 rounded-xl hover:bg-emerald-50 transition border border-transparent hover:border-emerald-200"
+              >
+                <span className="flex items-center gap-2 text-[#145A36] font-bold">
+                  <span className="w-3.5 h-3.5 rounded-md bg-[#1E7446] border border-[#145A36] shadow-sm" />
+                  Arunachal Pradesh
+                </span>
+                <span className="font-mono text-[9px] px-2 py-0.5 rounded-full bg-emerald-100 text-[#145A36] font-extrabold">
+                  OPERATIONAL
+                </span>
+              </div>
+              <div 
+                onClick={() => onSelectState('Nagaland')}
+                className="flex items-center justify-between gap-3 cursor-pointer p-1.5 rounded-xl hover:bg-emerald-50 transition border border-transparent hover:border-emerald-200"
+              >
+                <span className="flex items-center gap-2 text-[#145A36] font-bold">
+                  <span className="w-3.5 h-3.5 rounded-md bg-[#1E7446] border border-[#145A36] shadow-sm" />
+                  Nagaland
+                </span>
+                <span className="font-mono text-[9px] px-2 py-0.5 rounded-full bg-emerald-100 text-[#145A36] font-extrabold">
+                  OPERATIONAL
+                </span>
+              </div>
+              <div 
+                onClick={() => onSelectState('Meghalaya')}
+                className="flex items-center justify-between gap-3 cursor-pointer p-1.5 rounded-xl hover:bg-emerald-50 transition border border-transparent hover:border-emerald-200"
+              >
+                <span className="flex items-center gap-2 text-[#145A36] font-bold">
+                  <span className="w-3.5 h-3.5 rounded-md bg-[#1E7446] border border-[#145A36] shadow-sm" />
+                  Meghalaya
                 </span>
                 <span className="font-mono text-[9px] px-2 py-0.5 rounded-full bg-emerald-100 text-[#145A36] font-extrabold">
                   OPERATIONAL
@@ -449,7 +906,7 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
               </div>
             </div>
 
-            <div className="space-y-2 my-2.5">
+            <div className="space-y-2 my-2.5 max-h-[calc(100vh-270px)] overflow-y-auto pr-1.5 scrollbar-thin">
               {/* Andhra Pradesh Quick Tile */}
               <div 
                 onClick={() => onSelectState('Andhra Pradesh')}
@@ -465,6 +922,36 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
                 <ArrowRight className="w-3.5 h-3.5 text-[#1E7446]" />
               </div>
 
+              {/* Assam Quick Tile */}
+              <div 
+                onClick={() => onSelectState('Assam')}
+                className="bg-[#FAF8F3] hover:bg-emerald-50/60 transition cursor-pointer p-2.5 rounded-xl border border-stone-200/60 flex items-center justify-between"
+              >
+                <div>
+                  <div className="text-xs font-bold text-slate-800 flex items-center gap-1.5">
+                    <span>Assam</span>
+                    <span className="text-[9px] font-mono px-1.5 py-0.2 bg-emerald-100 text-emerald-800 rounded font-bold">ACTIVE</span>
+                  </div>
+                  <div className="text-[10px] text-slate-500 mt-0.5">33 Districts &bull; 153 Circles</div>
+                </div>
+                <ArrowRight className="w-3.5 h-3.5 text-[#1E7446]" />
+              </div>
+
+              {/* Bihar Quick Tile */}
+              <div 
+                onClick={() => onSelectState('Bihar')}
+                className="bg-[#FAF8F3] hover:bg-emerald-50/60 transition cursor-pointer p-2.5 rounded-xl border border-stone-200/60 flex items-center justify-between"
+              >
+                <div>
+                  <div className="text-xs font-bold text-slate-800 flex items-center gap-1.5">
+                    <span>Bihar</span>
+                    <span className="text-[9px] font-mono px-1.5 py-0.2 bg-emerald-100 text-emerald-800 rounded font-bold">ACTIVE</span>
+                  </div>
+                  <div className="text-[10px] text-slate-500 mt-0.5">38 Districts &bull; 534 Blocks</div>
+                </div>
+                <ArrowRight className="w-3.5 h-3.5 text-[#1E7446]" />
+              </div>
+
               {/* Tamil Nadu Quick Tile */}
               <div 
                 onClick={() => onSelectState('Tamil Nadu')}
@@ -476,6 +963,126 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
                     <span className="text-[9px] font-mono px-1.5 py-0.2 bg-emerald-100 text-emerald-800 rounded font-bold">ACTIVE</span>
                   </div>
                   <div className="text-[10px] text-slate-500 mt-0.5">38 Districts &bull; 302 Taluks</div>
+                </div>
+                <ArrowRight className="w-3.5 h-3.5 text-[#1E7446]" />
+              </div>
+
+              {/* West Bengal Quick Tile */}
+              <div 
+                onClick={() => onSelectState('West Bengal')}
+                className="bg-[#FAF8F3] hover:bg-emerald-50/60 transition cursor-pointer p-2.5 rounded-xl border border-stone-200/60 flex items-center justify-between"
+              >
+                <div>
+                  <div className="text-xs font-bold text-slate-800 flex items-center gap-1.5">
+                    <span>West Bengal</span>
+                    <span className="text-[9px] font-mono px-1.5 py-0.2 bg-emerald-100 text-emerald-800 rounded font-bold">ACTIVE</span>
+                  </div>
+                  <div className="text-[10px] text-slate-500 mt-0.5">23 Districts &bull; 346 Blocks</div>
+                </div>
+                <ArrowRight className="w-3.5 h-3.5 text-[#1E7446]" />
+              </div>
+
+              {/* Odisha Quick Tile */}
+              <div 
+                onClick={() => onSelectState('Odisha')}
+                className="bg-[#FAF8F3] hover:bg-emerald-50/60 transition cursor-pointer p-2.5 rounded-xl border border-stone-200/60 flex items-center justify-between"
+              >
+                <div>
+                  <div className="text-xs font-bold text-slate-800 flex items-center gap-1.5">
+                    <span>Odisha</span>
+                    <span className="text-[9px] font-mono px-1.5 py-0.2 bg-emerald-100 text-emerald-800 rounded font-bold">ACTIVE</span>
+                  </div>
+                  <div className="text-[10px] text-slate-500 mt-0.5">30 Districts &bull; 475 Blocks</div>
+                </div>
+                <ArrowRight className="w-3.5 h-3.5 text-[#1E7446]" />
+              </div>
+
+              {/* Uttar Pradesh Quick Tile */}
+              <div 
+                onClick={() => onSelectState('Uttar Pradesh')}
+                className="bg-[#FAF8F3] hover:bg-emerald-50/60 transition cursor-pointer p-2.5 rounded-xl border border-stone-200/60 flex items-center justify-between"
+              >
+                <div>
+                  <div className="text-xs font-bold text-slate-800 flex items-center gap-1.5">
+                    <span>Uttar Pradesh</span>
+                    <span className="text-[9px] font-mono px-1.5 py-0.2 bg-emerald-100 text-emerald-800 rounded font-bold">ACTIVE</span>
+                  </div>
+                  <div className="text-[10px] text-slate-500 mt-0.5">75 Districts &bull; 351 Tehsils</div>
+                </div>
+                <ArrowRight className="w-3.5 h-3.5 text-[#1E7446]" />
+              </div>
+
+              {/* Uttarakhand Quick Tile */}
+              <div 
+                onClick={() => onSelectState('Uttarakhand')}
+                className="bg-[#FAF8F3] hover:bg-emerald-50/60 transition cursor-pointer p-2.5 rounded-xl border border-stone-200/60 flex items-center justify-between"
+              >
+                <div>
+                  <div className="text-xs font-bold text-slate-800 flex items-center gap-1.5">
+                    <span>Uttarakhand</span>
+                    <span className="text-[9px] font-mono px-1.5 py-0.2 bg-emerald-100 text-emerald-800 rounded font-bold">ACTIVE</span>
+                  </div>
+                  <div className="text-[10px] text-slate-500 mt-0.5">13 Districts &bull; 127 Tehsils</div>
+                </div>
+                <ArrowRight className="w-3.5 h-3.5 text-[#1E7446]" />
+              </div>
+
+              {/* Sikkim Quick Tile */}
+              <div 
+                onClick={() => onSelectState('Sikkim')}
+                className="bg-[#FAF8F3] hover:bg-emerald-50/60 transition cursor-pointer p-2.5 rounded-xl border border-stone-200/60 flex items-center justify-between"
+              >
+                <div>
+                  <div className="text-xs font-bold text-slate-800 flex items-center gap-1.5">
+                    <span>Sikkim</span>
+                    <span className="text-[9px] font-mono px-1.5 py-0.2 bg-emerald-100 text-emerald-800 rounded font-bold">ACTIVE</span>
+                  </div>
+                  <div className="text-[10px] text-slate-500 mt-0.5">6 Districts &bull; 16 Sub-divisions</div>
+                </div>
+                <ArrowRight className="w-3.5 h-3.5 text-[#1E7446]" />
+              </div>
+
+              {/* Arunachal Pradesh Quick Tile */}
+              <div 
+                onClick={() => onSelectState('Arunachal Pradesh')}
+                className="bg-[#FAF8F3] hover:bg-emerald-50/60 transition cursor-pointer p-2.5 rounded-xl border border-stone-200/60 flex items-center justify-between"
+              >
+                <div>
+                  <div className="text-xs font-bold text-slate-800 flex items-center gap-1.5">
+                    <span>Arunachal Pradesh</span>
+                    <span className="text-[9px] font-mono px-1.5 py-0.2 bg-emerald-100 text-emerald-800 rounded font-bold">ACTIVE</span>
+                  </div>
+                  <div className="text-[10px] text-slate-500 mt-0.5">25 Districts &bull; 208 Circles</div>
+                </div>
+                <ArrowRight className="w-3.5 h-3.5 text-[#1E7446]" />
+              </div>
+
+              {/* Nagaland Quick Tile */}
+              <div 
+                onClick={() => onSelectState('Nagaland')}
+                className="bg-[#FAF8F3] hover:bg-emerald-50/60 transition cursor-pointer p-2.5 rounded-xl border border-stone-200/60 flex items-center justify-between"
+              >
+                <div>
+                  <div className="text-xs font-bold text-slate-800 flex items-center gap-1.5">
+                    <span>Nagaland</span>
+                    <span className="text-[9px] font-mono px-1.5 py-0.2 bg-emerald-100 text-emerald-800 rounded font-bold">ACTIVE</span>
+                  </div>
+                  <div className="text-[10px] text-slate-500 mt-0.5">11 Districts &bull; 120 Circles</div>
+                </div>
+                <ArrowRight className="w-3.5 h-3.5 text-[#1E7446]" />
+              </div>
+
+              {/* Meghalaya Quick Tile */}
+              <div 
+                onClick={() => onSelectState('Meghalaya')}
+                className="bg-[#FAF8F3] hover:bg-emerald-50/60 transition cursor-pointer p-2.5 rounded-xl border border-stone-200/60 flex items-center justify-between"
+              >
+                <div>
+                  <div className="text-xs font-bold text-slate-800 flex items-center gap-1.5">
+                    <span>Meghalaya</span>
+                    <span className="text-[9px] font-mono px-1.5 py-0.2 bg-emerald-100 text-emerald-800 rounded font-bold">ACTIVE</span>
+                  </div>
+                  <div className="text-[10px] text-slate-500 mt-0.5">11 Districts &bull; 46 C.D. Blocks</div>
                 </div>
                 <ArrowRight className="w-3.5 h-3.5 text-[#1E7446]" />
               </div>

@@ -15,18 +15,21 @@ import { useActiveState } from '../context/StateContext';
 
 export const DashboardPage: React.FC<DashboardPageProps> = ({ onNavigateToGIS }) => {
   const { currentState } = useActiveState();
+  const isWB = currentState.id === 'west_bengal';
   const isTN = currentState.id === 'tamil_nadu';
+  const isAS = currentState.id === 'assam';
+  const isBR = currentState.id === 'bihar';
 
   const [counts, setCounts] = useState({
     districts: currentState.districtCount,
     mandals: currentState.adminUnitCount,
-    ranked: isTN ? 302 : 680,
-    insufficient: isTN ? 0 : 16,
-    candidateHosts: isTN ? 41 : 51,
-    veryHigh: isTN ? 30 : 34,
-    high: isTN ? 60 : 136,
-    moderate: isTN ? 121 : 272,
-    low: isTN ? 91 : 238
+    ranked: isWB ? 346 : (isAS ? 153 : (isTN ? 302 : (isBR ? 534 : 680))),
+    insufficient: isWB ? 0 : (isAS ? 0 : (isTN ? 0 : (isBR ? 0 : 16))),
+    candidateHosts: isWB ? 23 : (isAS ? 42 : (isTN ? 41 : (isBR ? 54 : 51))),
+    veryHigh: isWB ? 35 : (isAS ? 15 : (isTN ? 30 : (isBR ? 27 : 34))),
+    high: isWB ? 69 : (isAS ? 31 : (isTN ? 60 : (isBR ? 107 : 136))),
+    moderate: isWB ? 139 : (isAS ? 61 : (isTN ? 121 : (isBR ? 213 : 272))),
+    low: isWB ? 103 : (isAS ? 46 : (isTN ? 91 : (isBR ? 187 : 238)))
   });
 
   useEffect(() => {

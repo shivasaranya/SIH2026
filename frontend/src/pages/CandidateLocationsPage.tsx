@@ -47,14 +47,14 @@ export const CandidateLocationsPage: React.FC = () => {
         {/* 1. HEADER */}
         <PageHeader
           category={`Screening \u2022 ${currentState.name} Multi-Criteria Candidate Host Evaluation`}
-          title={`Candidate Planning Locations (${candidates.length || (currentState.id === 'tamil_nadu' ? 41 : 51)} Potential Host Zones)`}
+          title={`Candidate Planning Locations (${candidates.length} Potential Host Zones)`}
           description={`Screened candidate relocation host destinations in ${currentState.name} evaluated for low multi-hazard risk (<0.35), high safe habitable land fraction (>50%), verified shelter capacity, and robust regional road access.`}
           icon={<ShieldCheck className="w-4 h-4 text-emerald-600" />}
           rightContent={
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-3 text-right shrink-0 shadow-2xs">
               <div className="text-[10px] font-mono text-slate-500 uppercase font-semibold">Candidate Host Zones</div>
               <div className="text-xl font-black text-emerald-600 font-mono">
-                {candidates.length || (currentState.id === 'tamil_nadu' ? 41 : 51)} Locations
+                {candidates.length} Locations
               </div>
             </div>
           }
