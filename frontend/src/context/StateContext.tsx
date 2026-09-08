@@ -64,6 +64,7 @@ export const STATE_CONFIGS: Record<StateId, StateConfig> = {
     adminUnitPlural: 'R.D. Blocks',
     districtCount: 11,
     adminUnitCount: 26,
+    candidateHostsCount: 6,
     center: [23.1645, 92.9376],
     bounds: [
       [21.95, 92.25],
@@ -81,6 +82,7 @@ export const STATE_CONFIGS: Record<StateId, StateConfig> = {
     adminUnitPlural: 'Tehsils',
     districtCount: 12,
     adminUnitCount: 172,
+    candidateHostsCount: 15,
     center: [31.9, 77.1],
     bounds: [
       [30.38, 75.56],
@@ -113,23 +115,8 @@ export const StateProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       if (hash.includes('/tn') || hash.includes('/tamil') || hash.includes('tamil_nadu')) {
         return 'tamil_nadu';
       }
-      if (hash.includes('/uk') || hash.includes('/uttarakhand') || hash.includes('/uttaranchal')) {
-        return 'uttarakhand';
-      }
-      if (hash.includes('/up') || hash.includes('/uttar') || hash.includes('uttar_pradesh')) {
-        return 'uttar_pradesh';
-      }
-      if (hash.includes('/sk') || hash.includes('/sikkim')) {
-        return 'sikkim';
-      }
-      if (hash.includes('/ar') || hash.includes('/arunachal')) {
-        return 'arunachal_pradesh';
-      }
-      if (hash.includes('/nl') || hash.includes('/nagaland')) {
-        return 'nagaland';
-      }
-      if (hash.includes('/ml') || hash.includes('/meghalaya')) {
-        return 'meghalaya';
+      if (hash.includes('/hp') || hash.includes('/himachal')) {
+        return 'himachal_pradesh';
       }
     }
     return 'andhra_pradesh';

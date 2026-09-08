@@ -15,7 +15,6 @@ import { useActiveState } from '../context/StateContext';
 
 export const DashboardPage: React.FC<DashboardPageProps> = ({ onNavigateToGIS }) => {
   const { currentState } = useActiveState();
-  const isWB = currentState.id === 'west_bengal';
   const isTN = currentState.id === 'tamil_nadu';
   const isMZ = currentState.id === 'mizoram';
   const isHP = currentState.id === 'himachal_pradesh';

@@ -17,7 +17,7 @@ export const Header: React.FC<HeaderProps> = ({
 }) => {
   const [showStateDropdown, setShowStateDropdown] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const { currentState, availableStates } = useActiveState();
+  const { currentState } = useActiveState();
 
   const isMizoram = pilotState.toLowerCase().includes('mizo');
   const isTN = pilotState.toLowerCase().includes('tamil');
