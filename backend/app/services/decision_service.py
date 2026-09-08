@@ -16,6 +16,10 @@ def resolve_state_key(state_id: Optional[str]) -> str:
     if not state_id:
         return "andhra_pradesh"
     clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    if clean in ["mizoram", "mz", "mizo"]:
+        return "mizoram"
+    if clean in ["himachal_pradesh", "hp", "himachal"]:
+        return "himachal_pradesh"
     if clean in ["odisha", "od", "or", "orissa"]:
         return "odisha"
     if clean in ["assam", "as"]:
@@ -24,7 +28,7 @@ def resolve_state_key(state_id: Optional[str]) -> str:
         return "bihar"
     if clean in ["tamil_nadu", "tn", "tamilnadu"]:
         return "tamil_nadu"
-    if clean in ["west_bengal", "wb", "westbengal"]:
+    if clean in ["west_bengal", "wb", "westbengal", "bengal"]:
         return "west_bengal"
     if clean in ["uttar_pradesh", "up", "uttarpradesh"]:
         return "uttar_pradesh"
@@ -41,29 +45,17 @@ def resolve_state_key(state_id: Optional[str]) -> str:
     return "andhra_pradesh"
 
 def is_mizoram(state_id: Optional[str]) -> bool:
-    if not state_id:
-        return False
-    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
-    return clean in ["mizoram", "mz", "mizo"]
+    return resolve_state_key(state_id) == "mizoram"
 
 def is_hp(state_id: Optional[str]) -> bool:
-    if not state_id:
-        return False
-    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
-    return clean in ["himachal_pradesh", "hp", "himachal"]
+    return resolve_state_key(state_id) == "himachal_pradesh"
 
 class DecisionService:
     def __init__(self):
         self._cache: Dict[str, Dict[str, Any]] = {}
 
     def _get_state_key(self, state_id: Optional[str]) -> str:
-        if is_mizoram(state_id):
-            return "mz"
-        if is_tn(state_id):
-            return "tn"
-        if is_hp(state_id):
-            return "hp"
-        return "ap"
+        return resolve_state_key(state_id)
 
     def _load_data(self, state_id: Optional[str] = "andhra_pradesh"):
         key = resolve_state_key(state_id)
@@ -73,18 +65,34 @@ class DecisionService:
         reloc_dir = settings.DATA_DIR / "processed" / "relocation"
         cap_dir = settings.DATA_DIR / "processed" / "capacity"
 
-        if key == "mz":
+        if key in ["mizoram", "mz"]:
             reloc_csv = reloc_dir / "mizoram_subdistrict_relocation_priority.csv"
             cap_csv = cap_dir / "mizoram_subdistrict_capacity_adequacy.csv"
             hosts_csv = cap_dir / "mizoram_host_zone_candidates.csv"
-        elif key == "hp":
+        elif key in ["himachal_pradesh", "hp"]:
             reloc_csv = reloc_dir / "hp_tehsil_relocation_priority.csv"
             cap_csv = cap_dir / "hp_tehsil_capacity_adequacy.csv"
             hosts_csv = cap_dir / "hp_host_zone_candidates.csv"
-        elif key == "tn":
+        elif key in ["tamil_nadu", "tn"]:
             reloc_csv = reloc_dir / "tn_taluk_relocation_priority.csv"
             cap_csv = cap_dir / "tn_taluk_capacity_adequacy.csv"
             hosts_csv = cap_dir / "tn_host_zone_candidates.csv"
+        elif key in ["odisha", "od"]:
+            reloc_csv = reloc_dir / "od_block_relocation_priority.csv"
+            cap_csv = cap_dir / "od_block_capacity_adequacy.csv"
+            hosts_csv = cap_dir / "od_host_zone_candidates.csv"
+        elif key in ["bihar", "br"]:
+            reloc_csv = reloc_dir / "br_block_relocation_priority.csv"
+            cap_csv = cap_dir / "br_block_capacity_adequacy.csv"
+            hosts_csv = cap_dir / "br_host_zone_candidates.csv"
+        elif key in ["west_bengal", "wb"]:
+            reloc_csv = reloc_dir / "wb_block_relocation_priority.csv"
+            cap_csv = cap_dir / "wb_block_capacity_adequacy.csv"
+            hosts_csv = cap_dir / "wb_host_zone_candidates.csv"
+        elif key in ["assam", "as"]:
+            reloc_csv = reloc_dir / "as_circle_relocation_priority.csv"
+            cap_csv = cap_dir / "as_circle_capacity_adequacy.csv"
+            hosts_csv = cap_dir / "as_host_zone_candidates.csv"
         elif key == "uttar_pradesh":
             reloc_csv = reloc_dir / "up_tehsil_relocation_priority.csv"
             cap_csv = cap_dir / "up_tehsil_capacity_adequacy.csv"
@@ -156,6 +164,10 @@ class DecisionService:
             detected_state = "nagaland"
         elif target.startswith("ML_"):
             detected_state = "meghalaya"
+        elif target.startswith("MZ_"):
+            detected_state = "mizoram"
+        elif target.startswith("HP_"):
+            detected_state = "himachal_pradesh"
         else:
             detected_state = state_id
 
@@ -164,7 +176,7 @@ class DecisionService:
         c_row = self._find_mandal(data["cap_df"], mandal_id)
 
         if r_row is None or c_row is None:
-            for s in ["andhra_pradesh", "assam", "bihar", "tamil_nadu", "west_bengal", "odisha", "uttar_pradesh", "uttarakhand", "sikkim", "arunachal_pradesh", "nagaland", "meghalaya"]:
+            for s in ["andhra_pradesh", "assam", "bihar", "tamil_nadu", "west_bengal", "odisha", "uttar_pradesh", "uttarakhand", "sikkim", "arunachal_pradesh", "nagaland", "meghalaya", "mizoram", "himachal_pradesh"]:
                 if s == detected_state:
                     continue
                 try:
@@ -317,6 +329,10 @@ class DecisionService:
             detected_state = "nagaland"
         elif target.startswith("ML_"):
             detected_state = "meghalaya"
+        elif target.startswith("MZ_"):
+            detected_state = "mizoram"
+        elif target.startswith("HP_"):
+            detected_state = "himachal_pradesh"
         else:
             detected_state = state_id
 
@@ -325,7 +341,7 @@ class DecisionService:
         c_row = self._find_mandal(data["cap_df"], mandal_id)
 
         if r_row is None or c_row is None:
-            for s in ["andhra_pradesh", "assam", "bihar", "tamil_nadu", "west_bengal", "odisha", "uttar_pradesh", "uttarakhand", "sikkim", "arunachal_pradesh", "nagaland", "meghalaya"]:
+            for s in ["andhra_pradesh", "assam", "bihar", "tamil_nadu", "west_bengal", "odisha", "uttar_pradesh", "uttarakhand", "sikkim", "arunachal_pradesh", "nagaland", "meghalaya", "mizoram", "himachal_pradesh"]:
                 if s == detected_state:
                     continue
                 try:
@@ -406,6 +422,22 @@ class DecisionService:
             irrigation_agency = "Water Resources Department (WRD), Meghalaya / Soil & Water Conservation Dept"
             rws_agency = "Public Health Engineering Department (PHED), Meghalaya"
             edu_agency = "Education Department, Government of Meghalaya"
+        elif state_key in ["mizoram", "mz"]:
+            sdma_agency = "Disaster Management & Rehabilitation Dept (DM&R), Government of Mizoram"
+            pwd_agency = "Mizoram PWD (Roads) / Border Roads Organisation (BRO Pushpak)"
+            health_agency = "Health & Family Welfare Department, Government of Mizoram"
+            wcd_agency = "Social Welfare & Tribal Affairs Department, Mizoram / Anganwadi"
+            irrigation_agency = "Irrigation & Water Resources Department, Mizoram"
+            rws_agency = "Public Health Engineering Department (PHED), Mizoram"
+            edu_agency = "School Education Department, Government of Mizoram"
+        elif state_key in ["himachal_pradesh", "hp"]:
+            sdma_agency = "HPSDMA / Revenue (Disaster Management) Department, HP"
+            pwd_agency = "HP Public Works Department (HPPWD) / HP Police"
+            health_agency = "Department of Health & Family Welfare, Himachal Pradesh"
+            wcd_agency = "Women and Child Development Department, HP"
+            irrigation_agency = "Jal Shakti Vibhag, Himachal Pradesh"
+            rws_agency = "Jal Shakti Vibhag (Rural Water Supply), HP"
+            edu_agency = "Higher / Elementary Education Department, HP"
         else:
             sdma_agency = "APSDMA / Revenue Department"
             pwd_agency = "AP Roads & Buildings Department / District Police"
@@ -613,6 +645,10 @@ class DecisionService:
             detected_state = "nagaland"
         elif target_s.startswith("ML_") or target_h.startswith("ML_"):
             detected_state = "meghalaya"
+        elif target_s.startswith("MZ_") or target_h.startswith("MZ_"):
+            detected_state = "mizoram"
+        elif target_s.startswith("HP_") or target_h.startswith("HP_"):
+            detected_state = "himachal_pradesh"
         else:
             detected_state = state_id
 
@@ -623,7 +659,7 @@ class DecisionService:
         h_cap = self._find_mandal(data["cap_df"], host_id)
 
         if s_reloc is None or s_cap is None or h_reloc is None or h_cap is None:
-            for s in ["andhra_pradesh", "assam", "bihar", "tamil_nadu", "west_bengal", "odisha", "uttar_pradesh", "uttarakhand", "sikkim", "arunachal_pradesh", "nagaland", "meghalaya"]:
+            for s in ["andhra_pradesh", "assam", "bihar", "tamil_nadu", "west_bengal", "odisha", "uttar_pradesh", "uttarakhand", "sikkim", "arunachal_pradesh", "nagaland", "meghalaya", "mizoram", "himachal_pradesh"]:
                 if s == detected_state:
                     continue
                 try:

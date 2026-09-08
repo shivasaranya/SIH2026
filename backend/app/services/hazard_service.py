@@ -13,6 +13,10 @@ def resolve_state_key(state_id: Optional[str]) -> str:
     if not state_id:
         return "andhra_pradesh"
     clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    if clean in ["mizoram", "mz", "mizo"]:
+        return "mizoram"
+    if clean in ["himachal_pradesh", "hp", "himachal"]:
+        return "himachal_pradesh"
     if clean in ["odisha", "od", "or", "orissa"]:
         return "odisha"
     if clean in ["assam", "as"]:
@@ -21,7 +25,7 @@ def resolve_state_key(state_id: Optional[str]) -> str:
         return "bihar"
     if clean in ["tamil_nadu", "tn", "tamilnadu"]:
         return "tamil_nadu"
-    if clean in ["west_bengal", "wb", "westbengal"]:
+    if clean in ["west_bengal", "wb", "westbengal", "bengal"]:
         return "west_bengal"
     if clean in ["uttar_pradesh", "up", "uttarpradesh"]:
         return "uttar_pradesh"
@@ -38,29 +42,17 @@ def resolve_state_key(state_id: Optional[str]) -> str:
     return "andhra_pradesh"
 
 def is_mizoram(state_id: Optional[str]) -> bool:
-    if not state_id:
-        return False
-    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
-    return clean in ["mizoram", "mz", "mizo"]
+    return resolve_state_key(state_id) == "mizoram"
 
 def is_hp(state_id: Optional[str]) -> bool:
-    if not state_id:
-        return False
-    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
-    return clean in ["himachal_pradesh", "hp", "himachal"]
+    return resolve_state_key(state_id) == "himachal_pradesh"
 
 class HazardService:
     def __init__(self):
         self._cache: Dict[str, Dict[str, Any]] = {}
 
     def _get_state_key(self, state_id: Optional[str]) -> str:
-        if is_mizoram(state_id):
-            return "mz"
-        if is_tn(state_id):
-            return "tn"
-        if is_hp(state_id):
-            return "hp"
-        return "ap"
+        return resolve_state_key(state_id)
 
     def _load_data(self, state_id: Optional[str] = "andhra_pradesh"):
         key = resolve_state_key(state_id)
@@ -69,19 +61,41 @@ class HazardService:
 
         haz_dir = settings.DATA_DIR / "processed" / "hazard" / "mandal_exposure"
 
-        if key == "mz":
+        if key in ["mizoram", "mz"]:
             csv_path = haz_dir / "mizoram_subdistrict_multi_hazard_exposure.csv"
             geojson_path = haz_dir / "mizoram_subdistrict_multi_hazard_exposure.geojson"
             surge_included = False
-        elif key == "hp":
+            surge_reason = "Inland hilly state: Direct coastal storm surge is Not Applicable (0.0). Landslide hazard and flash flood recurrence models applied."
+        elif key in ["himachal_pradesh", "hp"]:
             csv_path = haz_dir / "hp_tehsil_multi_hazard_exposure.csv"
             geojson_path = haz_dir / "hp_tehsil_multi_hazard_exposure.geojson"
             surge_included = False
-        elif key == "tn":
+            surge_reason = "Inland Himalayan state: Direct coastal storm surge is Not Applicable (0.0). Landslide, cloudburst, flash flood, and seismic exposure models applied."
+        elif key in ["tamil_nadu", "tn"]:
             csv_path = haz_dir / "tn_taluk_multi_hazard_exposure.csv"
             geojson_path = haz_dir / "tn_taluk_multi_hazard_exposure.geojson"
             surge_included = True
             surge_reason = "None"
+        elif key in ["odisha", "od"]:
+            csv_path = haz_dir / "od_block_multi_hazard_exposure.csv"
+            geojson_path = haz_dir / "od_block_multi_hazard_exposure.geojson"
+            surge_included = True
+            surge_reason = "Odisha coastal belt models peak tropical cyclone storm surge and Mahanadi/Brahmani riverine flood recurrence."
+        elif key in ["bihar", "br"]:
+            csv_path = haz_dir / "br_block_multi_hazard_exposure.csv"
+            geojson_path = haz_dir / "br_block_multi_hazard_exposure.geojson"
+            surge_included = False
+            surge_reason = "Inland northern state: Direct coastal storm surge is Not Applicable (0.0). Recurrent riverine flood inundation across Kosi, Gandak, Bagmati, and Ganga basins applied."
+        elif key in ["west_bengal", "wb"]:
+            csv_path = haz_dir / "wb_block_multi_hazard_exposure.csv"
+            geojson_path = haz_dir / "wb_block_multi_hazard_exposure.geojson"
+            surge_included = True
+            surge_reason = "Sundarbans coastal zones model peak cyclone surge; inland blocks apply Gangetic and Teesta/Torsa riverine flood recurrence."
+        elif key in ["assam", "as"]:
+            csv_path = haz_dir / "as_circle_multi_hazard_exposure.csv"
+            geojson_path = haz_dir / "as_circle_multi_hazard_exposure.geojson"
+            surge_included = False
+            surge_reason = "Inland northeast state: Direct coastal storm surge is Not Applicable (0.0). Brahmaputra and Barak riverine flood inundation recurrence applied."
         elif key == "uttar_pradesh":
             csv_path = haz_dir / "up_tehsil_multi_hazard_exposure.csv"
             geojson_path = haz_dir / "up_tehsil_multi_hazard_exposure.geojson"

@@ -131,9 +131,9 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
             // Custom warm tooltip
             featureLayer.bindTooltip(
               `<div class="py-1.5 px-2.5 text-center select-none font-sans">
-                <div class="text-xs font-bold ${isImplemented ? 'text-[#145A36]' : 'text-slate-900'}">${stateName}</div>
-                <div class="text-[10px] font-semibold mt-0.5 ${isImplemented ? 'text-[#1E7446] font-extrabold' : 'text-amber-700'}">
-                  ${isImplemented ? '★ OPERATIONAL STATE (Click to Launch)' : '○ Regional Data Expansion In Progress'}
+                <div class="text-xs font-bold ${isImplemented ? 'text-[#145A36]' : 'text-slate-700'}">${stateName}</div>
+                <div class="text-[10px] font-semibold mt-0.5 ${isImplemented ? 'text-[#1E7446] font-extrabold' : 'text-slate-500'}">
+                  ${isImplemented ? '★ OPERATIONAL STATE (Click to Launch)' : '○ Click to Launch'}
                 </div>
               </div>`,
               { sticky: true, className: 'leaflet-warm-tooltip' }
@@ -143,21 +143,12 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
               mouseover: (e) => {
                 const target = e.target as L.Path;
                 setHoveredState(stateName);
-                if (isImplemented) {
-                  target.setStyle({
-                    weight: 3.5,
-                    color: '#0B3B20',
-                    fillColor: '#166534',
-                    fillOpacity: 1,
-                  });
-                } else {
-                  target.setStyle({
-                    weight: 2.5,
-                    color: '#0D629B',
-                    fillColor: '#DDD6C9',
-                    fillOpacity: 0.98,
-                  });
-                }
+                target.setStyle({
+                  weight: 3.5,
+                  color: isImplemented ? '#0B3B20' : '#1e40af',
+                  fillColor: isImplemented ? '#166534' : '#cbd5e1',
+                  fillOpacity: 1,
+                });
                 target.bringToFront();
               },
               mouseout: (e) => {
@@ -181,11 +172,7 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
               },
               click: (e) => {
                 L.DomEvent.stopPropagation(e);
-                if (isImplemented) {
-                  onSelectState(stateName);
-                } else {
-                  setSelectedComingSoonState(stateName);
-                }
+                onSelectState(stateName);
               },
             });
           },

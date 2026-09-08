@@ -8,7 +8,7 @@ class Settings(BaseSettings):
     APP_NAME: str = "Sahayata"
     APP_ENV: str = "development"
     APP_HOST: str = "127.0.0.1"
-    APP_PORT: int = 8001
+    APP_PORT: int = 8000
     DEBUG: bool = True
     VERSION: str = "0.1.0"
     SIH_CODE: str = "SIH26191"

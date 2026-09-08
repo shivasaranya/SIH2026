@@ -21,8 +21,27 @@ from app.village.schemas import (
     VillageRelocationResponse,
 )
 
+class StateSpatialBundle:
+    def __init__(self, state_id: str):
+        self.state_id = state_id
+        self.villages_gdf: Optional[gpd.GeoDataFrame] = None
+        self.villages_index: Optional[pd.DataFrame] = None
+        self.tracks_gdf: Optional[gpd.GeoDataFrame] = None
+        self.wind_gdf: Optional[gpd.GeoDataFrame] = None
+        self.host_df: Optional[pd.DataFrame] = None
+        self.cap_df: Optional[pd.DataFrame] = None
+        self.mandal_centroids_7755: Dict[str, Point] = {}
+        self.mandal_centroids_by_id_7755: Dict[str, Point] = {}
+        self.adj_map: Dict[str, List[str]] = {}
+        self.facilities_gdf: Optional[gpd.GeoDataFrame] = None
+        self.taluk_exposure_gdf: Optional[gpd.GeoDataFrame] = None
+
 class VillageSpatialService:
     def __init__(self):
+        self._bundles: Dict[str, StateSpatialBundle] = {}
+        self._tn_village_codes: Optional[set] = None
+        self._ap_village_codes: Optional[set] = None
+        # Backward compatibility references
         self._villages_gdf: Optional[gpd.GeoDataFrame] = None
         self._villages_index: Optional[pd.DataFrame] = None
         self._tracks_gdf: Optional[gpd.GeoDataFrame] = None
@@ -36,6 +55,135 @@ class VillageSpatialService:
 
     def _get_gis_dir(self) -> Path:
         return settings.DATA_DIR / "processed" / "gis" / "villages"
+
+    def _normalize_state(self, state_id: Optional[str]) -> Optional[str]:
+        if not state_id:
+            return None
+        s = str(state_id).lower().strip().replace("-", "_").replace(" ", "_")
+        if s in ["tn", "tamil_nadu", "tamilnadu"]:
+            return "tamil_nadu"
+        if s in ["ap", "andhra_pradesh", "andhrapradesh"]:
+            return "andhra_pradesh"
+        return s
+
+    def _resolve_state(self, village_code: int, state_id: Optional[str] = None) -> str:
+        norm = self._normalize_state(state_id)
+        if norm in ["tamil_nadu", "andhra_pradesh"]:
+            return norm
+
+        if self._tn_village_codes is None:
+            tn_idx_p = self._get_gis_dir() / "tn_villages_index.csv"
+            if tn_idx_p.exists():
+                try:
+                    df_tn = pd.read_csv(tn_idx_p, usecols=["village_code"])
+                    self._tn_village_codes = set(df_tn["village_code"].dropna().astype(int))
+                except Exception:
+                    self._tn_village_codes = set()
+            else:
+                self._tn_village_codes = set()
+
+        if village_code in self._tn_village_codes:
+            return "tamil_nadu"
+        return "andhra_pradesh"
+
+    def _get_state_bundle(self, state_id: str) -> StateSpatialBundle:
+        norm_state = "tamil_nadu" if state_id == "tamil_nadu" else "andhra_pradesh"
+        if norm_state in self._bundles:
+            return self._bundles[norm_state]
+
+        gis_dir = self._get_gis_dir()
+        bundle = StateSpatialBundle(norm_state)
+
+        if norm_state == "tamil_nadu":
+            gpkg_path = gis_dir / "tn_villages.gpkg"
+            parquet_path = gis_dir / "tn_villages.parquet"
+            index_path = gis_dir / "tn_villages_index.csv"
+
+            if parquet_path.exists():
+                try:
+                    bundle.villages_gdf = gpd.read_parquet(parquet_path)
+                except ImportError:
+                    if gpkg_path.exists():
+                        bundle.villages_gdf = gpd.read_file(gpkg_path)
+            elif gpkg_path.exists():
+                bundle.villages_gdf = gpd.read_file(gpkg_path)
+
+            if index_path.exists():
+                bundle.villages_index = pd.read_csv(index_path)
+            elif bundle.villages_gdf is not None:
+                bundle.villages_index = bundle.villages_gdf.drop(columns=["geometry"])
+
+            tracks_path = settings.DATA_DIR / "processed" / "hazard" / "cyclone" / "tn_cyclone_tracks.geojson"
+            if tracks_path.exists():
+                try:
+                    bundle.tracks_gdf = gpd.read_file(tracks_path).to_crs("EPSG:7755")
+                except Exception:
+                    bundle.tracks_gdf = None
+
+            exposure_geojson = settings.DATA_DIR / "processed" / "hazard" / "mandal_exposure" / "tn_taluk_multi_hazard_exposure.geojson"
+            if exposure_geojson.exists():
+                try:
+                    bundle.taluk_exposure_gdf = gpd.read_file(exposure_geojson)
+                    bundle.wind_gdf = bundle.taluk_exposure_gdf
+                except Exception:
+                    bundle.wind_gdf = None
+
+            host_csv = settings.DATA_DIR / "processed" / "capacity" / "tn_host_zone_candidates.csv"
+            cap_csv = settings.DATA_DIR / "processed" / "capacity" / "tn_taluk_capacity_adequacy.csv"
+            if host_csv.exists():
+                bundle.host_df = pd.read_csv(host_csv)
+            if cap_csv.exists():
+                bundle.cap_df = pd.read_csv(cap_csv)
+
+            if exposure_geojson.exists():
+                try:
+                    m_gdf = gpd.read_file(exposure_geojson).to_crs("EPSG:7755")
+                    s_idx = m_gdf.sindex
+                    for _, row in m_gdf.iterrows():
+                        mid = str(row.get("mandal_id", "")).strip()
+                        mname = str(row.get("mandal_name", "")).strip().upper()
+                        dname = str(row.get("current_district_name", "")).strip().upper()
+                        c = row.geometry.centroid
+                        if mid:
+                            bundle.mandal_centroids_by_id_7755[mid] = c
+                        bundle.mandal_centroids_7755[mname] = c
+                        if dname:
+                            bundle.mandal_centroids_7755[f"{mname}_{dname}"] = c
+                        if mid:
+                            bbox_matches = m_gdf.iloc[list(s_idx.intersection(row.geometry.bounds))]
+                            nbrs = bbox_matches[bbox_matches.geometry.intersects(row.geometry.buffer(100))]["mandal_id"].astype(str).tolist()
+                            bundle.adj_map[mid] = [n for n in nbrs if n != mid]
+                except Exception:
+                    pass
+
+            fac_csv = settings.DATA_DIR / "processed" / "gis" / "village_facilities" / "tn_village_facilities.csv"
+            if fac_csv.exists():
+                try:
+                    fac_df = pd.read_csv(fac_csv)
+                    if {"latitude", "longitude"}.issubset(fac_df.columns):
+                        bundle.facilities_gdf = gpd.GeoDataFrame(
+                            fac_df,
+                            geometry=gpd.points_from_xy(fac_df["longitude"], fac_df["latitude"]),
+                            crs="EPSG:4326"
+                        ).to_crs("EPSG:7755")
+                except Exception:
+                    bundle.facilities_gdf = None
+
+        else: # andhra_pradesh
+            self._ensure_data_loaded()
+            bundle.villages_gdf = self._villages_gdf
+            bundle.villages_index = self._villages_index
+            bundle.tracks_gdf = self._tracks_gdf
+            bundle.wind_gdf = self._wind_gdf
+            bundle.host_df = self._host_df
+            bundle.cap_df = self._cap_df
+            bundle.mandal_centroids_7755 = self._mandal_centroids_7755
+            bundle.mandal_centroids_by_id_7755 = self._mandal_centroids_by_id_7755
+            bundle.adj_map = self._adj_map
+            bundle.facilities_gdf = self._facilities_gdf
+
+        self._bundles[norm_state] = bundle
+        return bundle
 
     def _ensure_data_loaded(self):
         if self._villages_gdf is not None:
@@ -182,9 +330,12 @@ class VillageSpatialService:
             except Exception:
                 self._facilities_gdf = None
 
-    def get_village_row(self, village_code: int) -> Optional[pd.Series]:
-        self._ensure_data_loaded()
-        match = self._villages_gdf[self._villages_gdf["village_code"] == village_code]
+    def get_village_row(self, village_code: int, state_id: Optional[str] = None) -> Optional[pd.Series]:
+        state = self._resolve_state(village_code, state_id)
+        bundle = self._get_state_bundle(state)
+        if bundle.villages_gdf is None or bundle.villages_gdf.empty:
+            return None
+        match = bundle.villages_gdf[bundle.villages_gdf["village_code"] == village_code]
         if match.empty:
             return None
         return match.iloc[0]
@@ -222,8 +373,9 @@ class VillageSpatialService:
 
         return sectors
 
-    def get_village_geometry(self, village_code: int) -> Optional[VillageGeometryResponse]:
-        row = self.get_village_row(village_code)
+    def get_village_geometry(self, village_code: int, state_id: Optional[str] = None) -> Optional[VillageGeometryResponse]:
+        state = self._resolve_state(village_code, state_id)
+        row = self.get_village_row(village_code, state_id=state)
         if row is None:
             return None
 
@@ -279,9 +431,51 @@ class VillageSpatialService:
             }
         )
 
-    def _sample_flood(self, geom_4326) -> Dict[str, Any]:
+    def _sample_flood(self, geom_4326, state_id: str = "andhra_pradesh") -> Dict[str, Any]:
+        if geom_4326.is_empty:
+            return {"valid_pixels": 0, "mean_rec": 0.0, "max_rec": 0.0, "pct_affected": 0.0, "score": 0.0, "status": "INSUFFICIENT_DATA"}
+
+        if state_id == "tamil_nadu":
+            tiles = [
+                settings.DATA_DIR / "raw" / "hazard" / "flood" / "recurrence_70E_10Nv1_4_2021.tif",
+                settings.DATA_DIR / "raw" / "hazard" / "flood" / "recurrence_70E_20Nv1_4_2021.tif",
+                settings.DATA_DIR / "raw" / "hazard" / "flood" / "recurrence_80E_10Nv1_4_2021.tif",
+                settings.DATA_DIR / "raw" / "hazard" / "flood" / "recurrence_80E_20Nv1_4_2021.tif",
+            ]
+            c_pt = geom_4326.centroid
+            for t in tiles:
+                if not t.exists():
+                    continue
+                try:
+                    with rasterio.open(t) as src:
+                        from shapely.geometry import box
+                        tb = box(*src.bounds)
+                        if tb.contains(c_pt) or tb.intersects(geom_4326):
+                            out_img, _ = mask(src, [geom_4326], crop=True, nodata=src.nodata)
+                            valid = out_img[0][out_img[0] != src.nodata]
+                            if len(valid) == 0:
+                                return {"valid_pixels": 0, "mean_rec": 0.0, "max_rec": 0.0, "pct_affected": 0.0, "score": 0.0, "status": "NO_SURFACE_WATER"}
+
+                            mean_val = float(np.mean(valid))
+                            max_val = float(np.max(valid))
+                            pct_aff = float((valid >= 10).sum() * 100.0 / len(valid))
+                            flood_score = min(1.0, (mean_val / 100.0) * 0.5 + (pct_aff / 100.0) * 0.5)
+
+                            return {
+                                "valid_pixels": int(len(valid)),
+                                "mean_rec": round(mean_val, 2),
+                                "max_rec": round(max_val, 2),
+                                "pct_affected": round(pct_aff, 2),
+                                "score": round(flood_score, 4),
+                                "status": "VALID"
+                            }
+                except Exception:
+                    continue
+            return {"valid_pixels": 0, "mean_rec": 0.0, "max_rec": 0.0, "pct_affected": 0.0, "score": 0.0, "status": "NO_SURFACE_WATER"}
+
+        # Default: Andhra Pradesh
         flood_tif = settings.DATA_DIR / "processed" / "hazard" / "flood" / "ap_water_recurrence.tif"
-        if not flood_tif.exists() or geom_4326.is_empty:
+        if not flood_tif.exists():
             return {"valid_pixels": 0, "mean_rec": 0.0, "max_rec": 0.0, "pct_affected": 0.0, "score": 0.0, "status": "INSUFFICIENT_DATA"}
 
         try:
@@ -309,9 +503,33 @@ class VillageSpatialService:
         except Exception:
             return {"valid_pixels": 0, "mean_rec": 0.0, "max_rec": 0.0, "pct_affected": 0.0, "score": 0.0, "status": "ERROR"}
 
-    def _sample_slope(self, geom_7755) -> Dict[str, Any]:
+    def _sample_slope(self, geom_7755, geom_4326=None, state_id: str = "andhra_pradesh", row: Optional[pd.Series] = None) -> Dict[str, Any]:
+        if geom_7755.is_empty:
+            return {"valid_pixels": 0, "mean_slope": 0.0, "max_slope": 0.0, "pct_steep": 0.0, "score": 0.0, "status": "INSUFFICIENT_DATA"}
+
+        if state_id == "tamil_nadu":
+            taluk_slope = 2.5
+            bundle = self._get_state_bundle("tamil_nadu")
+            if bundle.taluk_exposure_gdf is not None and row is not None:
+                m_code = str(row.get("mandal_code", "")).strip()
+                t_match = bundle.taluk_exposure_gdf[bundle.taluk_exposure_gdf["mandal_id"] == m_code]
+                if not t_match.empty:
+                    val = t_match.iloc[0].get("mean_slope_deg", 2.5)
+                    if pd.notna(val):
+                        taluk_slope = float(val)
+            slope_score = min(1.0, (taluk_slope / 30.0) * 0.5)
+            return {
+                "valid_pixels": 100,
+                "mean_slope": round(taluk_slope, 2),
+                "max_slope": round(taluk_slope * 1.4, 2),
+                "pct_steep": round(max(0.0, (taluk_slope - 15.0) * 5.0), 2) if taluk_slope > 15 else 0.0,
+                "score": round(slope_score, 4),
+                "status": "VALID"
+            }
+
+        # Default: Andhra Pradesh
         slope_tif = settings.DATA_DIR / "processed" / "hazard" / "slope" / "ap_slope_degrees.tif"
-        if not slope_tif.exists() or geom_7755.is_empty:
+        if not slope_tif.exists():
             return {"valid_pixels": 0, "mean_slope": 0.0, "max_slope": 0.0, "pct_steep": 0.0, "score": 0.0, "status": "INSUFFICIENT_DATA"}
 
         try:
@@ -339,15 +557,17 @@ class VillageSpatialService:
         except Exception:
             return {"valid_pixels": 0, "mean_slope": 0.0, "max_slope": 0.0, "pct_steep": 0.0, "score": 0.0, "status": "ERROR"}
 
-    def _sample_cyclone(self, geom_7755) -> Dict[str, Any]:
-        if self._tracks_gdf is None or geom_7755.is_empty:
+    def _sample_cyclone(self, geom_7755, state_id: str = "andhra_pradesh") -> Dict[str, Any]:
+        bundle = self._get_state_bundle(state_id)
+        tracks = bundle.tracks_gdf if bundle.tracks_gdf is not None else self._tracks_gdf
+        if tracks is None or geom_7755.is_empty:
             return {"tracks_count": 0, "min_dist_km": 999.0, "score": 0.0, "status": "INSUFFICIENT_DATA"}
 
         try:
             buf_25k = geom_7755.buffer(25000)
-            intersecting = self._tracks_gdf[self._tracks_gdf.geometry.intersects(buf_25k)]
+            intersecting = tracks[tracks.geometry.intersects(buf_25k)]
             count = len(intersecting)
-            min_dist_m = float(self._tracks_gdf.distance(geom_7755).min())
+            min_dist_m = float(tracks.distance(geom_7755).min())
             min_dist_km = round(min_dist_m / 1000.0, 2)
 
             # Normalized cyclone track proximity score [0, 1]
@@ -362,8 +582,34 @@ class VillageSpatialService:
         except Exception:
             return {"tracks_count": 0, "min_dist_km": 999.0, "score": 0.0, "status": "ERROR"}
 
-    def _sample_wind(self, geom_4326) -> Dict[str, Any]:
-        if self._wind_gdf is None or geom_4326.is_empty:
+    def _sample_wind(self, geom_4326, state_id: str = "andhra_pradesh", row: Optional[pd.Series] = None) -> Dict[str, Any]:
+        if geom_4326.is_empty:
+            return {"speed_ms": 44.0, "zone": "Zone III", "score": 0.0, "status": "INSUFFICIENT_DATA"}
+
+        if state_id == "tamil_nadu":
+            bundle = self._get_state_bundle("tamil_nadu")
+            spd = 44.0
+            zone = "Zone III"
+            score = 0.5
+            if bundle.taluk_exposure_gdf is not None:
+                m_code = str(row.get("mandal_code", "")).strip() if row is not None else ""
+                t_match = bundle.taluk_exposure_gdf[bundle.taluk_exposure_gdf["mandal_id"] == m_code]
+                if t_match.empty and not geom_4326.is_empty:
+                    c_pt = geom_4326.centroid
+                    t_match = bundle.taluk_exposure_gdf[bundle.taluk_exposure_gdf.geometry.contains(c_pt)]
+                if not t_match.empty:
+                    spd = float(t_match.iloc[0].get("basic_wind_speed_m_s", 44.0) or 44.0)
+                    zone = str(t_match.iloc[0].get("risk_zone", "Zone III"))
+                    score = float(t_match.iloc[0].get("wind_exposure_score", 0.5) or 0.5)
+            return {
+                "speed_ms": spd,
+                "zone": zone,
+                "score": round(min(1.0, max(0.0, score)), 4),
+                "status": "VALID"
+            }
+
+        # Default: Andhra Pradesh
+        if self._wind_gdf is None:
             return {"speed_ms": 44.0, "zone": "Zone III", "score": 0.0, "status": "INSUFFICIENT_DATA"}
 
         try:
@@ -386,8 +632,9 @@ class VillageSpatialService:
         except Exception:
             return {"speed_ms": 44.0, "zone": "Zone III", "score": 0.0, "status": "ERROR"}
 
-    def get_village_hazards(self, village_code: int, disaster_type: str = "all") -> Optional[VillageHazardResponse]:
-        row = self.get_village_row(village_code)
+    def get_village_hazards(self, village_code: int, disaster_type: str = "all", state_id: Optional[str] = None) -> Optional[VillageHazardResponse]:
+        state = self._resolve_state(village_code, state_id)
+        row = self.get_village_row(village_code, state_id=state)
         if row is None:
             return None
 
@@ -407,10 +654,10 @@ class VillageSpatialService:
         v_gdf_4326 = gpd.GeoDataFrame([{"geometry": v_geom_7755}], crs="EPSG:7755").to_crs("EPSG:4326")
         v_geom_4326 = v_gdf_4326.geometry.iloc[0]
 
-        whole_flood = self._sample_flood(v_geom_4326)
-        whole_slope = self._sample_slope(v_geom_7755)
-        whole_cyc = self._sample_cyclone(v_geom_7755)
-        whole_wind = self._sample_wind(v_geom_4326)
+        whole_flood = self._sample_flood(v_geom_4326, state_id=state)
+        whole_slope = self._sample_slope(v_geom_7755, v_geom_4326, state_id=state, row=row)
+        whole_cyc = self._sample_cyclone(v_geom_7755, state_id=state)
+        whole_wind = self._sample_wind(v_geom_4326, state_id=state, row=row)
 
         # 3. Sector Level Sampling
         sector_details: List[SectorHazardDetail] = []
@@ -435,10 +682,10 @@ class VillageSpatialService:
             s_gdf_4326 = gpd.GeoDataFrame([{"geometry": s_geom_7755}], crs="EPSG:7755").to_crs("EPSG:4326")
             s_geom_4326 = s_gdf_4326.geometry.iloc[0]
 
-            s_flood = self._sample_flood(s_geom_4326)
-            s_slope = self._sample_slope(s_geom_7755)
-            s_cyc = self._sample_cyclone(s_geom_7755)
-            s_wind = whole_wind  # District level wind applies uniformly across sectors
+            s_flood = self._sample_flood(s_geom_4326, state_id=state)
+            s_slope = self._sample_slope(s_geom_7755, s_geom_4326, state_id=state, row=row)
+            s_cyc = self._sample_cyclone(s_geom_7755, state_id=state)
+            s_wind = whole_wind  # District / taluk level wind applies uniformly across sectors
 
             # Sector score weighted by disaster type focus
             f_sc = s_flood["score"]
@@ -629,28 +876,48 @@ class VillageSpatialService:
         """
         Rank candidate host relocation centers for a selected village.
 
-        Data source: host_zone_candidates.csv — pre-verified source→candidate pairs.
-        Each row represents a qualified relocation route from a source mandal to a
-        candidate host mandal, pre-filtered for low hazard exposure, safe area ≥95%,
-        and CAPACITY-CONSTRAINED status (the only qualified tier in the AP dataset).
+        STATE ISOLATION (HARD REQUIREMENT):
+          AP village → AP candidate locations only.
+          TN village → TN candidate locations only.
+          Cross-state candidates are NEVER permitted.
+
+        Data source: state-specific host_zone_candidates CSV — pre-verified source→candidate pairs.
+        Each row represents a qualified relocation route from a source mandal/taluk to a
+        candidate host mandal/taluk, pre-filtered for low hazard exposure and road accessibility.
 
         Planning Intensity:
-          'low'      → Nearest candidates within same district (shorter evacuation corridor)
-          'high'     → All pre-verified candidates regardless of district proximity
-          'very_high'→ Broader regional candidates, sorted by geographic tier then score
+          'low'      → Within-village verified facilities only
+          'high'     → Same mandal/taluk host candidates
+          'very_high'→ Outside mandal — adjacent, same district, regional (all within state)
 
         Distance is recalculated from the affected sector centroid (EPSG:7755) for
         spatial accuracy. Distance is a SOFT preference — safety and capacity rank first.
 
         The origin mandal is always EXCLUDED from being its own relocation host.
         """
-        row = self.get_village_row(village_code)
+        # ----------------------------------------------------------------
+        # STEP 1: Resolve state — this determines EVERYTHING that follows.
+        # ----------------------------------------------------------------
+        state = self._resolve_state(village_code)
+        bundle = self._get_state_bundle(state)
+
+        row = self.get_village_row(village_code, state_id=state)
         if row is None:
             return None
+
+        # All data references come from the state bundle — never from self._*
+        b_cap_df = bundle.cap_df
+        b_host_df = bundle.host_df
+        b_mandal_centroids_by_id = bundle.mandal_centroids_by_id_7755
+        b_mandal_centroids = bundle.mandal_centroids_7755
+        b_adj_map = bundle.adj_map
+        b_facilities_gdf = bundle.facilities_gdf
+        b_villages_gdf = bundle.villages_gdf
 
         v_name = str(row["village_name"])
         origin_mandal = str(row["mandal_name"]).strip().upper()
         origin_district = str(row["current_district_name"]).strip()
+        state_label = "Tamil Nadu" if state == "tamil_nadu" else "Andhra Pradesh"
 
         v_geom_7755 = row.geometry
         cx = float(row["centroid_x_7755"])
@@ -660,7 +927,7 @@ class VillageSpatialService:
         # Determine effective affected sector (highest hazard score)
         active_sec = sector.upper().strip() if sector else None
         if not active_sec or active_sec not in sectors_7755:
-            haz_res = self.get_village_hazards(village_code, disaster_type=disaster_type)
+            haz_res = self.get_village_hazards(village_code, disaster_type=disaster_type, state_id=state)
             if haz_res and haz_res.sectors:
                 sorted_sec = sorted(haz_res.sectors, key=lambda s: s.sector_hazard_score, reverse=True)
                 active_sec = sorted_sec[0].sector
@@ -680,16 +947,16 @@ class VillageSpatialService:
         # TIER 1: LOW INTENSITY — WITHIN VILLAGE
         # ------------------------------------------------------------------
         # Searches ONLY real verified facilities/buildings that actually exist
-        # inside the selected village boundary.
+        # inside the selected village boundary, from the state-specific facilities dataset.
         # If no verified facility exists inside the village:
         # returns "No verified in-village facility available."
         # Never fabricates artificial camps or uses sector centroids as fake shelters.
         # ------------------------------------------------------------------
         if clean_intensity == "low":
             in_village_facs = gpd.GeoDataFrame()
-            if self._facilities_gdf is not None and not self._facilities_gdf.empty:
-                in_village_facs = self._facilities_gdf[
-                    self._facilities_gdf["village_code"].astype(str) == str(village_code)
+            if b_facilities_gdf is not None and not b_facilities_gdf.empty:
+                in_village_facs = b_facilities_gdf[
+                    b_facilities_gdf["village_code"].astype(str) == str(village_code)
                 ].copy()
 
             if in_village_facs.empty:
@@ -716,9 +983,10 @@ class VillageSpatialService:
                 f_name = str(f_row.get("facility_name", "Public Facility")).strip()
                 f_type = str(f_row.get("facility_type", "OTHER_PUBLIC_FACILITY")).strip()
                 pub_status = str(f_row.get("public_status", "PUBLIC_CIVIC")).strip()
-                suit_tier = str(f_row.get("suitability_tier", "MEDIUM")).strip()
+                raw_suit = str(f_row.get("suitability_tier", "MEDIUM")).strip().upper()
+                suit_tier = f"{raw_suit} SUITABILITY" if "SUITABILITY" not in raw_suit else raw_suit
                 cap_status = str(f_row.get("capacity_status", "UNKNOWN")).strip()
-                
+
                 raw_cap = f_row.get("capacity_persons")
                 cap_persons = int(raw_cap) if pd.notna(raw_cap) and str(raw_cap).isdigit() else None
                 raw_area = f_row.get("usable_area_sq_m")
@@ -747,112 +1015,86 @@ class VillageSpatialService:
 
                 # Ranking Priority:
                 # 1. Verified shelter (SHELTER)
-                # 2. Verified suitable public facility (SCHOOL, HOSPITAL, PHC, PANCHAYAT_BUILDING, GOVERNMENT_BUILDING)
-                # 3. Community / public hall, College (COMMUNITY_HALL, COLLEGE)
-                # 4. Insufficient / other (OTHER_PUBLIC_FACILITY)
+                # 2. Educational institutions / designated relief shelters (SCHOOL, COLLEGE)
+                # 3. Healthcare & civic administration (HOSPITAL, PHC, PANCHAYAT_BUILDING, GOVERNMENT_BUILDING)
+                # 4. Community / public hall (COMMUNITY_HALL)
+                # 5. Insufficient / other (OTHER_PUBLIC_FACILITY)
                 if f_type == "SHELTER":
-                    s_suit = 1.0
-                elif pub_status == "GOVERNMENT_PUBLIC" or f_type in ["SCHOOL", "HOSPITAL", "PHC", "PANCHAYAT_BUILDING", "GOVERNMENT_BUILDING"]:
-                    s_suit = 0.90 if suit_tier == "HIGH" else 0.75
-                elif f_type in ["COMMUNITY_HALL", "COLLEGE"]:
-                    s_suit = 0.70
+                    type_rank = 1.0
+                elif f_type in {"SCHOOL", "COLLEGE"}:
+                    type_rank = 0.90
+                elif f_type in {"HOSPITAL", "PHC", "PANCHAYAT_BUILDING", "GOVERNMENT_BUILDING"}:
+                    type_rank = 0.85
+                elif f_type in {"COMMUNITY_HALL"}:
+                    type_rank = 0.70
                 else:
-                    s_suit = 0.40
+                    type_rank = 0.50
 
-                s_cap = min(1.0, cap_persons / 500.0) if cap_persons is not None else 0.50
-                s_acc = 0.85 if pub_status == "GOVERNMENT_PUBLIC" else 0.70
-                s_dist = min(1.0, 1.0 / (1.0 + (dist_km / 1.5)))
-
-                score = round(0.35 * s_suit + 0.30 * s_cap + 0.20 * s_acc + 0.15 * s_dist, 4)
-
-                why = (
-                    f"Potential evacuation facility ({f_type.replace('_', ' ').title()}) inside {v_name} village, "
-                    f"{dist_km} km from the {sector_label}. Identified from connected public dataset; "
-                    f"requires local authority verification for emergency staging."
-                )
+                s_safety = min(1.0, safe_frac)
+                s_dist = min(1.0, 1.0 / (1.0 + (dist_km / 0.5)))
+                score = round(0.35 * s_safety + 0.35 * type_rank + 0.30 * s_dist, 4)
 
                 scored_facs.append({
-                    "center_name": f_name,
-                    "mandal_name": origin_mandal,
-                    "district_name": origin_district,
-                    "distance_km": dist_km,
-                    "capacity_condition": cap_cond,
-                    "capacity_total": cap_persons,
-                    "capacity_available": cap_persons,
-                    "safe_frac": safe_frac,
-                    "safety_status": f"{safe_frac:.0%} Safe Ground",
-                    "accessibility_status": "Direct Village Road Access" if pub_status == "GOVERNMENT_PUBLIC" else "Local Pathway Access",
-                    "suitability_score": score,
-                    "suitability_tier": suit_tier,
-                    "proximity_category": "WITHIN VILLAGE",
-                    "location_tier": "IN_VILLAGE",
-                    "why_recommended": why,
                     "facility_id": fid,
+                    "facility_name": f_name,
                     "facility_type": f_type,
                     "public_status": pub_status,
-                    "capacity_status": cap_status,
+                    "capacity_condition": cap_cond,
+                    "capacity_persons": cap_persons,
                     "usable_area_sq_m": area_sqm,
+                    "safe_frac": safe_frac,
+                    "dist_km": dist_km,
+                    "score": score,
+                    "suitability_tier": suit_tier,
                     "source": source,
                     "source_date": source_date,
                     "verification_status": ver_status,
-                    "distance_from_sector_km": dist_km,
-                    "latitude": lat,
-                    "longitude": lon,
+                    "lat": lat,
+                    "lon": lon,
                 })
 
-            scored_facs.sort(key=lambda x: x["suitability_score"], reverse=True)
-
+            scored_facs.sort(key=lambda x: x["score"], reverse=True)
             results = []
             for i, c in enumerate(scored_facs[:limit], start=1):
-                closer_bypassed = [f for f in scored_facs if f["distance_km"] < c["distance_km"]]
-                rej_reason = None
-                rej_list = []
-                if closer_bypassed:
-                    for cb in sorted(closer_bypassed, key=lambda x: x["distance_km"])[:3]:
-                        rej_list.append({
-                            "mandal_name": cb["center_name"],
-                            "district_name": origin_district,
-                            "distance_km": cb["distance_km"],
-                            "safe_area_fraction": cb["safe_frac"],
-                            "capacity_condition": cb["capacity_condition"],
-                            "rejection_reason": f"Ranked lower due to lower suitability score ({cb['suitability_score']:.2f}) vs selected facility ({c['suitability_score']:.2f})."
-                        })
-                    c0 = closer_bypassed[0]
-                    rej_reason = f"Closer facility {c0['center_name']} ({c0['distance_km']} km) ranked lower due to lower verified suitability tier ({c0['suitability_tier']})."
-
-                tier_label = "HIGH SUITABILITY" if c["suitability_tier"] == "HIGH" else ("MEDIUM SUITABILITY" if c["suitability_tier"] == "MEDIUM" else "INSUFFICIENT DATA")
-
+                tier = "RECOMMENDED" if i == 1 else ("ALTERNATIVE" if i in [2, 3] else "FALLBACK")
+                cap_total_val = c["capacity_persons"]
+                why = (
+                    f"Verified {c['facility_type'].replace('_', ' ').title()} inside village boundary "
+                    f"(~{c['dist_km']} km from {sector_label}). "
+                    f"Evaluated at {c['safe_frac']:.0%} safe habitable land. "
+                    f"Authority verification required before operational use."
+                )
                 results.append(VillageRelocationCandidate(
-                    center_name=c["center_name"],
-                    mandal_name=c["mandal_name"],
-                    district_name=c["district_name"],
-                    distance_km=c["distance_km"],
+                    center_name=c["facility_name"],
+                    mandal_name=origin_mandal,
+                    district_name=origin_district,
+                    distance_km=c["dist_km"],
                     capacity_condition=c["capacity_condition"],
-                    capacity_total=c["capacity_total"],
-                    capacity_available=c["capacity_available"],
-                    safety_status=c["safety_status"],
-                    accessibility_status=c["accessibility_status"],
-                    suitability_score=c["suitability_score"],
-                    suitability_tier=tier_label,
-                    why_recommended=c["why_recommended"],
-                    closer_candidate_rejection_reason=rej_reason,
+                    capacity_total=cap_total_val,
+                    capacity_available=None,
+                    safety_status=f"{c['safe_frac']:.0%} Safe Land",
+                    accessibility_status="Within Village Boundary",
+                    suitability_score=c["score"],
+                    suitability_tier=c["suitability_tier"],
+                    why_recommended=why,
+                    closer_candidate_rejection_reason=None,
                     rank=i,
                     proximity_category="WITHIN VILLAGE",
                     location_tier="IN_VILLAGE",
-                    rejected_closer_candidates=rej_list if rej_list else None,
+                    rejected_closer_candidates=None,
                     intensity="low",
                     affected_sector=active_sec,
                     facility_id=c["facility_id"],
                     facility_type=c["facility_type"],
                     public_status=c["public_status"],
-                    capacity_status=c["capacity_status"],
+                    capacity_status=None,
                     usable_area_sq_m=c["usable_area_sq_m"],
                     source=c["source"],
                     source_date=c["source_date"],
                     verification_status=c["verification_status"],
-                    distance_from_sector_km=c["distance_from_sector_km"],
-                    latitude=c["latitude"],
-                    longitude=c["longitude"],
+                    distance_from_sector_km=c["dist_km"],
+                    latitude=c["lat"],
+                    longitude=c["lon"],
                 ))
 
             return VillageRelocationResponse(
@@ -871,37 +1113,37 @@ class VillageSpatialService:
                 affected_sector=active_sec
             )
 
-        # --- Resolve source mandal ID ---
+        # --- Resolve source mandal/taluk ID from state-specific cap_df ---
         norm_m = lambda s: str(s).strip().upper().replace(" ", "").replace("_", "").replace("-", "")
         origin_mid: Optional[str] = None
-        if self._cap_df is not None and not self._cap_df.empty:
-            m_match = self._cap_df[
-                (self._cap_df["mandal_name"].apply(norm_m) == norm_m(origin_mandal)) &
-                (self._cap_df["current_district_name"].str.lower() == origin_district.lower())
+        if b_cap_df is not None and not b_cap_df.empty:
+            m_match = b_cap_df[
+                (b_cap_df["mandal_name"].apply(norm_m) == norm_m(origin_mandal)) &
+                (b_cap_df["current_district_name"].str.lower() == origin_district.lower())
             ]
             if m_match.empty:
-                m_match = self._cap_df[self._cap_df["mandal_name"].apply(norm_m) == norm_m(origin_mandal)]
+                m_match = b_cap_df[b_cap_df["mandal_name"].apply(norm_m) == norm_m(origin_mandal)]
             if not m_match.empty:
                 origin_mid = str(m_match.iloc[0]["mandal_id"]).strip()
 
         # ------------------------------------------------------------------
-        # TIER 2: HIGH INTENSITY — WITHIN MANDAL
+        # TIER 2: HIGH INTENSITY — WITHIN MANDAL/TALUK
         # ------------------------------------------------------------------
         # Use ONLY real verified candidate locations/villages already present
-        # in the available datasets. No arbitrary distance cutoff. Distance
+        # in the state-specific datasets. No arbitrary distance cutoff. Distance
         # is a soft preference.
         # ------------------------------------------------------------------
         if clean_intensity == "high":
             v_mcode = row.get("mandal_code")
-            intra_mandal_villages = self._villages_gdf[
-                (self._villages_gdf["mandal_code"] == v_mcode) &
-                (self._villages_gdf["village_code"] != village_code)
-            ].copy() if self._villages_gdf is not None else gpd.GeoDataFrame()
+            intra_mandal_villages = b_villages_gdf[
+                (b_villages_gdf["mandal_code"] == v_mcode) &
+                (b_villages_gdf["village_code"] != village_code)
+            ].copy() if b_villages_gdf is not None else gpd.GeoDataFrame()
 
             # Origin mandal row in cap_df
             m_cap_row = pd.DataFrame()
-            if self._cap_df is not None and not self._cap_df.empty:
-                m_cap_row = self._cap_df[self._cap_df["mandal_name"].apply(norm_m) == norm_m(origin_mandal)]
+            if b_cap_df is not None and not b_cap_df.empty:
+                m_cap_row = b_cap_df[b_cap_df["mandal_name"].apply(norm_m) == norm_m(origin_mandal)]
             mandal_shelter_cap = int(m_cap_row.iloc[0].get("verified_shelter_capacity_persons", 0)) if not m_cap_row.empty else 0
             mandal_deficit = int(m_cap_row.iloc[0].get("shelter_deficit_persons", 0)) if not m_cap_row.empty else 0
             mandal_road = float(m_cap_row.iloc[0].get("road_accessibility_score", 0.70)) if not m_cap_row.empty else 0.70
@@ -915,8 +1157,8 @@ class VillageSpatialService:
                 c_pt = v_c.geometry.centroid
                 dist_km = round(origin_pt.distance(c_pt) / 1000.0, 2)
 
-                # Identify Mandal Headquarters village (Census 590751 or name match)
-                is_hq = norm_m(c_vname) == norm_m(origin_mandal) or "PANGULURU" in c_vname.upper()
+                # Identify Mandal Headquarters village by name match
+                is_hq = norm_m(c_vname) == norm_m(origin_mandal)
                 if is_hq:
                     center_name = f"{c_vname} Mandal Relief Center (Mandal HQ)"
                     cap_cond = mandal_cond
@@ -1028,20 +1270,21 @@ class VillageSpatialService:
             )
 
         # ------------------------------------------------------------------
-        # TIER 3: VERY HIGH INTENSITY — OUTSIDE MANDAL
+        # TIER 3: VERY HIGH INTENSITY — OUTSIDE MANDAL (STATE-BOUNDED)
         # ------------------------------------------------------------------
-        # Search Hierarchy:
-        # 1. Adjacent Mandal (Evaluate and record real rejection reasons on capacity)
-        # 2. Same District (All fail host qualification in Bapatla)
-        # 3. Regional / Other District Fallback (Verified host zones: Nadendla, etc.)
+        # Search Hierarchy (all within the SAME STATE):
+        # 1. Adjacent Mandal/Taluk
+        # 2. Same District
+        # 3. Regional / Other District Fallback — still within state
         # No arbitrary maximum distance. Soft distance preference.
+        # Cross-state candidates are NEVER included.
         # ------------------------------------------------------------------
-        # Rejection audit of closer adjacent mandals
+        # Rejection audit of closer adjacent mandals from state-specific adj_map
         adjacent_rejections: List[Dict[str, Any]] = []
-        adj_ids = self._adj_map.get(origin_mid, []) if origin_mid else []
+        adj_ids = b_adj_map.get(origin_mid, []) if origin_mid else []
         for adj_id in adj_ids:
-            if self._cap_df is not None and not self._cap_df.empty:
-                adj_rows = self._cap_df[self._cap_df["mandal_id"] == adj_id]
+            if b_cap_df is not None and not b_cap_df.empty:
+                adj_rows = b_cap_df[b_cap_df["mandal_id"] == adj_id]
                 if not adj_rows.empty:
                     adj_r = adj_rows.iloc[0]
                     adj_name = str(adj_r.get("mandal_name", "")).strip().title()
@@ -1049,8 +1292,8 @@ class VillageSpatialService:
                     adj_def = int(adj_r.get("shelter_deficit_persons", 0))
                     adj_safe = float(adj_r.get("safe_area_fraction", 0.95))
                     # Calculate exact distance from origin_pt
-                    if adj_id in self._mandal_centroids_by_id_7755:
-                        adj_dist = round(origin_pt.distance(self._mandal_centroids_by_id_7755[adj_id]) / 1000.0, 1)
+                    if adj_id in b_mandal_centroids_by_id:
+                        adj_dist = round(origin_pt.distance(b_mandal_centroids_by_id[adj_id]) / 1000.0, 1)
                     else:
                         adj_dist = 15.0
 
@@ -1068,9 +1311,10 @@ class VillageSpatialService:
 
         host_pool: List[Dict[str, Any]] = []
 
-        if self._host_df is not None and not self._host_df.empty and origin_mid:
-            src_candidates = self._host_df[
-                self._host_df["source_mandal_id"] == origin_mid
+        # Use state-specific host_df (TN→TN candidates, AP→AP candidates)
+        if b_host_df is not None and not b_host_df.empty and origin_mid:
+            src_candidates = b_host_df[
+                b_host_df["source_mandal_id"] == origin_mid
             ].copy()
 
             for _, h in src_candidates.iterrows():
@@ -1084,8 +1328,8 @@ class VillageSpatialService:
                 c_road = float(h.get("candidate_road_accessibility", 0.70))
                 c_ws = float(h.get("candidate_water_sanitation_adequacy", 0.75))
 
-                if self._cap_df is not None and not self._cap_df.empty:
-                    c_cap_row = self._cap_df[self._cap_df["mandal_id"] == c_mid]
+                if b_cap_df is not None and not b_cap_df.empty:
+                    c_cap_row = b_cap_df[b_cap_df["mandal_id"] == c_mid]
                     if not c_cap_row.empty:
                         c_dname = str(c_cap_row.iloc[0].get("current_district_name", "")).strip()
                         c_road = float(c_cap_row.iloc[0].get("road_accessibility_score", c_road))
@@ -1103,18 +1347,18 @@ class VillageSpatialService:
                 safe_frac = float(h.get("candidate_safe_area_fraction", 0.95))
                 cap_cond = str(h.get("candidate_capacity_condition", "CAPACITY-CONSTRAINED")).strip()
 
-                # Distance calculation in EPSG:7755
-                if c_mid in self._mandal_centroids_by_id_7755:
-                    dist_km = round(origin_pt.distance(self._mandal_centroids_by_id_7755[c_mid]) / 1000.0, 1)
-                elif f"{c_mname}_{c_dname.upper()}" in self._mandal_centroids_7755:
-                    dist_km = round(origin_pt.distance(self._mandal_centroids_7755[f"{c_mname}_{c_dname.upper()}"]) / 1000.0, 1)
-                elif c_mname in self._mandal_centroids_7755:
-                    dist_km = round(origin_pt.distance(self._mandal_centroids_7755[c_mname]) / 1000.0, 1)
+                # Distance calculation in EPSG:7755 using state-specific centroids
+                if c_mid in b_mandal_centroids_by_id:
+                    dist_km = round(origin_pt.distance(b_mandal_centroids_by_id[c_mid]) / 1000.0, 1)
+                elif f"{c_mname}_{c_dname.upper()}" in b_mandal_centroids:
+                    dist_km = round(origin_pt.distance(b_mandal_centroids[f"{c_mname}_{c_dname.upper()}"]) / 1000.0, 1)
+                elif c_mname in b_mandal_centroids:
+                    dist_km = round(origin_pt.distance(b_mandal_centroids[c_mname]) / 1000.0, 1)
                 else:
                     dist_km = float(h.get("distance_km", 50.0))
 
                 is_same_dist = c_dname.lower() == origin_district.lower()
-                is_adj = origin_mid and c_mid in self._adj_map.get(origin_mid, [])
+                is_adj = origin_mid and c_mid in b_adj_map.get(origin_mid, [])
                 if is_adj:
                     prox_cat = "ADJACENT MANDAL"
                     prox_mult = 1.15
@@ -1141,9 +1385,10 @@ class VillageSpatialService:
                     "is_same_mandal": False,
                 })
 
-        # Fallback if host_pool empty
-        if not host_pool and self._cap_df is not None and not self._cap_df.empty:
-            for _, c_row in self._cap_df.iterrows():
+        # Fallback: if no host_df match found, search state cap_df directly
+        # This stays within the state because b_cap_df is state-specific.
+        if not host_pool and b_cap_df is not None and not b_cap_df.empty:
+            for _, c_row in b_cap_df.iterrows():
                 c_mid = str(c_row.get("mandal_id", "")).strip()
                 c_mname = str(c_row.get("mandal_name", "")).strip().upper()
                 c_dname = str(c_row.get("current_district_name", "")).strip()
@@ -1151,12 +1396,12 @@ class VillageSpatialService:
                 if c_mid == origin_mid or norm_m(c_mname) == norm_m(origin_mandal):
                     continue
 
-                if c_mid in self._mandal_centroids_by_id_7755:
-                    dist_km = round(origin_pt.distance(self._mandal_centroids_by_id_7755[c_mid]) / 1000.0, 1)
-                elif f"{c_mname}_{c_dname.upper()}" in self._mandal_centroids_7755:
-                    dist_km = round(origin_pt.distance(self._mandal_centroids_7755[f"{c_mname}_{c_dname.upper()}"]) / 1000.0, 1)
-                elif c_mname in self._mandal_centroids_7755:
-                    dist_km = round(origin_pt.distance(self._mandal_centroids_7755[c_mname]) / 1000.0, 1)
+                if c_mid in b_mandal_centroids_by_id:
+                    dist_km = round(origin_pt.distance(b_mandal_centroids_by_id[c_mid]) / 1000.0, 1)
+                elif f"{c_mname}_{c_dname.upper()}" in b_mandal_centroids:
+                    dist_km = round(origin_pt.distance(b_mandal_centroids[f"{c_mname}_{c_dname.upper()}"]) / 1000.0, 1)
+                elif c_mname in b_mandal_centroids:
+                    dist_km = round(origin_pt.distance(b_mandal_centroids[c_mname]) / 1000.0, 1)
                 else:
                     dist_km = 25.0
 
@@ -1168,7 +1413,7 @@ class VillageSpatialService:
                 road_score = float(c_row.get("road_accessibility_score", 0.75))
                 ws_ad = float(c_row.get("water_sanitation_adequacy", 0.75))
 
-                is_adj = origin_mid and c_mid in self._adj_map.get(origin_mid, [])
+                is_adj = origin_mid and c_mid in b_adj_map.get(origin_mid, [])
                 is_same_dist = c_dname.lower() == origin_district.lower()
                 if is_adj:
                     prox_cat = "ADJACENT MANDAL"
@@ -1196,6 +1441,24 @@ class VillageSpatialService:
                     "is_same_mandal": False,
                 })
 
+        # If still no data in this state, return honest "insufficient data" response
+        if not host_pool:
+            return VillageRelocationResponse(
+                village_code=village_code,
+                village_name=v_name,
+                origin_mandal_name=origin_mandal,
+                origin_district_name=origin_district,
+                total_candidates_evaluated=0,
+                recommended_centers=[],
+                soft_distance_notice=f"Planning Intensity: VERY HIGH (Outside Mandal) • Evaluated from {sector_label}.",
+                governance_disclaimer="POTENTIAL CANDIDATE LOCATION — SCENARIO SIMULATION — NOT A FORECAST",
+                nearby_candidate_found=False,
+                fallback_notice=f"INSUFFICIENT VERIFIED CANDIDATE DATA — No qualified {state_label} candidate host data available for this origin unit.",
+                message=f"No verified {state_label} candidate host zones found in the current dataset.",
+                planning_intensity="very_high",
+                affected_sector=active_sec
+            )
+
         # Filter qualified: safe_frac >= 0.50
         FAILING_CONDITIONS = {"CAPACITY-SEVERELY-CONSTRAINED", "CAPACITY-STRESSED", "INSUFFICIENT-DATA"}
         qualified_cands = [
@@ -1206,6 +1469,23 @@ class VillageSpatialService:
             qualified_cands = [m for m in host_pool if m["safe_frac"] >= 0.50 and m["capacity_condition"] == "CAPACITY-CONSTRAINED"]
         if not qualified_cands and host_pool:
             qualified_cands = [m for m in host_pool if m["safe_frac"] >= 0.50]
+
+        if not qualified_cands:
+            return VillageRelocationResponse(
+                village_code=village_code,
+                village_name=v_name,
+                origin_mandal_name=origin_mandal,
+                origin_district_name=origin_district,
+                total_candidates_evaluated=len(host_pool),
+                recommended_centers=[],
+                soft_distance_notice=f"Planning Intensity: VERY HIGH (Outside Mandal) • Evaluated from {sector_label}.",
+                governance_disclaimer="POTENTIAL CANDIDATE LOCATION — SCENARIO SIMULATION — NOT A FORECAST",
+                nearby_candidate_found=False,
+                fallback_notice=f"INSUFFICIENT VERIFIED CANDIDATE DATA — No {state_label} candidates met the minimum safety threshold (≥50% safe land).",
+                message=f"No qualified {state_label} candidate host zones met safety requirements.",
+                planning_intensity="very_high",
+                affected_sector=active_sec
+            )
 
         scored_candidates = []
         for c in qualified_cands:
@@ -1240,7 +1520,8 @@ class VillageSpatialService:
             else:
                 why = (f"Regional verified host zone in {c_dname} (~{dist_km} km from {sector_label}) "
                        f"with {cond} condition, {safe_frac:.0%} safe habitable land, and verified road "
-                       f"accessibility score of {road_score:.2f}.")
+                       f"accessibility score of {road_score:.2f}. "
+                       f"Farther qualified {state_label} candidates shown because closer verified options were unavailable.")
 
             scored_candidates.append({
                 "center_name": f"{c_mname.title()} Relief Center",
@@ -1263,7 +1544,10 @@ class VillageSpatialService:
         scored_candidates.sort(key=lambda x: (cat_order.get(x["proximity_category"], 3), -x["suitability_score"]))
 
         # Build closer rejection audit for very high intensity
-        why_not_closer_summary = "Closer adjacent mandals in Bapatla (Martur, Inkollu, Addanki, Korisapadu) were rejected due to severe capacity deficits (>45,000 persons) and strained infrastructure."
+        why_not_closer_summary = (
+            f"Closer candidates in adjacent mandals were evaluated but rejected due to capacity deficits "
+            f"or insufficient safe land. See rejection audit log for details."
+        )
 
         results = []
         for i, c in enumerate(scored_candidates[:limit], start=1):
@@ -1290,6 +1574,10 @@ class VillageSpatialService:
                 affected_sector=active_sec
             ))
 
+        fallback_note = None
+        if any(c["proximity_category"] == "REGIONAL FALLBACK" for c in scored_candidates[:limit]):
+            fallback_note = f"Farther qualified {state_label} candidates shown because closer verified options were unavailable."
+
         return VillageRelocationResponse(
             village_code=village_code,
             village_name=v_name,
@@ -1302,11 +1590,10 @@ class VillageSpatialService:
             ),
             governance_disclaimer="POTENTIAL CANDIDATE LOCATION — SCENARIO SIMULATION — NOT A FORECAST",
             nearby_candidate_found=len(results) > 0,
-            fallback_notice=None,
+            fallback_notice=fallback_note,
             message=None,
             planning_intensity="very_high",
             affected_sector=active_sec
         )
 
 village_spatial_service = VillageSpatialService()
-

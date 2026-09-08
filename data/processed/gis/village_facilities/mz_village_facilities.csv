@@ -1,0 +1,494 @@
+facility_id,village_code,village_name,mandal_code,mandal_name,current_district_code,current_district_name,facility_type,facility_name,government_status,shelter_suitability,suitability_tier,capacity_persons,capacity_status,source_layer,latitude,longitude
+MZ_FAC_000001,999917,Data Partially Available,MZ_BLOCK_001,Aibawk,aizawl,Aizawl,GOVERNMENT_BUILDING,Sialsuk Police Station,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,23.403215,92.747103
+MZ_FAC_000002,999917,Data Partially Available,MZ_BLOCK_001,Aibawk,aizawl,Aizawl,HOSPITAL,Sialsuk,PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.397355,92.752825
+MZ_FAC_000003,999917,Data Partially Available,MZ_BLOCK_001,Aibawk,aizawl,Aizawl,HOSPITAL,"State Referral Hospital,Falkawn",PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.624218,92.728163
+MZ_FAC_000004,999917,Data Partially Available,MZ_BLOCK_001,Aibawk,aizawl,Aizawl,PHC,"SubCentre, Sailam",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.351341,92.796773
+MZ_FAC_000005,999917,Data Partially Available,MZ_BLOCK_001,Aibawk,aizawl,Aizawl,PHC,"SubCentre, South Maubuang",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.490949,92.707366
+MZ_FAC_000006,999917,Data Partially Available,MZ_BLOCK_001,Aibawk,aizawl,Aizawl,PHC,"SubCentre, Phulpui",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.532803,92.736856
+MZ_FAC_000007,999917,Data Partially Available,MZ_BLOCK_001,Aibawk,aizawl,Aizawl,PHC,"SubCentre, Sateek",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.546582,92.70355
+MZ_FAC_000008,999917,Data Partially Available,MZ_BLOCK_001,Aibawk,aizawl,Aizawl,PHC,"PHC, Aibawk",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.553722,92.705812
+MZ_FAC_000009,999917,Data Partially Available,MZ_BLOCK_001,Aibawk,aizawl,Aizawl,PHC,"SubCentre, Tachhip",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.585296,92.717627
+MZ_FAC_000010,999917,Data Partially Available,MZ_BLOCK_001,Aibawk,aizawl,Aizawl,PHC,"SubCentre, Melriat",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.646709,92.725396
+MZ_FAC_000011,999917,Data Partially Available,MZ_BLOCK_001,Aibawk,aizawl,Aizawl,PHC,"SubCentre, Hualngohmun",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.657652,92.727766
+MZ_FAC_000012,999917,Data Partially Available,MZ_BLOCK_001,Aibawk,aizawl,Aizawl,PHC,"SubCentre, Thiak",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.475553,92.712368
+MZ_FAC_000013,999917,Data Partially Available,MZ_BLOCK_001,Aibawk,aizawl,Aizawl,PHC,"SubCentre, Sumsuih",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.472092,92.744468
+MZ_FAC_000014,999917,Data Partially Available,MZ_BLOCK_001,Aibawk,aizawl,Aizawl,PHC,"SubCentre, Lamchhip",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.437146,92.779868
+MZ_FAC_000015,999917,Data Partially Available,MZ_BLOCK_001,Aibawk,aizawl,Aizawl,PHC,"SubCentre, Samlukhai",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.413746,92.729322
+MZ_FAC_000016,271233,Falkawn,MZ_BLOCK_001,Aibawk,aizawl,Aizawl,PHC,"SubCentre, Muallungthu",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.612932,92.718451
+MZ_FAC_000017,249768,Darlawn,MZ_BLOCK_002,Darlawn,aizawl,Aizawl,GOVERNMENT_BUILDING,Darlawn Police Station,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,24.005977,92.92476
+MZ_FAC_000018,249768,Darlawn,MZ_BLOCK_002,Darlawn,aizawl,Aizawl,HOSPITAL,Darlawn,PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,24.006254,92.923179
+MZ_FAC_000019,249768,Darlawn,MZ_BLOCK_002,Darlawn,aizawl,Aizawl,PHC,"SubCentre, Sawleng",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.981284,92.931205
+MZ_FAC_000020,249768,Darlawn,MZ_BLOCK_002,Darlawn,aizawl,Aizawl,PHC,"PHC, Darlawn",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,24.00624,92.92312
+MZ_FAC_000021,999925,Data Partially Available,MZ_BLOCK_002,Darlawn,aizawl,Aizawl,GOVERNMENT_BUILDING,New Vervek Police Out Post,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,24.175326,92.944674
+MZ_FAC_000022,999925,Data Partially Available,MZ_BLOCK_002,Darlawn,aizawl,Aizawl,GOVERNMENT_BUILDING,Sakawrdai Police  Station,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,24.221972,92.953229
+MZ_FAC_000023,999925,Data Partially Available,MZ_BLOCK_002,Darlawn,aizawl,Aizawl,HOSPITAL,"CHC, Sakawrdai",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,24.226192,92.952266
+MZ_FAC_000024,999925,Data Partially Available,MZ_BLOCK_002,Darlawn,aizawl,Aizawl,PHC,"SubCentre, Palsang",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,24.284674,92.913613
+MZ_FAC_000025,999925,Data Partially Available,MZ_BLOCK_002,Darlawn,aizawl,Aizawl,PHC,"SubCentre, Mauchar",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,24.353506,92.919594
+MZ_FAC_000026,999925,Data Partially Available,MZ_BLOCK_002,Darlawn,aizawl,Aizawl,PHC,"SubCentre, Thingsat",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,24.19819,92.939256
+MZ_FAC_000027,999925,Data Partially Available,MZ_BLOCK_002,Darlawn,aizawl,Aizawl,PHC,"SubCentre, New Vervek",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,24.18633,92.945898
+MZ_FAC_000028,999925,Data Partially Available,MZ_BLOCK_002,Darlawn,aizawl,Aizawl,PHC,"SubCentre, Darlawn",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,24.284408,92.947464
+MZ_FAC_000029,999925,Data Partially Available,MZ_BLOCK_002,Darlawn,aizawl,Aizawl,PHC,"SubCentre, Vaitin",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,24.225423,92.97813
+MZ_FAC_000030,999925,Data Partially Available,MZ_BLOCK_002,Darlawn,aizawl,Aizawl,PHC,"SubCentre, Tinghmun",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,24.316024,92.988416
+MZ_FAC_000031,999925,Data Partially Available,MZ_BLOCK_002,Darlawn,aizawl,Aizawl,PHC,"SubCentre, Kepran",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.943842,92.934839
+MZ_FAC_000032,999925,Data Partially Available,MZ_BLOCK_002,Darlawn,aizawl,Aizawl,PHC,"PHC, Khawruhlian",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.881272,92.876445
+MZ_FAC_000033,999925,Data Partially Available,MZ_BLOCK_002,Darlawn,aizawl,Aizawl,PHC,"SubCentre, North Serzawl",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,24.028198,92.890311
+MZ_FAC_000034,999925,Data Partially Available,MZ_BLOCK_002,Darlawn,aizawl,Aizawl,PHC,"SubCentre, Khanpui",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.85493,92.907974
+MZ_FAC_000035,999925,Data Partially Available,MZ_BLOCK_002,Darlawn,aizawl,Aizawl,PHC,"SubCentre, Sailutar",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,24.067635,92.919692
+MZ_FAC_000036,999925,Data Partially Available,MZ_BLOCK_002,Darlawn,aizawl,Aizawl,PHC,"Primary Health Centre, Ratu",PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,24.104695,92.920397
+MZ_FAC_000037,999925,Data Partially Available,MZ_BLOCK_002,Darlawn,aizawl,Aizawl,PHC,"SubCentre, E.Phaileng",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.913094,92.92432
+MZ_FAC_000038,999925,Data Partially Available,MZ_BLOCK_002,Darlawn,aizawl,Aizawl,PHC,Sipuikawn PHSC,PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,24.2125,93.034717
+MZ_FAC_000039,999925,Data Partially Available,MZ_BLOCK_002,Darlawn,aizawl,Aizawl,PHC,Senvon PHC,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,24.142896,93.047919
+MZ_FAC_000040,999925,Data Partially Available,MZ_BLOCK_002,Darlawn,aizawl,Aizawl,PHC,"SubCentre, Patpuihmun",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,24.354554,93.072492
+MZ_FAC_000041,999925,Data Partially Available,MZ_BLOCK_002,Darlawn,aizawl,Aizawl,SCHOOL,Children's Training School,PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_education,24.213083,93.034395
+MZ_FAC_000042,999907,Data Partially Available,MZ_BLOCK_003,Thingsulthliah,aizawl,Aizawl,GOVERNMENT_BUILDING,Keifang Police Station,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,23.677504,92.962831
+MZ_FAC_000043,999921,Data Partially Available,MZ_BLOCK_003,Thingsulthliah,aizawl,Aizawl,HOSPITAL,Presbyterian Hospital,PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.687823,92.859465
+MZ_FAC_000044,999907,Data Partially Available,MZ_BLOCK_003,Thingsulthliah,aizawl,Aizawl,HOSPITAL,"Sub-District Hospital,Saitual",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.682139,92.963015
+MZ_FAC_000045,999907,Data Partially Available,MZ_BLOCK_003,Thingsulthliah,aizawl,Aizawl,PHC,"SubCentre, Maite",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.521988,92.995688
+MZ_FAC_000046,999921,Data Partially Available,MZ_BLOCK_003,Thingsulthliah,aizawl,Aizawl,PHC,"SubCentre, Tlungvel",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.61221,92.85127
+MZ_FAC_000047,999921,Data Partially Available,MZ_BLOCK_003,Thingsulthliah,aizawl,Aizawl,PHC,"PHC, Thingsulthliah",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.68608,92.858841
+MZ_FAC_000048,999907,Data Partially Available,MZ_BLOCK_003,Thingsulthliah,aizawl,Aizawl,PHC,"SubCentre, Lenchim",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.598992,92.930447
+MZ_FAC_000049,999907,Data Partially Available,MZ_BLOCK_003,Thingsulthliah,aizawl,Aizawl,PHC,"SubCentre, Mualpheng",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.60936,92.974005
+MZ_FAC_000050,999907,Data Partially Available,MZ_BLOCK_003,Thingsulthliah,aizawl,Aizawl,PHC,"SubCentre, Rulchawm",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.662183,92.965814
+MZ_FAC_000051,999907,Data Partially Available,MZ_BLOCK_003,Thingsulthliah,aizawl,Aizawl,PHC,"SubCentre, Keifang",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.662573,92.960442
+MZ_FAC_000052,999907,Data Partially Available,MZ_BLOCK_003,Thingsulthliah,aizawl,Aizawl,PHC,"SubCentre, Sihfa",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.73905,92.980111
+MZ_FAC_000053,999907,Data Partially Available,MZ_BLOCK_003,Thingsulthliah,aizawl,Aizawl,PHC,"SubCentre, Tualbung",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.770905,92.947103
+MZ_FAC_000054,999921,Data Partially Available,MZ_BLOCK_003,Thingsulthliah,aizawl,Aizawl,PHC,"Sub Centre, Seling",PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.720636,92.855609
+MZ_FAC_000055,999921,Data Partially Available,MZ_BLOCK_003,Thingsulthliah,aizawl,Aizawl,PHC,"SubCentre, Sesawng",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.75515,92.851294
+MZ_FAC_000056,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,CLINIC,Eye Care Centre,PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.729749,92.717123
+MZ_FAC_000057,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,COLLEGE,"Academic Building,T.Romana College",PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_education,23.719253,92.725199
+MZ_FAC_000058,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,COLLEGE,Government Aizawl college,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_education,23.717419,92.718724
+MZ_FAC_000059,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,COLLEGE,Government Aizawl College,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_education,23.717356,92.718676
+MZ_FAC_000060,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,COLLEGE,Aizawl Theological College,PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_education,23.760839,92.735038
+MZ_FAC_000061,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,COLLEGE,Govt. Hrangbana College,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_education,23.740813,92.716269
+MZ_FAC_000062,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,COMMUNITY_HALL,Dinthar YMA Hall,PUBLIC_CIVIC,HIGH,HIGH,,UNRECORDED,osm_poi,23.732598,92.712798
+MZ_FAC_000063,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,COMMUNITY_HALL,Halliday Nursery,PUBLIC_CIVIC,HIGH,HIGH,,UNRECORDED,osm_poi,23.747363,92.720635
+MZ_FAC_000064,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,GOVERNMENT_BUILDING,Kulikawn Police Station,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,23.711562,92.71958
+MZ_FAC_000065,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,GOVERNMENT_BUILDING,Vaivakawn Police Station,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,23.738126,92.711083
+MZ_FAC_000066,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,GOVERNMENT_BUILDING,Aizwal Police Station,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,23.733233,92.716537
+MZ_FAC_000067,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,GOVERNMENT_BUILDING,Zonuam Police Out Post,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,23.735968,92.697653
+MZ_FAC_000068,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,GOVERNMENT_BUILDING,Bawngkawn Police Station,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,23.753454,92.7281
+MZ_FAC_000069,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,HOSPITAL,Trinity Hospital,PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.680525,92.725228
+MZ_FAC_000070,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,HOSPITAL,Zotres Hospital,PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.68029,92.724952
+MZ_FAC_000071,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,HOSPITAL,"Hlimen,UHC",PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.683629,92.711896
+MZ_FAC_000072,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,HOSPITAL,Kulikawn Hospital,PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.708544,92.715467
+MZ_FAC_000073,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,HOSPITAL,Alpha Hospital,PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.709305,92.719531
+MZ_FAC_000074,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,HOSPITAL,"B.N. Hospital,Kulikawn",PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.711094,92.719377
+MZ_FAC_000075,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,HOSPITAL,City Hospital,PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.716618,92.716418
+MZ_FAC_000076,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,HOSPITAL,Aizawl Hospital & Research Centre,PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.718908,92.717547
+MZ_FAC_000077,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,HOSPITAL,Ebenezar Hospital Area,PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.731272,92.707857
+MZ_FAC_000078,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,HOSPITAL,Aizawl Civil Hospital,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.731878,92.716609
+MZ_FAC_000079,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,HOSPITAL,Rosewood Hospital,PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.731169,92.717955
+MZ_FAC_000080,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,HOSPITAL,Ebenezar Hospital,PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.731193,92.707844
+MZ_FAC_000081,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,HOSPITAL,Vaivenga Hospital,PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.733411,92.715939
+MZ_FAC_000082,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,HOSPITAL,Aizawl Adventist Hospital,PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.73665,92.709366
+MZ_FAC_000083,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,HOSPITAL,"Adventist Hospital,Vaivakawn",PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.73683,92.710187
+MZ_FAC_000084,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,HOSPITAL,LRM Hospital,PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.744316,92.723445
+MZ_FAC_000085,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,HOSPITAL,Nazareth Hospitals,PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.748977,92.722425
+MZ_FAC_000086,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,HOSPITAL,"Chawlhhmun,UHC",PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.749838,92.691767
+MZ_FAC_000087,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,HOSPITAL,Bethesda Hospital,PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.750461,92.726619
+MZ_FAC_000088,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,HOSPITAL,Greenwood Hospital,PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.755544,92.731082
+MZ_FAC_000089,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,HOSPITAL,"Government Hospital, Durtlang North",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.792354,92.729569
+MZ_FAC_000090,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,PHC,"SubCentre, Hlimen",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.686253,92.719085
+MZ_FAC_000091,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,PHC,Lawipu UPHC,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.723023,92.687069
+MZ_FAC_000092,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,PHC,"SubCentre, Venghlui",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.72484,92.723591
+MZ_FAC_000093,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,PHC,"Sub Centre, Tuikual North",PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.730371,92.715249
+MZ_FAC_000094,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,PHC,Zemabawk UPHC,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.735528,92.746413
+MZ_FAC_000095,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,PHC,"SubCentre, Tanhril",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.738536,92.677211
+MZ_FAC_000096,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,PHC,"SubCentre, Hunthar",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.746597,92.715021
+MZ_FAC_000097,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,PHC,"SubCentre, Thuampui",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.747055,92.736674
+MZ_FAC_000098,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,PHC,"SubCentre, Zuangtui",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.75592,92.738116
+MZ_FAC_000099,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,PHC,"SubCentre, Edenthar",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.757738,92.718424
+MZ_FAC_000100,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,PHC,"SubCentre, Zuangtui",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.757766,92.737714
+MZ_FAC_000101,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,PHC,"SubCentre, Sakawrtuichhun",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.760699,92.673403
+MZ_FAC_000102,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,PHC,"Health Sub Centre ,Durtlang Leitan",PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.768323,92.739669
+MZ_FAC_000103,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,SCHOOL,Mary Mount School,PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_education,23.70664,92.71719
+MZ_FAC_000104,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,SCHOOL,Hermon School,PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_education,23.731631,92.711381
+MZ_FAC_000105,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,SCHOOL,Public School Facility,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_education,23.721985,92.716529
+MZ_FAC_000106,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,SCHOOL,Ferrando,PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_education,23.729666,92.754074
+MZ_FAC_000107,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,SCHOOL,PUC multipurpose hall,PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_education,23.723732,92.730455
+MZ_FAC_000108,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,SCHOOL,National Institute of Electronics & Information Technology(NIELIT),PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_education,23.753919,92.74097
+MZ_FAC_000109,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,SCHOOL,Public School Facility,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_education,23.737438,92.693108
+MZ_FAC_000110,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,SCHOOL,Public School Facility,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_education,23.737319,92.693336
+MZ_FAC_000111,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,SCHOOL,Divine Intervention School,PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_education,23.733807,92.697657
+MZ_FAC_000112,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,SCHOOL,Public School Facility,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_education,23.726133,92.687497
+MZ_FAC_000113,249770,Aizawl,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,SCHOOL,Public School Facility,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_education,23.726628,92.687156
+MZ_FAC_000114,999918,Data Partially Available,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,COLLEGE,Mizoram University,PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_education,23.736897,92.66447
+MZ_FAC_000115,999918,Data Partially Available,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,PHC,"SubCentre, N Lungleng",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.659652,92.671811
+MZ_FAC_000116,999918,Data Partially Available,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,PHC,"SubCentre, Lungverh",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.786008,92.663776
+MZ_FAC_000117,999918,Data Partially Available,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,PHC,"SubCentre, Muthi",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.775655,92.761646
+MZ_FAC_000118,999918,Data Partially Available,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,PHC,Sihphir UPHC,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.820571,92.734288
+MZ_FAC_000119,249769,Sairang,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,GOVERNMENT_BUILDING,Sairang Police Station,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,23.812305,92.65396
+MZ_FAC_000120,249769,Sairang,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,PHC,"PHC, Sairang",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.812345,92.654791
+MZ_FAC_000121,249769,Sairang,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,PHC,"Sairang,Primary Health Centre",PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.811726,92.655126
+MZ_FAC_000122,801510,Champhai,MZ_BLOCK_005,Champhai,champhai,Champhai,CLINIC,Med Aim Adventist Hospital,PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.450796,93.339899
+MZ_FAC_000123,801510,Champhai,MZ_BLOCK_005,Champhai,champhai,Champhai,GOVERNMENT_BUILDING,Champhai Police Station,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,23.477432,93.315459
+MZ_FAC_000124,801510,Champhai,MZ_BLOCK_005,Champhai,champhai,Champhai,HOSPITAL,Med Aim Adventist Hospital,PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.472629,93.334385
+MZ_FAC_000125,801510,Champhai,MZ_BLOCK_005,Champhai,champhai,Champhai,HOSPITAL,DM Hospital,PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.477541,93.325687
+MZ_FAC_000126,801510,Champhai,MZ_BLOCK_005,Champhai,champhai,Champhai,HOSPITAL,"District Hospital,Champhai",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.481,93.309599
+MZ_FAC_000127,801510,Champhai,MZ_BLOCK_005,Champhai,champhai,Champhai,PHC,"SubCentre, Ruantlang",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.441775,93.339492
+MZ_FAC_000128,801510,Champhai,MZ_BLOCK_005,Champhai,champhai,Champhai,PHC,"Sub Centre, East Zotlang",PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.448377,93.336781
+MZ_FAC_000129,801510,Champhai,MZ_BLOCK_005,Champhai,champhai,Champhai,PHC,"SubCentre, Tlangsam",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.464609,93.355938
+MZ_FAC_000130,801510,Champhai,MZ_BLOCK_005,Champhai,champhai,Champhai,PHC,"Health Sub Centre ,Zote",PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.495232,93.359393
+MZ_FAC_000131,801510,Champhai,MZ_BLOCK_005,Champhai,champhai,Champhai,PHC,"SubCentre, Hmunhmeltha",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.496523,93.319985
+MZ_FAC_000132,999922,Data Partially Available,MZ_BLOCK_005,Champhai,champhai,Champhai,GOVERNMENT_BUILDING,Zokhawthar Police Station,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,23.365035,93.382953
+MZ_FAC_000133,999922,Data Partially Available,MZ_BLOCK_005,Champhai,champhai,Champhai,HOSPITAL,ရိခေါဒါရ်တိုက်နယ်ဆေးရုံ,PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.32653,93.39352
+MZ_FAC_000134,999922,Data Partially Available,MZ_BLOCK_005,Champhai,champhai,Champhai,PHC,"SubCentre, Kelkang",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.388975,93.307482
+MZ_FAC_000135,999922,Data Partially Available,MZ_BLOCK_005,Champhai,champhai,Champhai,PHC,"SubCentre, Ngur",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.53661,93.37276
+MZ_FAC_000136,999922,Data Partially Available,MZ_BLOCK_005,Champhai,champhai,Champhai,PHC,"SubCentre, Vapar",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.619161,93.348251
+MZ_FAC_000137,999922,Data Partially Available,MZ_BLOCK_005,Champhai,champhai,Champhai,PHC,"PHC, Hnahlan",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.695859,93.38373
+MZ_FAC_000138,999922,Data Partially Available,MZ_BLOCK_005,Champhai,champhai,Champhai,PHC,"SubCentre, Tualcheng",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.725608,93.302927
+MZ_FAC_000139,999922,Data Partially Available,MZ_BLOCK_005,Champhai,champhai,Champhai,PHC,"SubCentre, Khuangphah",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.77452,93.379489
+MZ_FAC_000140,999915,Data Partially Available,MZ_BLOCK_006,Khawbung,champhai,Champhai,GOVERNMENT_BUILDING,Dungtlang Police Station,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,23.186888,93.249555
+MZ_FAC_000141,999915,Data Partially Available,MZ_BLOCK_006,Khawbung,champhai,Champhai,PHC,"SubCentre, Khankawn",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.067917,93.26061
+MZ_FAC_000142,999915,Data Partially Available,MZ_BLOCK_006,Khawbung,champhai,Champhai,PHC,"Farkawn,PHC",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.080306,93.299646
+MZ_FAC_000143,999915,Data Partially Available,MZ_BLOCK_006,Khawbung,champhai,Champhai,PHC,"SubCentre, Khuangthing",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.09861,93.198459
+MZ_FAC_000144,999915,Data Partially Available,MZ_BLOCK_006,Khawbung,champhai,Champhai,PHC,"SubCentre, Vaphai",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.148369,93.324778
+MZ_FAC_000145,999915,Data Partially Available,MZ_BLOCK_006,Khawbung,champhai,Champhai,PHC,"SubCentre, Samthang",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.160252,93.265056
+MZ_FAC_000146,999915,Data Partially Available,MZ_BLOCK_006,Khawbung,champhai,Champhai,PHC,"PHC, Khawbung",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.167048,93.219809
+MZ_FAC_000147,999915,Data Partially Available,MZ_BLOCK_006,Khawbung,champhai,Champhai,PHC,"SubCentre, Bulfekzawl",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.318244,93.363577
+MZ_FAC_000148,999915,Data Partially Available,MZ_BLOCK_006,Khawbung,champhai,Champhai,PHC,"SubCentre, Sesih",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.293837,93.335577
+MZ_FAC_000149,999915,Data Partially Available,MZ_BLOCK_006,Khawbung,champhai,Champhai,PHC,"SubCentre, Khuangleng",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.306659,93.313165
+MZ_FAC_000150,999915,Data Partially Available,MZ_BLOCK_006,Khawbung,champhai,Champhai,PHC,"SubCentre, Vangchhia",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.203841,93.33094
+MZ_FAC_000151,999915,Data Partially Available,MZ_BLOCK_006,Khawbung,champhai,Champhai,PHC,"SubCentre, Sazep",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.2371,93.302221
+MZ_FAC_000152,999915,Data Partially Available,MZ_BLOCK_006,Khawbung,champhai,Champhai,PHC,"SubCentre, Dungtlang",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.194841,93.250908
+MZ_FAC_000153,999915,Data Partially Available,MZ_BLOCK_006,Khawbung,champhai,Champhai,PHC,"SubCentre, Vanzau",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.245105,93.251117
+MZ_FAC_000154,999915,Data Partially Available,MZ_BLOCK_006,Khawbung,champhai,Champhai,PHC,"PHC, Bungzung",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.285616,93.23812
+MZ_FAC_000155,999915,Data Partially Available,MZ_BLOCK_006,Khawbung,champhai,Champhai,SCHOOL,Public School Facility,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_education,23.291597,93.33685
+MZ_FAC_000156,999915,Data Partially Available,MZ_BLOCK_006,Khawbung,champhai,Champhai,SCHOOL,Public School Facility,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_education,23.291453,93.33691
+MZ_FAC_000157,999915,Data Partially Available,MZ_BLOCK_006,Khawbung,champhai,Champhai,SCHOOL,Public School Facility,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_education,23.291375,93.337042
+MZ_FAC_000158,999915,Data Partially Available,MZ_BLOCK_006,Khawbung,champhai,Champhai,SCHOOL,Public School Facility,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_education,23.291493,93.337174
+MZ_FAC_000159,999915,Data Partially Available,MZ_BLOCK_006,Khawbung,champhai,Champhai,SCHOOL,Public School Facility,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_education,23.291721,93.337117
+MZ_FAC_000160,999915,Data Partially Available,MZ_BLOCK_006,Khawbung,champhai,Champhai,SCHOOL,Public School Facility,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_education,23.291652,93.337158
+MZ_FAC_000161,999915,Data Partially Available,MZ_BLOCK_006,Khawbung,champhai,Champhai,SCHOOL,Public School Facility,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_education,23.291727,93.337179
+MZ_FAC_000162,999915,Data Partially Available,MZ_BLOCK_006,Khawbung,champhai,Champhai,SCHOOL,Public School Facility,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_education,23.080793,93.29468
+MZ_FAC_000163,999915,Data Partially Available,MZ_BLOCK_006,Khawbung,champhai,Champhai,SCHOOL,S.B. English Medium School,PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_education,23.080795,93.29463
+MZ_FAC_000164,999915,Data Partially Available,MZ_BLOCK_006,Khawbung,champhai,Champhai,SCHOOL,Public School Facility,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_education,23.080816,93.294487
+MZ_FAC_000165,999912,Data Partially Available,MZ_BLOCK_007,Hnahthial,hnahthial,Hnahthial,GOVERNMENT_BUILDING,Vanlaiphai Police Outpost,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,22.803953,92.996937
+MZ_FAC_000166,999912,Data Partially Available,MZ_BLOCK_007,Hnahthial,hnahthial,Hnahthial,GOVERNMENT_BUILDING,Thingsai Police Station,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,22.929563,93.095537
+MZ_FAC_000167,999912,Data Partially Available,MZ_BLOCK_007,Hnahthial,hnahthial,Hnahthial,PHC,"PHC, South Vanlaiphai",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.801388,92.994331
+MZ_FAC_000168,999912,Data Partially Available,MZ_BLOCK_007,Hnahthial,hnahthial,Hnahthial,PHC,"SubCentre, Darzo",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.835394,92.952314
+MZ_FAC_000169,999912,Data Partially Available,MZ_BLOCK_007,Hnahthial,hnahthial,Hnahthial,PHC,"SubCentre, Muallianpui",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.847087,93.031443
+MZ_FAC_000170,999912,Data Partially Available,MZ_BLOCK_007,Hnahthial,hnahthial,Hnahthial,PHC,"SubCentre, Leite",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.901627,92.911334
+MZ_FAC_000171,999912,Data Partially Available,MZ_BLOCK_007,Hnahthial,hnahthial,Hnahthial,PHC,"SubCentre, Tuipui D",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.906082,92.932089
+MZ_FAC_000172,999912,Data Partially Available,MZ_BLOCK_007,Hnahthial,hnahthial,Hnahthial,PHC,"Primary Health Centre, Thingsai",PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,22.924469,93.086382
+MZ_FAC_000173,999912,Data Partially Available,MZ_BLOCK_007,Hnahthial,hnahthial,Hnahthial,PHC,"Primary Health Centre, Cherhlun",PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.002077,93.092337
+MZ_FAC_000174,999912,Data Partially Available,MZ_BLOCK_007,Hnahthial,hnahthial,Hnahthial,PHC,"SubCentre, Tarpho",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.003649,93.003955
+MZ_FAC_000175,999912,Data Partially Available,MZ_BLOCK_007,Hnahthial,hnahthial,Hnahthial,PHC,"PHC,Pangzawl",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.084489,92.89965
+MZ_FAC_000176,999912,Data Partially Available,MZ_BLOCK_007,Hnahthial,hnahthial,Hnahthial,PHC,"SubCentre, Rawpui",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.14814,92.899146
+MZ_FAC_000177,249781,Hnahthial,MZ_BLOCK_007,Hnahthial,hnahthial,Hnahthial,GOVERNMENT_BUILDING,Hnahthial Police Station,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,22.970575,92.926891
+MZ_FAC_000178,249781,Hnahthial,MZ_BLOCK_007,Hnahthial,hnahthial,Hnahthial,HOSPITAL,"CHC, Hnahthial",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.962309,92.929065
+MZ_FAC_000179,999914,Data Partially Available,MZ_BLOCK_008,Khawzawl,khawzawl,Khawzawl,HOSPITAL,"CHC, Biate",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.251867,93.119805
+MZ_FAC_000180,999903,Data Partially Available,MZ_BLOCK_008,Khawzawl,khawzawl,Khawzawl,HOSPITAL,Khawhai Hospital,PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.386879,93.12673
+MZ_FAC_000181,999903,Data Partially Available,MZ_BLOCK_008,Khawzawl,khawzawl,Khawzawl,HOSPITAL,Rabung,PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.678322,93.202654
+MZ_FAC_000182,999914,Data Partially Available,MZ_BLOCK_008,Khawzawl,khawzawl,Khawzawl,PHC,"SubCentre, Riangtlei",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.306175,93.163338
+MZ_FAC_000183,999914,Data Partially Available,MZ_BLOCK_008,Khawzawl,khawzawl,Khawzawl,PHC,"PHC, Sialhawk",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.294208,93.102007
+MZ_FAC_000184,999914,Data Partially Available,MZ_BLOCK_008,Khawzawl,khawzawl,Khawzawl,PHC,"Sub Centre, Sialhawk",PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.291115,93.094555
+MZ_FAC_000185,999914,Data Partially Available,MZ_BLOCK_008,Khawzawl,khawzawl,Khawzawl,PHC,"SubCentre, Tlangpui",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.295649,93.049761
+MZ_FAC_000186,999903,Data Partially Available,MZ_BLOCK_008,Khawzawl,khawzawl,Khawzawl,PHC,"PHC, Khawhai",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.375974,93.124084
+MZ_FAC_000187,999903,Data Partially Available,MZ_BLOCK_008,Khawzawl,khawzawl,Khawzawl,PHC,"SubCentre, New Chalrang",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.379266,93.131938
+MZ_FAC_000188,999903,Data Partially Available,MZ_BLOCK_008,Khawzawl,khawzawl,Khawzawl,PHC,"SubCentre, Lungtan",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.383857,93.10082
+MZ_FAC_000189,999903,Data Partially Available,MZ_BLOCK_008,Khawzawl,khawzawl,Khawzawl,PHC,"Sub Centre, Tualte",PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.41349,93.207802
+MZ_FAC_000190,999903,Data Partially Available,MZ_BLOCK_008,Khawzawl,khawzawl,Khawzawl,PHC,"SubCentre, Chawngtlai",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.449801,93.210157
+MZ_FAC_000191,999903,Data Partially Available,MZ_BLOCK_008,Khawzawl,khawzawl,Khawzawl,PHC,"SubCentre, Neihdawn",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.506084,93.241709
+MZ_FAC_000192,999903,Data Partially Available,MZ_BLOCK_008,Khawzawl,khawzawl,Khawzawl,PHC,"Sub Centre, Kawnzar Veng",PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.527356,93.178393
+MZ_FAC_000193,999903,Data Partially Available,MZ_BLOCK_008,Khawzawl,khawzawl,Khawzawl,PHC,"SubCentre, Ngaizawl",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.541272,93.253496
+MZ_FAC_000194,999903,Data Partially Available,MZ_BLOCK_008,Khawzawl,khawzawl,Khawzawl,PHC,"SubCentre, Chhawrtui",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.500792,93.068229
+MZ_FAC_000195,999903,Data Partially Available,MZ_BLOCK_008,Khawzawl,khawzawl,Khawzawl,PHC,"SubCentre, Tualpui",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.588151,93.242605
+MZ_FAC_000196,999903,Data Partially Available,MZ_BLOCK_008,Khawzawl,khawzawl,Khawzawl,PHC,"PHC, Kawlkulh",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.624488,93.084326
+MZ_FAC_000197,999903,Data Partially Available,MZ_BLOCK_008,Khawzawl,khawzawl,Khawzawl,PHC,"SubCentre, Dulte",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.647215,93.058644
+MZ_FAC_000198,249772,Khawzawl,MZ_BLOCK_008,Khawzawl,khawzawl,Khawzawl,GOVERNMENT_BUILDING,Khawzawl Police Station,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,23.503827,93.195427
+MZ_FAC_000199,249772,Khawzawl,MZ_BLOCK_008,Khawzawl,khawzawl,Khawzawl,HOSPITAL,"Khawzawl,CHC",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.503223,93.196489
+MZ_FAC_000200,999926,Data Partially Available,MZ_BLOCK_009,'N' Thingdawl,kolasib,Kolasib,GOVERNMENT_BUILDING,Kawnpui Police Station,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,24.038508,92.673357
+MZ_FAC_000201,999926,Data Partially Available,MZ_BLOCK_009,'N' Thingdawl,kolasib,Kolasib,PHC,"SubCentre, Hortoki",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,24.06298,92.59626
+MZ_FAC_000202,999926,Data Partially Available,MZ_BLOCK_009,'N' Thingdawl,kolasib,Kolasib,PHC,"SubCentre, Khamrang",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.934315,92.653895
+MZ_FAC_000203,999926,Data Partially Available,MZ_BLOCK_009,'N' Thingdawl,kolasib,Kolasib,PHC,"PHC,Kawnpui",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,24.038238,92.67238
+MZ_FAC_000204,999926,Data Partially Available,MZ_BLOCK_009,'N' Thingdawl,kolasib,Kolasib,PHC,"SubCentre, Mualkhang",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.895737,92.674071
+MZ_FAC_000205,999926,Data Partially Available,MZ_BLOCK_009,'N' Thingdawl,kolasib,Kolasib,PHC,"SubCentre, Bualpui",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,24.093996,92.682261
+MZ_FAC_000206,999926,Data Partially Available,MZ_BLOCK_009,'N' Thingdawl,kolasib,Kolasib,PHC,"PHC, Lungdai",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.890334,92.737273
+MZ_FAC_000207,999926,Data Partially Available,MZ_BLOCK_009,'N' Thingdawl,kolasib,Kolasib,PHC,"SubCentre, Serkhan",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.913513,92.740023
+MZ_FAC_000208,999926,Data Partially Available,MZ_BLOCK_009,'N' Thingdawl,kolasib,Kolasib,PHC,"SubCentre, Lungdai",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.883257,92.741377
+MZ_FAC_000209,999926,Data Partially Available,MZ_BLOCK_009,'N' Thingdawl,kolasib,Kolasib,PHC,"Sub Centre, Serkhan to Bagha",PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.93118,92.752236
+MZ_FAC_000210,999926,Data Partially Available,MZ_BLOCK_009,'N' Thingdawl,kolasib,Kolasib,PHC,"SubCentre, Nisapui",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.932501,92.75508
+MZ_FAC_000211,999926,Data Partially Available,MZ_BLOCK_009,'N' Thingdawl,kolasib,Kolasib,PHC,"SubCentre, North Chaltlang",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,24.021703,92.771596
+MZ_FAC_000212,999926,Data Partially Available,MZ_BLOCK_009,'N' Thingdawl,kolasib,Kolasib,PHC,"SubCentre, Lungmuat",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.968459,92.78067
+MZ_FAC_000213,999926,Data Partially Available,MZ_BLOCK_009,'N' Thingdawl,kolasib,Kolasib,PHC,"PHC, Bukpui",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,24.08185,92.793437
+MZ_FAC_000214,999926,Data Partially Available,MZ_BLOCK_009,'N' Thingdawl,kolasib,Kolasib,PHC,"SubCentre, Thingdawl",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,24.1708,92.695943
+MZ_FAC_000215,249765,Bairabi,MZ_BLOCK_010,Bilkhawthlir,kolasib,Kolasib,SCHOOL,St. Vincent School,PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_education,24.182035,92.539062
+MZ_FAC_000216,999928,Data Partially Available,MZ_BLOCK_010,Bilkhawthlir,kolasib,Kolasib,GOVERNMENT_BUILDING,Bairabi Police Station,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,24.192909,92.538836
+MZ_FAC_000217,999928,Data Partially Available,MZ_BLOCK_010,Bilkhawthlir,kolasib,Kolasib,GOVERNMENT_BUILDING,Bilkhawthlir Police Outpost,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,24.334924,92.716801
+MZ_FAC_000218,999928,Data Partially Available,MZ_BLOCK_010,Bilkhawthlir,kolasib,Kolasib,GOVERNMENT_BUILDING,Saiphai Police Station,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,24.412814,92.797225
+MZ_FAC_000219,999928,Data Partially Available,MZ_BLOCK_010,Bilkhawthlir,kolasib,Kolasib,PHC,"SubCentre, Saipum",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,24.353533,92.849912
+MZ_FAC_000220,999928,Data Partially Available,MZ_BLOCK_010,Bilkhawthlir,kolasib,Kolasib,PHC,"PHC, Bairabi",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,24.186564,92.537712
+MZ_FAC_000221,999928,Data Partially Available,MZ_BLOCK_010,Bilkhawthlir,kolasib,Kolasib,PHC,"Health Sub Centre ,Buhchangphai",PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,24.336493,92.660936
+MZ_FAC_000222,999928,Data Partially Available,MZ_BLOCK_010,Bilkhawthlir,kolasib,Kolasib,PHC,"Bilkhawthlir,PHC",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,24.327642,92.711822
+MZ_FAC_000223,999928,Data Partially Available,MZ_BLOCK_010,Bilkhawthlir,kolasib,Kolasib,PHC,"Sub Centre, Bilkhawthlir",PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,24.336087,92.718691
+MZ_FAC_000224,999928,Data Partially Available,MZ_BLOCK_010,Bilkhawthlir,kolasib,Kolasib,PHC,"SubCentre, North Chawnpui",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,24.376639,92.780017
+MZ_FAC_000225,999928,Data Partially Available,MZ_BLOCK_010,Bilkhawthlir,kolasib,Kolasib,PHC,"SubCentre, Phainuam",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,24.468417,92.780256
+MZ_FAC_000226,999928,Data Partially Available,MZ_BLOCK_010,Bilkhawthlir,kolasib,Kolasib,PHC,"SubCentre, Saiphai",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,24.406304,92.79531
+MZ_FAC_000227,999928,Data Partially Available,MZ_BLOCK_010,Bilkhawthlir,kolasib,Kolasib,PHC,Gharmura FV PHC,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,24.277157,92.52125
+MZ_FAC_000228,999928,Data Partially Available,MZ_BLOCK_010,Bilkhawthlir,kolasib,Kolasib,PHC,"Mini PHC, Belaipur",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,24.524337,92.733492
+MZ_FAC_000229,249766,Kolasib,MZ_BLOCK_010,Bilkhawthlir,kolasib,Kolasib,GOVERNMENT_BUILDING,Kolasib Police Station,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,24.233965,92.674965
+MZ_FAC_000230,249766,Kolasib,MZ_BLOCK_010,Bilkhawthlir,kolasib,Kolasib,HOSPITAL,"Nazareth Hospital, Kolasib",PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,24.2335,92.674078
+MZ_FAC_000231,249766,Kolasib,MZ_BLOCK_010,Bilkhawthlir,kolasib,Kolasib,HOSPITAL,"District Hospital,Kolasib",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,24.231402,92.676619
+MZ_FAC_000232,249766,Kolasib,MZ_BLOCK_010,Bilkhawthlir,kolasib,Kolasib,PHC,"SubCentre, Khuangpuilam",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,24.209673,92.679972
+MZ_FAC_000233,249764,Vairengte,MZ_BLOCK_010,Bilkhawthlir,kolasib,Kolasib,GOVERNMENT_BUILDING,Vairengte Police Station,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,24.49177,92.75921
+MZ_FAC_000234,249764,Vairengte,MZ_BLOCK_010,Bilkhawthlir,kolasib,Kolasib,HOSPITAL,"CHC, Vairengte",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,24.507999,92.766485
+MZ_FAC_000235,999908,Data Partially Available,MZ_BLOCK_011,Chawngte,lawngtlai,Lawngtlai,GOVERNMENT_BUILDING,Chawngte Police Station,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,22.617129,92.637158
+MZ_FAC_000236,999908,Data Partially Available,MZ_BLOCK_011,Chawngte,lawngtlai,Lawngtlai,GOVERNMENT_BUILDING,Longpuighat Police Station,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,22.360042,92.637283
+MZ_FAC_000237,999908,Data Partially Available,MZ_BLOCK_011,Chawngte,lawngtlai,Lawngtlai,GOVERNMENT_BUILDING,Borapansury Police Station,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,22.709873,92.520172
+MZ_FAC_000238,999908,Data Partially Available,MZ_BLOCK_011,Chawngte,lawngtlai,Lawngtlai,HOSPITAL,"CHC,Chawngte",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.616357,92.638289
+MZ_FAC_000239,999908,Data Partially Available,MZ_BLOCK_011,Chawngte,lawngtlai,Lawngtlai,HOSPITAL,Borapansury Hospital,PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,22.706675,92.529291
+MZ_FAC_000240,999908,Data Partially Available,MZ_BLOCK_011,Chawngte,lawngtlai,Lawngtlai,PHC,"SubCentre, Parva",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.084951,92.644654
+MZ_FAC_000241,999908,Data Partially Available,MZ_BLOCK_011,Chawngte,lawngtlai,Lawngtlai,PHC,"SubCentre, Damdep",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.278361,92.585726
+MZ_FAC_000242,999908,Data Partially Available,MZ_BLOCK_011,Chawngte,lawngtlai,Lawngtlai,PHC,"SubCentre, Vaseitlang",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.38734,92.615193
+MZ_FAC_000243,999908,Data Partially Available,MZ_BLOCK_011,Chawngte,lawngtlai,Lawngtlai,PHC,"SubCentre, Jarulsury",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.541165,92.548983
+MZ_FAC_000244,999908,Data Partially Available,MZ_BLOCK_011,Chawngte,lawngtlai,Lawngtlai,PHC,"SubCentre, Sumsilui",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.592943,92.635282
+MZ_FAC_000245,999908,Data Partially Available,MZ_BLOCK_011,Chawngte,lawngtlai,Lawngtlai,PHC,"SubCentre, W Saizawh",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.624148,92.617334
+MZ_FAC_000246,999905,Data Partially Available,MZ_BLOCK_012,Lawngtlai,lawngtlai,Lawngtlai,COMMUNITY_HALL,Electric Veng Hall,PUBLIC_CIVIC,HIGH,HIGH,,UNRECORDED,osm_poi,22.535028,92.891466
+MZ_FAC_000247,999905,Data Partially Available,MZ_BLOCK_012,Lawngtlai,lawngtlai,Lawngtlai,COMMUNITY_HALL,Dokulha Hall,PUBLIC_CIVIC,HIGH,HIGH,,UNRECORDED,osm_poi,22.531464,92.897177
+MZ_FAC_000248,999905,Data Partially Available,MZ_BLOCK_012,Lawngtlai,lawngtlai,Lawngtlai,GOVERNMENT_BUILDING,Bungtlang Police Out Post,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,22.360874,92.759101
+MZ_FAC_000249,999905,Data Partially Available,MZ_BLOCK_012,Lawngtlai,lawngtlai,Lawngtlai,GOVERNMENT_BUILDING,Fire Department Building,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,22.5324,92.892696
+MZ_FAC_000250,999905,Data Partially Available,MZ_BLOCK_012,Lawngtlai,lawngtlai,Lawngtlai,GOVERNMENT_BUILDING,Lawngtlai Police Station,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,22.532483,92.895893
+MZ_FAC_000251,999905,Data Partially Available,MZ_BLOCK_012,Lawngtlai,lawngtlai,Lawngtlai,GOVERNMENT_BUILDING,Lawngtlai Police Station,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,22.532478,92.8959
+MZ_FAC_000252,999905,Data Partially Available,MZ_BLOCK_012,Lawngtlai,lawngtlai,Lawngtlai,GOVERNMENT_BUILDING,Wireless Telephony Station cum Police Canteen,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,22.53221,92.89626
+MZ_FAC_000253,999905,Data Partially Available,MZ_BLOCK_012,Lawngtlai,lawngtlai,Lawngtlai,GOVERNMENT_BUILDING,Superintendent of Police Complex,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,22.539757,92.897389
+MZ_FAC_000254,999905,Data Partially Available,MZ_BLOCK_012,Lawngtlai,lawngtlai,Lawngtlai,GOVERNMENT_BUILDING,"Office of the Superintendent of Police, Lawngtlai",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,22.539135,92.898142
+MZ_FAC_000255,999905,Data Partially Available,MZ_BLOCK_012,Lawngtlai,lawngtlai,Lawngtlai,HOSPITAL,Lairam Christian Medical Centre & Hospital,PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,22.511206,92.889175
+MZ_FAC_000256,999905,Data Partially Available,MZ_BLOCK_012,Lawngtlai,lawngtlai,Lawngtlai,HOSPITAL,"Christian Hospital, Lawngtlai",PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,22.535675,92.898176
+MZ_FAC_000257,999905,Data Partially Available,MZ_BLOCK_012,Lawngtlai,lawngtlai,Lawngtlai,HOSPITAL,"District Hospital,Lawngtai",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.536451,92.888635
+MZ_FAC_000258,999905,Data Partially Available,MZ_BLOCK_012,Lawngtlai,lawngtlai,Lawngtlai,HOSPITAL,"Lcmc Hospital, Lawngtlai",PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,22.539465,92.885867
+MZ_FAC_000259,999905,Data Partially Available,MZ_BLOCK_012,Lawngtlai,lawngtlai,Lawngtlai,PHC,"SubCentre, Tuithumhnar",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.23391,92.794328
+MZ_FAC_000260,999905,Data Partially Available,MZ_BLOCK_012,Lawngtlai,lawngtlai,Lawngtlai,PHC,"SubCentre, South Bungtlang",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.356246,92.758921
+MZ_FAC_000261,999905,Data Partially Available,MZ_BLOCK_012,Lawngtlai,lawngtlai,Lawngtlai,PHC,"SubCentre, Diltlang South",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.494116,92.725703
+MZ_FAC_000262,999905,Data Partially Available,MZ_BLOCK_012,Lawngtlai,lawngtlai,Lawngtlai,PHC,"SubCentre, Mampui",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.527193,92.846113
+MZ_FAC_000263,999905,Data Partially Available,MZ_BLOCK_012,Lawngtlai,lawngtlai,Lawngtlai,PHC,"SubCentre, Hmunlai",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.588572,92.671365
+MZ_FAC_000264,999905,Data Partially Available,MZ_BLOCK_012,Lawngtlai,lawngtlai,Lawngtlai,PHC,"SubCentre, Paithar",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.438757,92.905756
+MZ_FAC_000265,999905,Data Partially Available,MZ_BLOCK_012,Lawngtlai,lawngtlai,Lawngtlai,PHC,"SubCentre, Thingkah",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.559652,92.879908
+MZ_FAC_000266,999905,Data Partially Available,MZ_BLOCK_012,Lawngtlai,lawngtlai,Lawngtlai,SCHOOL,Saikah 'L' Gov't Primary School,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_education,22.453164,92.912992
+MZ_FAC_000267,999905,Data Partially Available,MZ_BLOCK_012,Lawngtlai,lawngtlai,Lawngtlai,SCHOOL,"Don Bosco School, Lawngtlai",PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_education,22.532114,92.900669
+MZ_FAC_000268,999905,Data Partially Available,MZ_BLOCK_012,Lawngtlai,lawngtlai,Lawngtlai,SCHOOL,Gillian ComputerZ,PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_education,22.531754,92.898832
+MZ_FAC_000269,999905,Data Partially Available,MZ_BLOCK_012,Lawngtlai,lawngtlai,Lawngtlai,SCHOOL,Government Bazar Middle School,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_education,22.532734,92.900088
+MZ_FAC_000270,999905,Data Partially Available,MZ_BLOCK_012,Lawngtlai,lawngtlai,Lawngtlai,SCHOOL,Government Region Higher Secondary School,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_education,22.533411,92.899632
+MZ_FAC_000271,999905,Data Partially Available,MZ_BLOCK_012,Lawngtlai,lawngtlai,Lawngtlai,SCHOOL,Southern High School,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_education,22.535332,92.901213
+MZ_FAC_000272,999905,Data Partially Available,MZ_BLOCK_012,Lawngtlai,lawngtlai,Lawngtlai,SCHOOL,Model English School,PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_education,22.53565,92.901039
+MZ_FAC_000273,999905,Data Partially Available,MZ_BLOCK_012,Lawngtlai,lawngtlai,Lawngtlai,SCHOOL,Ngurnunsangi English School (NES) cum Hostel/Boarding,PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_education,22.526855,92.896875
+MZ_FAC_000274,999905,Data Partially Available,MZ_BLOCK_012,Lawngtlai,lawngtlai,Lawngtlai,SCHOOL,Down Town English School,PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_education,22.530402,92.898849
+MZ_FAC_000275,999919,Data Partially Available,MZ_BLOCK_013,S' Bungtlang,lawngtlai,Lawngtlai,HOSPITAL,"Christian Hospital,M Kawnpui",PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,22.332288,92.71235
+MZ_FAC_000276,999919,Data Partially Available,MZ_BLOCK_013,S' Bungtlang,lawngtlai,Lawngtlai,PHC,"SubCentre, Vathuampui",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.236795,92.68451
+MZ_FAC_000277,999920,Data Partially Available,MZ_BLOCK_014,Sangau,lawngtlai,Lawngtlai,GOVERNMENT_BUILDING,Bualpui Police Outpost,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,22.547196,93.034017
+MZ_FAC_000278,999920,Data Partially Available,MZ_BLOCK_014,Sangau,lawngtlai,Lawngtlai,GOVERNMENT_BUILDING,Sangau Police Station,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,22.736143,93.04735
+MZ_FAC_000279,999920,Data Partially Available,MZ_BLOCK_014,Sangau,lawngtlai,Lawngtlai,PHC,"SubCentre, Lungzarhtum",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.524947,93.033486
+MZ_FAC_000280,999920,Data Partially Available,MZ_BLOCK_014,Sangau,lawngtlai,Lawngtlai,PHC,"PHC, Bualpui Ng",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.545274,93.032561
+MZ_FAC_000281,999920,Data Partially Available,MZ_BLOCK_014,Sangau,lawngtlai,Lawngtlai,PHC,"Health Sub Centre ,Biak In, Mual",PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,22.551031,93.034317
+MZ_FAC_000282,999920,Data Partially Available,MZ_BLOCK_014,Sangau,lawngtlai,Lawngtlai,PHC,"PHC,South Lungpher",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.620256,93.006637
+MZ_FAC_000283,999920,Data Partially Available,MZ_BLOCK_014,Sangau,lawngtlai,Lawngtlai,PHC,"PHC, Sangau",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.739129,93.052999
+MZ_FAC_000284,999920,Data Partially Available,MZ_BLOCK_014,Sangau,lawngtlai,Lawngtlai,PHC,"SubCentre, Pangkhua",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.76376,93.074806
+MZ_FAC_000285,999910,Data Partially Available,MZ_BLOCK_015,Lunglei,lunglei,Lunglei,GOVERNMENT_BUILDING,Hrangchalkawn Police Out Post,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,22.850109,92.794473
+MZ_FAC_000286,999910,Data Partially Available,MZ_BLOCK_015,Lunglei,lunglei,Lunglei,HOSPITAL,"Health Sub Center ,Lunglei",PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,22.881204,92.713518
+MZ_FAC_000287,999910,Data Partially Available,MZ_BLOCK_015,Lunglei,lunglei,Lunglei,PHC,"SubCentre, South Mualcheng",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.690051,92.822448
+MZ_FAC_000288,999910,Data Partially Available,MZ_BLOCK_015,Lunglei,lunglei,Lunglei,PHC,"PHC, Tawipui",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.701903,92.837706
+MZ_FAC_000289,999910,Data Partially Available,MZ_BLOCK_015,Lunglei,lunglei,Lunglei,PHC,"SubCentre, Vaisam",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.73464,92.742129
+MZ_FAC_000290,999910,Data Partially Available,MZ_BLOCK_015,Lunglei,lunglei,Lunglei,PHC,"SubCentre, Thualthu",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.7689,92.844927
+MZ_FAC_000291,999910,Data Partially Available,MZ_BLOCK_015,Lunglei,lunglei,Lunglei,PHC,"SubCentre, Mamte",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.616052,92.915518
+MZ_FAC_000292,999910,Data Partially Available,MZ_BLOCK_015,Lunglei,lunglei,Lunglei,PHC,"SubCentre, Thingfal",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.61839,92.872539
+MZ_FAC_000293,999910,Data Partially Available,MZ_BLOCK_015,Lunglei,lunglei,Lunglei,PHC,Hrangchalkawn UPHC,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.850191,92.794165
+MZ_FAC_000294,999910,Data Partially Available,MZ_BLOCK_015,Lunglei,lunglei,Lunglei,PHC,"SubCentre, Thehlep",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.906032,92.657002
+MZ_FAC_000295,999910,Data Partially Available,MZ_BLOCK_015,Lunglei,lunglei,Lunglei,PHC,"SubCentre, Ralvawng",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.936747,92.832037
+MZ_FAC_000296,999910,Data Partially Available,MZ_BLOCK_015,Lunglei,lunglei,Lunglei,PHC,"PHC,Haulawng",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.046355,92.783582
+MZ_FAC_000297,999910,Data Partially Available,MZ_BLOCK_015,Lunglei,lunglei,Lunglei,PHC,"Sub Centre, Haulawng",PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.046927,92.773234
+MZ_FAC_000298,999910,Data Partially Available,MZ_BLOCK_015,Lunglei,lunglei,Lunglei,PHC,"SubCentre, North Mualthuam",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.114417,92.743313
+MZ_FAC_000299,999910,Data Partially Available,MZ_BLOCK_015,Lunglei,lunglei,Lunglei,PHC,"SubCentre, Bualpui V",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.126419,92.795885
+MZ_FAC_000300,999910,Data Partially Available,MZ_BLOCK_015,Lunglei,lunglei,Lunglei,PHC,"PHC, Chhipphir",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.169169,92.796594
+MZ_FAC_000301,999910,Data Partially Available,MZ_BLOCK_015,Lunglei,lunglei,Lunglei,PHC,"PHC,Chhipphir",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.171518,92.797529
+MZ_FAC_000302,999910,Data Partially Available,MZ_BLOCK_015,Lunglei,lunglei,Lunglei,PHC,"SubCentre, Ramlaitui",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.181904,92.735859
+MZ_FAC_000303,999910,Data Partially Available,MZ_BLOCK_015,Lunglei,lunglei,Lunglei,PHC,"Health Sub Centre ,South Zote",PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.216345,92.794398
+MZ_FAC_000304,801516,Lunglei,MZ_BLOCK_015,Lunglei,lunglei,Lunglei,CLINIC,Emmanuel Polyclinic,PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,22.887647,92.744759
+MZ_FAC_000305,801516,Lunglei,MZ_BLOCK_015,Lunglei,lunglei,Lunglei,GOVERNMENT_BUILDING,Lunglei Police Station,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,22.890992,92.743819
+MZ_FAC_000306,801516,Lunglei,MZ_BLOCK_015,Lunglei,lunglei,Lunglei,HOSPITAL,John Williams Hospital,PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,22.882938,92.748073
+MZ_FAC_000307,801516,Lunglei,MZ_BLOCK_015,Lunglei,lunglei,Lunglei,HOSPITAL,"Civil Hospital,Lunglei",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.886318,92.744237
+MZ_FAC_000308,801516,Lunglei,MZ_BLOCK_015,Lunglei,lunglei,Lunglei,HOSPITAL,Hope Hospital,PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,22.886986,92.744105
+MZ_FAC_000309,801516,Lunglei,MZ_BLOCK_015,Lunglei,lunglei,Lunglei,HOSPITAL,"Christian Hospital, Serkawn",PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,22.906836,92.7586
+MZ_FAC_000310,801516,Lunglei,MZ_BLOCK_015,Lunglei,lunglei,Lunglei,PHC,"PHC,Zobawk",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.858633,92.819968
+MZ_FAC_000311,801516,Lunglei,MZ_BLOCK_015,Lunglei,lunglei,Lunglei,PHC,"Community Health Sub Centre ,Theiriat",PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,22.867009,92.77763
+MZ_FAC_000312,801516,Lunglei,MZ_BLOCK_015,Lunglei,lunglei,Lunglei,PHC,"UPHC,Lunglei",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.885162,92.732876
+MZ_FAC_000313,801516,Lunglei,MZ_BLOCK_015,Lunglei,lunglei,Lunglei,PHC,"Health Sub Centre ,zotlang",PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,22.913082,92.755802
+MZ_FAC_000314,801516,Lunglei,MZ_BLOCK_015,Lunglei,lunglei,Lunglei,PHC,"SubCentre, Pukpui",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.93485,92.75468
+MZ_FAC_000315,999901,Data Partially Available,MZ_BLOCK_016,Lungsen,lunglei,Lunglei,GOVERNMENT_BUILDING,Tlabung Police Station,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,22.906383,92.46872
+MZ_FAC_000316,999901,Data Partially Available,MZ_BLOCK_016,Lungsen,lunglei,Lunglei,GOVERNMENT_BUILDING,Lungsen Police Station,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,22.874473,92.588006
+MZ_FAC_000317,999901,Data Partially Available,MZ_BLOCK_016,Lungsen,lunglei,Lunglei,HOSPITAL,"Civil Hospital,Tlabung",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.906369,92.469801
+MZ_FAC_000318,999901,Data Partially Available,MZ_BLOCK_016,Lungsen,lunglei,Lunglei,PHC,"SubCentre, Khawmawi",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.506555,92.775162
+MZ_FAC_000319,999901,Data Partially Available,MZ_BLOCK_016,Lungsen,lunglei,Lunglei,PHC,"SubCentre, Rualalung",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.671926,92.672881
+MZ_FAC_000320,999901,Data Partially Available,MZ_BLOCK_016,Lungsen,lunglei,Lunglei,PHC,"SubCentre, South Lungrang",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.729864,92.649404
+MZ_FAC_000321,999901,Data Partially Available,MZ_BLOCK_016,Lungsen,lunglei,Lunglei,PHC,"SubCentre, Phairuangkai",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.823832,92.640473
+MZ_FAC_000322,999901,Data Partially Available,MZ_BLOCK_016,Lungsen,lunglei,Lunglei,PHC,"SubCentre, Tipperaghat",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.83806,92.480064
+MZ_FAC_000323,999901,Data Partially Available,MZ_BLOCK_016,Lungsen,lunglei,Lunglei,PHC,"PHC, Lungsen",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.869422,92.590286
+MZ_FAC_000324,999901,Data Partially Available,MZ_BLOCK_016,Lungsen,lunglei,Lunglei,PHC,"SubCentre, Tuichawng",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.919207,92.525551
+MZ_FAC_000325,999901,Data Partially Available,MZ_BLOCK_016,Lungsen,lunglei,Lunglei,PHC,"SubCentre, Diplibagh",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.930216,92.492221
+MZ_FAC_000326,999901,Data Partially Available,MZ_BLOCK_016,Lungsen,lunglei,Lunglei,PHC,"Sub Centre, Zawlpui",PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.038754,92.577631
+MZ_FAC_000327,999901,Data Partially Available,MZ_BLOCK_016,Lungsen,lunglei,Lunglei,PHC,"SubCentre, Tuisenchhuah",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.074389,92.56265
+MZ_FAC_000328,249779,Tlabung,MZ_BLOCK_016,Lungsen,lunglei,Lunglei,PHC,"SubCentre, Zodin Veng",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.914612,92.475808
+MZ_FAC_000329,999902,Data Partially Available,MZ_BLOCK_017,West Bunghmun,lunglei,Lunglei,GOVERNMENT_BUILDING,Bunghmun Police Station,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,23.183405,92.487751
+MZ_FAC_000330,999902,Data Partially Available,MZ_BLOCK_017,West Bunghmun,lunglei,Lunglei,PHC,"SubCentre, Puankhai",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.053707,92.418411
+MZ_FAC_000331,999902,Data Partially Available,MZ_BLOCK_017,West Bunghmun,lunglei,Lunglei,PHC,"SubCentre, Serte",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.083626,92.70042
+MZ_FAC_000332,999902,Data Partially Available,MZ_BLOCK_017,West Bunghmun,lunglei,Lunglei,PHC,"SubCentre, Lungchem",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.127986,92.612422
+MZ_FAC_000333,999902,Data Partially Available,MZ_BLOCK_017,West Bunghmun,lunglei,Lunglei,PHC,"SubCentre, Sertlangpui",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.128308,92.686132
+MZ_FAC_000334,999902,Data Partially Available,MZ_BLOCK_017,West Bunghmun,lunglei,Lunglei,PHC,"SubCentre, Changpui",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.174418,92.612037
+MZ_FAC_000335,999902,Data Partially Available,MZ_BLOCK_017,West Bunghmun,lunglei,Lunglei,PHC,"PHC,Bunghmun",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.187832,92.490116
+MZ_FAC_000336,999902,Data Partially Available,MZ_BLOCK_017,West Bunghmun,lunglei,Lunglei,PHC,"SubCentre, Kawlhawk",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.197598,92.679866
+MZ_FAC_000337,999902,Data Partially Available,MZ_BLOCK_017,West Bunghmun,lunglei,Lunglei,PHC,"SubCentre, Thenhlum",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.1976,92.58539
+MZ_FAC_000338,999902,Data Partially Available,MZ_BLOCK_017,West Bunghmun,lunglei,Lunglei,PHC,"SubCentre, Sesawm",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.245949,92.484936
+MZ_FAC_000339,999902,Data Partially Available,MZ_BLOCK_017,West Bunghmun,lunglei,Lunglei,PHC,"SubCentre, Bunghmun",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.252713,92.63682
+MZ_FAC_000340,999902,Data Partially Available,MZ_BLOCK_017,West Bunghmun,lunglei,Lunglei,PHC,"Sub Centre 1, Laisawral",PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.263491,92.476383
+MZ_FAC_000341,999902,Data Partially Available,MZ_BLOCK_017,West Bunghmun,lunglei,Lunglei,PHC,"Sub Centre, Laisawral",PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.26599,92.475798
+MZ_FAC_000342,999902,Data Partially Available,MZ_BLOCK_017,West Bunghmun,lunglei,Lunglei,PHC,"PHC,Buarpui",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.275783,92.653884
+MZ_FAC_000343,999902,Data Partially Available,MZ_BLOCK_017,West Bunghmun,lunglei,Lunglei,PHC,"PHC, Buarpui",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.28054,92.653508
+MZ_FAC_000344,999902,Data Partially Available,MZ_BLOCK_017,West Bunghmun,lunglei,Lunglei,PHC,"SubCentre, New Khawlek",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.319287,92.643109
+MZ_FAC_000345,999902,Data Partially Available,MZ_BLOCK_017,West Bunghmun,lunglei,Lunglei,PHC,"SubCentre, Darngawn",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.342291,92.529335
+MZ_FAC_000346,999911,Data Partially Available,MZ_BLOCK_018,Reiek,mamit,Mamit,PHC,"SubCentre, Rulpuihlim",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.710238,92.560036
+MZ_FAC_000347,999911,Data Partially Available,MZ_BLOCK_018,Reiek,mamit,Mamit,PHC,"PHC, Rawpuichhip",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.78417,92.560126
+MZ_FAC_000348,999911,Data Partially Available,MZ_BLOCK_018,Reiek,mamit,Mamit,PHC,"SubCentre, Lengte",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.772787,92.598801
+MZ_FAC_000349,999911,Data Partially Available,MZ_BLOCK_018,Reiek,mamit,Mamit,PHC,"PHC, Reiek",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.699458,92.603842
+MZ_FAC_000350,999911,Data Partially Available,MZ_BLOCK_018,Reiek,mamit,Mamit,PHC,"SubCentre, Ailawng",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.690202,92.621134
+MZ_FAC_000351,999911,Data Partially Available,MZ_BLOCK_018,Reiek,mamit,Mamit,PHC,"SubCentre, South Sabual",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.454343,92.600534
+MZ_FAC_000352,999911,Data Partially Available,MZ_BLOCK_018,Reiek,mamit,Mamit,PHC,"SubCentre, Darlung",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.460128,92.601135
+MZ_FAC_000353,999911,Data Partially Available,MZ_BLOCK_018,Reiek,mamit,Mamit,PHC,"PHC, Kanghmun",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.558072,92.57589
+MZ_FAC_000354,999911,Data Partially Available,MZ_BLOCK_018,Reiek,mamit,Mamit,PHC,Kanghmun PHC,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.56582,92.584489
+MZ_FAC_000355,999911,Data Partially Available,MZ_BLOCK_018,Reiek,mamit,Mamit,PHC,"SubCentre, Hreichuk",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.597304,92.598917
+MZ_FAC_000356,999911,Data Partially Available,MZ_BLOCK_018,Reiek,mamit,Mamit,PHC,"SubCentre, Khawrihnim",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.624456,92.622974
+MZ_FAC_000357,999911,Data Partially Available,MZ_BLOCK_018,Reiek,mamit,Mamit,PHC,"SubCentre, West Lungdar",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.641622,92.595214
+MZ_FAC_000358,999911,Data Partially Available,MZ_BLOCK_018,Reiek,mamit,Mamit,PHC,"SubCentre, West Lungdar",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.643979,92.594425
+MZ_FAC_000359,999911,Data Partially Available,MZ_BLOCK_018,Reiek,mamit,Mamit,PHC,"Sub Centre, Hmunpui",PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.861676,92.580524
+MZ_FAC_000360,801499,Lengpui,MZ_BLOCK_018,Reiek,mamit,Mamit,PHC,"Sub Centre, Vengthar",PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.833433,92.631389
+MZ_FAC_000361,801499,Lengpui,MZ_BLOCK_018,Reiek,mamit,Mamit,PHC,"PHC, Lengpui",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.839704,92.632982
+MZ_FAC_000362,999904,Data Partially Available,MZ_BLOCK_019,West Phaileng,mamit,Mamit,GOVERNMENT_BUILDING,Marpara Police Station,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,23.266563,92.413608
+MZ_FAC_000363,999904,Data Partially Available,MZ_BLOCK_019,West Phaileng,mamit,Mamit,GOVERNMENT_BUILDING,West Phaileng Police Station,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,23.709755,92.484137
+MZ_FAC_000364,999904,Data Partially Available,MZ_BLOCK_019,West Phaileng,mamit,Mamit,PHC,"Sub Centre, Damparengpui",PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.718408,92.413076
+MZ_FAC_000365,999904,Data Partially Available,MZ_BLOCK_019,West Phaileng,mamit,Mamit,PHC,"SubCentre, Damparengpui",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.721266,92.416851
+MZ_FAC_000366,999904,Data Partially Available,MZ_BLOCK_019,West Phaileng,mamit,Mamit,PHC,"SubCentre, Kawnmawi",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.657928,92.477494
+MZ_FAC_000367,999904,Data Partially Available,MZ_BLOCK_019,West Phaileng,mamit,Mamit,PHC,"SubCentre, W.Phaileng",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.709717,92.482744
+MZ_FAC_000368,999904,Data Partially Available,MZ_BLOCK_019,West Phaileng,mamit,Mamit,PHC,"PHC, West Phaileng",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.695918,92.488792
+MZ_FAC_000369,999904,Data Partially Available,MZ_BLOCK_019,West Phaileng,mamit,Mamit,PHC,"PHC,Phuldungsei",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.477444,92.420251
+MZ_FAC_000370,999904,Data Partially Available,MZ_BLOCK_019,West Phaileng,mamit,Mamit,PHC,"SubCentre, Parvatui",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.499877,92.488722
+MZ_FAC_000371,999904,Data Partially Available,MZ_BLOCK_019,West Phaileng,mamit,Mamit,PHC,"SubCentre, Lallen",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.62023,92.461549
+MZ_FAC_000372,999904,Data Partially Available,MZ_BLOCK_019,West Phaileng,mamit,Mamit,PHC,"Primary Health Centre, Tuipuibari",PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.708845,92.326863
+MZ_FAC_000373,999904,Data Partially Available,MZ_BLOCK_019,West Phaileng,mamit,Mamit,PHC,"SubCentre, Marpara",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.26703,92.407774
+MZ_FAC_000374,999904,Data Partially Available,MZ_BLOCK_019,West Phaileng,mamit,Mamit,PHC,"SubCentre, Pukzing",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.345383,92.428843
+MZ_FAC_000375,999904,Data Partially Available,MZ_BLOCK_019,West Phaileng,mamit,Mamit,PHC,"SubCentre, Silsuri",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.381829,92.3638
+MZ_FAC_000376,999904,Data Partially Available,MZ_BLOCK_019,West Phaileng,mamit,Mamit,SCHOOL,Public School Facility,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_education,23.364714,92.355932
+MZ_FAC_000377,999904,Data Partially Available,MZ_BLOCK_019,West Phaileng,mamit,Mamit,SCHOOL,Public School Facility,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_education,23.364833,92.355921
+MZ_FAC_000378,999904,Data Partially Available,MZ_BLOCK_019,West Phaileng,mamit,Mamit,SCHOOL,Public School Facility,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_education,23.364751,92.355738
+MZ_FAC_000379,999923,Data Partially Available,MZ_BLOCK_020,Zawlnuam,mamit,Mamit,GOVERNMENT_BUILDING,Kawrthah Police Station,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,24.008068,92.376641
+MZ_FAC_000380,999923,Data Partially Available,MZ_BLOCK_020,Zawlnuam,mamit,Mamit,GOVERNMENT_BUILDING,Kanhmun Police Station,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,24.234944,92.29859
+MZ_FAC_000381,999923,Data Partially Available,MZ_BLOCK_020,Zawlnuam,mamit,Mamit,HOSPITAL,"CHC, Kawrthah",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.994903,92.374388
+MZ_FAC_000382,999923,Data Partially Available,MZ_BLOCK_020,Zawlnuam,mamit,Mamit,PHC,"SubCentre, Dampui",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.815727,92.500362
+MZ_FAC_000383,999923,Data Partially Available,MZ_BLOCK_020,Zawlnuam,mamit,Mamit,PHC,"SubCentre, Dapchhuah",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.769756,92.52027
+MZ_FAC_000384,999923,Data Partially Available,MZ_BLOCK_020,Zawlnuam,mamit,Mamit,PHC,"SubCentre, West Bunghmun",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.803981,92.363459
+MZ_FAC_000385,999923,Data Partially Available,MZ_BLOCK_020,Zawlnuam,mamit,Mamit,PHC,"SubCentre, New Eden",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.935137,92.321568
+MZ_FAC_000386,999923,Data Partially Available,MZ_BLOCK_020,Zawlnuam,mamit,Mamit,PHC,"SubCentre, Tuidam",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.927935,92.367213
+MZ_FAC_000387,999923,Data Partially Available,MZ_BLOCK_020,Zawlnuam,mamit,Mamit,PHC,"PHC, Kawrtethawveng",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.874436,92.372508
+MZ_FAC_000388,999923,Data Partially Available,MZ_BLOCK_020,Zawlnuam,mamit,Mamit,PHC,"SubCentre, Rengdil",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,24.066684,92.388093
+MZ_FAC_000389,999923,Data Partially Available,MZ_BLOCK_020,Zawlnuam,mamit,Mamit,PHC,"SubCentre, Zamuang",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,24.099882,92.397722
+MZ_FAC_000390,999923,Data Partially Available,MZ_BLOCK_020,Zawlnuam,mamit,Mamit,PHC,"Health Sub Centre ,Darlak",PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.90444,92.417162
+MZ_FAC_000391,999923,Data Partially Available,MZ_BLOCK_020,Zawlnuam,mamit,Mamit,PHC,"Sub Centre ,Nalzawl",PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.865526,92.425482
+MZ_FAC_000392,999923,Data Partially Available,MZ_BLOCK_020,Zawlnuam,mamit,Mamit,PHC,"PHC, Kanhmun",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,24.238674,92.29621
+MZ_FAC_000393,999923,Data Partially Available,MZ_BLOCK_020,Zawlnuam,mamit,Mamit,PHC,"SubCentre, Bungthuam",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,24.188053,92.330794
+MZ_FAC_000394,999923,Data Partially Available,MZ_BLOCK_020,Zawlnuam,mamit,Mamit,PHC,"SubCentre, Thinghlun",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,24.247605,92.383783
+MZ_FAC_000395,999923,Data Partially Available,MZ_BLOCK_020,Zawlnuam,mamit,Mamit,PHC,"Sabual, PHC",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.866946,92.266427
+MZ_FAC_000396,999923,Data Partially Available,MZ_BLOCK_020,Zawlnuam,mamit,Mamit,PHC,"Jampui, PHC",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,24.002147,92.278732
+MZ_FAC_000397,999923,Data Partially Available,MZ_BLOCK_020,Zawlnuam,mamit,Mamit,PHC,"Khedacherra, PHC",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,24.098865,92.325329
+MZ_FAC_000398,999923,Data Partially Available,MZ_BLOCK_020,Zawlnuam,mamit,Mamit,PHC,"Sub Centre, Monacherra",PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,24.123339,92.321125
+MZ_FAC_000399,249762,Mamit,MZ_BLOCK_020,Zawlnuam,mamit,Mamit,GOVERNMENT_BUILDING,Mamit Police Station,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,23.917358,92.492745
+MZ_FAC_000400,249762,Mamit,MZ_BLOCK_020,Zawlnuam,mamit,Mamit,HOSPITAL,"District Hospital, Mamit",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.909285,92.494739
+MZ_FAC_000401,249761,Zawlnuam,MZ_BLOCK_020,Zawlnuam,mamit,Mamit,GOVERNMENT_BUILDING,Zawlnuam Police Out post,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,24.141728,92.338462
+MZ_FAC_000402,249761,Zawlnuam,MZ_BLOCK_020,Zawlnuam,mamit,Mamit,HOSPITAL,Zawlnuam Hospital,PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,24.13312,92.331995
+MZ_FAC_000403,249761,Zawlnuam,MZ_BLOCK_020,Zawlnuam,mamit,Mamit,PHC,"PHC, Zawlnuam",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,24.133501,92.332072
+MZ_FAC_000404,999906,Data Partially Available,MZ_BLOCK_021,Saiha,saiha,Saiha,GOVERNMENT_BUILDING,Lobo Police outpost,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,22.469273,93.099466
+MZ_FAC_000405,999906,Data Partially Available,MZ_BLOCK_021,Saiha,saiha,Saiha,PHC,"Health Sub-Centre,Siata",PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,22.341813,93.149768
+MZ_FAC_000406,999906,Data Partially Available,MZ_BLOCK_021,Saiha,saiha,Saiha,PHC,"SubCentre, Lower Theiva",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.398255,93.01375
+MZ_FAC_000407,999906,Data Partially Available,MZ_BLOCK_021,Saiha,saiha,Saiha,PHC,"SubCentre, Kawlchaw East",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.401958,92.954704
+MZ_FAC_000408,999906,Data Partially Available,MZ_BLOCK_021,Saiha,saiha,Saiha,PHC,"SubCentre, Maubawk",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.431846,92.966317
+MZ_FAC_000409,999906,Data Partially Available,MZ_BLOCK_021,Saiha,saiha,Saiha,PHC,"PHC,Chhuarlung",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.439413,93.101153
+MZ_FAC_000410,999906,Data Partially Available,MZ_BLOCK_021,Saiha,saiha,Saiha,PHC,"Sub Centre, Zeropoint",PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,22.461662,92.957568
+MZ_FAC_000411,999906,Data Partially Available,MZ_BLOCK_021,Saiha,saiha,Saiha,PHC,"SubCentre, Niawhtlang",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.479276,93.079155
+MZ_FAC_000412,999906,Data Partially Available,MZ_BLOCK_021,Saiha,saiha,Saiha,PHC,"SubCentre, Tuisumpui",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.55586,92.998586
+MZ_FAC_000413,999906,Data Partially Available,MZ_BLOCK_021,Saiha,saiha,Saiha,PHC,"SubCentre, Rawmibawk",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.574495,92.957285
+MZ_FAC_000414,999906,Data Partially Available,MZ_BLOCK_021,Saiha,saiha,Saiha,PHC,"SubCentre, Phalhrang",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.597359,92.971794
+MZ_FAC_000415,999909,Data Partially Available,MZ_BLOCK_022,Tuipang,saiha,Saiha,GOVERNMENT_BUILDING,Tipa Police Station,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,22.319743,93.022409
+MZ_FAC_000416,999909,Data Partially Available,MZ_BLOCK_022,Tuipang,saiha,Saiha,GOVERNMENT_BUILDING,Phura Police Station,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,22.23526,92.907841
+MZ_FAC_000417,999909,Data Partially Available,MZ_BLOCK_022,Tuipang,saiha,Saiha,PHC,"PHC, Chakhang",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.300697,93.141328
+MZ_FAC_000418,999909,Data Partially Available,MZ_BLOCK_022,Tuipang,saiha,Saiha,PHC,"PHC, Tuipang",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.314621,93.024942
+MZ_FAC_000419,999909,Data Partially Available,MZ_BLOCK_022,Tuipang,saiha,Saiha,PHC,"SubCentre, Tuisih",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.35211,93.064773
+MZ_FAC_000420,999909,Data Partially Available,MZ_BLOCK_022,Tuipang,saiha,Saiha,PHC,"Sub Centre, Saikao",PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,22.359112,92.979678
+MZ_FAC_000421,999909,Data Partially Available,MZ_BLOCK_022,Tuipang,saiha,Saiha,PHC,"SubCentre, Theiri",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.368218,93.04017
+MZ_FAC_000422,999909,Data Partially Available,MZ_BLOCK_022,Tuipang,saiha,Saiha,PHC,"SubCentre, New Latawh",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.379007,92.92133
+MZ_FAC_000423,999909,Data Partially Available,MZ_BLOCK_022,Tuipang,saiha,Saiha,PHC,"SubCentre, Zawngling",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.266861,93.043517
+MZ_FAC_000424,999909,Data Partially Available,MZ_BLOCK_022,Tuipang,saiha,Saiha,PHC,"PHC, Phura",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.239698,92.908806
+MZ_FAC_000425,999909,Data Partially Available,MZ_BLOCK_022,Tuipang,saiha,Saiha,PHC,"SubCentre, Vahai",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.219554,92.944417
+MZ_FAC_000426,999909,Data Partially Available,MZ_BLOCK_022,Tuipang,saiha,Saiha,PHC,"SubCentre, Laki",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.151237,93.01007
+MZ_FAC_000427,999909,Data Partially Available,MZ_BLOCK_022,Tuipang,saiha,Saiha,SCHOOL,Basic Education Middle School,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_education,22.065386,93.023762
+MZ_FAC_000428,801519,Saiha,MZ_BLOCK_022,Tuipang,saiha,Saiha,GOVERNMENT_BUILDING,Saiha Police Station,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,22.488034,92.981336
+MZ_FAC_000429,801519,Saiha,MZ_BLOCK_022,Tuipang,saiha,Saiha,GOVERNMENT_BUILDING,Siahatla Police Outpost,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,22.49269,92.994385
+MZ_FAC_000430,801519,Saiha,MZ_BLOCK_022,Tuipang,saiha,Saiha,HOSPITAL,"District Hospital, Siaha",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.488388,92.982861
+MZ_FAC_000431,801519,Saiha,MZ_BLOCK_022,Tuipang,saiha,Saiha,HOSPITAL,Maraland Gospel Centenary Hospital,PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,22.489008,92.979636
+MZ_FAC_000432,801519,Saiha,MZ_BLOCK_022,Tuipang,saiha,Saiha,HOSPITAL,"District Hospital , Siaha",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.489588,92.979157
+MZ_FAC_000433,801519,Saiha,MZ_BLOCK_022,Tuipang,saiha,Saiha,PHC,"SubCentre, Saihatlangkawn",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,22.496614,92.997216
+MZ_FAC_000434,999927,Data Partially Available,MZ_BLOCK_023,Ngopa,saitual,Saitual,GOVERNMENT_BUILDING,Ngopa Police Station,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,23.881774,93.212806
+MZ_FAC_000435,999927,Data Partially Available,MZ_BLOCK_023,Ngopa,saitual,Saitual,HOSPITAL,CHC Ngopa,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.881729,93.211834
+MZ_FAC_000436,999927,Data Partially Available,MZ_BLOCK_023,Ngopa,saitual,Saitual,PHC,"Sub Centre, Teikhang",PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.95085,93.301389
+MZ_FAC_000437,999927,Data Partially Available,MZ_BLOCK_023,Ngopa,saitual,Saitual,PHC,"PHC, N.E.Khawdungsei",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.973174,93.213003
+MZ_FAC_000438,999927,Data Partially Available,MZ_BLOCK_023,Ngopa,saitual,Saitual,PHC,"Mimbung,PHC",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,24.000453,93.286036
+MZ_FAC_000439,999927,Data Partially Available,MZ_BLOCK_023,Ngopa,saitual,Saitual,PHC,"SubCentre, Khawkawn",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,24.018572,93.221234
+MZ_FAC_000440,999927,Data Partially Available,MZ_BLOCK_023,Ngopa,saitual,Saitual,PHC,"SubCentre, Saichal",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.718957,93.068048
+MZ_FAC_000441,999927,Data Partially Available,MZ_BLOCK_023,Ngopa,saitual,Saitual,PHC,"Sub Centre, Hliappui",PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.7498,93.101998
+MZ_FAC_000442,999927,Data Partially Available,MZ_BLOCK_023,Ngopa,saitual,Saitual,PHC,"SubCentre, Pawlrang",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.795239,93.122136
+MZ_FAC_000443,999927,Data Partially Available,MZ_BLOCK_023,Ngopa,saitual,Saitual,PHC,"SubCentre, Selam",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.804235,93.29128
+MZ_FAC_000444,999927,Data Partially Available,MZ_BLOCK_023,Ngopa,saitual,Saitual,PHC,"SubCentre, Lamzawl",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.8164,93.205705
+MZ_FAC_000445,999927,Data Partially Available,MZ_BLOCK_023,Ngopa,saitual,Saitual,PHC,"SubCentre, Kawlbem",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.870997,93.306106
+MZ_FAC_000446,999927,Data Partially Available,MZ_BLOCK_023,Ngopa,saitual,Saitual,PHC,"SubCentre, Sinzawl",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,24.092852,93.298126
+MZ_FAC_000447,999927,Data Partially Available,MZ_BLOCK_023,Ngopa,saitual,Saitual,PHC,"SubCentre, Aibulon",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,24.116737,93.239349
+MZ_FAC_000448,999924,Data Partially Available,MZ_BLOCK_024,Phullen,saitual,Saitual,PHC,"PHC, Phuaibuang",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.92815,93.118241
+MZ_FAC_000449,999924,Data Partially Available,MZ_BLOCK_024,Phullen,saitual,Saitual,PHC,"PHC, Suangpuilawn",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.950819,93.03856
+MZ_FAC_000450,999924,Data Partially Available,MZ_BLOCK_024,Phullen,saitual,Saitual,PHC,"SubCentre, Khawlian",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.994901,93.126757
+MZ_FAC_000451,999924,Data Partially Available,MZ_BLOCK_024,Phullen,saitual,Saitual,PHC,"SubCentre, Vanbawng",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,24.040543,93.049403
+MZ_FAC_000452,999924,Data Partially Available,MZ_BLOCK_024,Phullen,saitual,Saitual,PHC,"SubCentre, Daidou",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,24.046521,93.146217
+MZ_FAC_000453,999924,Data Partially Available,MZ_BLOCK_024,Phullen,saitual,Saitual,PHC,"SubCentre, N.Khawlek",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,24.067364,93.020441
+MZ_FAC_000454,999924,Data Partially Available,MZ_BLOCK_024,Phullen,saitual,Saitual,PHC,"SubCentre, Thanglailung",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.818824,93.052873
+MZ_FAC_000455,999924,Data Partially Available,MZ_BLOCK_024,Phullen,saitual,Saitual,PHC,"PHC, Phullen",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.848979,93.051851
+MZ_FAC_000456,999924,Data Partially Available,MZ_BLOCK_024,Phullen,saitual,Saitual,PHC,"SubCentre, Bungpilon",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,24.090203,93.187683
+MZ_FAC_000457,999924,Data Partially Available,MZ_BLOCK_024,Phullen,saitual,Saitual,PHC,"SubCentre, Parvachom",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,24.106459,93.128601
+MZ_FAC_000458,999913,Data Partially Available,MZ_BLOCK_025,East Lungdar,serchhip,Serchhip,PHC,"SubCentre, Srirampura",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.080966,93.086104
+MZ_FAC_000459,999913,Data Partially Available,MZ_BLOCK_025,East Lungdar,serchhip,Serchhip,PHC,"SubCentre, Sailulak",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.122243,93.146326
+MZ_FAC_000460,999913,Data Partially Available,MZ_BLOCK_025,East Lungdar,serchhip,Serchhip,PHC,"SubCentre, Lungchhuan",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.147583,93.014604
+MZ_FAC_000461,999913,Data Partially Available,MZ_BLOCK_025,East Lungdar,serchhip,Serchhip,PHC,"SubCentre, Leng Khua",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.15882,93.117756
+MZ_FAC_000462,999913,Data Partially Available,MZ_BLOCK_025,East Lungdar,serchhip,Serchhip,PHC,"SubCentre, Mualcheng",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.184218,93.055177
+MZ_FAC_000463,999913,Data Partially Available,MZ_BLOCK_025,East Lungdar,serchhip,Serchhip,PHC,"PHC, East Lungdar",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.203309,93.091269
+MZ_FAC_000464,999913,Data Partially Available,MZ_BLOCK_025,East Lungdar,serchhip,Serchhip,PHC,"PHC,Khawlailung",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.221502,92.99143
+MZ_FAC_000465,999913,Data Partially Available,MZ_BLOCK_025,East Lungdar,serchhip,Serchhip,PHC,"PHC, Khawlailung",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.221405,92.992097
+MZ_FAC_000466,249778,N Vanlaiphai,MZ_BLOCK_025,East Lungdar,serchhip,Serchhip,GOVERNMENT_BUILDING,North Vanlaiphai Police Station,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,23.124759,93.067236
+MZ_FAC_000467,249778,N Vanlaiphai,MZ_BLOCK_025,East Lungdar,serchhip,Serchhip,PHC,"PHC,North Vanlaiphai",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.129956,93.067655
+MZ_FAC_000468,249778,N Vanlaiphai,MZ_BLOCK_025,East Lungdar,serchhip,Serchhip,PHC,"PHC, North Vanlaiphai",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.130685,93.067612
+MZ_FAC_000469,999916,Data Partially Available,MZ_BLOCK_026,Serchhip,serchhip,Serchhip,PHC,"SubCentre, E.Bungtlang",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.190477,92.899788
+MZ_FAC_000470,999916,Data Partially Available,MZ_BLOCK_026,Serchhip,serchhip,Serchhip,PHC,"SubCentre, Keitum",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.237404,92.91031
+MZ_FAC_000471,999916,Data Partially Available,MZ_BLOCK_026,Serchhip,serchhip,Serchhip,PHC,"SubCentre, Hriangtlang",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.282369,92.926483
+MZ_FAC_000472,999916,Data Partially Available,MZ_BLOCK_026,Serchhip,serchhip,Serchhip,PHC,"SubCentre, East Thinglian",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.317979,92.973844
+MZ_FAC_000473,999916,Data Partially Available,MZ_BLOCK_026,Serchhip,serchhip,Serchhip,PHC,"SubCentre, Sialhau",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.361785,92.921841
+MZ_FAC_000474,999916,Data Partially Available,MZ_BLOCK_026,Serchhip,serchhip,Serchhip,PHC,"PHC,Ngentiang",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.369463,93.020233
+MZ_FAC_000475,999916,Data Partially Available,MZ_BLOCK_026,Serchhip,serchhip,Serchhip,PHC,"SubCentre, Lungpho",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.381322,93.002962
+MZ_FAC_000476,999916,Data Partially Available,MZ_BLOCK_026,Serchhip,serchhip,Serchhip,PHC,"SubCentre, Thentlang",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.425207,92.907487
+MZ_FAC_000477,999916,Data Partially Available,MZ_BLOCK_026,Serchhip,serchhip,Serchhip,PHC,"SubCentre, Rullam",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.443941,93.001134
+MZ_FAC_000478,999916,Data Partially Available,MZ_BLOCK_026,Serchhip,serchhip,Serchhip,PHC,"SubCentre, Khawbel",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.446012,92.952606
+MZ_FAC_000479,999916,Data Partially Available,MZ_BLOCK_026,Serchhip,serchhip,Serchhip,PHC,"SubCentre, Hmuntha",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.493766,92.942567
+MZ_FAC_000480,999916,Data Partially Available,MZ_BLOCK_026,Serchhip,serchhip,Serchhip,PHC,"SubCentre, Vanchengpui",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.43693,93.046162
+MZ_FAC_000481,999916,Data Partially Available,MZ_BLOCK_026,Serchhip,serchhip,Serchhip,PHC,"Health Sub Centre ,Baktawng",PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.540288,92.848312
+MZ_FAC_000482,999916,Data Partially Available,MZ_BLOCK_026,Serchhip,serchhip,Serchhip,PHC,"SubCentre, Khumtung",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.553489,92.849815
+MZ_FAC_000483,999916,Data Partially Available,MZ_BLOCK_026,Serchhip,serchhip,Serchhip,PHC,"PHC, Chhingchhip",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.4647,92.854344
+MZ_FAC_000484,999916,Data Partially Available,MZ_BLOCK_026,Serchhip,serchhip,Serchhip,PHC,"SubCentre, Neihloh",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.234768,92.706675
+MZ_FAC_000485,999916,Data Partially Available,MZ_BLOCK_026,Serchhip,serchhip,Serchhip,PHC,"SubCentre, Buangpui",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.236886,92.745308
+MZ_FAC_000486,249776,Serchhip,MZ_BLOCK_026,Serchhip,serchhip,Serchhip,GOVERNMENT_BUILDING,Serchhip Police Station,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,23.324493,92.854924
+MZ_FAC_000487,249776,Serchhip,MZ_BLOCK_026,Serchhip,serchhip,Serchhip,HOSPITAL,Mercy Hospital,PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.335851,92.85481
+MZ_FAC_000488,249776,Serchhip,MZ_BLOCK_026,Serchhip,serchhip,Serchhip,HOSPITAL,"District Hospital, Serchhip",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.307898,92.855673
+MZ_FAC_000489,249776,Serchhip,MZ_BLOCK_026,Serchhip,serchhip,Serchhip,PHC,"Sub Centre, Chhiahtlang",PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.378739,92.845082
+MZ_FAC_000490,249776,Serchhip,MZ_BLOCK_026,Serchhip,serchhip,Serchhip,PHC,"Sub Centre, Serchhip",PUBLIC_CIVIC,MEDIUM,MEDIUM,,UNRECORDED,osm_health,23.307496,92.85519
+MZ_FAC_000491,249777,Thenzawl,MZ_BLOCK_026,Serchhip,serchhip,Serchhip,GOVERNMENT_BUILDING,Thenzawl Police Station,GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_poi,23.278987,92.775905
+MZ_FAC_000492,249777,Thenzawl,MZ_BLOCK_026,Serchhip,serchhip,Serchhip,HOSPITAL,"CHC, Thenzawl",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.291033,92.770406
+MZ_FAC_000493,249777,Thenzawl,MZ_BLOCK_026,Serchhip,serchhip,Serchhip,HOSPITAL,"CHC,Thenzawl",GOVERNMENT_PUBLIC,HIGH,HIGH,,UNRECORDED,osm_health,23.290997,92.770658

@@ -56,6 +56,12 @@ def resolve_state_key(state_id: Optional[str]) -> str:
     if not state_id:
         return "andhra_pradesh"
     clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    if clean in ["andhra_pradesh", "ap", "andhrapradesh"]:
+        return "andhra_pradesh"
+    if clean in ["mizoram", "mz", "mizo"]:
+        return "mizoram"
+    if clean in ["himachal_pradesh", "hp", "himachal"]:
+        return "himachal_pradesh"
     if clean in ["odisha", "od", "or", "orissa"]:
         return "odisha"
     if clean in ["assam", "as"]:
@@ -80,30 +86,31 @@ def resolve_state_key(state_id: Optional[str]) -> str:
         return "meghalaya"
     return "andhra_pradesh"
 
-def is_mizoram(state_id: Optional[str]) -> bool:
-    if not state_id:
-        return False
-    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
-    return clean in ["mizoram", "mz", "mizo"]
-
-def is_hp(state_id: Optional[str]) -> bool:
-    if not state_id:
-        return False
-    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
-    return clean in ["himachal_pradesh", "hp", "himachal"]
 
 class SimulationService:
     def __init__(self):
         self._cache: Dict[str, Dict[str, Any]] = {}
 
     def _get_state_key(self, state_id: Optional[str]) -> str:
-        if is_mizoram(state_id):
-            return "mz"
-        if is_tn(state_id):
-            return "tn"
-        if is_hp(state_id):
-            return "hp"
-        return "ap"
+        return resolve_state_key(state_id)
+
+    # Map state key -> relocation priority CSV filename
+    _STATE_CSV_MAP: Dict[str, str] = {
+        "andhra_pradesh":   "mandal_relocation_priority.csv",
+        "mizoram":          "mizoram_subdistrict_relocation_priority.csv",
+        "himachal_pradesh": "hp_tehsil_relocation_priority.csv",
+        "tamil_nadu":       "tn_taluk_relocation_priority.csv",
+        "assam":            "as_circle_relocation_priority.csv",
+        "bihar":            "br_block_relocation_priority.csv",
+        "west_bengal":      "wb_block_relocation_priority.csv",
+        "odisha":           "od_block_relocation_priority.csv",
+        "uttar_pradesh":    "up_tehsil_relocation_priority.csv",
+        "uttarakhand":      "uk_tehsil_relocation_priority.csv",
+        "sikkim":           "sk_subdivision_relocation_priority.csv",
+        "arunachal_pradesh":"ar_circle_relocation_priority.csv",
+        "nagaland":         "nl_circle_relocation_priority.csv",
+        "meghalaya":        "ml_block_relocation_priority.csv",
+    }
 
     def _load_data(self, state_id: Optional[str] = "andhra_pradesh"):
         key = resolve_state_key(state_id)
@@ -111,14 +118,8 @@ class SimulationService:
             return self._cache[key]
 
         reloc_dir = settings.DATA_DIR / "processed" / "relocation"
-        if key == "mz":
-            master_csv = reloc_dir / "mizoram_subdistrict_relocation_priority.csv"
-        elif key == "hp":
-            master_csv = reloc_dir / "hp_tehsil_relocation_priority.csv"
-        elif key == "tn":
-            master_csv = reloc_dir / "tn_taluk_relocation_priority.csv"
-        else:
-            master_csv = reloc_dir / "mandal_relocation_priority.csv"
+        csv_name = self._STATE_CSV_MAP.get(key, "mandal_relocation_priority.csv")
+        master_csv = reloc_dir / csv_name
 
         if not master_csv.exists():
             raise FileNotFoundError(f"Relocation priority dataset not found at {master_csv}")
@@ -500,6 +501,10 @@ class SimulationService:
             detected_state = "nagaland"
         elif target.startswith("ML_"):
             detected_state = "meghalaya"
+        elif target.startswith("MZ_"):
+            detected_state = "mizoram"
+        elif target.startswith("HP_"):
+            detected_state = "himachal_pradesh"
         else:
             detected_state = state_id
 
@@ -508,7 +513,7 @@ class SimulationService:
             if item.mandal_id.upper() == target or item.mandal_name.upper() == target:
                 return item
 
-        for s in ["andhra_pradesh", "assam", "tamil_nadu", "west_bengal", "bihar", "odisha", "uttar_pradesh", "uttarakhand", "sikkim", "arunachal_pradesh", "nagaland", "meghalaya"]:
+        for s in ["andhra_pradesh", "mizoram", "himachal_pradesh", "tamil_nadu", "assam", "bihar", "west_bengal", "odisha", "uttar_pradesh", "uttarakhand", "sikkim", "arunachal_pradesh", "nagaland", "meghalaya"]:
             if s == detected_state:
                 continue
             run_res_s = self.run_simulation(params, state_id=s)

@@ -18,7 +18,9 @@ op_map = {
     'Sikkim': 'Sikkim',
     'Arunachal Pradesh': 'Arunachal Pradesh',
     'Nagaland': 'Nagaland',
-    'Meghalaya': 'Meghalaya'
+    'Meghalaya': 'Meghalaya',
+    'Mizoram': 'Mizoram',
+    'Himachal Pradesh': 'Himachal Pradesh'
 }
 
 updated_count = 0
