@@ -560,7 +560,7 @@ export const StateProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       setStateId('meghalaya');
     } else if (lower.includes('gujarat') || lower === 'gj') {
       setStateId('gujarat');
-    } else if (lower.includes('kerala') || lower.includes('kerela') || lower === 'kl') {
+    } else if (lower.includes('kerala') || lower.includes('/kerela') || lower === 'kl') {
       setStateId('kerala');
     } else if (lower.includes('maharashtra') || lower.includes('maharastra') || lower === 'mh') {
       setStateId('maharashtra');
