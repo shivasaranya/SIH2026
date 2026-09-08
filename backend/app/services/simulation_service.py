@@ -499,6 +499,14 @@ class SimulationService:
             detected_state = "nagaland"
         elif target.startswith("ML_"):
             detected_state = "meghalaya"
+        elif target.startswith("MZ_"):
+            detected_state = "mizoram"
+        elif target.startswith("HP_"):
+            detected_state = "himachal_pradesh"
+        elif target.startswith("JK_"):
+            detected_state = "jammu_kashmir"
+        elif target.startswith("MP_"):
+            detected_state = "madhya_pradesh"
         elif target.startswith("GJ_"):
             detected_state = "gujarat"
         elif target.startswith("KL_"):
@@ -520,10 +528,10 @@ class SimulationService:
                 return item
 
         all_states = [
-            "andhra_pradesh", "assam", "tamil_nadu", "west_bengal", "bihar", "odisha",
-            "uttar_pradesh", "uttarakhand", "sikkim", "arunachal_pradesh", "nagaland",
-            "meghalaya", "gujarat", "kerala", "maharashtra", "haryana", "punjab", "chhattisgarh",
-            "jammu_kashmir", "madhya_pradesh", "mizoram", "himachal_pradesh"
+            "andhra_pradesh", "mizoram", "himachal_pradesh", "jammu_kashmir", "madhya_pradesh",
+            "tamil_nadu", "assam", "bihar", "west_bengal", "odisha", "uttar_pradesh",
+            "uttarakhand", "sikkim", "arunachal_pradesh", "nagaland", "meghalaya",
+            "gujarat", "kerala", "maharashtra", "haryana", "punjab", "chhattisgarh"
         ]
         for s in all_states:
             if s == detected_state:

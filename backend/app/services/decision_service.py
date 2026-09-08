@@ -116,6 +116,14 @@ class DecisionService:
             detected_state = "nagaland"
         elif target.startswith("ML_"):
             detected_state = "meghalaya"
+        elif target.startswith("MZ_"):
+            detected_state = "mizoram"
+        elif target.startswith("HP_"):
+            detected_state = "himachal_pradesh"
+        elif target.startswith("JK_"):
+            detected_state = "jammu_kashmir"
+        elif target.startswith("MP_"):
+            detected_state = "madhya_pradesh"
         elif target.startswith("GJ_"):
             detected_state = "gujarat"
         elif target.startswith("KL_"):
@@ -137,9 +145,10 @@ class DecisionService:
 
         if r_row is None or c_row is None:
             all_states = [
-                "andhra_pradesh", "assam", "bihar", "tamil_nadu", "west_bengal", "odisha",
-                "uttar_pradesh", "uttarakhand", "sikkim", "arunachal_pradesh", "nagaland",
-                "meghalaya", "gujarat", "kerala", "maharashtra", "haryana", "punjab", "chhattisgarh"
+                "andhra_pradesh", "mizoram", "himachal_pradesh", "jammu_kashmir", "madhya_pradesh",
+                "tamil_nadu", "assam", "bihar", "west_bengal", "odisha", "uttar_pradesh",
+                "uttarakhand", "sikkim", "arunachal_pradesh", "nagaland", "meghalaya",
+                "gujarat", "kerala", "maharashtra", "haryana", "punjab", "chhattisgarh"
             ]
             for s in all_states:
                 if s == detected_state:
@@ -287,6 +296,14 @@ class DecisionService:
             detected_state = "nagaland"
         elif target.startswith("ML_"):
             detected_state = "meghalaya"
+        elif target.startswith("MZ_"):
+            detected_state = "mizoram"
+        elif target.startswith("HP_"):
+            detected_state = "himachal_pradesh"
+        elif target.startswith("JK_"):
+            detected_state = "jammu_kashmir"
+        elif target.startswith("MP_"):
+            detected_state = "madhya_pradesh"
         elif target.startswith("GJ_"):
             detected_state = "gujarat"
         elif target.startswith("KL_"):
@@ -308,9 +325,10 @@ class DecisionService:
 
         if r_row is None or c_row is None:
             all_states = [
-                "andhra_pradesh", "assam", "bihar", "tamil_nadu", "west_bengal", "odisha",
-                "uttar_pradesh", "uttarakhand", "sikkim", "arunachal_pradesh", "nagaland",
-                "meghalaya", "gujarat", "kerala", "maharashtra", "haryana", "punjab", "chhattisgarh"
+                "andhra_pradesh", "mizoram", "himachal_pradesh", "jammu_kashmir", "madhya_pradesh",
+                "tamil_nadu", "assam", "bihar", "west_bengal", "odisha", "uttar_pradesh",
+                "uttarakhand", "sikkim", "arunachal_pradesh", "nagaland", "meghalaya",
+                "gujarat", "kerala", "maharashtra", "haryana", "punjab", "chhattisgarh"
             ]
             for s in all_states:
                 if s == detected_state:
@@ -393,46 +411,21 @@ class DecisionService:
             irrigation_agency = "Water Resources Department (WRD), Meghalaya / Soil & Water Conservation Dept"
             rws_agency = "Public Health Engineering Department (PHED), Meghalaya"
             edu_agency = "Education Department, Government of Meghalaya"
+        elif state_key in ["mizoram", "mz"]:
+            sdma_agency = "Disaster Management & Rehabilitation Dept (DM&R), Government of Mizoram"
+            pwd_agency = "Mizoram PWD (Roads) / Border Roads Organisation (BRO Pushpak)"
+            health_agency = "Health & Family Welfare Department, Government of Mizoram"
+            rural_agency = "Rural Development Department, Government of Mizoram"
         elif state_key in ["jammu_kashmir", "jk"]:
             sdma_agency = "JKDMA / Department of Disaster Management, Relief, Rehabilitation & Reconstruction"
             pwd_agency = "JK PWD (R&B) / Border Roads Organisation (BRO Beacon/Sampark)"
-            health_agency = "Health & Medical Education Department, Jammu & Kashmir"
-            wcd_agency = "Social Welfare Department, J&K / ICDS Anganwadi Network"
-            irrigation_agency = "Jal Shakti (Irrigation & Flood Control) Department, J&K"
-            rws_agency = "Jal Shakti (PHE / Rural Water Supply), J&K"
-            edu_agency = "School Education Department, Jammu & Kashmir"
+            health_agency = "Health & Medical Education Department, UT of J&K"
+            rural_agency = "Department of Rural Development & Panchayati Raj, UT of J&K"
         elif state_key in ["madhya_pradesh", "mp"]:
-            sdma_agency = "MPSDMA / Home Department, Government of Madhya Pradesh"
-            pwd_agency = "Madhya Pradesh PWD / MPRDC / MP Police"
-            health_agency = "Public Health and Medical Education Department, MP"
-            wcd_agency = "Women & Child Development Department, MP / Anganwadi Network"
-            irrigation_agency = "Water Resources Department (Narmada Valley Development Authority / WRD), MP"
-            rws_agency = "Public Health Engineering Department (PHED), Madhya Pradesh"
-            edu_agency = "School Education Department, Madhya Pradesh"
-        elif state_key == "gujarat":
-            sdma_agency = "GSDMA / Revenue & Disaster Management Dept, Gujarat"
-            pwd_agency = "Gujarat Roads & Buildings Dept / Police"
-            health_agency = "Health & Family Welfare Department, Gujarat"
-            wcd_agency = "Women & Child Development, Gujarat / Anganwadi Network"
-            irrigation_agency = "Water Resources, Water Supply & Kalpsar Dept, Gujarat"
-            rws_agency = "Gujarat Water Supply & Sewerage Board (GWSSB)"
-            edu_agency = "Education Department, Gujarat"
-        elif state_key == "maharashtra":
-            sdma_agency = "MSDMA / Relief & Rehabilitation Dept, Maharashtra"
-            pwd_agency = "Public Works Department, Maharashtra / Police"
-            health_agency = "Public Health Department, Maharashtra"
-            wcd_agency = "Women & Child Development Department, Maharashtra"
-            irrigation_agency = "Water Resources Department, Maharashtra"
-            rws_agency = "Water Supply & Sanitation Department, Maharashtra"
-            edu_agency = "School Education & Sports Dept, Maharashtra"
-        elif state_key == "kerala":
-            sdma_agency = "KSDMA / Revenue & Disaster Management Dept, Kerala"
-            pwd_agency = "Public Works Department (PWD), Kerala / Police"
-            health_agency = "Health & Family Welfare Department, Kerala"
-            wcd_agency = "Women & Child Development Department, Kerala"
-            irrigation_agency = "Water Resources Department, Kerala"
-            rws_agency = "Kerala Water Authority (KWA)"
-            edu_agency = "General Education Department, Kerala"
+            sdma_agency = "Madhya Pradesh State Disaster Management Authority (MPSDMA)"
+            pwd_agency = "Madhya Pradesh Public Works Department (MPPWD)"
+            health_agency = "Public Health and Family Welfare Department, Madhya Pradesh"
+            rural_agency = "Panchayat and Rural Development Department, Madhya Pradesh"
         else:
             sdma_agency = "State Disaster Management Authority / Revenue Department"
             pwd_agency = "Roads & Buildings Department / District Police"
@@ -641,6 +634,14 @@ class DecisionService:
             detected_state = "nagaland"
         elif target_s.startswith("ML_") or target_h.startswith("ML_"):
             detected_state = "meghalaya"
+        elif target_s.startswith("MZ_") or target_h.startswith("MZ_"):
+            detected_state = "mizoram"
+        elif target_s.startswith("HP_") or target_h.startswith("HP_"):
+            detected_state = "himachal_pradesh"
+        elif target_s.startswith("JK_") or target_h.startswith("JK_"):
+            detected_state = "jammu_kashmir"
+        elif target_s.startswith("MP_") or target_h.startswith("MP_"):
+            detected_state = "madhya_pradesh"
         elif target_s.startswith("GJ_") or target_h.startswith("GJ_"):
             detected_state = "gujarat"
         elif target_s.startswith("KL_") or target_h.startswith("KL_"):
@@ -664,9 +665,10 @@ class DecisionService:
 
         if s_reloc is None or s_cap is None or h_reloc is None or h_cap is None:
             all_states = [
-                "andhra_pradesh", "assam", "bihar", "tamil_nadu", "west_bengal", "odisha",
-                "uttar_pradesh", "uttarakhand", "sikkim", "arunachal_pradesh", "nagaland",
-                "meghalaya", "gujarat", "kerala", "maharashtra", "haryana", "punjab", "chhattisgarh"
+                "andhra_pradesh", "mizoram", "himachal_pradesh", "jammu_kashmir", "madhya_pradesh",
+                "tamil_nadu", "assam", "bihar", "west_bengal", "odisha", "uttar_pradesh",
+                "uttarakhand", "sikkim", "arunachal_pradesh", "nagaland", "meghalaya",
+                "gujarat", "kerala", "maharashtra", "haryana", "punjab", "chhattisgarh"
             ]
             for s in all_states:
                 if s == detected_state:

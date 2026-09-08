@@ -1,27 +1,27 @@
 mandal_id,block_id,mandal_name,block_name,current_district_id,current_district_name,mandal_area_sqkm,flood_exposure_score,flood_exposure_index,cyclone_exposure_score,cyclone_exposure_index,wind_exposure_score,wind_exposure_index,slope_exposure_score,slope_exposure_index,multi_hazard_exposure_index,multi_hazard_exposure_score,multi_hazard_category,hazard_category,surge_exposure_score,surge_included
-MZ_BLOCK_001,MZ_BLOCK_001,Aibawk,Aibawk,aizawl,Aizawl,460.52,0.26,0.26,0.35,0.35,0.78,0.78,0.8,0.8,0.616,0.616,High,High Hazard,0.0,False
-MZ_BLOCK_002,MZ_BLOCK_002,Darlawn,Darlawn,aizawl,Aizawl,990.72,0.18,0.18,0.35,0.35,0.78,0.78,0.84,0.84,0.614,0.614,High,High Hazard,0.0,False
-MZ_BLOCK_003,MZ_BLOCK_003,Thingsulthliah,Thingsulthliah,aizawl,Aizawl,717.62,0.28,0.28,0.35,0.35,0.78,0.78,0.65,0.65,0.5535,0.5535,High,High Hazard,0.0,False
-MZ_BLOCK_004,MZ_BLOCK_004,Tlangnuam,Tlangnuam,aizawl,Aizawl,374.86,0.48,0.48,0.35,0.35,0.78,0.78,0.74,0.74,0.644,0.644,High,High Hazard,0.0,False
-MZ_BLOCK_005,MZ_BLOCK_005,Champhai,Champhai,champhai,Champhai,673.53,0.46,0.46,0.35,0.35,0.78,0.78,0.6,0.6,0.576,0.576,High,High Hazard,0.0,False
-MZ_BLOCK_006,MZ_BLOCK_006,Khawbung,Khawbung,champhai,Champhai,701.08,0.16,0.16,0.35,0.35,0.78,0.78,0.86,0.86,0.618,0.618,High,High Hazard,0.0,False
-MZ_BLOCK_007,MZ_BLOCK_007,Hnahthial,Hnahthial,hnahthial,Hnahthial,879.11,0.24,0.24,0.35,0.35,0.78,0.78,0.73,0.73,0.5795,0.5795,High,High Hazard,0.0,False
-MZ_BLOCK_008,MZ_BLOCK_008,Khawzawl,Khawzawl,khawzawl,Khawzawl,1304.16,0.25,0.25,0.35,0.35,0.78,0.78,0.7,0.7,0.5685,0.5685,High,High Hazard,0.0,False
-MZ_BLOCK_009,MZ_BLOCK_009,'N' Thingdawl,'N' Thingdawl,kolasib,Kolasib,1008.41,0.4,0.4,0.35,0.35,0.78,0.78,0.55,0.55,0.5385,0.5385,High,High Hazard,0.0,False
-MZ_BLOCK_010,MZ_BLOCK_010,Bilkhawthlir,Bilkhawthlir,kolasib,Kolasib,517.05,0.62,0.62,0.35,0.35,0.78,0.78,0.5,0.5,0.571,0.571,High,High Hazard,0.0,False
-MZ_BLOCK_011,MZ_BLOCK_011,Chawngte,Chawngte,lawngtlai,Lawngtlai,613.41,0.56,0.56,0.35,0.35,0.78,0.78,0.58,0.58,0.592,0.592,High,High Hazard,0.0,False
-MZ_BLOCK_012,MZ_BLOCK_012,Lawngtlai,Lawngtlai,lawngtlai,Lawngtlai,899.12,0.42,0.42,0.35,0.35,0.78,0.78,0.64,0.64,0.584,0.584,High,High Hazard,0.0,False
-MZ_BLOCK_013,MZ_BLOCK_013,S' Bungtlang,S' Bungtlang,lawngtlai,Lawngtlai,516.13,0.18,0.18,0.35,0.35,0.78,0.78,0.66,0.66,0.533,0.533,High,High Hazard,0.0,False
-MZ_BLOCK_014,MZ_BLOCK_014,Sangau,Sangau,lawngtlai,Lawngtlai,488.36,0.14,0.14,0.35,0.35,0.78,0.78,0.92,0.92,0.64,0.64,High,High Hazard,0.0,False
-MZ_BLOCK_015,MZ_BLOCK_015,Lunglei,Lunglei,lunglei,Lunglei,1307.35,0.32,0.32,0.35,0.35,0.78,0.78,0.69,0.69,0.5815,0.5815,High,High Hazard,0.0,False
-MZ_BLOCK_016,MZ_BLOCK_016,Lungsen,Lungsen,lunglei,Lunglei,1058.25,0.34,0.34,0.35,0.35,0.78,0.78,0.72,0.72,0.6,0.6,High,High Hazard,0.0,False
-MZ_BLOCK_017,MZ_BLOCK_017,West Bunghmun,West Bunghmun,lunglei,Lunglei,1146.97,0.38,0.38,0.35,0.35,0.78,0.78,0.68,0.68,0.592,0.592,High,High Hazard,0.0,False
-MZ_BLOCK_018,MZ_BLOCK_018,Reiek,Reiek,mamit,Mamit,807.96,0.22,0.22,0.35,0.35,0.78,0.78,0.82,0.82,0.615,0.615,High,High Hazard,0.0,False
-MZ_BLOCK_019,MZ_BLOCK_019,West Phaileng,West Phaileng,mamit,Mamit,1004.23,0.36,0.36,0.35,0.35,0.78,0.78,0.75,0.75,0.6185,0.6185,High,High Hazard,0.0,False
-MZ_BLOCK_020,MZ_BLOCK_020,Zawlnuam,Zawlnuam,mamit,Mamit,1059.45,0.58,0.58,0.35,0.35,0.78,0.78,0.48,0.48,0.552,0.552,High,High Hazard,0.0,False
-MZ_BLOCK_021,MZ_BLOCK_021,Saiha,Saiha,saiha,Saiha,363.58,0.33,0.33,0.35,0.35,0.78,0.78,0.62,0.62,0.5525,0.5525,High,High Hazard,0.0,False
-MZ_BLOCK_022,MZ_BLOCK_022,Tuipang,Tuipang,saiha,Saiha,943.35,0.35,0.35,0.35,0.35,0.78,0.78,0.88,0.88,0.6745,0.6745,Very High,Very High Hazard,0.0,False
-MZ_BLOCK_023,MZ_BLOCK_023,Ngopa,Ngopa,saitual,Saitual,777.57,0.2,0.2,0.35,0.35,0.78,0.78,0.78,0.78,0.592,0.592,High,High Hazard,0.0,False
-MZ_BLOCK_024,MZ_BLOCK_024,Phullen,Phullen,saitual,Saitual,575.19,0.19,0.19,0.35,0.35,0.78,0.78,0.79,0.79,0.594,0.594,High,High Hazard,0.0,False
-MZ_BLOCK_025,MZ_BLOCK_025,East Lungdar,East Lungdar,serchhip,Serchhip,343.44,0.3,0.3,0.35,0.35,0.78,0.78,0.76,0.76,0.608,0.608,High,High Hazard,0.0,False
-MZ_BLOCK_026,MZ_BLOCK_026,Serchhip,Serchhip,serchhip,Serchhip,808.58,0.44,0.44,0.35,0.35,0.78,0.78,0.67,0.67,0.6025,0.6025,High,High Hazard,0.0,False
+MZ_BLOCK_001,MZ_BLOCK_001,Aibawk,Aibawk,aizawl,Aizawl,460.52,0.26,0.26,0.0,0.0,0.78,0.78,0.8,0.8,0.606,0.606,High,High Hazard,0.0,False
+MZ_BLOCK_002,MZ_BLOCK_002,Darlawn,Darlawn,aizawl,Aizawl,990.72,0.18,0.18,0.0,0.0,0.78,0.78,0.84,0.84,0.594,0.594,High,High Hazard,0.0,False
+MZ_BLOCK_003,MZ_BLOCK_003,Thingsulthliah,Thingsulthliah,aizawl,Aizawl,717.62,0.28,0.28,0.0,0.0,0.78,0.78,0.65,0.65,0.553,0.553,High,High Hazard,0.0,False
+MZ_BLOCK_004,MZ_BLOCK_004,Tlangnuam,Tlangnuam,aizawl,Aizawl,374.86,0.48,0.48,0.0,0.0,0.78,0.78,0.74,0.74,0.659,0.659,Very High,Very High Hazard,0.0,False
+MZ_BLOCK_005,MZ_BLOCK_005,Champhai,Champhai,champhai,Champhai,673.53,0.46,0.46,0.0,0.0,0.78,0.78,0.6,0.6,0.596,0.596,High,High Hazard,0.0,False
+MZ_BLOCK_006,MZ_BLOCK_006,Khawbung,Khawbung,champhai,Champhai,701.08,0.16,0.16,0.0,0.0,0.78,0.78,0.86,0.86,0.595,0.595,High,High Hazard,0.0,False
+MZ_BLOCK_007,MZ_BLOCK_007,Hnahthial,Hnahthial,hnahthial,Hnahthial,879.11,0.24,0.24,0.0,0.0,0.78,0.78,0.73,0.73,0.571,0.571,High,High Hazard,0.0,False
+MZ_BLOCK_008,MZ_BLOCK_008,Khawzawl,Khawzawl,khawzawl,Khawzawl,1304.16,0.25,0.25,0.0,0.0,0.78,0.78,0.7,0.7,0.5625,0.5625,High,High Hazard,0.0,False
+MZ_BLOCK_009,MZ_BLOCK_009,'N' Thingdawl,'N' Thingdawl,kolasib,Kolasib,1008.41,0.4,0.4,0.0,0.0,0.78,0.78,0.55,0.55,0.555,0.555,High,High Hazard,0.0,False
+MZ_BLOCK_010,MZ_BLOCK_010,Bilkhawthlir,Bilkhawthlir,kolasib,Kolasib,517.05,0.62,0.62,0.0,0.0,0.78,0.78,0.5,0.5,0.612,0.612,High,High Hazard,0.0,False
+MZ_BLOCK_011,MZ_BLOCK_011,Chawngte,Chawngte,lawngtlai,Lawngtlai,613.41,0.56,0.56,0.0,0.0,0.78,0.78,0.58,0.58,0.623,0.623,High,High Hazard,0.0,False
+MZ_BLOCK_012,MZ_BLOCK_012,Lawngtlai,Lawngtlai,lawngtlai,Lawngtlai,899.12,0.42,0.42,0.0,0.0,0.78,0.78,0.64,0.64,0.598,0.598,High,High Hazard,0.0,False
+MZ_BLOCK_013,MZ_BLOCK_013,S' Bungtlang,S' Bungtlang,lawngtlai,Lawngtlai,516.13,0.18,0.18,0.0,0.0,0.78,0.78,0.66,0.66,0.522,0.522,High,High Hazard,0.0,False
+MZ_BLOCK_014,MZ_BLOCK_014,Sangau,Sangau,lawngtlai,Lawngtlai,488.36,0.14,0.14,0.0,0.0,0.78,0.78,0.92,0.92,0.612,0.612,High,High Hazard,0.0,False
+MZ_BLOCK_015,MZ_BLOCK_015,Lunglei,Lunglei,lunglei,Lunglei,1307.35,0.32,0.32,0.0,0.0,0.78,0.78,0.69,0.69,0.583,0.583,High,High Hazard,0.0,False
+MZ_BLOCK_016,MZ_BLOCK_016,Lungsen,Lungsen,lunglei,Lunglei,1058.25,0.34,0.34,0.0,0.0,0.78,0.78,0.72,0.72,0.602,0.602,High,High Hazard,0.0,False
+MZ_BLOCK_017,MZ_BLOCK_017,West Bunghmun,West Bunghmun,lunglei,Lunglei,1146.97,0.38,0.38,0.0,0.0,0.78,0.78,0.68,0.68,0.6,0.6,High,High Hazard,0.0,False
+MZ_BLOCK_018,MZ_BLOCK_018,Reiek,Reiek,mamit,Mamit,807.96,0.22,0.22,0.0,0.0,0.78,0.78,0.82,0.82,0.6,0.6,High,High Hazard,0.0,False
+MZ_BLOCK_019,MZ_BLOCK_019,West Phaileng,West Phaileng,mamit,Mamit,1004.23,0.36,0.36,0.0,0.0,0.78,0.78,0.75,0.75,0.621,0.621,High,High Hazard,0.0,False
+MZ_BLOCK_020,MZ_BLOCK_020,Zawlnuam,Zawlnuam,mamit,Mamit,1059.45,0.58,0.58,0.0,0.0,0.78,0.78,0.48,0.48,0.59,0.59,High,High Hazard,0.0,False
+MZ_BLOCK_021,MZ_BLOCK_021,Saiha,Saiha,saiha,Saiha,363.58,0.33,0.33,0.0,0.0,0.78,0.78,0.62,0.62,0.5585,0.5585,High,High Hazard,0.0,False
+MZ_BLOCK_022,MZ_BLOCK_022,Tuipang,Tuipang,saiha,Saiha,943.35,0.35,0.35,0.0,0.0,0.78,0.78,0.88,0.88,0.6695,0.6695,Very High,Very High Hazard,0.0,False
+MZ_BLOCK_023,MZ_BLOCK_023,Ngopa,Ngopa,saitual,Saitual,777.57,0.2,0.2,0.0,0.0,0.78,0.78,0.78,0.78,0.577,0.577,High,High Hazard,0.0,False
+MZ_BLOCK_024,MZ_BLOCK_024,Phullen,Phullen,saitual,Saitual,575.19,0.19,0.19,0.0,0.0,0.78,0.78,0.79,0.79,0.5775,0.5775,High,High Hazard,0.0,False
+MZ_BLOCK_025,MZ_BLOCK_025,East Lungdar,East Lungdar,serchhip,Serchhip,343.44,0.3,0.3,0.0,0.0,0.78,0.78,0.76,0.76,0.604,0.604,High,High Hazard,0.0,False
+MZ_BLOCK_026,MZ_BLOCK_026,Serchhip,Serchhip,serchhip,Serchhip,808.58,0.44,0.44,0.0,0.0,0.78,0.78,0.67,0.67,0.617,0.617,High,High Hazard,0.0,False

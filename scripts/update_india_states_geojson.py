@@ -18,7 +18,18 @@ op_map = {
     'Sikkim': 'Sikkim',
     'Arunachal Pradesh': 'Arunachal Pradesh',
     'Nagaland': 'Nagaland',
-    'Meghalaya': 'Meghalaya'
+    'Meghalaya': 'Meghalaya',
+    'Mizoram': 'Mizoram',
+    'Himachal Pradesh': 'Himachal Pradesh',
+    'Jammu and Kashmir': 'Jammu and Kashmir',
+    'Jammu & Kashmir': 'Jammu and Kashmir',
+    'Madhya Pradesh': 'Madhya Pradesh',
+    'Gujarat': 'Gujarat',
+    'Kerala': 'Kerala',
+    'Maharashtra': 'Maharashtra',
+    'Haryana': 'Haryana',
+    'Punjab': 'Punjab',
+    'Chhattisgarh': 'Chhattisgarh',
 }
 
 updated_count = 0
@@ -38,6 +49,6 @@ for feat in data['features']:
 print(f"Total features: {len(data['features'])}, Operational states updated: {updated_count}")
 
 with open(path, 'w', encoding='utf-8') as f:
-    json.dump(data, f, indent=2)
+    json.dump(data, f)
 
 print("Updated frontend/public/data/india_states.geojson successfully!")

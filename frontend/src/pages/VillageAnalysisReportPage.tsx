@@ -260,6 +260,10 @@ export const VillageAnalysisReportPage: React.FC<VillageAnalysisReportPageProps>
   const vName = hazardData.village_name;
   const mMandal = hazardData.mandal_name;
   const dDist = hazardData.district_name;
+  const isTN = hazardData.mandal_code?.startsWith('TN_') || hazardData.district_code?.startsWith('TN_');
+  const stateLabel = isTN ? 'Tamil Nadu' : 'Andhra Pradesh';
+  const adminUnitLabel = isTN ? 'Taluk' : 'Mandal';
+  const sdmaLabel = isTN ? 'Tamil Nadu SDMA (TNDMA)' : 'Andhra Pradesh Disaster Management Authority';
   const pop = hazardData.population_total || 0;
   const hh = hazardData.households || 0;
   const area = hazardData.village_area_sqkm || 0;
@@ -319,7 +323,7 @@ export const VillageAnalysisReportPage: React.FC<VillageAnalysisReportPageProps>
 
           <div className="flex items-center gap-3">
             <span className="text-[11px] text-slate-400 font-medium">
-              Official Decision Brief &bull; Andhra Pradesh Disaster Management Authority
+              Official Decision Brief &bull; {sdmaLabel}
             </span>
             <button
               onClick={handlePrint}
@@ -347,7 +351,7 @@ export const VillageAnalysisReportPage: React.FC<VillageAnalysisReportPageProps>
                 {vName.toUpperCase()}
               </h1>
               <p className="text-sm font-semibold text-slate-300 mt-1 print:text-slate-700">
-                {mMandal} Mandal &bull; {dDist} District &bull; Andhra Pradesh
+                {mMandal} {adminUnitLabel} &bull; {dDist} District &bull; {stateLabel}
               </p>
             </div>
 

@@ -1,5 +1,5 @@
 criterion_id,criterion_name,weight,weight_percent,saaty_scale_rationale
-C1,hazard_exposure,0.3500,35.00,Hilly terrain slope/landslide, river valley flash flood, and wind exposure
-C2,demographic_sensitivity,0.2500,25.00,Evacuation assistance sensitivity (Census 2011 PCA children, non-workers, household size)
-C3,capacity_stress,0.2000,20.00,Multi-factor emergency shelter deficit, steep slope safe land scarcity, hospital bed stress
-C4,accessibility_constraint,0.2000,20.00,Mountain road network isolation, seasonal monsoon slide cutoff risk
+C1,hazard_exposure,0.4231,42.31,"Hilly terrain slope/landslide, river valley flash flood, and wind exposure"
+C2,demographic_sensitivity,0.2274,22.74,"Evacuation assistance sensitivity (Census 2011 PCA children, non-workers, household size)"
+C3,capacity_stress,0.2274,22.74,"Multi-factor emergency shelter deficit, steep slope safe land scarcity, hospital bed stress"
+C4,accessibility_constraint,0.1221,12.21,"Mountain road network isolation, seasonal monsoon slide cutoff risk"
