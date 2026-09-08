@@ -346,7 +346,6 @@ class VillageSpatialService:
             if not match.empty:
                 row = match.iloc[0].copy()
                 if "geometry" not in row or pd.isna(row.get("geometry")):
-                    from shapely.geometry import Point
                     cx = row.get("centroid_x_7755", 0.0)
                     cy = row.get("centroid_y_7755", 0.0)
                     row["geometry"] = Point(cx, cy)
@@ -1173,10 +1172,23 @@ class VillageSpatialService:
         # ------------------------------------------------------------------
         if clean_intensity == "high":
             v_mcode = row.get("mandal_code")
-            intra_mandal_villages = b_villages_gdf[
-                (b_villages_gdf["mandal_code"] == v_mcode) &
-                (b_villages_gdf["village_code"] != village_code)
-            ].copy() if b_villages_gdf is not None else gpd.GeoDataFrame()
+            v_mname = row.get("mandal_name")
+            if b_villages_gdf is not None and not b_villages_gdf.empty:
+                intra_mandal_villages = b_villages_gdf[
+                    (b_villages_gdf["mandal_code"] == v_mcode) &
+                    (b_villages_gdf["village_code"] != village_code)
+                ].copy()
+            elif bundle.villages_index is not None and not bundle.villages_index.empty:
+                m_filter = (bundle.villages_index["mandal_code"] == v_mcode) if v_mcode and pd.notna(v_mcode) else (bundle.villages_index["mandal_name"] == v_mname)
+                intra_mandal_villages = bundle.villages_index[
+                    m_filter & (bundle.villages_index["village_code"] != village_code)
+                ].copy()
+                if not intra_mandal_villages.empty:
+                    intra_mandal_villages["geometry"] = [
+                        Point(x, y) for x, y in zip(intra_mandal_villages["centroid_x_7755"], intra_mandal_villages["centroid_y_7755"])
+                    ]
+            else:
+                intra_mandal_villages = gpd.GeoDataFrame()
 
             # Origin mandal row in cap_df
             m_cap_row = pd.DataFrame()
