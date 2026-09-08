@@ -17,17 +17,18 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({ onNavigateToGIS })
   const { currentState } = useActiveState();
   const isTN = currentState.id === 'tamil_nadu';
   const isMZ = currentState.id === 'mizoram';
+  const isHP = currentState.id === 'himachal_pradesh';
 
   const [counts, setCounts] = useState({
     districts: currentState.districtCount,
     mandals: currentState.adminUnitCount,
-    ranked: isMZ ? 26 : (isTN ? 302 : 680),
-    insufficient: (isTN || isMZ) ? 0 : 16,
-    candidateHosts: isMZ ? 5 : (isTN ? 41 : 51),
-    veryHigh: isMZ ? 2 : (isTN ? 30 : 34),
-    high: isMZ ? 5 : (isTN ? 60 : 136),
-    moderate: isMZ ? 11 : (isTN ? 121 : 272),
-    low: isMZ ? 8 : (isTN ? 91 : 238)
+    ranked: isMZ ? 26 : (isTN ? 302 : (isHP ? 172 : 680)),
+    insufficient: (isTN || isMZ || isHP) ? 0 : 16,
+    candidateHosts: isMZ ? 5 : (isTN ? 41 : (isHP ? 15 : 51)),
+    veryHigh: isMZ ? 2 : (isTN ? 30 : (isHP ? 46 : 34)),
+    high: isMZ ? 5 : (isTN ? 60 : (isHP ? 80 : 136)),
+    moderate: isMZ ? 11 : (isTN ? 121 : (isHP ? 46 : 272)),
+    low: isMZ ? 8 : (isTN ? 91 : (isHP ? 0 : 238))
   });
 
   useEffect(() => {

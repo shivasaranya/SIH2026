@@ -266,6 +266,37 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
         mzMarker.on('click', () => onSelectState('Mizoram'));
         mzMarker.addTo(map);
 
+        // Add Himachal Pradesh marker at coordinates [31.90, 77.10]
+        const hpLabelIcon = L.divIcon({
+          className: 'hp-marker-badge',
+          html: `<div style="
+            background: #4338ca;
+            color: #FFFFFF;
+            font-family: inherit;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 5px 10px;
+            border-radius: 9999px;
+            box-shadow: 0 4px 14px rgba(67, 56, 202, 0.4);
+            border: 2px solid #FFFFFF;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            transform: scale(1.02);
+          ">
+            <span style="display:inline-block; width:7px; height:7px; background:#a5b4fc; border-radius:50%; box-shadow: 0 0 6px #a5b4fc;"></span>
+            Himachal Pradesh (Operational)
+          </div>`,
+          iconSize: [200, 28],
+          iconAnchor: [100, 14],
+        });
+
+        const hpMarker = L.marker([31.90, 77.10], { icon: hpLabelIcon, interactive: true });
+        hpMarker.on('click', () => onSelectState('Himachal Pradesh'));
+        hpMarker.addTo(map);
+
         // Force invalidate size after DOM layout settles to ensure full expansion
         setTimeout(() => {
           if (mapInstanceRef.current) {
@@ -310,6 +341,7 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
     { name: 'Andhra Pradesh', status: 'Operational Pilot', isPilot: true },
     { name: 'Tamil Nadu', status: 'Operational State', isPilot: true },
     { name: 'Mizoram', status: 'Operational State', isPilot: true },
+    { name: 'Himachal Pradesh', status: 'Operational State', isPilot: true },
     { name: 'Odisha', status: 'Coming Soon', isPilot: false },
     { name: 'Kerala', status: 'Coming Soon', isPilot: false },
     { name: 'Karnataka', status: 'Coming Soon', isPilot: false },

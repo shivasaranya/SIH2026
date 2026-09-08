@@ -21,6 +21,12 @@ def is_mizoram(state_id: Optional[str]) -> bool:
     clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
     return clean in ["mizoram", "mz", "mizo"]
 
+def is_hp(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["himachal_pradesh", "hp", "himachal"]
+
 class HazardService:
     def __init__(self):
         self._cache: Dict[str, Dict[str, Any]] = {}
@@ -30,6 +36,8 @@ class HazardService:
             return "mz"
         if is_tn(state_id):
             return "tn"
+        if is_hp(state_id):
+            return "hp"
         return "ap"
 
     def _load_data(self, state_id: Optional[str] = "andhra_pradesh"):
@@ -42,6 +50,10 @@ class HazardService:
         if key == "mz":
             csv_path = haz_dir / "mizoram_subdistrict_multi_hazard_exposure.csv"
             geojson_path = haz_dir / "mizoram_subdistrict_multi_hazard_exposure.geojson"
+            surge_included = False
+        elif key == "hp":
+            csv_path = haz_dir / "hp_tehsil_multi_hazard_exposure.csv"
+            geojson_path = haz_dir / "hp_tehsil_multi_hazard_exposure.geojson"
             surge_included = False
         elif key == "tn":
             csv_path = haz_dir / "tn_taluk_multi_hazard_exposure.csv"

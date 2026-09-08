@@ -20,6 +20,7 @@ class SectorHazardDetail(BaseModel):
     wind_basic_speed_ms: Optional[float] = None
     wind_zone: Optional[str] = None
     sector_hazard_score: float = Field(..., description="Normalized composite sector hazard score in [0, 1]")
+    impact_rank: Optional[int] = Field(None, description="Deterministic hazard impact ranking: 1 (highest impact) to 4 (safest)")
     geometry_geojson: Optional[Dict[str, Any]] = Field(None, description="EPSG:4326 GeoJSON Polygon geometry for sector")
 
 class VillageGeometryResponse(BaseModel):
@@ -43,6 +44,11 @@ class VillageHazardResponse(BaseModel):
     district_code: str
     population_total: int
     households: int
+    population_0_6: Optional[int] = None
+    population_sc: Optional[int] = None
+    population_st: Optional[int] = None
+    workers: Optional[int] = None
+    non_workers: Optional[int] = None
     village_area_sqkm: float
     centroid_lat: float
     centroid_lon: float
@@ -88,7 +94,23 @@ class VillageRelocationCandidate(BaseModel):
     closer_candidate_rejection_reason: Optional[str] = None
     rank: int = 1
     proximity_category: str = "REGIONAL FALLBACK"
+    location_tier: Optional[str] = Field(None, description="IN_VILLAGE, SAME_MANDAL, or OUTSIDE_MANDAL")
     rejected_closer_candidates: Optional[List[Dict[str, Any]]] = None
+    capacity_total: Optional[int] = None
+    capacity_available: Optional[int] = None
+    intensity: Optional[str] = None
+    affected_sector: Optional[str] = None
+    facility_id: Optional[str] = None
+    facility_type: Optional[str] = None
+    public_status: Optional[str] = None
+    capacity_status: Optional[str] = None
+    usable_area_sq_m: Optional[float] = None
+    source: Optional[str] = None
+    source_date: Optional[str] = None
+    verification_status: Optional[str] = None
+    distance_from_sector_km: Optional[float] = None
+    latitude: Optional[float] = None
+    longitude: Optional[float] = None
 
 class VillageRelocationResponse(BaseModel):
     village_code: int
@@ -101,3 +123,46 @@ class VillageRelocationResponse(BaseModel):
     governance_disclaimer: str
     nearby_candidate_found: bool = False
     fallback_notice: Optional[str] = None
+    message: Optional[str] = None
+    planning_intensity: Optional[str] = "high"
+    affected_sector: Optional[str] = None
+
+class VillagePoiItem(BaseModel):
+    osm_id: str
+    name: str
+    category: str
+    filter_category: str
+    subcategory: str
+    latitude: float
+    longitude: float
+    is_inside: bool
+    sector: Optional[str] = None
+    sector_priority: Optional[str] = None
+    distance_km: float = 0.0
+    direction: Optional[str] = None
+    source: str = "OpenStreetMap"
+    address: Optional[str] = None
+    opening_hours: Optional[str] = None
+    phone: Optional[str] = None
+    website: Optional[str] = None
+    emergency_verified: bool = False
+
+class VillagePoiCategorySummary(BaseModel):
+    category: str
+    count: int
+
+class VillagePoiResponse(BaseModel):
+    village_code: int
+    village_name: str
+    mandal_name: str
+    district_name: str
+    search_radius_km: float
+    total_pois: int
+    inside_count: int
+    nearby_count: int
+    categories_summary: List[VillagePoiCategorySummary]
+    pois: List[VillagePoiItem]
+    source: str = "OpenStreetMap"
+    retrieval_timestamp: str
+    disclaimer: str
+

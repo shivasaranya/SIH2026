@@ -1,3 +1,11 @@
+import sys
+from pathlib import Path
+
+# Ensure backend directory is in sys.path so 'app' imports work regardless of working directory
+backend_dir = Path(__file__).resolve().parent
+if str(backend_dir) not in sys.path:
+    sys.path.insert(0, str(backend_dir))
+
 import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -34,7 +42,7 @@ async def health():
     return {
         "status": "healthy",
         "service": settings.APP_NAME,
-        "supported_states": ["andhra_pradesh", "tamil_nadu", "mizoram"]
+        "supported_states": ["andhra_pradesh", "tamil_nadu", "mizoram", "himachal_pradesh"]
     }
 
 @app.get("/", summary="Root Index")

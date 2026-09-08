@@ -60,6 +60,12 @@ def is_mizoram(state_id: Optional[str]) -> bool:
     clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
     return clean in ["mizoram", "mz", "mizo"]
 
+def is_hp(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["himachal_pradesh", "hp", "himachal"]
+
 class DemographicsService:
     def __init__(self):
         self._cache: Dict[str, Dict[str, Any]] = {}
@@ -71,6 +77,8 @@ class DemographicsService:
             return "mz"
         if is_tn(state_id):
             return "tn"
+        if is_hp(state_id):
+            return "hp"
         return "ap"
 
     def _load_data(self, state_id: Optional[str] = "andhra_pradesh"):
@@ -86,6 +94,14 @@ class DemographicsService:
             name_col = "current_district_name"
             m_code_col = "block_id"
             m_name_col = "block_name"
+        elif key == "hp":
+            csv_path = settings.PROCESSED_CENSUS_DIR / "hp_tehsil_demographics.csv"
+            state_name = "Himachal Pradesh"
+            state_code = "HP"
+            code_col = "current_district_id"
+            name_col = "current_district_name"
+            m_code_col = "tehsil_id"
+            m_name_col = "tehsil_name"
         elif key == "tn":
             csv_path = settings.PROCESSED_CENSUS_DIR / "tn_taluk_demographics.csv"
             state_name = "Tamil Nadu"

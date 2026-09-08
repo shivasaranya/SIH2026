@@ -11,7 +11,8 @@ export type ActiveTab =
   | 'actions'
   | 'data'
   | 'methodology'
-  | 'village';
+  | 'village'
+  | 'village_report';
 
 
 

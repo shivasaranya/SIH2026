@@ -31,6 +31,12 @@ def is_mizoram(state_id: Optional[str]) -> bool:
     clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
     return clean in ["mizoram", "mz", "mizo"]
 
+def is_hp(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["himachal_pradesh", "hp", "himachal"]
+
 class RelocationService:
     def __init__(self):
         self._cache: Dict[str, Dict[str, Any]] = {}
@@ -40,6 +46,8 @@ class RelocationService:
             return "mz"
         if is_tn(state_id):
             return "tn"
+        if is_hp(state_id):
+            return "hp"
         return "ap"
 
     def _load_data(self, state_id: Optional[str] = "andhra_pradesh"):
@@ -60,6 +68,16 @@ class RelocationService:
             geojson_path = reloc_dir / "mizoram_subdistrict_relocation_priority.geojson"
             if not geojson_path.exists():
                 geojson_path = settings.PROCESSED_ADMIN_DIR / "mizoram_rd_blocks.geojson"
+        elif key == "hp":
+            master_csv = reloc_dir / "hp_tehsil_relocation_priority.csv"
+            factors_csv = reloc_dir / "hp_relocation_factor_contributions.csv"
+            ahp_csv = reloc_dir / "hp_ahp_weights.csv"
+            sum_csv = reloc_dir / "hp_relocation_priority_summary.csv"
+            host_csv = cap_dir / "hp_host_zone_candidates.csv"
+            cap_csv = cap_dir / "hp_tehsil_capacity_adequacy.csv"
+            geojson_path = reloc_dir / "hp_tehsil_relocation_priority.geojson"
+            if not geojson_path.exists():
+                geojson_path = settings.PROCESSED_ADMIN_DIR / "himachal_pradesh_tehsils.geojson"
         elif key == "tn":
             master_csv = reloc_dir / "tn_taluk_relocation_priority.csv"
             factors_csv = reloc_dir / "tn_relocation_factor_contributions.csv"

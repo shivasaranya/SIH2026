@@ -1,11 +1,13 @@
 from typing import Optional
 from fastapi import APIRouter, HTTPException, Query
 from app.services.village_spatial_service import village_spatial_service
+from app.services.poi_service import poi_service
 from app.village.schemas import (
     VillageGeometryResponse,
     VillageHazardResponse,
     VillageScenarioResponse,
     VillageRelocationResponse,
+    VillagePoiResponse,
 )
 
 router = APIRouter(prefix="/village", tags=["Village Spatial Hazard"])
@@ -71,10 +73,32 @@ async def get_village_scenario(
 @router.get("/{village_id}/relocation-centers", response_model=VillageRelocationResponse)
 async def get_village_relocation_centers(
     village_id: int,
-    limit: int = Query(5, ge=1, le=10, description="Max recommended centers to return")
+    limit: int = Query(5, ge=1, le=50, description="Max recommended centers to return"),
+    intensity: str = Query("high", description="Planning intensity: low, high, very_high"),
+    sector: Optional[str] = Query(None, description="Affected sector: NORTH, EAST, SOUTH, WEST"),
+    disaster_type: str = Query("all", description="Disaster filter: flood, cyclone, wind, slope, all")
 ):
     """Retrieve ranked candidate host relocation centers with transparent audit rationale."""
-    res = village_spatial_service.get_relocation_centers(village_id, limit=limit)
+    res = village_spatial_service.get_relocation_centers(
+        village_id,
+        limit=limit,
+        intensity=intensity,
+        sector=sector,
+        disaster_type=disaster_type
+    )
     if res is None:
         raise HTTPException(status_code=404, detail=f"Village with code {village_id} not found.")
     return res
+
+@router.get("/{village_id}/pois", response_model=VillagePoiResponse)
+async def get_village_pois(
+    village_id: int,
+    radius_km: float = Query(3.0, ge=0.5, le=10.0, description="Surrounding search radius in km"),
+    disaster_type: str = Query("all", description="Disaster filter: flood, cyclone, wind, slope, all")
+):
+    """Retrieve real OpenStreetMap Points of Interest (POIs) in and around the selected village."""
+    res = poi_service.get_village_pois(village_id, radius_km=radius_km, disaster_type=disaster_type)
+    if res is None:
+        raise HTTPException(status_code=404, detail=f"Village with code {village_id} not found.")
+    return res
+

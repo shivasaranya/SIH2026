@@ -26,6 +26,7 @@ export const DataMethodologyPage: React.FC<DataMethodologyPageProps> = ({
 
   const isTN = currentState.id === 'tamil_nadu';
   const isMZ = currentState.id === 'mizoram';
+  const isHP = currentState.id === 'himachal_pradesh';
 
   const datasets = [
     {
@@ -41,7 +42,7 @@ export const DataMethodologyPage: React.FC<DataMethodologyPageProps> = ({
       name: `Primary Census Abstract (PCA) ${currentState.adminUnitName} Demographics`,
       source: 'Office of the Registrar General & Census Commissioner, India (ORGI)',
       year: '2011 Census of India',
-      res: isMZ ? '26 R.D. Blocks & 830+ Census Villages' : (isTN ? '302 Taluks & 15,979 Census Villages' : '17,039 Habitations & Villages (Complete AP)'),
+      res: isMZ ? '26 R.D. Blocks & 830+ Census Villages' : (isTN ? '302 Taluks & 15,979 Census Villages' : (isHP ? '172 Tehsils & 17,495 Census Villages' : '17,039 Habitations & Villages (Complete AP)')),
       classification: 'OFFICIAL',
       use: 'Demographic vulnerability proxy: children (0-6), total households, non-workers, and family size congestion.',
       limitations: '2011 decennial enumeration is the latest official habitation-level demographic baseline in India.'
@@ -61,14 +62,14 @@ export const DataMethodologyPage: React.FC<DataMethodologyPageProps> = ({
       year: '1970–2023 (53-Year Archive)',
       res: isMZ ? 'Inland Mountainous Terrain (Zero Direct Landfall Recurrence)' : 'Line Segments with Saffir-Simpson & IMD Wind Speeds',
       classification: 'OFFICIAL SCIENTIFIC',
-      use: isMZ ? 'Verification of inland storm decay; cyclone exposure is not fabricated in strict accordance with Zero Fake Data policy.' : 'Spatial track recurrence density, coastal surge exposure, and 50km/100km wind decay buffers.',
-      limitations: isMZ ? 'Mizoram is an inland mountainous state. Direct tropical cyclone storm surge is non-applicable; terrain slope and landslide hazards are prioritized instead.' : 'Historical storm track frequency and intensity; not a real-time meteorological track forecast.'
+      use: isMZ ? 'Verification of inland storm decay; cyclone exposure is not fabricated in strict accordance with Zero Fake Data policy.' : (isHP ? 'Verification of inland storm decay; HP is landlocked with no direct cyclone exposure. Snow/Avalanche and seismic hazards are prioritized.' : 'Spatial track recurrence density, coastal surge exposure, and 50km/100km wind decay buffers.'),
+      limitations: isMZ ? 'Mizoram is an inland mountainous state. Direct tropical cyclone storm surge is non-applicable; terrain slope and landslide hazards are prioritized instead.' : (isHP ? 'Himachal Pradesh is a landlocked Himalayan state. Cyclone storm surge is non-applicable; landslide, earthquake, GLOF, and snow/avalanche hazards dominate.' : 'Historical storm track frequency and intensity; not a real-time meteorological track forecast.')
     },
     {
       name: 'Basic Design Wind Speeds (IS 875 Part 3 & BMTPC)',
       source: 'Building Materials & Technology Promotion Council (BMTPC) Vulnerability Atlas',
       year: '2019 Revision',
-      res: isMZ ? 'R.D. Block Design Wind Speed Zones (50 m/s, Zone IV)' : 'Mandal-level Design Wind Speed Zones (44, 47, 50, 55 m/s)',
+      res: isMZ ? 'R.D. Block Design Wind Speed Zones (55 m/s, Zone A)' : (isHP ? 'Tehsil Design Wind Speed Zones (39–47 m/s, IS 875 Part 3)' : 'Mandal-level Design Wind Speed Zones (44, 47, 50, 55 m/s)'),
       classification: 'OFFICIAL',
       use: 'Structural wind hazard baseline and cyclonic wind exposure scoring.',
       limitations: 'Regional design wind thresholds; does not account for micro-topographic wind funneling.'
@@ -79,21 +80,21 @@ export const DataMethodologyPage: React.FC<DataMethodologyPageProps> = ({
       year: 'SRTM v3.0 (1 Arc-Second Global)',
       res: '30-meter Spatial Resolution',
       classification: 'OFFICIAL SCIENTIFIC',
-      use: isMZ ? 'Terrain slope calculation (Horn algorithm), elevation profiling, and steep slope landslide constraint (>25°).' : 'Terrain slope calculation (Horn algorithm), elevation profiling, and steep slope constraint (>15°).',
+      use: (isMZ || isHP) ? 'Terrain slope calculation (Horn algorithm), elevation profiling, and steep slope landslide constraint (>25°).' : 'Terrain slope calculation (Horn algorithm), elevation profiling, and steep slope constraint (>15°).',
       limitations: '30m raster grid averages micro-relief; unsuitable for site-level civil engineering excavation.'
     },
     {
-      name: isMZ ? 'Community Shelter & YMA Hall Registry' : 'Multi-Purpose Cyclone Shelter Registry (NCRMP)',
-      source: isMZ ? 'Disaster Management & Rehabilitation (DM&R) Dept Govt of Mizoram & YMA Registers' : 'National Cyclone Risk Mitigation Project (NCRMP) / NDMA / APSDMA',
+      name: isMZ ? 'Community Shelter & YMA Hall Registry' : (isHP ? 'Emergency Shelter & Community Hall Registry' : 'Multi-Purpose Cyclone Shelter Registry (NCRMP)'),
+      source: isMZ ? 'Disaster Management & Rehabilitation (DM&R) Dept Govt of Mizoram & YMA Registers' : (isHP ? 'HP State Disaster Management Authority (HPSDMA) & District DM Plans' : 'National Cyclone Risk Mitigation Project (NCRMP) / NDMA / APSDMA'),
       year: 'Phase I & II Asset Registry',
-      res: isMZ ? 'Designated Community Halls & Emergency Shelters Across Mizoram' : '1,053 Designated Shelters Across AP',
+      res: isMZ ? 'Designated Community Halls & Emergency Shelters Across Mizoram' : (isHP ? 'Designated Shelters, School Buildings & Community Halls Across HP' : '1,053 Designated Shelters Across AP'),
       classification: 'OFFICIAL',
       use: `Verified emergency shelter capacity per ${currentState.adminUnitName.toLowerCase()} and shelter deficit calculations.`,
       limitations: 'Reflects designated asset capacity registry; live real-time shelter availability requires field check.'
     },
     {
       name: 'Road Network Evacuation Corridors & Density',
-      source: isMZ ? 'OpenStreetMap (OSM) Contributors & Mizoram PWD / NHIDCL Road Network' : (isTN ? 'OpenStreetMap (OSM) & TN Highways Department' : 'OpenStreetMap (OSM) Contributors & NRDMS AP State Spatial Road Network'),
+      source: isMZ ? 'OpenStreetMap (OSM) Contributors & Mizoram PWD / NHIDCL Road Network' : (isTN ? 'OpenStreetMap (OSM) & TN Highways Department' : (isHP ? 'OpenStreetMap (OSM) & HP PWD / NHIDCL Road Network' : 'OpenStreetMap (OSM) Contributors & NRDMS AP State Spatial Road Network')),
       year: '2023 Extract',
       res: 'Vector Line Network (National, State, District & Rural Roads)',
       classification: 'OPEN / OFFICIAL HYBRID',
@@ -102,7 +103,7 @@ export const DataMethodologyPage: React.FC<DataMethodologyPageProps> = ({
     },
     {
       name: 'Healthcare Bed Standards & Facilities',
-      source: isMZ ? 'Directorate of Health & Family Welfare Mizoram / IPHS Standards' : 'MoHFW Indian Public Health Standards (IPHS) / UDISE+ / SSDI',
+      source: isMZ ? 'Directorate of Health & Family Welfare Mizoram / IPHS Standards' : (isHP ? 'NHM Himachal Pradesh / IGMC Shimla / District Hospital Records / IPHS Standards' : 'MoHFW Indian Public Health Standards (IPHS) / UDISE+ / SSDI'),
       year: '2022 Guidelines',
       res: 'Normative Standard (1.0 Bed / 1,000 Population)',
       classification: 'NORMATIVE BENCHMARK',
@@ -120,7 +121,7 @@ export const DataMethodologyPage: React.FC<DataMethodologyPageProps> = ({
     },
     {
       name: 'National Remote Sensing Centre (NRSC) Land Use/Land Cover',
-      source: isMZ ? 'ISRO / NRSC Bhuvan / MIRSAC Mizoram LULC' : (isTN ? 'ISRO / NRSC Bhuvan / TNSDMA' : 'ISRO / NRSC Bhuvan / Bhuvan Andhra'),
+      source: isMZ ? 'ISRO / NRSC Bhuvan / MIRSAC Mizoram LULC' : (isTN ? 'ISRO / NRSC Bhuvan / TNSDMA' : (isHP ? 'ISRO / NRSC Bhuvan / HPSCSTE Himachal Pradesh LULC' : 'ISRO / NRSC Bhuvan / Bhuvan Andhra')),
       year: '2022–2023 LULC 1:50,000 Scale',
       res: 'Vector & Raster Land Classification',
       classification: 'OFFICIAL',

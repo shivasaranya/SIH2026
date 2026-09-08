@@ -24,6 +24,12 @@ def is_mizoram(state_id: Optional[str]) -> bool:
     clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
     return clean in ["mizoram", "mz", "mizo"]
 
+def is_hp(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["himachal_pradesh", "hp", "himachal"]
+
 class DecisionService:
     def __init__(self):
         self._cache: Dict[str, Dict[str, Any]] = {}
@@ -33,6 +39,8 @@ class DecisionService:
             return "mz"
         if is_tn(state_id):
             return "tn"
+        if is_hp(state_id):
+            return "hp"
         return "ap"
 
     def _load_data(self, state_id: Optional[str] = "andhra_pradesh"):
@@ -47,6 +55,10 @@ class DecisionService:
             reloc_csv = reloc_dir / "mizoram_subdistrict_relocation_priority.csv"
             cap_csv = cap_dir / "mizoram_subdistrict_capacity_adequacy.csv"
             hosts_csv = cap_dir / "mizoram_host_zone_candidates.csv"
+        elif key == "hp":
+            reloc_csv = reloc_dir / "hp_tehsil_relocation_priority.csv"
+            cap_csv = cap_dir / "hp_tehsil_capacity_adequacy.csv"
+            hosts_csv = cap_dir / "hp_host_zone_candidates.csv"
         elif key == "tn":
             reloc_csv = reloc_dir / "tn_taluk_relocation_priority.csv"
             cap_csv = cap_dir / "tn_taluk_capacity_adequacy.csv"

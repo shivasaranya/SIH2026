@@ -18,5 +18,6 @@ async def health_check():
         "version": settings.VERSION,
         "phase": "PHASE 0 — PROJECT FOUNDATION",
         "pilot_state": settings.PILOT_STATE,
+        "supported_states": ["andhra_pradesh", "tamil_nadu", "mizoram", "himachal_pradesh"],
         "timestamp": datetime.now(timezone.utc).isoformat()
     }

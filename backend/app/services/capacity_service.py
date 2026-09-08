@@ -29,6 +29,12 @@ def is_mizoram(state_id: Optional[str]) -> bool:
     clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
     return clean in ["mizoram", "mz", "mizo"]
 
+def is_hp(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["himachal_pradesh", "hp", "himachal"]
+
 class CapacityService:
     def __init__(self):
         self._cache: Dict[str, Dict[str, Any]] = {}
@@ -38,6 +44,8 @@ class CapacityService:
             return "mz"
         if is_tn(state_id):
             return "tn"
+        if is_hp(state_id):
+            return "hp"
         return "ap"
 
     def _load_data(self, state_id: Optional[str] = "andhra_pradesh"):
@@ -52,6 +60,13 @@ class CapacityService:
             adequacy_csv = cap_dir / "mizoram_subdistrict_capacity_adequacy.csv"
             host_csv = cap_dir / "mizoram_host_zone_candidates.csv"
             adequacy_geojson = cap_dir / "mizoram_subdistrict_capacity_adequacy.geojson"
+            cap_geojson = adequacy_geojson
+            bottlenecks_csv = adequacy_csv
+        elif key == "hp":
+            cap_csv = cap_dir / "hp_tehsil_capacity_components.csv"
+            adequacy_csv = cap_dir / "hp_tehsil_capacity_adequacy.csv"
+            host_csv = cap_dir / "hp_host_zone_candidates.csv"
+            adequacy_geojson = cap_dir / "hp_tehsil_capacity_adequacy.geojson"
             cap_geojson = adequacy_geojson
             bottlenecks_csv = adequacy_csv
         elif key == "tn":

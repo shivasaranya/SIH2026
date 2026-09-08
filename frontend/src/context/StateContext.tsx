@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
-export type StateId = 'andhra_pradesh' | 'tamil_nadu' | 'mizoram';
+export type StateId = 'andhra_pradesh' | 'tamil_nadu' | 'mizoram' | 'himachal_pradesh';
 
 export interface StateConfig {
   id: StateId;
@@ -69,6 +69,23 @@ export const STATE_CONFIGS: Record<StateId, StateConfig> = {
     sdmaName: 'Mizoram Disaster Management Authority (DM&R)',
     tagline: 'Hilly Terrain Landslide & Multi-Hazard Resettlement Decision Platform',
   },
+  himachal_pradesh: {
+    id: 'himachal_pradesh',
+    name: 'Himachal Pradesh',
+    code: 'HP',
+    adminUnitName: 'Tehsil',
+    adminUnitPlural: 'Tehsils',
+    districtCount: 12,
+    adminUnitCount: 172,
+    center: [31.9, 77.1],
+    bounds: [
+      [30.38, 75.56],
+      [33.25, 79.00],
+    ],
+    isCoastal: false,
+    sdmaName: 'Himachal Pradesh State Disaster Management Authority (HPSDMA)',
+    tagline: 'Himalayan Landslide, Earthquake & Multi-Hazard Resettlement Decision Platform',
+  },
 };
 
 interface StateContextType {
@@ -109,6 +126,8 @@ export const StateProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       setStateId('mizoram');
     } else if (lower.includes('tamil')) {
       setStateId('tamil_nadu');
+    } else if (lower.includes('himachal') || lower.includes('hp')) {
+      setStateId('himachal_pradesh');
     } else {
       setStateId('andhra_pradesh');
     }
@@ -122,6 +141,8 @@ export const StateProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         setStateIdState('mizoram');
       } else if (hash.includes('/tn') || hash.includes('/tamil')) {
         setStateIdState('tamil_nadu');
+      } else if (hash.includes('/hp') || hash.includes('/himachal')) {
+        setStateIdState('himachal_pradesh');
       } else if (hash.includes('/ap') || hash.includes('/andhra')) {
         setStateIdState('andhra_pradesh');
       }

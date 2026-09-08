@@ -19,11 +19,12 @@ export const Header: React.FC<HeaderProps> = ({
 
   const isMizoram = pilotState.toLowerCase().includes('mizo');
   const isTN = pilotState.toLowerCase().includes('tamil');
-  const isAP = !isMizoram && !isTN;
-  const stateCode = isMizoram ? 'MZ' : (isTN ? 'TN' : 'AP');
+  const isHP = pilotState.toLowerCase().includes('himachal') || pilotState.toLowerCase() === 'hp';
+  const isAP = !isMizoram && !isTN && !isHP;
+  const stateCode = isMizoram ? 'MZ' : (isTN ? 'TN' : (isHP ? 'HP' : 'AP'));
   const sdmaLabel = isMizoram 
     ? 'Mizoram Disaster Management Authority (DM&R)' 
-    : (isTN ? 'Tamil Nadu SDMA (TNDMA)' : 'Andhra Pradesh SDMA (APSDMA)');
+    : (isTN ? 'Tamil Nadu SDMA (TNDMA)' : (isHP ? 'Himachal Pradesh SDMA (HPSDMA)' : 'Andhra Pradesh SDMA (APSDMA)'));
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -131,6 +132,19 @@ export const Header: React.FC<HeaderProps> = ({
                   <div className="text-[10px] text-slate-400">11 Districts &bull; 26 R.D. Blocks</div>
                 </div>
                 {isMizoram && <Check className="w-3.5 h-3.5 text-indigo-600" />}
+              </button>
+
+              <button
+                onClick={() => handleStateChange('Himachal Pradesh')}
+                className={`w-full text-left px-3 py-1.5 text-xs flex items-center justify-between hover:bg-slate-50 transition ${
+                  isHP ? 'text-indigo-600 font-bold bg-indigo-50/50' : 'text-slate-700'
+                }`}
+              >
+                <div>
+                  <div className="font-semibold">Himachal Pradesh</div>
+                  <div className="text-[10px] text-slate-400">12 Districts &bull; 172 Tehsils</div>
+                </div>
+                {isHP && <Check className="w-3.5 h-3.5 text-indigo-600" />}
               </button>
 
               <div className="border-t border-slate-100 mt-1 pt-1">

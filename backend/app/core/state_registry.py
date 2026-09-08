@@ -38,6 +38,8 @@ def get_state_key(state_id: Optional[str]) -> str:
         return "mizoram"
     if clean in ["tamil_nadu", "tn", "tamilnadu"]:
         return "tamil_nadu"
+    if clean in ["himachal_pradesh", "hp", "himachal"]:
+        return "himachal_pradesh"
     return "andhra_pradesh"
 
 class StateRegistry:
@@ -129,6 +131,32 @@ class StateRegistry:
                 relocation_summary_csv=proc_reloc / "mizoram_relocation_priority_summary.csv",
                 ahp_weights_csv=proc_reloc / "mizoram_ahp_weights.csv",
                 factors_csv=proc_reloc / "mizoram_relocation_factor_contributions.csv"
+            ),
+            "himachal_pradesh": StateMetadata(
+                id="himachal_pradesh",
+                code="HP",
+                name="Himachal Pradesh",
+                admin_unit_name="Tehsil",
+                admin_unit_plural="Tehsils",
+                district_count=12,
+                admin_unit_count=172,
+                is_coastal=False,
+                districts_geojson=proc_admin / "himachal_pradesh_12_districts.geojson",
+                admin_units_geojson=proc_admin / "himachal_pradesh_tehsils.geojson",
+                census_csv=proc_census / "hp_tehsil_demographics.csv",
+                hazard_csv=proc_haz / "hp_tehsil_multi_hazard_exposure.csv",
+                hazard_geojson=proc_haz / "hp_tehsil_multi_hazard_exposure.geojson",
+                vulnerability_csv=proc_vuln / "hp_tehsil_demographic_vulnerability.csv",
+                vulnerability_geojson=proc_vuln / "hp_tehsil_vulnerability.geojson",
+                capacity_components_csv=proc_cap / "hp_tehsil_capacity_components.csv",
+                capacity_adequacy_csv=proc_cap / "hp_tehsil_capacity_adequacy.csv",
+                host_candidates_csv=proc_cap / "hp_host_zone_candidates.csv",
+                capacity_geojson=proc_cap / "hp_tehsil_capacity_adequacy.geojson",
+                relocation_csv=proc_reloc / "hp_tehsil_relocation_priority.csv",
+                relocation_geojson=proc_reloc / "hp_tehsil_relocation_priority.geojson",
+                relocation_summary_csv=proc_reloc / "hp_relocation_priority_summary.csv",
+                ahp_weights_csv=proc_reloc / "hp_ahp_weights.csv",
+                factors_csv=proc_reloc / "hp_relocation_factor_contributions.csv"
             )
         }
 

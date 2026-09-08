@@ -79,7 +79,7 @@ export const SimulationPage: React.FC = () => {
     }
   };
 
-  const rankedCount = currentState.id === 'mizoram' ? 26 : (currentState.id === 'tamil_nadu' ? 302 : 680);
+  const rankedCount = currentState.id === 'mizoram' ? 26 : (currentState.id === 'tamil_nadu' ? 302 : (currentState.id === 'himachal_pradesh' ? 172 : 680));
 
   return (
     <div className="flex-1 overflow-y-auto custom-scrollbar p-3.5 sm:p-5 bg-transparent text-slate-800 select-none">

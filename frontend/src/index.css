@@ -185,3 +185,13 @@ body {
   animation-delay: 800ms;
 }
 
+/* Custom Leaflet DivIcon Wrappers for Village Analysis Map */
+.sector-label-marker,
+.boundary-badge-marker,
+.centroid-marker-container,
+.facility-marker {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
