@@ -52,26 +52,21 @@ PRESETS = [
 ]
 
 
-def is_tn(state_id: Optional[str]) -> bool:
-    if not state_id:
-        return False
-    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
-    return clean in ["tamil_nadu", "tn", "tamilnadu"]
+from app.core.state_config import resolve_state_key, get_state_config
+
 
 class SimulationService:
     def __init__(self):
         self._cache: Dict[str, Dict[str, Any]] = {}
 
-    def _get_state_key(self, state_id: Optional[str]) -> str:
-        return "tn" if is_tn(state_id) else "ap"
-
     def _load_data(self, state_id: Optional[str] = "andhra_pradesh"):
-        key = self._get_state_key(state_id)
+        key = resolve_state_key(state_id)
         if key in self._cache:
             return self._cache[key]
 
+        cfg = get_state_config(state_id)
         reloc_dir = settings.DATA_DIR / "processed" / "relocation"
-        master_csv = reloc_dir / ("tn_taluk_relocation_priority.csv" if key == "tn" else "mandal_relocation_priority.csv")
+        master_csv = reloc_dir / cfg.relocation_csv
         if not master_csv.exists():
             raise FileNotFoundError(f"Relocation priority dataset not found at {master_csv}")
         master_df = pd.read_csv(master_csv)
@@ -438,16 +433,26 @@ class SimulationService:
 
     def get_mandal_simulation(self, mandal_id: str, params: SimulationParameters, state_id: Optional[str] = "andhra_pradesh") -> Optional[MandalSimulationComparisonItem]:
         target = mandal_id.strip().upper()
-        detected_state = "tamil_nadu" if target.startswith("TN_") else state_id
+        if target.startswith("TN_"):
+            detected_state = "tamil_nadu"
+        elif target.startswith("JK_"):
+            detected_state = "jammu_kashmir"
+        elif target.startswith("MP_"):
+            detected_state = "madhya_pradesh"
+        else:
+            detected_state = state_id or "andhra_pradesh"
+
         run_res = self.run_simulation(params, state_id=detected_state)
         for item in run_res.mandals:
             if item.mandal_id.upper() == target or item.mandal_name.upper() == target:
                 return item
-        if detected_state != "tamil_nadu":
-            run_res_tn = self.run_simulation(params, state_id="tamil_nadu")
-            for item in run_res_tn.mandals:
-                if item.mandal_id.upper() == target or item.mandal_name.upper() == target:
-                    return item
+
+        for s_key in ["ap", "tn", "jk", "mp"]:
+            if s_key != resolve_state_key(detected_state):
+                alt_res = self.run_simulation(params, state_id=s_key)
+                for item in alt_res.mandals:
+                    if item.mandal_id.upper() == target or item.mandal_name.upper() == target:
+                        return item
         return None
 
 

@@ -39,8 +39,13 @@ function AppContent() {
     if (
       hash.startsWith('#government/ap') || 
       hash.startsWith('#government/tn') || 
+      hash.startsWith('#government/jk') || 
+      hash.startsWith('#government/mp') || 
       hash.startsWith('#government/andhra') || 
       hash.startsWith('#government/tamil') || 
+      hash.startsWith('#government/jammu') || 
+      hash.startsWith('#government/kashmir') || 
+      hash.startsWith('#government/madhya') || 
       hash === '#government'
     ) {
       return 'government_portal';
@@ -61,6 +66,14 @@ function AppContent() {
         setPortalRole('government_portal');
         setStateId('tamil_nadu');
         setActiveStateId('tamil_nadu');
+      } else if (hash.includes('/jk') || hash.includes('/kashmir') || hash.includes('/jammu')) {
+        setPortalRole('government_portal');
+        setStateId('jammu_kashmir');
+        setActiveStateId('jammu_kashmir');
+      } else if (hash.includes('/mp') || hash.includes('/madhya')) {
+        setPortalRole('government_portal');
+        setStateId('madhya_pradesh');
+        setActiveStateId('madhya_pradesh');
       } else if (hash.includes('/ap') || hash.includes('/andhra') || hash === '#government') {
         setPortalRole('government_portal');
         setStateId('andhra_pradesh');
@@ -95,12 +108,14 @@ function AppContent() {
   // From State Selection: Choose state
   const handleSelectState = (stateName: string) => {
     const isTN = stateName.toLowerCase().includes('tamil');
-    const targetStateId = isTN ? 'tamil_nadu' : 'andhra_pradesh';
+    const isJK = stateName.toLowerCase().includes('kashmir') || stateName.toLowerCase().includes('jammu');
+    const isMP = stateName.toLowerCase().includes('madhya') || stateName.toLowerCase() === 'mp';
+    const targetStateId = isJK ? 'jammu_kashmir' : isTN ? 'tamil_nadu' : isMP ? 'madhya_pradesh' : 'andhra_pradesh';
     selectStateByName(stateName);
     setActiveStateId(targetStateId);
     setSelectedMandalForGIS(null);
     setPortalRole('government_portal');
-    window.location.hash = isTN ? '#government/tn' : '#government/ap';
+    window.location.hash = isJK ? '#government/jk' : isTN ? '#government/tn' : isMP ? '#government/mp' : '#government/ap';
   };
 
   const handleNavigateToStateSelection = () => {

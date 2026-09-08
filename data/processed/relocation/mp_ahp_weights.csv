@@ -1,0 +1,5 @@
+criterion_id,criterion_name,weight,weight_percent,saaty_scale_rationale
+C1,hazard_exposure,0.4231,42.31,Primary physical trigger driving displacement risk
+C2,demographic_sensitivity,0.2274,22.74,Evacuation assistance sensitivity (Census 2011 baseline)
+C3,capacity_stress,0.2274,22.74,Multi-factor in-situ physical resource bottleneck pressure
+C4,accessibility_constraint,0.1222,12.22,Evacuation egress and corridor network constraint proxy

@@ -3,40 +3,29 @@ from pathlib import Path
 from typing import Dict, Any, List, Optional
 import pandas as pd
 from app.core.config import settings
+from app.core.state_config import resolve_state_key, get_state_config
 from app.hazard.schemas import (
     MandalHazardExposureItem,
     MandalExposureListResponse,
     HazardSummaryResponse,
 )
 
-def is_tn(state_id: Optional[str]) -> bool:
-    if not state_id:
-        return False
-    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
-    return clean in ["tamil_nadu", "tn", "tamilnadu"]
 
 class HazardService:
     def __init__(self):
         self._cache: Dict[str, Dict[str, Any]] = {}
 
-    def _get_state_key(self, state_id: Optional[str]) -> str:
-        return "tn" if is_tn(state_id) else "ap"
-
     def _load_data(self, state_id: Optional[str] = "andhra_pradesh"):
-        key = self._get_state_key(state_id)
+        key = resolve_state_key(state_id)
         if key in self._cache:
             return self._cache[key]
 
+        cfg = get_state_config(state_id)
         haz_dir = settings.DATA_DIR / "processed" / "hazard" / "mandal_exposure"
 
-        if key == "tn":
-            csv_path = haz_dir / "tn_taluk_multi_hazard_exposure.csv"
-            geojson_path = haz_dir / "tn_taluk_multi_hazard_exposure.geojson"
-            surge_included = True
-        else:
-            csv_path = haz_dir / "mandal_multi_hazard_exposure.csv"
-            geojson_path = haz_dir / "ap_mandal_multi_hazard_exposure.geojson"
-            surge_included = False
+        csv_path = haz_dir / cfg.hazard_csv
+        geojson_path = haz_dir / cfg.hazard_geojson
+        surge_included = (key == "tn")
 
         if not csv_path.exists():
             raise FileNotFoundError(f"Hazard data not found at {csv_path}")
@@ -62,7 +51,15 @@ class HazardService:
 
     def get_mandal_detail(self, mandal_id: str, state_id: Optional[str] = "andhra_pradesh") -> Optional[MandalHazardExposureItem]:
         target = mandal_id.strip().upper()
-        detected_state = "tamil_nadu" if target.startswith("TN_") else state_id
+        if target.startswith("TN_"):
+            detected_state = "tamil_nadu"
+        elif target.startswith("JK_"):
+            detected_state = "jammu_kashmir"
+        elif target.startswith("MP_"):
+            detected_state = "madhya_pradesh"
+        else:
+            detected_state = state_id or "andhra_pradesh"
+
         data = self._load_data(detected_state)
         df = data["exposure_df"]
 
@@ -70,12 +67,18 @@ class HazardService:
             (df["mandal_id"] == target) |
             (df["mandal_name"].str.upper() == target)
         ]
-        if match.empty and detected_state != "tamil_nadu":
-            tn_data = self._load_data("tamil_nadu")
-            match = tn_data["exposure_df"][
-                (tn_data["exposure_df"]["mandal_id"] == target) |
-                (tn_data["exposure_df"]["mandal_name"].str.upper() == target)
-            ]
+        if match.empty:
+            # Fallback across all cached or registered states
+            for s_key in ["ap", "tn", "jk", "mp"]:
+                if s_key != resolve_state_key(detected_state):
+                    alt_data = self._load_data(s_key)
+                    match = alt_data["exposure_df"][
+                        (alt_data["exposure_df"]["mandal_id"] == target) |
+                        (alt_data["exposure_df"]["mandal_name"].str.upper() == target)
+                    ]
+                    if not match.empty:
+                        break
+
         if match.empty:
             return None
         return MandalHazardExposureItem(**match.iloc[0].to_dict())
@@ -105,8 +108,16 @@ class HazardService:
             },
             top_exposed_mandals=top_5,
             storm_surge_included=data["surge_included"],
-            storm_surge_exclusion_reason="None" if data["surge_included"] else "Open-access coastal surge inundation layer requires dynamic hydrodynamic modeling (e.g. ADCIRC). Historical tropical storm buffers applied as proxy.",
-            methodology_note="Calculated using verified open hazard datasets: JRC Global Surface Water 30m, NOAA IBTrACS Bay of Bengal tracks, BMTPC IS 875 wind speeds, and CGIAR SRTM 90m slope."
+            storm_surge_exclusion_reason="None" if data["surge_included"] else (
+                "Inland mountain territory: Tropical cyclone storm surge not applicable per national disaster guidelines."
+                if resolve_state_key(state_id) == "jk"
+                else (
+                    "Inland central territory: Tropical cyclone storm surge not applicable per national disaster guidelines."
+                    if resolve_state_key(state_id) == "mp"
+                    else "Open-access coastal surge inundation layer requires dynamic hydrodynamic modeling. Historical tropical storm buffers applied as proxy."
+                )
+            ),
+            methodology_note="Calculated using verified open hazard datasets: JRC Global Surface Water 30m, NOAA IBTrACS, BMTPC IS 875 wind speeds, and CGIAR SRTM 90m slope."
         )
 
     def get_geojson(self, district_id: Optional[str] = None, state_id: Optional[str] = "andhra_pradesh") -> Dict[str, Any]:
@@ -128,5 +139,6 @@ class HazardService:
             "type": "FeatureCollection",
             "features": filtered
         }
+
 
 hazard_service = HazardService()

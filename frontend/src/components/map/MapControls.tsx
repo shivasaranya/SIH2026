@@ -236,7 +236,7 @@ export const MapControls: React.FC<MapControlsProps> = ({
           <button
             onClick={onResetView}
             className="flex items-center space-x-1 text-[10px] text-slate-400 hover:text-slate-200 bg-slate-800 px-2 py-1 rounded-lg border border-slate-700 transition"
-            title="Reset to Andhra Pradesh Extent"
+            title="Reset to State Extent"
           >
             <RotateCcw className="w-3 h-3" />
             <span>Reset View</span>

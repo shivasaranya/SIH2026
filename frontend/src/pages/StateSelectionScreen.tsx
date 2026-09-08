@@ -235,6 +235,68 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
         tnMarker.on('click', () => onSelectState('Tamil Nadu'));
         tnMarker.addTo(map);
 
+        // Add prominent Jammu & Kashmir marker label at coordinates [33.77, 75.0]
+        const jkLabelIcon = L.divIcon({
+          className: 'jk-marker-badge',
+          html: `<div style="
+            background: #1E7446;
+            color: #FFFFFF;
+            font-family: inherit;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 5px 10px;
+            border-radius: 9999px;
+            box-shadow: 0 4px 14px rgba(20, 90, 54, 0.4);
+            border: 2px solid #FFFFFF;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            transform: scale(1.02);
+          ">
+            <span style="display:inline-block; width:7px; height:7px; background:#4ade80; border-radius:50%; box-shadow: 0 0 6px #4ade80;"></span>
+            Jammu & Kashmir (Operational)
+          </div>`,
+          iconSize: [180, 28],
+          iconAnchor: [90, 14],
+        });
+
+        const jkMarker = L.marker([33.77, 75.0], { icon: jkLabelIcon, interactive: true });
+        jkMarker.on('click', () => onSelectState('Jammu and Kashmir'));
+        jkMarker.addTo(map);
+
+        // Add prominent Madhya Pradesh marker label at coordinates [23.97, 78.42]
+        const mpLabelIcon = L.divIcon({
+          className: 'mp-marker-badge',
+          html: `<div style="
+            background: #1E7446;
+            color: #FFFFFF;
+            font-family: inherit;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 5px 10px;
+            border-radius: 9999px;
+            box-shadow: 0 4px 14px rgba(20, 90, 54, 0.4);
+            border: 2px solid #FFFFFF;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            transform: scale(1.02);
+          ">
+            <span style="display:inline-block; width:7px; height:7px; background:#4ade80; border-radius:50%; box-shadow: 0 0 6px #4ade80;"></span>
+            Madhya Pradesh (Operational)
+          </div>`,
+          iconSize: [175, 28],
+          iconAnchor: [87, 14],
+        });
+
+        const mpMarker = L.marker([23.97, 78.42], { icon: mpLabelIcon, interactive: true });
+        mpMarker.on('click', () => onSelectState('Madhya Pradesh'));
+        mpMarker.addTo(map);
+
         // Force invalidate size after DOM layout settles to ensure full expansion
         setTimeout(() => {
           if (mapInstanceRef.current) {
@@ -278,6 +340,8 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
   const allStates = [
     { name: 'Andhra Pradesh', status: 'Operational Pilot', isPilot: true },
     { name: 'Tamil Nadu', status: 'Operational State', isPilot: true },
+    { name: 'Jammu and Kashmir', status: 'Operational State', isPilot: true },
+    { name: 'Madhya Pradesh', status: 'Operational State', isPilot: true },
     { name: 'Odisha', status: 'Coming Soon', isPilot: false },
     { name: 'Kerala', status: 'Coming Soon', isPilot: false },
     { name: 'Karnataka', status: 'Coming Soon', isPilot: false },
@@ -414,6 +478,30 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
                   OPERATIONAL
                 </span>
               </div>
+              <div 
+                onClick={() => onSelectState('Jammu and Kashmir')}
+                className="flex items-center justify-between gap-3 cursor-pointer p-1.5 rounded-xl hover:bg-emerald-50 transition border border-transparent hover:border-emerald-200"
+              >
+                <span className="flex items-center gap-2 text-[#145A36] font-bold">
+                  <span className="w-3.5 h-3.5 rounded-md bg-[#1E7446] border border-[#145A36] shadow-sm" />
+                  Jammu & Kashmir
+                </span>
+                <span className="font-mono text-[9px] px-2 py-0.5 rounded-full bg-emerald-100 text-[#145A36] font-extrabold">
+                  OPERATIONAL
+                </span>
+              </div>
+              <div 
+                onClick={() => onSelectState('Madhya Pradesh')}
+                className="flex items-center justify-between gap-3 cursor-pointer p-1.5 rounded-xl hover:bg-emerald-50 transition border border-transparent hover:border-emerald-200"
+              >
+                <span className="flex items-center gap-2 text-[#145A36] font-bold">
+                  <span className="w-3.5 h-3.5 rounded-md bg-[#1E7446] border border-[#145A36] shadow-sm" />
+                  Madhya Pradesh
+                </span>
+                <span className="font-mono text-[9px] px-2 py-0.5 rounded-full bg-emerald-100 text-[#145A36] font-extrabold">
+                  OPERATIONAL
+                </span>
+              </div>
               <div className="flex items-center justify-between gap-3 p-1.5">
                 <span className="flex items-center gap-2 text-slate-500 font-medium">
                   <span className="w-3.5 h-3.5 rounded-md bg-[#ECE8E0] border border-stone-300" />
@@ -476,6 +564,36 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
                     <span className="text-[9px] font-mono px-1.5 py-0.2 bg-emerald-100 text-emerald-800 rounded font-bold">ACTIVE</span>
                   </div>
                   <div className="text-[10px] text-slate-500 mt-0.5">38 Districts &bull; 302 Taluks</div>
+                </div>
+                <ArrowRight className="w-3.5 h-3.5 text-[#1E7446]" />
+              </div>
+
+              {/* Jammu & Kashmir Quick Tile */}
+              <div 
+                onClick={() => onSelectState('Jammu and Kashmir')}
+                className="bg-[#FAF8F3] hover:bg-emerald-50/60 transition cursor-pointer p-2.5 rounded-xl border border-stone-200/60 flex items-center justify-between"
+              >
+                <div>
+                  <div className="text-xs font-bold text-slate-800 flex items-center gap-1.5">
+                    <span>Jammu & Kashmir</span>
+                    <span className="text-[9px] font-mono px-1.5 py-0.2 bg-emerald-100 text-emerald-800 rounded font-bold">ACTIVE</span>
+                  </div>
+                  <div className="text-[10px] text-slate-500 mt-0.5">20 Districts &bull; 197 Tehsils</div>
+                </div>
+                <ArrowRight className="w-3.5 h-3.5 text-[#1E7446]" />
+              </div>
+
+              {/* Madhya Pradesh Quick Tile */}
+              <div 
+                onClick={() => onSelectState('Madhya Pradesh')}
+                className="bg-[#FAF8F3] hover:bg-emerald-50/60 transition cursor-pointer p-2.5 rounded-xl border border-stone-200/60 flex items-center justify-between"
+              >
+                <div>
+                  <div className="text-xs font-bold text-slate-800 flex items-center gap-1.5">
+                    <span>Madhya Pradesh</span>
+                    <span className="text-[9px] font-mono px-1.5 py-0.2 bg-emerald-100 text-emerald-800 rounded font-bold">ACTIVE</span>
+                  </div>
+                  <div className="text-[10px] text-slate-500 mt-0.5">52 Districts &bull; 422 Tehsils</div>
                 </div>
                 <ArrowRight className="w-3.5 h-3.5 text-[#1E7446]" />
               </div>

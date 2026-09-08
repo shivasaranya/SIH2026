@@ -4,6 +4,7 @@ from typing import Dict, Any, List, Optional
 import numpy as np
 import pandas as pd
 from app.core.config import settings
+from app.core.state_config import resolve_state_key, get_state_config
 from app.capacity.schemas import (
     MandalCapacityItem,
     MandalCapacityListResponse,
@@ -17,40 +18,25 @@ from app.capacity.schemas import (
     HostZoneCandidateListResponse,
 )
 
-def is_tn(state_id: Optional[str]) -> bool:
-    if not state_id:
-        return False
-    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
-    return clean in ["tamil_nadu", "tn", "tamilnadu"]
 
 class CapacityService:
     def __init__(self):
         self._cache: Dict[str, Dict[str, Any]] = {}
 
-    def _get_state_key(self, state_id: Optional[str]) -> str:
-        return "tn" if is_tn(state_id) else "ap"
-
     def _load_data(self, state_id: Optional[str] = "andhra_pradesh"):
-        key = self._get_state_key(state_id)
+        key = resolve_state_key(state_id)
         if key in self._cache:
             return self._cache[key]
 
+        cfg = get_state_config(state_id)
         cap_dir = settings.DATA_DIR / "processed" / "capacity"
 
-        if key == "tn":
-            cap_csv = cap_dir / "tn_taluk_capacity_components.csv"
-            adequacy_csv = cap_dir / "tn_taluk_capacity_adequacy.csv"
-            host_csv = cap_dir / "tn_host_zone_candidates.csv"
-            adequacy_geojson = cap_dir / "tn_taluk_capacity_adequacy.geojson"
-            cap_geojson = adequacy_geojson
-            bottlenecks_csv = adequacy_csv
-        else:
-            cap_csv = cap_dir / "mandal_capacity_components.csv"
-            adequacy_csv = cap_dir / "mandal_capacity_adequacy.csv"
-            host_csv = cap_dir / "host_zone_candidates.csv"
-            bottlenecks_csv = cap_dir / "mandal_bottlenecks.csv"
-            cap_geojson = cap_dir / "ap_mandal_capacity_components.geojson"
-            adequacy_geojson = cap_dir / "ap_mandal_capacity_adequacy.geojson"
+        cap_csv = cap_dir / cfg.capacity_components_csv
+        adequacy_csv = cap_dir / cfg.capacity_adequacy_csv
+        host_csv = cap_dir / cfg.host_candidates_csv
+        bottlenecks_csv = cap_dir / cfg.bottlenecks_csv
+        adequacy_geojson = cap_dir / cfg.capacity_adequacy_geojson
+        cap_geojson = (cap_dir / "ap_mandal_capacity_components.geojson") if key == "ap" else adequacy_geojson
 
         if not cap_csv.exists():
             raise FileNotFoundError(f"Capacity data not found at {cap_csv}")
@@ -94,7 +80,15 @@ class CapacityService:
 
     def get_mandal_detail(self, mandal_id: str, state_id: Optional[str] = "andhra_pradesh") -> Optional[MandalCapacityItem]:
         target = mandal_id.strip().upper()
-        detected_state = "tamil_nadu" if target.startswith("TN_") else state_id
+        if target.startswith("TN_"):
+            detected_state = "tamil_nadu"
+        elif target.startswith("JK_"):
+            detected_state = "jammu_kashmir"
+        elif target.startswith("MP_"):
+            detected_state = "madhya_pradesh"
+        else:
+            detected_state = state_id or "andhra_pradesh"
+
         data = self._load_data(detected_state)
         df = data["cap_df"]
 
@@ -102,12 +96,17 @@ class CapacityService:
             (df["mandal_id"] == target) |
             (df["mandal_name"].str.upper() == target)
         ]
-        if match.empty and detected_state != "tamil_nadu":
-            tn_data = self._load_data("tamil_nadu")
-            match = tn_data["cap_df"][
-                (tn_data["cap_df"]["mandal_id"] == target) |
-                (tn_data["cap_df"]["mandal_name"].str.upper() == target)
-            ]
+        if match.empty:
+            for s_key in ["ap", "tn", "jk", "mp"]:
+                if s_key != resolve_state_key(detected_state):
+                    alt_data = self._load_data(s_key)
+                    match = alt_data["cap_df"][
+                        (alt_data["cap_df"]["mandal_id"] == target) |
+                        (alt_data["cap_df"]["mandal_name"].str.upper() == target)
+                    ]
+                    if not match.empty:
+                        break
+
         if match.empty:
             return None
         return MandalCapacityItem(**match.iloc[0].replace({np.nan: None}).to_dict())
@@ -138,17 +137,17 @@ class CapacityService:
             mean_safe_area_fraction=round(float(df["safe_area_fraction"].mean()), 4),
             mean_safe_area_m2_per_person=round(float(df["safe_area_m2_per_person"].mean()), 1),
             top_shelter_mandals=top_shelter,
-            methodology_note="Physical carrying capacity covers verified shelter facilities, IPHS normative health beds, WASH indices, PMGSY road accessibility, and non-steep/non-water safe land.",
+            methodology_note="Physical carrying capacity covers verified shelter facilities, IPHS normative health beds, WASH indices, PMGSY road accessibility, and safe land.",
             classification_standards={
                 "shelter": "NDMA / SDMA verified disaster shelters",
-                "shelter_capacity": "NCRMP Phase-I Multi-Purpose Cyclone Shelters (Direct Engineering Design Persons)",
+                "shelter_capacity": "Multi-Purpose Shelters (Direct Engineering Design Persons)",
                 "school_emergency_space": "UDISE+ School Infrastructure (Unavailable in open catalog; not fabricated)",
                 "health": "IPHS Community Health Standard baseline",
-                "health_capacity": "Normative IPHS 2022 Facility Bed Baseline (PHC: 6, CHC: 30, SDH: 100, DH: 300)",
+                "health_capacity": "Normative IPHS Facility Bed Baseline (PHC, CHC, SDH, DH)",
                 "wash": "JJM & SBM-G administrative indicators",
                 "water_sanitation": "JJM Functional Tap Connections (%) & SBM-G Sanitation (Infrastructure Adequacy Proxy)",
                 "road": "PMGSY road network clearance",
-                "evacuation_road": "OpenStreetMap Highway Density km/km² (Evacuation Accessibility Proxy; NOT vehicle flow capacity)",
+                "evacuation_road": "Highway Density km/km² (Evacuation Accessibility Proxy; NOT vehicle flow capacity)",
                 "safe_area": "Non-inundation / non-steep land fraction",
                 "safe_habitable_area": "JRC GSW Flood + SRTM Slope Exclusion m²/person (Spatial Safety Constraint vs. Sphere Standard)"
             }
@@ -203,7 +202,15 @@ class CapacityService:
 
     def get_adequacy_mandal_detail(self, mandal_id: str, state_id: Optional[str] = "andhra_pradesh") -> Optional[MandalCapacityAdequacyItem]:
         target = mandal_id.strip().upper()
-        detected_state = "tamil_nadu" if target.startswith("TN_") else state_id
+        if target.startswith("TN_"):
+            detected_state = "tamil_nadu"
+        elif target.startswith("JK_"):
+            detected_state = "jammu_kashmir"
+        elif target.startswith("MP_"):
+            detected_state = "madhya_pradesh"
+        else:
+            detected_state = state_id or "andhra_pradesh"
+
         data = self._load_data(detected_state)
         df = data["adequacy_df"]
 
@@ -211,12 +218,17 @@ class CapacityService:
             (df["mandal_id"] == target) |
             (df["mandal_name"].str.upper() == target)
         ]
-        if match.empty and detected_state != "tamil_nadu":
-            tn_data = self._load_data("tamil_nadu")
-            match = tn_data["adequacy_df"][
-                (tn_data["adequacy_df"]["mandal_id"] == target) |
-                (tn_data["adequacy_df"]["mandal_name"].str.upper() == target)
-            ]
+        if match.empty:
+            for s_key in ["ap", "tn", "jk", "mp"]:
+                if s_key != resolve_state_key(detected_state):
+                    alt_data = self._load_data(s_key)
+                    match = alt_data["adequacy_df"][
+                        (alt_data["adequacy_df"]["mandal_id"] == target) |
+                        (alt_data["adequacy_df"]["mandal_name"].str.upper() == target)
+                    ]
+                    if not match.empty:
+                        break
+
         if match.empty:
             return None
         return MandalCapacityAdequacyItem(**match.iloc[0].replace({np.nan: None}).to_dict())
@@ -278,7 +290,15 @@ class CapacityService:
 
     def get_host_zones(self, mandal_id: str, state_id: Optional[str] = "andhra_pradesh") -> HostZoneCandidateListResponse:
         target = mandal_id.strip().upper()
-        detected_state = "tamil_nadu" if (target.startswith("TN_") or state_id == "tamil_nadu") else state_id
+        if target.startswith("TN_"):
+            detected_state = "tamil_nadu"
+        elif target.startswith("JK_"):
+            detected_state = "jammu_kashmir"
+        elif target.startswith("MP_"):
+            detected_state = "madhya_pradesh"
+        else:
+            detected_state = state_id or "andhra_pradesh"
+
         data = self._load_data(detected_state)
         df = data["host_df"]
 
@@ -297,12 +317,16 @@ class CapacityService:
             (df["source_mandal_id"] == target) |
             (df["source_mandal_name"].str.upper() == target)
         ]
-        if match.empty and detected_state != "tamil_nadu":
-            tn_data = self._load_data("tamil_nadu")
-            match = tn_data["host_df"][
-                (tn_data["host_df"]["source_mandal_id"] == target) |
-                (tn_data["host_df"]["source_mandal_name"].str.upper() == target)
-            ]
+        if match.empty:
+            for s_key in ["ap", "tn", "jk", "mp"]:
+                if s_key != resolve_state_key(detected_state):
+                    alt_data = self._load_data(s_key)
+                    match = alt_data["host_df"][
+                        (alt_data["host_df"]["source_mandal_id"] == target) |
+                        (alt_data["host_df"]["source_mandal_name"].str.upper() == target)
+                    ]
+                    if not match.empty:
+                        break
 
         records = match.replace({np.nan: None}).to_dict(orient="records")
         items = [HostZoneCandidateItem(**row) for row in records]
@@ -312,5 +336,6 @@ class CapacityService:
             candidates=items,
             governance_disclaimer="CANDIDATE HOST ZONE — HUMAN REVIEW REQUIRED. Distances computed in EPSG:7755 (India Albers Equal Area)."
         )
+
 
 capacity_service = CapacityService()

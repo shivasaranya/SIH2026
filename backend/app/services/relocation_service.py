@@ -19,43 +19,27 @@ from app.capacity.schemas import (
     HostZoneCandidateListResponse,
 )
 
-def is_tn(state_id: Optional[str]) -> bool:
-    if not state_id:
-        return False
-    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
-    return clean in ["tamil_nadu", "tn", "tamilnadu"]
+from app.core.state_config import resolve_state_key, get_state_config
 
 class RelocationService:
     def __init__(self):
         self._cache: Dict[str, Dict[str, Any]] = {}
 
-    def _get_state_key(self, state_id: Optional[str]) -> str:
-        return "tn" if is_tn(state_id) else "ap"
-
     def _load_data(self, state_id: Optional[str] = "andhra_pradesh"):
-        key = self._get_state_key(state_id)
+        key = resolve_state_key(state_id)
         if key in self._cache:
             return self._cache[key]
 
+        cfg = get_state_config(state_id)
         reloc_dir = settings.DATA_DIR / "processed" / "relocation"
         cap_dir = settings.DATA_DIR / "processed" / "capacity"
 
-        if key == "tn":
-            master_csv = reloc_dir / "tn_taluk_relocation_priority.csv"
-            factors_csv = reloc_dir / "tn_relocation_factor_contributions.csv"
-            ahp_csv = reloc_dir / "tn_ahp_weights.csv"
-            sum_csv = reloc_dir / "tn_relocation_priority_summary.csv"
-            host_csv = cap_dir / "tn_host_zone_candidates.csv"
-            geojson_path = reloc_dir / "tn_taluk_relocation_priority.geojson"
-            if not geojson_path.exists():
-                geojson_path = settings.PROCESSED_ADMIN_DIR / "tamil_nadu_taluks.geojson"
-        else:
-            master_csv = reloc_dir / "mandal_relocation_priority.csv"
-            factors_csv = reloc_dir / "relocation_factor_contributions.csv"
-            ahp_csv = reloc_dir / "ahp_weights.csv"
-            sum_csv = reloc_dir / "relocation_priority_summary.csv"
-            host_csv = cap_dir / "host_zone_candidates.csv"
-            geojson_path = reloc_dir / "ap_mandal_relocation_priority.geojson"
+        master_csv = reloc_dir / cfg.relocation_csv
+        factors_csv = reloc_dir / cfg.relocation_factors_csv
+        ahp_csv = reloc_dir / cfg.ahp_weights_csv
+        sum_csv = reloc_dir / cfg.relocation_summary_csv
+        host_csv = cap_dir / cfg.host_candidates_csv
+        geojson_path = reloc_dir / cfg.relocation_geojson
 
         if not master_csv.exists():
             raise FileNotFoundError(f"Relocation priority dataset not found at {master_csv}")
@@ -99,7 +83,14 @@ class RelocationService:
     def get_mandal_detail(self, mandal_id: str, state_id: Optional[str] = "andhra_pradesh") -> Optional[MandalRelocationItem]:
         # Search specified state or auto-detect based on ID prefix
         target = mandal_id.strip().upper()
-        detected_state = "tamil_nadu" if target.startswith("TN_") else state_id
+        if target.startswith("TN_"):
+            detected_state = "tamil_nadu"
+        elif target.startswith("JK_"):
+            detected_state = "jammu_kashmir"
+        elif target.startswith("MP_"):
+            detected_state = "madhya_pradesh"
+        else:
+            detected_state = state_id or "andhra_pradesh"
         data = self._load_data(detected_state)
         df = data["reloc_df"]
 
@@ -107,13 +98,16 @@ class RelocationService:
             (df["mandal_id"] == target) |
             (df["mandal_name"].str.upper() == target)
         ]
-        if match.empty and detected_state != "tamil_nadu":
-            # Fallback search in TN
-            tn_data = self._load_data("tamil_nadu")
-            match = tn_data["reloc_df"][
-                (tn_data["reloc_df"]["mandal_id"] == target) |
-                (tn_data["reloc_df"]["mandal_name"].str.upper() == target)
-            ]
+        if match.empty:
+            for s_key in ["ap", "tn", "jk", "mp"]:
+                if s_key != resolve_state_key(detected_state):
+                    alt_data = self._load_data(s_key)
+                    match = alt_data["reloc_df"][
+                        (alt_data["reloc_df"]["mandal_id"] == target) |
+                        (alt_data["reloc_df"]["mandal_name"].str.upper() == target)
+                    ]
+                    if not match.empty:
+                        break
         if match.empty:
             return None
         row_dict = match.iloc[0].replace({np.nan: None}).to_dict()
@@ -221,21 +215,33 @@ class RelocationService:
 
     def get_host_zones_for_mandal(self, mandal_id: str, state_id: Optional[str] = "andhra_pradesh") -> HostZoneCandidateListResponse:
         target = mandal_id.strip().upper()
-        detected_state = "tamil_nadu" if target.startswith("TN_") else state_id
+        if target.startswith("TN_"):
+            detected_state = "tamil_nadu"
+        elif target.startswith("JK_"):
+            detected_state = "jammu_kashmir"
+        elif target.startswith("MP_"):
+            detected_state = "madhya_pradesh"
+        else:
+            detected_state = state_id or "andhra_pradesh"
         data = self._load_data(detected_state)
         host_df = data["host_df"]
 
         match = host_df[
             (host_df["source_mandal_id"] == target) |
             (host_df["source_mandal_name"].str.upper() == target)
-        ]
+        ] if host_df is not None else pd.DataFrame()
 
-        if match.empty and detected_state != "tamil_nadu":
-            tn_data = self._load_data("tamil_nadu")
-            match = tn_data["host_df"][
-                (tn_data["host_df"]["source_mandal_id"] == target) |
-                (tn_data["host_df"]["source_mandal_name"].str.upper() == target)
-            ]
+        if match.empty:
+            for s_key in ["ap", "tn", "jk", "mp"]:
+                if s_key != resolve_state_key(detected_state):
+                    alt_data = self._load_data(s_key)
+                    if alt_data["host_df"] is not None:
+                        match = alt_data["host_df"][
+                            (alt_data["host_df"]["source_mandal_id"] == target) |
+                            (alt_data["host_df"]["source_mandal_name"].str.upper() == target)
+                        ]
+                        if not match.empty:
+                            break
 
         records = match.replace({np.nan: None}).to_dict(orient="records")
         items = [HostZoneCandidateItem(**row) for row in records]

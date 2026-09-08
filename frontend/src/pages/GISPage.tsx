@@ -337,7 +337,7 @@ export const GISPage: React.FC<GISPageProps> = ({
     },
     {
       id: 'safe_area_fraction' as DemographicMetricKey,
-      label: `Candidate Host Locations (${currentState.id === 'tamil_nadu' ? 38 : 51})`,
+      label: `Candidate Host Locations (${currentState.id === 'jammu_kashmir' ? 8 : currentState.id === 'tamil_nadu' ? 38 : 51})`,
       sub: 'Safe Habitable Area Fraction',
       icon: ShieldCheck,
       color: 'text-purple-500',
@@ -490,7 +490,7 @@ export const GISPage: React.FC<GISPageProps> = ({
               <button
                 onClick={handleResetView}
                 className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white hover:bg-slate-50 text-slate-700 border border-slate-200/90 text-xs font-semibold shadow-2xs transition"
-                title="Reset Map View to Full Andhra Pradesh"
+                title={`Reset Map View to Full ${currentState.name}`}
               >
                 <RotateCcw className="w-3.5 h-3.5 text-indigo-600" />
                 <span className="hidden sm:inline">Reset View</span>

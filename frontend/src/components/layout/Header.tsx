@@ -17,9 +17,11 @@ export const Header: React.FC<HeaderProps> = ({
   const [showStateDropdown, setShowStateDropdown] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
+  const isJK = pilotState.toLowerCase().includes('kashmir') || pilotState.toLowerCase().includes('jammu');
   const isTN = pilotState.toLowerCase().includes('tamil');
-  const stateCode = isTN ? 'TN' : 'AP';
-  const sdmaLabel = isTN ? 'Tamil Nadu SDMA (TNDMA)' : 'Andhra Pradesh SDMA (APSDMA)';
+  const isMP = pilotState.toLowerCase().includes('madhya') || pilotState.toLowerCase() === 'mp';
+  const stateCode = isJK ? 'JK' : isTN ? 'TN' : isMP ? 'MP' : 'AP';
+  const sdmaLabel = isJK ? 'Jammu & Kashmir SDMA (JKDMA)' : isTN ? 'Tamil Nadu SDMA (TNDMA)' : isMP ? 'Madhya Pradesh SDMA (MPSDMA)' : 'Andhra Pradesh SDMA (APSDMA)';
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -93,14 +95,14 @@ export const Header: React.FC<HeaderProps> = ({
               <button
                 onClick={() => handleStateChange('Andhra Pradesh')}
                 className={`w-full text-left px-3 py-1.5 text-xs flex items-center justify-between hover:bg-slate-50 transition ${
-                  !isTN ? 'text-indigo-600 font-bold bg-indigo-50/50' : 'text-slate-700'
+                  !isTN && !isJK && !isMP ? 'text-indigo-600 font-bold bg-indigo-50/50' : 'text-slate-700'
                 }`}
               >
                 <div>
                   <div className="font-semibold">Andhra Pradesh</div>
                   <div className="text-[10px] text-slate-400">26 Districts &bull; 696 Mandals</div>
                 </div>
-                {!isTN && <Check className="w-3.5 h-3.5 text-indigo-600" />}
+                {!isTN && !isJK && !isMP && <Check className="w-3.5 h-3.5 text-indigo-600" />}
               </button>
 
               <button
@@ -114,6 +116,32 @@ export const Header: React.FC<HeaderProps> = ({
                   <div className="text-[10px] text-slate-400">38 Districts &bull; 302 Taluks</div>
                 </div>
                 {isTN && <Check className="w-3.5 h-3.5 text-indigo-600" />}
+              </button>
+
+              <button
+                onClick={() => handleStateChange('Jammu and Kashmir')}
+                className={`w-full text-left px-3 py-1.5 text-xs flex items-center justify-between hover:bg-slate-50 transition ${
+                  isJK ? 'text-indigo-600 font-bold bg-indigo-50/50' : 'text-slate-700'
+                }`}
+              >
+                <div>
+                  <div className="font-semibold">Jammu & Kashmir</div>
+                  <div className="text-[10px] text-slate-400">20 Districts &bull; 197 Tehsils</div>
+                </div>
+                {isJK && <Check className="w-3.5 h-3.5 text-indigo-600" />}
+              </button>
+
+              <button
+                onClick={() => handleStateChange('Madhya Pradesh')}
+                className={`w-full text-left px-3 py-1.5 text-xs flex items-center justify-between hover:bg-slate-50 transition ${
+                  isMP ? 'text-indigo-600 font-bold bg-indigo-50/50' : 'text-slate-700'
+                }`}
+              >
+                <div>
+                  <div className="font-semibold">Madhya Pradesh</div>
+                  <div className="text-[10px] text-slate-400">52 Districts &bull; 422 Tehsils</div>
+                </div>
+                {isMP && <Check className="w-3.5 h-3.5 text-indigo-600" />}
               </button>
 
               <div className="border-t border-slate-100 mt-1 pt-1">

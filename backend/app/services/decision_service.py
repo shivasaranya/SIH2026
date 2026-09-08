@@ -12,38 +12,38 @@ from app.decision.schemas import (
 )
 
 
-def is_tn(state_id: Optional[str]) -> bool:
-    if not state_id:
-        return False
-    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
-    return clean in ["tamil_nadu", "tn", "tamilnadu"]
+from app.core.state_config import resolve_state_key, get_state_config
+
 
 class DecisionService:
     def __init__(self):
         self._cache: Dict[str, Dict[str, Any]] = {}
 
-    def _get_state_key(self, state_id: Optional[str]) -> str:
-        return "tn" if is_tn(state_id) else "ap"
+    def _detect_state(self, mandal_id: str, state_id: Optional[str] = None) -> str:
+        target = mandal_id.strip().upper()
+        if target.startswith("TN_"):
+            return "tamil_nadu"
+        if target.startswith("JK_"):
+            return "jammu_kashmir"
+        if target.startswith("MP_"):
+            return "madhya_pradesh"
+        return state_id or "andhra_pradesh"
 
     def _load_data(self, state_id: Optional[str] = "andhra_pradesh"):
-        key = self._get_state_key(state_id)
+        key = resolve_state_key(state_id)
         if key in self._cache:
             return self._cache[key]
 
+        cfg = get_state_config(state_id)
         reloc_dir = settings.DATA_DIR / "processed" / "relocation"
         cap_dir = settings.DATA_DIR / "processed" / "capacity"
 
-        if key == "tn":
-            reloc_csv = reloc_dir / "tn_taluk_relocation_priority.csv"
-            cap_csv = cap_dir / "tn_taluk_capacity_adequacy.csv"
-            hosts_csv = cap_dir / "tn_host_zone_candidates.csv"
-        else:
-            reloc_csv = reloc_dir / "mandal_relocation_priority.csv"
-            cap_csv = cap_dir / "mandal_capacity_adequacy.csv"
-            hosts_csv = cap_dir / "host_zone_candidates.csv"
+        reloc_csv = reloc_dir / cfg.relocation_csv
+        cap_csv = cap_dir / cfg.capacity_adequacy_csv
+        hosts_csv = cap_dir / cfg.host_candidates_csv
 
         if not reloc_csv.exists() or not cap_csv.exists() or not hosts_csv.exists():
-            raise FileNotFoundError("Required processed datasets (relocation, capacity, host_candidates) not found.")
+            raise FileNotFoundError(f"Required processed datasets (relocation, capacity, host_candidates) not found for {key}.")
 
         data = {
             "reloc_df": pd.read_csv(reloc_csv),
@@ -60,19 +60,26 @@ class DecisionService:
             return match.iloc[0]
         return None
 
-    def get_capacity_gap_assessment(self, mandal_id: str, state_id: Optional[str] = "andhra_pradesh") -> Optional[CapacityGapAssessment]:
-        target = mandal_id.strip().upper()
-        detected_state = "tamil_nadu" if target.startswith("TN_") else state_id
-        data = self._load_data(detected_state)
+    def _find_mandal_pair(self, mandal_id: str, state_id: Optional[str] = "andhra_pradesh"):
+        det_state = self._detect_state(mandal_id, state_id)
+        data = self._load_data(det_state)
         r_row = self._find_mandal(data["reloc_df"], mandal_id)
         c_row = self._find_mandal(data["cap_df"], mandal_id)
+        if r_row is not None and c_row is not None:
+            return r_row, c_row, det_state
+        for s_key in ["ap", "tn", "jk", "mp"]:
+            if s_key != resolve_state_key(det_state):
+                alt_data = self._load_data(s_key)
+                r = self._find_mandal(alt_data["reloc_df"], mandal_id)
+                c = self._find_mandal(alt_data["cap_df"], mandal_id)
+                if r is not None and c is not None:
+                    return r, c, s_key
+        return None, None, det_state
 
-        if (r_row is None or c_row is None) and detected_state != "tamil_nadu":
-            data_tn = self._load_data("tamil_nadu")
-            r_row = self._find_mandal(data_tn["reloc_df"], mandal_id)
-            c_row = self._find_mandal(data_tn["cap_df"], mandal_id)
-
+    def get_capacity_gap_assessment(self, mandal_id: str, state_id: Optional[str] = "andhra_pradesh") -> Optional[CapacityGapAssessment]:
+        r_row, c_row, det_state = self._find_mandal_pair(mandal_id, state_id)
         if r_row is None or c_row is None:
+            return None
             return None
 
         pop = int(c_row.get("population_total", 0))
@@ -190,20 +197,11 @@ class DecisionService:
         )
 
     def get_action_plan(self, mandal_id: str, state_id: Optional[str] = "andhra_pradesh") -> Optional[ActionPlanResponse]:
-        target = mandal_id.strip().upper()
-        detected_state = "tamil_nadu" if target.startswith("TN_") else state_id
-        data = self._load_data(detected_state)
-        r_row = self._find_mandal(data["reloc_df"], mandal_id)
-        c_row = self._find_mandal(data["cap_df"], mandal_id)
-
-        if (r_row is None or c_row is None) and detected_state != "tamil_nadu":
-            data_tn = self._load_data("tamil_nadu")
-            r_row = self._find_mandal(data_tn["reloc_df"], mandal_id)
-            c_row = self._find_mandal(data_tn["cap_df"], mandal_id)
-
+        r_row, c_row, det_state = self._find_mandal_pair(mandal_id, state_id)
         if r_row is None or c_row is None:
             return None
 
+        cfg = get_state_config(det_state)
         m_id = str(r_row.get("mandal_id", mandal_id))
         m_name = str(r_row.get("mandal_name", "Unknown"))
         d_name = str(r_row.get("current_district_name", "Unknown"))
@@ -231,7 +229,7 @@ class DecisionService:
                     description=f"Deploy local R&B engineers to verify culverts, bridge clearances, and unpaved evacuation routes in {m_name}.",
                     trigger_condition=f"Accessibility constraint ({acc_constraint:.2f}) exceeds threshold 0.30.",
                     priority_level="CRITICAL" if reloc_cat == "VERY HIGH" else "HIGH",
-                    responsible_agency="AP Roads & Buildings Department / District Police"
+                    responsible_agency=f"{cfg.state_code} Roads & Buildings Department / District Police"
                 )
             )
             short_term.append(
@@ -243,7 +241,7 @@ class DecisionService:
                     description="Prioritize elevating flood-prone road causeways connecting low-lying habitations to major state highways.",
                     trigger_condition="High road vulnerability to seasonal inundation.",
                     priority_level="HIGH",
-                    responsible_agency="AP Panchayat Raj & Rural Development"
+                    responsible_agency=f"{cfg.state_code} Rural Development & Panchayati Raj"
                 )
             )
 
@@ -258,7 +256,7 @@ class DecisionService:
                     description=f"Inspect backup generator power, emergency food rations, and sanitation supplies in designated cyclone/flood shelters.",
                     trigger_condition=f"Hazard exposure index ({haz_exp:.2f}) exceeds high risk threshold 0.40.",
                     priority_level="CRITICAL",
-                    responsible_agency="APSDMA / Revenue Department"
+                    responsible_agency=f"{cfg.state_code}DMA / Revenue Department"
                 )
             )
 
@@ -289,7 +287,7 @@ class DecisionService:
                     description="Establish pre-identified medical referral corridors to secondary care hospitals in adjacent safer mandals.",
                     trigger_condition="Primary physical constraint is Health Bed & Facility Adequacy.",
                     priority_level="HIGH",
-                    responsible_agency="AP Health, Medical & Family Welfare Department"
+                    responsible_agency=f"{cfg.state_code} Health & Medical Education Department"
                 )
             )
         elif "SHELTER" in primary_bot.upper():
@@ -302,7 +300,7 @@ class DecisionService:
                     description="Conduct structural audits of robust concrete institutional buildings to supplement verified shelter capacity.",
                     trigger_condition="Primary physical constraint is Designated Cyclone/Flood Shelter Capacity.",
                     priority_level="HIGH",
-                    responsible_agency="School Education Department / NCRMP Cell"
+                    responsible_agency=f"School Education Department / {cfg.state_code}DMA Cell"
                 )
             )
         elif "WATER" in primary_bot.upper() or "SANITATION" in primary_bot.upper():
@@ -315,7 +313,7 @@ class DecisionService:
                     description="Secure elevated water storage tanks and distribute chlorine water purification tablets to flood-exposed habitations.",
                     trigger_condition="Primary physical constraint is Water Access and Sanitation Coverage.",
                     priority_level="HIGH",
-                    responsible_agency="Rural Water Supply & Sanitation (RWS&S)"
+                    responsible_agency=f"Jal Shakti / Rural Water Supply & Sanitation ({cfg.state_code})"
                 )
             )
 
@@ -379,19 +377,24 @@ class DecisionService:
         )
 
     def compare_source_and_host(self, source_id: str, host_id: str, state_id: Optional[str] = "andhra_pradesh") -> Optional[SourceHostComparisonResponse]:
-        detected_state = "tamil_nadu" if (source_id.strip().upper().startswith("TN_") or host_id.strip().upper().startswith("TN_")) else state_id
-        data = self._load_data(detected_state)
+        det_state = self._detect_state(source_id, state_id)
+        data = self._load_data(det_state)
         s_reloc = self._find_mandal(data["reloc_df"], source_id)
         s_cap = self._find_mandal(data["cap_df"], source_id)
         h_reloc = self._find_mandal(data["reloc_df"], host_id)
         h_cap = self._find_mandal(data["cap_df"], host_id)
 
-        if (s_reloc is None or s_cap is None or h_reloc is None or h_cap is None) and detected_state != "tamil_nadu":
-            data_tn = self._load_data("tamil_nadu")
-            s_reloc = self._find_mandal(data_tn["reloc_df"], source_id) or s_reloc
-            s_cap = self._find_mandal(data_tn["cap_df"], source_id) or s_cap
-            h_reloc = self._find_mandal(data_tn["reloc_df"], host_id) or h_reloc
-            h_cap = self._find_mandal(data_tn["cap_df"], host_id) or h_cap
+        if s_reloc is None or s_cap is None or h_reloc is None or h_cap is None:
+            for s_key in ["ap", "tn", "jk"]:
+                if s_key != resolve_state_key(det_state):
+                    alt_data = self._load_data(s_key)
+                    s_reloc = s_reloc if s_reloc is not None else self._find_mandal(alt_data["reloc_df"], source_id)
+                    s_cap = s_cap if s_cap is not None else self._find_mandal(alt_data["cap_df"], source_id)
+                    h_reloc = h_reloc if h_reloc is not None else self._find_mandal(alt_data["reloc_df"], host_id)
+                    h_cap = h_cap if h_cap is not None else self._find_mandal(alt_data["cap_df"], host_id)
+                    if s_reloc is not None and s_cap is not None and h_reloc is not None and h_cap is not None:
+                        data = alt_data
+                        break
 
         if s_reloc is None or s_cap is None or h_reloc is None or h_cap is None:
             return None

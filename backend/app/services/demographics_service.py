@@ -3,6 +3,7 @@ from pathlib import Path
 from typing import Dict, List, Optional, Any
 import pandas as pd
 from app.core.config import settings
+from app.core.state_config import resolve_state_key, get_state_config
 from app.demographics.schemas import (
     DistrictDemographicSummary,
     StateDemographicSummary,
@@ -10,43 +11,27 @@ from app.demographics.schemas import (
     DistrictDetailResponse
 )
 
-def is_tn(state_id: Optional[str]) -> bool:
-    if not state_id:
-        return False
-    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
-    return clean in ["tamil_nadu", "tn", "tamilnadu"]
 
 class DemographicsService:
     def __init__(self):
         self._cache: Dict[str, Dict[str, Any]] = {}
 
-    def _get_state_key(self, state_id: Optional[str]) -> str:
-        return "tn" if is_tn(state_id) else "ap"
-
     def _load_data(self, state_id: Optional[str] = "andhra_pradesh"):
-        key = self._get_state_key(state_id)
+        key = resolve_state_key(state_id)
         if key in self._cache:
             return self._cache[key]
 
-        if key == "tn":
-            csv_path = settings.PROCESSED_CENSUS_DIR / "tn_taluk_demographics.csv"
-            state_name = "Tamil Nadu"
-            state_code = "TN"
-            code_col = "current_district_id"
-            name_col = "current_district_name"
-            m_code_col = "taluk_id"
-            m_name_col = "taluk_name"
-        else:
-            csv_path = settings.PROCESSED_CENSUS_DIR / "ap_village_demographics.csv"
-            state_name = "Andhra Pradesh"
-            state_code = "AP"
-            code_col = "current_district_code"
-            name_col = "current_district_name"
-            m_code_col = "mandal_code"
-            m_name_col = "mandal_name"
+        cfg = get_state_config(state_id)
+        csv_path = settings.PROCESSED_CENSUS_DIR / cfg.demographics_file
+        state_name = cfg.state_name
+        state_code = cfg.state_code
+        code_col = cfg.code_col
+        name_col = cfg.name_col
+        m_code_col = cfg.m_code_col
+        m_name_col = cfg.m_name_col
 
         if not csv_path.exists():
-            raise FileNotFoundError(f"Demographics dataset not found at {csv_path}")
+            raise FileNotFoundError(f"{state_name} demographics dataset not found at {csv_path}")
 
         df = pd.read_csv(csv_path)
 
@@ -89,7 +74,7 @@ class DemographicsService:
             district_list.append(d_summary)
             district_summaries[str(did)] = d_summary
 
-            # Mandal breakdown
+            # Mandal / Tehsil breakdown
             mandal_grp = grp.groupby([m_code_col, m_name_col])
             mandal_list: List[MandalDemographicSummary] = []
             for (mid, mname), m_sub in mandal_grp:
@@ -105,7 +90,7 @@ class DemographicsService:
                 mst_pct = round((mst / mpop * 100) if mpop > 0 else 0.0, 2)
 
                 mandal_list.append(MandalDemographicSummary(
-                    mandal_code=mid,
+                    mandal_code=str(mid),
                     mandal_name=str(mname),
                     current_district_id=str(did),
                     current_district_name=str(dname),
@@ -121,7 +106,6 @@ class DemographicsService:
                     village_count=mvill
                 ))
 
-            # Sort mandals by population descending
             mandal_list.sort(key=lambda x: x.total_population, reverse=True)
             district_details[str(did)] = DistrictDetailResponse(
                 district=d_summary,
@@ -173,10 +157,10 @@ class DemographicsService:
         did = district_id.strip().lower()
         if did in data["district_details"]:
             return data["district_details"][did]
-        # Check by name
         for k, v in data["district_details"].items():
             if v.district.district_name.lower() == did or k.lower() == did:
                 return v
         return None
+
 
 demographics_service = DemographicsService()
