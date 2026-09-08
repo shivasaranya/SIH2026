@@ -4,11 +4,20 @@ from pathlib import Path
 from typing import Dict, Any, List, Optional, Tuple
 import numpy as np
 import pandas as pd
-import geopandas as gpd
+try:
+    import geopandas as gpd
+except ImportError:
+    gpd = None
+
 from shapely.geometry import shape, Point, Polygon, MultiPolygon, mapping
 from shapely.validation import make_valid
-import rasterio
-from rasterio.mask import mask
+
+try:
+    import rasterio
+    from rasterio.mask import mask
+except ImportError:
+    rasterio = None
+    mask = None
 
 from app.core.config import settings
 from app.village.schemas import (
