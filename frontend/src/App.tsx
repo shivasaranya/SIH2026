@@ -17,7 +17,7 @@ import { StateSelectionScreen } from './pages/StateSelectionScreen';
 import { CitizenPage } from './pages/CitizenPage';
 import { VillageAnalysisPage } from './pages/VillageAnalysisPage';
 import { VillageAnalysisReportPage } from './pages/VillageAnalysisReportPage';
-import { StateProvider, useActiveState, parseStateIdFromHash, parseStateIdFromName } from './context/StateContext';
+import { StateProvider, useActiveState } from './context/StateContext';
 import { setActiveStateId } from './services/api';
 import type { ActiveTab } from './types';
 import type { MandalProperties } from './types/gis';
@@ -272,8 +272,6 @@ function AppContent() {
     const isTN = stateName.toLowerCase().includes('tamil');
     const isBR = stateName.toLowerCase().includes('bihar');
     const isUP = !isUK && (stateName.toLowerCase().includes('uttar') || stateName.toLowerCase() === 'up');
-
-    const targetStateId: any = isMZ ? 'mizoram' : (isHP ? 'himachal_pradesh' : (isGJ ? 'gujarat' : (isKL ? 'kerala' : (isMH ? 'maharashtra' : (isHR ? 'haryana' : (isPB ? 'punjab' : (isCG ? 'chhattisgarh' : (isML ? 'meghalaya' : (isNL ? 'nagaland' : (isAR ? 'arunachal_pradesh' : (isSK ? 'sikkim' : (isUK ? 'uttarakhand' : (isOD ? 'odisha' : (isWB ? 'west_bengal' : (isAS ? 'assam' : (isTN ? 'tamil_nadu' : (isBR ? 'bihar' : (isUP ? 'uttar_pradesh' : 'andhra_pradesh'))))))))))))))))));
 
     const slug = isMZ ? 'mz' : (isHP ? 'hp' : (isGJ ? 'gujarat' : (isKL ? 'kerala' : (isMH ? 'maharashtra' : (isHR ? 'haryana' : (isPB ? 'punjab' : (isCG ? 'chhattisgarh' : (isML ? 'ml' : (isNL ? 'nl' : (isAR ? 'ar' : (isSK ? 'sk' : (isUK ? 'uk' : (isOD ? 'od' : (isWB ? 'wb' : (isAS ? 'as' : (isTN ? 'tn' : (isBR ? 'br' : (isUP ? 'up' : 'ap'))))))))))))))))));
 

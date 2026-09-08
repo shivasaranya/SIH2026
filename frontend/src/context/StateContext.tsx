@@ -501,6 +501,9 @@ export const stateIdFromHash = (hash: string): string => {
   return slug;
 };
 
+export const parseStateIdFromHash = stateIdFromHash;
+export const parseStateIdFromName = stateIdFromName;
+
 interface StateContextType {
   currentState: StateConfig;
   stateId: StateId;
