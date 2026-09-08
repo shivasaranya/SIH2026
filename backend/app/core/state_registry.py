@@ -60,6 +60,18 @@ def get_state_key(state_id: Optional[str]) -> str:
         return "uttarakhand"
     if clean in ["meghalaya", "ml"]:
         return "meghalaya"
+    if clean in ["chhattisgarh", "cg"]:
+        return "chhattisgarh"
+    if clean in ["gujarat", "gj"]:
+        return "gujarat"
+    if clean in ["haryana", "hr"]:
+        return "haryana"
+    if clean in ["kerala", "kl"]:
+        return "kerala"
+    if clean in ["maharashtra", "mh"]:
+        return "maharashtra"
+    if clean in ["punjab", "pb"]:
+        return "punjab"
     if clean in ["andhra_pradesh", "ap", "andhra"]:
         return "andhra_pradesh"
     return "andhra_pradesh"
@@ -439,6 +451,162 @@ class StateRegistry:
                 relocation_summary_csv=proc_reloc / "ml_relocation_priority_summary.csv",
                 ahp_weights_csv=proc_reloc / "ml_ahp_weights.csv",
                 factors_csv=proc_reloc / "ml_relocation_factor_contributions.csv"
+            ),
+            "chhattisgarh": StateMetadata(
+                id="chhattisgarh",
+                code="CG",
+                name="Chhattisgarh",
+                admin_unit_name="Taluka",
+                admin_unit_plural="Talukas",
+                district_count=33,
+                admin_unit_count=149,
+                is_coastal=False,
+                districts_geojson=proc_admin / "chhattisgarh_33_districts.geojson",
+                admin_units_geojson=proc_admin / "chhattisgarh_talukas.geojson",
+                census_csv=proc_census / "chhattisgarh_taluka_demographics.csv",
+                hazard_csv=proc_haz / "chhattisgarh_taluka_multi_hazard_exposure.csv",
+                hazard_geojson=proc_haz / "chhattisgarh_taluka_multi_hazard_exposure.geojson",
+                vulnerability_csv=proc_vuln / "chhattisgarh_taluka_demographic_vulnerability.csv",
+                vulnerability_geojson=proc_vuln / "chhattisgarh_taluka_vulnerability.geojson",
+                capacity_components_csv=proc_cap / "chhattisgarh_taluka_capacity_components.csv",
+                capacity_adequacy_csv=proc_cap / "chhattisgarh_taluka_capacity_adequacy.csv",
+                host_candidates_csv=proc_cap / "chhattisgarh_host_zone_candidates.csv",
+                capacity_geojson=proc_cap / "chhattisgarh_taluka_capacity_adequacy.geojson",
+                relocation_csv=proc_reloc / "chhattisgarh_taluka_relocation_priority.csv",
+                relocation_geojson=proc_reloc / "chhattisgarh_taluka_relocation_priority.geojson",
+                relocation_summary_csv=proc_reloc / "chhattisgarh_relocation_priority_summary.csv",
+                ahp_weights_csv=proc_reloc / "chhattisgarh_ahp_weights.csv",
+                factors_csv=proc_reloc / "chhattisgarh_relocation_factor_contributions.csv"
+            ),
+            "gujarat": StateMetadata(
+                id="gujarat",
+                code="GJ",
+                name="Gujarat",
+                admin_unit_name="Taluka",
+                admin_unit_plural="Talukas",
+                district_count=33,
+                admin_unit_count=248,
+                is_coastal=True,
+                districts_geojson=proc_admin / "gujarat_33_districts.geojson",
+                admin_units_geojson=proc_admin / "gujarat_talukas.geojson",
+                census_csv=proc_census / "gujarat_taluka_demographics.csv",
+                hazard_csv=proc_haz / "gujarat_taluka_multi_hazard_exposure.csv",
+                hazard_geojson=proc_haz / "gujarat_taluka_multi_hazard_exposure.geojson",
+                vulnerability_csv=proc_vuln / "gujarat_taluka_demographic_vulnerability.csv",
+                vulnerability_geojson=proc_vuln / "gujarat_taluka_vulnerability.geojson",
+                capacity_components_csv=proc_cap / "gujarat_taluka_capacity_components.csv",
+                capacity_adequacy_csv=proc_cap / "gujarat_taluka_capacity_adequacy.csv",
+                host_candidates_csv=proc_cap / "gujarat_host_zone_candidates.csv",
+                capacity_geojson=proc_cap / "gujarat_taluka_capacity_adequacy.geojson",
+                relocation_csv=proc_reloc / "gujarat_taluka_relocation_priority.csv",
+                relocation_geojson=proc_reloc / "gujarat_taluka_relocation_priority.geojson",
+                relocation_summary_csv=proc_reloc / "gujarat_relocation_priority_summary.csv",
+                ahp_weights_csv=proc_reloc / "gujarat_ahp_weights.csv",
+                factors_csv=proc_reloc / "gujarat_relocation_factor_contributions.csv"
+            ),
+            "haryana": StateMetadata(
+                id="haryana",
+                code="HR",
+                name="Haryana",
+                admin_unit_name="Taluka",
+                admin_unit_plural="Talukas",
+                district_count=22,
+                admin_unit_count=94,
+                is_coastal=False,
+                districts_geojson=proc_admin / "haryana_22_districts.geojson",
+                admin_units_geojson=proc_admin / "haryana_talukas.geojson",
+                census_csv=proc_census / "haryana_taluka_demographics.csv",
+                hazard_csv=proc_haz / "haryana_taluka_multi_hazard_exposure.csv",
+                hazard_geojson=proc_haz / "haryana_taluka_multi_hazard_exposure.geojson",
+                vulnerability_csv=proc_vuln / "haryana_taluka_demographic_vulnerability.csv",
+                vulnerability_geojson=proc_vuln / "haryana_taluka_vulnerability.geojson",
+                capacity_components_csv=proc_cap / "haryana_taluka_capacity_components.csv",
+                capacity_adequacy_csv=proc_cap / "haryana_taluka_capacity_adequacy.csv",
+                host_candidates_csv=proc_cap / "haryana_host_zone_candidates.csv",
+                capacity_geojson=proc_cap / "haryana_taluka_capacity_adequacy.geojson",
+                relocation_csv=proc_reloc / "haryana_taluka_relocation_priority.csv",
+                relocation_geojson=proc_reloc / "haryana_taluka_relocation_priority.geojson",
+                relocation_summary_csv=proc_reloc / "haryana_relocation_priority_summary.csv",
+                ahp_weights_csv=proc_reloc / "haryana_ahp_weights.csv",
+                factors_csv=proc_reloc / "haryana_relocation_factor_contributions.csv"
+            ),
+            "kerala": StateMetadata(
+                id="kerala",
+                code="KL",
+                name="Kerala",
+                admin_unit_name="Taluk",
+                admin_unit_plural="Taluks",
+                district_count=14,
+                admin_unit_count=78,
+                is_coastal=True,
+                districts_geojson=proc_admin / "kerala_14_districts.geojson",
+                admin_units_geojson=proc_admin / "kerala_taluks.geojson",
+                census_csv=proc_census / "kerala_taluka_demographics.csv",
+                hazard_csv=proc_haz / "kerala_taluka_multi_hazard_exposure.csv",
+                hazard_geojson=proc_haz / "kerala_taluka_multi_hazard_exposure.geojson",
+                vulnerability_csv=proc_vuln / "kerala_taluka_demographic_vulnerability.csv",
+                vulnerability_geojson=proc_vuln / "kerala_taluka_vulnerability.geojson",
+                capacity_components_csv=proc_cap / "kerala_taluka_capacity_components.csv",
+                capacity_adequacy_csv=proc_cap / "kerala_taluka_capacity_adequacy.csv",
+                host_candidates_csv=proc_cap / "kerala_host_zone_candidates.csv",
+                capacity_geojson=proc_cap / "kerala_taluka_capacity_adequacy.geojson",
+                relocation_csv=proc_reloc / "kerala_taluka_relocation_priority.csv",
+                relocation_geojson=proc_reloc / "kerala_taluka_relocation_priority.geojson",
+                relocation_summary_csv=proc_reloc / "kerala_relocation_priority_summary.csv",
+                ahp_weights_csv=proc_reloc / "kerala_ahp_weights.csv",
+                factors_csv=proc_reloc / "kerala_relocation_factor_contributions.csv"
+            ),
+            "maharashtra": StateMetadata(
+                id="maharashtra",
+                code="MH",
+                name="Maharashtra",
+                admin_unit_name="Taluka",
+                admin_unit_plural="Talukas",
+                district_count=36,
+                admin_unit_count=355,
+                is_coastal=True,
+                districts_geojson=proc_admin / "maharashtra_36_districts.geojson",
+                admin_units_geojson=proc_admin / "maharashtra_talukas.geojson",
+                census_csv=proc_census / "maharashtra_taluka_demographics.csv",
+                hazard_csv=proc_haz / "maharashtra_taluka_multi_hazard_exposure.csv",
+                hazard_geojson=proc_haz / "maharashtra_taluka_multi_hazard_exposure.geojson",
+                vulnerability_csv=proc_vuln / "maharashtra_taluka_demographic_vulnerability.csv",
+                vulnerability_geojson=proc_vuln / "maharashtra_taluka_vulnerability.geojson",
+                capacity_components_csv=proc_cap / "maharashtra_taluka_capacity_components.csv",
+                capacity_adequacy_csv=proc_cap / "maharashtra_taluka_capacity_adequacy.csv",
+                host_candidates_csv=proc_cap / "maharashtra_host_zone_candidates.csv",
+                capacity_geojson=proc_cap / "maharashtra_taluka_capacity_adequacy.geojson",
+                relocation_csv=proc_reloc / "maharashtra_taluka_relocation_priority.csv",
+                relocation_geojson=proc_reloc / "maharashtra_taluka_relocation_priority.geojson",
+                relocation_summary_csv=proc_reloc / "maharashtra_relocation_priority_summary.csv",
+                ahp_weights_csv=proc_reloc / "maharashtra_ahp_weights.csv",
+                factors_csv=proc_reloc / "maharashtra_relocation_factor_contributions.csv"
+            ),
+            "punjab": StateMetadata(
+                id="punjab",
+                code="PB",
+                name="Punjab",
+                admin_unit_name="Taluka",
+                admin_unit_plural="Talukas",
+                district_count=23,
+                admin_unit_count=93,
+                is_coastal=False,
+                districts_geojson=proc_admin / "punjab_23_districts.geojson",
+                admin_units_geojson=proc_admin / "punjab_talukas.geojson",
+                census_csv=proc_census / "punjab_taluka_demographics.csv",
+                hazard_csv=proc_haz / "punjab_taluka_multi_hazard_exposure.csv",
+                hazard_geojson=proc_haz / "punjab_taluka_multi_hazard_exposure.geojson",
+                vulnerability_csv=proc_vuln / "punjab_taluka_demographic_vulnerability.csv",
+                vulnerability_geojson=proc_vuln / "punjab_taluka_vulnerability.geojson",
+                capacity_components_csv=proc_cap / "punjab_taluka_capacity_components.csv",
+                capacity_adequacy_csv=proc_cap / "punjab_taluka_capacity_adequacy.csv",
+                host_candidates_csv=proc_cap / "punjab_host_zone_candidates.csv",
+                capacity_geojson=proc_cap / "punjab_taluka_capacity_adequacy.geojson",
+                relocation_csv=proc_reloc / "punjab_taluka_relocation_priority.csv",
+                relocation_geojson=proc_reloc / "punjab_taluka_relocation_priority.geojson",
+                relocation_summary_csv=proc_reloc / "punjab_relocation_priority_summary.csv",
+                ahp_weights_csv=proc_reloc / "punjab_ahp_weights.csv",
+                factors_csv=proc_reloc / "punjab_relocation_factor_contributions.csv"
             )
         }
 
