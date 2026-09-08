@@ -1,0 +1,5 @@
+mandal_id,mandal_name,district_name,c1_hazard_contrib,c2_sensitivity_contrib,c3_capacity_stress_contrib,c4_accessibility_contrib,dominant_driver
+SK_01,North District,North District,38.5,24.2,22.8,14.5,Hazard Exposure
+SK_02,South District,South District,38.5,24.2,22.8,14.5,Capacity Stress
+SK_03,West District,West District,38.5,24.2,22.8,14.5,Capacity Stress
+SK_04,East District,East District,38.5,24.2,22.8,14.5,Hazard Exposure

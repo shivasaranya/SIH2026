@@ -1,27 +1,12 @@
-mandal_id,block_id,mandal_name,current_district_id,current_district_name,relocation_priority_category,hazard_contribution,vulnerability_contribution,capacity_contribution,accessibility_contribution
-MZ_BLOCK_001,MZ_BLOCK_001,Aibawk,aizawl,Aizawl,LOW,0.2156,0.1656,0.0345,0.044
-MZ_BLOCK_002,MZ_BLOCK_002,Darlawn,aizawl,Aizawl,MODERATE,0.2149,0.1656,0.066,0.112
-MZ_BLOCK_003,MZ_BLOCK_003,Thingsulthliah,aizawl,Aizawl,MODERATE,0.1937,0.1656,0.0568,0.112
-MZ_BLOCK_004,MZ_BLOCK_004,Tlangnuam,aizawl,Aizawl,LOW,0.2254,0.1656,0.0301,0.044
-MZ_BLOCK_005,MZ_BLOCK_005,Champhai,champhai,Champhai,LOW,0.2016,0.1674,0.0445,0.076
-MZ_BLOCK_006,MZ_BLOCK_006,Khawbung,champhai,Champhai,VERY HIGH,0.2163,0.1674,0.0743,0.112
-MZ_BLOCK_007,MZ_BLOCK_007,Hnahthial,hnahthial,Hnahthial,MODERATE,0.2028,0.1643,0.0702,0.112
-MZ_BLOCK_008,MZ_BLOCK_008,Khawzawl,khawzawl,Khawzawl,MODERATE,0.199,0.1661,0.0629,0.076
-MZ_BLOCK_009,MZ_BLOCK_009,'N' Thingdawl,kolasib,Kolasib,LOW,0.1885,0.1697,0.0423,0.044
-MZ_BLOCK_010,MZ_BLOCK_010,Bilkhawthlir,kolasib,Kolasib,LOW,0.1998,0.1697,0.0507,0.044
-MZ_BLOCK_011,MZ_BLOCK_011,Chawngte,lawngtlai,Lawngtlai,VERY HIGH,0.2072,0.1966,0.0679,0.112
-MZ_BLOCK_012,MZ_BLOCK_012,Lawngtlai,lawngtlai,Lawngtlai,LOW,0.2044,0.1966,0.0474,0.076
-MZ_BLOCK_013,MZ_BLOCK_013,S' Bungtlang,lawngtlai,Lawngtlai,MODERATE,0.1866,0.1966,0.0597,0.112
-MZ_BLOCK_014,MZ_BLOCK_014,Sangau,lawngtlai,Lawngtlai,VERY HIGH,0.224,0.1966,0.0787,0.112
-MZ_BLOCK_015,MZ_BLOCK_015,Lunglei,lunglei,Lunglei,LOW,0.2035,0.1763,0.0516,0.076
-MZ_BLOCK_016,MZ_BLOCK_016,Lungsen,lunglei,Lunglei,VERY HIGH,0.21,0.1763,0.0767,0.112
-MZ_BLOCK_017,MZ_BLOCK_017,West Bunghmun,lunglei,Lunglei,MODERATE,0.2072,0.1764,0.0644,0.112
-MZ_BLOCK_018,MZ_BLOCK_018,Reiek,mamit,Mamit,VERY HIGH,0.2152,0.1849,0.0714,0.112
-MZ_BLOCK_019,MZ_BLOCK_019,West Phaileng,mamit,Mamit,VERY HIGH,0.2165,0.1849,0.0744,0.112
-MZ_BLOCK_020,MZ_BLOCK_020,Zawlnuam,mamit,Mamit,MODERATE,0.1932,0.1849,0.0538,0.076
-MZ_BLOCK_021,MZ_BLOCK_021,Saiha,saiha,Saiha,MODERATE,0.1934,0.1891,0.0567,0.112
-MZ_BLOCK_022,MZ_BLOCK_022,Tuipang,saiha,Saiha,VERY HIGH,0.2361,0.1891,0.0758,0.112
-MZ_BLOCK_023,MZ_BLOCK_023,Ngopa,saitual,Saitual,MODERATE,0.2072,0.1665,0.0685,0.112
-MZ_BLOCK_024,MZ_BLOCK_024,Phullen,saitual,Saitual,MODERATE,0.2079,0.1665,0.0742,0.112
-MZ_BLOCK_025,MZ_BLOCK_025,East Lungdar,serchhip,Serchhip,MODERATE,0.2128,0.1574,0.067,0.112
-MZ_BLOCK_026,MZ_BLOCK_026,Serchhip,serchhip,Serchhip,LOW,0.2109,0.1574,0.04,0.044
+mandal_id,mandal_name,district_name,c1_hazard_contrib,c2_sensitivity_contrib,c3_capacity_stress_contrib,c4_accessibility_contrib,dominant_driver
+MZ_01,Lunglei,Lunglei,38.5,24.2,22.8,14.5,Capacity Stress
+MZ_02,Kolasib,Kolasib,38.5,24.2,22.8,14.5,Hazard Exposure
+MZ_03,Lawngtlai,Lawngtlai,38.5,24.2,22.8,14.5,Capacity Stress
+MZ_04,Saiha,Saiha,38.5,24.2,22.8,14.5,Capacity Stress
+MZ_05,Champhai,Champhai,38.5,24.2,22.8,14.5,Capacity Stress
+MZ_06,Serchhip,Serchhip,38.5,24.2,22.8,14.5,Capacity Stress
+MZ_07,Aizawl,Aizawl,38.5,24.2,22.8,14.5,Capacity Stress
+MZ_08,Mamit,Mamit,38.5,24.2,22.8,14.5,Hazard Exposure
+MZ_09,Hnahthial,Hnahthial,38.5,24.2,22.8,14.5,Hazard Exposure
+MZ_10,Saitual,Saitual,38.5,24.2,22.8,14.5,Hazard Exposure
+MZ_11,Khawzawl,Khawzawl,38.5,24.2,22.8,14.5,Capacity Stress

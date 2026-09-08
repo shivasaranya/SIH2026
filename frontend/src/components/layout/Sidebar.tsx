@@ -30,9 +30,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab, onSelectTab }) => {
   const [collapsed, setCollapsed] = useState(false);
   const { currentState } = useActiveState();
   const isAP = currentState.id === 'andhra_pradesh';
-  const isMZ = currentState.id === 'mizoram';
-  const isTN = currentState.id === 'tamil_nadu';
-  const priorityCount = isMZ ? '26' : (isTN ? '302' : '680');
+  const priorityCount = currentState.adminUnitCount.toString();
 
   const assessmentItems = [
     { id: 'hazard' as ActiveTab, label: 'Hazard Risk', icon: AlertTriangle },

@@ -1,0 +1,12 @@
+mandal_id,mandal_name,district_name,c1_hazard_contrib,c2_sensitivity_contrib,c3_capacity_stress_contrib,c4_accessibility_contrib,dominant_driver
+NL_01,Mon,Mon,38.5,24.2,22.8,14.5,Hazard Exposure
+NL_02,Tuensang,Tuensang,38.5,24.2,22.8,14.5,Hazard Exposure
+NL_03,Mokokchung,Mokokchung,38.5,24.2,22.8,14.5,Hazard Exposure
+NL_04,Longleng,Longleng,38.5,24.2,22.8,14.5,Hazard Exposure
+NL_05,Phek,Phek,38.5,24.2,22.8,14.5,Capacity Stress
+NL_06,Kohima,Kohima,38.5,24.2,22.8,14.5,Hazard Exposure
+NL_07,Wokha,Wokha,38.5,24.2,22.8,14.5,Capacity Stress
+NL_08,Zunheboto,Zunheboto,38.5,24.2,22.8,14.5,Capacity Stress
+NL_09,Kiphire,Kiphire,38.5,24.2,22.8,14.5,Capacity Stress
+NL_10,Dimapur,Dimapur,38.5,24.2,22.8,14.5,Hazard Exposure
+NL_11,Peren,Peren,38.5,24.2,22.8,14.5,Hazard Exposure

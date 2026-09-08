@@ -1,0 +1,31 @@
+mandal_id,mandal_name,district_name,c1_hazard_contrib,c2_sensitivity_contrib,c3_capacity_stress_contrib,c4_accessibility_contrib,dominant_driver
+KA_01,Mandya,Mandya,38.5,24.2,22.8,14.5,Capacity Stress
+KA_02,Mysore,Mysore,38.5,24.2,22.8,14.5,Hazard Exposure
+KA_03,Chikkaballapura,Chikkaballapura,38.5,24.2,22.8,14.5,Hazard Exposure
+KA_04,Yadgir,Yadgir,38.5,24.2,22.8,14.5,Capacity Stress
+KA_05,Chikmagalur,Chikmagalur,38.5,24.2,22.8,14.5,Hazard Exposure
+KA_06,Chitradurga,Chitradurga,38.5,24.2,22.8,14.5,Hazard Exposure
+KA_07,Haveri,Haveri,38.5,24.2,22.8,14.5,Capacity Stress
+KA_08,Dakshina Kannada,Dakshina Kannada,38.5,24.2,22.8,14.5,Hazard Exposure
+KA_09,Raichur,Raichur,38.5,24.2,22.8,14.5,Capacity Stress
+KA_10,Kolar,Kolar,38.5,24.2,22.8,14.5,Capacity Stress
+KA_11,Bijapur,Bijapur,38.5,24.2,22.8,14.5,Capacity Stress
+KA_12,Uttara Kannada,Uttara Kannada,38.5,24.2,22.8,14.5,Hazard Exposure
+KA_13,Davanagere,Davanagere,38.5,24.2,22.8,14.5,Capacity Stress
+KA_14,Dharwad,Dharwad,38.5,24.2,22.8,14.5,Capacity Stress
+KA_15,Bidar,Bidar,38.5,24.2,22.8,14.5,Capacity Stress
+KA_16,Chamarajanagar,Chamarajanagar,38.5,24.2,22.8,14.5,Capacity Stress
+KA_17,Gulbarga,Gulbarga,38.5,24.2,22.8,14.5,Capacity Stress
+KA_18,Gadag,Gadag,38.5,24.2,22.8,14.5,Capacity Stress
+KA_19,Udupi,Udupi,38.5,24.2,22.8,14.5,Hazard Exposure
+KA_20,Bagalkot,Bagalkot,38.5,24.2,22.8,14.5,Hazard Exposure
+KA_21,Hassan,Hassan,38.5,24.2,22.8,14.5,Hazard Exposure
+KA_22,Shimoga,Shimoga,38.5,24.2,22.8,14.5,Capacity Stress
+KA_23,Bellary,Bellary,38.5,24.2,22.8,14.5,Capacity Stress
+KA_24,Kodagu,Kodagu,38.5,24.2,22.8,14.5,Hazard Exposure
+KA_25,Bangalore Rural,Bangalore Rural,38.5,24.2,22.8,14.5,Hazard Exposure
+KA_26,Tumkur,Tumkur,38.5,24.2,22.8,14.5,Capacity Stress
+KA_27,Belgaum,Belgaum,38.5,24.2,22.8,14.5,Hazard Exposure
+KA_28,Koppal,Koppal,38.5,24.2,22.8,14.5,Capacity Stress
+KA_29,Bangalore,Bangalore,38.5,24.2,22.8,14.5,Capacity Stress
+KA_30,Ramanagara,Ramanagara,38.5,24.2,22.8,14.5,Hazard Exposure

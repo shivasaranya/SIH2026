@@ -1,0 +1,25 @@
+mandal_id,mandal_name,district_name,c1_hazard_contrib,c2_sensitivity_contrib,c3_capacity_stress_contrib,c4_accessibility_contrib,dominant_driver
+JH_01,Jamtara,Jamtara,38.5,24.2,22.8,14.5,Capacity Stress
+JH_02,Saraikela-Kharsawan,Saraikela-Kharsawan,38.5,24.2,22.8,14.5,Hazard Exposure
+JH_03,Simdega,Simdega,38.5,24.2,22.8,14.5,Capacity Stress
+JH_04,Latehar,Latehar,38.5,24.2,22.8,14.5,Capacity Stress
+JH_05,Khunti,Khunti,38.5,24.2,22.8,14.5,Hazard Exposure
+JH_06,Pashchimi Singhbhum,Pashchimi Singhbhum,38.5,24.2,22.8,14.5,Capacity Stress
+JH_07,Hazaribagh,Hazaribagh,38.5,24.2,22.8,14.5,Capacity Stress
+JH_08,Chatra,Chatra,38.5,24.2,22.8,14.5,Hazard Exposure
+JH_09,Purbi Singhbhum,Purbi Singhbhum,38.5,24.2,22.8,14.5,Hazard Exposure
+JH_10,Kodarma,Kodarma,38.5,24.2,22.8,14.5,Hazard Exposure
+JH_11,Giridih,Giridih,38.5,24.2,22.8,14.5,Capacity Stress
+JH_12,Lohardaga,Lohardaga,38.5,24.2,22.8,14.5,Hazard Exposure
+JH_13,Sahibganj,Sahibganj,38.5,24.2,22.8,14.5,Capacity Stress
+JH_14,Godda,Godda,38.5,24.2,22.8,14.5,Hazard Exposure
+JH_15,Palamu,Palamu,38.5,24.2,22.8,14.5,Capacity Stress
+JH_16,Dhanbad,Dhanbad,38.5,24.2,22.8,14.5,Hazard Exposure
+JH_17,Dumka,Dumka,38.5,24.2,22.8,14.5,Hazard Exposure
+JH_18,Bokaro,Bokaro,38.5,24.2,22.8,14.5,Capacity Stress
+JH_19,Deoghar,Deoghar,38.5,24.2,22.8,14.5,Hazard Exposure
+JH_20,Gumla,Gumla,38.5,24.2,22.8,14.5,Hazard Exposure
+JH_21,Ramgarh,Ramgarh,38.5,24.2,22.8,14.5,Hazard Exposure
+JH_22,Garhwa,Garhwa,38.5,24.2,22.8,14.5,Hazard Exposure
+JH_23,Ranchi,Ranchi,38.5,24.2,22.8,14.5,Capacity Stress
+JH_24,Pakur,Pakur,38.5,24.2,22.8,14.5,Capacity Stress

@@ -1,14 +1,41 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { setActiveStateId } from '../services/api';
 
-export type StateId = 'andhra_pradesh' | 'tamil_nadu' | 'mizoram' | 'himachal_pradesh' | 'assam' | 'bihar' | 'west_bengal' | 'odisha' | 'uttar_pradesh' | 'uttarakhand' | 'sikkim' | 'arunachal_pradesh' | 'nagaland' | 'meghalaya' | 'gujarat' | 'kerala' | 'maharashtra' | 'haryana' | 'punjab' | 'chhattisgarh';
+export type StateId = 
+  | 'andhra_pradesh' 
+  | 'tamil_nadu' 
+  | 'mizoram' 
+  | 'himachal_pradesh' 
+  | 'assam' 
+  | 'bihar' 
+  | 'west_bengal' 
+  | 'odisha' 
+  | 'uttar_pradesh' 
+  | 'uttarakhand' 
+  | 'sikkim' 
+  | 'arunachal_pradesh' 
+  | 'nagaland' 
+  | 'meghalaya' 
+  | 'gujarat' 
+  | 'kerala' 
+  | 'maharashtra' 
+  | 'haryana' 
+  | 'punjab' 
+  | 'chhattisgarh'
+  | 'rajasthan'
+  | 'karnataka'
+  | 'telangana'
+  | 'madhya_pradesh'
+  | 'jharkhand'
+  | 'goa'
+  | 'jammu_and_kashmir';
 
 export interface StateConfig {
   id: StateId;
   name: string;
   code: string;
-  adminUnitName: string; // 'Mandal' | 'Taluk' | 'R.D. Block'
-  adminUnitPlural: string; // 'Mandals' | 'Taluks' | 'R.D. Blocks'
+  adminUnitName: string; // 'Mandal' | 'Taluk' | 'Tehsil' | 'Block'
+  adminUnitPlural: string; // 'Mandals' | 'Taluks' | 'Tehsils' | 'Blocks'
   districtCount: number;
   adminUnitCount: number;
   candidateHostsCount: number;
@@ -380,6 +407,132 @@ export const STATE_CONFIGS: Record<StateId, StateConfig> = {
     sdmaName: 'Chhattisgarh State Disaster Management Authority (CGSDMA)',
     tagline: 'Mahanadi Basin Riverine Flood & Relocation Decision System',
   },
+  rajasthan: {
+    id: 'rajasthan',
+    name: 'Rajasthan',
+    code: 'RJ',
+    adminUnitName: 'Tehsil',
+    adminUnitPlural: 'Tehsils',
+    districtCount: 33,
+    adminUnitCount: 247,
+    candidateHostsCount: 45,
+    center: [27.0238, 74.2179],
+    bounds: [
+      [23.3, 69.5],
+      [30.2, 78.3],
+    ],
+    isCoastal: false,
+    sdmaName: 'Rajasthan State Disaster Management Authority (RSDMA)',
+    tagline: 'Thar Desert Drought, Heatwave & Flash Flood Decision Platform',
+  },
+  karnataka: {
+    id: 'karnataka',
+    name: 'Karnataka',
+    code: 'KA',
+    adminUnitName: 'Taluk',
+    adminUnitPlural: 'Taluks',
+    districtCount: 31,
+    adminUnitCount: 240,
+    candidateHostsCount: 35,
+    center: [15.3173, 75.7139],
+    bounds: [
+      [11.5, 74.0],
+      [18.5, 78.6],
+    ],
+    isCoastal: true,
+    sdmaName: 'Karnataka State Disaster Management Authority (KSDMA)',
+    tagline: 'Western Ghats Inundation & Coastal Disaster Preparedness Platform',
+  },
+  telangana: {
+    id: 'telangana',
+    name: 'Telangana',
+    code: 'TS',
+    adminUnitName: 'Mandal',
+    adminUnitPlural: 'Mandals',
+    districtCount: 33,
+    adminUnitCount: 594,
+    candidateHostsCount: 40,
+    center: [17.8749, 78.1008],
+    bounds: [
+      [15.8, 77.2],
+      [19.9, 81.8],
+    ],
+    isCoastal: false,
+    sdmaName: 'Telangana State Disaster Management Authority (TGSDMA)',
+    tagline: 'Godavari-Krishna River Basin Flash Flood & Climate Relocation Platform',
+  },
+  madhya_pradesh: {
+    id: 'madhya_pradesh',
+    name: 'Madhya Pradesh',
+    code: 'MP',
+    adminUnitName: 'Tehsil',
+    adminUnitPlural: 'Tehsils',
+    districtCount: 52,
+    adminUnitCount: 428,
+    candidateHostsCount: 55,
+    center: [22.9734, 78.6569],
+    bounds: [
+      [21.0, 74.0],
+      [26.9, 82.8],
+    ],
+    isCoastal: false,
+    sdmaName: 'Madhya Pradesh State Disaster Management Authority (MPSDMA)',
+    tagline: 'Central Highlands Riverine Flood & Relocation Decision System',
+  },
+  jharkhand: {
+    id: 'jharkhand',
+    name: 'Jharkhand',
+    code: 'JH',
+    adminUnitName: 'Block',
+    adminUnitPlural: 'Blocks',
+    districtCount: 24,
+    adminUnitCount: 260,
+    candidateHostsCount: 30,
+    center: [23.6102, 85.2799],
+    bounds: [
+      [21.9, 83.3],
+      [25.3, 87.9],
+    ],
+    isCoastal: false,
+    sdmaName: 'Jharkhand State Disaster Management Authority (JSDMA)',
+    tagline: 'Chota Nagpur Plateau Flash Flood & Multi-Hazard Relocation Platform',
+  },
+  goa: {
+    id: 'goa',
+    name: 'Goa',
+    code: 'GA',
+    adminUnitName: 'Taluka',
+    adminUnitPlural: 'Talukas',
+    districtCount: 2,
+    adminUnitCount: 12,
+    candidateHostsCount: 4,
+    center: [15.2993, 74.1240],
+    bounds: [
+      [14.9, 73.6],
+      [15.8, 74.4],
+    ],
+    isCoastal: true,
+    sdmaName: 'Goa State Disaster Management Authority (GSDMA)',
+    tagline: 'Konkan Coastal Inundation & Relocation Decision System',
+  },
+  jammu_and_kashmir: {
+    id: 'jammu_and_kashmir',
+    name: 'Jammu and Kashmir',
+    code: 'JK',
+    adminUnitName: 'Tehsil',
+    adminUnitPlural: 'Tehsils',
+    districtCount: 20,
+    adminUnitCount: 207,
+    candidateHostsCount: 18,
+    center: [33.7782, 76.5762],
+    bounds: [
+      [32.2, 73.5],
+      [36.0, 80.0],
+    ],
+    isCoastal: false,
+    sdmaName: 'J&K Disaster Management Authority (JKDMA)',
+    tagline: 'Himalayan Seismic, Landslide & Flash Flood Resettlement Platform',
+  },
 };
 
 interface StateContextType {
@@ -392,174 +545,97 @@ interface StateContextType {
 
 const StateContext = createContext<StateContextType | undefined>(undefined);
 
+export function parseStateIdFromHash(hash: string): StateId {
+  const h = hash.toLowerCase();
+  if (h.includes('/mz') || h.includes('/mizoram')) return 'mizoram';
+  if (h.includes('/tn') || h.includes('/tamil') || h.includes('tamil_nadu')) return 'tamil_nadu';
+  if (h.includes('/hp') || h.includes('/himachal')) return 'himachal_pradesh';
+  if (h.includes('/as') || h.includes('/assam')) return 'assam';
+  if (h.includes('/br') || h.includes('/bihar')) return 'bihar';
+  if (h.includes('/wb') || h.includes('/west_bengal') || h.includes('/bengal')) return 'west_bengal';
+  if (h.includes('/od') || h.includes('/odisha') || h.includes('/orissa')) return 'odisha';
+  if (h.includes('/uk') || h.includes('/uttarakhand') || h.includes('/uttaranchal')) return 'uttarakhand';
+  if (h.includes('/up') || h.includes('/uttar') || h.includes('uttar_pradesh')) return 'uttar_pradesh';
+  if (h.includes('/sk') || h.includes('/sikkim')) return 'sikkim';
+  if (h.includes('/ar') || h.includes('/arunachal')) return 'arunachal_pradesh';
+  if (h.includes('/nl') || h.includes('/nagaland')) return 'nagaland';
+  if (h.includes('/ml') || h.includes('/meghalaya')) return 'meghalaya';
+  if (h.includes('/gujarat') || h.includes('/gj')) return 'gujarat';
+  if (h.includes('/kerala') || h.includes('/kl') || h.includes('/kerela')) return 'kerala';
+  if (h.includes('/maharashtra') || h.includes('/mh') || h.includes('/maharastra')) return 'maharashtra';
+  if (h.includes('/haryana') || h.includes('/hr')) return 'haryana';
+  if (h.includes('/punjab') || h.includes('/pb')) return 'punjab';
+  if (h.includes('/chhattisgarh') || h.includes('/cg') || h.includes('/ct')) return 'chhattisgarh';
+  if (h.includes('/rajasthan') || h.includes('/rj')) return 'rajasthan';
+  if (h.includes('/karnataka') || h.includes('/ka')) return 'karnataka';
+  if (h.includes('/telangana') || h.includes('/ts') || h.includes('/tg')) return 'telangana';
+  if (h.includes('/madhya_pradesh') || h.includes('/madhya') || h.includes('/mp')) return 'madhya_pradesh';
+  if (h.includes('/jharkhand') || h.includes('/jh')) return 'jharkhand';
+  if (h.includes('/goa') || h.includes('/ga')) return 'goa';
+  if (h.includes('/jammu') || h.includes('/kashmir') || h.includes('/jk')) return 'jammu_and_kashmir';
+  if (h.includes('/ap') || h.includes('/andhra')) return 'andhra_pradesh';
+  return 'andhra_pradesh';
+}
+
+export function parseStateIdFromName(name: string): StateId {
+  const lower = name.toLowerCase().trim();
+  if (lower.includes('mizo')) return 'mizoram';
+  if (lower.includes('tamil')) return 'tamil_nadu';
+  if (lower.includes('himachal') || lower === 'hp') return 'himachal_pradesh';
+  if (lower.includes('assam') || lower === 'as') return 'assam';
+  if (lower.includes('bihar') || lower === 'br') return 'bihar';
+  if (lower.includes('bengal') || lower === 'wb') return 'west_bengal';
+  if (lower.includes('odisha') || lower.includes('orissa') || lower === 'od') return 'odisha';
+  if (lower.includes('uttarakhand') || lower.includes('uttaranchal') || lower === 'uk') return 'uttarakhand';
+  if (lower.includes('uttar') || lower === 'up') return 'uttar_pradesh';
+  if (lower.includes('sikkim') || lower === 'sk') return 'sikkim';
+  if (lower.includes('arunachal') || lower === 'ar') return 'arunachal_pradesh';
+  if (lower.includes('nagaland') || lower === 'nl') return 'nagaland';
+  if (lower.includes('meghalaya') || lower === 'ml') return 'meghalaya';
+  if (lower.includes('gujarat') || lower === 'gj') return 'gujarat';
+  if (lower.includes('kerala') || lower.includes('kerela') || lower === 'kl') return 'kerala';
+  if (lower.includes('maharashtra') || lower.includes('maharastra') || lower === 'mh') return 'maharashtra';
+  if (lower.includes('haryana') || lower === 'hr') return 'haryana';
+  if (lower.includes('punjab') || lower === 'pb') return 'punjab';
+  if (lower.includes('chhattisgarh') || lower.includes('chhatisgarh') || lower === 'cg' || lower === 'ct') return 'chhattisgarh';
+  if (lower.includes('rajasthan') || lower === 'rj') return 'rajasthan';
+  if (lower.includes('karnataka') || lower === 'ka') return 'karnataka';
+  if (lower.includes('telangana') || lower === 'ts' || lower === 'tg') return 'telangana';
+  if (lower.includes('madhya') || lower === 'mp') return 'madhya_pradesh';
+  if (lower.includes('jharkhand') || lower === 'jh') return 'jharkhand';
+  if (lower.includes('goa') || lower === 'ga') return 'goa';
+  if (lower.includes('jammu') || lower.includes('kashmir') || lower === 'jk') return 'jammu_and_kashmir';
+  return 'andhra_pradesh';
+}
+
 export const StateProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  // Read initial state from hash or default to andhra_pradesh
-  const getInitialState = (): StateId => {
+  const [stateId, setStateIdInternal] = useState<StateId>(() => {
     if (typeof window !== 'undefined') {
-      const hash = window.location.hash.toLowerCase();
-      if (hash.includes('/mz') || hash.includes('/mizoram') || hash.includes('mizo')) {
-        return 'mizoram';
-      }
-      if (hash.includes('/tn') || hash.includes('/tamil') || hash.includes('tamil_nadu')) {
-        return 'tamil_nadu';
-      }
-      if (hash.includes('/hp') || hash.includes('/himachal')) {
-        return 'himachal_pradesh';
-      }
-      if (hash.includes('/as') || hash.includes('/assam')) {
-        return 'assam';
-      }
-      if (hash.includes('/br') || hash.includes('/bihar')) {
-        return 'bihar';
-      }
-      if (hash.includes('/wb') || hash.includes('/west_bengal') || hash.includes('bengal')) {
-        return 'west_bengal';
-      }
-      if (hash.includes('/od') || hash.includes('/odisha') || hash.includes('orissa')) {
-        return 'odisha';
-      }
-      if (hash.includes('/uk') || hash.includes('/uttarakhand') || hash.includes('/uttaranchal')) {
-        return 'uttarakhand';
-      }
-      if (hash.includes('/up') || hash.includes('/uttar') || hash.includes('uttar_pradesh')) {
-        return 'uttar_pradesh';
-      }
-      if (hash.includes('/sk') || hash.includes('/sikkim')) {
-        return 'sikkim';
-      }
-      if (hash.includes('/ar') || hash.includes('/arunachal')) {
-        return 'arunachal_pradesh';
-      }
-      if (hash.includes('/nl') || hash.includes('/nagaland')) {
-        return 'nagaland';
-      }
-      if (hash.includes('/ml') || hash.includes('/meghalaya')) {
-        return 'meghalaya';
-      }
-      if (hash.includes('/gujarat') || hash.includes('/gj')) {
-        return 'gujarat';
-      }
-      if (hash.includes('/kerala') || hash.includes('/kl') || hash.includes('/kerela')) {
-        return 'kerala';
-      }
-      if (hash.includes('/maharashtra') || hash.includes('/mh') || hash.includes('/maharastra')) {
-        return 'maharashtra';
-      }
-      if (hash.includes('/haryana') || hash.includes('/hr')) {
-        return 'haryana';
-      }
-      if (hash.includes('/punjab') || hash.includes('/pb')) {
-        return 'punjab';
-      }
-      if (hash.includes('/chhattisgarh') || hash.includes('/cg') || hash.includes('/ct')) {
-        return 'chhattisgarh';
-      }
+      return parseStateIdFromHash(window.location.hash);
     }
     return 'andhra_pradesh';
+  });
+
+  const setStateId = (newId: StateId) => {
+    setActiveStateId(newId);
+    setStateIdInternal(newId);
   };
 
-  const [stateId, setStateIdState] = useState<StateId>(getInitialState);
+  const selectStateByName = (name: string) => {
+    const matched = parseStateIdFromName(name);
+    setStateId(matched);
+  };
 
-  // Keep API client active state synchronized
+  // Keep API client active state synchronized whenever stateId changes
   useEffect(() => {
     setActiveStateId(stateId);
   }, [stateId]);
 
-  const setStateId = (newId: StateId) => {
-    setActiveStateId(newId);
-    setStateIdState(newId);
-  };
-
-  const selectStateByName = (name: string) => {
-    const lower = name.toLowerCase();
-    if (lower.includes('mizo')) {
-      setStateId('mizoram');
-    } else if (lower.includes('tamil')) {
-      setStateId('tamil_nadu');
-    } else if (lower.includes('himachal') || lower.includes('hp')) {
-      setStateId('himachal_pradesh');
-    } else if (lower.includes('assam') || lower === 'as') {
-      setStateId('assam');
-    } else if (lower.includes('bihar') || lower === 'br') {
-      setStateId('bihar');
-    } else if (lower.includes('bengal') || lower.includes('wb')) {
-      setStateId('west_bengal');
-    } else if (lower.includes('odisha') || lower.includes('orissa') || lower === 'od') {
-      setStateId('odisha');
-    } else if (lower.includes('uttarakhand') || lower.includes('uttaranchal') || lower === 'uk') {
-      setStateId('uttarakhand');
-    } else if (lower.includes('uttar') || lower === 'up') {
-      setStateId('uttar_pradesh');
-    } else if (lower.includes('sikkim') || lower === 'sk') {
-      setStateId('sikkim');
-    } else if (lower.includes('arunachal') || lower === 'ar') {
-      setStateId('arunachal_pradesh');
-    } else if (lower.includes('nagaland') || lower === 'nl') {
-      setStateId('nagaland');
-    } else if (lower.includes('meghalaya') || lower === 'ml') {
-      setStateId('meghalaya');
-    } else if (lower.includes('gujarat') || lower === 'gj') {
-      setStateId('gujarat');
-    } else if (lower.includes('kerala') || lower.includes('kerela') || lower === 'kl') {
-      setStateId('kerala');
-    } else if (lower.includes('maharashtra') || lower.includes('maharastra') || lower === 'mh') {
-      setStateId('maharashtra');
-    } else if (lower.includes('haryana') || lower === 'hr') {
-      setStateId('haryana');
-    } else if (lower.includes('punjab') || lower === 'pb') {
-      setStateId('punjab');
-    } else if (lower.includes('chhattisgarh') || lower.includes('chhatisgarh') || lower === 'cg' || lower === 'ct') {
-      setStateId('chhattisgarh');
-    } else {
-      setStateId('andhra_pradesh');
-    }
-  };
-
-  // Listen to hash changes if needed
+  // Synchronize state when URL hash changes
   useEffect(() => {
     const handleHash = () => {
-      const hash = window.location.hash.toLowerCase();
-      if (hash.includes('/mz') || hash.includes('/mizoram')) {
-        setStateIdState('mizoram');
-      } else if (hash.includes('/tn') || hash.includes('/tamil')) {
-        setStateIdState('tamil_nadu');
-      } else if (hash.includes('/hp') || hash.includes('/himachal')) {
-        setStateIdState('himachal_pradesh');
-      } else if (hash.includes('/as') || hash.includes('/assam')) {
-        setStateIdState('assam');
-      } else if (hash.includes('/br') || hash.includes('/bihar')) {
-        setStateIdState('bihar');
-      } else if (hash.includes('/wb') || hash.includes('/west_bengal') || hash.includes('bengal')) {
-        setStateIdState('west_bengal');
-      } else if (hash.includes('/od') || hash.includes('/odisha') || hash.includes('orissa')) {
-        setStateIdState('odisha');
-      } else if (hash.includes('/uk') || hash.includes('/uttarakhand') || hash.includes('/uttaranchal')) {
-        setStateIdState('uttarakhand');
-      } else if (hash.includes('/up') || hash.includes('/uttar') || hash.includes('uttar_pradesh')) {
-        setStateIdState('uttar_pradesh');
-      } else if (hash.includes('/sk') || hash.includes('/sikkim')) {
-        setStateIdState('sikkim');
-      } else if (hash.includes('/ar') || hash.includes('/arunachal')) {
-        setStateIdState('arunachal_pradesh');
-      } else if (hash.includes('/nl') || hash.includes('/nagaland')) {
-        setStateIdState('nagaland');
-      } else if (hash.includes('/ml') || hash.includes('/meghalaya')) {
-        setStateIdState('meghalaya');
-      } else if (hash.includes('/gujarat') || hash.includes('/gj')) {
-        setStateIdState('gujarat');
-      } else if (hash.includes('/kerala') || hash.includes('/kl') || hash.includes('/kerela')) {
-        setStateIdState('kerala');
-      } else if (hash.includes('/maharashtra') || hash.includes('/mh') || hash.includes('/maharastra')) {
-        setStateIdState('maharashtra');
-      } else if (hash.includes('/haryana') || hash.includes('/hr')) {
-        setStateIdState('haryana');
-      } else if (hash.includes('/punjab') || hash.includes('/pb')) {
-        setStateIdState('punjab');
-      } else if (hash.includes('/chhattisgarh') || hash.includes('/cg') || hash.includes('/ct')) {
-        setStateIdState('chhattisgarh');
-      } else if (hash.includes('/ap') || hash.includes('/andhra')) {
-        setStateId('andhra_pradesh');
-      }
+      const parsed = parseStateIdFromHash(window.location.hash);
+      setStateId(parsed);
     };
     window.addEventListener('hashchange', handleHash);
     return () => window.removeEventListener('hashchange', handleHash);

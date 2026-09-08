@@ -17,16 +17,9 @@ export const Header: React.FC<HeaderProps> = ({
 }) => {
   const [showStateDropdown, setShowStateDropdown] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const { currentState } = useActiveState();
-
-  const isMizoram = pilotState.toLowerCase().includes('mizo');
-  const isTN = pilotState.toLowerCase().includes('tamil');
-  const isHP = pilotState.toLowerCase().includes('himachal') || pilotState.toLowerCase() === 'hp';
-  const isAP = !isMizoram && !isTN && !isHP;
-  const stateCode = isMizoram ? 'MZ' : (isTN ? 'TN' : (isHP ? 'HP' : 'AP'));
-  const sdmaLabel = isMizoram 
-    ? 'Mizoram Disaster Management Authority (DM&R)' 
-    : (isTN ? 'Tamil Nadu SDMA (TNDMA)' : (isHP ? 'Himachal Pradesh SDMA (HPSDMA)' : 'Andhra Pradesh SDMA (APSDMA)'));
+  const { currentState, availableStates } = useActiveState();
+  const stateCode = currentState?.code || 'IN';
+  const sdmaLabel = currentState?.sdmaName || `${currentState?.name || 'State'} Disaster Management Authority`;
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -85,72 +78,42 @@ export const Header: React.FC<HeaderProps> = ({
 
           {/* Dropdown Menu */}
           {showStateDropdown && (
-            <div className="absolute top-full left-12 mt-1 w-64 bg-white rounded-xl shadow-xl border border-slate-200 py-1.5 z-50 animate-in fade-in zoom-in-95">
-              <div className="px-3 py-1 text-[10px] font-semibold text-slate-400 uppercase tracking-wider">
-                Select Active State
+            <div className="absolute top-full left-12 mt-1 w-72 max-h-[380px] overflow-y-auto bg-white rounded-xl shadow-xl border border-slate-200 py-1.5 z-50 animate-in fade-in zoom-in-95">
+              <div className="px-3 py-1 text-[10px] font-semibold text-slate-400 uppercase tracking-wider sticky top-0 bg-white border-b border-slate-100">
+                Select Active State Jurisdiction
               </div>
 
-              <button
-                onClick={() => handleStateChange('Andhra Pradesh')}
-                className={`w-full text-left px-3 py-1.5 text-xs flex items-center justify-between hover:bg-slate-50 transition ${
-                  isAP ? 'text-indigo-600 font-bold bg-indigo-50/50' : 'text-slate-700'
-                }`}
-              >
-                <div>
-                  <div className="font-semibold">Andhra Pradesh</div>
-                  <div className="text-[10px] text-slate-400">26 Districts &bull; 696 Mandals</div>
-                </div>
-                {isAP && <Check className="w-3.5 h-3.5 text-indigo-600" />}
-              </button>
+              {availableStates.map((st) => {
+                const isSelected = st.id === currentState.id;
+                return (
+                  <button
+                    key={st.id}
+                    onClick={() => handleStateChange(st.name)}
+                    className={`w-full text-left px-3 py-1.5 text-xs flex items-center justify-between hover:bg-slate-50 transition ${
+                      isSelected ? 'text-indigo-600 font-bold bg-indigo-50/60' : 'text-slate-700'
+                    }`}
+                  >
+                    <div>
+                      <div className="font-semibold">{st.name}</div>
+                      <div className="text-[10px] text-slate-400 font-mono">
+                        {st.districtCount} Districts &bull; {st.adminUnitCount} {st.adminUnitPlural}
+                      </div>
+                    </div>
+                    {isSelected && <Check className="w-3.5 h-3.5 text-indigo-600 shrink-0" />}
+                  </button>
+                );
+              })}
 
-              <button
-                onClick={() => handleStateChange('Tamil Nadu')}
-                className={`w-full text-left px-3 py-1.5 text-xs flex items-center justify-between hover:bg-slate-50 transition ${
-                  isTN ? 'text-indigo-600 font-bold bg-indigo-50/50' : 'text-slate-700'
-                }`}
-              >
-                <div>
-                  <div className="font-semibold">Tamil Nadu</div>
-                  <div className="text-[10px] text-slate-400">38 Districts &bull; 302 Taluks</div>
-                </div>
-                {isTN && <Check className="w-3.5 h-3.5 text-indigo-600" />}
-              </button>
-
-              <button
-                onClick={() => handleStateChange('Mizoram')}
-                className={`w-full text-left px-3 py-1.5 text-xs flex items-center justify-between hover:bg-slate-50 transition ${
-                  isMizoram ? 'text-indigo-600 font-bold bg-indigo-50/50' : 'text-slate-700'
-                }`}
-              >
-                <div>
-                  <div className="font-semibold">Mizoram</div>
-                  <div className="text-[10px] text-slate-400">11 Districts &bull; 26 R.D. Blocks</div>
-                </div>
-                {isMizoram && <Check className="w-3.5 h-3.5 text-indigo-600" />}
-              </button>
-
-              <button
-                onClick={() => handleStateChange('Himachal Pradesh')}
-                className={`w-full text-left px-3 py-1.5 text-xs flex items-center justify-between hover:bg-slate-50 transition ${
-                  isHP ? 'text-indigo-600 font-bold bg-indigo-50/50' : 'text-slate-700'
-                }`}
-              >
-                <div>
-                  <div className="font-semibold">Himachal Pradesh</div>
-                  <div className="text-[10px] text-slate-400">12 Districts &bull; 172 Tehsils</div>
-                </div>
-                {isHP && <Check className="w-3.5 h-3.5 text-indigo-600" />}
-              </button>
-
-              <div className="border-t border-slate-100 mt-1 pt-1">
+              <div className="border-t border-slate-100 mt-1 pt-1 sticky bottom-0 bg-white">
                 <button
                   onClick={() => {
                     setShowStateDropdown(false);
                     onNavigateToStateSelection?.();
                   }}
-                  className="w-full text-left px-3 py-1 text-[11px] text-slate-500 hover:text-indigo-600 hover:bg-slate-50 transition"
+                  className="w-full text-left px-3 py-1.5 text-[11px] font-bold text-indigo-600 hover:bg-indigo-50/50 transition flex items-center justify-between"
                 >
-                  All States (India Map)...
+                  <span>All States (Interactive India Map)...</span>
+                  <ChevronRight className="w-3.5 h-3.5" />
                 </button>
               </div>
             </div>

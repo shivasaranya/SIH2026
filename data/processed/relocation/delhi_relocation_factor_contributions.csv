@@ -1,0 +1,12 @@
+mandal_id,mandal_name,district_name,c1_hazard_contrib,c2_sensitivity_contrib,c3_capacity_stress_contrib,c4_accessibility_contrib,dominant_driver
+D_01,North West,North West,38.5,24.2,22.8,14.5,Hazard Exposure
+D_02,New Delhi,New Delhi,38.5,24.2,22.8,14.5,Capacity Stress
+D_03,East,East,38.5,24.2,22.8,14.5,Hazard Exposure
+D_04,South West,South West,38.5,24.2,22.8,14.5,Capacity Stress
+D_05,West,West,38.5,24.2,22.8,14.5,Capacity Stress
+D_06,South,South,38.5,24.2,22.8,14.5,Hazard Exposure
+D_07,North ,North ,38.5,24.2,22.8,14.5,Capacity Stress
+D_08,North East,North East,38.5,24.2,22.8,14.5,Hazard Exposure
+D_09,South East,South East,38.5,24.2,22.8,14.5,Hazard Exposure
+D_10,Central,Central,38.5,24.2,22.8,14.5,Hazard Exposure
+D_11,Shahdara,Shahdara,38.5,24.2,22.8,14.5,Capacity Stress

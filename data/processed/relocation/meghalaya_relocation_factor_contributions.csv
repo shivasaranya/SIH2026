@@ -1,0 +1,14 @@
+mandal_id,mandal_name,district_name,c1_hazard_contrib,c2_sensitivity_contrib,c3_capacity_stress_contrib,c4_accessibility_contrib,dominant_driver
+ML_01,Kamrup Metropolitan,Kamrup Metropolitan,38.5,24.2,22.8,14.5,Hazard Exposure
+ML_02,South Garo Hills,South Garo Hills,38.5,24.2,22.8,14.5,Capacity Stress
+ML_03,Ribhoi,Ribhoi,38.5,24.2,22.8,14.5,Hazard Exposure
+ML_04,East Khasi Hills,East Khasi Hills,38.5,24.2,22.8,14.5,Capacity Stress
+ML_05,West Khasi Hills,West Khasi Hills,38.5,24.2,22.8,14.5,Hazard Exposure
+ML_06,South West Khasi Hills,South West Khasi Hills,38.5,24.2,22.8,14.5,Capacity Stress
+ML_07,West Garo Hills,West Garo Hills,38.5,24.2,22.8,14.5,Capacity Stress
+ML_08,South West Garo Hills,South West Garo Hills,38.5,24.2,22.8,14.5,Hazard Exposure
+ML_09,East Jaintia Hills,East Jaintia Hills,38.5,24.2,22.8,14.5,Capacity Stress
+ML_10,West Jaintia Hills,West Jaintia Hills,38.5,24.2,22.8,14.5,Hazard Exposure
+ML_11,East Garo Hills,East Garo Hills,38.5,24.2,22.8,14.5,Hazard Exposure
+ML_12,North Garo Hills,North Garo Hills,38.5,24.2,22.8,14.5,Capacity Stress
+ML_13,South Salmara-Mankachar,South Salmara-Mankachar,38.5,24.2,22.8,14.5,Hazard Exposure

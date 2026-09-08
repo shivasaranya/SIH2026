@@ -3,7 +3,10 @@ import math
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, Any, List, Optional, Tuple
-import geopandas as gpd
+try:
+    import geopandas as gpd
+except ImportError:
+    gpd = None
 import pandas as pd
 from shapely.geometry import Point, shape
 

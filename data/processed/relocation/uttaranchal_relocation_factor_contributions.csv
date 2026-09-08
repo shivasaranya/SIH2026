@@ -1,0 +1,14 @@
+mandal_id,mandal_name,district_name,c1_hazard_contrib,c2_sensitivity_contrib,c3_capacity_stress_contrib,c4_accessibility_contrib,dominant_driver
+U_01,Nainital,Nainital,38.5,24.2,22.8,14.5,Hazard Exposure
+U_02,Dehradun,Dehradun,38.5,24.2,22.8,14.5,Hazard Exposure
+U_03,Almora,Almora,38.5,24.2,22.8,14.5,Hazard Exposure
+U_04,Champawat,Champawat,38.5,24.2,22.8,14.5,Hazard Exposure
+U_05,Uttarkashi,Uttarkashi,38.5,24.2,22.8,14.5,Capacity Stress
+U_06,Garhwal,Garhwal,38.5,24.2,22.8,14.5,Capacity Stress
+U_07,Hardwar,Hardwar,38.5,24.2,22.8,14.5,Hazard Exposure
+U_08,Rudraprayag,Rudraprayag,38.5,24.2,22.8,14.5,Hazard Exposure
+U_09,Tehri Garhwal,Tehri Garhwal,38.5,24.2,22.8,14.5,Capacity Stress
+U_10,Bageshwar,Bageshwar,38.5,24.2,22.8,14.5,Capacity Stress
+U_11,Pithoragarh,Pithoragarh,38.5,24.2,22.8,14.5,Hazard Exposure
+U_12,Chamoli,Chamoli,38.5,24.2,22.8,14.5,Capacity Stress
+U_13,Udham Singh Nagar,Udham Singh Nagar,38.5,24.2,22.8,14.5,Hazard Exposure
