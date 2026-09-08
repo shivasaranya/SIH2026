@@ -30,55 +30,43 @@ class StateMetadata:
     ahp_weights_csv: Path = None
     factors_csv: Path = None
 
+STATE_ALIAS_MAP = {
+    "mizoram": "mizoram", "mz": "mizoram", "mizo": "mizoram",
+    "tamil_nadu": "tamil_nadu", "tn": "tamil_nadu", "tamilnadu": "tamil_nadu",
+    "himachal_pradesh": "himachal_pradesh", "hp": "himachal_pradesh", "himachal": "himachal_pradesh",
+    "west_bengal": "west_bengal", "wb": "west_bengal", "westbengal": "west_bengal", "bengal": "west_bengal",
+    "assam": "assam", "as": "assam",
+    "bihar": "bihar", "br": "bihar",
+    "odisha": "odisha", "od": "odisha", "or": "odisha", "orissa": "odisha",
+    "sikkim": "sikkim", "sk": "sikkim",
+    "arunachal_pradesh": "arunachal_pradesh", "arunachal": "arunachal_pradesh", "ar": "arunachal_pradesh",
+    "nagaland": "nagaland", "nl": "nagaland",
+    "uttar_pradesh": "uttar_pradesh", "up": "uttar_pradesh", "uttarpradesh": "uttar_pradesh",
+    "uttarakhand": "uttarakhand", "uk": "uttarakhand", "uttaranchal": "uttarakhand",
+    "meghalaya": "meghalaya", "ml": "meghalaya",
+    "chhattisgarh": "chhattisgarh", "cg": "chhattisgarh", "chhatisgarh": "chhattisgarh", "ct": "chhattisgarh",
+    "gujarat": "gujarat", "gj": "gujarat", "guj": "gujarat",
+    "haryana": "haryana", "hr": "haryana",
+    "kerala": "kerala", "kl": "kerala", "kerela": "kerala",
+    "maharashtra": "maharashtra", "mh": "maharashtra", "maharastra": "maharashtra",
+    "punjab": "punjab", "pb": "punjab",
+    "rajasthan": "rajasthan", "rj": "rajasthan", "raj": "rajasthan",
+    "karnataka": "karnataka", "ka": "karnataka", "kar": "karnataka",
+    "telangana": "telangana", "ts": "telangana", "tg": "telangana",
+    "madhya_pradesh": "madhya_pradesh", "mp": "madhya_pradesh",
+    "jharkhand": "jharkhand", "jh": "jharkhand",
+    "goa": "goa", "ga": "goa",
+    "jammu_and_kashmir": "jammu_and_kashmir", "jk": "jammu_and_kashmir", "jammu": "jammu_and_kashmir", "kashmir": "jammu_and_kashmir",
+    "tripura": "tripura", "tr": "tripura",
+    "manipur": "manipur", "mn": "manipur",
+    "andhra_pradesh": "andhra_pradesh", "ap": "andhra_pradesh", "andhra": "andhra_pradesh", "andhrapradesh": "andhra_pradesh",
+}
+
 def get_state_key(state_id: Optional[str]) -> str:
     if not state_id:
         return "andhra_pradesh"
     clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
-    if clean in ["mizoram", "mz", "mizo"]:
-        return "mizoram"
-    if clean in ["tamil_nadu", "tn", "tamilnadu"]:
-        return "tamil_nadu"
-    if clean in ["himachal_pradesh", "hp", "himachal"]:
-        return "himachal_pradesh"
-    if clean in ["jammu_kashmir", "jammu_and_kashmir", "jk", "j_k", "jammukashmir"]:
-        return "jammu_kashmir"
-    if clean in ["madhya_pradesh", "mp", "madhyapradesh"]:
-        return "madhya_pradesh"
-    if clean in ["west_bengal", "wb", "westbengal"]:
-        return "west_bengal"
-    if clean in ["assam", "as"]:
-        return "assam"
-    if clean in ["bihar", "br"]:
-        return "bihar"
-    if clean in ["odisha", "od", "or", "orissa"]:
-        return "odisha"
-    if clean in ["sikkim", "sk"]:
-        return "sikkim"
-    if clean in ["arunachal_pradesh", "arunachal", "ar"]:
-        return "arunachal_pradesh"
-    if clean in ["nagaland", "nl"]:
-        return "nagaland"
-    if clean in ["uttar_pradesh", "up", "uttarpradesh"]:
-        return "uttar_pradesh"
-    if clean in ["uttarakhand", "uk", "uttaranchal"]:
-        return "uttarakhand"
-    if clean in ["meghalaya", "ml"]:
-        return "meghalaya"
-    if clean in ["chhattisgarh", "cg"]:
-        return "chhattisgarh"
-    if clean in ["gujarat", "gj"]:
-        return "gujarat"
-    if clean in ["haryana", "hr"]:
-        return "haryana"
-    if clean in ["kerala", "kl"]:
-        return "kerala"
-    if clean in ["maharashtra", "mh"]:
-        return "maharashtra"
-    if clean in ["punjab", "pb"]:
-        return "punjab"
-    if clean in ["andhra_pradesh", "ap", "andhra"]:
-        return "andhra_pradesh"
-    return "andhra_pradesh"
+    return STATE_ALIAS_MAP.get(clean, clean)
 
 def is_jk(state_id: Optional[str]) -> bool:
     return get_state_key(state_id) == "jammu_kashmir"
@@ -669,12 +657,240 @@ class StateRegistry:
                 relocation_summary_csv=proc_reloc / "punjab_relocation_priority_summary.csv",
                 ahp_weights_csv=proc_reloc / "punjab_ahp_weights.csv",
                 factors_csv=proc_reloc / "punjab_relocation_factor_contributions.csv"
+            ),
+            "rajasthan": StateMetadata(
+                id="rajasthan",
+                code="RJ",
+                name="Rajasthan",
+                admin_unit_name="Tehsil",
+                admin_unit_plural="Tehsils",
+                district_count=33,
+                admin_unit_count=338,
+                is_coastal=False,
+                districts_geojson=proc_admin / "rajasthan_districts.geojson",
+                admin_units_geojson=proc_reloc / "rajasthan_relocation_priority.geojson",
+                census_csv=proc_census / "rajasthan_demographics.csv",
+                hazard_csv=proc_haz / "rajasthan_hazard_exposure.csv",
+                hazard_geojson=proc_vuln / "rajasthan_vulnerability.geojson",
+                vulnerability_csv=proc_vuln / "rajasthan_demographic_vulnerability.csv",
+                vulnerability_geojson=proc_vuln / "rajasthan_vulnerability.geojson",
+                capacity_components_csv=proc_cap / "rajasthan_capacity_components.csv",
+                capacity_adequacy_csv=proc_cap / "rajasthan_capacity_adequacy.csv",
+                host_candidates_csv=proc_cap / "rajasthan_host_zone_candidates.csv",
+                capacity_geojson=proc_cap / "rajasthan_capacity_adequacy.geojson",
+                relocation_csv=proc_reloc / "rajasthan_relocation_priority.csv",
+                relocation_geojson=proc_reloc / "rajasthan_relocation_priority.geojson",
+                relocation_summary_csv=proc_reloc / "rajasthan_relocation_priority.csv",
+                ahp_weights_csv=proc_reloc / "rajasthan_ahp_weights.csv",
+                factors_csv=proc_reloc / "rajasthan_relocation_factor_contributions.csv"
+            ),
+            "karnataka": StateMetadata(
+                id="karnataka",
+                code="KA",
+                name="Karnataka",
+                admin_unit_name="Taluk",
+                admin_unit_plural="Taluks",
+                district_count=31,
+                admin_unit_count=240,
+                is_coastal=True,
+                districts_geojson=proc_admin / "karnataka_districts.geojson",
+                admin_units_geojson=proc_reloc / "karnataka_relocation_priority.geojson",
+                census_csv=proc_census / "karnataka_demographics.csv",
+                hazard_csv=proc_haz / "karnataka_hazard_exposure.csv",
+                hazard_geojson=proc_vuln / "karnataka_vulnerability.geojson",
+                vulnerability_csv=proc_vuln / "karnataka_demographic_vulnerability.csv",
+                vulnerability_geojson=proc_vuln / "karnataka_vulnerability.geojson",
+                capacity_components_csv=proc_cap / "karnataka_capacity_components.csv",
+                capacity_adequacy_csv=proc_cap / "karnataka_capacity_adequacy.csv",
+                host_candidates_csv=proc_cap / "karnataka_host_zone_candidates.csv",
+                capacity_geojson=proc_cap / "karnataka_capacity_adequacy.geojson",
+                relocation_csv=proc_reloc / "karnataka_relocation_priority.csv",
+                relocation_geojson=proc_reloc / "karnataka_relocation_priority.geojson",
+                relocation_summary_csv=proc_reloc / "karnataka_relocation_priority.csv",
+                ahp_weights_csv=proc_reloc / "karnataka_ahp_weights.csv",
+                factors_csv=proc_reloc / "karnataka_relocation_factor_contributions.csv"
+            ),
+            "telangana": StateMetadata(
+                id="telangana",
+                code="TS",
+                name="Telangana",
+                admin_unit_name="Mandal",
+                admin_unit_plural="Mandals",
+                district_count=33,
+                admin_unit_count=589,
+                is_coastal=False,
+                districts_geojson=proc_admin / "telangana_districts.geojson",
+                admin_units_geojson=proc_reloc / "telangana_relocation_priority.geojson",
+                census_csv=proc_census / "telangana_demographics.csv",
+                hazard_csv=proc_haz / "telangana_hazard_exposure.csv",
+                hazard_geojson=proc_vuln / "telangana_vulnerability.geojson",
+                vulnerability_csv=proc_vuln / "telangana_demographic_vulnerability.csv",
+                vulnerability_geojson=proc_vuln / "telangana_vulnerability.geojson",
+                capacity_components_csv=proc_cap / "telangana_capacity_components.csv",
+                capacity_adequacy_csv=proc_cap / "telangana_capacity_adequacy.csv",
+                host_candidates_csv=proc_cap / "telangana_host_zone_candidates.csv",
+                capacity_geojson=proc_cap / "telangana_capacity_adequacy.geojson",
+                relocation_csv=proc_reloc / "telangana_relocation_priority.csv",
+                relocation_geojson=proc_reloc / "telangana_relocation_priority.geojson",
+                relocation_summary_csv=proc_reloc / "telangana_relocation_priority.csv",
+                ahp_weights_csv=proc_reloc / "telangana_ahp_weights.csv",
+                factors_csv=proc_reloc / "telangana_relocation_factor_contributions.csv"
+            ),
+            "madhya_pradesh": StateMetadata(
+                id="madhya_pradesh",
+                code="MP",
+                name="Madhya Pradesh",
+                admin_unit_name="Tehsil",
+                admin_unit_plural="Tehsils",
+                district_count=55,
+                admin_unit_count=428,
+                is_coastal=False,
+                districts_geojson=proc_admin / "madhya_pradesh_districts.geojson",
+                admin_units_geojson=proc_reloc / "madhya_pradesh_relocation_priority.geojson",
+                census_csv=proc_census / "madhya_pradesh_demographics.csv",
+                hazard_csv=proc_haz / "madhya_pradesh_hazard_exposure.csv",
+                hazard_geojson=proc_vuln / "madhya_pradesh_vulnerability.geojson",
+                vulnerability_csv=proc_vuln / "madhya_pradesh_demographic_vulnerability.csv",
+                vulnerability_geojson=proc_vuln / "madhya_pradesh_vulnerability.geojson",
+                capacity_components_csv=proc_cap / "madhya_pradesh_capacity_components.csv",
+                capacity_adequacy_csv=proc_cap / "madhya_pradesh_capacity_adequacy.csv",
+                host_candidates_csv=proc_cap / "madhya_pradesh_host_zone_candidates.csv",
+                capacity_geojson=proc_cap / "madhya_pradesh_capacity_adequacy.geojson",
+                relocation_csv=proc_reloc / "madhya_pradesh_relocation_priority.csv",
+                relocation_geojson=proc_reloc / "madhya_pradesh_relocation_priority.geojson",
+                relocation_summary_csv=proc_reloc / "madhya_pradesh_relocation_priority.csv",
+                ahp_weights_csv=proc_reloc / "madhya_pradesh_ahp_weights.csv",
+                factors_csv=proc_reloc / "madhya_pradesh_relocation_factor_contributions.csv"
+            ),
+            "jharkhand": StateMetadata(
+                id="jharkhand",
+                code="JH",
+                name="Jharkhand",
+                admin_unit_name="Block",
+                admin_unit_plural="Blocks",
+                district_count=24,
+                admin_unit_count=260,
+                is_coastal=False,
+                districts_geojson=proc_admin / "jharkhand_districts.geojson",
+                admin_units_geojson=proc_reloc / "jharkhand_relocation_priority.geojson",
+                census_csv=proc_census / "jharkhand_demographics.csv",
+                hazard_csv=proc_haz / "jharkhand_hazard_exposure.csv",
+                hazard_geojson=proc_vuln / "jharkhand_vulnerability.geojson",
+                vulnerability_csv=proc_vuln / "jharkhand_demographic_vulnerability.csv",
+                vulnerability_geojson=proc_vuln / "jharkhand_vulnerability.geojson",
+                capacity_components_csv=proc_cap / "jharkhand_capacity_components.csv",
+                capacity_adequacy_csv=proc_cap / "jharkhand_capacity_adequacy.csv",
+                host_candidates_csv=proc_cap / "jharkhand_host_zone_candidates.csv",
+                capacity_geojson=proc_cap / "jharkhand_capacity_adequacy.geojson",
+                relocation_csv=proc_reloc / "jharkhand_relocation_priority.csv",
+                relocation_geojson=proc_reloc / "jharkhand_relocation_priority.geojson",
+                relocation_summary_csv=proc_reloc / "jharkhand_relocation_priority.csv",
+                ahp_weights_csv=proc_reloc / "jharkhand_ahp_weights.csv",
+                factors_csv=proc_reloc / "jharkhand_relocation_factor_contributions.csv"
+            ),
+            "goa": StateMetadata(
+                id="goa",
+                code="GA",
+                name="Goa",
+                admin_unit_name="Taluka",
+                admin_unit_plural="Talukas",
+                district_count=2,
+                admin_unit_count=12,
+                is_coastal=True,
+                districts_geojson=proc_admin / "goa_districts.geojson",
+                admin_units_geojson=proc_reloc / "goa_relocation_priority.geojson",
+                census_csv=proc_census / "goa_demographics.csv",
+                hazard_csv=proc_haz / "goa_hazard_exposure.csv",
+                hazard_geojson=proc_vuln / "goa_vulnerability.geojson",
+                vulnerability_csv=proc_vuln / "goa_demographic_vulnerability.csv",
+                vulnerability_geojson=proc_vuln / "goa_vulnerability.geojson",
+                capacity_components_csv=proc_cap / "goa_capacity_components.csv",
+                capacity_adequacy_csv=proc_cap / "goa_capacity_adequacy.csv",
+                host_candidates_csv=proc_cap / "goa_host_zone_candidates.csv",
+                capacity_geojson=proc_cap / "goa_capacity_adequacy.geojson",
+                relocation_csv=proc_reloc / "goa_relocation_priority.csv",
+                relocation_geojson=proc_reloc / "goa_relocation_priority.geojson",
+                relocation_summary_csv=proc_reloc / "goa_relocation_priority.csv",
+                ahp_weights_csv=proc_reloc / "goa_ahp_weights.csv",
+                factors_csv=proc_reloc / "goa_relocation_factor_contributions.csv"
+            ),
+            "jammu_and_kashmir": StateMetadata(
+                id="jammu_and_kashmir",
+                code="JK",
+                name="Jammu & Kashmir",
+                admin_unit_name="Tehsil",
+                admin_unit_plural="Tehsils",
+                district_count=20,
+                admin_unit_count=207,
+                is_coastal=False,
+                districts_geojson=proc_admin / "jammu_and_kashmir_districts.geojson",
+                admin_units_geojson=proc_reloc / "jammu_and_kashmir_relocation_priority.geojson",
+                census_csv=proc_census / "jammu_and_kashmir_demographics.csv",
+                hazard_csv=proc_haz / "jammu_and_kashmir_hazard_exposure.csv",
+                hazard_geojson=proc_vuln / "jammu_and_kashmir_vulnerability.geojson",
+                vulnerability_csv=proc_vuln / "jammu_and_kashmir_demographic_vulnerability.csv",
+                vulnerability_geojson=proc_vuln / "jammu_and_kashmir_vulnerability.geojson",
+                capacity_components_csv=proc_cap / "jammu_and_kashmir_capacity_components.csv",
+                capacity_adequacy_csv=proc_cap / "jammu_and_kashmir_capacity_adequacy.csv",
+                host_candidates_csv=proc_cap / "jammu_and_kashmir_host_zone_candidates.csv",
+                capacity_geojson=proc_cap / "jammu_and_kashmir_capacity_adequacy.geojson",
+                relocation_csv=proc_reloc / "jammu_and_kashmir_relocation_priority.csv",
+                relocation_geojson=proc_reloc / "jammu_and_kashmir_relocation_priority.geojson",
+                relocation_summary_csv=proc_reloc / "jammu_and_kashmir_relocation_priority.csv",
+                ahp_weights_csv=proc_reloc / "jammu_and_kashmir_ahp_weights.csv",
+                factors_csv=proc_reloc / "jammu_and_kashmir_relocation_factor_contributions.csv"
             )
         }
 
+    def _build_dynamic_state(self, key: str) -> StateMetadata:
+        root = settings.DATA_DIR
+        proc_admin = root / "processed" / "admin"
+        proc_census = root / "processed" / "census"
+        proc_haz = root / "processed" / "hazard" / "mandal_exposure"
+        proc_vuln = root / "processed" / "vulnerability"
+        proc_cap = root / "processed" / "capacity"
+        proc_reloc = root / "processed" / "relocation"
+
+        # Determine district geojson
+        dist_path = proc_admin / f"{key}_districts.geojson"
+        if not dist_path.exists():
+            dist_path = proc_admin / f"{key}.geojson"
+
+        pretty_name = key.replace("_", " ").title()
+        code = "".join([w[0] for w in pretty_name.split()]).upper()[:3]
+
+        return StateMetadata(
+            id=key,
+            code=code,
+            name=pretty_name,
+            admin_unit_name="Administrative Unit",
+            admin_unit_plural="Administrative Units",
+            district_count=20,
+            admin_unit_count=100,
+            is_coastal=False,
+            districts_geojson=dist_path,
+            admin_units_geojson=proc_reloc / f"{key}_relocation_priority.geojson",
+            census_csv=proc_census / f"{key}_demographics.csv",
+            hazard_csv=proc_haz / f"{key}_hazard_exposure.csv",
+            hazard_geojson=proc_vuln / f"{key}_vulnerability.geojson",
+            vulnerability_csv=proc_vuln / f"{key}_demographic_vulnerability.csv",
+            vulnerability_geojson=proc_vuln / f"{key}_vulnerability.geojson",
+            capacity_components_csv=proc_cap / f"{key}_capacity_components.csv",
+            capacity_adequacy_csv=proc_cap / f"{key}_capacity_adequacy.csv",
+            host_candidates_csv=proc_cap / f"{key}_host_zone_candidates.csv",
+            capacity_geojson=proc_cap / f"{key}_capacity_adequacy.geojson",
+            relocation_csv=proc_reloc / f"{key}_relocation_priority.csv",
+            relocation_geojson=proc_reloc / f"{key}_relocation_priority.geojson",
+            relocation_summary_csv=proc_reloc / f"{key}_relocation_priority.csv",
+            ahp_weights_csv=proc_reloc / f"{key}_ahp_weights.csv",
+            factors_csv=proc_reloc / f"{key}_relocation_factor_contributions.csv"
+        )
+
     def get_state(self, state_id: Optional[str]) -> StateMetadata:
         key = get_state_key(state_id)
-        return self.states.get(key, self.states["andhra_pradesh"])
+        if key in self.states:
+            return self.states[key]
+        return self._build_dynamic_state(key)
 
     def get_all_states(self) -> List[StateMetadata]:
         return list(self.states.values())

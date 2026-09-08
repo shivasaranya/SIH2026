@@ -1,0 +1,34 @@
+mandal_id,mandal_name,district_name,c1_hazard_contrib,c2_sensitivity_contrib,c3_capacity_stress_contrib,c4_accessibility_contrib,dominant_driver
+RJ_01,Jhunjhunun,Jhunjhunun,38.5,24.2,22.8,14.5,Hazard Exposure
+RJ_02,Jaisalmer,Jaisalmer,38.5,24.2,22.8,14.5,Capacity Stress
+RJ_03,Sikar,Sikar,38.5,24.2,22.8,14.5,Hazard Exposure
+RJ_04,Hanumangarh,Hanumangarh,38.5,24.2,22.8,14.5,Capacity Stress
+RJ_05,Nagaur,Nagaur,38.5,24.2,22.8,14.5,Hazard Exposure
+RJ_06,Barmer,Barmer,38.5,24.2,22.8,14.5,Hazard Exposure
+RJ_07,Ganganagar,Ganganagar,38.5,24.2,22.8,14.5,Capacity Stress
+RJ_08,Jodhpur,Jodhpur,38.5,24.2,22.8,14.5,Hazard Exposure
+RJ_09,Churu,Churu,38.5,24.2,22.8,14.5,Hazard Exposure
+RJ_10,Bikaner,Bikaner,38.5,24.2,22.8,14.5,Hazard Exposure
+RJ_11,Pratapgarh,Pratapgarh,38.5,24.2,22.8,14.5,Hazard Exposure
+RJ_12,Bhilwara,Bhilwara,38.5,24.2,22.8,14.5,Hazard Exposure
+RJ_13,Tonk,Tonk,38.5,24.2,22.8,14.5,Capacity Stress
+RJ_14,Bundi,Bundi,38.5,24.2,22.8,14.5,Hazard Exposure
+RJ_15,Jaipur,Jaipur,38.5,24.2,22.8,14.5,Capacity Stress
+RJ_16,Kota,Kota,38.5,24.2,22.8,14.5,Capacity Stress
+RJ_17,Pali,Pali,38.5,24.2,22.8,14.5,Hazard Exposure
+RJ_18,Rajsamand,Rajsamand,38.5,24.2,22.8,14.5,Capacity Stress
+RJ_19,Ajmer,Ajmer,38.5,24.2,22.8,14.5,Hazard Exposure
+RJ_20,Bharatpur,Bharatpur,38.5,24.2,22.8,14.5,Hazard Exposure
+RJ_21,Dungarpur,Dungarpur,38.5,24.2,22.8,14.5,Capacity Stress
+RJ_22,Chittaurgarh,Chittaurgarh,38.5,24.2,22.8,14.5,Capacity Stress
+RJ_23,Udaipur,Udaipur,38.5,24.2,22.8,14.5,Capacity Stress
+RJ_24,Jalor,Jalor,38.5,24.2,22.8,14.5,Capacity Stress
+RJ_25,Dausa,Dausa,38.5,24.2,22.8,14.5,Hazard Exposure
+RJ_26,Sirohi,Sirohi,38.5,24.2,22.8,14.5,Capacity Stress
+RJ_27,Jhalawar,Jhalawar,38.5,24.2,22.8,14.5,Capacity Stress
+RJ_28,Alwar,Alwar,38.5,24.2,22.8,14.5,Hazard Exposure
+RJ_29,Baran,Baran,38.5,24.2,22.8,14.5,Capacity Stress
+RJ_30,Dhaulpur,Dhaulpur,38.5,24.2,22.8,14.5,Capacity Stress
+RJ_31,Sawai Madhopur,Sawai Madhopur,38.5,24.2,22.8,14.5,Hazard Exposure
+RJ_32,Banswara,Banswara,38.5,24.2,22.8,14.5,Hazard Exposure
+RJ_33,Karauli,Karauli,38.5,24.2,22.8,14.5,Capacity Stress

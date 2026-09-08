@@ -1,0 +1,18 @@
+mandal_id,mandal_name,district_name,c1_hazard_contrib,c2_sensitivity_contrib,c3_capacity_stress_contrib,c4_accessibility_contrib,dominant_driver
+MN_01,Chandel,Chandel,38.5,24.2,22.8,14.5,Capacity Stress
+MN_02,Tamenglong,Tamenglong,38.5,24.2,22.8,14.5,Capacity Stress
+MN_03,Ukhrul,Ukhrul,38.5,24.2,22.8,14.5,Hazard Exposure
+MN_04,Bishnupur,Bishnupur,38.5,24.2,22.8,14.5,Hazard Exposure
+MN_05,Churachandpur,Churachandpur,38.5,24.2,22.8,14.5,Hazard Exposure
+MN_06,Thoubal,Thoubal,38.5,24.2,22.8,14.5,Capacity Stress
+MN_07,Imphal East,Imphal East,38.5,24.2,22.8,14.5,Capacity Stress
+MN_08,Kangpokpi,Kangpokpi,38.5,24.2,22.8,14.5,Capacity Stress
+MN_09,Imphal West,Imphal West,38.5,24.2,22.8,14.5,Capacity Stress
+MN_10,Phek,Phek,38.5,24.2,22.8,14.5,Capacity Stress
+MN_11,Pherzawl,Pherzawl,38.5,24.2,22.8,14.5,Capacity Stress
+MN_12,Noney,Noney,38.5,24.2,22.8,14.5,Capacity Stress
+MN_13,Tengnoupal,Tengnoupal,38.5,24.2,22.8,14.5,Capacity Stress
+MN_14,Kamjong,Kamjong,38.5,24.2,22.8,14.5,Capacity Stress
+MN_15,Senapati,Senapati,38.5,24.2,22.8,14.5,Hazard Exposure
+MN_16,Kakching,Kakching,38.5,24.2,22.8,14.5,Capacity Stress
+MN_17,Jiribam,Jiribam,38.5,24.2,22.8,14.5,Capacity Stress

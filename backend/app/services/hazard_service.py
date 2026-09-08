@@ -121,7 +121,10 @@ class HazardService:
             for sk in state_registry.states.keys():
                 if sk == detected_state:
                     continue
-                other_data = self._load_data(sk)
+                try:
+                    other_data = self._load_data(sk)
+                except Exception:
+                    continue
                 odf = other_data["exposure_df"]
                 oid = "mandal_id" if "mandal_id" in odf.columns else ("block_id" if "block_id" in odf.columns else "circle_id")
                 oname = "mandal_name" if "mandal_name" in odf.columns else ("block_name" if "block_name" in odf.columns else "circle_name")
@@ -136,7 +139,10 @@ class HazardService:
             for s in ["andhra_pradesh", "assam", "tamil_nadu", "bihar", "west_bengal", "odisha", "uttar_pradesh", "uttarakhand", "sikkim", "arunachal_pradesh", "nagaland", "meghalaya", "gujarat", "kerala", "maharashtra", "haryana", "punjab", "chhattisgarh", "mizoram", "himachal_pradesh"]:
                 if s == detected_state:
                     continue
-                s_data = self._load_data(s)
+                try:
+                    s_data = self._load_data(s)
+                except Exception:
+                    continue
                 s_df = s_data["exposure_df"]
                 match = s_df[
                     (s_df["mandal_id"].astype(str).str.upper() == target) |

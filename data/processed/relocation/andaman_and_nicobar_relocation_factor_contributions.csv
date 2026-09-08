@@ -1,0 +1,4 @@
+mandal_id,mandal_name,district_name,c1_hazard_contrib,c2_sensitivity_contrib,c3_capacity_stress_contrib,c4_accessibility_contrib,dominant_driver
+AAN_01,North  & Middle Andaman,North  & Middle Andaman,38.5,24.2,22.8,14.5,Capacity Stress
+AAN_02,South Andaman,South Andaman,38.5,24.2,22.8,14.5,Hazard Exposure
+AAN_03,Nicobars,Nicobars,38.5,24.2,22.8,14.5,Capacity Stress
