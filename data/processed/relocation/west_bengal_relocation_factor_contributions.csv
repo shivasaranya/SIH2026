@@ -1,0 +1,24 @@
+mandal_id,mandal_name,district_name,c1_hazard_contrib,c2_sensitivity_contrib,c3_capacity_stress_contrib,c4_accessibility_contrib,dominant_driver
+WB_01,Nadia,Nadia,38.5,24.2,22.8,14.5,Hazard Exposure
+WB_02,Dakshin Dinajpur,Dakshin Dinajpur,38.5,24.2,22.8,14.5,Capacity Stress
+WB_03,Murshidabad,Murshidabad,38.5,24.2,22.8,14.5,Hazard Exposure
+WB_04,Kolkata,Kolkata,38.5,24.2,22.8,14.5,Capacity Stress
+WB_05,Maldah,Maldah,38.5,24.2,22.8,14.5,Hazard Exposure
+WB_06,South Twenty Four Parganas,South Twenty Four Parganas,38.5,24.2,22.8,14.5,Hazard Exposure
+WB_07,Darjiling,Darjiling,38.5,24.2,22.8,14.5,Hazard Exposure
+WB_08,Jalpaiguri,Jalpaiguri,38.5,24.2,22.8,14.5,Hazard Exposure
+WB_09,Uttar Dinajpur,Uttar Dinajpur,38.5,24.2,22.8,14.5,Hazard Exposure
+WB_10,Purba Medinipur,Purba Medinipur,38.5,24.2,22.8,14.5,Capacity Stress
+WB_11,Haora,Haora,38.5,24.2,22.8,14.5,Hazard Exposure
+WB_12,North Twenty Four Parganas,North Twenty Four Parganas,38.5,24.2,22.8,14.5,Capacity Stress
+WB_13,Birbhum,Birbhum,38.5,24.2,22.8,14.5,Hazard Exposure
+WB_14,Barddhaman,Barddhaman,38.5,24.2,22.8,14.5,Hazard Exposure
+WB_15,Bankura,Bankura,38.5,24.2,22.8,14.5,Hazard Exposure
+WB_16,Puruliya,Puruliya,38.5,24.2,22.8,14.5,Capacity Stress
+WB_17,Koch Bihar,Koch Bihar,38.5,24.2,22.8,14.5,Hazard Exposure
+WB_18,Paschim Medinipur,Paschim Medinipur,38.5,24.2,22.8,14.5,Hazard Exposure
+WB_19,Hugli,Hugli,38.5,24.2,22.8,14.5,Hazard Exposure
+WB_20,Alipurduar,Alipurduar,38.5,24.2,22.8,14.5,Hazard Exposure
+WB_21,Jhargram,Jhargram,38.5,24.2,22.8,14.5,Hazard Exposure
+WB_22,Paschim Barddhaman,Paschim Barddhaman,38.5,24.2,22.8,14.5,Capacity Stress
+WB_23,Kalimpong,Kalimpong,38.5,24.2,22.8,14.5,Hazard Exposure

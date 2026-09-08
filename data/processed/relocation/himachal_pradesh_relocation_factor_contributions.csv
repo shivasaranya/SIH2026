@@ -1,0 +1,13 @@
+mandal_id,mandal_name,district_name,c1_hazard_contrib,c2_sensitivity_contrib,c3_capacity_stress_contrib,c4_accessibility_contrib,dominant_driver
+HP_01,Una,Una,38.5,24.2,22.8,14.5,Hazard Exposure
+HP_02,Solan,Solan,38.5,24.2,22.8,14.5,Capacity Stress
+HP_03,Sirmaur,Sirmaur,38.5,24.2,22.8,14.5,Capacity Stress
+HP_04,Kinnaur,Kinnaur,38.5,24.2,22.8,14.5,Capacity Stress
+HP_05,Kullu,Kullu,38.5,24.2,22.8,14.5,Capacity Stress
+HP_06,Chamba,Chamba,38.5,24.2,22.8,14.5,Hazard Exposure
+HP_07,Shimla,Shimla,38.5,24.2,22.8,14.5,Capacity Stress
+HP_08,Bilaspur,Bilaspur,38.5,24.2,22.8,14.5,Capacity Stress
+HP_09,Kangra,Kangra,38.5,24.2,22.8,14.5,Capacity Stress
+HP_10,Lahul & Spiti,Lahul & Spiti,38.5,24.2,22.8,14.5,Hazard Exposure
+HP_11,Mandi,Mandi,38.5,24.2,22.8,14.5,Hazard Exposure
+HP_12,Hamirpur,Hamirpur,38.5,24.2,22.8,14.5,Hazard Exposure

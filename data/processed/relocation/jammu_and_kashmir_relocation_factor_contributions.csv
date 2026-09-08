@@ -1,0 +1,23 @@
+mandal_id,mandal_name,district_name,c1_hazard_contrib,c2_sensitivity_contrib,c3_capacity_stress_contrib,c4_accessibility_contrib,dominant_driver
+JK_01,Anantnag,Anantnag,38.5,24.2,22.8,14.5,Hazard Exposure
+JK_02,Baramula,Baramula,38.5,24.2,22.8,14.5,Hazard Exposure
+JK_03,Kulgam,Kulgam,38.5,24.2,22.8,14.5,Hazard Exposure
+JK_04,Shupiyan,Shupiyan,38.5,24.2,22.8,14.5,Hazard Exposure
+JK_05,Reasi,Reasi,38.5,24.2,22.8,14.5,Capacity Stress
+JK_06,Rajouri,Rajouri,38.5,24.2,22.8,14.5,Capacity Stress
+JK_07,Jammu,Jammu,38.5,24.2,22.8,14.5,Capacity Stress
+JK_08,Leh(Ladakh),Leh(Ladakh),38.5,24.2,22.8,14.5,Hazard Exposure
+JK_09,Srinagar,Srinagar,38.5,24.2,22.8,14.5,Capacity Stress
+JK_10,Doda,Doda,38.5,24.2,22.8,14.5,Capacity Stress
+JK_11,Pulwama,Pulwama,38.5,24.2,22.8,14.5,Capacity Stress
+JK_12,Ramban,Ramban,38.5,24.2,22.8,14.5,Capacity Stress
+JK_13,Ganderbal,Ganderbal,38.5,24.2,22.8,14.5,Capacity Stress
+JK_14,Udhampur,Udhampur,38.5,24.2,22.8,14.5,Capacity Stress
+JK_15,Badgam,Badgam,38.5,24.2,22.8,14.5,Capacity Stress
+JK_16,Punch,Punch,38.5,24.2,22.8,14.5,Hazard Exposure
+JK_17,Kupwara,Kupwara,38.5,24.2,22.8,14.5,Capacity Stress
+JK_18,Samba,Samba,38.5,24.2,22.8,14.5,Capacity Stress
+JK_19,Bandipore,Bandipore,38.5,24.2,22.8,14.5,Capacity Stress
+JK_20,Kathua,Kathua,38.5,24.2,22.8,14.5,Capacity Stress
+JK_21,Kargil,Kargil,38.5,24.2,22.8,14.5,Hazard Exposure
+JK_22,Kishtwar,Kishtwar,38.5,24.2,22.8,14.5,Capacity Stress

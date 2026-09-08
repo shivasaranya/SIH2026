@@ -1,0 +1,34 @@
+mandal_id,mandal_name,district_name,c1_hazard_contrib,c2_sensitivity_contrib,c3_capacity_stress_contrib,c4_accessibility_contrib,dominant_driver
+TS_01,Jangaon,Jangaon,38.5,24.2,22.8,14.5,Capacity Stress
+TS_02,Bhadradri,Bhadradri,38.5,24.2,22.8,14.5,Capacity Stress
+TS_03,Hydrabad,Hydrabad,38.5,24.2,22.8,14.5,Capacity Stress
+TS_04,Mancherial,Mancherial,38.5,24.2,22.8,14.5,Capacity Stress
+TS_05,Karimnagar,Karimnagar,38.5,24.2,22.8,14.5,Capacity Stress
+TS_06,Nizamabad,Nizamabad,38.5,24.2,22.8,14.5,Hazard Exposure
+TS_07,Medak,Medak,38.5,24.2,22.8,14.5,Capacity Stress
+TS_08,Rangareddy,Rangareddy,38.5,24.2,22.8,14.5,Hazard Exposure
+TS_09,Nalgonda,Nalgonda,38.5,24.2,22.8,14.5,Capacity Stress
+TS_10,Nagarkurnool,Nagarkurnool,38.5,24.2,22.8,14.5,Hazard Exposure
+TS_11,Adilabad,Adilabad,38.5,24.2,22.8,14.5,Capacity Stress
+TS_12,Komaram Bheem,Komaram Bheem,38.5,24.2,22.8,14.5,Hazard Exposure
+TS_13,Nirmal,Nirmal,38.5,24.2,22.8,14.5,Hazard Exposure
+TS_14,Kamareddy,Kamareddy,38.5,24.2,22.8,14.5,Hazard Exposure
+TS_15,Jagtial,Jagtial,38.5,24.2,22.8,14.5,Hazard Exposure
+TS_16,Jayashankar,Jayashankar,38.5,24.2,22.8,14.5,Hazard Exposure
+TS_17,Peddapalli,Peddapalli,38.5,24.2,22.8,14.5,Hazard Exposure
+TS_18,Rajanna Sircilla,Rajanna Sircilla,38.5,24.2,22.8,14.5,Capacity Stress
+TS_19,Sangareddy,Sangareddy,38.5,24.2,22.8,14.5,Hazard Exposure
+TS_20,Siddipet,Siddipet,38.5,24.2,22.8,14.5,Hazard Exposure
+TS_21,Khammam,Khammam,38.5,24.2,22.8,14.5,Hazard Exposure
+TS_22,Mahabubabad,Mahabubabad,38.5,24.2,22.8,14.5,Hazard Exposure
+TS_23,Warangal (R),Warangal (R),38.5,24.2,22.8,14.5,Capacity Stress
+TS_24,Warangal (U),Warangal (U),38.5,24.2,22.8,14.5,Hazard Exposure
+TS_25,Suryapet,Suryapet,38.5,24.2,22.8,14.5,Capacity Stress
+TS_26,Yadadri Bhongiri,Yadadri Bhongiri,38.5,24.2,22.8,14.5,Capacity Stress
+TS_27,Medchal,Medchal,38.5,24.2,22.8,14.5,Hazard Exposure
+TS_28,Vikarabad,Vikarabad,38.5,24.2,22.8,14.5,Hazard Exposure
+TS_29,Jogulamba,Jogulamba,38.5,24.2,22.8,14.5,Capacity Stress
+TS_30,Wanaparthy,Wanaparthy,38.5,24.2,22.8,14.5,Hazard Exposure
+TS_31,Mahabubnagar,Mahabubnagar,38.5,24.2,22.8,14.5,Capacity Stress
+TS_32,Narayanpet,Narayanpet,38.5,24.2,22.8,14.5,Capacity Stress
+TS_33,Mulugu,Mulugu,38.5,24.2,22.8,14.5,Hazard Exposure

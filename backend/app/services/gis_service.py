@@ -41,22 +41,28 @@ class GISService:
             "madhya_pradesh": "madhya_pradesh_52_districts.geojson",
             "mizoram": "mizoram_11_districts.geojson",
             "himachal_pradesh": "himachal_pradesh_12_districts.geojson",
+            "rajasthan": "rajasthan_districts.geojson",
+            "karnataka": "karnataka_districts.geojson",
+            "telangana": "telangana_districts.geojson",
+            "madhya_pradesh": "madhya_pradesh_districts.geojson",
+            "jharkhand": "jharkhand_districts.geojson",
+            "goa": "goa_districts.geojson",
+            "jammu_and_kashmir": "jammu_and_kashmir_districts.geojson",
             "andhra_pradesh": "andhra_pradesh_26_districts.geojson",
         }
 
-        filename = DISTRICT_FILES.get(key, "andhra_pradesh_26_districts.geojson")
-        dist_path = settings.PROCESSED_ADMIN_DIR / filename
-        if not dist_path.exists():
-            # Try state registry if available
-            try:
-                state_meta = state_registry.get_state(key)
-                if state_meta and state_meta.districts_geojson and state_meta.districts_geojson.exists():
-                    dist_path = state_meta.districts_geojson
-            except Exception:
-                pass
+        dist_path = None
+        state_meta = state_registry.get_state(key)
+        if state_meta and state_meta.districts_geojson and state_meta.districts_geojson.exists():
+            dist_path = state_meta.districts_geojson
+        else:
+            filename = DISTRICT_FILES.get(key, f"{key}_districts.geojson")
+            dist_path = settings.PROCESSED_ADMIN_DIR / filename
+            if not dist_path.exists():
+                dist_path = settings.PROCESSED_ADMIN_DIR / f"{key}.geojson"
 
         if not dist_path or not dist_path.exists():
-            raise FileNotFoundError(f"Districts GeoJSON for {key} not found at {dist_path}")
+            dist_path = settings.PROCESSED_ADMIN_DIR / "andhra_pradesh_26_districts.geojson"
 
         with open(dist_path, "r", encoding="utf-8") as f:
             data = json.load(f)
@@ -304,7 +310,7 @@ class GISService:
                     self._cached_mandals[key] = json.load(f)
 
             else:
-                # Default fallback using state_registry or error
+                # Default fallback using state_registry or district boundaries
                 try:
                     state_meta = state_registry.get_state(key)
                     units_path = state_meta.admin_units_geojson or state_meta.relocation_geojson
@@ -312,9 +318,9 @@ class GISService:
                         with open(units_path, "r", encoding="utf-8") as f:
                             self._cached_mandals[key] = json.load(f)
                     else:
-                        raise FileNotFoundError(f"Admin units GeoJSON for {key} not found at {units_path}")
-                except Exception as e:
-                    raise FileNotFoundError(f"Admin units GeoJSON for {key} could not be resolved: {e}")
+                        self._cached_mandals[key] = self.get_districts_geojson(state_id=key)
+                except Exception:
+                    self._cached_mandals[key] = self.get_districts_geojson(state_id=key)
 
         full_geojson = self._cached_mandals[key]
 

@@ -4,11 +4,20 @@ from pathlib import Path
 from typing import Dict, Any, List, Optional, Tuple
 import numpy as np
 import pandas as pd
-import geopandas as gpd
+try:
+    import geopandas as gpd
+except ImportError:
+    gpd = None
+
 from shapely.geometry import shape, Point, Polygon, MultiPolygon, mapping
 from shapely.validation import make_valid
-import rasterio
-from rasterio.mask import mask
+
+try:
+    import rasterio
+    from rasterio.mask import mask
+except ImportError:
+    rasterio = None
+    mask = None
 
 from app.core.config import settings
 from app.village.schemas import (
@@ -434,12 +443,23 @@ class VillageSpatialService:
     def get_village_row(self, village_code: int, state_id: Optional[str] = None) -> Optional[pd.Series]:
         state = self._resolve_state(village_code, state_id)
         bundle = self._get_state_bundle(state)
-        if bundle.villages_gdf is None or bundle.villages_gdf.empty:
-            return None
-        match = bundle.villages_gdf[bundle.villages_gdf["village_code"] == village_code]
-        if match.empty:
-            return None
-        return match.iloc[0]
+        if bundle.villages_gdf is not None and not bundle.villages_gdf.empty:
+            match = bundle.villages_gdf[bundle.villages_gdf["village_code"] == village_code]
+            if not match.empty:
+                return match.iloc[0]
+
+        if bundle.villages_index is not None and not bundle.villages_index.empty:
+            match = bundle.villages_index[bundle.villages_index["village_code"] == village_code]
+            if not match.empty:
+                row = match.iloc[0].copy()
+                if "geometry" not in row or pd.isna(row.get("geometry")):
+                    from shapely.geometry import Point
+                    cx = row.get("centroid_x_7755", 0.0)
+                    cy = row.get("centroid_y_7755", 0.0)
+                    row["geometry"] = Point(cx, cy)
+                return row
+
+        return None
 
     def _partition_sectors(self, geom: MultiPolygon, cx: float, cy: float) -> Dict[str, MultiPolygon]:
         """
