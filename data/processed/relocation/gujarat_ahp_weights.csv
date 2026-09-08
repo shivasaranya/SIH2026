@@ -1,0 +1,5 @@
+criterion_code,criterion_name,weight,percentage,rank
+C1,Hazard Exposure,0.4231,42.31,1
+C2,Demographic Sensitivity,0.2274,22.74,2
+C3,Capacity Stress,0.2274,22.74,3
+C4,Accessibility Constraint,0.1221,12.21,4

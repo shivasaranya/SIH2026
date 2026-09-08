@@ -31,6 +31,11 @@ interface StateFeatureProperties {
 
 const OPERATIONAL_STATES_SET = new Set([
   'andhra pradesh',
+  'mizoram',
+  'himachal pradesh',
+  'jammu and kashmir',
+  'jammu & kashmir',
+  'madhya pradesh',
   'assam',
   'bihar',
   'tamil nadu',
@@ -43,7 +48,13 @@ const OPERATIONAL_STATES_SET = new Set([
   'sikkim',
   'arunachal pradesh',
   'nagaland',
-  'meghalaya'
+  'meghalaya',
+  'gujarat',
+  'kerala',
+  'maharashtra',
+  'haryana',
+  'punjab',
+  'chhattisgarh'
 ]);
 
 const resolveStateProps = (rawProps?: StateFeatureProperties) => {

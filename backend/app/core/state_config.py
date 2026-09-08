@@ -1,188 +1,620 @@
-"""
-RakshaSethu - State Configuration and Adapter Registry
-Provides state-agnostic resolution of active state configurations,
-datasets, and administrative unit schemas (Mandals / Taluks / Tehsils).
-"""
+from dataclasses import dataclass, field
+from typing import Dict, List, Tuple, Optional
+from pathlib import Path
+from app.core.config import settings
 
-from typing import Optional, Dict, Any
-from pydantic import BaseModel
-
-
-class StateDataConfig(BaseModel):
+@dataclass
+class StateConfig:
     state_id: str
-    state_key: str
     state_name: str
     state_code: str
-    admin_unit_name: str
-    admin_unit_plural: str
-    is_coastal: bool
-    districts_file: str
-    mandals_file: str
-    demographics_file: str
-    hazard_csv: str
-    hazard_geojson: str
-    vuln_csv: str
-    vuln_geojson: str
-    capacity_components_csv: str
-    capacity_adequacy_csv: str
-    capacity_adequacy_geojson: str
-    host_candidates_csv: str
-    bottlenecks_csv: str
-    relocation_csv: str
-    relocation_geojson: str
-    relocation_factors_csv: str
-    ahp_weights_csv: str
-    relocation_summary_csv: str
-    code_col: str
-    name_col: str
-    m_code_col: str
-    m_name_col: str
+    admin_unit_singular: str  # "Mandal", "Taluka", or "Tehsil"
+    admin_unit_plural: str    # "Mandals", "Talukas", or "Tehsils"
+    district_count: int
+    admin_unit_count: int
+    center_coords: Tuple[float, float]
+    bounding_box: Tuple[Tuple[float, float], Tuple[float, float]]
+    
+    # Dataset Filenames
+    districts_geojson_filename: str
+    admin_units_geojson_filename: str
+    demographics_csv_filename: str
+    hazard_csv_filename: str
+    hazard_geojson_filename: str
+    vulnerability_csv_filename: str
+    vulnerability_geojson_filename: str
+    capacity_csv_filename: str
+    capacity_geojson_filename: str
+    host_candidates_csv_filename: str
+    relocation_priority_csv_filename: str
+    relocation_factors_csv_filename: str
+    relocation_geojson_filename: str
+    ahp_weights_csv_filename: str
 
-
-STATE_REGISTRY: Dict[str, StateDataConfig] = {
-    "ap": StateDataConfig(
-        state_id="andhra_pradesh",
-        state_key="ap",
+SUPPORTED_STATES: Dict[str, StateConfig] = {
+    "ap": StateConfig(
+        state_id="ap",
         state_name="Andhra Pradesh",
         state_code="AP",
-        admin_unit_name="Mandal",
+        admin_unit_singular="Mandal",
         admin_unit_plural="Mandals",
-        is_coastal=True,
-        districts_file="andhra_pradesh_26_districts.geojson",
-        mandals_file="AndhraPradesh_Mandals.geojson",
-        demographics_file="ap_village_demographics.csv",
-        hazard_csv="mandal_multi_hazard_exposure.csv",
-        hazard_geojson="ap_mandal_multi_hazard_exposure.geojson",
-        vuln_csv="mandal_demographic_vulnerability.csv",
-        vuln_geojson="ap_mandal_vulnerability.geojson",
-        capacity_components_csv="mandal_capacity_components.csv",
-        capacity_adequacy_csv="mandal_capacity_adequacy.csv",
-        capacity_adequacy_geojson="ap_mandal_capacity_adequacy.geojson",
-        host_candidates_csv="host_zone_candidates.csv",
-        bottlenecks_csv="mandal_bottlenecks.csv",
-        relocation_csv="mandal_relocation_priority.csv",
-        relocation_geojson="ap_mandal_relocation_priority.geojson",
-        relocation_factors_csv="relocation_factor_contributions.csv",
-        ahp_weights_csv="ahp_weights.csv",
-        relocation_summary_csv="relocation_priority_summary.csv",
-        code_col="current_district_code",
-        name_col="current_district_name",
-        m_code_col="mandal_code",
-        m_name_col="mandal_name",
+        district_count=26,
+        admin_unit_count=696,
+        center_coords=(15.9129, 79.74),
+        bounding_box=((12.6, 76.7), (19.2, 84.8)),
+        districts_geojson_filename="andhra_pradesh_26_districts.geojson",
+        admin_units_geojson_filename="ap_mandal_multi_hazard_exposure.geojson",
+        demographics_csv_filename="ap_village_demographics.csv",
+        hazard_csv_filename="mandal_multi_hazard_exposure.csv",
+        hazard_geojson_filename="ap_mandal_multi_hazard_exposure.geojson",
+        vulnerability_csv_filename="mandal_demographic_vulnerability.csv",
+        vulnerability_geojson_filename="ap_mandal_vulnerability.geojson",
+        capacity_csv_filename="mandal_capacity_components.csv",
+        capacity_geojson_filename="ap_mandal_capacity_components.geojson",
+        host_candidates_csv_filename="host_zone_candidates.csv",
+        relocation_priority_csv_filename="mandal_relocation_priority.csv",
+        relocation_factors_csv_filename="relocation_factor_contributions.csv",
+        relocation_geojson_filename="ap_mandal_relocation_priority.geojson",
+        ahp_weights_csv_filename="ahp_weights.csv"
     ),
-    "tn": StateDataConfig(
+    "gujarat": StateConfig(
+        state_id="gujarat",
+        state_name="Gujarat",
+        state_code="GJ",
+        admin_unit_singular="Taluka",
+        admin_unit_plural="Talukas",
+        district_count=33,
+        admin_unit_count=252,
+        center_coords=(22.2587, 71.1924),
+        bounding_box=((20.0, 68.0), (24.8, 74.6)),
+        districts_geojson_filename="gujarat_33_districts.geojson",
+        admin_units_geojson_filename="gujarat_talukas.geojson",
+        demographics_csv_filename="gujarat_taluka_demographics.csv",
+        hazard_csv_filename="gujarat_taluka_multi_hazard_exposure.csv",
+        hazard_geojson_filename="gujarat_taluka_multi_hazard_exposure.geojson",
+        vulnerability_csv_filename="gujarat_taluka_demographic_vulnerability.csv",
+        vulnerability_geojson_filename="gujarat_taluka_vulnerability.geojson",
+        capacity_csv_filename="gujarat_taluka_capacity_components.csv",
+        capacity_geojson_filename="gujarat_taluka_capacity_components.geojson",
+        host_candidates_csv_filename="gujarat_host_zone_candidates.csv",
+        relocation_priority_csv_filename="gujarat_taluka_relocation_priority.csv",
+        relocation_factors_csv_filename="gujarat_relocation_factor_contributions.csv",
+        relocation_geojson_filename="gujarat_taluka_relocation_priority.geojson",
+        ahp_weights_csv_filename="gujarat_ahp_weights.csv"
+    ),
+    "kerala": StateConfig(
+        state_id="kerala",
+        state_name="Kerala",
+        state_code="KL",
+        admin_unit_singular="Taluk",
+        admin_unit_plural="Taluks",
+        district_count=14,
+        admin_unit_count=61,
+        center_coords=(10.45, 76.35),
+        bounding_box=((8.25, 74.85), (12.85, 77.45)),
+        districts_geojson_filename="kerala_14_districts.geojson",
+        admin_units_geojson_filename="kerala_taluks.geojson",
+        demographics_csv_filename="kerala_taluka_demographics.csv",
+        hazard_csv_filename="kerala_taluka_multi_hazard_exposure.csv",
+        hazard_geojson_filename="kerala_taluka_multi_hazard_exposure.geojson",
+        vulnerability_csv_filename="kerala_taluka_demographic_vulnerability.csv",
+        vulnerability_geojson_filename="kerala_taluka_vulnerability.geojson",
+        capacity_csv_filename="kerala_taluka_capacity_components.csv",
+        capacity_geojson_filename="kerala_taluka_capacity_components.geojson",
+        host_candidates_csv_filename="kerala_host_zone_candidates.csv",
+        relocation_priority_csv_filename="kerala_taluka_relocation_priority.csv",
+        relocation_factors_csv_filename="kerala_relocation_factor_contributions.csv",
+        relocation_geojson_filename="kerala_taluka_relocation_priority.geojson",
+        ahp_weights_csv_filename="kerala_ahp_weights.csv"
+    ),
+    "maharashtra": StateConfig(
+        state_id="maharashtra",
+        state_name="Maharashtra",
+        state_code="MH",
+        admin_unit_singular="Taluka",
+        admin_unit_plural="Talukas",
+        district_count=35,
+        admin_unit_count=317,
+        center_coords=(19.75, 75.71),
+        bounding_box=((15.60, 72.60), (22.05, 80.95)),
+        districts_geojson_filename="maharashtra_35_districts.geojson",
+        admin_units_geojson_filename="maharashtra_talukas.geojson",
+        demographics_csv_filename="maharashtra_taluka_demographics.csv",
+        hazard_csv_filename="maharashtra_taluka_multi_hazard_exposure.csv",
+        hazard_geojson_filename="maharashtra_taluka_multi_hazard_exposure.geojson",
+        vulnerability_csv_filename="maharashtra_taluka_demographic_vulnerability.csv",
+        vulnerability_geojson_filename="maharashtra_taluka_vulnerability.geojson",
+        capacity_csv_filename="maharashtra_taluka_capacity_components.csv",
+        capacity_geojson_filename="maharashtra_taluka_capacity_components.geojson",
+        host_candidates_csv_filename="maharashtra_host_zone_candidates.csv",
+        relocation_priority_csv_filename="maharashtra_taluka_relocation_priority.csv",
+        relocation_factors_csv_filename="maharashtra_relocation_factor_contributions.csv",
+        relocation_geojson_filename="maharashtra_taluka_relocation_priority.geojson",
+        ahp_weights_csv_filename="maharashtra_ahp_weights.csv"
+    ),
+    "haryana": StateConfig(
+        state_id="haryana",
+        state_name="Haryana",
+        state_code="HR",
+        admin_unit_singular="Tehsil",
+        admin_unit_plural="Tehsils",
+        district_count=22,
+        admin_unit_count=45,
+        center_coords=(29.0588, 76.0856),
+        bounding_box=((27.65, 74.47), (30.93, 77.60)),
+        districts_geojson_filename="haryana_22_districts.geojson",
+        admin_units_geojson_filename="haryana_tehsils.geojson",
+        demographics_csv_filename="haryana_taluka_demographics.csv",
+        hazard_csv_filename="haryana_taluka_multi_hazard_exposure.csv",
+        hazard_geojson_filename="haryana_taluka_multi_hazard_exposure.geojson",
+        vulnerability_csv_filename="haryana_taluka_demographic_vulnerability.csv",
+        vulnerability_geojson_filename="haryana_taluka_vulnerability.geojson",
+        capacity_csv_filename="haryana_taluka_capacity_components.csv",
+        capacity_geojson_filename="haryana_taluka_capacity_components.geojson",
+        host_candidates_csv_filename="haryana_host_zone_candidates.csv",
+        relocation_priority_csv_filename="haryana_taluka_relocation_priority.csv",
+        relocation_factors_csv_filename="haryana_relocation_factor_contributions.csv",
+        relocation_geojson_filename="haryana_taluka_relocation_priority.geojson",
+        ahp_weights_csv_filename="haryana_ahp_weights.csv"
+    ),
+    "punjab": StateConfig(
+        state_id="punjab",
+        state_name="Punjab",
+        state_code="PB",
+        admin_unit_singular="Tehsil",
+        admin_unit_plural="Tehsils",
+        district_count=23,
+        admin_unit_count=45,
+        center_coords=(31.1471, 75.3412),
+        bounding_box=((29.54, 73.88), (32.66, 76.95)),
+        districts_geojson_filename="punjab_23_districts.geojson",
+        admin_units_geojson_filename="punjab_tehsils.geojson",
+        demographics_csv_filename="punjab_taluka_demographics.csv",
+        hazard_csv_filename="punjab_taluka_multi_hazard_exposure.csv",
+        hazard_geojson_filename="punjab_taluka_multi_hazard_exposure.geojson",
+        vulnerability_csv_filename="punjab_taluka_demographic_vulnerability.csv",
+        vulnerability_geojson_filename="punjab_taluka_vulnerability.geojson",
+        capacity_csv_filename="punjab_taluka_capacity_components.csv",
+        capacity_geojson_filename="punjab_taluka_capacity_components.geojson",
+        host_candidates_csv_filename="punjab_host_zone_candidates.csv",
+        relocation_priority_csv_filename="punjab_taluka_relocation_priority.csv",
+        relocation_factors_csv_filename="punjab_relocation_factor_contributions.csv",
+        relocation_geojson_filename="punjab_taluka_relocation_priority.geojson",
+        ahp_weights_csv_filename="punjab_ahp_weights.csv"
+    ),
+    "chhattisgarh": StateConfig(
+        state_id="chhattisgarh",
+        state_name="Chhattisgarh",
+        state_code="CG",
+        admin_unit_singular="Tehsil",
+        admin_unit_plural="Tehsils",
+        district_count=33,
+        admin_unit_count=58,
+        center_coords=(21.2787, 81.8661),
+        bounding_box=((17.78, 80.24), (24.10, 84.40)),
+        districts_geojson_filename="chhattisgarh_33_districts.geojson",
+        admin_units_geojson_filename="chhattisgarh_tehsils.geojson",
+        demographics_csv_filename="chhattisgarh_taluka_demographics.csv",
+        hazard_csv_filename="chhattisgarh_taluka_multi_hazard_exposure.csv",
+        hazard_geojson_filename="chhattisgarh_taluka_multi_hazard_exposure.geojson",
+        vulnerability_csv_filename="chhattisgarh_taluka_demographic_vulnerability.csv",
+        vulnerability_geojson_filename="chhattisgarh_taluka_vulnerability.geojson",
+        capacity_csv_filename="chhattisgarh_taluka_capacity_components.csv",
+        capacity_geojson_filename="chhattisgarh_taluka_capacity_components.geojson",
+        host_candidates_csv_filename="chhattisgarh_host_zone_candidates.csv",
+        relocation_priority_csv_filename="chhattisgarh_taluka_relocation_priority.csv",
+        relocation_factors_csv_filename="chhattisgarh_relocation_factor_contributions.csv",
+        relocation_geojson_filename="chhattisgarh_taluka_relocation_priority.geojson",
+        ahp_weights_csv_filename="chhattisgarh_ahp_weights.csv"
+    ),
+    "tamil_nadu": StateConfig(
         state_id="tamil_nadu",
-        state_key="tn",
         state_name="Tamil Nadu",
         state_code="TN",
-        admin_unit_name="Taluk",
+        admin_unit_singular="Taluk",
         admin_unit_plural="Taluks",
-        is_coastal=True,
-        districts_file="tamil_nadu_38_districts.geojson",
-        mandals_file="tamil_nadu_taluks.geojson",
-        demographics_file="tn_taluk_demographics.csv",
-        hazard_csv="tn_taluk_multi_hazard_exposure.csv",
-        hazard_geojson="tn_taluk_multi_hazard_exposure.geojson",
-        vuln_csv="tn_taluk_demographic_vulnerability.csv",
-        vuln_geojson="tn_taluk_vulnerability.geojson",
-        capacity_components_csv="tn_taluk_capacity_components.csv",
-        capacity_adequacy_csv="tn_taluk_capacity_adequacy.csv",
-        capacity_adequacy_geojson="tn_taluk_capacity_adequacy.geojson",
-        host_candidates_csv="tn_host_zone_candidates.csv",
-        bottlenecks_csv="tn_taluk_capacity_adequacy.csv",
-        relocation_csv="tn_taluk_relocation_priority.csv",
-        relocation_geojson="tn_taluk_relocation_priority.geojson",
-        relocation_factors_csv="tn_relocation_factor_contributions.csv",
-        ahp_weights_csv="tn_ahp_weights.csv",
-        relocation_summary_csv="tn_relocation_priority_summary.csv",
-        code_col="current_district_id",
-        name_col="current_district_name",
-        m_code_col="taluk_id",
-        m_name_col="taluk_name",
+        district_count=38,
+        admin_unit_count=302,
+        center_coords=(11.1271, 78.6569),
+        bounding_box=((8.08, 76.24), (13.58, 80.35)),
+        districts_geojson_filename="tamil_nadu_38_districts.geojson",
+        admin_units_geojson_filename="tamil_nadu_taluks.geojson",
+        demographics_csv_filename="tn_taluk_demographics.csv",
+        hazard_csv_filename="tn_taluk_multi_hazard_exposure.csv",
+        hazard_geojson_filename="tn_taluk_multi_hazard_exposure.geojson",
+        vulnerability_csv_filename="tn_taluk_demographic_vulnerability.csv",
+        vulnerability_geojson_filename="tn_taluk_vulnerability.geojson",
+        capacity_csv_filename="tn_taluk_capacity_components.csv",
+        capacity_geojson_filename="tn_taluk_capacity_adequacy.geojson",
+        host_candidates_csv_filename="tn_host_zone_candidates.csv",
+        relocation_priority_csv_filename="tn_taluk_relocation_priority.csv",
+        relocation_factors_csv_filename="tn_relocation_factor_contributions.csv",
+        relocation_geojson_filename="tn_taluk_relocation_priority.geojson",
+        ahp_weights_csv_filename="tn_ahp_weights.csv"
     ),
-    "jk": StateDataConfig(
+    "odisha": StateConfig(
+        state_id="odisha",
+        state_name="Odisha",
+        state_code="OD",
+        admin_unit_singular="Block",
+        admin_unit_plural="Blocks",
+        district_count=30,
+        admin_unit_count=475,
+        center_coords=(20.9517, 85.0985),
+        bounding_box=((17.78, 81.37), (22.57, 87.53)),
+        districts_geojson_filename="odisha_30_districts.geojson",
+        admin_units_geojson_filename="odisha_blocks.geojson",
+        demographics_csv_filename="od_block_demographics.csv",
+        hazard_csv_filename="od_block_multi_hazard_exposure.csv",
+        hazard_geojson_filename="od_block_multi_hazard_exposure.geojson",
+        vulnerability_csv_filename="od_block_demographic_vulnerability.csv",
+        vulnerability_geojson_filename="od_block_demographic_vulnerability.geojson",
+        capacity_csv_filename="od_block_capacity_components.csv",
+        capacity_geojson_filename="od_block_capacity_components.geojson",
+        host_candidates_csv_filename="od_host_zone_candidates.csv",
+        relocation_priority_csv_filename="od_block_relocation_priority.csv",
+        relocation_factors_csv_filename="od_relocation_factor_contributions.csv",
+        relocation_geojson_filename="od_block_relocation_priority.geojson",
+        ahp_weights_csv_filename="od_ahp_weights.csv"
+    ),
+    "bihar": StateConfig(
+        state_id="bihar",
+        state_name="Bihar",
+        state_code="BR",
+        admin_unit_singular="Block",
+        admin_unit_plural="Blocks",
+        district_count=38,
+        admin_unit_count=534,
+        center_coords=(25.60, 85.14),
+        bounding_box=((24.28, 83.31), (27.52, 88.29)),
+        districts_geojson_filename="bihar_38_districts.geojson",
+        admin_units_geojson_filename="bihar_blocks.geojson",
+        demographics_csv_filename="br_block_demographics.csv",
+        hazard_csv_filename="br_block_multi_hazard_exposure.csv",
+        hazard_geojson_filename="br_block_multi_hazard_exposure.geojson",
+        vulnerability_csv_filename="br_block_demographic_vulnerability.csv",
+        vulnerability_geojson_filename="br_block_demographic_vulnerability.geojson",
+        capacity_csv_filename="br_block_capacity_components.csv",
+        capacity_geojson_filename="br_block_capacity_adequacy.geojson",
+        host_candidates_csv_filename="br_host_zone_candidates.csv",
+        relocation_priority_csv_filename="br_block_relocation_priority.csv",
+        relocation_factors_csv_filename="br_relocation_factor_contributions.csv",
+        relocation_geojson_filename="br_block_relocation_priority.geojson",
+        ahp_weights_csv_filename="br_ahp_weights.csv"
+    ),
+    "west_bengal": StateConfig(
+        state_id="west_bengal",
+        state_name="West Bengal",
+        state_code="WB",
+        admin_unit_singular="Block",
+        admin_unit_plural="Blocks",
+        district_count=23,
+        admin_unit_count=345,
+        center_coords=(23.50, 87.75),
+        bounding_box=((21.50, 85.80), (27.25, 89.85)),
+        districts_geojson_filename="west_bengal_23_districts.geojson",
+        admin_units_geojson_filename="west_bengal_blocks.geojson",
+        demographics_csv_filename="wb_block_demographics.csv",
+        hazard_csv_filename="wb_block_multi_hazard_exposure.csv",
+        hazard_geojson_filename="wb_block_multi_hazard_exposure.geojson",
+        vulnerability_csv_filename="wb_block_demographic_vulnerability.csv",
+        vulnerability_geojson_filename="wb_block_demographic_vulnerability.geojson",
+        capacity_csv_filename="wb_block_capacity_components.csv",
+        capacity_geojson_filename="wb_block_capacity_adequacy.geojson",
+        host_candidates_csv_filename="wb_host_zone_candidates.csv",
+        relocation_priority_csv_filename="wb_block_relocation_priority.csv",
+        relocation_factors_csv_filename="wb_relocation_factor_contributions.csv",
+        relocation_geojson_filename="wb_block_relocation_priority.geojson",
+        ahp_weights_csv_filename="wb_ahp_weights.csv"
+    ),
+    "assam": StateConfig(
+        state_id="assam",
+        state_name="Assam",
+        state_code="AS",
+        admin_unit_singular="Revenue Circle",
+        admin_unit_plural="Revenue Circles",
+        district_count=33,
+        admin_unit_count=153,
+        center_coords=(26.2006, 92.9376),
+        bounding_box=((24.08, 89.69), (27.97, 96.02)),
+        districts_geojson_filename="assam_33_districts.geojson",
+        admin_units_geojson_filename="assam_revenue_circles.geojson",
+        demographics_csv_filename="as_circle_demographics.csv",
+        hazard_csv_filename="as_circle_multi_hazard_exposure.csv",
+        hazard_geojson_filename="as_circle_multi_hazard_exposure.geojson",
+        vulnerability_csv_filename="as_circle_demographic_vulnerability.csv",
+        vulnerability_geojson_filename="as_circle_vulnerability.geojson",
+        capacity_csv_filename="as_circle_capacity_components.csv",
+        capacity_geojson_filename="as_circle_capacity_adequacy.geojson",
+        host_candidates_csv_filename="as_host_zone_candidates.csv",
+        relocation_priority_csv_filename="as_circle_relocation_priority.csv",
+        relocation_factors_csv_filename="as_relocation_factor_contributions.csv",
+        relocation_geojson_filename="as_circle_relocation_priority.geojson",
+        ahp_weights_csv_filename="as_ahp_weights.csv"
+    ),
+    "uttar_pradesh": StateConfig(
+        state_id="uttar_pradesh",
+        state_name="Uttar Pradesh",
+        state_code="UP",
+        admin_unit_singular="Tehsil",
+        admin_unit_plural="Tehsils",
+        district_count=75,
+        admin_unit_count=351,
+        center_coords=(26.8467, 80.9462),
+        bounding_box=((23.86, 77.08), (30.40, 84.63)),
+        districts_geojson_filename="uttar_pradesh_75_districts.geojson",
+        admin_units_geojson_filename="uttar_pradesh_tehsils.geojson",
+        demographics_csv_filename="up_tehsil_demographics.csv",
+        hazard_csv_filename="up_tehsil_multi_hazard_exposure.csv",
+        hazard_geojson_filename="up_tehsil_multi_hazard_exposure.geojson",
+        vulnerability_csv_filename="up_tehsil_demographic_vulnerability.csv",
+        vulnerability_geojson_filename="up_tehsil_demographic_vulnerability.geojson",
+        capacity_csv_filename="up_tehsil_capacity_components.csv",
+        capacity_geojson_filename="up_tehsil_capacity_adequacy.geojson",
+        host_candidates_csv_filename="up_host_zone_candidates.csv",
+        relocation_priority_csv_filename="up_tehsil_relocation_priority.csv",
+        relocation_factors_csv_filename="up_relocation_factor_contributions.csv",
+        relocation_geojson_filename="up_tehsil_relocation_priority.geojson",
+        ahp_weights_csv_filename="up_ahp_weights.csv"
+    ),
+    "uttarakhand": StateConfig(
+        state_id="uttarakhand",
+        state_name="Uttarakhand",
+        state_code="UK",
+        admin_unit_singular="Tehsil",
+        admin_unit_plural="Tehsils",
+        district_count=13,
+        admin_unit_count=113,
+        center_coords=(30.0668, 79.0193),
+        bounding_box=((28.71, 77.57), (31.46, 81.04)),
+        districts_geojson_filename="uttarakhand_13_districts.geojson",
+        admin_units_geojson_filename="uttarakhand_tehsils.geojson",
+        demographics_csv_filename="uk_tehsil_demographics.csv",
+        hazard_csv_filename="uk_tehsil_multi_hazard_exposure.csv",
+        hazard_geojson_filename="uk_tehsil_multi_hazard_exposure.geojson",
+        vulnerability_csv_filename="uk_tehsil_demographic_vulnerability.csv",
+        vulnerability_geojson_filename="uk_tehsil_demographic_vulnerability.geojson",
+        capacity_csv_filename="uk_tehsil_capacity_components.csv",
+        capacity_geojson_filename="uk_tehsil_capacity_adequacy.geojson",
+        host_candidates_csv_filename="uk_host_zone_candidates.csv",
+        relocation_priority_csv_filename="uk_tehsil_relocation_priority.csv",
+        relocation_factors_csv_filename="uk_relocation_factor_contributions.csv",
+        relocation_geojson_filename="uk_tehsil_relocation_priority.geojson",
+        ahp_weights_csv_filename="uk_ahp_weights.csv"
+    ),
+    "sikkim": StateConfig(
+        state_id="sikkim",
+        state_name="Sikkim",
+        state_code="SK",
+        admin_unit_singular="Sub-division",
+        admin_unit_plural="Sub-divisions",
+        district_count=6,
+        admin_unit_count=16,
+        center_coords=(27.5330, 88.5122),
+        bounding_box=((27.08, 88.01), (28.13, 88.92)),
+        districts_geojson_filename="sikkim_6_districts.geojson",
+        admin_units_geojson_filename="sikkim_subdivisions.geojson",
+        demographics_csv_filename="sk_subdivision_demographics.csv",
+        hazard_csv_filename="sk_subdivision_multi_hazard_exposure.csv",
+        hazard_geojson_filename="sk_subdivision_multi_hazard_exposure.geojson",
+        vulnerability_csv_filename="sk_subdivision_demographic_vulnerability.csv",
+        vulnerability_geojson_filename="sk_subdivision_demographic_vulnerability.geojson",
+        capacity_csv_filename="sk_subdivision_capacity_components.csv",
+        capacity_geojson_filename="sk_subdivision_capacity_adequacy.geojson",
+        host_candidates_csv_filename="sk_host_zone_candidates.csv",
+        relocation_priority_csv_filename="sk_subdivision_relocation_priority.csv",
+        relocation_factors_csv_filename="sk_relocation_factor_contributions.csv",
+        relocation_geojson_filename="sk_subdivision_relocation_priority.geojson",
+        ahp_weights_csv_filename="sk_ahp_weights.csv"
+    ),
+    "arunachal_pradesh": StateConfig(
+        state_id="arunachal_pradesh",
+        state_name="Arunachal Pradesh",
+        state_code="AR",
+        admin_unit_singular="Circle",
+        admin_unit_plural="Circles",
+        district_count=25,
+        admin_unit_count=188,
+        center_coords=(28.2180, 94.7278),
+        bounding_box=((26.65, 91.50), (29.50, 97.42)),
+        districts_geojson_filename="arunachal_pradesh_25_districts.geojson",
+        admin_units_geojson_filename="arunachal_pradesh_circles.geojson",
+        demographics_csv_filename="ar_circle_demographics.csv",
+        hazard_csv_filename="ar_circle_multi_hazard_exposure.csv",
+        hazard_geojson_filename="ar_circle_multi_hazard_exposure.geojson",
+        vulnerability_csv_filename="ar_circle_demographic_vulnerability.csv",
+        vulnerability_geojson_filename="ar_circle_demographic_vulnerability.geojson",
+        capacity_csv_filename="ar_circle_capacity_components.csv",
+        capacity_geojson_filename="ar_circle_capacity_adequacy.geojson",
+        host_candidates_csv_filename="ar_host_zone_candidates.csv",
+        relocation_priority_csv_filename="ar_circle_relocation_priority.csv",
+        relocation_factors_csv_filename="ar_relocation_factor_contributions.csv",
+        relocation_geojson_filename="ar_circle_relocation_priority.geojson",
+        ahp_weights_csv_filename="ar_ahp_criteria_weights.csv"
+    ),
+    "nagaland": StateConfig(
+        state_id="nagaland",
+        state_name="Nagaland",
+        state_code="NL",
+        admin_unit_singular="Circle",
+        admin_unit_plural="Circles",
+        district_count=11,
+        admin_unit_count=114,
+        center_coords=(26.1584, 94.5624),
+        bounding_box=((25.10, 93.30), (27.05, 95.25)),
+        districts_geojson_filename="nagaland_11_districts.geojson",
+        admin_units_geojson_filename="nagaland_circles.geojson",
+        demographics_csv_filename="nl_circle_demographics.csv",
+        hazard_csv_filename="nl_circle_multi_hazard_exposure.csv",
+        hazard_geojson_filename="nl_circle_multi_hazard_exposure.geojson",
+        vulnerability_csv_filename="nl_circle_demographic_vulnerability.csv",
+        vulnerability_geojson_filename="nl_circle_demographic_vulnerability.geojson",
+        capacity_csv_filename="nl_circle_capacity_components.csv",
+        capacity_geojson_filename="nl_circle_capacity_adequacy.geojson",
+        host_candidates_csv_filename="nl_host_zone_candidates.csv",
+        relocation_priority_csv_filename="nl_circle_relocation_priority.csv",
+        relocation_factors_csv_filename="nl_relocation_factor_contributions.csv",
+        relocation_geojson_filename="nl_circle_relocation_priority.geojson",
+        ahp_weights_csv_filename="nl_ahp_weights.csv"
+    ),
+    "meghalaya": StateConfig(
+        state_id="meghalaya",
+        state_name="Meghalaya",
+        state_code="ML",
+        admin_unit_singular="C.D. Block",
+        admin_unit_plural="C.D. Blocks",
+        district_count=11,
+        admin_unit_count=46,
+        center_coords=(25.5788, 91.8933),
+        bounding_box=((25.02, 89.80), (26.12, 92.85)),
+        districts_geojson_filename="meghalaya_11_districts.geojson",
+        admin_units_geojson_filename="meghalaya_blocks.geojson",
+        demographics_csv_filename="ml_block_demographics.csv",
+        hazard_csv_filename="ml_block_multi_hazard_exposure.csv",
+        hazard_geojson_filename="ml_block_multi_hazard_exposure.geojson",
+        vulnerability_csv_filename="ml_block_demographic_vulnerability.csv",
+        vulnerability_geojson_filename="ml_block_demographic_vulnerability.geojson",
+        capacity_csv_filename="ml_block_capacity_components.csv",
+        capacity_geojson_filename="ml_block_capacity_adequacy.geojson",
+        host_candidates_csv_filename="ml_host_zone_candidates.csv",
+        relocation_priority_csv_filename="ml_block_relocation_priority.csv",
+        relocation_factors_csv_filename="ml_relocation_factor_contributions.csv",
+        relocation_geojson_filename="ml_block_relocation_priority.geojson",
+        ahp_weights_csv_filename="ml_ahp_weights.csv"
+    ),
+    "jammu_kashmir": StateConfig(
         state_id="jammu_kashmir",
-        state_key="jk",
         state_name="Jammu and Kashmir",
         state_code="JK",
-        admin_unit_name="Tehsil",
+        admin_unit_singular="Tehsil",
         admin_unit_plural="Tehsils",
-        is_coastal=False,
-        districts_file="jammu_kashmir_20_districts.geojson",
-        mandals_file="jammu_kashmir_tehsils.geojson",
-        demographics_file="jk_tehsil_demographics.csv",
-        hazard_csv="jk_tehsil_multi_hazard_exposure.csv",
-        hazard_geojson="jk_tehsil_multi_hazard_exposure.geojson",
-        vuln_csv="jk_tehsil_demographic_vulnerability.csv",
-        vuln_geojson="jk_tehsil_vulnerability.geojson",
-        capacity_components_csv="jk_tehsil_capacity_components.csv",
-        capacity_adequacy_csv="jk_tehsil_capacity_adequacy.csv",
-        capacity_adequacy_geojson="jk_tehsil_capacity_adequacy.geojson",
-        host_candidates_csv="jk_host_zone_candidates.csv",
-        bottlenecks_csv="jk_tehsil_capacity_adequacy.csv",
-        relocation_csv="jk_tehsil_relocation_priority.csv",
-        relocation_geojson="jk_tehsil_relocation_priority.geojson",
-        relocation_factors_csv="jk_relocation_factor_contributions.csv",
-        ahp_weights_csv="jk_ahp_weights.csv",
-        relocation_summary_csv="jk_relocation_priority_summary.csv",
-        code_col="current_district_id",
-        name_col="current_district_name",
-        m_code_col="taluk_id",
-        m_name_col="taluk_name",
+        district_count=20,
+        admin_unit_count=197,
+        center_coords=(33.7782, 76.5762),
+        bounding_box=((32.25, 73.75), (37.10, 80.35)),
+        districts_geojson_filename="jammu_kashmir_20_districts.geojson",
+        admin_units_geojson_filename="jammu_kashmir_tehsils.geojson",
+        demographics_csv_filename="jk_tehsil_demographics.csv",
+        hazard_csv_filename="jk_tehsil_multi_hazard_exposure.csv",
+        hazard_geojson_filename="jk_tehsil_multi_hazard_exposure.geojson",
+        vulnerability_csv_filename="jk_tehsil_demographic_vulnerability.csv",
+        vulnerability_geojson_filename="jk_tehsil_vulnerability.geojson",
+        capacity_csv_filename="jk_tehsil_capacity_components.csv",
+        capacity_geojson_filename="jk_tehsil_capacity_adequacy.geojson",
+        host_candidates_csv_filename="jk_host_zone_candidates.csv",
+        relocation_priority_csv_filename="jk_tehsil_relocation_priority.csv",
+        relocation_factors_csv_filename="jk_relocation_factor_contributions.csv",
+        relocation_geojson_filename="jk_tehsil_relocation_priority.geojson",
+        ahp_weights_csv_filename="jk_ahp_weights.csv"
     ),
-    "mp": StateDataConfig(
+    "madhya_pradesh": StateConfig(
         state_id="madhya_pradesh",
-        state_key="mp",
         state_name="Madhya Pradesh",
         state_code="MP",
-        admin_unit_name="Tehsil",
+        admin_unit_singular="Tehsil",
         admin_unit_plural="Tehsils",
-        is_coastal=False,
-        districts_file="madhya_pradesh_52_districts.geojson",
-        mandals_file="madhya_pradesh_tehsils.geojson",
-        demographics_file="mp_tehsil_demographics.csv",
-        hazard_csv="mp_tehsil_multi_hazard_exposure.csv",
-        hazard_geojson="mp_tehsil_multi_hazard_exposure.geojson",
-        vuln_csv="mp_tehsil_demographic_vulnerability.csv",
-        vuln_geojson="mp_tehsil_vulnerability.geojson",
-        capacity_components_csv="mp_tehsil_capacity_components.csv",
-        capacity_adequacy_csv="mp_tehsil_capacity_adequacy.csv",
-        capacity_adequacy_geojson="mp_tehsil_capacity_adequacy.geojson",
-        host_candidates_csv="mp_host_zone_candidates.csv",
-        bottlenecks_csv="mp_tehsil_capacity_adequacy.csv",
-        relocation_csv="mp_tehsil_relocation_priority.csv",
-        relocation_geojson="mp_tehsil_relocation_priority.geojson",
-        relocation_factors_csv="mp_relocation_factor_contributions.csv",
-        ahp_weights_csv="mp_ahp_weights.csv",
-        relocation_summary_csv="mp_relocation_priority_summary.csv",
-        code_col="current_district_id",
-        name_col="current_district_name",
-        m_code_col="taluk_id",
-        m_name_col="taluk_name",
-    ),
+        district_count=52,
+        admin_unit_count=422,
+        center_coords=(23.4733, 77.9479),
+        bounding_box=((21.05, 74.04), (26.87, 82.80)),
+        districts_geojson_filename="madhya_pradesh_52_districts.geojson",
+        admin_units_geojson_filename="madhya_pradesh_tehsils.geojson",
+        demographics_csv_filename="mp_tehsil_demographics.csv",
+        hazard_csv_filename="mp_tehsil_multi_hazard_exposure.csv",
+        hazard_geojson_filename="mp_tehsil_multi_hazard_exposure.geojson",
+        vulnerability_csv_filename="mp_tehsil_demographic_vulnerability.csv",
+        vulnerability_geojson_filename="mp_tehsil_vulnerability.geojson",
+        capacity_csv_filename="mp_tehsil_capacity_components.csv",
+        capacity_geojson_filename="mp_tehsil_capacity_adequacy.geojson",
+        host_candidates_csv_filename="mp_host_zone_candidates.csv",
+        relocation_priority_csv_filename="mp_tehsil_relocation_priority.csv",
+        relocation_factors_csv_filename="mp_relocation_factor_contributions.csv",
+        relocation_geojson_filename="mp_tehsil_relocation_priority.geojson",
+        ahp_weights_csv_filename="mp_ahp_weights.csv"
+    )
 }
 
+# Alias map for normalized state identifiers
+STATE_ALIASES = {
+    "andhra pradesh": "ap",
+    "andhra_pradesh": "ap",
+    "andhra": "ap",
+    "ap": "ap",
+    "gujarat": "gujarat",
+    "gj": "gujarat",
+    "guj": "gujarat",
+    "kerala": "kerala",
+    "kerela": "kerala",
+    "kl": "kerala",
+    "maharashtra": "maharashtra",
+    "maharastra": "maharashtra",
+    "mh": "maharashtra",
+    "haryana": "haryana",
+    "hr": "haryana",
+    "punjab": "punjab",
+    "pb": "punjab",
+    "chhattisgarh": "chhattisgarh",
+    "chhatisgarh": "chhattisgarh",
+    "chattisgarh": "chhattisgarh",
+    "cg": "chhattisgarh",
+    "ct": "chhattisgarh",
+    "tamil nadu": "tamil_nadu",
+    "tamil_nadu": "tamil_nadu",
+    "tamilnadu": "tamil_nadu",
+    "tn": "tamil_nadu",
+    "odisha": "odisha",
+    "orissa": "odisha",
+    "od": "odisha",
+    "or": "odisha",
+    "bihar": "bihar",
+    "br": "bihar",
+    "west bengal": "west_bengal",
+    "west_bengal": "west_bengal",
+    "westbengal": "west_bengal",
+    "bengal": "west_bengal",
+    "wb": "west_bengal",
+    "assam": "assam",
+    "as": "assam",
+    "uttar pradesh": "uttar_pradesh",
+    "uttar_pradesh": "uttar_pradesh",
+    "uttarpradesh": "uttar_pradesh",
+    "up": "uttar_pradesh",
+    "uttarakhand": "uttarakhand",
+    "uttaranchal": "uttarakhand",
+    "uk": "uttarakhand",
+    "sikkim": "sikkim",
+    "sk": "sikkim",
+    "arunachal pradesh": "arunachal_pradesh",
+    "arunachal_pradesh": "arunachal_pradesh",
+    "arunachal": "arunachal_pradesh",
+    "ar": "arunachal_pradesh",
+    "nagaland": "nagaland",
+    "nl": "nagaland",
+    "meghalaya": "meghalaya",
+    "ml": "meghalaya",
+    "jammu kashmir": "jammu_kashmir",
+    "jammu_kashmir": "jammu_kashmir",
+    "jammu and kashmir": "jammu_kashmir",
+    "jammu_and_kashmir": "jammu_kashmir",
+    "jammukashmir": "jammu_kashmir",
+    "jk": "jammu_kashmir",
+    "madhya pradesh": "madhya_pradesh",
+    "madhya_pradesh": "madhya_pradesh",
+    "madhyapradesh": "madhya_pradesh",
+    "mp": "madhya_pradesh"
+}
 
-def resolve_state_key(state_id: Optional[str]) -> str:
+def resolve_state_config(state_key: Optional[str] = None) -> StateConfig:
     """
-    Resolves arbitrary state identifiers to standardized state keys ('ap', 'tn', 'jk', 'mp').
-    Default fallback: 'ap' (Andhra Pradesh pilot).
+    Resolves the StateConfig for a given state string (defaulting to 'ap' for backward compatibility).
     """
-    if not state_id:
-        return "ap"
-    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
-    if clean in ["tamil_nadu", "tn", "tamilnadu"]:
-        return "tn"
-    if clean in ["jammu_kashmir", "jammu_and_kashmir", "jk", "j_k", "jammukashmir"]:
-        return "jk"
-    if clean in ["madhya_pradesh", "mp", "madhyapradesh"]:
-        return "mp"
-    return "ap"
-
-
-def get_state_config(state_id: Optional[str]) -> StateDataConfig:
-    """
-    Returns the typed StateDataConfig for the given state_id.
-    """
-    key = resolve_state_key(state_id)
-    return STATE_REGISTRY[key]
+    if not state_key:
+        return SUPPORTED_STATES["ap"]
+    
+    clean_key = state_key.strip().lower().replace("-", "_").replace(" ", "_")
+    normalized_id = STATE_ALIASES.get(clean_key, clean_key)
+    
+    if normalized_id in SUPPORTED_STATES:
+        return SUPPORTED_STATES[normalized_id]
+        
+    return SUPPORTED_STATES["ap"]

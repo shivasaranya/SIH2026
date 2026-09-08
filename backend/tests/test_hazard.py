@@ -3,7 +3,10 @@ from pathlib import Path
 import json
 import numpy as np
 import geopandas as gpd
-import rasterio
+try:
+    import rasterio
+except ImportError:
+    rasterio = None
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 PROC_HAZARD_DIR = PROJECT_ROOT / "data" / "processed" / "hazard"
@@ -50,6 +53,9 @@ def test_cyclone_tracks_dataset():
 
 def test_flood_recurrence_raster():
     """Verify EC JRC 30m flood recurrence raster metadata and bounds."""
+    if rasterio is None:
+        pytest.skip("rasterio not installed in local test environment")
+
     tif_path = PROC_HAZARD_DIR / "flood" / "ap_water_recurrence.tif"
     if not tif_path.exists():
         pytest.skip("Flood recurrence GeoTIFF not found in local test environment")
@@ -72,6 +78,9 @@ def test_flood_recurrence_raster():
 
 def test_dem_raster():
     """Verify SRTM 90m DEM raster metadata and physical elevation bounds."""
+    if rasterio is None:
+        pytest.skip("rasterio not installed in local test environment")
+
     tif_path = PROC_HAZARD_DIR / "elevation" / "ap_dem_90m.tif"
     if not tif_path.exists():
         pytest.skip("DEM GeoTIFF not found in local test environment")
@@ -92,6 +101,9 @@ def test_dem_raster():
 
 def test_slope_raster():
     """Verify terrain slope derived in India Albers Equal Area (EPSG:7755)."""
+    if rasterio is None:
+        pytest.skip("rasterio not installed in local test environment")
+
     tif_path = PROC_HAZARD_DIR / "slope" / "ap_slope_degrees.tif"
     if not tif_path.exists():
         pytest.skip("Slope GeoTIFF not found in local test environment")
@@ -107,4 +119,3 @@ def test_slope_raster():
         if len(valid) > 0:
             assert valid.min() >= 0.0, f"Slope < 0 deg: {valid.min()}"
             assert valid.max() <= 90.0, f"Slope > 90 deg: {valid.max()}"
-
