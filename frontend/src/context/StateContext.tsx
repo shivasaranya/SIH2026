@@ -92,6 +92,186 @@ export const STATE_CONFIGS: Record<StateId, StateConfig> = {
     sdmaName: 'Himachal Pradesh State Disaster Management Authority (HPSDMA)',
     tagline: 'Himalayan Landslide, Earthquake & Multi-Hazard Resettlement Decision Platform',
   },
+  assam: {
+    id: 'assam',
+    name: 'Assam',
+    code: 'AS',
+    adminUnitName: 'Revenue Circle',
+    adminUnitPlural: 'Revenue Circles',
+    districtCount: 33,
+    adminUnitCount: 153,
+    candidateHostsCount: 15,
+    center: [26.2006, 92.9376],
+    bounds: [
+      [24.15, 89.70],
+      [27.95, 96.00],
+    ],
+    isCoastal: false,
+    sdmaName: 'Assam State Disaster Management Authority (ASDMA)',
+    tagline: 'Brahmaputra Valley Flood, Erosion & Relocation Decision System',
+  },
+  bihar: {
+    id: 'bihar',
+    name: 'Bihar',
+    code: 'BR',
+    adminUnitName: 'Block',
+    adminUnitPlural: 'Blocks',
+    districtCount: 38,
+    adminUnitCount: 534,
+    candidateHostsCount: 50,
+    center: [25.0961, 85.3131],
+    bounds: [
+      [24.28, 83.32],
+      [27.52, 88.29],
+    ],
+    isCoastal: false,
+    sdmaName: 'Bihar State Disaster Management Authority (BSDMA)',
+    tagline: 'North Bihar Kosi-Gandak Flood & Relocation Decision System',
+  },
+  west_bengal: {
+    id: 'west_bengal',
+    name: 'West Bengal',
+    code: 'WB',
+    adminUnitName: 'Block',
+    adminUnitPlural: 'Blocks',
+    districtCount: 23,
+    adminUnitCount: 346,
+    candidateHostsCount: 40,
+    center: [22.9868, 87.8550],
+    bounds: [
+      [21.50, 85.80],
+      [27.20, 89.90],
+    ],
+    isCoastal: true,
+    sdmaName: 'West Bengal Disaster Management Department (WBDMD)',
+    tagline: 'Sundarbans Coastal Surge, Delta Flood & Relocation Decision System',
+  },
+  odisha: {
+    id: 'odisha',
+    name: 'Odisha',
+    code: 'OD',
+    adminUnitName: 'Block',
+    adminUnitPlural: 'Blocks',
+    districtCount: 30,
+    adminUnitCount: 475,
+    candidateHostsCount: 45,
+    center: [20.9517, 85.0985],
+    bounds: [
+      [17.80, 81.38],
+      [22.57, 87.50],
+    ],
+    isCoastal: true,
+    sdmaName: 'Odisha State Disaster Management Authority (OSDMA)',
+    tagline: 'Bay of Bengal Super Cyclone, Coastal Inundation & Relocation Decision System',
+  },
+  uttar_pradesh: {
+    id: 'uttar_pradesh',
+    name: 'Uttar Pradesh',
+    code: 'UP',
+    adminUnitName: 'Tehsil',
+    adminUnitPlural: 'Tehsils',
+    districtCount: 75,
+    adminUnitCount: 351,
+    candidateHostsCount: 60,
+    center: [26.8467, 80.9462],
+    bounds: [
+      [23.87, 77.08],
+      [30.40, 84.63],
+    ],
+    isCoastal: false,
+    sdmaName: 'Uttar Pradesh State Disaster Management Authority (UPSDMA)',
+    tagline: 'Gangetic Plains Inundation & Multi-Hazard Relocation Decision System',
+  },
+  uttarakhand: {
+    id: 'uttarakhand',
+    name: 'Uttarakhand',
+    code: 'UK',
+    adminUnitName: 'Tehsil',
+    adminUnitPlural: 'Tehsils',
+    districtCount: 13,
+    adminUnitCount: 127,
+    candidateHostsCount: 20,
+    center: [30.0668, 79.0193],
+    bounds: [
+      [28.72, 77.58],
+      [31.46, 81.05],
+    ],
+    isCoastal: false,
+    sdmaName: 'Uttarakhand State Disaster Management Authority (USDMA)',
+    tagline: 'Garhwal-Kumaon Himalayan Flash Flood & Landslide Decision Platform',
+  },
+  sikkim: {
+    id: 'sikkim',
+    name: 'Sikkim',
+    code: 'SK',
+    adminUnitName: 'Sub-division',
+    adminUnitPlural: 'Sub-divisions',
+    districtCount: 6,
+    adminUnitCount: 16,
+    candidateHostsCount: 5,
+    center: [27.5330, 88.5122],
+    bounds: [
+      [27.08, 88.01],
+      [28.13, 88.92],
+    ],
+    isCoastal: false,
+    sdmaName: 'Sikkim State Disaster Management Authority (SSDMA)',
+    tagline: 'Teesta Basin GLOF, Landslide & Himalayan Resettlement Platform',
+  },
+  arunachal_pradesh: {
+    id: 'arunachal_pradesh',
+    name: 'Arunachal Pradesh',
+    code: 'AR',
+    adminUnitName: 'Circle',
+    adminUnitPlural: 'Circles',
+    districtCount: 25,
+    adminUnitCount: 208,
+    candidateHostsCount: 25,
+    center: [28.2180, 94.7278],
+    bounds: [
+      [26.65, 91.50],
+      [29.50, 97.40],
+    ],
+    isCoastal: false,
+    sdmaName: 'Arunachal Pradesh Disaster Management (APSDMA)',
+    tagline: 'Eastern Himalayan Landslide & Flash Flood Relocation Decision Platform',
+  },
+  nagaland: {
+    id: 'nagaland',
+    name: 'Nagaland',
+    code: 'NL',
+    adminUnitName: 'Circle',
+    adminUnitPlural: 'Circles',
+    districtCount: 11,
+    adminUnitCount: 120,
+    candidateHostsCount: 12,
+    center: [26.1584, 94.5624],
+    bounds: [
+      [25.10, 93.30],
+      [27.05, 95.25],
+    ],
+    isCoastal: false,
+    sdmaName: 'Nagaland State Disaster Management Authority (NSDMA)',
+    tagline: 'Naga Hills Landslide & Seismic Relocation Decision Platform',
+  },
+  meghalaya: {
+    id: 'meghalaya',
+    name: 'Meghalaya',
+    code: 'ML',
+    adminUnitName: 'Block',
+    adminUnitPlural: 'Blocks',
+    districtCount: 11,
+    adminUnitCount: 46,
+    candidateHostsCount: 10,
+    center: [25.4670, 91.3662],
+    bounds: [
+      [25.02, 89.82],
+      [26.12, 92.80],
+    ],
+    isCoastal: false,
+    sdmaName: 'Meghalaya State Disaster Management Authority (MSDMA)',
+    tagline: 'Shillong Plateau Flash Flood & Landslide Resettlement Platform',
+  },
   gujarat: {
     id: 'gujarat',
     name: 'Gujarat',
@@ -226,6 +406,36 @@ export const StateProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       if (hash.includes('/hp') || hash.includes('/himachal')) {
         return 'himachal_pradesh';
       }
+      if (hash.includes('/as') || hash.includes('/assam')) {
+        return 'assam';
+      }
+      if (hash.includes('/br') || hash.includes('/bihar')) {
+        return 'bihar';
+      }
+      if (hash.includes('/wb') || hash.includes('/west_bengal') || hash.includes('bengal')) {
+        return 'west_bengal';
+      }
+      if (hash.includes('/od') || hash.includes('/odisha') || hash.includes('orissa')) {
+        return 'odisha';
+      }
+      if (hash.includes('/uk') || hash.includes('/uttarakhand') || hash.includes('/uttaranchal')) {
+        return 'uttarakhand';
+      }
+      if (hash.includes('/up') || hash.includes('/uttar') || hash.includes('uttar_pradesh')) {
+        return 'uttar_pradesh';
+      }
+      if (hash.includes('/sk') || hash.includes('/sikkim')) {
+        return 'sikkim';
+      }
+      if (hash.includes('/ar') || hash.includes('/arunachal')) {
+        return 'arunachal_pradesh';
+      }
+      if (hash.includes('/nl') || hash.includes('/nagaland')) {
+        return 'nagaland';
+      }
+      if (hash.includes('/ml') || hash.includes('/meghalaya')) {
+        return 'meghalaya';
+      }
       if (hash.includes('/gujarat') || hash.includes('/gj')) {
         return 'gujarat';
       }
@@ -268,6 +478,14 @@ export const StateProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       setStateId('tamil_nadu');
     } else if (lower.includes('himachal') || lower.includes('hp')) {
       setStateId('himachal_pradesh');
+    } else if (lower.includes('assam') || lower === 'as') {
+      setStateId('assam');
+    } else if (lower.includes('bihar') || lower === 'br') {
+      setStateId('bihar');
+    } else if (lower.includes('bengal') || lower.includes('wb')) {
+      setStateId('west_bengal');
+    } else if (lower.includes('odisha') || lower.includes('orissa') || lower === 'od') {
+      setStateId('odisha');
     } else if (lower.includes('uttarakhand') || lower.includes('uttaranchal') || lower === 'uk') {
       setStateId('uttarakhand');
     } else if (lower.includes('uttar') || lower === 'up') {
@@ -307,6 +525,14 @@ export const StateProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         setStateIdState('tamil_nadu');
       } else if (hash.includes('/hp') || hash.includes('/himachal')) {
         setStateIdState('himachal_pradesh');
+      } else if (hash.includes('/as') || hash.includes('/assam')) {
+        setStateIdState('assam');
+      } else if (hash.includes('/br') || hash.includes('/bihar')) {
+        setStateIdState('bihar');
+      } else if (hash.includes('/wb') || hash.includes('/west_bengal') || hash.includes('bengal')) {
+        setStateIdState('west_bengal');
+      } else if (hash.includes('/od') || hash.includes('/odisha') || hash.includes('orissa')) {
+        setStateIdState('odisha');
       } else if (hash.includes('/uk') || hash.includes('/uttarakhand') || hash.includes('/uttaranchal')) {
         setStateIdState('uttarakhand');
       } else if (hash.includes('/up') || hash.includes('/uttar') || hash.includes('uttar_pradesh')) {
