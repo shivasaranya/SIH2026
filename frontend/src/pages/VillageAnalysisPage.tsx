@@ -16,7 +16,6 @@ import {
   MapPin,
   XCircle,
   ZoomIn,
-  ZoomOut,
   Maximize2,
   Focus,
   Search,
@@ -434,15 +433,22 @@ export const VillageAnalysisPage: React.FC<VillageAnalysisPageProps> = ({
   useEffect(() => {
     if (!mapContainerNode || mapInstanceRef.current) return;
 
-    // Initialize Leaflet Map instance with fine zoom snap (Google Maps-like continuous zoom)
+    // Initialize Leaflet Map instance with fine continuous zoom & responsive dragging
     const map = L.map(mapContainerNode, {
       zoomControl: false,
       attributionControl: false,
       zoomSnap: 0.25,
       zoomDelta: 0.5,
-      wheelPxPerZoomLevel: 90,
-      minZoom: 8,
+      wheelPxPerZoomLevel: 60,
+      minZoom: 6,
       maxZoom: 19,
+      dragging: true,
+      touchZoom: true,
+      doubleClickZoom: true,
+      scrollWheelZoom: true,
+      keyboard: true,
+      inertia: true,
+      inertiaDeceleration: 3000,
     });
 
     // Dedicated Panes for physical layer hierarchy:
@@ -1099,34 +1105,62 @@ export const VillageAnalysisPage: React.FC<VillageAnalysisPageProps> = ({
 
   // User Map Controls: Smooth Zoom, Pan & Reset to Complete Boundary
   const handleResetView = () => {
-    if (mapInstanceRef.current && villageBoundsRef.current && villageBoundsRef.current.isValid()) {
-      mapInstanceRef.current.fitBounds(villageBoundsRef.current, {
-        padding: [30, 30],
-        maxZoom: 18,
-        animate: true,
-        duration: 0.5,
-      });
+    if (mapInstanceRef.current) {
+      if (villageBoundsRef.current && villageBoundsRef.current.isValid()) {
+        mapInstanceRef.current.fitBounds(villageBoundsRef.current, {
+          padding: [35, 35],
+          maxZoom: 18,
+          animate: true,
+          duration: 0.75,
+        });
+      } else if (geomData?.centroid_lat && geomData?.centroid_lon) {
+        mapInstanceRef.current.flyTo([geomData.centroid_lat, geomData.centroid_lon], 15, {
+          animate: true,
+          duration: 0.75,
+        });
+      }
     }
   };
 
   const handleZoomIn = () => {
     if (mapInstanceRef.current) {
-      mapInstanceRef.current.zoomIn(0.5);
+      mapInstanceRef.current.zoomIn(1, { animate: true });
     }
   };
 
   const handleZoomOut = () => {
     if (mapInstanceRef.current) {
-      mapInstanceRef.current.zoomOut(0.5);
+      mapInstanceRef.current.zoomOut(1, { animate: true });
     }
   };
 
   const handleZoomToLevel = (level: number) => {
-    if (mapInstanceRef.current && villageBoundsRef.current && villageBoundsRef.current.isValid()) {
-      mapInstanceRef.current.setView(villageBoundsRef.current.getCenter(), level, {
-        animate: true,
-        duration: 0.5,
-      });
+    if (mapInstanceRef.current) {
+      if (geomData?.centroid_lat && geomData?.centroid_lon) {
+        mapInstanceRef.current.flyTo([geomData.centroid_lat, geomData.centroid_lon], level, {
+          animate: true,
+          duration: 0.75,
+          easeLinearity: 0.25,
+        });
+      } else if (villageBoundsRef.current && villageBoundsRef.current.isValid()) {
+        mapInstanceRef.current.setView(villageBoundsRef.current.getCenter(), level, {
+          animate: true,
+          duration: 0.75,
+        });
+      }
+    }
+  };
+
+  const handlePan = (direction: 'up' | 'down' | 'left' | 'right') => {
+    if (mapInstanceRef.current) {
+      const offset = 220;
+      let dx = 0;
+      let dy = 0;
+      if (direction === 'up') dy = -offset;
+      if (direction === 'down') dy = offset;
+      if (direction === 'left') dx = -offset;
+      if (direction === 'right') dx = offset;
+      mapInstanceRef.current.panBy([dx, dy], { animate: true, duration: 0.3 });
     }
   };
 
@@ -1751,29 +1785,73 @@ export const VillageAnalysisPage: React.FC<VillageAnalysisPageProps> = ({
                   </button>
                 </div>
 
-                {/* + / - Zoom & Reset Buttons Group */}
-                <div className="bg-slate-900/95 backdrop-blur-md border border-slate-700/80 rounded-xl shadow-lg flex flex-col overflow-hidden divide-y divide-slate-700/70">
-                  <button
-                    onClick={handleZoomIn}
-                    className="w-8 h-8 flex items-center justify-center text-slate-200 hover:text-white hover:bg-slate-800 transition active:bg-slate-700"
-                    title="Zoom In (+0.5)"
-                  >
-                    <ZoomIn className="w-4 h-4" />
-                  </button>
-                  <button
-                    onClick={handleZoomOut}
-                    className="w-8 h-8 flex items-center justify-center text-slate-200 hover:text-white hover:bg-slate-800 transition active:bg-slate-700"
-                    title="Zoom Out (-0.5)"
-                  >
-                    <ZoomOut className="w-4 h-4" />
-                  </button>
-                  <button
-                    onClick={handleResetView}
-                    className="w-8 h-8 flex items-center justify-center text-indigo-400 hover:text-indigo-300 hover:bg-slate-800 transition active:bg-slate-700"
-                    title="Reset Map View (Fit Complete Boundary)"
-                  >
-                    <Maximize2 className="w-3.5 h-3.5" />
-                  </button>
+                {/* Move / Pan Navigation Cluster & Zoom Controls Group */}
+                <div className="flex items-center gap-2">
+                  {/* Directional Move D-Pad */}
+                  <div className="bg-slate-900/95 backdrop-blur-md border border-slate-700/80 rounded-xl p-1.5 shadow-xl flex flex-col items-center gap-1">
+                    <button
+                      onClick={() => handlePan('up')}
+                      className="w-7 h-7 flex items-center justify-center rounded-lg bg-slate-800 hover:bg-indigo-600 text-slate-200 hover:text-white transition active:scale-90 text-[11px]"
+                      title="Pan Up / North"
+                    >
+                      ▲
+                    </button>
+                    <div className="flex items-center gap-1">
+                      <button
+                        onClick={() => handlePan('left')}
+                        className="w-7 h-7 flex items-center justify-center rounded-lg bg-slate-800 hover:bg-indigo-600 text-slate-200 hover:text-white transition active:scale-90 text-[11px]"
+                        title="Pan Left / West"
+                      >
+                        ◀
+                      </button>
+                      <button
+                        onClick={handleResetView}
+                        className="w-7 h-7 flex items-center justify-center rounded-lg bg-slate-800 hover:bg-cyan-600 text-cyan-400 hover:text-white transition active:scale-90 text-[11px] font-bold"
+                        title="Center on Village"
+                      >
+                        ◉
+                      </button>
+                      <button
+                        onClick={() => handlePan('right')}
+                        className="w-7 h-7 flex items-center justify-center rounded-lg bg-slate-800 hover:bg-indigo-600 text-slate-200 hover:text-white transition active:scale-90 text-[11px]"
+                        title="Pan Right / East"
+                      >
+                        ▶
+                      </button>
+                    </div>
+                    <button
+                      onClick={() => handlePan('down')}
+                      className="w-7 h-7 flex items-center justify-center rounded-lg bg-slate-800 hover:bg-indigo-600 text-slate-200 hover:text-white transition active:scale-90 text-[11px]"
+                      title="Pan Down / South"
+                    >
+                      ▼
+                    </button>
+                  </div>
+
+                  {/* + / - Zoom & Reset Buttons Column */}
+                  <div className="bg-slate-900/95 backdrop-blur-md border border-slate-700/80 rounded-xl shadow-xl flex flex-col overflow-hidden divide-y divide-slate-700/70">
+                    <button
+                      onClick={handleZoomIn}
+                      className="w-9 h-9 flex items-center justify-center text-slate-200 hover:text-white hover:bg-indigo-600 transition active:scale-90 font-black text-base"
+                      title="Zoom In (+1.0)"
+                    >
+                      +
+                    </button>
+                    <button
+                      onClick={handleZoomOut}
+                      className="w-9 h-9 flex items-center justify-center text-slate-200 hover:text-white hover:bg-indigo-600 transition active:scale-90 font-black text-base"
+                      title="Zoom Out (-1.0)"
+                    >
+                      −
+                    </button>
+                    <button
+                      onClick={handleResetView}
+                      className="w-9 h-9 flex items-center justify-center text-cyan-400 hover:text-white hover:bg-cyan-600 transition active:scale-90"
+                      title="Reset Map View (Fit Village Boundary)"
+                    >
+                      <Maximize2 className="w-4 h-4" />
+                    </button>
+                  </div>
                 </div>
               </div>
 
