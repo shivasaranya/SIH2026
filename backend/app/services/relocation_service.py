@@ -67,11 +67,19 @@ def is_mn(state_id: Optional[str]) -> bool:
     clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
     return clean in ["manipur", "mn"]
 
+def is_jh(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["jharkhand", "jh"]
+
 class RelocationService:
     def __init__(self):
         self._cache: Dict[str, Dict[str, Any]] = {}
 
     def _get_state_key(self, state_id: Optional[str]) -> str:
+        if is_jh(state_id):
+            return "jh"
         if is_mn(state_id):
             return "mn"
         if is_ga(state_id):
@@ -98,7 +106,16 @@ class RelocationService:
         reloc_dir = settings.DATA_DIR / "processed" / "relocation"
         cap_dir = settings.DATA_DIR / "processed" / "capacity"
 
-        if key == "mn":
+        if key == "jh":
+            master_csv = reloc_dir / "jh_blocks_relocation_priority.csv"
+            factors_csv = reloc_dir / "jh_relocation_factor_contributions.csv"
+            ahp_csv = reloc_dir / "jh_ahp_weights.csv"
+            sum_csv = reloc_dir / "jh_relocation_priority_summary.csv"
+            host_csv = cap_dir / "jh_host_zone_candidates.csv"
+            geojson_path = reloc_dir / "jh_blocks_relocation_priority.geojson"
+            if not geojson_path.exists():
+                geojson_path = settings.PROCESSED_ADMIN_DIR / "jharkhand_blocks.geojson"
+        elif key == "mn":
             master_csv = reloc_dir / "mn_subdivisions_relocation_priority.csv"
             factors_csv = reloc_dir / "mn_relocation_factor_contributions.csv"
             ahp_csv = reloc_dir / "mn_ahp_weights.csv"

@@ -27,6 +27,7 @@ STATES = [
     {"id": "karnataka", "name": "Karnataka", "districts": 31, "units": 230, "ranked": 230, "surge": True},
     {"id": "goa", "name": "Goa", "districts": 2, "units": 12, "ranked": 12, "surge": True},
     {"id": "manipur", "name": "Manipur", "districts": 16, "units": 51, "ranked": 51, "surge": False},
+    {"id": "jharkhand", "name": "Jharkhand", "districts": 24, "units": 260, "ranked": 260, "surge": False},
 ]
 
 def verify_state(state):

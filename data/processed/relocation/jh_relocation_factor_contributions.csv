@@ -1,0 +1,261 @@
+mandal_id,mandal_name,relocation_priority_category,factor_contrib_hazard_pct,factor_contrib_demographic_pct,factor_contrib_capacity_pct,factor_contrib_accessibility_pct,primary_priority_factor,secondary_priority_factor
+JH_BLOCK_168,Pathna,VERY HIGH,35.0,31.2,23.6,10.1,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_169,Barhait,VERY HIGH,36.4,26.9,22.9,13.8,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_163,Borio,VERY HIGH,39.3,6.4,45.4,8.9,Capacity Stress,Hazard Exposure
+JH_BLOCK_034,Dhanwar,VERY HIGH,39.4,13.1,29.5,18.0,Hazard Exposure,Capacity Stress
+JH_BLOCK_123,Karon,VERY HIGH,37.5,11.1,34.5,16.9,Hazard Exposure,Capacity Stress
+JH_BLOCK_224,Balumath,VERY HIGH,37.3,25.4,30.8,6.5,Hazard Exposure,Capacity Stress
+JH_BLOCK_125,Palojori,VERY HIGH,28.4,45.9,7.3,18.4,Demographic Sensitivity,Hazard Exposure
+JH_BLOCK_129,Ramna,VERY HIGH,33.9,19.4,33.6,13.1,Hazard Exposure,Capacity Stress
+JH_BLOCK_166,Udhwa,VERY HIGH,40.9,31.9,11.2,16.0,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_229,Garu,VERY HIGH,24.0,36.0,19.4,20.5,Demographic Sensitivity,Hazard Exposure
+JH_BLOCK_162,Sahibganj Sadar,VERY HIGH,41.1,3.4,27.8,27.7,Hazard Exposure,Capacity Stress
+JH_BLOCK_088,Barhi,VERY HIGH,54.8,9.4,14.1,21.7,Hazard Exposure,Accessibility Constraint
+JH_BLOCK_118,Sarwan,VERY HIGH,62.6,8.3,17.0,12.1,Hazard Exposure,Capacity Stress
+JH_BLOCK_121,Madhupur,VERY HIGH,63.6,7.3,16.6,12.4,Hazard Exposure,Capacity Stress
+JH_BLOCK_164,Taljhari,VERY HIGH,35.9,35.8,10.0,18.2,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_165,Rajmahal,VERY HIGH,44.9,8.7,36.8,9.6,Hazard Exposure,Capacity Stress
+JH_BLOCK_055,Chandankiyari,VERY HIGH,38.4,30.6,23.5,7.6,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_057,Gomia,VERY HIGH,32.8,27.0,31.6,8.6,Hazard Exposure,Capacity Stress
+JH_BLOCK_049,Dumaria,VERY HIGH,32.7,24.1,30.1,13.0,Hazard Exposure,Capacity Stress
+JH_BLOCK_225,Bariyatu,VERY HIGH,33.7,38.4,8.8,19.1,Demographic Sensitivity,Hazard Exposure
+JH_BLOCK_132,Kharaundhi,VERY HIGH,38.2,31.9,20.6,9.2,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_080,Pipra,VERY HIGH,31.8,17.7,32.9,17.6,Capacity Stress,Hazard Exposure
+JH_BLOCK_041,Birni,VERY HIGH,36.5,39.2,12.4,11.9,Demographic Sensitivity,Hazard Exposure
+JH_BLOCK_102,Manjhari,VERY HIGH,48.4,27.6,9.7,14.3,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_210,Pakur Sadar,VERY HIGH,47.2,14.9,26.2,11.7,Hazard Exposure,Capacity Stress
+JH_BLOCK_050,Dhalbhumgarh,VERY HIGH,42.6,10.3,39.5,7.6,Hazard Exposure,Capacity Stress
+JH_BLOCK_103,Jagannathpur,VERY HIGH,34.2,33.0,26.2,6.6,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_160,Thakurgangti,VERY HIGH,32.9,39.4,10.3,17.5,Demographic Sensitivity,Hazard Exposure
+JH_BLOCK_051,Chakulia,VERY HIGH,33.9,46.5,12.3,7.3,Demographic Sensitivity,Hazard Exposure
+JH_BLOCK_147,Raneshwar,VERY HIGH,44.0,7.6,26.3,22.1,Hazard Exposure,Capacity Stress
+JH_BLOCK_116,Mohanpur,VERY HIGH,41.1,20.2,32.2,6.6,Hazard Exposure,Capacity Stress
+JH_BLOCK_089,Chauparan,VERY HIGH,48.8,15.4,16.4,19.3,Hazard Exposure,Accessibility Constraint
+JH_BLOCK_245,Kersai,VERY HIGH,40.1,4.7,43.3,12.0,Capacity Stress,Hazard Exposure
+JH_BLOCK_027,Topchanchi,VERY HIGH,35.2,27.1,24.8,12.8,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_126,Garhwa Sadar,VERY HIGH,40.9,24.5,16.0,18.7,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_043,Jamshedpur (Golmuri),VERY HIGH,47.1,19.1,26.2,7.6,Hazard Exposure,Capacity Stress
+JH_BLOCK_145,Kathikund,VERY HIGH,54.2,10.0,27.0,8.8,Hazard Exposure,Capacity Stress
+JH_BLOCK_047,Boram,VERY HIGH,47.5,19.3,20.0,13.1,Hazard Exposure,Capacity Stress
+JH_BLOCK_142,Kharaundha,VERY HIGH,56.4,20.9,12.8,9.9,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_078,Lesliganj (Nilambar-Pitambar),VERY HIGH,37.2,20.2,30.8,11.8,Hazard Exposure,Capacity Stress
+JH_BLOCK_156,Meharma,VERY HIGH,38.0,9.5,36.1,16.3,Hazard Exposure,Capacity Stress
+JH_BLOCK_183,Pratappur,VERY HIGH,38.8,26.7,16.1,18.4,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_211,Hiranpur,VERY HIGH,30.9,35.6,17.3,16.2,Demographic Sensitivity,Hazard Exposure
+JH_BLOCK_217,Karmatar (Vidyasagar),VERY HIGH,38.0,20.5,27.3,14.2,Hazard Exposure,Capacity Stress
+JH_BLOCK_237,Domchanch,VERY HIGH,31.5,22.5,27.3,18.7,Hazard Exposure,Capacity Stress
+JH_BLOCK_068,Hariharganj,VERY HIGH,30.4,31.9,19.7,18.0,Demographic Sensitivity,Hazard Exposure
+JH_BLOCK_109,Bandgaon,VERY HIGH,30.8,30.8,25.9,12.5,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_141,Ketar,VERY HIGH,31.4,37.8,12.3,18.5,Demographic Sensitivity,Hazard Exposure
+JH_BLOCK_008,Silli,VERY HIGH,27.3,33.3,29.8,9.6,Demographic Sensitivity,Capacity Stress
+JH_BLOCK_031,Gandey,VERY HIGH,29.0,35.7,23.4,11.8,Demographic Sensitivity,Hazard Exposure
+JH_BLOCK_018,Lapung,VERY HIGH,26.9,32.9,27.8,12.4,Demographic Sensitivity,Capacity Stress
+JH_BLOCK_150,Saraiyahat,VERY HIGH,38.1,6.0,28.4,27.5,Hazard Exposure,Capacity Stress
+JH_BLOCK_092,Barkagaon,VERY HIGH,39.5,40.6,9.6,10.4,Demographic Sensitivity,Hazard Exposure
+JH_BLOCK_199,Palkot,VERY HIGH,46.2,11.5,20.1,22.2,Hazard Exposure,Accessibility Constraint
+JH_BLOCK_106,Goilkera,VERY HIGH,27.5,31.9,26.7,13.9,Demographic Sensitivity,Hazard Exposure
+JH_BLOCK_002,Ranchi Urban (Sadar),VERY HIGH,34.6,8.7,48.3,8.5,Capacity Stress,Hazard Exposure
+JH_BLOCK_074,Nawa Bazar,VERY HIGH,28.8,32.7,28.5,10.1,Demographic Sensitivity,Hazard Exposure
+JH_BLOCK_095,Tati Jhariya,VERY HIGH,39.8,32.2,20.9,7.1,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_113,Majhgaon,VERY HIGH,40.4,0.6,38.1,20.8,Hazard Exposure,Capacity Stress
+JH_BLOCK_122,Margomunda,VERY HIGH,38.2,39.8,9.9,12.1,Demographic Sensitivity,Hazard Exposure
+JH_BLOCK_038,Pirtand,VERY HIGH,38.2,26.1,20.8,14.9,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_149,Jarmundi,VERY HIGH,39.2,22.9,13.9,24.1,Hazard Exposure,Accessibility Constraint
+JH_BLOCK_048,Musabani,VERY HIGH,39.4,38.5,9.4,12.6,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_208,Chitarpur,VERY HIGH,50.3,17.5,16.8,15.4,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_140,Bardiha,VERY HIGH,43.1,39.1,9.6,8.2,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_042,Sariya,VERY HIGH,41.9,33.1,9.7,15.4,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_187,Pathalgada,VERY HIGH,34.4,31.1,10.5,24.0,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_218,Narayanpur,VERY HIGH,34.8,19.1,32.5,13.6,Hazard Exposure,Capacity Stress
+JH_BLOCK_204,Ramgarh Sadar,VERY HIGH,29.3,16.4,42.7,11.6,Capacity Stress,Hazard Exposure
+JH_BLOCK_215,Maheshpur,VERY HIGH,35.0,37.8,7.9,19.2,Demographic Sensitivity,Hazard Exposure
+JH_BLOCK_212,Littipara,VERY HIGH,38.0,32.6,11.1,18.3,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_022,Baghmara,VERY HIGH,34.9,23.0,28.6,13.5,Hazard Exposure,Capacity Stress
+JH_BLOCK_028,Egarkund,VERY HIGH,42.5,36.3,11.2,9.9,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_010,Rahe,VERY HIGH,31.6,34.6,20.1,13.7,Demographic Sensitivity,Hazard Exposure
+JH_BLOCK_167,Barharwa,VERY HIGH,34.2,17.6,26.5,21.7,Hazard Exposure,Capacity Stress
+JH_BLOCK_235,Markacho,VERY HIGH,53.5,5.9,30.8,9.8,Hazard Exposure,Capacity Stress
+JH_BLOCK_198,Basia,VERY HIGH,38.2,43.7,8.1,10.0,Demographic Sensitivity,Hazard Exposure
+JH_BLOCK_021,Jharia,VERY HIGH,24.3,30.5,25.9,19.3,Demographic Sensitivity,Capacity Stress
+JH_BLOCK_155,Mahagama,VERY HIGH,39.6,43.7,8.1,8.6,Demographic Sensitivity,Hazard Exposure
+JH_BLOCK_133,Majhiaon,VERY HIGH,26.6,28.0,28.7,16.7,Capacity Stress,Demographic Sensitivity
+JH_BLOCK_185,Lawalong,VERY HIGH,39.2,13.5,16.0,31.4,Hazard Exposure,Accessibility Constraint
+JH_BLOCK_248,Khunti Sadar,VERY HIGH,38.0,17.6,28.9,15.5,Hazard Exposure,Capacity Stress
+JH_BLOCK_153,Godda Sadar,VERY HIGH,45.0,24.5,13.0,17.5,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_209,Dulmi,VERY HIGH,35.3,44.8,12.2,7.7,Demographic Sensitivity,Hazard Exposure
+JH_BLOCK_223,Chandwa,VERY HIGH,37.6,21.9,20.7,19.8,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_214,Pakuria,VERY HIGH,39.9,19.0,25.7,15.5,Hazard Exposure,Capacity Stress
+JH_BLOCK_250,Torpa,MODERATE,39.7,41.1,9.8,9.5,Demographic Sensitivity,Hazard Exposure
+JH_BLOCK_205,Gola,MODERATE,30.6,33.2,26.6,9.6,Demographic Sensitivity,Hazard Exposure
+JH_BLOCK_006,Angara,MODERATE,28.3,35.2,24.4,12.2,Demographic Sensitivity,Hazard Exposure
+JH_BLOCK_030,Giridih Sadar,MODERATE,37.3,9.9,28.3,24.5,Hazard Exposure,Capacity Stress
+JH_BLOCK_033,Jamua,MODERATE,40.3,14.6,24.4,20.7,Hazard Exposure,Capacity Stress
+JH_BLOCK_040,Bagodar,MODERATE,26.3,23.8,41.7,8.2,Capacity Stress,Hazard Exposure
+JH_BLOCK_023,Nirsa,MODERATE,59.9,13.7,14.3,12.2,Hazard Exposure,Capacity Stress
+JH_BLOCK_069,Hussainabad,MODERATE,35.9,12.8,36.7,14.6,Capacity Stress,Hazard Exposure
+JH_BLOCK_159,Poraiyahat,MODERATE,35.5,36.3,12.4,15.9,Demographic Sensitivity,Hazard Exposure
+JH_BLOCK_188,Itkhori,MODERATE,38.4,7.8,39.2,14.7,Capacity Stress,Hazard Exposure
+JH_BLOCK_060,Jaridih,MODERATE,33.5,28.8,28.8,8.9,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_045,Potka,MODERATE,45.9,5.2,35.0,13.9,Hazard Exposure,Capacity Stress
+JH_BLOCK_207,Patratu,MODERATE,65.1,1.2,19.9,13.8,Hazard Exposure,Capacity Stress
+JH_BLOCK_115,Deoghar Sadar,MODERATE,36.3,3.4,36.7,23.6,Capacity Stress,Hazard Exposure
+JH_BLOCK_119,Sonaraithari,MODERATE,41.1,21.1,10.3,27.4,Hazard Exposure,Accessibility Constraint
+JH_BLOCK_216,Jamtara Sadar,MODERATE,31.1,24.5,32.0,12.3,Capacity Stress,Hazard Exposure
+JH_BLOCK_107,Sonua,MODERATE,32.0,25.6,36.8,5.6,Capacity Stress,Hazard Exposure
+JH_BLOCK_130,Shri Banshidhar Nagar (Nagar Untari),MODERATE,46.5,4.7,37.0,11.8,Hazard Exposure,Capacity Stress
+JH_BLOCK_029,Kaliasole,MODERATE,28.6,11.7,40.0,19.7,Capacity Stress,Hazard Exposure
+JH_BLOCK_020,Dhanbad Sadar,MODERATE,29.7,22.4,40.0,7.9,Capacity Stress,Hazard Exposure
+JH_BLOCK_120,Devipur,MODERATE,29.8,20.7,27.6,21.9,Hazard Exposure,Capacity Stress
+JH_BLOCK_182,Hunterganj,MODERATE,36.7,31.4,8.6,23.3,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_239,Kolebira,MODERATE,27.7,37.2,18.8,16.3,Demographic Sensitivity,Hazard Exposure
+JH_BLOCK_144,Gopi Kandar,MODERATE,46.5,2.4,38.4,12.7,Hazard Exposure,Capacity Stress
+JH_BLOCK_231,Netarhat,MODERATE,33.6,43.1,9.1,14.3,Demographic Sensitivity,Hazard Exposure
+JH_BLOCK_071,Mohammadganj,MODERATE,31.4,23.8,26.3,18.5,Hazard Exposure,Capacity Stress
+JH_BLOCK_202,Dumri (Gumla),MODERATE,32.7,30.7,18.9,17.7,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_026,Tundi,MODERATE,35.0,38.5,17.7,8.8,Demographic Sensitivity,Hazard Exposure
+JH_BLOCK_036,Tisri,MODERATE,49.2,7.8,28.3,14.7,Hazard Exposure,Capacity Stress
+JH_BLOCK_070,Haidernagar,MODERATE,41.3,22.9,18.7,17.1,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_181,Simaria,MODERATE,48.1,17.7,13.0,21.1,Hazard Exposure,Accessibility Constraint
+JH_BLOCK_079,Panki,MODERATE,40.2,20.3,28.6,11.0,Hazard Exposure,Capacity Stress
+JH_BLOCK_176,Nimdih,MODERATE,39.6,10.6,41.2,8.5,Capacity Stress,Hazard Exposure
+JH_BLOCK_226,Herhanj,MODERATE,43.4,21.8,14.7,20.1,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_072,Untari Road,MODERATE,36.5,20.6,31.8,11.1,Hazard Exposure,Capacity Stress
+JH_BLOCK_114,Hatgamharia,MODERATE,43.4,18.0,21.1,17.6,Hazard Exposure,Capacity Stress
+JH_BLOCK_032,Bengabad,MODERATE,32.3,26.1,24.8,16.8,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_131,Bhawanathpur,MODERATE,44.9,22.2,11.0,22.0,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_001,Kanke,MODERATE,35.8,32.8,26.0,5.4,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_061,Nawadih,MODERATE,32.7,27.7,33.0,6.5,Capacity Stress,Hazard Exposure
+JH_BLOCK_111,Gudri,MODERATE,41.5,3.0,37.4,18.1,Hazard Exposure,Capacity Stress
+JH_BLOCK_206,Mandu,MODERATE,54.7,9.3,12.0,24.0,Hazard Exposure,Accessibility Constraint
+JH_BLOCK_105,Manoharpur,MODERATE,25.3,30.2,31.5,13.0,Capacity Stress,Demographic Sensitivity
+JH_BLOCK_056,Bermo,MODERATE,31.3,38.9,15.4,14.4,Demographic Sensitivity,Hazard Exposure
+JH_BLOCK_073,Pandu,MODERATE,39.4,31.1,20.8,8.7,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_100,Khuntpani,MODERATE,33.3,24.2,23.5,19.0,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_151,Ramgarh (Dumka),MODERATE,31.0,27.6,22.8,18.7,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_087,Padma,MODERATE,44.8,18.3,14.1,22.8,Hazard Exposure,Accessibility Constraint
+JH_BLOCK_085,Churchu,MODERATE,56.0,10.0,21.6,12.4,Hazard Exposure,Capacity Stress
+JH_BLOCK_007,Namkum,MODERATE,37.3,21.8,26.2,14.7,Hazard Exposure,Capacity Stress
+JH_BLOCK_259,Peshrar,MODERATE,43.4,0.0,48.7,7.9,Capacity Stress,Hazard Exposure
+JH_BLOCK_065,Patan,MODERATE,35.8,29.8,20.9,13.6,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_200,Raidih,MODERATE,59.1,9.4,15.3,16.2,Hazard Exposure,Accessibility Constraint
+JH_BLOCK_015,Chanho,MODERATE,31.9,24.0,33.2,10.8,Capacity Stress,Hazard Exposure
+JH_BLOCK_136,Dhurki,MODERATE,32.6,29.4,22.0,15.9,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_173,Kuchai,MODERATE,36.5,28.4,27.6,7.4,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_180,Chatra Sadar,MODERATE,50.3,6.4,18.0,25.3,Hazard Exposure,Accessibility Constraint
+JH_BLOCK_035,Deori,MODERATE,39.5,20.9,32.8,6.9,Hazard Exposure,Capacity Stress
+JH_BLOCK_004,Ratu,MODERATE,40.5,24.4,24.3,10.8,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_094,Bishnugarh,MODERATE,51.1,27.1,11.5,10.3,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_152,Masalia,MODERATE,37.3,11.9,40.3,10.5,Capacity Stress,Hazard Exposure
+JH_BLOCK_062,Chandrapura,MODERATE,48.7,29.4,12.4,9.6,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_246,Pakartanr,MODERATE,40.2,6.8,35.0,18.0,Hazard Exposure,Capacity Stress
+JH_BLOCK_170,Mandro,MODERATE,41.8,17.7,31.6,8.8,Hazard Exposure,Capacity Stress
+JH_BLOCK_137,Chiniya,MODERATE,48.4,9.3,28.5,13.8,Hazard Exposure,Capacity Stress
+JH_BLOCK_097,Chaibasa Sadar,MODERATE,51.2,6.6,33.8,8.4,Hazard Exposure,Capacity Stress
+JH_BLOCK_240,Bano,MODERATE,40.6,41.5,9.6,8.3,Demographic Sensitivity,Hazard Exposure
+JH_BLOCK_221,Fatehpur,MODERATE,47.0,1.6,27.6,23.7,Hazard Exposure,Capacity Stress
+JH_BLOCK_213,Amrapara,MODERATE,43.6,10.1,33.5,12.8,Hazard Exposure,Capacity Stress
+JH_BLOCK_189,Mayurhand,MODERATE,31.4,25.2,23.5,19.9,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_228,Barwadih,MODERATE,39.9,15.5,29.1,15.5,Hazard Exposure,Capacity Stress
+JH_BLOCK_124,Sarath,MODERATE,55.9,0.0,34.4,9.7,Hazard Exposure,Capacity Stress
+JH_BLOCK_058,Peterbar,MODERATE,33.2,35.6,16.5,14.7,Demographic Sensitivity,Hazard Exposure
+JH_BLOCK_044,Ghatshila,MODERATE,35.3,29.5,22.4,12.8,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_077,Satbarwa,MODERATE,40.0,17.1,22.6,20.3,Hazard Exposure,Capacity Stress
+JH_BLOCK_117,Jasidih,MODERATE,47.8,17.0,21.7,13.6,Hazard Exposure,Capacity Stress
+JH_BLOCK_096,Dadi,MODERATE,38.7,20.5,31.4,9.4,Hazard Exposure,Capacity Stress
+JH_BLOCK_172,Kharsawan,MODERATE,44.8,19.9,28.2,7.1,Hazard Exposure,Capacity Stress
+JH_BLOCK_143,Dumka Sadar,MODERATE,45.9,22.3,26.0,5.8,Hazard Exposure,Capacity Stress
+JH_BLOCK_227,Manika,MODERATE,45.5,22.3,15.1,17.1,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_005,Ormanjhi,MODERATE,58.2,9.5,25.9,6.4,Hazard Exposure,Capacity Stress
+JH_BLOCK_196,Bharno,MODERATE,36.6,25.2,24.8,13.5,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_138,Ramkanda,MODERATE,38.9,24.2,25.3,11.5,Hazard Exposure,Capacity Stress
+JH_BLOCK_086,Daru,MODERATE,56.9,14.6,14.1,14.4,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_157,Boarijor,MODERATE,39.4,1.1,39.7,19.8,Capacity Stress,Hazard Exposure
+JH_BLOCK_019,Itki,MODERATE,30.8,10.0,37.3,22.0,Capacity Stress,Hazard Exposure
+JH_BLOCK_084,Ichak,MODERATE,26.5,20.1,32.4,21.0,Capacity Stress,Hazard Exposure
+JH_BLOCK_238,Simdega Sadar,MODERATE,45.4,0.1,37.6,17.0,Hazard Exposure,Capacity Stress
+JH_BLOCK_232,Koderma Sadar,LOW,37.1,45.2,8.5,9.2,Demographic Sensitivity,Hazard Exposure
+JH_BLOCK_066,Vishrampur,LOW,30.2,44.9,10.3,14.6,Demographic Sensitivity,Hazard Exposure
+JH_BLOCK_171,Saraikela,LOW,44.8,9.9,9.3,36.0,Hazard Exposure,Accessibility Constraint
+JH_BLOCK_134,Kandi,LOW,26.0,33.1,17.9,23.1,Demographic Sensitivity,Hazard Exposure
+JH_BLOCK_017,Bero,LOW,45.6,0.8,26.7,26.9,Hazard Exposure,Accessibility Constraint
+JH_BLOCK_054,Chas,LOW,27.8,9.0,42.9,20.2,Capacity Stress,Hazard Exposure
+JH_BLOCK_108,Chakradharpur,LOW,31.6,36.5,20.0,11.9,Demographic Sensitivity,Hazard Exposure
+JH_BLOCK_175,Ichagarh,LOW,33.6,41.6,7.4,17.4,Demographic Sensitivity,Hazard Exposure
+JH_BLOCK_203,Albert Ekka (Jari),LOW,22.9,36.9,28.8,11.3,Demographic Sensitivity,Capacity Stress
+JH_BLOCK_190,Tandwa,LOW,34.3,4.5,28.7,32.5,Hazard Exposure,Accessibility Constraint
+JH_BLOCK_059,Kasmar,LOW,26.3,39.5,18.2,16.1,Demographic Sensitivity,Hazard Exposure
+JH_BLOCK_146,Shikaripara,LOW,58.7,3.1,22.4,15.9,Hazard Exposure,Capacity Stress
+JH_BLOCK_230,Mahuadanr,LOW,28.7,14.8,45.1,11.4,Capacity Stress,Hazard Exposure
+JH_BLOCK_243,Bolba,LOW,27.9,21.5,42.3,8.3,Capacity Stress,Hazard Exposure
+JH_BLOCK_075,Manatu,LOW,27.7,45.8,18.1,8.5,Demographic Sensitivity,Hazard Exposure
+JH_BLOCK_053,Gurabanda,LOW,33.8,14.6,31.9,19.7,Hazard Exposure,Capacity Stress
+JH_BLOCK_046,Patamda,LOW,42.5,1.5,32.8,23.3,Hazard Exposure,Capacity Stress
+JH_BLOCK_161,Basantrai,LOW,34.8,32.3,14.1,18.8,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_039,Dumri,LOW,32.8,26.9,17.7,22.6,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_011,Tamar,LOW,36.9,38.5,13.3,11.4,Demographic Sensitivity,Hazard Exposure
+JH_BLOCK_052,Bahragora,LOW,34.0,25.5,8.4,32.0,Hazard Exposure,Accessibility Constraint
+JH_BLOCK_258,Kisko,LOW,33.1,11.2,34.1,21.6,Capacity Stress,Hazard Exposure
+JH_BLOCK_003,Nagri,LOW,37.8,3.3,26.9,32.0,Hazard Exposure,Accessibility Constraint
+JH_BLOCK_009,Sonahatu,LOW,27.7,42.6,21.4,8.4,Demographic Sensitivity,Hazard Exposure
+JH_BLOCK_037,Gawan,LOW,23.6,29.3,31.4,15.7,Capacity Stress,Demographic Sensitivity
+JH_BLOCK_253,Arki,LOW,26.5,3.0,51.4,19.1,Capacity Stress,Hazard Exposure
+JH_BLOCK_127,Meral,LOW,30.4,30.4,29.1,10.1,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_025,Baliapur,LOW,25.2,30.1,25.4,19.3,Demographic Sensitivity,Capacity Stress
+JH_BLOCK_222,Latehar Sadar,LOW,35.1,35.2,9.5,20.2,Demographic Sensitivity,Hazard Exposure
+JH_BLOCK_082,Katkamsandi,LOW,43.4,23.5,15.8,17.3,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_194,Ghaghra,LOW,43.3,28.7,21.6,6.4,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_101,Tantnagar,LOW,38.8,32.6,9.4,19.2,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_076,Tarhasi,LOW,45.1,14.0,23.4,17.6,Hazard Exposure,Capacity Stress
+JH_BLOCK_148,Jama,LOW,46.3,22.6,20.0,11.1,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_090,Barkatha,LOW,41.6,11.5,38.6,8.4,Hazard Exposure,Capacity Stress
+JH_BLOCK_254,Lohardaga Sadar,LOW,35.2,27.7,20.9,16.3,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_191,Kanhachatti,LOW,39.6,13.2,29.1,18.1,Hazard Exposure,Capacity Stress
+JH_BLOCK_067,Chhatarpur,LOW,38.2,27.8,22.7,11.4,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_201,Chainpur (Gumla),LOW,50.2,16.2,17.0,16.6,Hazard Exposure,Capacity Stress
+JH_BLOCK_220,Nala,LOW,41.4,22.0,18.4,18.3,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_158,Sundarpahari,LOW,38.9,1.6,40.8,18.7,Capacity Stress,Hazard Exposure
+JH_BLOCK_178,Gamharia (Adityapur),LOW,30.2,29.7,22.5,17.6,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_104,Noamundi,LOW,26.8,33.5,19.5,20.2,Demographic Sensitivity,Hazard Exposure
+JH_BLOCK_242,Thethaitangar,LOW,33.2,28.3,24.4,14.1,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_154,Pathargama,LOW,43.9,24.6,22.3,9.1,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_083,Katkamdag,LOW,38.1,27.8,16.1,18.0,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_257,Bhandra,LOW,27.3,41.1,23.1,8.4,Demographic Sensitivity,Hazard Exposure
+JH_BLOCK_193,Bishunpur,LOW,39.2,16.1,27.8,16.8,Hazard Exposure,Capacity Stress
+JH_BLOCK_063,Medininagar (Daltonganj),LOW,42.5,36.7,9.1,11.7,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_192,Gumla Sadar,LOW,27.2,28.2,30.5,14.1,Capacity Stress,Demographic Sensitivity
+JH_BLOCK_112,Kumardungi,LOW,38.9,18.3,33.2,9.6,Hazard Exposure,Capacity Stress
+JH_BLOCK_219,Kundhit,LOW,38.9,16.6,23.9,20.5,Hazard Exposure,Capacity Stress
+JH_BLOCK_016,Mandar,LOW,42.2,22.1,11.2,24.5,Hazard Exposure,Accessibility Constraint
+JH_BLOCK_128,Ranka,LOW,36.5,5.2,32.7,25.7,Hazard Exposure,Capacity Stress
+JH_BLOCK_195,Sisai,LOW,32.4,21.7,35.2,10.7,Capacity Stress,Hazard Exposure
+JH_BLOCK_110,Anandpur,LOW,44.0,12.8,17.6,25.6,Hazard Exposure,Accessibility Constraint
+JH_BLOCK_233,Jainagar,LOW,34.9,25.1,21.0,19.0,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_234,Chandwara,LOW,31.8,8.7,51.6,7.9,Capacity Stress,Hazard Exposure
+JH_BLOCK_091,Chalkusha,LOW,34.8,37.3,7.1,20.9,Demographic Sensitivity,Hazard Exposure
+JH_BLOCK_014,Khelari,LOW,40.2,6.7,35.3,17.8,Hazard Exposure,Capacity Stress
+JH_BLOCK_098,Jhinkpani,LOW,25.0,37.3,18.7,19.0,Demographic Sensitivity,Hazard Exposure
+JH_BLOCK_241,Jaldega,LOW,53.2,20.3,12.8,13.7,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_184,Kunda,LOW,22.4,35.0,22.7,19.9,Demographic Sensitivity,Capacity Stress
+JH_BLOCK_260,Kairo,LOW,28.3,40.7,8.0,23.1,Demographic Sensitivity,Hazard Exposure
+JH_BLOCK_024,Govindpur,LOW,26.6,31.9,28.1,13.4,Demographic Sensitivity,Capacity Stress
+JH_BLOCK_256,Senha,LOW,25.4,7.8,51.4,15.4,Capacity Stress,Hazard Exposure
+JH_BLOCK_064,Chainpur,LOW,37.1,16.7,9.0,37.2,Accessibility Constraint,Hazard Exposure
+JH_BLOCK_174,Chandil,LOW,30.0,15.7,37.4,17.0,Capacity Stress,Hazard Exposure
+JH_BLOCK_139,Bhandaria,LOW,26.0,45.7,5.8,22.5,Demographic Sensitivity,Hazard Exposure
+JH_BLOCK_013,Burmu,LOW,42.3,4.6,29.4,23.7,Hazard Exposure,Capacity Stress
+JH_BLOCK_247,Bano Rural,LOW,20.5,30.8,29.7,19.0,Demographic Sensitivity,Capacity Stress
+JH_BLOCK_012,Bundu,LOW,30.7,37.5,12.8,18.9,Demographic Sensitivity,Hazard Exposure
+JH_BLOCK_236,Satgawan,LOW,33.1,19.5,15.2,32.2,Hazard Exposure,Accessibility Constraint
+JH_BLOCK_135,Dandai,LOW,23.2,38.5,17.0,21.3,Demographic Sensitivity,Hazard Exposure
+JH_BLOCK_177,Kukru,LOW,49.4,3.4,35.4,11.8,Hazard Exposure,Capacity Stress
+JH_BLOCK_197,Kamdara,LOW,22.7,37.4,32.4,7.5,Demographic Sensitivity,Capacity Stress
+JH_BLOCK_081,Hazaribagh Sadar,LOW,40.0,0.1,32.9,27.0,Hazard Exposure,Capacity Stress
+JH_BLOCK_093,Keredari,LOW,47.2,24.6,14.8,13.5,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_255,Kuru,LOW,33.3,32.6,12.9,21.1,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_244,Kurdeg,LOW,30.1,15.4,41.9,12.7,Capacity Stress,Hazard Exposure
+JH_BLOCK_249,Murhu,LOW,40.2,29.9,15.1,14.7,Hazard Exposure,Demographic Sensitivity
+JH_BLOCK_179,Rajnagar,LOW,30.8,15.2,15.9,38.1,Accessibility Constraint,Hazard Exposure
+JH_BLOCK_252,Karra,LOW,31.5,8.8,33.3,26.4,Capacity Stress,Hazard Exposure
+JH_BLOCK_099,Tonto,LOW,30.0,23.2,38.1,8.8,Capacity Stress,Hazard Exposure
+JH_BLOCK_251,Rania,LOW,22.1,31.1,31.3,15.5,Capacity Stress,Demographic Sensitivity
+JH_BLOCK_186,Gidhour,LOW,35.5,13.0,39.5,12.1,Capacity Stress,Hazard Exposure

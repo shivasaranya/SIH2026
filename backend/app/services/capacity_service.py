@@ -65,11 +65,19 @@ def is_mn(state_id: Optional[str]) -> bool:
     clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
     return clean in ["manipur", "mn"]
 
+def is_jh(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["jharkhand", "jh"]
+
 class CapacityService:
     def __init__(self):
         self._cache: Dict[str, Dict[str, Any]] = {}
 
     def _get_state_key(self, state_id: Optional[str]) -> str:
+        if is_jh(state_id):
+            return "jh"
         if is_mn(state_id):
             return "mn"
         if is_ga(state_id):
@@ -95,7 +103,14 @@ class CapacityService:
 
         cap_dir = settings.DATA_DIR / "processed" / "capacity"
 
-        if key == "mn":
+        if key == "jh":
+            cap_csv = cap_dir / "jh_blocks_capacity_adequacy.csv"
+            adequacy_csv = cap_dir / "jh_blocks_capacity_adequacy.csv"
+            host_csv = cap_dir / "jh_host_zone_candidates.csv"
+            adequacy_geojson = cap_dir / "jh_blocks_capacity_adequacy.geojson"
+            cap_geojson = adequacy_geojson
+            bottlenecks_csv = adequacy_csv
+        elif key == "mn":
             cap_csv = cap_dir / "mn_subdivisions_capacity_adequacy.csv"
             adequacy_csv = cap_dir / "mn_subdivisions_capacity_adequacy.csv"
             host_csv = cap_dir / "mn_host_zone_candidates.csv"

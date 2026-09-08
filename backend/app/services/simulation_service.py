@@ -100,11 +100,19 @@ def is_mn(state_id: Optional[str]) -> bool:
     clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
     return clean in ["manipur", "mn"]
 
+def is_jh(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["jharkhand", "jh"]
+
 class SimulationService:
     def __init__(self):
         self._cache: Dict[str, Dict[str, Any]] = {}
 
     def _get_state_key(self, state_id: Optional[str]) -> str:
+        if is_jh(state_id):
+            return "jh"
         if is_mn(state_id):
             return "mn"
         if is_ga(state_id):
@@ -129,7 +137,9 @@ class SimulationService:
             return self._cache[key]
 
         reloc_dir = settings.DATA_DIR / "processed" / "relocation"
-        if key == "mn":
+        if key == "jh":
+            master_csv = reloc_dir / "jh_blocks_relocation_priority.csv"
+        elif key == "mn":
             master_csv = reloc_dir / "mn_subdivisions_relocation_priority.csv"
         elif key == "ga":
             master_csv = reloc_dir / "ga_taluks_relocation_priority.csv"

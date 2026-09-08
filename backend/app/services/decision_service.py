@@ -60,11 +60,19 @@ def is_mn(state_id: Optional[str]) -> bool:
     clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
     return clean in ["manipur", "mn"]
 
+def is_jh(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["jharkhand", "jh"]
+
 class DecisionService:
     def __init__(self):
         self._cache: Dict[str, Dict[str, Any]] = {}
 
     def _get_state_key(self, state_id: Optional[str]) -> str:
+        if is_jh(state_id):
+            return "jh"
         if is_mn(state_id):
             return "mn"
         if is_ga(state_id):
@@ -91,7 +99,11 @@ class DecisionService:
         reloc_dir = settings.DATA_DIR / "processed" / "relocation"
         cap_dir = settings.DATA_DIR / "processed" / "capacity"
 
-        if key == "mn":
+        if key == "jh":
+            reloc_csv = reloc_dir / "jh_blocks_relocation_priority.csv"
+            cap_csv = cap_dir / "jh_blocks_capacity_adequacy.csv"
+            hosts_csv = cap_dir / "jh_host_zone_candidates.csv"
+        elif key == "mn":
             reloc_csv = reloc_dir / "mn_subdivisions_relocation_priority.csv"
             cap_csv = cap_dir / "mn_subdivisions_capacity_adequacy.csv"
             hosts_csv = cap_dir / "mn_host_zone_candidates.csv"
@@ -148,7 +160,9 @@ class DecisionService:
 
     def get_capacity_gap_assessment(self, mandal_id: str, state_id: Optional[str] = "andhra_pradesh") -> Optional[CapacityGapAssessment]:
         target = mandal_id.strip().upper()
-        if target.startswith("MN_"):
+        if target.startswith("JH_"):
+            detected_state = "jharkhand"
+        elif target.startswith("MN_"):
             detected_state = "manipur"
         elif target.startswith("GA_"):
             detected_state = "goa"
@@ -310,7 +324,17 @@ class DecisionService:
 
     def get_action_plan(self, mandal_id: str, state_id: Optional[str] = "andhra_pradesh") -> Optional[ActionPlanResponse]:
         target = mandal_id.strip().upper()
-        if target.startswith("RJ_"):
+        if target.startswith("JH_"):
+            detected_state = "jharkhand"
+        elif target.startswith("MN_"):
+            detected_state = "manipur"
+        elif target.startswith("GA_"):
+            detected_state = "goa"
+        elif target.startswith("KA_"):
+            detected_state = "karnataka"
+        elif target.startswith("MP_"):
+            detected_state = "madhya_pradesh"
+        elif target.startswith("RJ_"):
             detected_state = "rajasthan"
         elif target.startswith("TG_"):
             detected_state = "telangana"
@@ -355,6 +379,7 @@ class DecisionService:
         primary_bot = str(r_row.get("primary_bottleneck", "health_infrastructure"))
         secondary_bot = str(c_row.get("secondary_bottleneck", "N/A"))
 
+        is_jh_state = is_jh(detected_state) or m_id.startswith("JH_")
         is_mn_state = is_mn(detected_state) or m_id.startswith("MN_")
         is_ga_state = is_ga(detected_state) or m_id.startswith("GA_")
         is_ka_state = is_ka(detected_state) or m_id.startswith("KA_")
@@ -364,7 +389,10 @@ class DecisionService:
         is_tr_state = is_tr(detected_state) or m_id.startswith("TR_")
         is_tn_state = is_tn(detected_state) or m_id.startswith("TN_")
 
-        if is_mn_state:
+        if is_jh_state:
+            agency_prefix = "Jharkhand"
+            sdma_name = "JSDMA"
+        elif is_mn_state:
             agency_prefix = "Manipur"
             sdma_name = "MSDMA"
         elif is_ga_state:

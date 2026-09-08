@@ -57,11 +57,19 @@ def is_mn(state_id: Optional[str]) -> bool:
     clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
     return clean in ["manipur", "mn"]
 
+def is_jh(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["jharkhand", "jh"]
+
 class HazardService:
     def __init__(self):
         self._cache: Dict[str, Dict[str, Any]] = {}
 
     def _get_state_key(self, state_id: Optional[str]) -> str:
+        if is_jh(state_id):
+            return "jh"
         if is_mn(state_id):
             return "mn"
         if is_ga(state_id):
@@ -87,7 +95,12 @@ class HazardService:
 
         haz_dir = settings.DATA_DIR / "processed" / "hazard" / "mandal_exposure"
 
-        if key == "mn":
+        if key == "jh":
+            csv_path = haz_dir / "jh_blocks_multi_hazard_exposure.csv"
+            geojson_path = haz_dir / "jh_blocks_multi_hazard_exposure.geojson"
+            surge_included = False
+            exclusion_reason = "Jharkhand is an inland plateau state in Eastern India; coastal storm surge is NOT_APPLICABLE. Multi-hazard framework models riverine & flash flooding (Ganga at Sahibganj, Damodar, Subarnarekha, Koel-Karo, Mayurakshi basins), terrain slope / mining instability (SRTM 30m DEM / Parasnath / Netarhat), seismic zones IV/III/II (BIS IS 1893), and wind hazards (BIS IS 875 Vb=47-50 m/s)."
+        elif key == "mn":
             csv_path = haz_dir / "mn_subdivisions_multi_hazard_exposure.csv"
             geojson_path = haz_dir / "mn_subdivisions_multi_hazard_exposure.geojson"
             surge_included = False
@@ -191,14 +204,14 @@ class HazardService:
     def get_summary(self, state_id: Optional[str] = "andhra_pradesh") -> HazardSummaryResponse:
         data = self._load_data(state_id)
         df = data["exposure_df"]
-
-        indices = df["multi_hazard_exposure_index"]
+        col = "multi_hazard_exposure_index" if "multi_hazard_exposure_index" in df.columns else "hazard_exposure_index"
+        indices = df[col]
         high_count = int((indices >= 0.50).sum())
         mod_count = int(((indices >= 0.25) & (indices < 0.50)).sum())
         low_count = int((indices < 0.25).sum())
 
-        top_5 = df.sort_values("multi_hazard_exposure_index", ascending=False).head(5)[
-            ["mandal_id", "mandal_name", "current_district_name", "multi_hazard_exposure_index"]
+        top_5 = df.sort_values(col, ascending=False).head(5)[
+            ["mandal_id", "mandal_name", "current_district_name", col]
         ].to_dict(orient="records")
 
         return HazardSummaryResponse(

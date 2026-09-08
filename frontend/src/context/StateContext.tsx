@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
-export type StateId = 'andhra_pradesh' | 'tamil_nadu' | 'tripura' | 'telangana' | 'rajasthan' | 'madhya_pradesh' | 'karnataka' | 'goa' | 'manipur';
+export type StateId = 'andhra_pradesh' | 'tamil_nadu' | 'tripura' | 'telangana' | 'rajasthan' | 'madhya_pradesh' | 'karnataka' | 'goa' | 'manipur' | 'jharkhand';
 
 export interface StateConfig {
   id: StateId;
@@ -191,6 +191,25 @@ export const STATE_CONFIGS: Record<StateId, StateConfig> = {
     sdmaName: 'Manipur SDMA (MSDMA)',
     tagline: 'Indo-Burma Ranges, Loktak Lake & River Basin Multi-Hazard Relocation Decision System',
   },
+  jharkhand: {
+    id: 'jharkhand',
+    name: 'Jharkhand',
+    code: 'JH',
+    adminUnitName: 'Block',
+    adminUnitPlural: 'Blocks',
+    districtCount: 24,
+    adminUnitCount: 260,
+    rankedCount: 260,
+    hostCandidateCount: 93,
+    center: [23.65, 85.56],
+    bounds: [
+      [21.90, 83.25],
+      [25.40, 88.05],
+    ],
+    isCoastal: false,
+    sdmaName: 'Jharkhand SDMA (JSDMA)',
+    tagline: 'Chota Nagpur Plateau, Damodar-Subarnarekha River Basins & Mineral Belt Multi-Hazard Relocation Decision System',
+  },
 };
 
 interface StateContextType {
@@ -208,6 +227,9 @@ export const StateProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   const getInitialState = (): StateId => {
     if (typeof window !== 'undefined') {
       const hash = window.location.hash.toLowerCase();
+      if (hash.includes('/jh') || hash.includes('/jharkhand') || hash.includes('jharkhand')) {
+        return 'jharkhand';
+      }
       if (hash.includes('/mn') || hash.includes('/manipur') || hash.includes('manipur')) {
         return 'manipur';
       }
@@ -245,7 +267,9 @@ export const StateProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
   const selectStateByName = (name: string) => {
     const lower = name.toLowerCase().replace(/[-_]/g, ' ');
-    if (lower.includes('manipur') || lower === 'mn') {
+    if (lower.includes('jharkhand') || lower === 'jh') {
+      setStateId('jharkhand');
+    } else if (lower.includes('manipur') || lower === 'mn') {
       setStateId('manipur');
     } else if (lower.includes('goa') || lower === 'ga') {
       setStateId('goa');
@@ -270,7 +294,9 @@ export const StateProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   useEffect(() => {
     const handleHash = () => {
       const hash = window.location.hash.toLowerCase();
-      if (hash.includes('/mn') || hash.includes('/manipur') || hash.includes('manipur')) {
+      if (hash.includes('/jh') || hash.includes('/jharkhand') || hash.includes('jharkhand')) {
+        setStateIdState('jharkhand');
+      } else if (hash.includes('/mn') || hash.includes('/manipur') || hash.includes('manipur')) {
         setStateIdState('manipur');
       } else if (hash.includes('/ga') || hash.includes('/goa') || hash.includes('goa')) {
         setStateIdState('goa');

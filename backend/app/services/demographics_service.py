@@ -58,11 +58,19 @@ def is_mn(state_id: Optional[str]) -> bool:
     clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
     return clean in ["manipur", "mn"]
 
+def is_jh(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["jharkhand", "jh"]
+
 class DemographicsService:
     def __init__(self):
         self._cache: Dict[str, Dict[str, Any]] = {}
 
     def _get_state_key(self, state_id: Optional[str]) -> str:
+        if is_jh(state_id):
+            return "jh"
         if is_mn(state_id):
             return "mn"
         if is_ga(state_id):
@@ -86,7 +94,15 @@ class DemographicsService:
         if key in self._cache:
             return self._cache[key]
 
-        if key == "mn":
+        if key == "jh":
+            csv_path = settings.PROCESSED_CENSUS_DIR / "jh_blocks_demographics.csv"
+            state_name = "Jharkhand"
+            state_code = "JH"
+            code_col = "current_district_id"
+            name_col = "current_district_name"
+            m_code_col = "mandal_id"
+            m_name_col = "mandal_name"
+        elif key == "mn":
             csv_path = settings.PROCESSED_CENSUS_DIR / "mn_subdivisions_demographics.csv"
             state_name = "Manipur"
             state_code = "MN"

@@ -52,6 +52,12 @@ def is_mn(state_id: Optional[str]) -> bool:
     clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
     return clean in ["manipur", "mn"]
 
+def is_jh(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["jharkhand", "jh"]
+
 class GISService:
     def __init__(self):
         self._ap_districts_geojson: Optional[Dict[str, Any]] = None
@@ -72,8 +78,18 @@ class GISService:
         self._ga_mandals_geojson: Optional[Dict[str, Any]] = None
         self._mn_districts_geojson: Optional[Dict[str, Any]] = None
         self._mn_mandals_geojson: Optional[Dict[str, Any]] = None
+        self._jh_districts_geojson: Optional[Dict[str, Any]] = None
+        self._jh_mandals_geojson: Optional[Dict[str, Any]] = None
 
     def get_districts_geojson(self, state_id: str = "andhra_pradesh") -> Dict[str, Any]:
+        if is_jh(state_id):
+            if self._jh_districts_geojson is None:
+                dist_path = settings.PROCESSED_ADMIN_DIR / "jharkhand_24_districts.geojson"
+                if not dist_path.exists():
+                    raise FileNotFoundError(f"Jharkhand districts GeoJSON not found at {dist_path}")
+                with open(dist_path, "r", encoding="utf-8") as f:
+                    self._jh_districts_geojson = json.load(f)
+            return self._jh_districts_geojson
         if is_mn(state_id):
             if self._mn_districts_geojson is None:
                 dist_path = settings.PROCESSED_ADMIN_DIR / "manipur_16_districts.geojson"
@@ -155,6 +171,28 @@ class GISService:
         return self._ap_districts_geojson
 
     def get_mandals_geojson(self, district_id: Optional[str] = None, state_id: str = "andhra_pradesh") -> Dict[str, Any]:
+        if is_jh(state_id):
+            if self._jh_mandals_geojson is None:
+                mand_path = settings.PROCESSED_ADMIN_DIR / "jharkhand_blocks.geojson"
+                if not mand_path.exists():
+                    mand_path = settings.DATA_DIR / "processed" / "relocation" / "jh_blocks_relocation_priority.geojson"
+                if not mand_path.exists():
+                    raise FileNotFoundError(f"Jharkhand blocks GeoJSON not found at {mand_path}")
+                with open(mand_path, "r", encoding="utf-8") as f:
+                    self._jh_mandals_geojson = json.load(f)
+
+            if district_id:
+                did_clean = district_id.strip().lower().replace("-", "_").replace(" ", "_")
+                filtered = [
+                    f for f in self._jh_mandals_geojson["features"]
+                    if str(f.get("properties", {}).get("current_district_id", "")).lower() == did_clean or
+                       str(f.get("properties", {}).get("district_id", "")).lower() == did_clean or
+                       str(f.get("properties", {}).get("current_district_name", "")).lower().replace(" ", "_") == did_clean or
+                       str(f.get("properties", {}).get("district_name", "")).lower().replace(" ", "_") == did_clean
+                ]
+                return {"type": "FeatureCollection", "features": filtered}
+            return self._jh_mandals_geojson
+
         if is_mn(state_id):
             if self._mn_mandals_geojson is None:
                 mand_path = settings.PROCESSED_ADMIN_DIR / "manipur_subdivisions.geojson"
