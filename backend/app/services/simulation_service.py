@@ -3,6 +3,7 @@ from typing import Dict, Any, List, Optional
 import numpy as np
 import pandas as pd
 from app.core.config import settings
+from app.core.state_config import resolve_state_config
 from app.simulation.schemas import (
     SimulationParameters,
     SimulationPresetItem,
@@ -24,9 +25,9 @@ PRESETS = [
     SimulationPresetItem(
         preset_id="baseline",
         preset_name="Baseline Planning State",
-        description="Official Phase 4 baseline conditions with zero parameter perturbation.",
+        description="Official baseline conditions with zero parameter perturbation.",
         parameters=SimulationParameters(hazard_change=0.0, population_change=0.0, capacity_change=0.0, accessibility_change=0.0),
-        disclaimer="Standard Phase 4 baseline state."
+        disclaimer="Standard baseline state."
     ),
     SimulationPresetItem(
         preset_id="severe_hazard",
@@ -51,39 +52,47 @@ PRESETS = [
     ),
 ]
 
-
 class SimulationService:
     def __init__(self):
-        self._master_df: Optional[pd.DataFrame] = None
-        self._norm_denom_base: Optional[np.ndarray] = None
-        self._a_plus_base: Optional[np.ndarray] = None
-        self._a_minus_base: Optional[np.ndarray] = None
+        self._cache_df: Dict[str, pd.DataFrame] = {}
+        self._cache_norm_denom: Dict[str, np.ndarray] = {}
+        self._cache_a_plus: Dict[str, np.ndarray] = {}
+        self._cache_a_minus: Dict[str, np.ndarray] = {}
 
-    def _load_data(self):
-        if self._master_df is not None:
+    def _load_data_for_state(self, state_key: str):
+        if state_key in self._cache_df:
             return
 
-        master_csv = settings.DATA_DIR / "processed" / "relocation" / "mandal_relocation_priority.csv"
+        cfg = resolve_state_config(state_key)
+        master_csv = settings.DATA_DIR / "processed" / "relocation" / cfg.relocation_priority_csv_filename
         if not master_csv.exists():
             raise FileNotFoundError(f"Relocation priority dataset not found at {master_csv}")
-        self._master_df = pd.read_csv(master_csv)
+        
+        df = pd.read_csv(master_csv)
+        self._cache_df[state_key] = df
 
-        # Precompute baseline reference normalizers and ideal boundaries
-        valid_df = self._master_df[self._master_df["ranking_status"] != "INSUFFICIENT_DATA"]
+        valid_df = df[df["ranking_status"] != "INSUFFICIENT_DATA"]
         X_base = valid_df[['c1_hazard_exposure', 'c2_demographic_sensitivity', 'c3_capacity_stress', 'c4_accessibility_constraint']].values
-        self._norm_denom_base = np.sqrt(np.sum(X_base ** 2, axis=0))
-        self._norm_denom_base = np.where(self._norm_denom_base == 0, 1.0, self._norm_denom_base)
+        denom = np.sqrt(np.sum(X_base ** 2, axis=0))
+        denom = np.where(denom == 0, 1.0, denom)
+        self._cache_norm_denom[state_key] = denom
 
-        V_base = (X_base / self._norm_denom_base) * AHP_WEIGHTS
-        self._a_plus_base = np.max(V_base, axis=0)
-        self._a_minus_base = np.min(V_base, axis=0)
+        V_base = (X_base / denom) * AHP_WEIGHTS
+        self._cache_a_plus[state_key] = np.max(V_base, axis=0)
+        self._cache_a_minus[state_key] = np.min(V_base, axis=0)
 
     def get_presets(self) -> SimulationPresetsResponse:
         return SimulationPresetsResponse(presets=PRESETS)
 
-    def run_simulation(self, params: SimulationParameters) -> SimulationRunResponse:
-        self._load_data()
-        df = self._master_df.copy()
+    def run_simulation(self, params: SimulationParameters, state: Optional[str] = None) -> SimulationRunResponse:
+        cfg = resolve_state_config(state)
+        state_key = cfg.state_id
+        self._load_data_for_state(state_key)
+        
+        df = self._cache_df[state_key].copy()
+        norm_denom = self._cache_norm_denom[state_key]
+        a_plus = self._cache_a_plus[state_key]
+        a_minus = self._cache_a_minus[state_key]
 
         pop_mask = df["ranking_status"] != "INSUFFICIENT_DATA"
         df_valid = df[pop_mask].copy()
@@ -94,27 +103,18 @@ class SimulationService:
         c_base = df_valid["c3_capacity_stress"].values
         e_base = df_valid["c4_accessibility_constraint"].values
 
-        # Hazard: clipped multiplier
         h_scen = np.clip(h_base * (1.0 + params.hazard_change), 0.0, 1.0)
-
-        # Demography: baseline preserved (societal composition does not shift linearly)
         d_scen = d_base
-
-        # Capacity Stress: modified by capacity_change and population pressure load
         c_scen = np.clip(c_base * (1.0 + params.capacity_change + 0.5 * params.population_change), 0.0, 1.0)
-
-        # Accessibility Constraint: inverted (negative accessibility change increases constraint)
         e_scen = np.clip(e_base * (1.0 - params.accessibility_change), 0.0, 1.0)
 
         # 2. TOPSIS Recalculation Engine
         X_scen = np.column_stack([h_scen, d_scen, c_scen, e_scen])
-
-        # Normalize relative to baseline reference scale to allow true comparative sensitivity
-        R_scen = X_scen / self._norm_denom_base
+        R_scen = X_scen / norm_denom
         V_scen = R_scen * AHP_WEIGHTS
 
-        D_plus = np.sqrt(np.sum((V_scen - self._a_plus_base) ** 2, axis=1))
-        D_minus = np.sqrt(np.sum((V_scen - self._a_minus_base) ** 2, axis=1))
+        D_plus = np.sqrt(np.sum((V_scen - a_plus) ** 2, axis=1))
+        D_minus = np.sqrt(np.sum((V_scen - a_minus) ** 2, axis=1))
 
         total_dist = D_plus + D_minus
         CC_scen = np.where(total_dist > 0, D_minus / total_dist, 0.0)
@@ -126,7 +126,7 @@ class SimulationService:
         df_valid["scenario_c3_capacity"] = np.round(c_scen, 4)
         df_valid["scenario_c4_accessibility"] = np.round(e_scen, 4)
 
-        # 3. Scenario Ranking (Descending order of closeness coefficient with hazard and baseline rank tie-breaker)
+        # 3. Scenario Ranking
         is_baseline = (
             params.hazard_change == 0.0 and
             params.population_change == 0.0 and
@@ -142,8 +142,6 @@ class SimulationService:
                 ascending=[False, False, True]
             )
             df_valid["scenario_rank"] = np.arange(1, len(df_valid) + 1)
-
-
 
         # 4. Priority Categorization
         scenario_categories = []
@@ -179,11 +177,9 @@ class SimulationService:
             sc_diff = round(float(row["scenario_topsis_score"] - row["topsis_score"]), 4)
             score_changes.append(sc_diff)
 
-            # Rank change: positive means rank number got smaller (moved UP in urgency)
             r_diff = float(row["relocation_priority_rank"] - row["scenario_rank"])
             rank_changes.append(r_diff)
 
-            # Category shift
             b_cat_val = cat_hierarchy.get(row["relocation_priority_category"], 0)
             s_cat_val = cat_hierarchy.get(row["scenario_category"], 0)
             if s_cat_val > b_cat_val:
@@ -200,7 +196,6 @@ class SimulationService:
             else:
                 change_dirs.append("NO SIGNIFICANT CHANGE")
 
-            # Scenario factor contributions
             p_haz = w_haz * row["scenario_c1_hazard"]
             p_demo = w_demo * row["scenario_c2_demography"]
             p_cap = w_cap * row["scenario_c3_capacity"]
@@ -227,7 +222,6 @@ class SimulationService:
             prim_factors.append(sorted_f[0][0])
             sec_factors.append(sorted_f[1][0])
 
-            # Deterministic scenario explanation text
             m_name = row["mandal_name"]
             if sc_diff > 0.02:
                 exp_text = (
@@ -258,35 +252,33 @@ class SimulationService:
         df_valid["scenario_secondary_factor"] = sec_factors
         df_valid["scenario_explanation"] = explanations
 
-        # Merge unpopulated mandals back
         df_insufficient = df[~pop_mask].copy()
-        df_insufficient["scenario_topsis_score"] = 0.0
-        df_insufficient["scenario_rank"] = np.nan
-        df_insufficient["scenario_category"] = "INSUFFICIENT-DATA"
-        df_insufficient["scenario_primary_factor"] = "NO POPULATION / INSUFFICIENT DATA"
-        df_insufficient["scenario_secondary_factor"] = "N/A"
-        df_insufficient["score_change"] = 0.0
-        df_insufficient["rank_change"] = np.nan
-        df_insufficient["category_change"] = "UNCHANGED"
-        df_insufficient["change_direction"] = "NO SIGNIFICANT CHANGE"
-        df_insufficient["scenario_c1_hazard"] = 0.0
-        df_insufficient["scenario_c2_demography"] = 0.0
-        df_insufficient["scenario_c3_capacity"] = 0.0
-        df_insufficient["scenario_c4_accessibility"] = 0.0
-        df_insufficient["factor_contrib_hazard_pct"] = 0.0
-        df_insufficient["factor_contrib_demographic_pct"] = 0.0
-        df_insufficient["factor_contrib_capacity_pct"] = 0.0
-        df_insufficient["factor_contrib_accessibility_pct"] = 0.0
-        df_insufficient["scenario_explanation"] = "Mandal is unpopulated or has zero reported area; excluded from simulation."
+        if not df_insufficient.empty:
+            df_insufficient["scenario_topsis_score"] = 0.0
+            df_insufficient["scenario_rank"] = np.nan
+            df_insufficient["scenario_category"] = "INSUFFICIENT-DATA"
+            df_insufficient["scenario_primary_factor"] = "NO POPULATION / INSUFFICIENT DATA"
+            df_insufficient["scenario_secondary_factor"] = "N/A"
+            df_insufficient["score_change"] = 0.0
+            df_insufficient["rank_change"] = np.nan
+            df_insufficient["category_change"] = "UNCHANGED"
+            df_insufficient["change_direction"] = "NO SIGNIFICANT CHANGE"
+            df_insufficient["scenario_c1_hazard"] = 0.0
+            df_insufficient["scenario_c2_demography"] = 0.0
+            df_insufficient["scenario_c3_capacity"] = 0.0
+            df_insufficient["scenario_c4_accessibility"] = 0.0
+            df_insufficient["factor_contrib_hazard_pct"] = 0.0
+            df_insufficient["factor_contrib_demographic_pct"] = 0.0
+            df_insufficient["factor_contrib_capacity_pct"] = 0.0
+            df_insufficient["factor_contrib_accessibility_pct"] = 0.0
+            df_insufficient["scenario_explanation"] = "Mandal/Taluka is unpopulated or has zero reported area; excluded from simulation."
+            df_combined = pd.concat([df_valid, df_insufficient], ignore_index=True)
+        else:
+            df_combined = df_valid
 
-        # Combine
-        df_combined = pd.concat([df_valid, df_insufficient], ignore_index=True)
-
-        # 6. Summary Metrics Computation
         base_cat_dist = df["relocation_priority_category"].value_counts().to_dict()
         scen_cat_dist = df_combined["scenario_category"].value_counts().to_dict()
 
-        # Category shift matrix
         shifts = {}
         for b_cat in ["VERY HIGH", "HIGH", "MODERATE", "LOW"]:
             shifts[b_cat] = {}
@@ -297,7 +289,6 @@ class SimulationService:
         entered_vh = int(((df_valid["relocation_priority_category"] != "VERY HIGH") & (df_valid["scenario_category"] == "VERY HIGH")).sum())
         left_vh = int(((df_valid["relocation_priority_category"] == "VERY HIGH") & (df_valid["scenario_category"] != "VERY HIGH")).sum())
 
-        # Extreme movers
         max_sc_inc_row = df_valid.sort_values(by="score_change", ascending=False).iloc[0]
         max_sc_dec_row = df_valid.sort_values(by="score_change", ascending=True).iloc[0]
         max_rk_up_row = df_valid.sort_values(by="rank_change", ascending=False).iloc[0]
@@ -354,7 +345,6 @@ class SimulationService:
             }
         )
 
-        # 7. Top Lists for Presentation
         top_base = df_valid.sort_values(by="relocation_priority_rank", ascending=True).head(10)[
             ["mandal_id", "mandal_name", "current_district_name", "topsis_score", "relocation_priority_category", "relocation_priority_rank"]
         ].to_dict(orient="records")
@@ -371,7 +361,6 @@ class SimulationService:
             ["mandal_id", "mandal_name", "current_district_name", "topsis_score", "scenario_topsis_score", "score_change", "relocation_priority_rank", "scenario_rank", "rank_change"]
         ].to_dict(orient="records")
 
-        # 8. Format Items
         items = []
         for _, row in df_combined.iterrows():
             items.append(
@@ -414,16 +403,15 @@ class SimulationService:
             top_10_increased_priority=top_inc,
             top_10_decreased_priority=top_dec,
             mandals=items,
-            governance_disclaimer="SCENARIO SIMULATION — NOT A DISASTER FORECAST. All outputs represent deterministic mathematical sensitivity recalculations (AHP+TOPSIS) over precomputed baseline indicators. Results serve strictly as decision support for disaster management authorities and do not constitute government relocation orders or emergency evacuation directives."
+            governance_disclaimer=f"SCENARIO SIMULATION — NOT A DISASTER FORECAST. All outputs represent deterministic mathematical sensitivity recalculations (AHP+TOPSIS) over precomputed baseline indicators for {cfg.state_name}."
         )
 
-    def get_mandal_simulation(self, mandal_id: str, params: SimulationParameters) -> Optional[MandalSimulationComparisonItem]:
-        run_res = self.run_simulation(params)
+    def get_mandal_simulation(self, mandal_id: str, params: SimulationParameters, state: Optional[str] = None) -> Optional[MandalSimulationComparisonItem]:
+        run_res = self.run_simulation(params, state=state)
         target = mandal_id.strip().upper()
         for item in run_res.mandals:
             if item.mandal_id.upper() == target or item.mandal_name.upper() == target:
                 return item
         return None
-
 
 simulation_service = SimulationService()

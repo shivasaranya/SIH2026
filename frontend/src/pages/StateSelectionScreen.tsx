@@ -73,9 +73,16 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
         const layer = L.geoJSON(geoData, {
           style: (feature) => {
             const props = feature?.properties as StateFeatureProperties;
-            const isAP = props?.is_implemented;
+            const isImplemented = props?.is_implemented || 
+              props?.state_name === 'Andhra Pradesh' || 
+              props?.state_name === 'Gujarat' || 
+              props?.state_name === 'Kerala' ||
+              props?.state_name === 'Maharashtra' ||
+              props?.state_name === 'Haryana' ||
+              props?.state_name === 'Punjab' ||
+              props?.state_name === 'Chhattisgarh';
 
-            if (isAP) {
+            if (isImplemented) {
               return {
                 color: '#145A36',
                 weight: 2.5,
@@ -94,14 +101,21 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
           onEachFeature: (feature, featureLayer) => {
             const props = feature.properties as StateFeatureProperties;
             const stateName = props.state_name;
-            const isAP = props.is_implemented;
+            const isImplemented = props.is_implemented || 
+              stateName === 'Andhra Pradesh' || 
+              stateName === 'Gujarat' || 
+              stateName === 'Kerala' ||
+              stateName === 'Maharashtra' ||
+              stateName === 'Haryana' ||
+              stateName === 'Punjab' ||
+              stateName === 'Chhattisgarh';
 
             // Custom warm tooltip
             featureLayer.bindTooltip(
               `<div class="py-1.5 px-2.5 text-center select-none font-sans">
-                <div class="text-xs font-bold ${isAP ? 'text-[#145A36]' : 'text-slate-900'}">${stateName}</div>
-                <div class="text-[10px] font-semibold mt-0.5 ${isAP ? 'text-[#1E7446] font-extrabold' : 'text-amber-700'}">
-                  ${isAP ? '★ ACTIVE OPERATIONAL PILOT (Click to Launch)' : '○ Regional Data Expansion In Progress'}
+                <div class="text-xs font-bold ${isImplemented ? 'text-[#145A36]' : 'text-slate-900'}">${stateName}</div>
+                <div class="text-[10px] font-semibold mt-0.5 ${isImplemented ? 'text-[#1E7446] font-extrabold' : 'text-amber-700'}">
+                  ${isImplemented ? '★ ACTIVE OPERATIONAL STATE (Click to Launch)' : '○ Regional Data Expansion In Progress'}
                 </div>
               </div>`,
               { sticky: true, className: 'leaflet-warm-tooltip' }
@@ -111,7 +125,7 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
               mouseover: (e) => {
                 const target = e.target as L.Path;
                 setHoveredState(stateName);
-                if (isAP) {
+                if (isImplemented) {
                   target.setStyle({
                     weight: 3.5,
                     color: '#0B3B20',
@@ -131,7 +145,7 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
               mouseout: (e) => {
                 const target = e.target as L.Path;
                 setHoveredState(null);
-                if (isAP) {
+                if (isImplemented) {
                   target.setStyle({
                     color: '#145A36',
                     weight: 2.5,
@@ -149,8 +163,8 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
               },
               click: (e) => {
                 L.DomEvent.stopPropagation(e);
-                if (isAP) {
-                  onSelectState('Andhra Pradesh');
+                if (isImplemented) {
+                  onSelectState(stateName);
                 } else {
                   setSelectedComingSoonState(stateName);
                 }
@@ -203,6 +217,192 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
         apMarker.on('click', () => onSelectState('Andhra Pradesh'));
         apMarker.addTo(map);
 
+        // Add prominent Gujarat marker label at coordinates [22.25, 71.19]
+        const gjLabelIcon = L.divIcon({
+          className: 'gj-marker-badge',
+          html: `<div style="
+            background: #1E7446;
+            color: #FFFFFF;
+            font-family: inherit;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 5px 10px;
+            border-radius: 9999px;
+            box-shadow: 0 4px 14px rgba(20, 90, 54, 0.4);
+            border: 2px solid #FFFFFF;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            transform: scale(1.05);
+          ">
+            <span style="display:inline-block; width:7px; height:7px; background:#4ade80; border-radius:50%; box-shadow: 0 0 6px #4ade80;"></span>
+            Gujarat (Active State)
+          </div>`,
+          iconSize: [150, 28],
+          iconAnchor: [75, 14],
+        });
+
+        const gjMarker = L.marker([22.25, 71.19], { icon: gjLabelIcon, interactive: true });
+        gjMarker.on('click', () => onSelectState('Gujarat'));
+        gjMarker.addTo(map);
+
+        // Add prominent Kerala marker label at coordinates [10.45, 76.35]
+        const klLabelIcon = L.divIcon({
+          className: 'kl-marker-badge',
+          html: `<div style="
+            background: #1E7446;
+            color: #FFFFFF;
+            font-family: inherit;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 5px 10px;
+            border-radius: 9999px;
+            box-shadow: 0 4px 14px rgba(20, 90, 54, 0.4);
+            border: 2px solid #FFFFFF;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            transform: scale(1.05);
+          ">
+            <span style="display:inline-block; width:7px; height:7px; background:#4ade80; border-radius:50%; box-shadow: 0 0 6px #4ade80;"></span>
+            Kerala (Active State)
+          </div>`,
+          iconSize: [140, 28],
+          iconAnchor: [70, 14],
+        });
+
+        const klMarker = L.marker([10.45, 76.35], { icon: klLabelIcon, interactive: true });
+        klMarker.on('click', () => onSelectState('Kerala'));
+        klMarker.addTo(map);
+
+        // Add prominent Maharashtra marker label at coordinates [19.75, 75.71]
+        const mhLabelIcon = L.divIcon({
+          className: 'mh-marker-badge',
+          html: `<div style="
+            background: #1E7446;
+            color: #FFFFFF;
+            font-family: inherit;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 5px 10px;
+            border-radius: 9999px;
+            box-shadow: 0 4px 14px rgba(20, 90, 54, 0.4);
+            border: 2px solid #FFFFFF;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            transform: scale(1.05);
+          ">
+            <span style="display:inline-block; width:7px; height:7px; background:#4ade80; border-radius:50%; box-shadow: 0 0 6px #4ade80;"></span>
+            Maharashtra (Active State)
+          </div>`,
+          iconSize: [165, 28],
+          iconAnchor: [82, 14],
+        });
+
+        const mhMarker = L.marker([19.75, 75.71], { icon: mhLabelIcon, interactive: true });
+        mhMarker.on('click', () => onSelectState('Maharashtra'));
+        mhMarker.addTo(map);
+
+        // Add prominent Haryana marker label at coordinates [29.06, 76.09]
+        const hrLabelIcon = L.divIcon({
+          className: 'hr-marker-badge',
+          html: `<div style="
+            background: #1E7446;
+            color: #FFFFFF;
+            font-family: inherit;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 5px 10px;
+            border-radius: 9999px;
+            box-shadow: 0 4px 14px rgba(20, 90, 54, 0.4);
+            border: 2px solid #FFFFFF;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            transform: scale(1.05);
+          ">
+            <span style="display:inline-block; width:7px; height:7px; background:#4ade80; border-radius:50%; box-shadow: 0 0 6px #4ade80;"></span>
+            Haryana (Active State)
+          </div>`,
+          iconSize: [150, 28],
+          iconAnchor: [75, 14],
+        });
+
+        const hrMarker = L.marker([29.06, 76.09], { icon: hrLabelIcon, interactive: true });
+        hrMarker.on('click', () => onSelectState('Haryana'));
+        hrMarker.addTo(map);
+
+        // Add prominent Punjab marker label at coordinates [31.15, 75.34]
+        const pbLabelIcon = L.divIcon({
+          className: 'pb-marker-badge',
+          html: `<div style="
+            background: #1E7446;
+            color: #FFFFFF;
+            font-family: inherit;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 5px 10px;
+            border-radius: 9999px;
+            box-shadow: 0 4px 14px rgba(20, 90, 54, 0.4);
+            border: 2px solid #FFFFFF;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            transform: scale(1.05);
+          ">
+            <span style="display:inline-block; width:7px; height:7px; background:#4ade80; border-radius:50%; box-shadow: 0 0 6px #4ade80;"></span>
+            Punjab (Active State)
+          </div>`,
+          iconSize: [150, 28],
+          iconAnchor: [75, 14],
+        });
+
+        const pbMarker = L.marker([31.15, 75.34], { icon: pbLabelIcon, interactive: true });
+        pbMarker.on('click', () => onSelectState('Punjab'));
+        pbMarker.addTo(map);
+
+        // Add prominent Chhattisgarh marker label at coordinates [21.28, 81.87]
+        const cgLabelIcon = L.divIcon({
+          className: 'cg-marker-badge',
+          html: `<div style="
+            background: #1E7446;
+            color: #FFFFFF;
+            font-family: inherit;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 5px 10px;
+            border-radius: 9999px;
+            box-shadow: 0 4px 14px rgba(20, 90, 54, 0.4);
+            border: 2px solid #FFFFFF;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            transform: scale(1.05);
+          ">
+            <span style="display:inline-block; width:7px; height:7px; background:#4ade80; border-radius:50%; box-shadow: 0 0 6px #4ade80;"></span>
+            Chhattisgarh (Active State)
+          </div>`,
+          iconSize: [175, 28],
+          iconAnchor: [87, 14],
+        });
+
+        const cgMarker = L.marker([21.28, 81.87], { icon: cgLabelIcon, interactive: true });
+        cgMarker.on('click', () => onSelectState('Chhattisgarh'));
+        cgMarker.addTo(map);
+
         // Force invalidate size after DOM layout settles to ensure full expansion
         setTimeout(() => {
           if (mapInstanceRef.current) {
@@ -243,12 +443,15 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
   // Major states quick lookup
   const allStates = [
     { name: 'Andhra Pradesh', status: 'Implemented', isPilot: true },
+    { name: 'Gujarat', status: 'Implemented', isPilot: true },
+    { name: 'Kerala', status: 'Implemented', isPilot: true },
+    { name: 'Maharashtra', status: 'Implemented', isPilot: true },
+    { name: 'Haryana', status: 'Implemented', isPilot: true },
+    { name: 'Punjab', status: 'Implemented', isPilot: true },
+    { name: 'Chhattisgarh', status: 'Implemented', isPilot: true },
     { name: 'Tamil Nadu', status: 'Coming Soon', isPilot: false },
     { name: 'Odisha', status: 'Coming Soon', isPilot: false },
-    { name: 'Kerala', status: 'Coming Soon', isPilot: false },
     { name: 'Karnataka', status: 'Coming Soon', isPilot: false },
-    { name: 'Maharashtra', status: 'Coming Soon', isPilot: false },
-    { name: 'Gujarat', status: 'Coming Soon', isPilot: false },
     { name: 'West Bengal', status: 'Coming Soon', isPilot: false },
     { name: 'Telangana', status: 'Coming Soon', isPilot: false },
     { name: 'Goa', status: 'Coming Soon', isPilot: false },
@@ -365,7 +568,79 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
                   Andhra Pradesh
                 </span>
                 <span className="font-mono text-[9px] px-2 py-0.5 rounded-full bg-emerald-100 text-[#145A36] font-extrabold">
-                  ACTIVE PILOT
+                  PILOT (26 D)
+                </span>
+              </div>
+              <div 
+                onClick={() => onSelectState('Gujarat')}
+                className="flex items-center justify-between gap-3 cursor-pointer p-1.5 rounded-xl hover:bg-emerald-50 transition border border-transparent hover:border-emerald-200"
+              >
+                <span className="flex items-center gap-2 text-[#145A36] font-bold">
+                  <span className="w-3.5 h-3.5 rounded-md bg-[#1E7446] border border-[#145A36] shadow-sm" />
+                  Gujarat
+                </span>
+                <span className="font-mono text-[9px] px-2 py-0.5 rounded-full bg-emerald-100 text-[#145A36] font-extrabold">
+                  ACTIVE (33 D)
+                </span>
+              </div>
+              <div 
+                onClick={() => onSelectState('Kerala')}
+                className="flex items-center justify-between gap-3 cursor-pointer p-1.5 rounded-xl hover:bg-emerald-50 transition border border-transparent hover:border-emerald-200"
+              >
+                <span className="flex items-center gap-2 text-[#145A36] font-bold">
+                  <span className="w-3.5 h-3.5 rounded-md bg-[#1E7446] border border-[#145A36] shadow-sm" />
+                  Kerala
+                </span>
+                <span className="font-mono text-[9px] px-2 py-0.5 rounded-full bg-emerald-100 text-[#145A36] font-extrabold">
+                  ACTIVE (14 D)
+                </span>
+              </div>
+              <div 
+                onClick={() => onSelectState('Maharashtra')}
+                className="flex items-center justify-between gap-3 cursor-pointer p-1.5 rounded-xl hover:bg-emerald-50 transition border border-transparent hover:border-emerald-200"
+              >
+                <span className="flex items-center gap-2 text-[#145A36] font-bold">
+                  <span className="w-3.5 h-3.5 rounded-md bg-[#1E7446] border border-[#145A36] shadow-sm" />
+                  Maharashtra
+                </span>
+                <span className="font-mono text-[9px] px-2 py-0.5 rounded-full bg-emerald-100 text-[#145A36] font-extrabold">
+                  ACTIVE (35 D)
+                </span>
+              </div>
+              <div 
+                onClick={() => onSelectState('Haryana')}
+                className="flex items-center justify-between gap-3 cursor-pointer p-1.5 rounded-xl hover:bg-emerald-50 transition border border-transparent hover:border-emerald-200"
+              >
+                <span className="flex items-center gap-2 text-[#145A36] font-bold">
+                  <span className="w-3.5 h-3.5 rounded-md bg-[#1E7446] border border-[#145A36] shadow-sm" />
+                  Haryana
+                </span>
+                <span className="font-mono text-[9px] px-2 py-0.5 rounded-full bg-emerald-100 text-[#145A36] font-extrabold">
+                  ACTIVE (22 D)
+                </span>
+              </div>
+              <div 
+                onClick={() => onSelectState('Punjab')}
+                className="flex items-center justify-between gap-3 cursor-pointer p-1.5 rounded-xl hover:bg-emerald-50 transition border border-transparent hover:border-emerald-200"
+              >
+                <span className="flex items-center gap-2 text-[#145A36] font-bold">
+                  <span className="w-3.5 h-3.5 rounded-md bg-[#1E7446] border border-[#145A36] shadow-sm" />
+                  Punjab
+                </span>
+                <span className="font-mono text-[9px] px-2 py-0.5 rounded-full bg-emerald-100 text-[#145A36] font-extrabold">
+                  ACTIVE (23 D)
+                </span>
+              </div>
+              <div 
+                onClick={() => onSelectState('Chhattisgarh')}
+                className="flex items-center justify-between gap-3 cursor-pointer p-1.5 rounded-xl hover:bg-emerald-50 transition border border-transparent hover:border-emerald-200"
+              >
+                <span className="flex items-center gap-2 text-[#145A36] font-bold">
+                  <span className="w-3.5 h-3.5 rounded-md bg-[#1E7446] border border-[#145A36] shadow-sm" />
+                  Chhattisgarh
+                </span>
+                <span className="font-mono text-[9px] px-2 py-0.5 rounded-full bg-emerald-100 text-[#145A36] font-extrabold">
+                  ACTIVE (33 D)
                 </span>
               </div>
               <div className="flex items-center justify-between gap-3 p-1.5">

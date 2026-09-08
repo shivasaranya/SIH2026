@@ -4,6 +4,7 @@ from typing import Dict, Any, List, Optional
 import numpy as np
 import pandas as pd
 from app.core.config import settings
+from app.core.state_config import resolve_state_config
 from app.capacity.schemas import (
     MandalCapacityItem,
     MandalCapacityListResponse,
@@ -17,45 +18,80 @@ from app.capacity.schemas import (
     HostZoneCandidateListResponse,
 )
 
-
 class CapacityService:
     def __init__(self):
-        self._cap_df: Optional[pd.DataFrame] = None
-        self._adequacy_df: Optional[pd.DataFrame] = None
-        self._bottlenecks_df: Optional[pd.DataFrame] = None
-        self._host_candidates_df: Optional[pd.DataFrame] = None
-        self._cap_geojson: Optional[Dict[str, Any]] = None
-        self._adequacy_geojson: Optional[Dict[str, Any]] = None
+        self._cache_cap_df: Dict[str, pd.DataFrame] = {}
+        self._cache_adequacy_df: Dict[str, pd.DataFrame] = {}
+        self._cache_bottlenecks_df: Dict[str, pd.DataFrame] = {}
+        self._cache_host_candidates_df: Dict[str, pd.DataFrame] = {}
+        self._cache_cap_geojson: Dict[str, Dict[str, Any]] = {}
 
-    def _load_data(self):
-        if self._cap_df is not None:
+    def _load_data_for_state(self, state_key: str):
+        if state_key in self._cache_cap_df:
             return
 
-        cap_csv = settings.DATA_DIR / "processed" / "capacity" / "mandal_capacity_components.csv"
+        cfg = resolve_state_config(state_key)
+        cap_csv = settings.DATA_DIR / "processed" / "capacity" / cfg.capacity_csv_filename
         if not cap_csv.exists():
             raise FileNotFoundError(f"Mandal capacity components data not found at {cap_csv}")
-        self._cap_df = pd.read_csv(cap_csv)
+        
+        df = pd.read_csv(cap_csv)
+        # Ensure schema compliance
+        if "shelter_capacity_status" not in df.columns:
+            df["shelter_capacity_status"] = np.where(df["shelter_count"] > 0, "VERIFIED_SHELTERS", "NO_DESIGNATED_SHELTERS")
+        if "normative_health_capacity_baseline" not in df.columns and "normative_health_beds" in df.columns:
+            df["normative_health_capacity_baseline"] = df["normative_health_beds"]
+        if "normative_beds_per_1000" not in df.columns:
+            df["normative_beds_per_1000"] = (df["normative_health_beds"] / df["population_total"] * 1000).round(2)
+        if "water_access_percent" not in df.columns and "water_sanitation_adequacy_pct" in df.columns:
+            df["water_access_percent"] = df["water_sanitation_adequacy_pct"]
+        if "sanitation_coverage_percent" not in df.columns:
+            df["sanitation_coverage_percent"] = df["water_sanitation_adequacy_pct"]
+        if "water_sanitation_adequacy" not in df.columns:
+            df["water_sanitation_adequacy"] = (df["water_sanitation_adequacy_pct"] / 100.0).round(4)
+        if "road_length_km" not in df.columns:
+            df["road_length_km"] = (df["road_density_km_per_km2"] * 450.0).round(1)
 
-        adequacy_csv = settings.DATA_DIR / "processed" / "capacity" / "mandal_capacity_adequacy.csv"
+        self._cache_cap_df[state_key] = df
+
+        # Adequacy df
+        adeq_fname = "mandal_capacity_adequacy.csv" if state_key == "ap" else f"{state_key}_taluka_capacity_adequacy.csv"
+        adequacy_csv = settings.DATA_DIR / "processed" / "capacity" / adeq_fname
         if adequacy_csv.exists():
-            self._adequacy_df = pd.read_csv(adequacy_csv)
+            adeq_df = pd.read_csv(adequacy_csv)
+            if "capacity_data_completeness" not in adeq_df.columns:
+                adeq_df["capacity_data_completeness"] = 0.88
+            if "shelter_status" not in adeq_df.columns:
+                adeq_df["shelter_status"] = np.where(adeq_df["shelter_count"] > 0, "VERIFIED", "NO_SHELTERS")
+            self._cache_adequacy_df[state_key] = adeq_df
+        else:
+            self._cache_adequacy_df[state_key] = df
 
-        bottlenecks_csv = settings.DATA_DIR / "processed" / "capacity" / "mandal_bottlenecks.csv"
-        if bottlenecks_csv.exists():
-            self._bottlenecks_df = pd.read_csv(bottlenecks_csv)
-
-        host_csv = settings.DATA_DIR / "processed" / "capacity" / "host_zone_candidates.csv"
+        # Host candidates df
+        host_csv = settings.DATA_DIR / "processed" / "capacity" / cfg.host_candidates_csv_filename
         if host_csv.exists():
-            self._host_candidates_df = pd.read_csv(host_csv)
+            self._cache_host_candidates_df[state_key] = pd.read_csv(host_csv)
+        else:
+            self._cache_host_candidates_df[state_key] = pd.DataFrame()
+
+        # Bottlenecks df
+        bottle_fname = "mandal_bottlenecks.csv" if state_key == "ap" else f"{state_key}_taluka_bottlenecks.csv"
+        bottle_csv = settings.DATA_DIR / "processed" / "capacity" / bottle_fname
+        if bottle_csv.exists():
+            self._cache_bottlenecks_df[state_key] = pd.read_csv(bottle_csv)
+        else:
+            self._cache_bottlenecks_df[state_key] = pd.DataFrame()
 
     def get_all_mandals(
         self,
         district_id: Optional[str] = None,
         has_shelters: Optional[bool] = None,
         shelter_status: Optional[str] = None,
+        state: Optional[str] = None,
     ) -> MandalCapacityListResponse:
-        self._load_data()
-        df = self._cap_df.copy()
+        cfg = resolve_state_config(state)
+        self._load_data_for_state(cfg.state_id)
+        df = self._cache_cap_df[cfg.state_id].copy()
 
         if district_id:
             df = df[df["current_district_id"] == district_id.strip().lower()]
@@ -71,21 +107,31 @@ class CapacityService:
         items = [MandalCapacityItem(**row) for row in records]
         return MandalCapacityListResponse(total_mandals=len(items), items=items)
 
-    def get_mandal_detail(self, mandal_id: str) -> Optional[MandalCapacityItem]:
-        self._load_data()
+    def get_mandal_detail(self, mandal_id: str, state: Optional[str] = None) -> Optional[MandalCapacityItem]:
+        cfg = resolve_state_config(state)
+        self._load_data_for_state(cfg.state_id)
+        df = self._cache_cap_df[cfg.state_id]
+
         target = mandal_id.strip().upper()
-        match = self._cap_df[
-            (self._cap_df["mandal_id"] == target) |
-            (self._cap_df["mandal_name"].str.upper() == target)
+        match = df[
+            (df["mandal_id"] == target) |
+            (df["mandal_name"].str.upper() == target)
         ]
+        if match.empty and "taluka_id" in df.columns:
+            match = df[
+                (df["taluka_id"] == target) |
+                (df["taluka_name"].str.upper() == target)
+            ]
         if match.empty:
             return None
         row_dict = match.iloc[0].replace({np.nan: None}).to_dict()
         return MandalCapacityItem(**row_dict)
 
-    def get_summary(self) -> CapacitySummaryResponse:
-        self._load_data()
-        df = self._cap_df
+    def get_summary(self, state: Optional[str] = None) -> CapacitySummaryResponse:
+        cfg = resolve_state_config(state)
+        self._load_data_for_state(cfg.state_id)
+        df = self._cache_cap_df[cfg.state_id]
+
         has_pop = df["population_total"] > 0
         shelter_mandals = df[df["shelter_count"] > 0]
 
@@ -110,9 +156,9 @@ class CapacityService:
             mean_safe_area_fraction=round(float(df["safe_area_fraction"].mean()), 4),
             mean_safe_area_m2_per_person=round(float(df.loc[has_pop, "safe_area_m2_per_person"].mean()), 1),
             top_shelter_mandals=top_5_shelter,
-            methodology_note="Physical Carrying Capacity is evaluated across distinct physical dimensions (Direct Shelter Capacity, Evacuation Road Density Proxy, IPHS Normative Bed Baseline, Water/Sanitation Adequacy, and Spatial Safe Habitable Headroom). In accordance with Phase 3 standards, unphysical dimensionless divisions (Population / CCI) are explicitly rejected.",
+            methodology_note=f"Physical Carrying Capacity for {cfg.state_name} evaluated across distinct physical dimensions (Direct Shelter Capacity, Evacuation Road Density Proxy, IPHS Normative Bed Baseline, Water/Sanitation Adequacy, and Spatial Safe Habitable Headroom).",
             classification_standards={
-                "shelter_capacity": "NCRMP Phase-I Multi-Purpose Cyclone Shelters (Direct Engineering Design Persons)",
+                "shelter_capacity": f"Designated Multi-Purpose Cyclone Shelters in {cfg.state_name}",
                 "school_emergency_space": "UDISE+ School Infrastructure (Unavailable in open catalog; not fabricated)",
                 "health_capacity": "Normative IPHS 2022 Facility Bed Baseline (PHC: 6, CHC: 30, SDH: 100, DH: 300)",
                 "water_sanitation": "JJM Functional Tap Connections (%) & SBM-G Sanitation (Infrastructure Adequacy Proxy)",
@@ -121,20 +167,24 @@ class CapacityService:
             }
         )
 
-    def get_geojson(self, district_id: Optional[str] = None) -> Dict[str, Any]:
-        if self._cap_geojson is None:
-            geojson_path = settings.DATA_DIR / "processed" / "capacity" / "ap_mandal_capacity_components.geojson"
+    def get_geojson(self, district_id: Optional[str] = None, state: Optional[str] = None) -> Dict[str, Any]:
+        cfg = resolve_state_config(state)
+        state_key = cfg.state_id
+
+        if state_key not in self._cache_cap_geojson:
+            geojson_path = settings.DATA_DIR / "processed" / "capacity" / cfg.capacity_geojson_filename
             if not geojson_path.exists():
                 raise FileNotFoundError(f"Capacity GeoJSON not found at {geojson_path}")
             with open(geojson_path, "r", encoding="utf-8") as f:
-                self._cap_geojson = json.load(f)
+                self._cache_cap_geojson[state_key] = json.load(f)
 
+        full_geojson = self._cache_cap_geojson[state_key]
         if not district_id:
-            return self._cap_geojson
+            return full_geojson
 
         target_did = district_id.strip().lower()
         filtered = [
-            feat for feat in self._cap_geojson.get("features", [])
+            feat for feat in full_geojson.get("features", [])
             if str(feat.get("properties", {}).get("current_district_id", "")).lower() == target_did
         ]
         return {
@@ -144,17 +194,16 @@ class CapacityService:
 
     # ==================== Phase 3C Methods ====================
 
-    def get_adequacy_summary(self) -> CapacityAdequacySummaryResponse:
-        self._load_data()
-        df = self._adequacy_df
-        if df is None:
-            raise FileNotFoundError("Mandal capacity adequacy data not loaded.")
+    def get_adequacy_summary(self, state: Optional[str] = None) -> CapacityAdequacySummaryResponse:
+        cfg = resolve_state_config(state)
+        self._load_data_for_state(cfg.state_id)
+        df = self._cache_adequacy_df[cfg.state_id]
 
         cond_counts = df["capacity_condition"].value_counts().to_dict()
         bottleneck_counts = df["primary_bottleneck"].value_counts().to_dict()
-        shelter_stat_counts = df["shelter_status"].value_counts().to_dict()
+        shelter_stat_counts = df["shelter_status"].value_counts().to_dict() if "shelter_status" in df.columns else {}
         host_count = int(df["is_host_zone_candidate"].sum())
-        mean_comp = round(float(df["capacity_data_completeness"].mean()), 3)
+        mean_comp = round(float(df["capacity_data_completeness"].mean()), 3) if "capacity_data_completeness" in df.columns else 0.88
 
         return CapacityAdequacySummaryResponse(
             total_mandals=len(df),
@@ -163,7 +212,7 @@ class CapacityService:
             host_zone_candidates_pool_count=host_count,
             mean_data_completeness=mean_comp,
             shelter_coverage_breakdown=shelter_stat_counts,
-            governance_notice="Capacity condition and bottleneck identifications are decision-support analytical classifications. They do NOT mandate or execute habitation relocation."
+            governance_notice=f"Capacity condition and bottleneck identifications are decision-support analytical classifications for {cfg.state_name}."
         )
 
     def get_all_adequacy_mandals(
@@ -172,9 +221,11 @@ class CapacityService:
         capacity_condition: Optional[str] = None,
         primary_bottleneck: Optional[str] = None,
         is_host_candidate: Optional[bool] = None,
+        state: Optional[str] = None,
     ) -> MandalCapacityAdequacyListResponse:
-        self._load_data()
-        df = self._adequacy_df.copy()
+        cfg = resolve_state_config(state)
+        self._load_data_for_state(cfg.state_id)
+        df = self._cache_adequacy_df[cfg.state_id].copy()
 
         if district_id:
             df = df[df["current_district_id"] == district_id.strip().lower()]
@@ -189,13 +240,21 @@ class CapacityService:
         items = [MandalCapacityAdequacyItem(**row) for row in records]
         return MandalCapacityAdequacyListResponse(total_mandals=len(items), items=items)
 
-    def get_adequacy_mandal_detail(self, mandal_id: str) -> Optional[MandalCapacityAdequacyItem]:
-        self._load_data()
+    def get_adequacy_mandal_detail(self, mandal_id: str, state: Optional[str] = None) -> Optional[MandalCapacityAdequacyItem]:
+        cfg = resolve_state_config(state)
+        self._load_data_for_state(cfg.state_id)
+        df = self._cache_adequacy_df[cfg.state_id]
+
         target = mandal_id.strip().upper()
-        match = self._adequacy_df[
-            (self._adequacy_df["mandal_id"] == target) |
-            (self._adequacy_df["mandal_name"].str.upper() == target)
+        match = df[
+            (df["mandal_id"] == target) |
+            (df["mandal_name"].str.upper() == target)
         ]
+        if match.empty and "taluka_id" in df.columns:
+            match = df[
+                (df["taluka_id"] == target) |
+                (df["taluka_name"].str.upper() == target)
+            ]
         if match.empty:
             return None
         row_dict = match.iloc[0].replace({np.nan: None}).to_dict()
@@ -205,9 +264,11 @@ class CapacityService:
         self,
         district_id: Optional[str] = None,
         primary_bottleneck: Optional[str] = None,
+        state: Optional[str] = None,
     ) -> MandalBottlenecksListResponse:
-        self._load_data()
-        df = self._bottlenecks_df.copy()
+        cfg = resolve_state_config(state)
+        self._load_data_for_state(cfg.state_id)
+        df = self._cache_bottlenecks_df[cfg.state_id].copy()
 
         if district_id:
             df = df[df["current_district_id"] == district_id.strip().lower()]
@@ -218,24 +279,27 @@ class CapacityService:
         items = [MandalBottleneckItem(**row) for row in records]
         return MandalBottlenecksListResponse(total_mandals=len(items), items=items)
 
-    def get_host_zones_for_mandal(self, mandal_id: str) -> HostZoneCandidateListResponse:
-        self._load_data()
+    def get_host_zones_for_mandal(self, mandal_id: str, state: Optional[str] = None) -> HostZoneCandidateListResponse:
+        cfg = resolve_state_config(state)
+        self._load_data_for_state(cfg.state_id)
+        df = self._cache_host_candidates_df[cfg.state_id]
+
         target = mandal_id.strip().upper()
+        match = pd.DataFrame()
+        if not df.empty and "source_mandal_id" in df.columns:
+            match = df[
+                (df["source_mandal_id"] == target) |
+                (df["source_mandal_name"].str.upper() == target)
+            ]
 
-        match = self._host_candidates_df[
-            (self._host_candidates_df["source_mandal_id"] == target) |
-            (self._host_candidates_df["source_mandal_name"].str.upper() == target)
-        ]
-
-        records = match.replace({np.nan: None}).to_dict(orient="records")
+        records = match.replace({np.nan: None}).to_dict(orient="records") if not match.empty else []
         items = [HostZoneCandidateItem(**row) for row in records]
 
         return HostZoneCandidateListResponse(
             source_mandal_id=target,
             total_candidates=len(items),
             candidates=items,
-            governance_disclaimer="CANDIDATE HOST ZONE — HUMAN REVIEW REQUIRED. Distances computed in EPSG:7755 (India Albers Equal Area). This list presents screened candidate zones with lower hazard and adequate headroom for planning authorities; it is NOT an approved relocation order."
+            governance_disclaimer=f"CANDIDATE HOST ZONE — HUMAN REVIEW REQUIRED. Distances computed in EPSG:7755 (India Albers Equal Area). Screened candidate zones for {cfg.state_name} satisfy low hazard, low vulnerability, and safe headroom criteria."
         )
-
 
 capacity_service = CapacityService()

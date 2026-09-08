@@ -1,0 +1,46 @@
+mandal_id,taluka_id,mandal_name,taluka_name,current_district_id,current_district_name,population_total,capacity_condition,primary_bottleneck,secondary_bottleneck,bottleneck_confidence,available_component_count,capacity_data_completeness,shelter_adequacy,health_adequacy,water_sanitation_adequacy,road_accessibility_score,safe_area_adequacy
+HR_TEHSIL_001,HR_TEHSIL_001,Ambala,Ambala,ambala,Ambala,768128,CAPACITY-ADEQUATE,road_accessibility,safe_habitable_area,HIGH,5,1.0,1.0,0.9467,0.947,0.5031,0.734
+HR_TEHSIL_002,HR_TEHSIL_002,Naraingarh,Naraingarh,ambala,Ambala,360222,CAPACITY-ADEQUATE,safe_habitable_area,road_accessibility,HIGH,5,1.0,1.0,0.86,0.893,0.7,0.735
+HR_TEHSIL_003,HR_TEHSIL_003,Bawani Khera,Bawani Khera,bhiwani,Bhiwani,218940,CAPACITY-ADEQUATE,road_accessibility,safe_habitable_area,HIGH,5,1.0,1.0,1.0,0.886,0.5763,0.89
+HR_TEHSIL_004,HR_TEHSIL_004,Bhiwani,Bhiwani,bhiwani,Bhiwani,512830,CAPACITY-ADEQUATE,road_accessibility,safe_habitable_area,HIGH,5,1.0,1.0,0.8733,0.8895,0.5837,0.873
+HR_TEHSIL_005,HR_TEHSIL_005,Loharu,Loharu,bhiwani,Bhiwani,224845,CAPACITY-ADEQUATE,road_accessibility,safe_habitable_area,HIGH,5,1.0,1.0,0.9733,0.8935,0.5975,0.909
+HR_TEHSIL_006,HR_TEHSIL_006,Siwani,Siwani,bhiwani,Bhiwani,175577,CAPACITY-ADEQUATE,road_accessibility,safe_habitable_area,HIGH,5,1.0,1.0,0.9467,0.916,0.5544,0.919
+HR_TEHSIL_007,HR_TEHSIL_007,Charkhi Dadri,Charkhi Dadri,charkhi_dadri,Charkhi Dadri,502253,CAPACITY-ADEQUATE,safe_habitable_area,road_accessibility,HIGH,5,1.0,1.0,0.88,0.908,0.6731,0.8945
+HR_TEHSIL_008,HR_TEHSIL_008,Ballabgarh,Ballabgarh,faridabad,Faridabad,1809733,CAPACITY-ADEQUATE,road_accessibility,safe_habitable_area,HIGH,5,1.0,1.0,0.8667,0.899,0.5856,0.725
+HR_TEHSIL_009,HR_TEHSIL_009,Fatehabad,Fatehabad,fatehabad,Fatehabad,458640,CAPACITY-ADEQUATE,safe_habitable_area,road_accessibility,HIGH,5,1.0,1.0,1.0,0.9105,0.6962,0.8
+HR_TEHSIL_010,HR_TEHSIL_010,Ratia,Ratia,fatehabad,Fatehabad,248920,CAPACITY-ADEQUATE,road_accessibility,safe_habitable_area,HIGH,5,1.0,1.0,0.9733,0.8745,0.5687,0.7625
+HR_TEHSIL_011,HR_TEHSIL_011,Tohana,Tohana,fatehabad,Fatehabad,234451,CAPACITY-ADEQUATE,road_accessibility,safe_habitable_area,HIGH,5,1.0,1.0,0.8133,0.9145,0.4825,0.786
+HR_TEHSIL_012,HR_TEHSIL_012,Gurgaon,Gurgaon,gurgaon,Gurgaon,1268340,CAPACITY-ADEQUATE,safe_habitable_area,road_accessibility,HIGH,5,1.0,1.0,1.0,0.885,0.8063,0.759
+HR_TEHSIL_013,HR_TEHSIL_013,Pataudi,Pataudi,gurgaon,Gurgaon,246092,CAPACITY-ADEQUATE,safe_habitable_area,road_accessibility,HIGH,5,1.0,1.0,1.0,0.948,0.6862,0.841
+HR_TEHSIL_014,HR_TEHSIL_014,Hansi,Hansi,hisar,Hisar,768420,CAPACITY-ADEQUATE,safe_habitable_area,road_accessibility,HIGH,5,1.0,1.0,1.0,0.853,0.7775,0.8655
+HR_TEHSIL_015,HR_TEHSIL_015,Hisar,Hisar,hisar,Hisar,975511,CAPACITY-ADEQUATE,safe_habitable_area,road_accessibility,HIGH,5,1.0,1.0,0.82,0.8825,0.7625,0.854
+HR_TEHSIL_016,HR_TEHSIL_016,Bahadurgarh,Bahadurgarh,jhajjar,Jhajjar,421860,CAPACITY-ADEQUATE,road_accessibility,safe_habitable_area,HIGH,5,1.0,1.0,0.94,0.8885,0.5825,0.784
+HR_TEHSIL_017,HR_TEHSIL_017,Beri,Beri,jhajjar,Jhajjar,192840,CAPACITY-ADEQUATE,safe_habitable_area,road_accessibility,HIGH,5,1.0,1.0,0.8533,0.8955,0.7362,0.806
+HR_TEHSIL_018,HR_TEHSIL_018,Jhajjar,Jhajjar,jhajjar,Jhajjar,343705,CAPACITY-ADEQUATE,safe_habitable_area,road_accessibility,HIGH,5,1.0,1.0,1.0,0.8935,0.7781,0.771
+HR_TEHSIL_019,HR_TEHSIL_019,Jind,Jind,jind,Jind,608430,CAPACITY-ADEQUATE,road_accessibility,safe_habitable_area,HIGH,5,1.0,1.0,0.94,0.897,0.4488,0.834
+HR_TEHSIL_020,HR_TEHSIL_020,Narwana,Narwana,jind,Jind,432810,CAPACITY-ADEQUATE,safe_habitable_area,road_accessibility,HIGH,5,1.0,1.0,0.8267,0.8775,0.8075,0.842
+HR_TEHSIL_021,HR_TEHSIL_021,Safidon,Safidon,jind,Jind,292912,CAPACITY-ADEQUATE,road_accessibility,safe_habitable_area,HIGH,5,1.0,1.0,1.0,0.935,0.5137,0.82
+HR_TEHSIL_022,HR_TEHSIL_022,Guhla,Guhla,kaithal,Kaithal,398640,CAPACITY-ADEQUATE,safe_habitable_area,road_accessibility,HIGH,5,1.0,1.0,1.0,0.9235,0.6456,0.716
+HR_TEHSIL_023,HR_TEHSIL_023,Kaithal,Kaithal,kaithal,Kaithal,675664,CAPACITY-ADEQUATE,safe_habitable_area,road_accessibility,HIGH,5,1.0,1.0,1.0,0.902,0.6013,0.764
+HR_TEHSIL_024,HR_TEHSIL_024,Assandh,Assandh,karnal,Karnal,421890,CAPACITY-ADEQUATE,safe_habitable_area,road_accessibility,HIGH,5,1.0,1.0,0.84,0.877,0.6481,0.807
+HR_TEHSIL_025,HR_TEHSIL_025,Karnal,Karnal,karnal,Karnal,1083434,CAPACITY-ADEQUATE,road_accessibility,safe_habitable_area,HIGH,5,1.0,1.0,0.9267,0.927,0.5825,0.735
+HR_TEHSIL_026,HR_TEHSIL_026,Pehowa,Pehowa,kurukshetra,Kurukshetra,358620,CAPACITY-ADEQUATE,road_accessibility,safe_habitable_area,HIGH,5,1.0,1.0,1.0,0.856,0.4506,0.7605
+HR_TEHSIL_027,HR_TEHSIL_027,Thanesar,Thanesar,kurukshetra,Kurukshetra,606035,CAPACITY-ADEQUATE,safe_habitable_area,road_accessibility,HIGH,5,1.0,1.0,0.9133,0.9045,0.725,0.777
+HR_TEHSIL_028,HR_TEHSIL_028,Mahendragarh,Mahendragarh,mahendragarh,Mahendragarh,388910,CAPACITY-ADEQUATE,safe_habitable_area,road_accessibility,HIGH,5,1.0,1.0,1.0,0.903,0.8156,0.897
+HR_TEHSIL_029,HR_TEHSIL_029,Narnaul,Narnaul,mahendragarh,Mahendragarh,533178,CAPACITY-ADEQUATE,safe_habitable_area,road_accessibility,HIGH,5,1.0,1.0,1.0,0.9235,0.6137,0.885
+HR_TEHSIL_030,HR_TEHSIL_030,Ferozepur Jhirka,Ferozepur Jhirka,nuh,Nuh,526840,CAPACITY-ADEQUATE,safe_habitable_area,road_accessibility,HIGH,5,1.0,1.0,0.84,0.8775,0.7487,0.832
+HR_TEHSIL_031,HR_TEHSIL_031,Nuh,Nuh,nuh,Nuh,562423,CAPACITY-ADEQUATE,road_accessibility,safe_habitable_area,HIGH,5,1.0,1.0,1.0,0.896,0.2912,0.821
+HR_TEHSIL_032,HR_TEHSIL_032,Hathin,Hathin,palwal,Palwal,412890,CAPACITY-ADEQUATE,safe_habitable_area,road_accessibility,HIGH,5,1.0,1.0,0.8867,0.8645,0.7037,0.783
+HR_TEHSIL_033,HR_TEHSIL_033,Palwal,Palwal,palwal,Palwal,629818,CAPACITY-ADEQUATE,road_accessibility,safe_habitable_area,HIGH,5,1.0,1.0,1.0,0.89,0.5269,0.747
+HR_TEHSIL_034,HR_TEHSIL_034,Kalka,Kalka,panchkula,Panchkula,561293,CAPACITY-ADEQUATE,safe_habitable_area,road_accessibility,HIGH,5,1.0,1.0,1.0,0.918,0.8494,0.627
+HR_TEHSIL_035,HR_TEHSIL_035,Panipat,Panipat,panipat,Panipat,1205437,CAPACITY-ADEQUATE,safe_habitable_area,road_accessibility,HIGH,5,1.0,1.0,1.0,0.874,0.6706,0.743
+HR_TEHSIL_036,HR_TEHSIL_036,Bawal,Bawal,rewari,Rewari,368420,CAPACITY-ADEQUATE,road_accessibility,safe_habitable_area,HIGH,5,1.0,1.0,1.0,0.856,0.5969,0.8595
+HR_TEHSIL_037,HR_TEHSIL_037,Rewari,Rewari,rewari,Rewari,531912,CAPACITY-ADEQUATE,safe_habitable_area,road_accessibility,HIGH,5,1.0,1.0,1.0,0.861,0.7031,0.838
+HR_TEHSIL_038,HR_TEHSIL_038,Maham,Maham,rohtak,Rohtak,368290,CAPACITY-ADEQUATE,safe_habitable_area,road_accessibility,HIGH,5,1.0,1.0,0.8933,0.9295,0.655,0.7965
+HR_TEHSIL_039,HR_TEHSIL_039,Rohtak,Rohtak,rohtak,Rohtak,692914,CAPACITY-ADEQUATE,safe_habitable_area,road_accessibility,HIGH,5,1.0,1.0,0.8933,0.909,0.8494,0.7605
+HR_TEHSIL_040,HR_TEHSIL_040,Dabwali,Dabwali,sirsa,Sirsa,512830,CAPACITY-ADEQUATE,safe_habitable_area,road_accessibility,HIGH,5,1.0,1.0,1.0,0.8935,0.8475,0.807
+HR_TEHSIL_041,HR_TEHSIL_041,Sirsa,Sirsa,sirsa,Sirsa,782359,CAPACITY-ADEQUATE,safe_habitable_area,road_accessibility,HIGH,5,1.0,1.0,0.9267,0.8505,0.8906,0.771
+HR_TEHSIL_042,HR_TEHSIL_042,Ganaur,Ganaur,sonipat,Sonipat,348210,CAPACITY-ADEQUATE,safe_habitable_area,road_accessibility,HIGH,5,1.0,1.0,0.8067,0.885,0.7762,0.7605
+HR_TEHSIL_043,HR_TEHSIL_043,Gohana,Gohana,sonipat,Sonipat,482930,CAPACITY-ADEQUATE,safe_habitable_area,road_accessibility,HIGH,5,1.0,1.0,1.0,0.89,0.7419,0.813
+HR_TEHSIL_044,HR_TEHSIL_044,Sonipat,Sonipat,sonipat,Sonipat,618861,CAPACITY-ADEQUATE,safe_habitable_area,road_accessibility,HIGH,5,1.0,1.0,0.8533,0.866,0.6344,0.742
+HR_TEHSIL_045,HR_TEHSIL_045,Jagadhri,Jagadhri,yamunanagar,Yamunanagar,1214205,CAPACITY-ADEQUATE,safe_habitable_area,road_accessibility,HIGH,5,1.0,1.0,1.0,0.9125,0.8,0.668

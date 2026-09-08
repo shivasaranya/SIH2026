@@ -4,6 +4,7 @@ from typing import Dict, Any, List, Optional
 import numpy as np
 import pandas as pd
 from app.core.config import settings
+from app.core.state_config import resolve_state_config
 from app.relocation.schemas import (
     MandalRelocationItem,
     MandalRelocationListResponse,
@@ -19,46 +20,47 @@ from app.capacity.schemas import (
     HostZoneCandidateListResponse,
 )
 
-
 class RelocationService:
     def __init__(self):
-        self._reloc_df: Optional[pd.DataFrame] = None
-        self._factors_df: Optional[pd.DataFrame] = None
-        self._ahp_df: Optional[pd.DataFrame] = None
-        self._diag_df: Optional[pd.DataFrame] = None
-        self._summary_df: Optional[pd.DataFrame] = None
-        self._host_candidates_df: Optional[pd.DataFrame] = None
-        self._reloc_geojson: Optional[Dict[str, Any]] = None
+        self._cache_reloc_df: Dict[str, pd.DataFrame] = {}
+        self._cache_factors_df: Dict[str, pd.DataFrame] = {}
+        self._cache_ahp_df: Dict[str, pd.DataFrame] = {}
+        self._cache_host_candidates_df: Dict[str, pd.DataFrame] = {}
+        self._cache_reloc_geojson: Dict[str, Dict[str, Any]] = {}
 
-    def _load_data(self):
-        if self._reloc_df is not None:
+    def _load_data_for_state(self, state_key: str):
+        if state_key in self._cache_reloc_df:
             return
 
+        cfg = resolve_state_config(state_key)
         reloc_dir = settings.DATA_DIR / "processed" / "relocation"
-        master_csv = reloc_dir / "mandal_relocation_priority.csv"
+        master_csv = reloc_dir / cfg.relocation_priority_csv_filename
         if not master_csv.exists():
             raise FileNotFoundError(f"Relocation priority dataset not found at {master_csv}")
-        self._reloc_df = pd.read_csv(master_csv)
+        self._cache_reloc_df[state_key] = pd.read_csv(master_csv)
 
-        factors_csv = reloc_dir / "relocation_factor_contributions.csv"
+        factors_csv = reloc_dir / cfg.relocation_factors_csv_filename
         if factors_csv.exists():
-            self._factors_df = pd.read_csv(factors_csv)
+            self._cache_factors_df[state_key] = pd.read_csv(factors_csv)
+        else:
+            self._cache_factors_df[state_key] = self._cache_reloc_df[state_key]
 
-        ahp_csv = reloc_dir / "ahp_weights.csv"
+        ahp_csv = reloc_dir / cfg.ahp_weights_csv_filename
         if ahp_csv.exists():
-            self._ahp_df = pd.read_csv(ahp_csv)
+            self._cache_ahp_df[state_key] = pd.read_csv(ahp_csv)
+        else:
+            self._cache_ahp_df[state_key] = pd.DataFrame([
+                {"criterion_code": "C1", "criterion_name": "Hazard Exposure", "weight": 0.4231, "percentage": 42.31, "rank": 1},
+                {"criterion_code": "C2", "criterion_name": "Demographic Sensitivity", "weight": 0.2274, "percentage": 22.74, "rank": 2},
+                {"criterion_code": "C3", "criterion_name": "Capacity Stress", "weight": 0.2274, "percentage": 22.74, "rank": 3},
+                {"criterion_code": "C4", "criterion_name": "Accessibility Constraint", "weight": 0.1221, "percentage": 12.21, "rank": 4},
+            ])
 
-        diag_csv = reloc_dir / "topsis_diagnostics.csv"
-        if diag_csv.exists():
-            self._diag_df = pd.read_csv(diag_csv)
-
-        sum_csv = reloc_dir / "relocation_priority_summary.csv"
-        if sum_csv.exists():
-            self._summary_df = pd.read_csv(sum_csv)
-
-        host_csv = settings.DATA_DIR / "processed" / "capacity" / "host_zone_candidates.csv"
+        host_csv = settings.DATA_DIR / "processed" / "capacity" / cfg.host_candidates_csv_filename
         if host_csv.exists():
-            self._host_candidates_df = pd.read_csv(host_csv)
+            self._cache_host_candidates_df[state_key] = pd.read_csv(host_csv)
+        else:
+            self._cache_host_candidates_df[state_key] = pd.DataFrame()
 
     def get_all_mandals(
         self,
@@ -66,9 +68,11 @@ class RelocationService:
         priority_category: Optional[str] = None,
         ranking_status: Optional[str] = None,
         primary_factor: Optional[str] = None,
+        state: Optional[str] = None,
     ) -> MandalRelocationListResponse:
-        self._load_data()
-        df = self._reloc_df.copy()
+        cfg = resolve_state_config(state)
+        self._load_data_for_state(cfg.state_id)
+        df = self._cache_reloc_df[cfg.state_id].copy()
 
         if district_id:
             df = df[df["current_district_id"] == district_id.strip().lower()]
@@ -83,29 +87,42 @@ class RelocationService:
         items = [MandalRelocationItem(**row) for row in records]
         return MandalRelocationListResponse(total_mandals=len(items), items=items)
 
-    def get_mandal_detail(self, mandal_id: str) -> Optional[MandalRelocationItem]:
-        self._load_data()
+    def get_mandal_detail(self, mandal_id: str, state: Optional[str] = None) -> Optional[MandalRelocationItem]:
+        cfg = resolve_state_config(state)
+        self._load_data_for_state(cfg.state_id)
+        df = self._cache_reloc_df[cfg.state_id]
+
         target = mandal_id.strip().upper()
-        match = self._reloc_df[
-            (self._reloc_df["mandal_id"] == target) |
-            (self._reloc_df["mandal_name"].str.upper() == target)
+        match = df[
+            (df["mandal_id"] == target) |
+            (df["mandal_name"].str.upper() == target)
         ]
+        if match.empty and "taluka_id" in df.columns:
+            match = df[
+                (df["taluka_id"] == target) |
+                (df["taluka_name"].str.upper() == target)
+            ]
         if match.empty:
             return None
         row_dict = match.iloc[0].replace({np.nan: None}).to_dict()
         return MandalRelocationItem(**row_dict)
 
-    def get_top_prioritized(self, limit: int = 10) -> TopRelocationListResponse:
-        self._load_data()
-        ranked = self._reloc_df[self._reloc_df["ranking_status"] != "INSUFFICIENT_DATA"]
+    def get_top_prioritized(self, limit: int = 10, state: Optional[str] = None) -> TopRelocationListResponse:
+        cfg = resolve_state_config(state)
+        self._load_data_for_state(cfg.state_id)
+        df = self._cache_reloc_df[cfg.state_id]
+
+        ranked = df[df["ranking_status"] != "INSUFFICIENT_DATA"]
         top_df = ranked.sort_values(by="topsis_score", ascending=False).head(limit)
         records = top_df.replace({np.nan: None}).to_dict(orient="records")
         items = [MandalRelocationItem(**row) for row in records]
         return TopRelocationListResponse(total_returned=len(items), items=items)
 
-    def get_summary(self) -> RelocationSummaryResponse:
-        self._load_data()
-        df = self._reloc_df
+    def get_summary(self, state: Optional[str] = None) -> RelocationSummaryResponse:
+        cfg = resolve_state_config(state)
+        self._load_data_for_state(cfg.state_id)
+        df = self._cache_reloc_df[cfg.state_id]
+
         valid_df = df[df["ranking_status"] != "INSUFFICIENT_DATA"]
         cat_counts = df["relocation_priority_category"].value_counts().to_dict()
 
@@ -125,17 +142,17 @@ class RelocationService:
             topsis_max_score=round(float(valid_df["topsis_score"].max()), 4),
             topsis_mean_score=round(float(valid_df["topsis_score"].mean()), 4),
             ahp_consistency_ratio=0.0038,
-            host_zone_candidates_pool_count=int(df["is_host_zone_candidate"].sum()),
+            host_zone_candidates_pool_count=int(df["is_host_zone_candidate"].sum()) if "is_host_zone_candidate" in df.columns else 0,
             top_10_prioritized_mandals=top_10,
-            governance_notice="Multi-Criteria Relocation Prioritization provides transparent mathematical decision support (AHP weight derivation + TOPSIS ranking) for disaster management authorities. It does NOT mandate or order population relocations."
+            governance_notice=f"Multi-Criteria Relocation Prioritization provides transparent mathematical decision support (AHP weight derivation + TOPSIS ranking) for disaster management authorities in {cfg.state_name}. It does NOT mandate or order population relocations."
         )
 
-    def get_ahp_weights(self) -> AHPWeightsResponse:
-        self._load_data()
-        records = self._ahp_df.to_dict(orient="records")
+    def get_ahp_weights(self, state: Optional[str] = None) -> AHPWeightsResponse:
+        cfg = resolve_state_config(state)
+        self._load_data_for_state(cfg.state_id)
+        records = self._cache_ahp_df[cfg.state_id].to_dict(orient="records")
         items = [AHPWeightItem(**row) for row in records]
 
-        # Saaty 1-9 Pairwise Matrix
         matrix = [
             [1.0, 2.0, 2.0, 3.0],
             [0.5, 1.0, 1.0, 2.0],
@@ -149,20 +166,20 @@ class RelocationService:
             consistency_status="PASS (CR < 0.10; Highly Consistent)",
             weights=items,
             pairwise_matrix=matrix,
-            methodology_notes="AHP is used strictly for objective criterion weight derivation (Saaty 1-9 scale). Hazard Exposure (0.4231) reflects primary physical trigger; Capacity Stress (0.2274) and Demographic Sensitivity (0.2274) reflect in-situ resilience and social vulnerability; Accessibility Constraint (0.1221) reflects evacuation corridor limits."
+            methodology_notes=f"AHP criteria weights for {cfg.state_name}: Hazard Exposure (0.4231), Demographic Sensitivity (0.2274), Capacity Stress (0.2274), Accessibility Constraint (0.1221)."
         )
 
     def get_factor_contributions(
         self,
         district_id: Optional[str] = None,
         priority_category: Optional[str] = None,
+        state: Optional[str] = None,
     ) -> RelocationFactorContributionsResponse:
-        self._load_data()
-        df = self._factors_df.copy()
+        cfg = resolve_state_config(state)
+        self._load_data_for_state(cfg.state_id)
+        df = self._cache_factors_df[cfg.state_id].copy()
 
         if district_id:
-            # Merge district_id from reloc_df
-            df = df.merge(self._reloc_df[['mandal_id', 'current_district_id']], on='mandal_id', how='left')
             df = df[df["current_district_id"] == district_id.strip().lower()]
         if priority_category:
             df = df[df["relocation_priority_category"].str.upper() == priority_category.strip().upper()]
@@ -171,20 +188,24 @@ class RelocationService:
         items = [RelocationFactorItem(**row) for row in records]
         return RelocationFactorContributionsResponse(total_mandals=len(items), items=items)
 
-    def get_geojson(self, district_id: Optional[str] = None) -> Dict[str, Any]:
-        if self._reloc_geojson is None:
-            geojson_path = settings.DATA_DIR / "processed" / "relocation" / "ap_mandal_relocation_priority.geojson"
+    def get_geojson(self, district_id: Optional[str] = None, state: Optional[str] = None) -> Dict[str, Any]:
+        cfg = resolve_state_config(state)
+        state_key = cfg.state_id
+
+        if state_key not in self._cache_reloc_geojson:
+            geojson_path = settings.DATA_DIR / "processed" / "relocation" / cfg.relocation_geojson_filename
             if not geojson_path.exists():
                 raise FileNotFoundError(f"Relocation GeoJSON not found at {geojson_path}")
             with open(geojson_path, "r", encoding="utf-8") as f:
-                self._reloc_geojson = json.load(f)
+                self._cache_reloc_geojson[state_key] = json.load(f)
 
+        full_geojson = self._cache_reloc_geojson[state_key]
         if not district_id:
-            return self._reloc_geojson
+            return full_geojson
 
         target_did = district_id.strip().lower()
         filtered = [
-            feat for feat in self._reloc_geojson.get("features", [])
+            feat for feat in full_geojson.get("features", [])
             if str(feat.get("properties", {}).get("current_district_id", "")).lower() == target_did
         ]
         return {
@@ -192,24 +213,27 @@ class RelocationService:
             "features": filtered
         }
 
-    def get_host_zones_for_mandal(self, mandal_id: str) -> HostZoneCandidateListResponse:
-        self._load_data()
+    def get_host_zones_for_mandal(self, mandal_id: str, state: Optional[str] = None) -> HostZoneCandidateListResponse:
+        cfg = resolve_state_config(state)
+        self._load_data_for_state(cfg.state_id)
+        df = self._cache_host_candidates_df[cfg.state_id]
+
         target = mandal_id.strip().upper()
+        match = pd.DataFrame()
+        if not df.empty and "source_mandal_id" in df.columns:
+            match = df[
+                (df["source_mandal_id"] == target) |
+                (df["source_mandal_name"].str.upper() == target)
+            ]
 
-        match = self._host_candidates_df[
-            (self._host_candidates_df["source_mandal_id"] == target) |
-            (self._host_candidates_df["source_mandal_name"].str.upper() == target)
-        ]
-
-        records = match.replace({np.nan: None}).to_dict(orient="records")
+        records = match.replace({np.nan: None}).to_dict(orient="records") if not match.empty else []
         items = [HostZoneCandidateItem(**row) for row in records]
 
         return HostZoneCandidateListResponse(
             source_mandal_id=target,
             total_candidates=len(items),
             candidates=items,
-            governance_disclaimer="CANDIDATE HOST ZONE — HUMAN REVIEW REQUIRED. Distances computed in EPSG:7755 (India Albers Equal Area). Screened candidate zones satisfy low hazard, low vulnerability, and safe headroom criteria. This information provides decision support for district planning authorities and is NOT an automated relocation order."
+            governance_disclaimer=f"CANDIDATE HOST ZONE — HUMAN REVIEW REQUIRED. Distances computed in EPSG:7755 (India Albers Equal Area). Screened candidate zones satisfy low hazard, low vulnerability, and safe headroom criteria in {cfg.state_name}."
         )
-
 
 relocation_service = RelocationService()

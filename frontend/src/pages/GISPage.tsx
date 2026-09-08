@@ -14,6 +14,7 @@ import {
   fetchRelocationGeoJson,
   fetchDemographicsSummary,
   fetchDistrictDemographics,
+  setActiveState,
 } from '../services/api';
 import type {
   GeoJsonFeatureCollection,
@@ -46,12 +47,24 @@ import {
 interface GISPageProps {
   initialMetric?: DemographicMetricKey;
   initialOpenSimulation?: boolean;
+  selectedState?: string;
 }
 
 export const GISPage: React.FC<GISPageProps> = ({
   initialMetric = 'topsis_score',
   initialOpenSimulation = false,
+  selectedState = 'Andhra Pradesh',
 }) => {
+  const isGujarat = selectedState.toLowerCase().includes('gujarat');
+  const isKerala = selectedState.toLowerCase().includes('kerala') || selectedState.toLowerCase().includes('kerela');
+  const isMaharashtra = selectedState.toLowerCase().includes('maharashtra') || selectedState.toLowerCase().includes('maharastra') || selectedState.toLowerCase().includes('mh');
+  const isHaryana = selectedState.toLowerCase().includes('haryana') || selectedState.toLowerCase() === 'hr';
+  const isPunjab = selectedState.toLowerCase().includes('punjab') || selectedState.toLowerCase() === 'pb';
+  const isChhattisgarh = selectedState.toLowerCase().includes('chhattisgarh') || selectedState.toLowerCase().includes('chhatisgarh') || selectedState.toLowerCase() === 'cg';
+  const unitName = isHaryana || isPunjab || isChhattisgarh ? 'Tehsil' : (isGujarat || isKerala || isMaharashtra ? 'Taluka' : 'Mandal');
+  const unitPlural = isHaryana || isPunjab || isChhattisgarh ? 'Tehsils' : (isGujarat || isKerala || isMaharashtra ? 'Talukas' : 'Mandals');
+  const unitCount = isChhattisgarh ? '58' : (isPunjab ? '45' : (isHaryana ? '45' : (isMaharashtra ? '317' : (isKerala ? '61' : (isGujarat ? '252' : '696')))));
+  const districtCount = isChhattisgarh ? '33' : (isPunjab ? '23' : (isHaryana ? '22' : (isMaharashtra ? '35' : (isKerala ? '14' : (isGujarat ? '33' : '26')))));
   // Data State
   const [districtsGeoJson, setDistrictsGeoJson] = useState<GeoJsonFeatureCollection<DistrictProperties> | null>(null);
   const [mandalsGeoJson, setMandalsGeoJson] = useState<GeoJsonFeatureCollection<MandalProperties> | null>(null);
@@ -102,13 +115,14 @@ export const GISPage: React.FC<GISPageProps> = ({
     async function loadInitialData() {
       setLoadingData(true);
       setErrorMessage(null);
+      setActiveState(selectedState);
       try {
         const [districts, summary, vulnGeo, capGeo, relocGeo] = await Promise.all([
-          fetchDistrictsGeoJson(),
-          fetchDemographicsSummary(),
-          fetchVulnerabilityGeoJson(),
-          fetchCapacityGeoJson(),
-          fetchRelocationGeoJson(),
+          fetchDistrictsGeoJson(selectedState),
+          fetchDemographicsSummary(selectedState),
+          fetchVulnerabilityGeoJson(undefined, selectedState),
+          fetchCapacityGeoJson(undefined, selectedState),
+          fetchRelocationGeoJson(undefined, selectedState),
         ]);
         if (isMounted) {
           setDistrictsGeoJson(districts);
@@ -144,15 +158,18 @@ export const GISPage: React.FC<GISPageProps> = ({
             type: 'FeatureCollection',
             features: mergedFeatures,
           });
+          setMandalsGeoJson({
+            type: 'FeatureCollection',
+            features: mergedFeatures,
+          });
         }
       } catch (err: any) {
         if (isMounted) {
-          setErrorMessage(err.message || 'Failed to load GIS and demographic data.');
+          console.error('Error loading initial GIS data:', err);
+          setErrorMessage(err.message || 'Failed to load GIS and hazard datasets');
         }
       } finally {
-        if (isMounted) {
-          setLoadingData(false);
-        }
+        if (isMounted) setLoadingData(false);
       }
     }
 
@@ -161,13 +178,13 @@ export const GISPage: React.FC<GISPageProps> = ({
     return () => {
       isMounted = false;
     };
-  }, []);
+  }, [selectedState]);
 
   // Lazy Load Mandals if toggled on
   useEffect(() => {
     let isMounted = true;
     if (showMandals && !mandalsGeoJson) {
-      fetchMandalsGeoJson()
+      fetchMandalsGeoJson(undefined, selectedState)
         .then((data) => {
           if (isMounted) setMandalsGeoJson(data);
         })
@@ -178,7 +195,7 @@ export const GISPage: React.FC<GISPageProps> = ({
     return () => {
       isMounted = false;
     };
-  }, [showMandals, mandalsGeoJson]);
+  }, [showMandals, mandalsGeoJson, selectedState]);
 
   // Load detailed district breakdown when a district is selected
   useEffect(() => {
@@ -189,7 +206,7 @@ export const GISPage: React.FC<GISPageProps> = ({
     }
 
     setLoadingDistrict(true);
-    fetchDistrictDemographics(selectedDistrictId)
+    fetchDistrictDemographics(selectedDistrictId, selectedState)
       .then((detail) => {
         if (isMounted) setSelectedDistrictDetail(detail);
       })
@@ -362,6 +379,7 @@ export const GISPage: React.FC<GISPageProps> = ({
               showSheltersWms={showSheltersWms}
               showHabitationsWms={showHabitationsWms}
               resetViewTrigger={resetViewTrigger}
+              selectedState={selectedState}
             />
 
             {/* Top-Left Floating Controls Group (Compact, Clean) */}
@@ -375,7 +393,7 @@ export const GISPage: React.FC<GISPageProps> = ({
                   setSelectedDistrictId(null);
                 }}
                 className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-700/80 text-xs font-semibold backdrop-blur-md shadow-lg transition"
-                title="Reset Map to Full Andhra Pradesh View"
+                title={`Reset Map to Full ${selectedState} View`}
               >
                 <RotateCcw className="w-3.5 h-3.5 text-emerald-400" />
                 <span className="hidden sm:inline">Reset View</span>
@@ -438,7 +456,7 @@ export const GISPage: React.FC<GISPageProps> = ({
                         onChange={() => setShowMandals((prev) => !prev)}
                         className="rounded border-slate-700 bg-slate-800 text-indigo-500 focus:ring-0"
                       />
-                      <span>Mandal Boundaries (696)</span>
+                      <span>{unitName} Boundaries ({unitCount})</span>
                     </label>
                     <label className="flex items-center space-x-2 text-xs text-slate-300 cursor-pointer">
                       <input
@@ -538,7 +556,7 @@ export const GISPage: React.FC<GISPageProps> = ({
               </span>
             </div>
             <div className="text-slate-400 font-mono text-[10px]">
-              AP Jurisdiction: 26 Districts &bull; 696 Mandals
+              {selectedState} Jurisdiction: {districtCount} Districts • {unitCount} {unitPlural}
             </div>
           </footer>
 
@@ -548,8 +566,8 @@ export const GISPage: React.FC<GISPageProps> = ({
         {!isFullscreenMap && (
           <aside className="w-full lg:w-80 xl:w-96 bg-slate-900/90 border-l border-slate-800 flex flex-col shrink-0 overflow-y-auto custom-scrollbar p-4 space-y-4 shadow-xl z-20 order-2">
             
-            {/* 1. Compact Andhra Pradesh State Overview Cards */}
-            <StateOverviewCards summary={demographicsSummary} loading={loadingData} />
+            {/* 1. Compact State Overview Cards */}
+            <StateOverviewCards summary={demographicsSummary} loading={loadingData} selectedState={selectedState} />
 
             {/* 2. Analytical Decision Layer Selector */}
             <div className="bg-slate-900/90 border border-slate-800/90 rounded-2xl p-3.5 space-y-2.5 shadow-md">

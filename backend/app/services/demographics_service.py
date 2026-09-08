@@ -3,6 +3,7 @@ from pathlib import Path
 from typing import Dict, List, Optional
 import pandas as pd
 from app.core.config import settings
+from app.core.state_config import resolve_state_config
 from app.demographics.schemas import (
     DistrictDemographicSummary,
     StateDemographicSummary,
@@ -12,25 +13,33 @@ from app.demographics.schemas import (
 
 class DemographicsService:
     def __init__(self):
-        self._df: Optional[pd.DataFrame] = None
-        self._state_summary: Optional[StateDemographicSummary] = None
-        self._district_summaries: Dict[str, DistrictDemographicSummary] = {}
-        self._district_details: Dict[str, DistrictDetailResponse] = {}
+        self._cache_state_summaries: Dict[str, StateDemographicSummary] = {}
+        self._cache_district_details: Dict[str, Dict[str, DistrictDetailResponse]] = {}
 
-    def _load_data(self):
-        if self._df is not None:
+    def _load_data_for_state(self, state_key: str):
+        if state_key in self._cache_state_summaries:
             return
 
-        csv_path = settings.PROCESSED_CENSUS_DIR / "ap_village_demographics.csv"
+        cfg = resolve_state_config(state_key)
+        csv_path = settings.PROCESSED_CENSUS_DIR / cfg.demographics_csv_filename
         if not csv_path.exists():
             raise FileNotFoundError(f"Demographics dataset not found at {csv_path}")
 
         df = pd.read_csv(csv_path)
-        self._df = df
 
-        # Build district summaries
-        grouped = df.groupby(['current_district_code', 'current_district_name'])
+        # Standardize column naming between AP (legacy/current) and Gujarat (current_district_id, mandal_id/taluka_id)
+        if "current_district_id" not in df.columns and "current_district_code" in df.columns:
+            df["current_district_id"] = df["current_district_code"].astype(str).str.lower()
+        if "current_district_code" not in df.columns and "current_district_id" in df.columns:
+            df["current_district_code"] = df["current_district_id"]
+        if "mandal_code" not in df.columns:
+            df["mandal_code"] = range(1, len(df) + 1)
+        if "mandal_name" not in df.columns and "taluka_name" in df.columns:
+            df["mandal_name"] = df["taluka_name"]
+
+        grouped = df.groupby(['current_district_id', 'current_district_name'])
         district_list: List[DistrictDemographicSummary] = []
+        district_details_map: Dict[str, DistrictDetailResponse] = {}
 
         for (did, dname), grp in grouped:
             pop = int(grp['population_total'].sum())
@@ -39,15 +48,15 @@ class DemographicsService:
             sc = int(grp['population_sc'].sum())
             st = int(grp['population_st'].sum())
             workers = int(grp['workers'].sum())
-            villages = int(len(grp))
-            mandals = int(grp['mandal_code'].nunique())
+            villages = int(grp['village_count'].sum()) if 'village_count' in grp.columns else int(len(grp))
+            mandals = int(grp['mandal_name'].nunique())
 
             p06_pct = round((p06 / pop * 100) if pop > 0 else 0.0, 2)
             sc_pct = round((sc / pop * 100) if pop > 0 else 0.0, 2)
             st_pct = round((st / pop * 100) if pop > 0 else 0.0, 2)
 
             d_summary = DistrictDemographicSummary(
-                district_id=str(did),
+                district_id=str(did).lower(),
                 district_name=str(dname),
                 total_population=pop,
                 total_households=hh,
@@ -61,12 +70,10 @@ class DemographicsService:
                 village_count=villages,
                 mandal_count=mandals,
                 data_year=2011,
-                data_source="Census of India 2011 Primary Census Abstract"
+                data_source=f"Census of India 2011 Primary Census Abstract ({cfg.state_name})"
             )
             district_list.append(d_summary)
-            self._district_summaries[str(did)] = d_summary
 
-            # Pre-compute mandal details for this district
             mandal_grp = grp.groupby(['mandal_code', 'mandal_name'])
             mandal_list: List[MandalDemographicSummary] = []
             for (mcode, mname), mdf in mandal_grp:
@@ -76,12 +83,12 @@ class DemographicsService:
                 msc = int(mdf['population_sc'].sum())
                 mst = int(mdf['population_st'].sum())
                 mworkers = int(mdf['workers'].sum())
-                mvillages = int(len(mdf))
+                mvillages = int(mdf['village_count'].sum()) if 'village_count' in mdf.columns else int(len(mdf))
 
                 mandal_list.append(MandalDemographicSummary(
-                    mandal_code=int(mcode),
+                    mandal_code=int(mcode) if isinstance(mcode, (int, float)) else 1,
                     mandal_name=str(mname),
-                    current_district_id=str(did),
+                    current_district_id=str(did).lower(),
                     current_district_name=str(dname),
                     total_population=mpop,
                     total_households=mhh,
@@ -95,31 +102,28 @@ class DemographicsService:
                     village_count=mvillages
                 ))
 
-            # Sort mandals by population descending
             mandal_list.sort(key=lambda x: x.total_population, reverse=True)
-            self._district_details[str(did)] = DistrictDetailResponse(
+            district_details_map[str(did).lower()] = DistrictDetailResponse(
                 district=d_summary,
                 mandals=mandal_list
             )
 
-        # Sort districts alphabetically by name
         district_list.sort(key=lambda x: x.district_name)
 
-        # Statewide totals
         tot_pop = int(df['population_total'].sum())
         tot_hh = int(df['households'].sum())
         tot_p06 = int(df['population_0_6'].sum())
         tot_sc = int(df['population_sc'].sum())
         tot_st = int(df['population_st'].sum())
         tot_workers = int(df['workers'].sum())
-        tot_villages = int(len(df))
+        tot_villages = int(df['village_count'].sum()) if 'village_count' in df.columns else int(len(df))
         tot_districts = len(district_list)
 
-        self._state_summary = StateDemographicSummary(
-            state_name="Andhra Pradesh",
-            state_code="AP",
+        state_summary = StateDemographicSummary(
+            state_name=cfg.state_name,
+            state_code=cfg.state_code,
             data_year=2011,
-            data_source="Census of India 2011 Primary Census Abstract",
+            data_source=f"Census of India 2011 Primary Census Abstract ({cfg.state_name})",
             total_population=tot_pop,
             total_households=tot_hh,
             total_children_0_6=tot_p06,
@@ -134,13 +138,18 @@ class DemographicsService:
             districts=district_list
         )
 
-    def get_state_summary(self) -> StateDemographicSummary:
-        self._load_data()
-        return self._state_summary
+        self._cache_state_summaries[state_key] = state_summary
+        self._cache_district_details[state_key] = district_details_map
 
-    def get_district_summary(self, district_id: str) -> Optional[DistrictDetailResponse]:
-        self._load_data()
+    def get_state_summary(self, state: Optional[str] = None) -> StateDemographicSummary:
+        cfg = resolve_state_config(state)
+        self._load_data_for_state(cfg.state_id)
+        return self._cache_state_summaries[cfg.state_id]
+
+    def get_district_summary(self, district_id: str, state: Optional[str] = None) -> Optional[DistrictDetailResponse]:
+        cfg = resolve_state_config(state)
+        self._load_data_for_state(cfg.state_id)
         did_clean = district_id.strip().lower()
-        return self._district_details.get(did_clean)
+        return self._cache_district_details[cfg.state_id].get(did_clean)
 
 demographics_service = DemographicsService()

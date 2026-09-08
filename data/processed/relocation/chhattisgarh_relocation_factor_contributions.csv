@@ -1,0 +1,59 @@
+mandal_id,mandal_name,district_name,c1_hazard_contrib,c2_sensitivity_contrib,c3_capacity_stress_contrib,c4_accessibility_contrib,dominant_driver
+CT_TEH_01,Balod,Balod,39.2,27.2,28.3,5.3,Hazard Exposure
+CT_TEH_02,Baloda Bazar,Baloda Bazar,44.6,26.4,25.6,3.4,Hazard Exposure
+CT_TEH_03,Bhatapara,Baloda Bazar,40.8,28.3,27.3,3.6,Hazard Exposure
+CT_TEH_04,Simga,Baloda Bazar,46.0,26.0,24.7,3.4,Hazard Exposure
+CT_TEH_05,Kasdol,Baloda Bazar,47.6,25.3,23.1,3.9,Hazard Exposure
+CT_TEH_06,Pal,Balrampur,37.4,20.3,24.4,17.9,Hazard Exposure
+CT_TEH_07,Samari,Balrampur,36.6,20.1,24.5,18.8,Hazard Exposure
+CT_TEH_08,Jagdalpur,Bastar,41.2,23.5,23.5,11.8,Hazard Exposure
+CT_TEH_09,Bemetara,Bemetara,42.6,27.9,25.8,3.6,Hazard Exposure
+CT_TEH_10,Bijapur,Bijapur,41.3,26.2,14.1,18.4,Hazard Exposure
+CT_TEH_11,Bilaspur,Bilaspur,45.0,24.6,26.6,3.8,Hazard Exposure
+CT_TEH_12,Kota,Bilaspur,41.7,24.3,24.6,9.4,Hazard Exposure
+CT_TEH_13,Takhatpur,Bilaspur,42.7,27.4,26.4,3.5,Hazard Exposure
+CT_TEH_14,Dantewada,Dantewada,35.9,19.6,23.4,21.2,Hazard Exposure
+CT_TEH_15,Dhamtari,Dhamtari,47.1,24.1,22.7,6.0,Hazard Exposure
+CT_TEH_16,Durg,Durg,43.6,24.8,28.3,3.2,Hazard Exposure
+CT_TEH_17,Rajim,Gariaband,44.7,24.7,23.4,7.3,Hazard Exposure
+CT_TEH_18,Bindranawagarh,Gariaband,40.6,23.1,23.4,12.9,Hazard Exposure
+CT_TEH_19,Pendraroad,Gaurela-Pendra-Marwahi,36.2,23.7,25.1,15.0,Hazard Exposure
+CT_TEH_20,Janjgir,Janjgir-Champa,51.4,21.8,23.9,2.9,Hazard Exposure
+CT_TEH_21,Champa,Janjgir-Champa,50.8,22.3,24.0,2.9,Hazard Exposure
+CT_TEH_22,Jashpur,Jashpur,38.1,20.8,23.7,17.4,Hazard Exposure
+CT_TEH_23,Bagicha,Jashpur,37.1,20.4,23.8,18.7,Hazard Exposure
+CT_TEH_24,Pathalgaon,Jashpur,41.1,23.6,23.0,12.3,Hazard Exposure
+CT_TEH_25,Kawardha,Kabirdham,38.3,24.9,22.5,14.2,Hazard Exposure
+CT_TEH_26,Pandariya,Kabirdham,37.7,24.7,22.2,15.3,Hazard Exposure
+CT_TEH_27,Kanker,Kanker,42.2,24.9,21.2,11.7,Hazard Exposure
+CT_TEH_28,Bhanupratappur,Kanker,38.8,22.9,21.8,16.5,Hazard Exposure
+CT_TEH_29,Khairagarh,Khairagarh-Chhuikhadan-Gandai,42.3,27.7,21.9,8.2,Hazard Exposure
+CT_TEH_30,Chhuikhadan,Khairagarh-Chhuikhadan-Gandai,40.8,26.8,21.6,10.8,Hazard Exposure
+CT_TEH_31,Kondagaon,Kondagaon,41.1,24.4,21.7,12.8,Hazard Exposure
+CT_TEH_32,Korba,Korba,46.9,20.8,25.3,7.1,Hazard Exposure
+CT_TEH_33,Katghora,Korba,45.3,20.7,24.9,9.1,Hazard Exposure
+CT_TEH_34,Kartala,Korba,46.3,22.9,23.0,7.8,Hazard Exposure
+CT_TEH_35,Baikunthpur,Koriya,39.3,21.7,23.3,15.7,Hazard Exposure
+CT_TEH_36,Mahasamund,Mahasamund,51.2,22.9,21.0,5.0,Hazard Exposure
+CT_TEH_37,Saraipali,Mahasamund,51.4,24.3,20.3,4.0,Hazard Exposure
+CT_TEH_38,Manendragarh,Manendragarh-Chirmiri-Bharatpur,38.4,20.9,23.8,16.9,Hazard Exposure
+CT_TEH_39,Bharatpur,Manendragarh-Chirmiri-Bharatpur,38.3,21.0,20.5,20.2,Hazard Exposure
+CT_TEH_40,Mohla-Manpur,Mohla-Manpur-Ambagarh Chowki,42.9,24.1,14.5,18.5,Hazard Exposure
+CT_TEH_41,Mungeli,Mungeli,45.8,28.4,21.4,4.3,Hazard Exposure
+CT_TEH_42,Narayanpur,Narayanpur,37.8,23.3,15.6,23.2,Hazard Exposure
+CT_TEH_43,Raigarh,Raigarh,49.8,21.2,24.0,5.0,Hazard Exposure
+CT_TEH_44,Kharsia,Raigarh,49.5,21.8,22.4,6.3,Hazard Exposure
+CT_TEH_45,Gharghoda,Raigarh,47.3,21.9,22.2,8.7,Hazard Exposure
+CT_TEH_46,Udaipur (Dharamjaigarh),Raigarh,45.3,21.0,22.1,11.6,Hazard Exposure
+CT_TEH_47,Raipur,Raipur,44.6,24.4,27.9,3.1,Hazard Exposure
+CT_TEH_48,Rajnandgaon,Rajnandgaon,42.5,25.7,25.4,6.4,Hazard Exposure
+CT_TEH_49,Dongargarh,Rajnandgaon,40.9,25.1,24.9,9.1,Hazard Exposure
+CT_TEH_50,Sakti,Sakti,50.9,22.6,23.5,3.0,Hazard Exposure
+CT_TEH_51,Sarangarh,Sarangarh-Bilaigarh,52.0,22.8,22.3,3.0,Hazard Exposure
+CT_TEH_52,Bilaigarh,Sarangarh-Bilaigarh,51.0,22.6,22.7,3.6,Hazard Exposure
+CT_TEH_53,Konta,Sukma,43.4,24.4,14.6,17.6,Hazard Exposure
+CT_TEH_54,Surajpur,Surajpur,43.4,22.7,23.6,10.4,Hazard Exposure
+CT_TEH_55,Pratappur,Surajpur,42.1,22.3,23.7,11.9,Hazard Exposure
+CT_TEH_56,Ambikapur,Surguja,41.1,21.8,24.2,12.9,Hazard Exposure
+CT_TEH_57,Lundra,Surguja,39.8,21.3,22.6,16.3,Hazard Exposure
+CT_TEH_58,Sitapur,Surguja,38.7,21.0,22.6,17.7,Hazard Exposure

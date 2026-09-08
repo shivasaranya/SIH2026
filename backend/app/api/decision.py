@@ -12,33 +12,46 @@ router = APIRouter(prefix="/decision", tags=["Decision & Action Planning (Phase 
 
 
 @router.get("/summary", response_model=ActionDashboardSummary)
-def get_decision_summary():
+def get_decision_summary(
+    state: Optional[str] = Query(None, description="State identifier (e.g. 'ap' or 'gujarat')"),
+):
     """Returns statewide executive action planning summary, bottleneck distributions, and candidate host statistics."""
-    return decision_service.get_action_dashboard_summary()
+    return decision_service.get_action_dashboard_summary(state=state)
 
 
 @router.get("/mandal/{mandal_id}/capacity-gap", response_model=CapacityGapAssessment)
-def get_mandal_capacity_gap(mandal_id: str):
-    """Returns transparent indicative physical capacity gap assessment for a source mandal (shelters, beds, safe land, water, roads)."""
-    res = decision_service.get_capacity_gap_assessment(mandal_id)
+def get_mandal_capacity_gap(
+    mandal_id: str,
+    state: Optional[str] = Query(None, description="State identifier (e.g. 'ap' or 'gujarat')"),
+):
+    """Returns transparent indicative physical capacity gap assessment for a source mandal/taluka (shelters, beds, safe land, water, roads)."""
+    res = decision_service.get_capacity_gap_assessment(mandal_id, state=state)
     if not res:
         raise HTTPException(status_code=404, detail=f"Mandal '{mandal_id}' not found in capacity database.")
     return res
 
 
 @router.get("/mandal/{mandal_id}/action-plan", response_model=ActionPlanResponse)
-def get_mandal_action_plan(mandal_id: str):
+def get_mandal_action_plan(
+    mandal_id: str,
+    state: Optional[str] = Query(None, description="State identifier (e.g. 'ap' or 'gujarat')"),
+):
     """Returns deterministic 3-horizon action plan (Immediate, Short-Term, Long-Term) triggered by active constraints."""
-    res = decision_service.get_action_plan(mandal_id)
+    res = decision_service.get_action_plan(mandal_id, state=state)
     if not res:
         raise HTTPException(status_code=404, detail=f"Mandal '{mandal_id}' not found in relocation database.")
     return res
 
 
 @router.get("/mandal/{mandal_id}/compare/{host_id}", response_model=SourceHostComparisonResponse)
-def compare_source_and_host_mandal(mandal_id: str, host_id: str):
+def compare_source_and_host_mandal(
+    mandal_id: str,
+    host_id: str,
+    state: Optional[str] = Query(None, description="State identifier (e.g. 'ap' or 'gujarat')"),
+):
     """Returns structured side-by-side comparative analysis between a vulnerable source mandal and a candidate host zone."""
-    res = decision_service.compare_source_and_host(mandal_id, host_id)
+    res = decision_service.compare_source_and_host(mandal_id, host_id, state=state)
     if not res:
         raise HTTPException(status_code=404, detail=f"Comparison pair ({mandal_id}, {host_id}) could not be resolved.")
     return res
+

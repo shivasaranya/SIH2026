@@ -5,23 +5,48 @@ import { Building2, MapPin, CheckCircle2, ShieldCheck } from 'lucide-react';
 interface StateOverviewCardsProps {
   summary: StateDemographicSummary | null;
   loading: boolean;
+  totalMandals?: number;
+  totalRanked?: number;
+  totalHosts?: number;
+  selectedState?: string;
 }
 
-export const StateOverviewCards: React.FC<StateOverviewCardsProps> = ({ summary, loading }) => {
+export const StateOverviewCards: React.FC<StateOverviewCardsProps> = ({ 
+  summary, 
+  loading,
+  totalMandals,
+  totalRanked,
+  totalHosts,
+  selectedState = 'Andhra Pradesh',
+}) => {
+  const isGujarat = selectedState.toLowerCase().includes('gujarat');
+  const isKerala = selectedState.toLowerCase().includes('kerala') || selectedState.toLowerCase().includes('kerela');
+  const isMaharashtra = selectedState.toLowerCase().includes('maharashtra') || selectedState.toLowerCase().includes('maharastra') || selectedState.toLowerCase().includes('mh');
+  const isHaryana = selectedState.toLowerCase().includes('haryana') || selectedState.toLowerCase() === 'hr';
+  const isPunjab = selectedState.toLowerCase().includes('punjab') || selectedState.toLowerCase() === 'pb';
+  const isChhattisgarh = selectedState.toLowerCase().includes('chhattisgarh') || selectedState.toLowerCase().includes('chhatisgarh') || selectedState.toLowerCase() === 'cg';
+  const unitName = isHaryana || isPunjab || isChhattisgarh ? 'Tehsil' : (isGujarat || isKerala || isMaharashtra ? 'Taluka' : 'Mandal');
+  const unitPlural = isHaryana || isPunjab || isChhattisgarh ? 'Tehsils' : (isGujarat || isKerala || isMaharashtra ? 'Talukas' : 'Mandals');
+
+  const defaultDistricts = isChhattisgarh ? '33' : (isPunjab ? '23' : (isHaryana ? '22' : (isMaharashtra ? '35' : (isKerala ? '14' : (isGujarat ? '33' : '26')))));
+  const defaultUnits = isChhattisgarh ? '58' : (isPunjab ? '45' : (isHaryana ? '45' : (isMaharashtra ? '317' : (isKerala ? '61' : (isGujarat ? '252' : '696')))));
+  const defaultRanked = isChhattisgarh ? '58' : (isPunjab ? '45' : (isHaryana ? '45' : (isMaharashtra ? '317' : (isKerala ? '61' : (isGujarat ? '252' : '680')))));
+  const defaultHosts = isChhattisgarh ? '44' : (isPunjab ? '180' : (isHaryana ? '19' : (isMaharashtra ? '109' : (isKerala ? '11' : (isGujarat ? '115' : '51')))));
+
   const cards = [
     {
       label: 'Districts Evaluated',
-      value: summary ? `${summary.total_districts}` : '26',
-      sub: 'All 26 Admin Districts',
+      value: summary ? `${summary.total_districts}` : defaultDistricts,
+      sub: `All ${summary?.total_districts || defaultDistricts} Admin Districts`,
       icon: Building2,
       color: 'text-sky-400',
       bg: 'bg-sky-500/10',
       border: 'border-sky-500/20',
     },
     {
-      label: 'Mandals Assessed',
-      value: '696',
-      sub: 'Complete Jurisdiction',
+      label: `${unitPlural} Assessed`,
+      value: totalMandals ? `${totalMandals}` : defaultUnits,
+      sub: `${unitName}-level jurisdiction`,
       icon: MapPin,
       color: 'text-indigo-400',
       bg: 'bg-indigo-500/10',
@@ -29,7 +54,7 @@ export const StateOverviewCards: React.FC<StateOverviewCardsProps> = ({ summary,
     },
     {
       label: 'Populated Units Ranked',
-      value: '680',
+      value: totalRanked ? `${totalRanked}` : defaultRanked,
       sub: 'Decision Support Prioritization',
       icon: CheckCircle2,
       color: 'text-emerald-400',
@@ -38,7 +63,7 @@ export const StateOverviewCards: React.FC<StateOverviewCardsProps> = ({ summary,
     },
     {
       label: 'Candidate Host Locations',
-      value: '51',
+      value: totalHosts ? `${totalHosts}` : defaultHosts,
       sub: 'Screened Candidate Host Zones',
       icon: ShieldCheck,
       color: 'text-amber-400',
@@ -61,15 +86,19 @@ export const StateOverviewCards: React.FC<StateOverviewCardsProps> = ({ summary,
     );
   }
 
+  const displayName = summary?.state_name 
+    ? summary.state_name.toUpperCase() 
+    : (isChhattisgarh ? 'CHHATTISGARH' : (isPunjab ? 'PUNJAB' : (isHaryana ? 'HARYANA' : (isMaharashtra ? 'MAHARASHTRA' : (isKerala ? 'KERALA' : (isGujarat ? 'GUJARAT' : 'ANDHRA PRADESH'))))));
+
   return (
     <div className="bg-slate-900/90 backdrop-blur-md border border-slate-800/90 rounded-2xl p-4 space-y-3 shadow-lg">
       <div>
         <div className="flex items-center justify-between">
           <h3 className="text-sm font-black text-white tracking-wider uppercase">
-            ANDHRA PRADESH
+            {displayName}
           </h3>
           <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 font-semibold">
-            PILOT STATE
+            {isChhattisgarh || isPunjab || isHaryana || isMaharashtra || isKerala || isGujarat ? 'OPERATIONAL STATE' : 'PILOT STATE'}
           </span>
         </div>
         <p className="text-[11px] text-slate-400 font-medium">

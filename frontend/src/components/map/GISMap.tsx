@@ -20,12 +20,49 @@ interface GISMapProps {
   showSheltersWms: boolean;
   showHabitationsWms: boolean;
   resetViewTrigger: number;
+  selectedState?: string;
 }
 
 const AP_CENTER: [number, number] = [15.9129, 79.74];
 const AP_BOUNDS: [[number, number], [number, number]] = [
   [12.6, 76.7],
   [19.2, 84.8],
+];
+
+const GUJARAT_CENTER: [number, number] = [22.4164, 71.2855];
+const GUJARAT_BOUNDS: [[number, number], [number, number]] = [
+  [20.1205, 68.0950],
+  [24.7124, 74.4761],
+];
+
+const KERALA_CENTER: [number, number] = [10.4500, 76.3500];
+const KERALA_BOUNDS: [[number, number], [number, number]] = [
+  [8.2500, 74.8500],
+  [12.8500, 77.4500],
+];
+
+const MAHARASHTRA_CENTER: [number, number] = [19.7500, 75.7100];
+const MAHARASHTRA_BOUNDS: [[number, number], [number, number]] = [
+  [15.6000, 72.6000],
+  [22.0500, 80.9500],
+];
+
+const HARYANA_CENTER: [number, number] = [29.0588, 76.0856];
+const HARYANA_BOUNDS: [[number, number], [number, number]] = [
+  [27.6500, 74.4700],
+  [30.9300, 77.6000],
+];
+
+const PUNJAB_CENTER: [number, number] = [31.1471, 75.3412];
+const PUNJAB_BOUNDS: [[number, number], [number, number]] = [
+  [29.5400, 73.8800],
+  [32.6600, 76.9500],
+];
+
+const CHHATTISGARH_CENTER: [number, number] = [21.2787, 81.8661];
+const CHHATTISGARH_BOUNDS: [[number, number], [number, number]] = [
+  [17.7800, 80.2400],
+  [24.1000, 84.4000],
 ];
 
 export const GISMap: React.FC<GISMapProps> = ({
@@ -43,7 +80,17 @@ export const GISMap: React.FC<GISMapProps> = ({
   showSheltersWms,
   showHabitationsWms,
   resetViewTrigger,
+  selectedState = 'Andhra Pradesh',
 }) => {
+  const isGujarat = selectedState.toLowerCase().includes('gujarat');
+  const isKerala = selectedState.toLowerCase().includes('kerala') || selectedState.toLowerCase().includes('kerela');
+  const isMaharashtra = selectedState.toLowerCase().includes('maharashtra') || selectedState.toLowerCase().includes('maharastra') || selectedState.toLowerCase().includes('mh');
+  const isHaryana = selectedState.toLowerCase().includes('haryana') || selectedState.toLowerCase() === 'hr';
+  const isPunjab = selectedState.toLowerCase().includes('punjab') || selectedState.toLowerCase() === 'pb';
+  const isChhattisgarh = selectedState.toLowerCase().includes('chhattisgarh') || selectedState.toLowerCase().includes('chhatisgarh') || selectedState.toLowerCase() === 'cg';
+  const stateCenter = isChhattisgarh ? CHHATTISGARH_CENTER : (isPunjab ? PUNJAB_CENTER : (isHaryana ? HARYANA_CENTER : (isMaharashtra ? MAHARASHTRA_CENTER : (isKerala ? KERALA_CENTER : (isGujarat ? GUJARAT_CENTER : AP_CENTER)))));
+  const stateBounds = isChhattisgarh ? CHHATTISGARH_BOUNDS : (isPunjab ? PUNJAB_BOUNDS : (isHaryana ? HARYANA_BOUNDS : (isMaharashtra ? MAHARASHTRA_BOUNDS : (isKerala ? KERALA_BOUNDS : (isGujarat ? GUJARAT_BOUNDS : AP_BOUNDS)))));
+
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<L.Map | null>(null);
   const districtsLayerRef = useRef<L.GeoJSON | null>(null);
@@ -92,9 +139,9 @@ export const GISMap: React.FC<GISMapProps> = ({
     if (!mapContainerRef.current || mapInstanceRef.current) return;
 
     const map = L.map(mapContainerRef.current, {
-      center: AP_CENTER,
-      zoom: 7,
-      minZoom: 6,
+      center: stateCenter,
+      zoom: isGujarat ? 6 : 7,
+      minZoom: 5,
       maxZoom: 14,
       zoomControl: false,
       attributionControl: false,
@@ -102,7 +149,7 @@ export const GISMap: React.FC<GISMapProps> = ({
 
     L.control.zoom({ position: 'bottomleft' }).addTo(map);
 
-    map.fitBounds(AP_BOUNDS, { padding: [10, 10] });
+    map.fitBounds(stateBounds, { padding: [10, 10] });
     mapInstanceRef.current = map;
 
     return () => {
@@ -114,11 +161,18 @@ export const GISMap: React.FC<GISMapProps> = ({
   // 2. Handle Reset View Trigger
   useEffect(() => {
     if (mapInstanceRef.current && resetViewTrigger > 0) {
-      mapInstanceRef.current.fitBounds(AP_BOUNDS, { padding: [10, 10] });
+      mapInstanceRef.current.fitBounds(stateBounds, { padding: [10, 10] });
       onSelectDistrict(null);
       onSelectMandal(null);
     }
-  }, [resetViewTrigger, onSelectDistrict, onSelectMandal]);
+  }, [resetViewTrigger, stateBounds, onSelectDistrict, onSelectMandal]);
+
+  // Fit map bounds automatically whenever selectedState changes
+  useEffect(() => {
+    if (mapInstanceRef.current) {
+      mapInstanceRef.current.fitBounds(stateBounds, { padding: [10, 10] });
+    }
+  }, [selectedState, stateBounds]);
 
   // 3. Render / Update 26 Districts Choropleth Layer (in Demographic Mode)
   useEffect(() => {

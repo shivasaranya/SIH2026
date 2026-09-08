@@ -24,7 +24,34 @@ export function App() {
     if (typeof window === 'undefined') return 'landing';
     const hash = window.location.hash.toLowerCase();
     if (hash === '#government/select-state' || hash === '#government/states') return 'government_state_selection';
-    if (hash === '#government/ap' || hash === '#government/andhra-pradesh' || hash === '#government') return 'government_ap';
+    if (hash === '#government/gujarat') {
+      setSelectedState('Gujarat');
+      return 'government_ap';
+    }
+    if (hash === '#government/kerala' || hash === '#government/kerela') {
+      setSelectedState('Kerala');
+      return 'government_ap';
+    }
+    if (hash === '#government/maharashtra' || hash === '#government/maharastra' || hash === '#government/mh') {
+      setSelectedState('Maharashtra');
+      return 'government_ap';
+    }
+    if (hash === '#government/haryana' || hash === '#government/hr') {
+      setSelectedState('Haryana');
+      return 'government_ap';
+    }
+    if (hash === '#government/punjab' || hash === '#government/pb') {
+      setSelectedState('Punjab');
+      return 'government_ap';
+    }
+    if (hash === '#government/chhattisgarh' || hash === '#government/cg' || hash === '#government/ct') {
+      setSelectedState('Chhattisgarh');
+      return 'government_ap';
+    }
+    if (hash === '#government/ap' || hash === '#government/andhra-pradesh' || hash === '#government') {
+      setSelectedState('Andhra Pradesh');
+      return 'government_ap';
+    }
     if (hash === '#citizen' || hash.startsWith('#citizen/')) return 'citizen';
     return 'landing';
   };
@@ -37,7 +64,26 @@ export function App() {
       const hash = window.location.hash.toLowerCase();
       if (hash === '#government/select-state' || hash === '#government/states') {
         setPortalRole('government_state_selection');
+      } else if (hash === '#government/gujarat') {
+        setSelectedState('Gujarat');
+        setPortalRole('government_ap');
+      } else if (hash === '#government/kerala' || hash === '#government/kerela') {
+        setSelectedState('Kerala');
+        setPortalRole('government_ap');
+      } else if (hash === '#government/maharashtra' || hash === '#government/maharastra' || hash === '#government/mh') {
+        setSelectedState('Maharashtra');
+        setPortalRole('government_ap');
+      } else if (hash === '#government/haryana' || hash === '#government/hr') {
+        setSelectedState('Haryana');
+        setPortalRole('government_ap');
+      } else if (hash === '#government/punjab' || hash === '#government/pb') {
+        setSelectedState('Punjab');
+        setPortalRole('government_ap');
+      } else if (hash === '#government/chhattisgarh' || hash === '#government/cg' || hash === '#government/ct') {
+        setSelectedState('Chhattisgarh');
+        setPortalRole('government_ap');
       } else if (hash === '#government/ap' || hash === '#government/andhra-pradesh' || hash === '#government') {
+        setSelectedState('Andhra Pradesh');
         setPortalRole('government_ap');
       } else if (hash === '#citizen' || hash.startsWith('#citizen/')) {
         setPortalRole('citizen');
@@ -65,7 +111,14 @@ export function App() {
   const handleSelectState = (stateName: string) => {
     setSelectedState(stateName);
     setPortalRole('government_ap');
-    window.location.hash = '#government/ap';
+    let slug = 'ap';
+    if (stateName.toLowerCase().includes('gujarat')) slug = 'gujarat';
+    else if (stateName.toLowerCase().includes('kerala') || stateName.toLowerCase().includes('kerela')) slug = 'kerala';
+    else if (stateName.toLowerCase().includes('maharashtra') || stateName.toLowerCase().includes('maharastra')) slug = 'maharashtra';
+    else if (stateName.toLowerCase().includes('haryana') || stateName.toLowerCase() === 'hr') slug = 'haryana';
+    else if (stateName.toLowerCase().includes('punjab') || stateName.toLowerCase() === 'pb') slug = 'punjab';
+    else if (stateName.toLowerCase().includes('chhattisgarh') || stateName.toLowerCase().includes('chhatisgarh') || stateName.toLowerCase() === 'cg') slug = 'chhattisgarh';
+    window.location.hash = `#government/${slug}`;
   };
 
   const handleNavigateToStateSelection = () => {
@@ -103,25 +156,25 @@ export function App() {
     );
   }
 
-  // Government Decision-Support Dashboard (Andhra Pradesh Active Implementation)
+  // Government Decision-Support Dashboard
   const renderContent = () => {
     switch (activeTab) {
       case 'gis':
-        return <GISPage key="gis" initialMetric="topsis_score" />;
+        return <GISPage key={`gis-${selectedState}`} initialMetric="topsis_score" selectedState={selectedState} />;
       case 'hazard':
-        return <GISPage key="hazard" initialMetric="hazard_exposure" />;
+        return <GISPage key={`hazard-${selectedState}`} initialMetric="hazard_exposure" selectedState={selectedState} />;
       case 'vulnerability':
-        return <GISPage key="vulnerability" initialMetric="demographic_sensitivity" />;
+        return <GISPage key={`vulnerability-${selectedState}`} initialMetric="demographic_sensitivity" selectedState={selectedState} />;
       case 'capacity':
-        return <GISPage key="capacity" initialMetric="shelter_capacity" />;
+        return <GISPage key={`capacity-${selectedState}`} initialMetric="shelter_capacity" selectedState={selectedState} />;
       case 'relocation':
-        return <GISPage key="relocation" initialMetric="topsis_score" />;
+        return <GISPage key={`relocation-${selectedState}`} initialMetric="topsis_score" selectedState={selectedState} />;
       case 'hosts':
-        return <GISPage key="hosts" initialMetric="safe_area_fraction" />;
+        return <GISPage key={`hosts-${selectedState}`} initialMetric="safe_area_fraction" selectedState={selectedState} />;
       case 'simulation':
-        return <GISPage key="simulation" initialMetric="scenario_topsis_score" initialOpenSimulation={true} />;
+        return <GISPage key={`simulation-${selectedState}`} initialMetric="scenario_topsis_score" initialOpenSimulation={true} selectedState={selectedState} />;
       case 'actions':
-        return <GISPage key="actions" initialMetric="topsis_score" />;
+        return <GISPage key={`actions-${selectedState}`} initialMetric="topsis_score" selectedState={selectedState} />;
       case 'dashboard':
         return (
           <div className="flex-1 overflow-y-auto p-4 lg:p-8 custom-scrollbar">
@@ -140,7 +193,7 @@ export function App() {
           </div>
         );
       default:
-        return <GISPage key="gis" initialMetric="topsis_score" />;
+        return <GISPage key={`gis-${selectedState}`} initialMetric="topsis_score" selectedState={selectedState} />;
     }
   };
 
