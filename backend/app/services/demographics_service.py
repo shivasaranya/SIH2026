@@ -48,18 +48,22 @@ MANDAL_ALIASES = {
     ('east_godavari', 'SEETHANAGARAM'): 'SEETHANAGARAM',
 }
 
-def is_tn(state_id: Optional[str]) -> bool:
+def resolve_state_key(state_id: Optional[str]) -> str:
     if not state_id:
-        return "andhra_pradesh"
+        return "ap"
     clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    if clean in ["mizoram", "mz", "mizo"]:
+        return "mz"
+    if clean in ["himachal_pradesh", "hp", "himachal"]:
+        return "hp"
+    if clean in ["tamil_nadu", "tn", "tamilnadu"]:
+        return "tn"
     if clean in ["odisha", "od", "or", "orissa"]:
         return "odisha"
     if clean in ["assam", "as"]:
         return "assam"
     if clean in ["bihar", "br"]:
         return "bihar"
-    if clean in ["tamil_nadu", "tn", "tamilnadu"]:
-        return "tamil_nadu"
     if clean in ["west_bengal", "wb", "westbengal"]:
         return "west_bengal"
     if clean in ["uttar_pradesh", "up", "uttarpradesh"]:
@@ -74,19 +78,16 @@ def is_tn(state_id: Optional[str]) -> bool:
         return "nagaland"
     if clean in ["meghalaya", "ml"]:
         return "meghalaya"
-    return "andhra_pradesh"
+    return "ap"
+
+def is_tn(state_id: Optional[str]) -> bool:
+    return resolve_state_key(state_id) == "tn"
 
 def is_mizoram(state_id: Optional[str]) -> bool:
-    if not state_id:
-        return False
-    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
-    return clean in ["mizoram", "mz", "mizo"]
+    return resolve_state_key(state_id) == "mz"
 
 def is_hp(state_id: Optional[str]) -> bool:
-    if not state_id:
-        return False
-    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
-    return clean in ["himachal_pradesh", "hp", "himachal"]
+    return resolve_state_key(state_id) == "hp"
 
 class DemographicsService:
     def __init__(self):
