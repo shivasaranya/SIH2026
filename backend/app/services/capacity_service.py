@@ -28,6 +28,13 @@ def is_mizoram(state_id: Optional[str]) -> bool:
 def is_hp(state_id: Optional[str]) -> bool:
     return get_state_key(state_id) == "himachal_pradesh"
 
+def is_tn(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["tamil_nadu", "tn", "tamilnadu"]
+
+
 class CapacityService:
     def __init__(self):
         self._cache: Dict[str, Dict[str, Any]] = {}
@@ -78,10 +85,10 @@ class CapacityService:
     def _normalize_capacity_df(self, df: pd.DataFrame) -> pd.DataFrame:
         df = df.copy()
         # ID / Name aliases
-        for id_col in ["circle_id", "block_id", "tehsil_id", "taluk_id", "subdivision_id"]:
+        for id_col in ["circle_id", "block_id", "tehsil_id", "taluk_id", "taluka_id", "subdivision_id"]:
             if "mandal_id" not in df.columns and id_col in df.columns:
                 df["mandal_id"] = df[id_col]
-        for name_col in ["circle_name", "block_name", "tehsil_name", "taluk_name", "subdivision_name"]:
+        for name_col in ["circle_name", "block_name", "tehsil_name", "taluk_name", "taluka_name", "subdivision_name"]:
             if "mandal_name" not in df.columns and name_col in df.columns:
                 df["mandal_name"] = df[name_col]
         if "current_district_id" not in df.columns and "district_id" in df.columns:
@@ -216,11 +223,10 @@ class CapacityService:
 
     def _normalize_adequacy_df(self, df: pd.DataFrame, cap_df: pd.DataFrame) -> pd.DataFrame:
         df = df.copy()
-        # ID aliases
-        for id_col in ["circle_id", "block_id", "tehsil_id", "taluk_id", "subdivision_id"]:
+        for id_col in ["circle_id", "block_id", "tehsil_id", "taluk_id", "taluka_id", "subdivision_id"]:
             if "mandal_id" not in df.columns and id_col in df.columns:
                 df["mandal_id"] = df[id_col]
-        for name_col in ["circle_name", "block_name", "tehsil_name", "taluk_name", "subdivision_name"]:
+        for name_col in ["circle_name", "block_name", "tehsil_name", "taluk_name", "taluka_name", "subdivision_name"]:
             if "mandal_name" not in df.columns and name_col in df.columns:
                 df["mandal_name"] = df[name_col]
         if "current_district_id" not in df.columns and "district_id" in df.columns:
@@ -228,7 +234,6 @@ class CapacityService:
         if "current_district_name" not in df.columns and "district_name" in df.columns:
             df["current_district_name"] = df["district_name"]
 
-        # If cap_df is available, merge missing fields from cap_df
         if cap_df is not None:
             missing_cols = [c for c in cap_df.columns if c not in df.columns and c != "mandal_id"]
             if missing_cols and "mandal_id" in df.columns and "mandal_id" in cap_df.columns:
@@ -256,7 +261,6 @@ class CapacityService:
                 df.get("shelter_count", 0) > 0, "MODERATE DESIGNATED COVERAGE", "NO_DESIGNATED_SHELTERS"
             )
 
-        # Health adequacy - check if string like 'DEFICIT' or float
         if "health_adequacy" in df.columns and df["health_adequacy"].dtype == object:
             df["health_adequacy"] = np.where(df["health_adequacy"].str.upper() == "DEFICIT", 0.3, 0.7)
         elif "health_adequacy" not in df.columns:
@@ -307,11 +311,10 @@ class CapacityService:
 
     def _normalize_bottlenecks_df(self, df: pd.DataFrame, adeq_df: pd.DataFrame) -> pd.DataFrame:
         df = df.copy()
-        # ID aliases
-        for id_col in ["circle_id", "block_id", "tehsil_id", "taluk_id", "subdivision_id"]:
+        for id_col in ["circle_id", "block_id", "tehsil_id", "taluk_id", "taluka_id", "subdivision_id"]:
             if "mandal_id" not in df.columns and id_col in df.columns:
                 df["mandal_id"] = df[id_col]
-        for name_col in ["circle_name", "block_name", "tehsil_name", "taluk_name", "subdivision_name"]:
+        for name_col in ["circle_name", "block_name", "tehsil_name", "taluk_name", "taluka_name", "subdivision_name"]:
             if "mandal_name" not in df.columns and name_col in df.columns:
                 df["mandal_name"] = df[name_col]
         if "current_district_id" not in df.columns and "district_id" in df.columns:
@@ -366,9 +369,11 @@ class CapacityService:
         district_id: Optional[str] = None,
         has_shelters: Optional[bool] = None,
         shelter_status: Optional[str] = None,
-        state_id: Optional[str] = "andhra_pradesh"
+        state_id: Optional[str] = None,
+        state: Optional[str] = None,
     ) -> MandalCapacityListResponse:
-        data = self._load_data(state_id)
+        target_state = state_id or state or "andhra_pradesh"
+        data = self._load_data(target_state)
         df = data["cap_df"].copy()
 
         if district_id:
@@ -385,41 +390,87 @@ class CapacityService:
         items = [MandalCapacityItem(**row) for row in records]
         return MandalCapacityListResponse(total_mandals=len(items), items=items)
 
-    def get_mandal_detail(self, mandal_id: str, state_id: Optional[str] = "andhra_pradesh") -> Optional[MandalCapacityItem]:
+    def get_mandal_detail(
+        self,
+        mandal_id: str,
+        state_id: Optional[str] = None,
+        state: Optional[str] = None,
+    ) -> Optional[MandalCapacityItem]:
         target = mandal_id.strip().upper()
         if target.startswith("MZ_"):
             detected_state = "mizoram"
         elif target.startswith("TN_"):
             detected_state = "tamil_nadu"
+        elif target.startswith("HP_"):
+            detected_state = "himachal_pradesh"
+        elif target.startswith("UP_"):
+            detected_state = "uttar_pradesh"
+        elif target.startswith("UK_"):
+            detected_state = "uttarakhand"
+        elif target.startswith("SK_"):
+            detected_state = "sikkim"
+        elif target.startswith("AR_"):
+            detected_state = "arunachal_pradesh"
+        elif target.startswith("NL_"):
+            detected_state = "nagaland"
+        elif target.startswith("ML_"):
+            detected_state = "meghalaya"
+        elif target.startswith("GJ_"):
+            detected_state = "gujarat"
+        elif target.startswith("KL_"):
+            detected_state = "kerala"
+        elif target.startswith("MH_"):
+            detected_state = "maharashtra"
+        elif target.startswith("HR_"):
+            detected_state = "haryana"
+        elif target.startswith("PB_"):
+            detected_state = "punjab"
+        elif target.startswith("CG_"):
+            detected_state = "chhattisgarh"
         else:
-            detected_state = state_id
+            detected_state = state_id or state or "andhra_pradesh"
 
         data = self._load_data(detected_state)
         df = data["cap_df"]
 
         match = df[
-            (df["mandal_id"] == target) |
-            (df["mandal_name"].str.upper() == target)
+            (df["mandal_id"].astype(str).str.upper() == target) |
+            (df["mandal_name"].astype(str).str.upper() == target)
         ]
-        if match.empty and detected_state != "tamil_nadu" and detected_state != "mizoram":
-            tn_data = self._load_data("tamil_nadu")
-            match = tn_data["cap_df"][
-                (tn_data["cap_df"]["mandal_id"] == target) |
-                (tn_data["cap_df"]["mandal_name"].str.upper() == target)
+        if match.empty and "taluka_id" in df.columns:
+            match = df[
+                (df["taluka_id"].astype(str).str.upper() == target) |
+                (df["taluka_name"].astype(str).str.upper() == target)
             ]
-        if match.empty and detected_state != "mizoram":
-            mz_data = self._load_data("mizoram")
-            match = mz_data["cap_df"][
-                (mz_data["cap_df"]["mandal_id"] == target) |
-                (mz_data["cap_df"]["mandal_name"].str.upper() == target)
+        if match.empty:
+            all_states = [
+                "andhra_pradesh", "assam", "bihar", "tamil_nadu", "west_bengal", "odisha",
+                "uttar_pradesh", "uttarakhand", "sikkim", "arunachal_pradesh", "nagaland",
+                "meghalaya", "gujarat", "kerala", "maharashtra", "haryana", "punjab", "chhattisgarh",
+                "mizoram", "himachal_pradesh"
             ]
+            for s in all_states:
+                if s == detected_state:
+                    continue
+                s_data = self._load_data(s)
+                match = s_data["cap_df"][
+                    (s_data["cap_df"]["mandal_id"].astype(str).str.upper() == target) |
+                    (s_data["cap_df"]["mandal_name"].astype(str).str.upper() == target)
+                ]
+                if not match.empty:
+                    break
         if match.empty:
             return None
         row_dict = match.iloc[0].replace({np.nan: None}).to_dict()
         return MandalCapacityItem(**row_dict)
 
-    def get_summary(self, state_id: Optional[str] = "andhra_pradesh") -> CapacitySummaryResponse:
-        data = self._load_data(state_id)
+    def get_summary(
+        self,
+        state_id: Optional[str] = None,
+        state: Optional[str] = None,
+    ) -> CapacitySummaryResponse:
+        target_state = state_id or state or "andhra_pradesh"
+        data = self._load_data(target_state)
         df = data["cap_df"]
 
         total_shelters = int(df["shelter_count"].sum())
@@ -479,9 +530,11 @@ class CapacityService:
         capacity_condition: Optional[str] = None,
         primary_bottleneck: Optional[str] = None,
         is_host_candidate: Optional[bool] = None,
-        state_id: Optional[str] = "andhra_pradesh"
+        state_id: Optional[str] = None,
+        state: Optional[str] = None,
     ) -> MandalCapacityAdequacyListResponse:
-        data = self._load_data(state_id)
+        target_state = state_id or state or "andhra_pradesh"
+        data = self._load_data(target_state)
         df = data["adequacy_df"].copy() if data["adequacy_df"] is not None else data["cap_df"].copy()
 
         if district_id:
@@ -503,7 +556,12 @@ class CapacityService:
 
     get_all_adequacy_mandals = get_adequacy_mandals
 
-    def get_mandal_adequacy_detail(self, mandal_id: str, state_id: Optional[str] = "andhra_pradesh") -> Optional[MandalCapacityAdequacyItem]:
+    def get_mandal_adequacy_detail(
+        self,
+        mandal_id: str,
+        state_id: Optional[str] = None,
+        state: Optional[str] = None,
+    ) -> Optional[MandalCapacityAdequacyItem]:
         target = mandal_id.strip().upper()
         if target.startswith("WB_"):
             detected_state = "west_bengal"
@@ -525,25 +583,47 @@ class CapacityService:
             detected_state = "nagaland"
         elif target.startswith("ML_"):
             detected_state = "meghalaya"
+        elif target.startswith("GJ_"):
+            detected_state = "gujarat"
+        elif target.startswith("KL_"):
+            detected_state = "kerala"
+        elif target.startswith("MH_"):
+            detected_state = "maharashtra"
+        elif target.startswith("HR_"):
+            detected_state = "haryana"
+        elif target.startswith("PB_"):
+            detected_state = "punjab"
+        elif target.startswith("CG_"):
+            detected_state = "chhattisgarh"
         else:
-            detected_state = state_id
+            detected_state = state_id or state or "andhra_pradesh"
 
         data = self._load_data(detected_state)
         df = data["adequacy_df"] if data["adequacy_df"] is not None else data["cap_df"]
 
         match = df[
-            (df["mandal_id"] == target) |
-            (df["mandal_name"].str.upper() == target)
+            (df["mandal_id"].astype(str).str.upper() == target) |
+            (df["mandal_name"].astype(str).str.upper() == target)
         ]
+        if match.empty and "taluka_id" in df.columns:
+            match = df[
+                (df["taluka_id"].astype(str).str.upper() == target) |
+                (df["taluka_name"].astype(str).str.upper() == target)
+            ]
         if match.empty:
-            for s in ["andhra_pradesh", "assam", "bihar", "tamil_nadu", "west_bengal", "odisha", "uttar_pradesh", "uttarakhand", "sikkim", "arunachal_pradesh", "nagaland", "meghalaya"]:
+            all_states = [
+                "andhra_pradesh", "assam", "bihar", "tamil_nadu", "west_bengal", "odisha",
+                "uttar_pradesh", "uttarakhand", "sikkim", "arunachal_pradesh", "nagaland",
+                "meghalaya", "gujarat", "kerala", "maharashtra", "haryana", "punjab", "chhattisgarh"
+            ]
+            for s in all_states:
                 if s == detected_state:
                     continue
                 s_data = self._load_data(s)
                 s_df = s_data["adequacy_df"] if s_data["adequacy_df"] is not None else s_data["cap_df"]
                 match = s_df[
-                    (s_df["mandal_id"] == target) |
-                    (s_df["mandal_name"].str.upper() == target)
+                    (s_df["mandal_id"].astype(str).str.upper() == target) |
+                    (s_df["mandal_name"].astype(str).str.upper() == target)
                 ]
                 if not match.empty:
                     break
@@ -555,8 +635,13 @@ class CapacityService:
 
     get_adequacy_mandal_detail = get_mandal_adequacy_detail
 
-    def get_adequacy_summary(self, state_id: Optional[str] = "andhra_pradesh") -> CapacityAdequacySummaryResponse:
-        data = self._load_data(state_id)
+    def get_adequacy_summary(
+        self,
+        state_id: Optional[str] = None,
+        state: Optional[str] = None,
+    ) -> CapacityAdequacySummaryResponse:
+        target_state = state_id or state or "andhra_pradesh"
+        data = self._load_data(target_state)
         df = data["adequacy_df"] if data["adequacy_df"] is not None else data["cap_df"]
 
         cond_counts = df["capacity_condition"].value_counts().to_dict()
@@ -578,9 +663,11 @@ class CapacityService:
         self,
         district_id: Optional[str] = None,
         primary_bottleneck: Optional[str] = None,
-        state_id: Optional[str] = "andhra_pradesh"
+        state_id: Optional[str] = None,
+        state: Optional[str] = None,
     ) -> MandalBottlenecksListResponse:
-        data = self._load_data(state_id)
+        target_state = state_id or state or "andhra_pradesh"
+        data = self._load_data(target_state)
         df = data["bottlenecks_df"].copy() if data["bottlenecks_df"] is not None else data["cap_df"].copy()
 
         if district_id:
@@ -592,7 +679,12 @@ class CapacityService:
         items = [MandalBottleneckItem(**row) for row in records]
         return MandalBottlenecksListResponse(total_mandals=len(items), items=items)
 
-    def get_host_zones(self, mandal_id: str, state_id: Optional[str] = "andhra_pradesh") -> HostZoneCandidateListResponse:
+    def get_host_zones(
+        self,
+        mandal_id: str,
+        state_id: Optional[str] = None,
+        state: Optional[str] = None,
+    ) -> HostZoneCandidateListResponse:
         target = mandal_id.strip().upper()
         if target.startswith("WB_"):
             detected_state = "west_bengal"
@@ -614,8 +706,20 @@ class CapacityService:
             detected_state = "nagaland"
         elif target.startswith("ML_"):
             detected_state = "meghalaya"
+        elif target.startswith("GJ_"):
+            detected_state = "gujarat"
+        elif target.startswith("KL_"):
+            detected_state = "kerala"
+        elif target.startswith("MH_"):
+            detected_state = "maharashtra"
+        elif target.startswith("HR_"):
+            detected_state = "haryana"
+        elif target.startswith("PB_"):
+            detected_state = "punjab"
+        elif target.startswith("CG_"):
+            detected_state = "chhattisgarh"
         else:
-            detected_state = state_id
+            detected_state = state_id or state or "andhra_pradesh"
 
         data = self._load_data(detected_state)
         host_df = data["host_df"]
@@ -624,24 +728,29 @@ class CapacityService:
             match = host_df.drop_duplicates(subset=["candidate_mandal_id"]) if host_df is not None else pd.DataFrame()
         else:
             match = host_df[
-                (host_df["source_mandal_id"] == target) |
-                (host_df["source_mandal_name"].str.upper() == target)
-            ] if host_df is not None else pd.DataFrame()
+                (host_df["source_mandal_id"].astype(str).str.upper() == target) |
+                (host_df["source_mandal_name"].astype(str).str.upper() == target)
+            ] if host_df is not None and not host_df.empty else pd.DataFrame()
 
             if match.empty:
-                for s in ["andhra_pradesh", "assam", "bihar", "tamil_nadu", "west_bengal", "odisha", "uttar_pradesh", "uttarakhand", "sikkim", "arunachal_pradesh", "nagaland", "meghalaya"]:
+                all_states = [
+                    "andhra_pradesh", "assam", "bihar", "tamil_nadu", "west_bengal", "odisha",
+                    "uttar_pradesh", "uttarakhand", "sikkim", "arunachal_pradesh", "nagaland",
+                    "meghalaya", "gujarat", "kerala", "maharashtra", "haryana", "punjab", "chhattisgarh"
+                ]
+                for s in all_states:
                     if s == detected_state:
                         continue
                     s_data = self._load_data(s)
-                    if s_data["host_df"] is not None:
+                    if s_data["host_df"] is not None and not s_data["host_df"].empty:
                         match = s_data["host_df"][
-                            (s_data["host_df"]["source_mandal_id"] == target) |
-                            (s_data["host_df"]["source_mandal_name"].str.upper() == target)
+                            (s_data["host_df"]["source_mandal_id"].astype(str).str.upper() == target) |
+                            (s_data["host_df"]["source_mandal_name"].astype(str).str.upper() == target)
                         ]
                         if not match.empty:
                             break
 
-        records = match.replace({np.nan: None}).to_dict(orient="records")
+        records = match.replace({np.nan: None}).to_dict(orient="records") if not match.empty else []
         items = [HostZoneCandidateItem(**row) for row in records]
         return HostZoneCandidateListResponse(
             source_mandal_id=target,
@@ -650,8 +759,16 @@ class CapacityService:
             governance_disclaimer="CANDIDATE HOST ZONE — HUMAN REVIEW REQUIRED. Distances computed in EPSG:7755 (India Albers Equal Area). Screened candidate zones satisfy low hazard, low vulnerability, and safe headroom criteria. This information provides decision support for district planning authorities and is NOT an automated relocation order."
         )
 
-    def get_geojson(self, district_id: Optional[str] = None, state_id: Optional[str] = "andhra_pradesh") -> Dict[str, Any]:
-        data = self._load_data(state_id)
+    get_host_zones_for_mandal = get_host_zones
+
+    def get_geojson(
+        self,
+        district_id: Optional[str] = None,
+        state_id: Optional[str] = None,
+        state: Optional[str] = None,
+    ) -> Dict[str, Any]:
+        target_state = state_id or state or "andhra_pradesh"
+        data = self._load_data(target_state)
         if data["cap_geojson"] is None:
             geojson_path = data["cap_geojson_path"]
             with open(geojson_path, "r", encoding="utf-8") as f:
@@ -761,8 +878,14 @@ class CapacityService:
         items = [MandalBottleneckItem(**row) for row in records]
         return MandalBottlenecksListResponse(total_mandals=len(items), items=items)
 
-    def get_adequacy_geojson(self, district_id: Optional[str] = None, state_id: Optional[str] = "andhra_pradesh") -> Dict[str, Any]:
-        data = self._load_data(state_id)
+    def get_adequacy_geojson(
+        self,
+        district_id: Optional[str] = None,
+        state_id: Optional[str] = None,
+        state: Optional[str] = None,
+    ) -> Dict[str, Any]:
+        target_state = state_id or state or "andhra_pradesh"
+        data = self._load_data(target_state)
         if data["adequacy_geojson"] is None:
             geojson_path = data["adequacy_geojson_path"]
             with open(geojson_path, "r", encoding="utf-8") as f:

@@ -24,9 +24,9 @@ PRESETS = [
     SimulationPresetItem(
         preset_id="baseline",
         preset_name="Baseline Planning State",
-        description="Official Phase 4 baseline conditions with zero parameter perturbation.",
+        description="Official baseline conditions with zero parameter perturbation.",
         parameters=SimulationParameters(hazard_change=0.0, population_change=0.0, capacity_change=0.0, accessibility_change=0.0),
-        disclaimer="Standard Phase 4 baseline state."
+        disclaimer="Standard baseline state."
     ),
     SimulationPresetItem(
         preset_id="severe_hazard",
@@ -63,6 +63,12 @@ def is_mizoram(state_id: Optional[str]) -> bool:
 def is_hp(state_id: Optional[str]) -> bool:
     return get_state_key(state_id) == "himachal_pradesh"
 
+def is_tn(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["tamil_nadu", "tn", "tamilnadu"]
+
 class SimulationService:
     def __init__(self):
         self._cache: Dict[str, Dict[str, Any]] = {}
@@ -81,6 +87,18 @@ class SimulationService:
         if not master_csv or not master_csv.exists():
             raise FileNotFoundError(f"Relocation priority dataset not found at {master_csv}")
         master_df = pd.read_csv(master_csv)
+
+        # Standardize ID and Name columns
+        for id_col in ["circle_id", "block_id", "tehsil_id", "taluk_id", "taluka_id", "subdivision_id"]:
+            if "mandal_id" not in master_df.columns and id_col in master_df.columns:
+                master_df["mandal_id"] = master_df[id_col]
+        for name_col in ["circle_name", "block_name", "tehsil_name", "taluk_name", "taluka_name", "subdivision_name"]:
+            if "mandal_name" not in master_df.columns and name_col in master_df.columns:
+                master_df["mandal_name"] = master_df[name_col]
+        if "current_district_id" not in master_df.columns and "district_id" in master_df.columns:
+            master_df["current_district_id"] = master_df["district_id"]
+        if "current_district_name" not in master_df.columns and "district_name" in master_df.columns:
+            master_df["current_district_name"] = master_df["district_name"]
 
         valid_df = master_df[master_df["ranking_status"] != "INSUFFICIENT_DATA"]
         X_base = valid_df[['c1_hazard_exposure', 'c2_demographic_sensitivity', 'c3_capacity_stress', 'c4_accessibility_constraint']].values
@@ -103,8 +121,14 @@ class SimulationService:
     def get_presets(self) -> SimulationPresetsResponse:
         return SimulationPresetsResponse(presets=PRESETS)
 
-    def run_simulation(self, params: SimulationParameters, state_id: Optional[str] = "andhra_pradesh") -> SimulationRunResponse:
-        state_data = self._load_data(state_id)
+    def run_simulation(
+        self,
+        params: SimulationParameters,
+        state_id: Optional[str] = None,
+        state: Optional[str] = None,
+    ) -> SimulationRunResponse:
+        target_state = state_id or state or "andhra_pradesh"
+        state_data = self._load_data(target_state)
         df = state_data["master_df"].copy()
         norm_denom_base = state_data["norm_denom_base"]
         a_plus_base = state_data["a_plus_base"]
@@ -126,16 +150,9 @@ class SimulationService:
         c_base = df_valid["c3_capacity_stress"].values
         e_base = df_valid["c4_accessibility_constraint"].values
 
-        # Hazard: clipped multiplier
         h_scen = np.clip(h_base * (1.0 + params.hazard_change), 0.0, 1.0)
-
-        # Demography: baseline preserved (societal composition does not shift linearly)
         d_scen = d_base
-
-        # Capacity Stress: modified by capacity_change and population pressure load
         c_scen = np.clip(c_base * (1.0 + params.capacity_change + 0.5 * params.population_change), 0.0, 1.0)
-
-        # Accessibility Constraint: inverted (negative accessibility change increases constraint)
         e_scen = np.clip(e_base * (1.0 - params.accessibility_change), 0.0, 1.0)
 
         # 2. TOPSIS Recalculation Engine
@@ -290,20 +307,19 @@ class SimulationService:
             df_insufficient["rank_change"] = np.nan
             df_insufficient["category_change"] = "NO_CHANGE"
             df_insufficient["change_direction"] = "UNCHANGED"
-            df_insufficient["scenario_c1_hazard"] = df_insufficient["c1_hazard_exposure"].fillna(0.0)
+            df_insufficient["scenario_c1_hazard"] = df_insufficient.get("c1_hazard_exposure", pd.Series([0.0]*len(df_insufficient))).fillna(0.0)
             df_insufficient["scenario_c2_demography"] = 0.0
             df_insufficient["scenario_c3_capacity"] = 0.0
-            df_insufficient["scenario_c4_accessibility"] = df_insufficient["c4_accessibility_constraint"].fillna(0.0)
+            df_insufficient["scenario_c4_accessibility"] = df_insufficient.get("c4_accessibility_constraint", pd.Series([0.0]*len(df_insufficient))).fillna(0.0)
             df_insufficient["factor_contrib_hazard_pct"] = 0.0
             df_insufficient["factor_contrib_demographic_pct"] = 0.0
             df_insufficient["factor_contrib_capacity_pct"] = 0.0
             df_insufficient["factor_contrib_accessibility_pct"] = 0.0
             df_insufficient["scenario_explanation"] = "Insufficient population data to evaluate scenario sensitivity."
+            df_combined = pd.concat([df_valid, df_insufficient], ignore_index=True)
+        else:
+            df_combined = df_valid
 
-        # Combine
-        df_combined = pd.concat([df_valid, df_insufficient], ignore_index=True)
-
-        # 6. Summary Metrics Computation
         base_cat_dist = df["relocation_priority_category"].value_counts().to_dict()
         scen_cat_dist = df_combined["scenario_category"].value_counts().to_dict()
 
@@ -431,10 +447,16 @@ class SimulationService:
             top_10_increased_priority=top_inc,
             top_10_decreased_priority=top_dec,
             mandals=items,
-            governance_disclaimer="SCENARIO SIMULATION — NOT A DISASTER FORECAST. All outputs represent deterministic mathematical sensitivity recalculations (AHP+TOPSIS) over precomputed baseline indicators. Results serve strictly as decision support for disaster management authorities and do not constitute government relocation orders or emergency evacuation directives."
+            governance_disclaimer="SCENARIO SIMULATION — NOT A DISASTER FORECAST. All outputs represent deterministic mathematical sensitivity recalculations (AHP+TOPSIS) over precomputed baseline indicators."
         )
 
-    def get_mandal_simulation(self, mandal_id: str, params: SimulationParameters, state_id: Optional[str] = "andhra_pradesh") -> Optional[MandalSimulationComparisonItem]:
+    def get_mandal_simulation(
+        self,
+        mandal_id: str,
+        params: SimulationParameters,
+        state_id: Optional[str] = None,
+        state: Optional[str] = None,
+    ) -> Optional[MandalSimulationComparisonItem]:
         target = mandal_id.strip().upper()
         if target.startswith("BR_"):
             detected_state = "bihar"
@@ -458,15 +480,32 @@ class SimulationService:
             detected_state = "nagaland"
         elif target.startswith("ML_"):
             detected_state = "meghalaya"
+        elif target.startswith("GJ_"):
+            detected_state = "gujarat"
+        elif target.startswith("KL_"):
+            detected_state = "kerala"
+        elif target.startswith("MH_"):
+            detected_state = "maharashtra"
+        elif target.startswith("HR_"):
+            detected_state = "haryana"
+        elif target.startswith("PB_"):
+            detected_state = "punjab"
+        elif target.startswith("CG_"):
+            detected_state = "chhattisgarh"
         else:
-            detected_state = state_id
+            detected_state = state_id or state or "andhra_pradesh"
 
         run_res = self.run_simulation(params, state_id=detected_state)
         for item in run_res.mandals:
             if item.mandal_id.upper() == target or item.mandal_name.upper() == target:
                 return item
 
-        for s in ["andhra_pradesh", "assam", "tamil_nadu", "west_bengal", "bihar", "odisha", "uttar_pradesh", "uttarakhand", "sikkim", "arunachal_pradesh", "nagaland", "meghalaya"]:
+        all_states = [
+            "andhra_pradesh", "assam", "tamil_nadu", "west_bengal", "bihar", "odisha",
+            "uttar_pradesh", "uttarakhand", "sikkim", "arunachal_pradesh", "nagaland",
+            "meghalaya", "gujarat", "kerala", "maharashtra", "haryana", "punjab", "chhattisgarh"
+        ]
+        for s in all_states:
             if s == detected_state:
                 continue
             run_res_s = self.run_simulation(params, state_id=s)
@@ -474,6 +513,5 @@ class SimulationService:
                 if item.mandal_id.upper() == target or item.mandal_name.upper() == target:
                     return item
         return None
-
 
 simulation_service = SimulationService()

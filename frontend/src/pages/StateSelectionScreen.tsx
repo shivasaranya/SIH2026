@@ -43,7 +43,13 @@ const OPERATIONAL_STATES_SET = new Set([
   'sikkim',
   'arunachal pradesh',
   'nagaland',
-  'meghalaya'
+  'meghalaya',
+  'gujarat',
+  'kerala',
+  'maharashtra',
+  'haryana',
+  'punjab',
+  'chhattisgarh'
 ]);
 
 const resolveStateProps = (rawProps?: StateFeatureProperties) => {

@@ -32,6 +32,21 @@ class HazardService:
 
         df = pd.read_csv(csv_path)
 
+        df = pd.read_csv(csv_path)
+
+        # Standardize column naming if needed
+        if "mandal_id" not in df.columns:
+            for cand in ["taluka_id", "block_id", "circle_id", "tehsil_id", "subdivision_id"]:
+                if cand in df.columns:
+                    df["mandal_id"] = df[cand]
+                    break
+
+        if "mandal_name" not in df.columns:
+            for cand in ["taluka_name", "block_name", "circle_name", "tehsil_name", "subdivision_name"]:
+                if cand in df.columns:
+                    df["mandal_name"] = df[cand]
+                    break
+
         data = {
             "exposure_df": df,
             "geojson_path": geojson_path,
@@ -41,8 +56,8 @@ class HazardService:
         self._cache[key] = data
         return data
 
-    def get_all_mandals(self, district_id: Optional[str] = None, state_id: Optional[str] = "andhra_pradesh") -> MandalExposureListResponse:
-        data = self._load_data(state_id)
+    def get_all_mandals(self, district_id: Optional[str] = None, state_id: Optional[str] = None, state: Optional[str] = None) -> MandalExposureListResponse:
+        data = self._load_data(state_id or state or "andhra_pradesh")
         df = data["exposure_df"]
 
         if district_id:
@@ -73,7 +88,7 @@ class HazardService:
 
         return MandalExposureListResponse(total_mandals=len(items), items=items)
 
-    def get_mandal_detail(self, mandal_id: str, state_id: Optional[str] = "andhra_pradesh") -> Optional[MandalHazardExposureItem]:
+    def get_mandal_detail(self, mandal_id: str, state_id: Optional[str] = None, state: Optional[str] = None) -> Optional[MandalHazardExposureItem]:
         target = mandal_id.strip().upper()
         # Find which state this unit belongs to
         detected_state = state_id
@@ -109,6 +124,18 @@ class HazardService:
                     break
 
         if match.empty:
+            for s in ["andhra_pradesh", "assam", "tamil_nadu", "bihar", "west_bengal", "odisha", "uttar_pradesh", "uttarakhand", "sikkim", "arunachal_pradesh", "nagaland", "meghalaya", "gujarat", "kerala", "maharashtra", "haryana", "punjab", "chhattisgarh", "mizoram", "himachal_pradesh"]:
+                if s == detected_state:
+                    continue
+                s_data = self._load_data(s)
+                s_df = s_data["exposure_df"]
+                match = s_df[
+                    (s_df["mandal_id"].astype(str).str.upper() == target) |
+                    (s_df["mandal_name"].astype(str).str.upper() == target)
+                ]
+                if not match.empty:
+                    break
+        if match.empty:
             return None
 
         row = match.iloc[0].to_dict()
@@ -128,8 +155,8 @@ class HazardService:
 
         return MandalHazardExposureItem(**clean_row)
 
-    def get_summary(self, state_id: Optional[str] = "andhra_pradesh") -> HazardSummaryResponse:
-        data = self._load_data(state_id)
+    def get_summary(self, state_id: Optional[str] = None, state: Optional[str] = None) -> HazardSummaryResponse:
+        data = self._load_data(state_id or state or "andhra_pradesh")
         df = data["exposure_df"]
 
         idx_col = "multi_hazard_exposure_index" if "multi_hazard_exposure_index" in df.columns else ("c1_hazard_exposure" if "c1_hazard_exposure" in df.columns else "composite_hazard_score")
@@ -168,8 +195,8 @@ class HazardService:
             methodology_note="Calculated using verified open hazard datasets: JRC Global Surface Water 30m, NOAA IBTrACS Bay of Bengal tracks, BMTPC IS 875 wind speeds, and CGIAR SRTM 90m slope."
         )
 
-    def get_geojson(self, district_id: Optional[str] = None, state_id: Optional[str] = "andhra_pradesh") -> Dict[str, Any]:
-        data = self._load_data(state_id)
+    def get_geojson(self, district_id: Optional[str] = None, state_id: Optional[str] = None, state: Optional[str] = None) -> Dict[str, Any]:
+        data = self._load_data(state_id or state or "andhra_pradesh")
         if data["geojson"] is None:
             geojson_path = data["geojson_path"]
             if not geojson_path or not geojson_path.exists():

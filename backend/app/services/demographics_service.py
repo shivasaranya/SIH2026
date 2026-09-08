@@ -62,6 +62,7 @@ MANDAL_ALIASES = {
     ("tirupati", "TADA"): "TADA",
 }
 
+
 class DemographicsService:
     def __init__(self):
         self._cache: Dict[str, Dict[str, Any]] = {}
@@ -109,6 +110,33 @@ class DemographicsService:
                 m_code_col, m_name_col = "taluk_id", "taluk_name"
             else:
                 m_code_col, m_name_col = "mandal_code", "mandal_name"
+
+        # Standardize column naming if needed
+        if code_col not in df.columns:
+            if "current_district_id" in df.columns:
+                code_col = "current_district_id"
+            elif "current_district_code" in df.columns:
+                code_col = "current_district_code"
+            elif "district_id" in df.columns:
+                code_col = "district_id"
+
+        if name_col not in df.columns:
+            if "current_district_name" in df.columns:
+                name_col = "current_district_name"
+            elif "district_name" in df.columns:
+                name_col = "district_name"
+
+        if m_name_col not in df.columns:
+            for cand in ["mandal_name", "taluka_name", "block_name", "circle_name", "tehsil_name", "subdivision_name"]:
+                if cand in df.columns:
+                    m_name_col = cand
+                    break
+
+        if m_code_col not in df.columns:
+            for cand in ["mandal_id", "taluka_id", "block_id", "circle_id", "tehsil_id", "subdivision_id", "mandal_code"]:
+                if cand in df.columns:
+                    m_code_col = cand
+                    break
 
         STATE_VILLAGE_BENCHMARKS = {
             "andhra_pradesh": 17039,
@@ -181,7 +209,7 @@ class DemographicsService:
                 mandal_list.append(MandalDemographicSummary(
                     mandal_code=str(mid),
                     mandal_name=str(mname),
-                    current_district_id=str(did),
+                    current_district_id=str(did).lower(),
                     current_district_name=str(dname),
                     total_population=mpop,
                     total_households=mhh,
@@ -198,7 +226,7 @@ class DemographicsService:
             villages = int(len(grp)) if key == "andhra_pradesh" else sum(m.village_count for m in mandal_list)
 
             d_summary = DistrictDemographicSummary(
-                district_id=str(did),
+                district_id=str(did).lower(),
                 district_name=str(dname),
                 total_population=pop,
                 total_households=hh,
@@ -212,16 +240,22 @@ class DemographicsService:
                 village_count=villages,
                 mandal_count=mandals,
                 data_year=2011,
-                data_source="Census of India 2011 Primary Census Abstract"
+                data_source=f"Census of India 2011 Primary Census Abstract ({state_name})"
             )
             district_list.append(d_summary)
             district_summaries[str(did)] = d_summary
+            district_summaries[str(did).lower()] = d_summary
 
             mandal_list.sort(key=lambda x: x.total_population, reverse=True)
-            district_details[str(did)] = DistrictDetailResponse(
+            d_detail = DistrictDetailResponse(
                 district=d_summary,
                 mandals=mandal_list
             )
+            district_details[str(did)] = d_detail
+            district_details[str(did).lower()] = d_detail
+            district_details[str(dname).lower()] = d_detail
+
+        district_list.sort(key=lambda x: x.district_name)
 
         tot_pop = int(df[pop_col].sum()) if pop_col in df.columns else 0
         tot_hh = int(df[hh_col].sum()) if hh_col in df.columns else int(tot_pop / 4.5)
@@ -235,7 +269,7 @@ class DemographicsService:
             state_name=state_name,
             state_code=state_code,
             data_year=2011,
-            data_source="Census of India 2011 Primary Census Abstract",
+            data_source=f"Census of India 2011 Primary Census Abstract ({state_name})",
             total_population=tot_pop,
             total_households=tot_hh,
             total_children_0_6=tot_p06,
@@ -247,8 +281,8 @@ class DemographicsService:
             total_workers=tot_work,
             total_villages=tot_villages,
             total_districts=len(district_list),
-            total_mandals=int(df[m_code_col].nunique()),
-            districts=sorted(district_list, key=lambda x: x.district_name)
+            total_mandals=int(df[m_code_col].nunique()) if m_code_col in df.columns else len(df),
+            districts=district_list
         )
 
         data = {
@@ -260,12 +294,12 @@ class DemographicsService:
         self._cache[key] = data
         return data
 
-    def get_state_summary(self, state_id: Optional[str] = "andhra_pradesh") -> StateDemographicSummary:
-        data = self._load_data(state_id)
+    def get_state_summary(self, state_id: Optional[str] = None, state: Optional[str] = None) -> StateDemographicSummary:
+        data = self._load_data(state_id or state or "andhra_pradesh")
         return data["state_summary"]
 
-    def get_district_detail(self, district_id: str, state_id: Optional[str] = "andhra_pradesh") -> Optional[DistrictDetailResponse]:
-        data = self._load_data(state_id)
+    def get_district_detail(self, district_id: str, state_id: Optional[str] = None, state: Optional[str] = None) -> Optional[DistrictDetailResponse]:
+        data = self._load_data(state_id or state or "andhra_pradesh")
         did = district_id.strip().lower()
         if did in data["district_details"]:
             return data["district_details"][did]
@@ -273,6 +307,8 @@ class DemographicsService:
             if v.district.district_name.lower() == did or k.lower() == did:
                 return v
         return None
+
+    get_district_summary = get_district_detail
 
     def _init_ap_village_data(self) -> None:
         if self._village_df is None:

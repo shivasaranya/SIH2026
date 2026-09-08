@@ -30,6 +30,12 @@ def is_mizoram(state_id: Optional[str]) -> bool:
 def is_hp(state_id: Optional[str]) -> bool:
     return get_state_key(state_id) == "himachal_pradesh"
 
+def is_tn(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["tamil_nadu", "tn", "tamilnadu"]
+
 class RelocationService:
     def __init__(self):
         self._cache: Dict[str, Dict[str, Any]] = {}
@@ -57,6 +63,28 @@ class RelocationService:
             raise FileNotFoundError(f"Relocation priority dataset not found at {master_csv}")
             raise FileNotFoundError(f"Relocation priority dataset not found at {master_csv}")
 
+        reloc_df = pd.read_csv(master_csv)
+        # Ensure standard ID and name columns
+        for id_col in ["circle_id", "block_id", "tehsil_id", "taluk_id", "taluka_id", "subdivision_id"]:
+            if "mandal_id" not in reloc_df.columns and id_col in reloc_df.columns:
+                reloc_df["mandal_id"] = reloc_df[id_col]
+        for name_col in ["circle_name", "block_name", "tehsil_name", "taluk_name", "taluka_name", "subdivision_name"]:
+            if "mandal_name" not in reloc_df.columns and name_col in reloc_df.columns:
+                reloc_df["mandal_name"] = reloc_df[name_col]
+        if "current_district_id" not in reloc_df.columns and "district_id" in reloc_df.columns:
+            reloc_df["current_district_id"] = reloc_df["district_id"]
+        if "current_district_name" not in reloc_df.columns and "district_name" in reloc_df.columns:
+            reloc_df["current_district_name"] = reloc_df["district_name"]
+
+        factors_df = pd.read_csv(factors_csv) if factors_csv.exists() else None
+        if factors_df is not None:
+            for id_col in ["circle_id", "block_id", "tehsil_id", "taluk_id", "taluka_id", "subdivision_id"]:
+                if "mandal_id" not in factors_df.columns and id_col in factors_df.columns:
+                    factors_df["mandal_id"] = factors_df[id_col]
+            for name_col in ["circle_name", "block_name", "tehsil_name", "taluk_name", "taluka_name", "subdivision_name"]:
+                if "mandal_name" not in factors_df.columns and name_col in factors_df.columns:
+                    factors_df["mandal_name"] = factors_df[name_col]
+
         # Build centroids and spatial adjacency index if GeoJSON exists
         centroids_7755: Dict[str, Any] = {}
         adj_map: Dict[str, List[str]] = {}
@@ -77,11 +105,12 @@ class RelocationService:
             except Exception as ex:
                 pass
 
+
         data = {
-            "reloc_df": pd.read_csv(master_csv),
-            "factors_df": pd.read_csv(factors_csv) if factors_csv.exists() else None,
+            "reloc_df": reloc_df,
+            "factors_df": factors_df,
             "ahp_df": pd.read_csv(ahp_csv) if ahp_csv.exists() else None,
-            "summary_df": pd.read_csv(sum_csv) if sum_csv.exists() else None,
+            "summary_df": pd.read_csv(sum_csv) if sum_csv and sum_csv.exists() else None,
             "host_df": pd.read_csv(host_csv) if host_csv.exists() else None,
             "cap_df": pd.read_csv(cap_csv) if cap_csv.exists() else None,
             "geojson_path": geojson_path,
@@ -98,9 +127,11 @@ class RelocationService:
         priority_category: Optional[str] = None,
         ranking_status: Optional[str] = None,
         primary_factor: Optional[str] = None,
-        state_id: Optional[str] = "andhra_pradesh"
+        state_id: Optional[str] = None,
+        state: Optional[str] = None,
     ) -> MandalRelocationListResponse:
-        data = self._load_data(state_id)
+        target_state = state_id or state or "andhra_pradesh"
+        data = self._load_data(target_state)
         df = data["reloc_df"].copy()
 
         if district_id:
@@ -119,41 +150,94 @@ class RelocationService:
             items.append(MandalRelocationItem(**cleaned))
         return MandalRelocationListResponse(total_mandals=len(items), items=items)
 
-    def get_mandal_detail(self, mandal_id: str, state_id: Optional[str] = "andhra_pradesh") -> Optional[MandalRelocationItem]:
+    def get_mandal_detail(
+        self,
+        mandal_id: str,
+        state_id: Optional[str] = None,
+        state: Optional[str] = None,
+    ) -> Optional[MandalRelocationItem]:
         target = mandal_id.strip().upper()
         if target.startswith("MZ_"):
             detected_state = "mizoram"
         elif target.startswith("TN_"):
             detected_state = "tamil_nadu"
+        elif target.startswith("HP_"):
+            detected_state = "himachal_pradesh"
+        elif target.startswith("WB_"):
+            detected_state = "west_bengal"
+        elif target.startswith("BR_"):
+            detected_state = "bihar"
+        elif target.startswith("OD_"):
+            detected_state = "odisha"
+        elif target.startswith("UP_"):
+            detected_state = "uttar_pradesh"
+        elif target.startswith("UK_"):
+            detected_state = "uttarakhand"
+        elif target.startswith("SK_"):
+            detected_state = "sikkim"
+        elif target.startswith("AR_"):
+            detected_state = "arunachal_pradesh"
+        elif target.startswith("NL_"):
+            detected_state = "nagaland"
+        elif target.startswith("ML_"):
+            detected_state = "meghalaya"
+        elif target.startswith("GJ_"):
+            detected_state = "gujarat"
+        elif target.startswith("KL_"):
+            detected_state = "kerala"
+        elif target.startswith("MH_"):
+            detected_state = "maharashtra"
+        elif target.startswith("HR_"):
+            detected_state = "haryana"
+        elif target.startswith("PB_"):
+            detected_state = "punjab"
+        elif target.startswith("CG_"):
+            detected_state = "chhattisgarh"
         else:
-            detected_state = state_id
+            detected_state = state_id or state or "andhra_pradesh"
 
         data = self._load_data(detected_state)
         df = data["reloc_df"]
 
         match = df[
-            (df["mandal_id"] == target) |
-            (df["mandal_name"].str.upper() == target)
+            (df["mandal_id"].astype(str).str.upper() == target) |
+            (df["mandal_name"].astype(str).str.upper() == target)
         ]
-        if match.empty and detected_state != "tamil_nadu" and detected_state != "mizoram":
-            tn_data = self._load_data("tamil_nadu")
-            match = tn_data["reloc_df"][
-                (tn_data["reloc_df"]["mandal_id"] == target) |
-                (tn_data["reloc_df"]["mandal_name"].str.upper() == target)
+        if match.empty and "taluka_id" in df.columns:
+            match = df[
+                (df["taluka_id"].astype(str).str.upper() == target) |
+                (df["taluka_name"].astype(str).str.upper() == target)
             ]
-        if match.empty and detected_state != "mizoram":
-            mz_data = self._load_data("mizoram")
-            match = mz_data["reloc_df"][
-                (mz_data["reloc_df"]["mandal_id"] == target) |
-                (mz_data["reloc_df"]["mandal_name"].str.upper() == target)
+        if match.empty:
+            all_states = [
+                "andhra_pradesh", "assam", "tamil_nadu", "west_bengal", "bihar", "odisha",
+                "uttar_pradesh", "uttarakhand", "sikkim", "arunachal_pradesh", "nagaland",
+                "meghalaya", "gujarat", "kerala", "maharashtra", "haryana", "punjab", "chhattisgarh",
+                "mizoram", "himachal_pradesh"
             ]
+            for s in all_states:
+                if s == detected_state:
+                    continue
+                s_data = self._load_data(s)
+                match = s_data["reloc_df"][
+                    (s_data["reloc_df"]["mandal_id"].astype(str).str.upper() == target) |
+                    (s_data["reloc_df"]["mandal_name"].astype(str).str.upper() == target)
+                ]
+                if not match.empty:
+                    break
         if match.empty:
             return None
         row_dict = match.iloc[0].replace({np.nan: None}).to_dict()
         return MandalRelocationItem(**row_dict)
 
-    def get_top_prioritized(self, limit: int = 10, state_id: Optional[str] = "andhra_pradesh") -> TopRelocationListResponse:
-        data = self._load_data(state_id)
+    def get_top_prioritized(
+        self,
+        limit: int = 10,
+        state_id: Optional[str] = None,
+        state: Optional[str] = None,
+    ) -> TopRelocationListResponse:
+        target_state = state_id or state or "andhra_pradesh"
+        data = self._load_data(target_state)
         df = data["reloc_df"]
         ranked = df[df["ranking_status"] != "INSUFFICIENT_DATA"]
         top_df = ranked.sort_values(by="topsis_score", ascending=False).head(limit)
@@ -166,8 +250,13 @@ class RelocationService:
             items.append(MandalRelocationItem(**cleaned))
         return TopRelocationListResponse(total_returned=len(items), items=items)
 
-    def get_summary(self, state_id: Optional[str] = "andhra_pradesh") -> RelocationSummaryResponse:
-        data = self._load_data(state_id)
+    def get_summary(
+        self,
+        state_id: Optional[str] = None,
+        state: Optional[str] = None,
+    ) -> RelocationSummaryResponse:
+        target_state = state_id or state or "andhra_pradesh"
+        data = self._load_data(target_state)
         df = data["reloc_df"]
         valid_df = df[df["ranking_status"] != "INSUFFICIENT_DATA"]
         cat_counts = df["relocation_priority_category"].value_counts().to_dict()
@@ -188,22 +277,29 @@ class RelocationService:
             topsis_max_score=round(float(valid_df["topsis_score"].max()), 4),
             topsis_mean_score=round(float(valid_df["topsis_score"].mean()), 4),
             ahp_consistency_ratio=0.0038,
-            host_zone_candidates_pool_count=int(df["is_host_zone_candidate"].sum()),
+            host_zone_candidates_pool_count=int(df["is_host_zone_candidate"].sum()) if "is_host_zone_candidate" in df.columns else 0,
             top_10_prioritized_mandals=top_10,
             governance_notice="Multi-Criteria Relocation Prioritization provides transparent mathematical decision support (AHP weight derivation + TOPSIS ranking) for disaster management authorities. It does NOT mandate or order population relocations."
         )
 
-    def get_ahp_weights(self, state_id: Optional[str] = "andhra_pradesh") -> AHPWeightsResponse:
-        data = self._load_data(state_id)
+    def get_ahp_weights(
+        self,
+        state_id: Optional[str] = None,
+        state: Optional[str] = None,
+    ) -> AHPWeightsResponse:
+        target_state = state_id or state or "andhra_pradesh"
+        data = self._load_data(target_state)
         records = data["ahp_df"].to_dict(orient="records") if data["ahp_df"] is not None else []
         items = []
         for row in records:
             w = float(row.get("weight", 0.25))
             wp = float(row.get("weight_percent") if row.get("weight_percent") is not None else round(w * 100.0, 2))
             rat = str(row.get("saaty_scale_rationale") or row.get("saaty_scale") or "Expert Multi-Criteria Relocation Weighting")
+            cid = str(row.get("criterion_id") or row.get("criterion_code", ""))
+            cname = str(row.get("criterion_name", ""))
             items.append(AHPWeightItem(
-                criterion_id=str(row.get("criterion_id", "")),
-                criterion_name=str(row.get("criterion_name", "")),
+                criterion_id=cid,
+                criterion_name=cname,
                 weight=w,
                 weight_percent=wp,
                 saaty_scale_rationale=rat
@@ -222,19 +318,21 @@ class RelocationService:
             consistency_status="PASS (CR < 0.10; Highly Consistent)",
             weights=items,
             pairwise_matrix=matrix,
-            methodology_notes="AHP is used strictly for objective criterion weight derivation (Saaty 1-9 scale). Hazard Exposure (0.4231) reflects primary physical trigger; Capacity Stress (0.2274) and Demographic Sensitivity (0.2274) reflect in-situ resilience and social vulnerability; Accessibility Constraint (0.1221) reflects evacuation corridor limits."
+            methodology_notes="AHP criteria weights: Hazard Exposure (0.4231), Demographic Sensitivity (0.2274), Capacity Stress (0.2274), Accessibility Constraint (0.1221)."
         )
 
     def get_factor_contributions(
         self,
         district_id: Optional[str] = None,
         priority_category: Optional[str] = None,
-        state_id: Optional[str] = "andhra_pradesh"
+        state_id: Optional[str] = None,
+        state: Optional[str] = None,
     ) -> RelocationFactorContributionsResponse:
-        data = self._load_data(state_id)
-        df = data["factors_df"].copy() if data["factors_df"] is not None else pd.DataFrame()
+        target_state = state_id or state or "andhra_pradesh"
+        data = self._load_data(target_state)
+        df = data["factors_df"].copy() if data["factors_df"] is not None else data["reloc_df"].copy()
 
-        if "current_district_id" not in df.columns:
+        if "current_district_id" not in df.columns and "current_district_id" in data["reloc_df"].columns:
             df = df.merge(data["reloc_df"][['mandal_id', 'current_district_id']], on='mandal_id', how='left')
 
         if district_id:
@@ -266,8 +364,14 @@ class RelocationService:
             items.append(RelocationFactorItem(**item_data))
         return RelocationFactorContributionsResponse(total_mandals=len(items), items=items)
 
-    def get_geojson(self, district_id: Optional[str] = None, state_id: Optional[str] = "andhra_pradesh") -> Dict[str, Any]:
-        data = self._load_data(state_id)
+    def get_geojson(
+        self,
+        district_id: Optional[str] = None,
+        state_id: Optional[str] = None,
+        state: Optional[str] = None,
+    ) -> Dict[str, Any]:
+        target_state = state_id or state or "andhra_pradesh"
+        data = self._load_data(target_state)
         if data["geojson"] is None:
             geojson_path = data["geojson_path"]
             if not geojson_path.exists():
@@ -288,14 +392,46 @@ class RelocationService:
             "features": filtered
         }
 
-    def get_host_zones_for_mandal(self, mandal_id: str, state_id: Optional[str] = "andhra_pradesh") -> HostZoneCandidateListResponse:
+    def get_host_zones_for_mandal(
+        self,
+        mandal_id: str,
+        state_id: Optional[str] = None,
+        state: Optional[str] = None,
+    ) -> HostZoneCandidateListResponse:
         target = mandal_id.strip().upper()
         if target.startswith("MZ_"):
             detected_state = "mizoram"
         elif target.startswith("TN_"):
             detected_state = "tamil_nadu"
+        elif target.startswith("HP_"):
+            detected_state = "himachal_pradesh"
+        elif target.startswith("UP_"):
+            detected_state = "uttar_pradesh"
+        elif target.startswith("UK_"):
+            detected_state = "uttarakhand"
+        elif target.startswith("SK_"):
+            detected_state = "sikkim"
+        elif target.startswith("AR_"):
+            detected_state = "arunachal_pradesh"
+        elif target.startswith("NL_"):
+            detected_state = "nagaland"
+        elif target.startswith("ML_"):
+            detected_state = "meghalaya"
+        elif target.startswith("GJ_"):
+            detected_state = "gujarat"
+        elif target.startswith("KL_"):
+            detected_state = "kerala"
+        elif target.startswith("MH_"):
+            detected_state = "maharashtra"
+        elif target.startswith("HR_"):
+            detected_state = "haryana"
+        elif target.startswith("PB_"):
+            detected_state = "punjab"
+        elif target.startswith("CG_"):
+            detected_state = "chhattisgarh"
         else:
-            detected_state = state_id
+            detected_state = state_id or state or "andhra_pradesh"
+
         data = self._load_data(detected_state)
         host_df = data["host_df"].copy() if data["host_df"] is not None else pd.DataFrame()
         cap_df = data["cap_df"]
@@ -340,7 +476,6 @@ class RelocationService:
             records = unique_candidates.replace({np.nan: None}).to_dict(orient="records")
             items = []
             for row in records:
-                # Enrich with candidate district and capacity details if available
                 cid = str(row.get("candidate_mandal_id", ""))
                 if cap_df is not None:
                     c_match = cap_df[cap_df["mandal_id"] == cid]
@@ -367,7 +502,12 @@ class RelocationService:
         # 2. Locate origin mandal
         s_reloc_m = reloc_df[(reloc_df["mandal_id"] == target) | (reloc_df["mandal_name"].str.upper() == target)]
         if s_reloc_m.empty:
-            for fallback_state in ["tamil_nadu", "mizoram", "andhra_pradesh"]:
+            for fallback_state in [
+                "tamil_nadu", "mizoram", "himachal_pradesh", "andhra_pradesh", "odisha",
+                "west_bengal", "bihar", "assam", "uttar_pradesh", "uttarakhand", "sikkim",
+                "arunachal_pradesh", "nagaland", "meghalaya", "gujarat", "kerala",
+                "maharashtra", "haryana", "punjab", "chhattisgarh"
+            ]:
                 if fallback_state == detected_state:
                     continue
                 fb_data = self._load_data(fallback_state)
@@ -395,15 +535,9 @@ class RelocationService:
         s_mname = str(s_reloc["mandal_name"])
         s_did = str(s_reloc.get("current_district_id", ""))
         s_dname = str(s_reloc.get("current_district_name", ""))
+        s_haz = float(s_reloc.get("overall_hazard_index", 0.5))
+        s_cond = str(s_reloc.get("capacity_condition", "UNKNOWN"))
         s_pop = int(s_reloc.get("population_total", 0))
-        s_haz = float(s_reloc.get("c1_hazard_exposure", 0.0))
-        s_cond = str(s_reloc.get("capacity_condition", "N/A"))
-
-        if cap_df is not None:
-            s_cap_m = cap_df[cap_df["mandal_id"] == s_mid]
-            if not s_cap_m.empty:
-                s_cond = str(s_cap_m.iloc[0].get("capacity_condition", s_cond))
-
         # 3. Form Candidate Pool from existing dataset:
         # Origin mandal itself + Adjacent mandals + Statewide candidate host pool + Same district mandals
         candidate_ids: List[str] = [s_mid]

@@ -1,0 +1,5 @@
+criterion_id,criterion_name,weight,lambda_max,consistency_ratio
+C1,Hazard Exposure,0.4231,4.025,0.009
+C2,Demographic Sensitivity,0.2274,4.025,0.009
+C3,Capacity Stress,0.2274,4.025,0.009
+C4,Accessibility / Evacuation Constraint,0.1221,4.025,0.009

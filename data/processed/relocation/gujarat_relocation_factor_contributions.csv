@@ -1,0 +1,253 @@
+mandal_id,taluka_id,mandal_name,taluka_name,current_district_name,relocation_priority_rank,topsis_score,relocation_priority_category,primary_priority_factor,secondary_priority_factor,factor_contrib_hazard_pct,factor_contrib_demographic_pct,factor_contrib_capacity_pct,factor_contrib_accessibility_pct,c1_hazard_exposure,c2_demographic_sensitivity,c3_capacity_stress,c4_accessibility_constraint
+GJ_TALUKA_001,GJ_TALUKA_001,Ahmedabad City,Ahmedabad City,Ahmedabad,67.0,0.6357,HIGH,Hazard Exposure,Capacity Stress,43.0,19.3,25.2,12.5,0.4869,0.4477,0.2982,0.5833
+GJ_TALUKA_002,GJ_TALUKA_002,Daskroi,Daskroi,Ahmedabad,102.0,0.5496,MODERATE,Hazard Exposure,Demographic Sensitivity,47.4,22.7,18.2,11.7,0.458,0.4477,0.1839,0.4656
+GJ_TALUKA_003,GJ_TALUKA_003,Dholka,Dholka,Ahmedabad,104.0,0.5293,MODERATE,Hazard Exposure,Demographic Sensitivity,47.0,23.3,18.2,11.5,0.4425,0.4477,0.179,0.4433
+GJ_TALUKA_004,GJ_TALUKA_004,Dhandhuka,Dhandhuka,Ahmedabad,107.0,0.517,MODERATE,Hazard Exposure,Demographic Sensitivity,56.0,26.0,11.6,6.3,0.4725,0.4477,0.1025,0.22
+GJ_TALUKA_005,GJ_TALUKA_005,Sanand,Sanand,Ahmedabad,83.0,0.6094,MODERATE,Hazard Exposure,Demographic Sensitivity,50.4,21.3,14.9,13.4,0.5197,0.4477,0.16,0.5694
+GJ_TALUKA_006,GJ_TALUKA_006,Viramgam,Viramgam,Ahmedabad,98.0,0.5656,MODERATE,Hazard Exposure,Demographic Sensitivity,54.8,23.5,10.3,11.4,0.5112,0.4477,0.1,0.4356
+GJ_TALUKA_007,GJ_TALUKA_007,Bavla,Bavla,Ahmedabad,99.0,0.562,MODERATE,Hazard Exposure,Demographic Sensitivity,48.0,22.5,20.5,9.0,0.4668,0.4477,0.208,0.3583
+GJ_TALUKA_008,GJ_TALUKA_008,Mandal,Mandal,Ahmedabad,101.0,0.5499,MODERATE,Hazard Exposure,Demographic Sensitivity,53.5,23.8,10.4,12.3,0.4926,0.4477,0.1,0.4661
+GJ_TALUKA_009,GJ_TALUKA_009,Detroj-Rampura,Detroj-Rampura,Ahmedabad,106.0,0.5201,MODERATE,Hazard Exposure,Demographic Sensitivity,50.8,24.6,17.0,7.5,0.4516,0.4477,0.1583,0.2756
+GJ_TALUKA_010,GJ_TALUKA_010,Dholera,Dholera,Ahmedabad,109.0,0.5087,MODERATE,Hazard Exposure,Demographic Sensitivity,50.6,24.7,10.8,13.8,0.4482,0.4477,0.1,0.5039
+GJ_TALUKA_011,GJ_TALUKA_011,Amreli,Amreli,Amreli,31.0,0.7225,HIGH,Hazard Exposure,Capacity Stress,45.7,17.7,20.7,15.9,0.5659,0.4477,0.2671,0.8083
+GJ_TALUKA_012,GJ_TALUKA_012,Babra,Babra,Amreli,43.0,0.7,HIGH,Hazard Exposure,Demographic Sensitivity,53.5,19.6,18.6,8.3,0.5969,0.4477,0.2174,0.3789
+GJ_TALUKA_013,GJ_TALUKA_013,Dhari,Dhari,Amreli,77.0,0.6217,MODERATE,Hazard Exposure,Demographic Sensitivity,54.9,21.9,15.3,7.9,0.5496,0.4477,0.1599,0.3239
+GJ_TALUKA_014,GJ_TALUKA_014,Jafrabad,Jafrabad,Amreli,47.0,0.6922,HIGH,Hazard Exposure,Capacity Stress,52.2,19.7,21.2,6.8,0.5798,0.4477,0.2461,0.3122
+GJ_TALUKA_015,GJ_TALUKA_015,Khambha,Khambha,Amreli,61.0,0.6468,HIGH,Hazard Exposure,Demographic Sensitivity,54.1,21.2,19.8,4.9,0.5594,0.4477,0.2133,0.2083
+GJ_TALUKA_016,GJ_TALUKA_016,Kunkavav Vadia,Kunkavav Vadia,Amreli,59.0,0.6514,HIGH,Hazard Exposure,Demographic Sensitivity,60.4,21.5,11.1,7.0,0.6151,0.4477,0.1182,0.2922
+GJ_TALUKA_017,GJ_TALUKA_017,Lathi,Lathi,Amreli,21.0,0.7428,VERY HIGH,Hazard Exposure,Capacity Stress,50.3,18.3,21.9,9.5,0.6012,0.4477,0.2742,0.4661
+GJ_TALUKA_018,GJ_TALUKA_018,Lilia,Lilia,Amreli,78.0,0.619,MODERATE,Hazard Exposure,Demographic Sensitivity,54.6,21.5,10.7,13.2,0.5563,0.4477,0.1138,0.5517
+GJ_TALUKA_019,GJ_TALUKA_019,Rajula,Rajula,Amreli,75.0,0.6263,HIGH,Hazard Exposure,Demographic Sensitivity,58.2,21.9,9.6,10.3,0.5828,0.4477,0.1,0.4239
+GJ_TALUKA_020,GJ_TALUKA_020,Savarkundla,Savarkundla,Amreli,96.0,0.578,MODERATE,Hazard Exposure,Demographic Sensitivity,58.0,23.8,10.4,7.8,0.5346,0.4477,0.1,0.295
+GJ_TALUKA_021,GJ_TALUKA_021,Bagasara,Bagasara,Amreli,52.0,0.683,HIGH,Hazard Exposure,Demographic Sensitivity,54.0,20.1,17.8,8.1,0.5889,0.4477,0.2022,0.3633
+GJ_TALUKA_022,GJ_TALUKA_022,Anand,Anand,Anand,85.0,0.6057,MODERATE,Hazard Exposure,Demographic Sensitivity,51.1,21.2,11.5,16.2,0.5279,0.4477,0.1243,0.6867
+GJ_TALUKA_023,GJ_TALUKA_023,Anklav,Anklav,Anand,84.0,0.6072,MODERATE,Hazard Exposure,Demographic Sensitivity,46.0,20.5,18.5,15.0,0.4916,0.4477,0.2062,0.6589
+GJ_TALUKA_024,GJ_TALUKA_024,Borsad,Borsad,Anand,79.0,0.6156,MODERATE,Hazard Exposure,Demographic Sensitivity,48.9,20.7,15.0,15.4,0.5174,0.4477,0.1662,0.67
+GJ_TALUKA_025,GJ_TALUKA_025,Khambhat,Khambhat,Anand,105.0,0.5207,MODERATE,Hazard Exposure,Demographic Sensitivity,51.3,24.7,15.5,8.5,0.4554,0.4477,0.1438,0.31
+GJ_TALUKA_026,GJ_TALUKA_026,Petlad,Petlad,Anand,103.0,0.5337,MODERATE,Hazard Exposure,Demographic Sensitivity,48.0,23.3,15.7,13.1,0.4521,0.4477,0.1546,0.5056
+GJ_TALUKA_027,GJ_TALUKA_027,Sojitra,Sojitra,Anand,100.0,0.561,MODERATE,Hazard Exposure,Demographic Sensitivity,52.6,23.4,14.0,10.0,0.4931,0.4477,0.1367,0.385
+GJ_TALUKA_028,GJ_TALUKA_028,Tarapur,Tarapur,Anand,111.0,0.5003,MODERATE,Hazard Exposure,Demographic Sensitivity,51.9,25.6,12.5,10.1,0.4445,0.4477,0.1117,0.355
+GJ_TALUKA_029,GJ_TALUKA_029,Umreth,Umreth,Anand,110.0,0.5062,MODERATE,Hazard Exposure,Demographic Sensitivity,49.2,24.5,11.4,15.0,0.4407,0.4477,0.1064,0.5506
+GJ_TALUKA_030,GJ_TALUKA_030,Modasa,Modasa,Aravalli,244.0,0.1636,LOW,Demographic Sensitivity,Capacity Stress,19.0,38.6,35.3,7.2,0.1078,0.4477,0.2094,0.1683
+GJ_TALUKA_031,GJ_TALUKA_031,Bhiloda,Bhiloda,Aravalli,198.0,0.2357,LOW,Capacity Stress,Demographic Sensitivity,15.9,31.8,39.2,13.0,0.1099,0.4477,0.2825,0.3689
+GJ_TALUKA_032,GJ_TALUKA_032,Bayad,Bayad,Aravalli,146.0,0.295,MODERATE,Capacity Stress,Demographic Sensitivity,15.5,27.6,40.7,16.2,0.1233,0.4477,0.3376,0.5283
+GJ_TALUKA_033,GJ_TALUKA_033,Dhansura,Dhansura,Aravalli,116.0,0.3626,MODERATE,Capacity Stress,Demographic Sensitivity,24.5,24.9,37.3,13.3,0.2159,0.4477,0.3429,0.4817
+GJ_TALUKA_034,GJ_TALUKA_034,Malpur,Malpur,Aravalli,172.0,0.2682,MODERATE,Capacity Stress,Demographic Sensitivity,16.9,30.0,41.8,11.3,0.1232,0.4477,0.3189,0.3389
+GJ_TALUKA_035,GJ_TALUKA_035,Meghraj,Meghraj,Aravalli,153.0,0.2902,MODERATE,Capacity Stress,Demographic Sensitivity,20.0,27.5,30.6,21.8,0.1593,0.4477,0.2547,0.7133
+GJ_TALUKA_036,GJ_TALUKA_036,Palanpur,Palanpur,Banaskantha,169.0,0.2713,MODERATE,Capacity Stress,Demographic Sensitivity,21.2,29.1,33.2,16.5,0.1598,0.4477,0.2614,0.5122
+GJ_TALUKA_037,GJ_TALUKA_037,Deesa,Deesa,Banaskantha,124.0,0.3273,MODERATE,Capacity Stress,Demographic Sensitivity,23.7,26.6,36.7,12.9,0.1956,0.4477,0.3162,0.4372
+GJ_TALUKA_038,GJ_TALUKA_038,Dhanera,Dhanera,Banaskantha,147.0,0.2946,MODERATE,Capacity Stress,Demographic Sensitivity,19.0,28.0,39.7,13.3,0.1482,0.4477,0.3241,0.4272
+GJ_TALUKA_039,GJ_TALUKA_039,Tharad,Tharad,Banaskantha,171.0,0.2684,MODERATE,Demographic Sensitivity,Capacity Stress,22.8,29.3,28.3,19.6,0.1707,0.4477,0.2211,0.6017
+GJ_TALUKA_040,GJ_TALUKA_040,Vav,Vav,Banaskantha,170.0,0.2684,MODERATE,Demographic Sensitivity,Capacity Stress,22.8,29.3,28.3,19.6,0.1707,0.4477,0.2211,0.6017
+GJ_TALUKA_041,GJ_TALUKA_041,Dantiwada,Dantiwada,Banaskantha,145.0,0.2953,MODERATE,Capacity Stress,Demographic Sensitivity,23.1,28.7,37.9,10.3,0.1766,0.4477,0.3025,0.3239
+GJ_TALUKA_042,GJ_TALUKA_042,Vadgam,Vadgam,Banaskantha,167.0,0.2753,MODERATE,Capacity Stress,Demographic Sensitivity,23.7,30.0,36.4,9.9,0.1736,0.4477,0.278,0.2972
+GJ_TALUKA_043,GJ_TALUKA_043,Amirgadh,Amirgadh,Banaskantha,155.0,0.2856,MODERATE,Capacity Stress,Demographic Sensitivity,14.6,27.6,35.8,21.9,0.1165,0.4477,0.2979,0.7172
+GJ_TALUKA_044,GJ_TALUKA_044,Danta,Danta,Banaskantha,143.0,0.2989,MODERATE,Capacity Stress,Demographic Sensitivity,21.8,27.2,28.7,22.3,0.175,0.4477,0.2412,0.7378
+GJ_TALUKA_045,GJ_TALUKA_045,Bhabhar,Bhabhar,Banaskantha,150.0,0.2926,MODERATE,Capacity Stress,Demographic Sensitivity,28.0,29.4,32.1,10.5,0.2086,0.4477,0.2499,0.3206
+GJ_TALUKA_046,GJ_TALUKA_046,Kankrej,Kankrej,Banaskantha,176.0,0.2599,MODERATE,Capacity Stress,Demographic Sensitivity,21.1,30.1,35.0,13.8,0.1534,0.4477,0.2668,0.4133
+GJ_TALUKA_047,GJ_TALUKA_047,Deodar,Deodar,Banaskantha,126.0,0.3256,MODERATE,Capacity Stress,Demographic Sensitivity,22.6,26.3,36.1,14.9,0.1881,0.4477,0.3142,0.5111
+GJ_TALUKA_048,GJ_TALUKA_048,Suigam,Suigam,Banaskantha,117.0,0.3511,MODERATE,Capacity Stress,Hazard Exposure,28.4,26.2,33.5,11.9,0.2378,0.4477,0.2933,0.4094
+GJ_TALUKA_049,GJ_TALUKA_049,Lakhani,Lakhani,Banaskantha,118.0,0.3455,MODERATE,Capacity Stress,Hazard Exposure,28.2,26.6,34.7,10.6,0.2323,0.4477,0.2992,0.3589
+GJ_TALUKA_050,GJ_TALUKA_050,Bharuch,Bharuch,Bharuch,17.0,0.748,VERY HIGH,Hazard Exposure,Capacity Stress,47.6,17.8,22.5,12.1,0.587,0.4477,0.2903,0.615
+GJ_TALUKA_051,GJ_TALUKA_051,Ankleshwar,Ankleshwar,Bharuch,14.0,0.7547,VERY HIGH,Hazard Exposure,Demographic Sensitivity,52.3,17.8,15.4,14.4,0.6459,0.4477,0.1992,0.7322
+GJ_TALUKA_052,GJ_TALUKA_052,Amod,Amod,Bharuch,42.0,0.7009,HIGH,Hazard Exposure,Demographic Sensitivity,52.3,19.3,17.2,11.2,0.5933,0.4477,0.2038,0.5228
+GJ_TALUKA_053,GJ_TALUKA_053,Hansot,Hansot,Bharuch,12.0,0.76,VERY HIGH,Hazard Exposure,Demographic Sensitivity,54.2,18.2,17.0,10.6,0.6545,0.4477,0.2146,0.5256
+GJ_TALUKA_054,GJ_TALUKA_054,Jambusar,Jambusar,Bharuch,58.0,0.6537,HIGH,Hazard Exposure,Demographic Sensitivity,59.2,21.5,14.2,5.1,0.6029,0.4477,0.1517,0.2122
+GJ_TALUKA_055,GJ_TALUKA_055,Jhagadia,Jhagadia,Bharuch,65.0,0.6437,HIGH,Hazard Exposure,Demographic Sensitivity,55.1,20.6,9.5,14.8,0.5857,0.4477,0.1057,0.6472
+GJ_TALUKA_056,GJ_TALUKA_056,Vagra,Vagra,Bharuch,54.0,0.672,HIGH,Hazard Exposure,Demographic Sensitivity,51.3,19.9,17.2,11.6,0.5661,0.4477,0.1977,0.5267
+GJ_TALUKA_057,GJ_TALUKA_057,Valia,Valia,Bharuch,69.0,0.6341,HIGH,Hazard Exposure,Demographic Sensitivity,57.4,21.9,14.9,5.8,0.5737,0.4477,0.1554,0.2389
+GJ_TALUKA_058,GJ_TALUKA_058,Netrang,Netrang,Bharuch,30.0,0.7244,HIGH,Hazard Exposure,Demographic Sensitivity,53.7,19.0,17.6,9.7,0.6194,0.4477,0.2125,0.4594
+GJ_TALUKA_059,GJ_TALUKA_059,Bhavnagar,Bhavnagar,Bhavnagar,24.0,0.7375,VERY HIGH,Hazard Exposure,Capacity Stress,50.8,18.5,22.8,7.9,0.6008,0.4477,0.2817,0.3861
+GJ_TALUKA_060,GJ_TALUKA_060,Gariadhar,Gariadhar,Bhavnagar,89.0,0.5978,MODERATE,Hazard Exposure,Demographic Sensitivity,52.3,22.0,14.0,11.7,0.5204,0.4477,0.1455,0.4806
+GJ_TALUKA_061,GJ_TALUKA_061,Ghogha,Ghogha,Bhavnagar,93.0,0.5843,MODERATE,Hazard Exposure,Demographic Sensitivity,51.6,22.3,13.4,12.8,0.5082,0.4477,0.1375,0.5167
+GJ_TALUKA_062,GJ_TALUKA_062,Mahuva,Mahuva,Bhavnagar,44.0,0.6978,HIGH,Hazard Exposure,Capacity Stress,50.8,19.3,19.8,10.0,0.5765,0.4477,0.2351,0.465
+GJ_TALUKA_063,GJ_TALUKA_063,Palitana,Palitana,Bhavnagar,90.0,0.5953,MODERATE,Hazard Exposure,Demographic Sensitivity,49.5,21.5,15.0,13.9,0.5047,0.4477,0.1602,0.5833
+GJ_TALUKA_064,GJ_TALUKA_064,Sihor,Sihor,Bhavnagar,60.0,0.6508,HIGH,Hazard Exposure,Demographic Sensitivity,56.2,20.5,9.0,14.3,0.6003,0.4477,0.1,0.6289
+GJ_TALUKA_065,GJ_TALUKA_065,Talaja,Talaja,Bhavnagar,73.0,0.6293,HIGH,Hazard Exposure,Demographic Sensitivity,55.8,21.9,16.9,5.4,0.558,0.4477,0.1764,0.2233
+GJ_TALUKA_066,GJ_TALUKA_066,Umrala,Umrala,Bhavnagar,72.0,0.6303,HIGH,Hazard Exposure,Demographic Sensitivity,54.5,21.5,14.9,9.2,0.5549,0.4477,0.1583,0.3839
+GJ_TALUKA_067,GJ_TALUKA_067,Vallabhipur,Vallabhipur,Bhavnagar,66.0,0.6368,HIGH,Hazard Exposure,Demographic Sensitivity,54.5,21.4,15.8,8.4,0.5586,0.4477,0.1691,0.3522
+GJ_TALUKA_068,GJ_TALUKA_068,Jesar,Jesar,Bhavnagar,20.0,0.7454,VERY HIGH,Hazard Exposure,Capacity Stress,52.1,18.5,22.4,7.0,0.6168,0.4477,0.2773,0.3406
+GJ_TALUKA_069,GJ_TALUKA_069,Botad,Botad,Botad,202.0,0.2331,LOW,Demographic Sensitivity,Capacity Stress,25.5,32.5,28.5,13.5,0.1717,0.4477,0.2008,0.3744
+GJ_TALUKA_070,GJ_TALUKA_070,Barwala,Barwala,Botad,120.0,0.3438,MODERATE,Capacity Stress,Hazard Exposure,25.9,25.9,33.7,14.6,0.2192,0.4477,0.2989,0.5072
+GJ_TALUKA_071,GJ_TALUKA_071,Gadhada,Gadhada,Botad,174.0,0.2663,MODERATE,Capacity Stress,Demographic Sensitivity,24.6,30.1,32.2,13.1,0.1788,0.4477,0.2447,0.3917
+GJ_TALUKA_072,GJ_TALUKA_072,Ranpur,Ranpur,Botad,128.0,0.3229,MODERATE,Hazard Exposure,Capacity Stress,32.0,29.0,32.0,6.9,0.2424,0.4477,0.2532,0.2156
+GJ_TALUKA_073,GJ_TALUKA_073,Chhota Udaipur,Chhota Udaipur,Chhota Udaipur,199.0,0.2352,LOW,Demographic Sensitivity,Capacity Stress,20.7,31.3,29.4,18.6,0.1453,0.4477,0.2151,0.535
+GJ_TALUKA_074,GJ_TALUKA_074,Bodeli,Bodeli,Chhota Udaipur,194.0,0.24,LOW,Capacity Stress,Demographic Sensitivity,18.6,31.3,36.6,13.5,0.1298,0.4477,0.2674,0.3894
+GJ_TALUKA_075,GJ_TALUKA_075,Jetpur Pavi,Jetpur Pavi,Chhota Udaipur,201.0,0.2343,LOW,Capacity Stress,Demographic Sensitivity,16.4,32.8,41.8,9.0,0.1098,0.4477,0.2917,0.2478
+GJ_TALUKA_076,GJ_TALUKA_076,Kavant,Kavant,Chhota Udaipur,157.0,0.2823,MODERATE,Capacity Stress,Demographic Sensitivity,28.0,30.0,31.6,10.4,0.204,0.4477,0.2409,0.3111
+GJ_TALUKA_077,GJ_TALUKA_077,Nasvadi,Nasvadi,Chhota Udaipur,144.0,0.2987,MODERATE,Demographic Sensitivity,Capacity Stress,23.9,27.6,26.9,21.5,0.1898,0.4477,0.2234,0.7017
+GJ_TALUKA_078,GJ_TALUKA_078,Sankheda,Sankheda,Chhota Udaipur,181.0,0.2523,LOW,Capacity Stress,Demographic Sensitivity,18.0,29.8,31.2,21.0,0.1323,0.4477,0.24,0.635
+GJ_TALUKA_079,GJ_TALUKA_079,Dahod,Dahod,Dahod,188.0,0.2437,LOW,Demographic Sensitivity,Capacity Stress,17.8,30.4,30.1,21.7,0.1287,0.4477,0.2269,0.6433
+GJ_TALUKA_080,GJ_TALUKA_080,Devgadh Baria,Devgadh Baria,Dahod,250.0,0.1332,LOW,Demographic Sensitivity,Capacity Stress,12.8,40.5,34.7,11.9,0.0694,0.4477,0.1963,0.2639
+GJ_TALUKA_081,GJ_TALUKA_081,Dhanpur,Dhanpur,Dahod,160.0,0.2807,MODERATE,Capacity Stress,Demographic Sensitivity,15.7,28.5,40.2,15.6,0.1208,0.4477,0.3225,0.4922
+GJ_TALUKA_082,GJ_TALUKA_082,Fatepura,Fatepura,Dahod,227.0,0.2007,LOW,Capacity Stress,Demographic Sensitivity,16.4,33.9,34.3,15.4,0.1064,0.4477,0.2322,0.4094
+GJ_TALUKA_083,GJ_TALUKA_083,Garbada,Garbada,Dahod,183.0,0.2498,LOW,Capacity Stress,Demographic Sensitivity,18.1,30.5,36.9,14.5,0.13,0.4477,0.2764,0.4267
+GJ_TALUKA_084,GJ_TALUKA_084,Limkheda,Limkheda,Dahod,232.0,0.1955,LOW,Demographic Sensitivity,Capacity Stress,18.5,34.5,33.6,13.4,0.1175,0.4477,0.2228,0.3489
+GJ_TALUKA_085,GJ_TALUKA_085,Jhalod,Jhalod,Dahod,237.0,0.1799,LOW,Demographic Sensitivity,Capacity Stress,18.9,35.6,30.5,15.0,0.1164,0.4477,0.1959,0.3789
+GJ_TALUKA_086,GJ_TALUKA_086,Sanjeli,Sanjeli,Dahod,163.0,0.2785,MODERATE,Capacity Stress,Demographic Sensitivity,10.2,28.1,38.2,23.5,0.0796,0.4477,0.3114,0.7544
+GJ_TALUKA_087,GJ_TALUKA_087,Singvad,Singvad,Dahod,180.0,0.2525,LOW,Capacity Stress,Demographic Sensitivity,16.8,29.9,34.7,18.6,0.1231,0.4477,0.2663,0.5617
+GJ_TALUKA_088,GJ_TALUKA_088,Ahwa,Ahwa,Dang,233.0,0.1943,LOW,Demographic Sensitivity,Capacity Stress,18.5,34.6,33.3,13.7,0.1173,0.4477,0.2204,0.3556
+GJ_TALUKA_089,GJ_TALUKA_089,Waghai,Waghai,Dang,196.0,0.2383,LOW,Capacity Stress,Demographic Sensitivity,15.5,30.8,34.4,19.3,0.1101,0.4477,0.2564,0.5656
+GJ_TALUKA_090,GJ_TALUKA_090,Subir,Subir,Dang,226.0,0.205,LOW,Capacity Stress,Demographic Sensitivity,11.7,33.4,34.5,20.4,0.077,0.4477,0.2369,0.55
+GJ_TALUKA_091,GJ_TALUKA_091,Dwarka,Dwarka,Devbhumi Dwarka,86.0,0.6024,MODERATE,Hazard Exposure,Demographic Sensitivity,58.1,22.8,10.0,9.1,0.5585,0.4477,0.1,0.3578
+GJ_TALUKA_092,GJ_TALUKA_092,Bhanvad,Bhanvad,Devbhumi Dwarka,81.0,0.6128,MODERATE,Hazard Exposure,Demographic Sensitivity,59.1,23.0,15.8,2.0,0.5635,0.4477,0.1575,0.08
+GJ_TALUKA_093,GJ_TALUKA_093,Kalyanpur,Kalyanpur,Devbhumi Dwarka,34.0,0.72,HIGH,Hazard Exposure,Demographic Sensitivity,52.1,18.7,16.5,12.8,0.6094,0.4477,0.2014,0.6139
+GJ_TALUKA_094,GJ_TALUKA_094,Khambhalia,Khambhalia,Devbhumi Dwarka,22.0,0.7406,VERY HIGH,Hazard Exposure,Capacity Stress,48.4,18.1,25.1,8.4,0.5859,0.4477,0.318,0.4206
+GJ_TALUKA_095,GJ_TALUKA_095,Gandhinagar,Gandhinagar,Gandhinagar,236.0,0.1886,LOW,Demographic Sensitivity,Capacity Stress,13.0,34.9,28.0,24.1,0.0818,0.4477,0.1838,0.6233
+GJ_TALUKA_096,GJ_TALUKA_096,Dehgam,Dehgam,Gandhinagar,241.0,0.1674,LOW,Demographic Sensitivity,Capacity Stress,11.2,36.7,33.6,18.5,0.067,0.4477,0.2095,0.4539
+GJ_TALUKA_097,GJ_TALUKA_097,Kalol,Kalol,Gandhinagar,191.0,0.2425,LOW,Capacity Stress,Demographic Sensitivity,8.8,30.9,39.0,21.3,0.0625,0.4477,0.2897,0.6206
+GJ_TALUKA_098,GJ_TALUKA_098,Mansa,Mansa,Gandhinagar,209.0,0.2245,LOW,Capacity Stress,Demographic Sensitivity,17.2,33.1,39.4,10.4,0.1137,0.4477,0.2729,0.2828
+GJ_TALUKA_099,GJ_TALUKA_099,Veraval,Veraval,Gir Somnath,41.0,0.7015,HIGH,Hazard Exposure,Demographic Sensitivity,55.2,19.5,14.7,10.6,0.6191,0.4477,0.1727,0.4867
+GJ_TALUKA_100,GJ_TALUKA_100,Kodinar,Kodinar,Gir Somnath,80.0,0.6143,MODERATE,Hazard Exposure,Demographic Sensitivity,54.6,21.5,9.4,14.5,0.5559,0.4477,0.1,0.6044
+GJ_TALUKA_101,GJ_TALUKA_101,Sutrapada,Sutrapada,Gir Somnath,37.0,0.7175,HIGH,Hazard Exposure,Capacity Stress,47.5,18.4,24.5,9.6,0.5645,0.4477,0.3045,0.4706
+GJ_TALUKA_102,GJ_TALUKA_102,Talala,Talala,Gir Somnath,32.0,0.7215,HIGH,Hazard Exposure,Demographic Sensitivity,53.8,18.5,13.1,14.6,0.6377,0.4477,0.1622,0.7106
+GJ_TALUKA_103,GJ_TALUKA_103,Una,Una,Gir Somnath,55.0,0.6656,HIGH,Hazard Exposure,Demographic Sensitivity,57.8,20.8,12.5,8.9,0.6096,0.4477,0.1381,0.385
+GJ_TALUKA_104,GJ_TALUKA_104,Gir Gadhada,Gir Gadhada,Gir Somnath,48.0,0.6898,HIGH,Hazard Exposure,Capacity Stress,48.0,19.0,20.7,12.3,0.5534,0.4477,0.2495,0.5806
+GJ_TALUKA_105,GJ_TALUKA_105,Jamnagar,Jamnagar,Jamnagar,35.0,0.7194,HIGH,Hazard Exposure,Capacity Stress,50.1,18.8,20.8,10.4,0.5855,0.4477,0.2539,0.4972
+GJ_TALUKA_106,GJ_TALUKA_106,Dhrol,Dhrol,Jamnagar,76.0,0.6229,MODERATE,Hazard Exposure,Demographic Sensitivity,55.2,21.8,13.7,9.3,0.5551,0.4477,0.1437,0.3828
+GJ_TALUKA_107,GJ_TALUKA_107,Jamjodhpur,Jamjodhpur,Jamnagar,63.0,0.645,HIGH,Hazard Exposure,Demographic Sensitivity,49.8,19.8,13.0,17.4,0.5516,0.4477,0.1503,0.7889
+GJ_TALUKA_108,GJ_TALUKA_108,Jodiya,Jodiya,Jamnagar,88.0,0.6001,MODERATE,Hazard Exposure,Demographic Sensitivity,56.0,22.7,13.2,8.0,0.5406,0.4477,0.1331,0.3189
+GJ_TALUKA_109,GJ_TALUKA_109,Kalavad,Kalavad,Jamnagar,33.0,0.7208,HIGH,Hazard Exposure,Demographic Sensitivity,57.8,19.3,14.3,8.6,0.6565,0.4477,0.1704,0.4028
+GJ_TALUKA_110,GJ_TALUKA_110,Lalpur,Lalpur,Jamnagar,71.0,0.6307,HIGH,Hazard Exposure,Demographic Sensitivity,48.5,20.4,18.2,12.9,0.5196,0.4477,0.2038,0.5683
+GJ_TALUKA_111,GJ_TALUKA_111,Junagadh City,Junagadh City,Junagadh,39.0,0.7029,HIGH,Hazard Exposure,Capacity Stress,45.6,18.4,25.0,11.0,0.5443,0.4477,0.3111,0.5394
+GJ_TALUKA_112,GJ_TALUKA_112,Junagadh Rural,Junagadh Rural,Junagadh,70.0,0.6319,HIGH,Hazard Exposure,Demographic Sensitivity,57.6,21.8,11.9,8.7,0.5787,0.4477,0.1249,0.3594
+GJ_TALUKA_113,GJ_TALUKA_113,Bhesan,Bhesan,Junagadh,95.0,0.5829,MODERATE,Hazard Exposure,Demographic Sensitivity,54.6,23.1,14.1,8.2,0.5185,0.4477,0.1401,0.32
+GJ_TALUKA_114,GJ_TALUKA_114,Keshod,Keshod,Junagadh,87.0,0.6015,MODERATE,Hazard Exposure,Demographic Sensitivity,55.1,22.6,14.9,7.5,0.5347,0.4477,0.1507,0.2983
+GJ_TALUKA_115,GJ_TALUKA_115,Malia Hatina,Malia Hatina,Junagadh,91.0,0.5952,MODERATE,Hazard Exposure,Demographic Sensitivity,60.7,23.7,10.3,5.3,0.5626,0.4477,0.1,0.2
+GJ_TALUKA_116,GJ_TALUKA_116,Manavadar,Manavadar,Junagadh,50.0,0.6844,HIGH,Hazard Exposure,Demographic Sensitivity,50.4,19.3,16.4,13.9,0.573,0.4477,0.1951,0.6478
+GJ_TALUKA_117,GJ_TALUKA_117,Mangrol,Mangrol,Junagadh,74.0,0.6277,HIGH,Hazard Exposure,Demographic Sensitivity,52.9,21.2,14.2,11.8,0.5465,0.4477,0.153,0.5011
+GJ_TALUKA_118,GJ_TALUKA_118,Mendarda,Mendarda,Junagadh,64.0,0.6447,HIGH,Hazard Exposure,Demographic Sensitivity,51.0,20.7,18.9,9.3,0.5411,0.4477,0.2099,0.4067
+GJ_TALUKA_119,GJ_TALUKA_119,Vanthali,Vanthali,Junagadh,92.0,0.5928,MODERATE,Hazard Exposure,Demographic Sensitivity,51.5,22.3,19.2,7.0,0.5059,0.4477,0.1965,0.2806
+GJ_TALUKA_120,GJ_TALUKA_120,Visavadar,Visavadar,Junagadh,68.0,0.6348,HIGH,Hazard Exposure,Demographic Sensitivity,53.4,20.9,12.0,13.8,0.5612,0.4477,0.1313,0.5939
+GJ_TALUKA_121,GJ_TALUKA_121,Nadiad,Nadiad,Kheda,210.0,0.2234,LOW,Capacity Stress,Demographic Sensitivity,11.1,31.9,32.4,24.6,0.076,0.4477,0.2326,0.6933
+GJ_TALUKA_122,GJ_TALUKA_122,Kheda,Kheda,Kheda,165.0,0.2779,MODERATE,Capacity Stress,Demographic Sensitivity,16.1,28.3,37.2,18.4,0.1246,0.4477,0.3009,0.585
+GJ_TALUKA_123,GJ_TALUKA_123,Kapadvanj,Kapadvanj,Kheda,217.0,0.2166,LOW,Capacity Stress,Demographic Sensitivity,15.0,34.0,41.3,9.7,0.0967,0.4477,0.2784,0.2583
+GJ_TALUKA_124,GJ_TALUKA_124,Kathlal,Kathlal,Kheda,251.0,0.1317,LOW,Demographic Sensitivity,Capacity Stress,10.8,41.3,36.9,11.0,0.057,0.4477,0.2047,0.2389
+GJ_TALUKA_125,GJ_TALUKA_125,Mahudha,Mahudha,Kheda,246.0,0.1548,LOW,Capacity Stress,Demographic Sensitivity,9.2,40.8,42.4,7.5,0.0496,0.4477,0.2384,0.1667
+GJ_TALUKA_126,GJ_TALUKA_126,Matar,Matar,Kheda,242.0,0.1667,LOW,Demographic Sensitivity,Capacity Stress,18.2,36.7,30.0,15.0,0.1088,0.4477,0.187,0.3678
+GJ_TALUKA_127,GJ_TALUKA_127,Mehmedabad,Mehmedabad,Kheda,179.0,0.2551,LOW,Capacity Stress,Demographic Sensitivity,11.2,29.8,38.7,20.3,0.0827,0.4477,0.297,0.6128
+GJ_TALUKA_128,GJ_TALUKA_128,Thasra,Thasra,Kheda,248.0,0.1447,LOW,Demographic Sensitivity,Capacity Stress,12.2,38.8,31.2,17.8,0.069,0.4477,0.1842,0.4144
+GJ_TALUKA_129,GJ_TALUKA_129,Galteshwar,Galteshwar,Kheda,245.0,0.1565,LOW,Demographic Sensitivity,Capacity Stress,15.8,37.7,32.6,13.8,0.0919,0.4477,0.198,0.33
+GJ_TALUKA_130,GJ_TALUKA_130,Vaso,Vaso,Kheda,234.0,0.1943,LOW,Demographic Sensitivity,Capacity Stress,6.2,35.2,31.4,27.1,0.0386,0.4477,0.2045,0.6933
+GJ_TALUKA_131,GJ_TALUKA_131,Bhuj,Bhuj,Kutch,19.0,0.7457,VERY HIGH,Hazard Exposure,Demographic Sensitivity,60.5,17.9,10.1,11.5,0.7387,0.4477,0.1288,0.5772
+GJ_TALUKA_132,GJ_TALUKA_132,Abdasa,Abdasa,Kutch,36.0,0.7188,HIGH,Hazard Exposure,Demographic Sensitivity,61.8,19.0,9.4,9.8,0.7143,0.4477,0.1132,0.4656
+GJ_TALUKA_133,GJ_TALUKA_133,Anjar,Anjar,Kutch,18.0,0.7477,VERY HIGH,Hazard Exposure,Demographic Sensitivity,55.4,18.5,16.5,9.5,0.6554,0.4477,0.2039,0.4617
+GJ_TALUKA_134,GJ_TALUKA_134,Bhachau,Bhachau,Kutch,38.0,0.7101,HIGH,Hazard Exposure,Demographic Sensitivity,59.3,19.1,9.5,12.1,0.6818,0.4477,0.1142,0.5739
+GJ_TALUKA_135,GJ_TALUKA_135,Gandhidham,Gandhidham,Kutch,40.0,0.7025,HIGH,Hazard Exposure,Demographic Sensitivity,61.3,19.8,11.0,7.8,0.6787,0.4477,0.1271,0.3567
+GJ_TALUKA_136,GJ_TALUKA_136,Lakhpat,Lakhpat,Kutch,53.0,0.6738,HIGH,Hazard Exposure,Demographic Sensitivity,59.3,20.6,11.3,8.8,0.6313,0.4477,0.1252,0.3839
+GJ_TALUKA_137,GJ_TALUKA_137,Mandvi (Kutch),Mandvi (Kutch),Kutch,15.0,0.7541,VERY HIGH,Hazard Exposure,Demographic Sensitivity,57.1,18.3,14.6,10.0,0.684,0.4477,0.1825,0.4922
+GJ_TALUKA_138,GJ_TALUKA_138,Mundra,Mundra,Kutch,49.0,0.6893,HIGH,Hazard Exposure,Demographic Sensitivity,62.2,20.1,9.2,8.6,0.6771,0.4477,0.1042,0.3828
+GJ_TALUKA_139,GJ_TALUKA_139,Nakhatrana,Nakhatrana,Kutch,7.0,0.7776,VERY HIGH,Hazard Exposure,Capacity Stress,51.3,17.4,17.5,13.9,0.6468,0.4477,0.2304,0.7211
+GJ_TALUKA_140,GJ_TALUKA_140,Rapar,Rapar,Kutch,23.0,0.7394,VERY HIGH,Hazard Exposure,Demographic Sensitivity,55.5,18.4,14.1,12.0,0.6591,0.4477,0.175,0.5844
+GJ_TALUKA_141,GJ_TALUKA_141,Lunawada,Lunawada,Mahisagar,211.0,0.223,LOW,Capacity Stress,Demographic Sensitivity,10.0,32.6,40.2,17.1,0.0671,0.4477,0.2825,0.4733
+GJ_TALUKA_142,GJ_TALUKA_142,Balasinor,Balasinor,Mahisagar,173.0,0.2671,MODERATE,Capacity Stress,Demographic Sensitivity,18.5,29.2,36.0,16.2,0.1391,0.4477,0.282,0.5006
+GJ_TALUKA_143,GJ_TALUKA_143,Kadana,Kadana,Mahisagar,243.0,0.1644,LOW,Demographic Sensitivity,Capacity Stress,19.7,39.8,37.0,3.5,0.1084,0.4477,0.2133,0.08
+GJ_TALUKA_144,GJ_TALUKA_144,Khanpur,Khanpur,Mahisagar,213.0,0.2219,LOW,Capacity Stress,Demographic Sensitivity,14.9,32.2,36.0,16.9,0.1018,0.4477,0.2562,0.4728
+GJ_TALUKA_145,GJ_TALUKA_145,Santrampur,Santrampur,Mahisagar,200.0,0.2349,LOW,Capacity Stress,Demographic Sensitivity,18.7,31.5,35.1,14.8,0.13,0.4477,0.2553,0.4222
+GJ_TALUKA_146,GJ_TALUKA_146,Virpur,Virpur,Mahisagar,216.0,0.2167,LOW,Capacity Stress,Demographic Sensitivity,7.4,33.1,39.2,20.3,0.0489,0.4477,0.2711,0.5506
+GJ_TALUKA_147,GJ_TALUKA_147,Mehsana,Mehsana,Mehsana,214.0,0.2204,LOW,Capacity Stress,Demographic Sensitivity,8.7,34.7,46.4,10.2,0.0552,0.4477,0.3069,0.2644
+GJ_TALUKA_148,GJ_TALUKA_148,Becharaji,Becharaji,Mehsana,230.0,0.1974,LOW,Capacity Stress,Demographic Sensitivity,13.5,34.1,35.4,17.1,0.0865,0.4477,0.2379,0.4511
+GJ_TALUKA_149,GJ_TALUKA_149,Kadi,Kadi,Mehsana,231.0,0.1972,LOW,Demographic Sensitivity,Capacity Stress,12.3,33.9,33.4,20.4,0.0795,0.4477,0.2253,0.54
+GJ_TALUKA_150,GJ_TALUKA_150,Kheralu,Kheralu,Mehsana,184.0,0.2492,LOW,Capacity Stress,Demographic Sensitivity,18.9,32.2,42.0,7.0,0.1284,0.4477,0.2987,0.1961
+GJ_TALUKA_151,GJ_TALUKA_151,Satlasana,Satlasana,Mehsana,189.0,0.2436,LOW,Capacity Stress,Demographic Sensitivity,11.6,31.3,41.9,15.3,0.0811,0.4477,0.3067,0.4394
+GJ_TALUKA_152,GJ_TALUKA_152,Unjha,Unjha,Mehsana,212.0,0.2221,LOW,Capacity Stress,Demographic Sensitivity,12.3,32.0,34.6,21.1,0.0841,0.4477,0.2481,0.595
+GJ_TALUKA_153,GJ_TALUKA_153,Vadnagar,Vadnagar,Mehsana,195.0,0.2386,LOW,Capacity Stress,Demographic Sensitivity,12.4,31.3,39.7,16.7,0.0866,0.4477,0.2905,0.4806
+GJ_TALUKA_154,GJ_TALUKA_154,Vijapur,Vijapur,Mehsana,186.0,0.2478,LOW,Capacity Stress,Demographic Sensitivity,14.3,30.4,37.7,17.6,0.1029,0.4477,0.2848,0.5233
+GJ_TALUKA_155,GJ_TALUKA_155,Visnagar,Visnagar,Mehsana,225.0,0.208,LOW,Capacity Stress,Demographic Sensitivity,11.2,34.9,43.1,10.8,0.0701,0.4477,0.283,0.2789
+GJ_TALUKA_156,GJ_TALUKA_156,Jotana,Jotana,Mehsana,177.0,0.259,LOW,Capacity Stress,Demographic Sensitivity,11.7,29.4,37.1,21.8,0.0872,0.4477,0.2892,0.6694
+GJ_TALUKA_157,GJ_TALUKA_157,Morbi,Morbi,Morbi,97.0,0.5672,MODERATE,Hazard Exposure,Capacity Stress,44.9,21.7,23.9,9.6,0.4531,0.4477,0.2518,0.3967
+GJ_TALUKA_158,GJ_TALUKA_158,Halvad,Halvad,Morbi,112.0,0.4466,MODERATE,Hazard Exposure,Demographic Sensitivity,39.2,24.4,23.3,13.2,0.3525,0.4477,0.2188,0.4867
+GJ_TALUKA_159,GJ_TALUKA_159,Maliya,Maliya,Morbi,108.0,0.5098,MODERATE,Hazard Exposure,Capacity Stress,44.5,23.5,23.7,8.3,0.4144,0.4477,0.2304,0.3156
+GJ_TALUKA_160,GJ_TALUKA_160,Tankara,Tankara,Morbi,114.0,0.4307,MODERATE,Hazard Exposure,Demographic Sensitivity,42.8,26.0,11.4,19.8,0.3607,0.4477,0.1,0.6872
+GJ_TALUKA_161,GJ_TALUKA_161,Wankaner,Wankaner,Morbi,113.0,0.4433,MODERATE,Hazard Exposure,Capacity Stress,38.2,24.4,27.3,10.1,0.3432,0.4477,0.2562,0.3711
+GJ_TALUKA_162,GJ_TALUKA_162,Rajpipla (Nandod),Rajpipla (Nandod),Narmada,190.0,0.2433,LOW,Demographic Sensitivity,Capacity Stress,17.3,30.4,29.4,22.9,0.1251,0.4477,0.2215,0.6778
+GJ_TALUKA_163,GJ_TALUKA_163,Dediapada,Dediapada,Narmada,164.0,0.2779,MODERATE,Capacity Stress,Demographic Sensitivity,17.3,28.3,36.2,18.1,0.1338,0.4477,0.2929,0.5756
+GJ_TALUKA_164,GJ_TALUKA_164,Garudeshwar,Garudeshwar,Narmada,193.0,0.2412,LOW,Capacity Stress,Demographic Sensitivity,23.7,31.9,33.1,11.3,0.1628,0.4477,0.2376,0.3189
+GJ_TALUKA_165,GJ_TALUKA_165,Sagbara,Sagbara,Narmada,149.0,0.2943,MODERATE,Capacity Stress,Demographic Sensitivity,17.6,27.8,39.6,15.0,0.1389,0.4477,0.3263,0.4878
+GJ_TALUKA_166,GJ_TALUKA_166,Tilakwada,Tilakwada,Narmada,141.0,0.2999,MODERATE,Capacity Stress,Hazard Exposure,29.9,29.5,31.0,9.5,0.2225,0.4477,0.2409,0.2906
+GJ_TALUKA_167,GJ_TALUKA_167,Navsari,Navsari,Navsari,28.0,0.7279,HIGH,Hazard Exposure,Demographic Sensitivity,56.3,18.8,13.6,11.4,0.656,0.4477,0.1652,0.545
+GJ_TALUKA_168,GJ_TALUKA_168,Chikhli,Chikhli,Navsari,56.0,0.6592,HIGH,Hazard Exposure,Demographic Sensitivity,58.1,20.8,10.7,10.4,0.611,0.4477,0.1172,0.4517
+GJ_TALUKA_169,GJ_TALUKA_169,Gandevi,Gandevi,Navsari,46.0,0.6941,HIGH,Hazard Exposure,Demographic Sensitivity,57.6,20.0,14.1,8.3,0.6305,0.4477,0.161,0.375
+GJ_TALUKA_170,GJ_TALUKA_170,Jalalpore,Jalalpore,Navsari,13.0,0.7554,VERY HIGH,Hazard Exposure,Demographic Sensitivity,57.4,18.2,14.0,10.4,0.6909,0.4477,0.1766,0.5133
+GJ_TALUKA_171,GJ_TALUKA_171,Khergam,Khergam,Navsari,3.0,0.8085,VERY HIGH,Hazard Exposure,Capacity Stress,52.7,17.2,20.1,9.9,0.6703,0.4477,0.2679,0.5194
+GJ_TALUKA_172,GJ_TALUKA_172,Vansda,Vansda,Navsari,45.0,0.6955,HIGH,Hazard Exposure,Demographic Sensitivity,55.4,19.2,11.2,14.2,0.631,0.4477,0.1336,0.6644
+GJ_TALUKA_173,GJ_TALUKA_173,Godhra,Godhra,Panchmahal,249.0,0.1367,LOW,Demographic Sensitivity,Capacity Stress,16.0,40.6,34.5,8.8,0.0863,0.4477,0.1947,0.195
+GJ_TALUKA_174,GJ_TALUKA_174,Ghoghamba,Ghoghamba,Panchmahal,203.0,0.2301,LOW,Demographic Sensitivity,Capacity Stress,12.7,31.4,29.6,26.3,0.0884,0.4477,0.2156,0.7528
+GJ_TALUKA_175,GJ_TALUKA_175,Halol,Halol,Panchmahal,185.0,0.2487,LOW,Capacity Stress,Demographic Sensitivity,15.0,30.9,40.5,13.6,0.1061,0.4477,0.3005,0.3956
+GJ_TALUKA_176,GJ_TALUKA_176,Jambughoda,Jambughoda,Panchmahal,247.0,0.1474,LOW,Demographic Sensitivity,Capacity Stress,17.1,39.0,32.6,11.3,0.0963,0.4477,0.1917,0.26
+GJ_TALUKA_177,GJ_TALUKA_177,Kalol (Panchmahal),Kalol (Panchmahal),Panchmahal,252.0,0.1036,LOW,Demographic Sensitivity,Capacity Stress,4.9,45.7,36.4,13.1,0.0234,0.4477,0.1824,0.2583
+GJ_TALUKA_178,GJ_TALUKA_178,Morwa Hadaf,Morwa Hadaf,Panchmahal,219.0,0.2117,LOW,Capacity Stress,Demographic Sensitivity,15.1,32.7,33.6,18.5,0.101,0.4477,0.2352,0.51
+GJ_TALUKA_179,GJ_TALUKA_179,Shehra,Shehra,Panchmahal,154.0,0.2861,MODERATE,Capacity Stress,Demographic Sensitivity,15.9,27.8,37.8,18.5,0.1249,0.4477,0.3116,0.5983
+GJ_TALUKA_180,GJ_TALUKA_180,Patan,Patan,Patan,158.0,0.2817,MODERATE,Capacity Stress,Demographic Sensitivity,26.4,29.7,32.9,11.0,0.1944,0.4477,0.2538,0.3322
+GJ_TALUKA_181,GJ_TALUKA_181,Chanasma,Chanasma,Patan,156.0,0.2828,MODERATE,Capacity Stress,Demographic Sensitivity,22.4,29.5,38.4,9.8,0.1667,0.4477,0.2981,0.2983
+GJ_TALUKA_182,GJ_TALUKA_182,Harij,Harij,Patan,135.0,0.3069,MODERATE,Capacity Stress,Demographic Sensitivity,21.4,28.1,40.9,9.6,0.1668,0.4477,0.334,0.3094
+GJ_TALUKA_183,GJ_TALUKA_183,Radhanpur,Radhanpur,Patan,134.0,0.3076,MODERATE,Capacity Stress,Demographic Sensitivity,23.6,27.1,31.0,18.3,0.1906,0.4477,0.2616,0.6089
+GJ_TALUKA_184,GJ_TALUKA_184,Sami,Sami,Patan,123.0,0.3333,MODERATE,Hazard Exposure,Capacity Stress,30.8,27.6,30.6,11.0,0.244,0.4477,0.2535,0.3594
+GJ_TALUKA_185,GJ_TALUKA_185,Santhalpur,Santhalpur,Patan,224.0,0.2099,LOW,Demographic Sensitivity,Capacity Stress,17.6,32.9,28.8,20.7,0.1171,0.4477,0.2007,0.5667
+GJ_TALUKA_186,GJ_TALUKA_186,Saraswati,Saraswati,Patan,148.0,0.2946,MODERATE,Capacity Stress,Demographic Sensitivity,20.6,27.9,36.6,14.9,0.1622,0.4477,0.3009,0.4822
+GJ_TALUKA_187,GJ_TALUKA_187,Sidhpur,Sidhpur,Patan,119.0,0.3438,MODERATE,Capacity Stress,Hazard Exposure,27.8,26.0,27.9,18.3,0.2348,0.4477,0.2466,0.6344
+GJ_TALUKA_188,GJ_TALUKA_188,Shankheshwar,Shankheshwar,Patan,159.0,0.2815,MODERATE,Capacity Stress,Demographic Sensitivity,20.3,28.7,36.8,14.2,0.1553,0.4477,0.2937,0.4444
+GJ_TALUKA_189,GJ_TALUKA_189,Porbandar,Porbandar,Porbandar,82.0,0.6115,MODERATE,Hazard Exposure,Demographic Sensitivity,54.6,21.9,11.9,11.6,0.5463,0.4477,0.1247,0.4772
+GJ_TALUKA_190,GJ_TALUKA_190,Kutiyana,Kutiyana,Porbandar,62.0,0.6457,HIGH,Hazard Exposure,Demographic Sensitivity,54.6,21.1,15.6,8.7,0.5669,0.4477,0.1691,0.3689
+GJ_TALUKA_191,GJ_TALUKA_191,Ranavav,Ranavav,Porbandar,57.0,0.6583,HIGH,Hazard Exposure,Demographic Sensitivity,55.5,20.8,14.7,9.0,0.5841,0.4477,0.1612,0.3906
+GJ_TALUKA_192,GJ_TALUKA_192,Rajkot,Rajkot,Rajkot,140.0,0.3008,MODERATE,Demographic Sensitivity,Capacity Stress,24.4,27.6,25.5,22.5,0.1938,0.4477,0.2111,0.7328
+GJ_TALUKA_193,GJ_TALUKA_193,Dhoraji,Dhoraji,Rajkot,162.0,0.2791,MODERATE,Capacity Stress,Demographic Sensitivity,29.1,31.1,33.4,6.4,0.2051,0.4477,0.2459,0.1844
+GJ_TALUKA_194,GJ_TALUKA_194,Gondal,Gondal,Rajkot,139.0,0.301,MODERATE,Capacity Stress,Demographic Sensitivity,29.1,30.5,37.7,2.7,0.2088,0.4477,0.2832,0.08
+GJ_TALUKA_195,GJ_TALUKA_195,Jamkandorna,Jamkandorna,Rajkot,122.0,0.3368,MODERATE,Capacity Stress,Demographic Sensitivity,25.7,26.2,33.7,14.4,0.2149,0.4477,0.2951,0.4944
+GJ_TALUKA_196,GJ_TALUKA_196,Jasdan,Jasdan,Rajkot,125.0,0.3268,MODERATE,Capacity Stress,Hazard Exposure,28.1,27.1,29.6,15.2,0.2278,0.4477,0.2508,0.5044
+GJ_TALUKA_197,GJ_TALUKA_197,Jetpur,Jetpur,Rajkot,142.0,0.2995,MODERATE,Capacity Stress,Demographic Sensitivity,26.5,28.3,30.1,15.1,0.2055,0.4477,0.2443,0.4811
+GJ_TALUKA_198,GJ_TALUKA_198,Kotda Sangani,Kotda Sangani,Rajkot,131.0,0.3118,MODERATE,Capacity Stress,Demographic Sensitivity,24.5,27.0,29.4,19.1,0.1987,0.4477,0.2495,0.6389
+GJ_TALUKA_199,GJ_TALUKA_199,Lodhika,Lodhika,Rajkot,137.0,0.3025,MODERATE,Hazard Exposure,Demographic Sensitivity,31.1,29.3,26.7,12.8,0.2328,0.4477,0.2087,0.3939
+GJ_TALUKA_200,GJ_TALUKA_200,Paddhari,Paddhari,Rajkot,229.0,0.1977,LOW,Demographic Sensitivity,Capacity Stress,24.8,35.4,28.1,11.7,0.1537,0.4477,0.1817,0.2983
+GJ_TALUKA_201,GJ_TALUKA_201,Upleta,Upleta,Rajkot,121.0,0.3394,MODERATE,Hazard Exposure,Demographic Sensitivity,30.7,26.9,24.8,17.6,0.25,0.4477,0.2114,0.5889
+GJ_TALUKA_202,GJ_TALUKA_202,Vinchhiya,Vinchhiya,Rajkot,161.0,0.2792,MODERATE,Demographic Sensitivity,Hazard Exposure,25.5,29.2,24.5,20.8,0.1916,0.4477,0.1921,0.6406
+GJ_TALUKA_203,GJ_TALUKA_203,Himmatnagar,Himmatnagar,Sabarkantha,222.0,0.2102,LOW,Capacity Stress,Demographic Sensitivity,19.2,33.5,34.2,13.1,0.1258,0.4477,0.234,0.3528
+GJ_TALUKA_204,GJ_TALUKA_204,Idar,Idar,Sabarkantha,221.0,0.2105,LOW,Capacity Stress,Demographic Sensitivity,24.3,36.1,36.4,3.2,0.1472,0.4477,0.2307,0.08
+GJ_TALUKA_205,GJ_TALUKA_205,Khedbrahma,Khedbrahma,Sabarkantha,187.0,0.2455,LOW,Capacity Stress,Demographic Sensitivity,17.8,31.0,37.8,13.4,0.1258,0.4477,0.279,0.3906
+GJ_TALUKA_206,GJ_TALUKA_206,Poshina,Poshina,Sabarkantha,132.0,0.3089,MODERATE,Capacity Stress,Demographic Sensitivity,22.7,27.8,38.8,10.7,0.179,0.4477,0.3188,0.3444
+GJ_TALUKA_207,GJ_TALUKA_207,Prantij,Prantij,Sabarkantha,151.0,0.2916,MODERATE,Capacity Stress,Demographic Sensitivity,14.3,27.5,39.4,18.8,0.1139,0.4477,0.3284,0.6161
+GJ_TALUKA_208,GJ_TALUKA_208,Talod,Talod,Sabarkantha,228.0,0.2006,LOW,Demographic Sensitivity,Capacity Stress,18.6,34.0,33.2,14.1,0.1199,0.4477,0.2238,0.3733
+GJ_TALUKA_209,GJ_TALUKA_209,Vadali,Vadali,Sabarkantha,220.0,0.2112,LOW,Demographic Sensitivity,Capacity Stress,21.9,34.0,33.7,10.4,0.1409,0.4477,0.2268,0.2756
+GJ_TALUKA_210,GJ_TALUKA_210,Vijaynagar,Vijaynagar,Sabarkantha,130.0,0.3139,MODERATE,Capacity Stress,Demographic Sensitivity,17.6,26.2,37.5,18.6,0.1472,0.4477,0.3273,0.64
+GJ_TALUKA_211,GJ_TALUKA_211,Surat City,Surat City,Surat,1.0,0.8544,VERY HIGH,Hazard Exposure,Capacity Stress,46.9,15.7,26.0,11.4,0.6538,0.4477,0.3791,0.6528
+GJ_TALUKA_212,GJ_TALUKA_212,Bardoli,Bardoli,Surat,51.0,0.6843,HIGH,Hazard Exposure,Demographic Sensitivity,59.6,19.9,8.7,11.8,0.6566,0.4477,0.1,0.5339
+GJ_TALUKA_213,GJ_TALUKA_213,Choryasi,Choryasi,Surat,5.0,0.7864,VERY HIGH,Hazard Exposure,Demographic Sensitivity,55.1,17.1,14.4,13.4,0.7045,0.4477,0.1922,0.7028
+GJ_TALUKA_214,GJ_TALUKA_214,Kamrej,Kamrej,Surat,11.0,0.7622,VERY HIGH,Hazard Exposure,Demographic Sensitivity,57.6,17.8,13.1,11.5,0.7069,0.4477,0.1684,0.5789
+GJ_TALUKA_215,GJ_TALUKA_215,Mahuva (Surat),Mahuva (Surat),Surat,25.0,0.7352,VERY HIGH,Hazard Exposure,Demographic Sensitivity,58.4,18.7,12.6,10.3,0.6851,0.4477,0.1545,0.4989
+GJ_TALUKA_216,GJ_TALUKA_216,Mandvi (Surat),Mandvi (Surat),Surat,27.0,0.7286,HIGH,Hazard Exposure,Demographic Sensitivity,59.0,19.0,13.2,8.8,0.6796,0.4477,0.1587,0.4178
+GJ_TALUKA_217,GJ_TALUKA_217,Mangrol (Surat),Mangrol (Surat),Surat,26.0,0.7319,HIGH,Hazard Exposure,Demographic Sensitivity,55.4,18.8,15.1,10.8,0.6463,0.4477,0.1839,0.5167
+GJ_TALUKA_218,GJ_TALUKA_218,Olpad,Olpad,Surat,29.0,0.7244,HIGH,Hazard Exposure,Demographic Sensitivity,56.9,18.7,11.7,12.7,0.6685,0.4477,0.1431,0.6133
+GJ_TALUKA_219,GJ_TALUKA_219,Palsana,Palsana,Surat,94.0,0.5843,MODERATE,Hazard Exposure,Demographic Sensitivity,55.5,22.9,10.0,11.6,0.5307,0.4477,0.1,0.4539
+GJ_TALUKA_220,GJ_TALUKA_220,Umarpada,Umarpada,Surat,10.0,0.7636,VERY HIGH,Hazard Exposure,Demographic Sensitivity,55.8,17.9,14.6,11.7,0.6833,0.4477,0.1863,0.5878
+GJ_TALUKA_221,GJ_TALUKA_221,Wadhwan,Wadhwan,Surendranagar,127.0,0.3238,MODERATE,Capacity Stress,Demographic Sensitivity,26.9,27.0,31.1,15.0,0.2184,0.4477,0.2637,0.5
+GJ_TALUKA_222,GJ_TALUKA_222,Chotila,Chotila,Surendranagar,136.0,0.3036,MODERATE,Capacity Stress,Demographic Sensitivity,23.0,27.3,31.6,18.2,0.1846,0.4477,0.2655,0.6011
+GJ_TALUKA_223,GJ_TALUKA_223,Chuda,Chuda,Surendranagar,138.0,0.3024,MODERATE,Capacity Stress,Demographic Sensitivity,22.0,27.4,34.5,16.1,0.1763,0.4477,0.2882,0.5294
+GJ_TALUKA_224,GJ_TALUKA_224,Dasada (Patdi),Dasada (Patdi),Surendranagar,129.0,0.3214,MODERATE,Capacity Stress,Demographic Sensitivity,20.6,25.9,33.8,19.7,0.1743,0.4477,0.2983,0.6822
+GJ_TALUKA_225,GJ_TALUKA_225,Dhrangadhra,Dhrangadhra,Surendranagar,166.0,0.276,MODERATE,Demographic Sensitivity,Hazard Exposure,28.4,30.1,26.5,15.0,0.2063,0.4477,0.2015,0.4494
+GJ_TALUKA_226,GJ_TALUKA_226,Halvad,Halvad,Surendranagar,115.0,0.409,MODERATE,Hazard Exposure,Capacity Stress,34.8,24.9,29.1,11.1,0.3062,0.4477,0.2673,0.4011
+GJ_TALUKA_227,GJ_TALUKA_227,Lakhtar,Lakhtar,Surendranagar,133.0,0.3085,MODERATE,Hazard Exposure,Demographic Sensitivity,28.1,28.0,24.5,19.4,0.2205,0.4477,0.2003,0.6244
+GJ_TALUKA_228,GJ_TALUKA_228,Limbdi,Limbdi,Surendranagar,152.0,0.2906,MODERATE,Capacity Stress,Demographic Sensitivity,22.7,27.9,30.7,18.6,0.178,0.4477,0.252,0.6
+GJ_TALUKA_229,GJ_TALUKA_229,Muli,Muli,Surendranagar,223.0,0.2102,LOW,Demographic Sensitivity,Capacity Stress,23.6,33.8,27.9,14.6,0.1529,0.4477,0.1892,0.39
+GJ_TALUKA_230,GJ_TALUKA_230,Sayla,Sayla,Surendranagar,204.0,0.2301,LOW,Demographic Sensitivity,Capacity Stress,23.6,32.2,28.7,15.5,0.1605,0.4477,0.2037,0.4339
+GJ_TALUKA_231,GJ_TALUKA_231,Thangadh,Thangadh,Surendranagar,197.0,0.2378,LOW,Demographic Sensitivity,Capacity Stress,22.7,31.4,28.8,17.0,0.1583,0.4477,0.2102,0.4878
+GJ_TALUKA_232,GJ_TALUKA_232,Vyara,Vyara,Tapi,218.0,0.2148,LOW,Capacity Stress,Demographic Sensitivity,13.1,32.7,36.1,18.1,0.088,0.4477,0.2529,0.4989
+GJ_TALUKA_233,GJ_TALUKA_233,Dolvan,Dolvan,Tapi,205.0,0.2293,LOW,Capacity Stress,Demographic Sensitivity,12.5,33.0,43.1,11.4,0.0833,0.4477,0.2994,0.3117
+GJ_TALUKA_234,GJ_TALUKA_234,Kukurmunda,Kukurmunda,Tapi,168.0,0.2721,MODERATE,Capacity Stress,Demographic Sensitivity,18.0,29.6,40.2,12.2,0.1338,0.4477,0.3115,0.3711
+GJ_TALUKA_235,GJ_TALUKA_235,Nizar,Nizar,Tapi,192.0,0.2413,LOW,Capacity Stress,Demographic Sensitivity,3.4,31.9,43.0,21.6,0.0235,0.4477,0.3088,0.61
+GJ_TALUKA_236,GJ_TALUKA_236,Songadh,Songadh,Tapi,208.0,0.2262,LOW,Capacity Stress,Demographic Sensitivity,20.3,33.8,39.2,6.8,0.1318,0.4477,0.2656,0.1806
+GJ_TALUKA_237,GJ_TALUKA_237,Uchchhal,Uchchhal,Tapi,238.0,0.1725,LOW,Demographic Sensitivity,Capacity Stress,11.3,36.2,33.5,18.9,0.0686,0.4477,0.212,0.4706
+GJ_TALUKA_238,GJ_TALUKA_238,Valod,Valod,Tapi,207.0,0.2264,LOW,Capacity Stress,Demographic Sensitivity,14.0,31.6,34.7,19.6,0.0972,0.4477,0.2515,0.5578
+GJ_TALUKA_239,GJ_TALUKA_239,Vadodara,Vadodara,Vadodara,215.0,0.2177,LOW,Capacity Stress,Demographic Sensitivity,14.6,32.7,37.2,15.5,0.0979,0.4477,0.2608,0.4261
+GJ_TALUKA_240,GJ_TALUKA_240,Dabhoi,Dabhoi,Vadodara,178.0,0.2573,LOW,Capacity Stress,Demographic Sensitivity,14.8,29.4,34.4,21.4,0.1108,0.4477,0.2682,0.6556
+GJ_TALUKA_241,GJ_TALUKA_241,Desar,Desar,Vadodara,206.0,0.2281,LOW,Capacity Stress,Demographic Sensitivity,13.7,31.4,33.0,21.9,0.0956,0.4477,0.2407,0.6267
+GJ_TALUKA_242,GJ_TALUKA_242,Karjan,Karjan,Vadodara,235.0,0.192,LOW,Capacity Stress,Demographic Sensitivity,12.0,34.7,36.4,16.8,0.0761,0.4477,0.2406,0.4361
+GJ_TALUKA_243,GJ_TALUKA_243,Padra,Padra,Vadodara,239.0,0.1721,LOW,Demographic Sensitivity,Capacity Stress,13.7,36.0,31.7,18.6,0.0832,0.4477,0.2015,0.4639
+GJ_TALUKA_244,GJ_TALUKA_244,Savli,Savli,Vadodara,175.0,0.2629,MODERATE,Capacity Stress,Demographic Sensitivity,11.4,29.1,37.0,22.5,0.0861,0.4477,0.2913,0.6961
+GJ_TALUKA_245,GJ_TALUKA_245,Sinor,Sinor,Vadodara,240.0,0.172,LOW,Demographic Sensitivity,Capacity Stress,15.6,36.1,31.7,16.7,0.0947,0.4477,0.201,0.4167
+GJ_TALUKA_246,GJ_TALUKA_246,Vaghodia,Vaghodia,Vadodara,182.0,0.2518,LOW,Capacity Stress,Demographic Sensitivity,16.1,30.5,39.2,14.2,0.1156,0.4477,0.294,0.4189
+GJ_TALUKA_247,GJ_TALUKA_247,Valsad,Valsad,Valsad,8.0,0.7737,VERY HIGH,Hazard Exposure,Capacity Stress,59.3,18.1,18.6,4.1,0.7186,0.4477,0.2351,0.205
+GJ_TALUKA_248,GJ_TALUKA_248,Dharampur,Dharampur,Valsad,4.0,0.7895,VERY HIGH,Hazard Exposure,Demographic Sensitivity,60.2,17.2,14.5,8.1,0.7667,0.4477,0.1937,0.4217
+GJ_TALUKA_249,GJ_TALUKA_249,Kaprada,Kaprada,Valsad,16.0,0.7494,VERY HIGH,Hazard Exposure,Demographic Sensitivity,58.4,18.2,12.3,11.1,0.705,0.4477,0.155,0.5506
+GJ_TALUKA_250,GJ_TALUKA_250,Pardi,Pardi,Valsad,6.0,0.7804,VERY HIGH,Hazard Exposure,Demographic Sensitivity,59.3,17.7,15.8,7.1,0.7319,0.4477,0.2045,0.3622
+GJ_TALUKA_251,GJ_TALUKA_251,Umbergaon,Umbergaon,Valsad,2.0,0.8158,VERY HIGH,Hazard Exposure,Demographic Sensitivity,56.7,16.8,16.2,10.2,0.7397,0.4477,0.2213,0.5489
+GJ_TALUKA_252,GJ_TALUKA_252,Vapi,Vapi,Valsad,9.0,0.7723,VERY HIGH,Hazard Exposure,Capacity Stress,55.3,18.2,20.4,6.1,0.668,0.4477,0.2572,0.305
