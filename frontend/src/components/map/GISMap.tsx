@@ -21,9 +21,11 @@ interface GISMapProps {
   showHabitationsWms: boolean;
   resetViewTrigger: number;
   priorityFilter?: 'VERY_HIGH' | 'MODERATE' | 'LOW' | null;
+  showOverpassPOIs?: boolean;
 }
 
 import { useActiveState } from '../../context/StateContext';
+import { DynamicOverpassPOILayer } from './DynamicOverpassPOILayer';
 
 export const GISMap: React.FC<GISMapProps> = ({
   districtsGeoJson,
@@ -41,8 +43,10 @@ export const GISMap: React.FC<GISMapProps> = ({
   showHabitationsWms,
   resetViewTrigger,
   priorityFilter = null,
+  showOverpassPOIs = true,
 }) => {
   const { currentState } = useActiveState();
+  const [mapReady, setMapReady] = React.useState<L.Map | null>(null);
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<L.Map | null>(null);
   const districtsLayerRef = useRef<L.GeoJSON | null>(null);
@@ -140,6 +144,7 @@ export const GISMap: React.FC<GISMapProps> = ({
     // Initially show complete state with comfortable padding
     fitToStateBounds(map, false);
     mapInstanceRef.current = map;
+    setMapReady(map);
 
     const timer = setTimeout(() => {
       if (mapInstanceRef.current) {
@@ -152,6 +157,7 @@ export const GISMap: React.FC<GISMapProps> = ({
       clearTimeout(timer);
       map.remove();
       mapInstanceRef.current = null;
+      setMapReady(null);
     };
   }, []);
 
@@ -733,6 +739,9 @@ export const GISMap: React.FC<GISMapProps> = ({
   return (
     <div className="relative w-full h-full min-h-[500px] overflow-hidden bg-white">
       <div ref={mapContainerRef} className="w-full h-full z-0" />
+      {showOverpassPOIs && mapReady && (
+        <DynamicOverpassPOILayer map={mapReady} />
+      )}
     </div>
   );
 };
