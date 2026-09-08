@@ -118,8 +118,6 @@ export const VillageAnalysisPage: React.FC<VillageAnalysisPageProps> = ({
   const mapInstanceRef = useRef<L.Map | null>(null);
   const tileLayersRef = useRef<{
     satellite: L.TileLayer;
-    satelliteBoundaries: L.TileLayer;
-    satelliteTransportation: L.TileLayer;
     standard: L.TileLayer;
   } | null>(null);
   const layersGroupRef = useRef<L.FeatureGroup | null>(null);
@@ -490,66 +488,32 @@ export const VillageAnalysisPage: React.FC<VillageAnalysisPageProps> = ({
     const sLbl = map.getPane('sectorLabelsPane');
     if (sLbl) sLbl.style.zIndex = '600';
 
-    // 1a. Real Satellite Tile Layer: Esri World Imagery (Authoritative, sub-meter aerial basemap)
+    // 1. High-Quality ESRI World Imagery Satellite Layer
     const satelliteLayer = L.tileLayer(
       'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
       {
+        attribution: 'Tiles © Esri',
         maxZoom: 19,
-        maxNativeZoom: 18,
-        opacity: 1.0,
-        keepBuffer: 8,
-        updateInterval: 100,
-        className: 'satellite-tile',
-        attribution: 'Tiles &copy; Esri &mdash; Source: Esri, Maxar, Earthstar Geographics',
       }
     );
 
-    // 1b. Esri World Boundaries and Places (Village names, places, water bodies, administrative units)
-    const satelliteBoundariesLayer = L.tileLayer(
-      'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}',
-      {
-        pane: 'satelliteReferencePane',
-        maxZoom: 19,
-        maxNativeZoom: 18,
-        opacity: 0.95,
-        attribution: 'Esri, HERE, Garmin',
-      }
-    );
-
-    // 1c. Esri World Transportation (Roads, highways, road numbers, major streets)
-    const satelliteTransportationLayer = L.tileLayer(
-      'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Transportation/MapServer/tile/{z}/{y}/{x}',
-      {
-        pane: 'satelliteReferencePane',
-        maxZoom: 19,
-        maxNativeZoom: 18,
-        opacity: 0.90,
-        attribution: 'Esri, HERE, Garmin',
-      }
-    );
-
-    // 2. Standard OpenStreetMap Layer (Cartographic Vector basemap fallback with roads & place names)
+    // 2. Standard OpenStreetMap Layer fallback
     const standardLayer = L.tileLayer(
       'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
       {
+        attribution: '© OpenStreetMap',
         maxZoom: 19,
-        opacity: 1.0,
-        attribution: '&copy; OpenStreetMap contributors',
       }
     );
 
     tileLayersRef.current = {
       satellite: satelliteLayer,
-      satelliteBoundaries: satelliteBoundariesLayer,
-      satelliteTransportation: satelliteTransportationLayer,
       standard: standardLayer,
     };
 
     // Default to active basemapMode (satellite default)
     if (basemapMode === 'satellite') {
       satelliteLayer.addTo(map);
-      satelliteBoundariesLayer.addTo(map);
-      satelliteTransportationLayer.addTo(map);
     } else {
       standardLayer.addTo(map);
     }
@@ -604,18 +568,14 @@ export const VillageAnalysisPage: React.FC<VillageAnalysisPageProps> = ({
   // -------------------------------------------------------------
   useEffect(() => {
     if (!mapReady || !mapInstanceRef.current || !tileLayersRef.current) return;
-    const { satellite, satelliteBoundaries, satelliteTransportation, standard } = tileLayersRef.current;
+    const { satellite, standard } = tileLayersRef.current;
     const map = mapInstanceRef.current;
 
     if (basemapMode === 'satellite') {
       if (map.hasLayer(standard)) map.removeLayer(standard);
       if (!map.hasLayer(satellite)) map.addLayer(satellite);
-      if (!map.hasLayer(satelliteBoundaries)) map.addLayer(satelliteBoundaries);
-      if (!map.hasLayer(satelliteTransportation)) map.addLayer(satelliteTransportation);
     } else {
       if (map.hasLayer(satellite)) map.removeLayer(satellite);
-      if (map.hasLayer(satelliteBoundaries)) map.removeLayer(satelliteBoundaries);
-      if (map.hasLayer(satelliteTransportation)) map.removeLayer(satelliteTransportation);
       if (!map.hasLayer(standard)) map.addLayer(standard);
     }
   }, [basemapMode, mapReady]);
