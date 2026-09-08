@@ -3,129 +3,39 @@ from pathlib import Path
 from typing import Dict, Any, List, Optional
 import pandas as pd
 from app.core.config import settings
+from app.core.state_registry import state_registry, get_state_key
 from app.hazard.schemas import (
     MandalHazardExposureItem,
     MandalExposureListResponse,
     HazardSummaryResponse,
 )
 
-def resolve_state_key(state_id: Optional[str]) -> str:
-    if not state_id:
-        return "andhra_pradesh"
-    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
-    if clean in ["odisha", "od", "or", "orissa"]:
-        return "odisha"
-    if clean in ["assam", "as"]:
-        return "assam"
-    if clean in ["bihar", "br"]:
-        return "bihar"
-    if clean in ["tamil_nadu", "tn", "tamilnadu"]:
-        return "tamil_nadu"
-    if clean in ["west_bengal", "wb", "westbengal"]:
-        return "west_bengal"
-    if clean in ["uttar_pradesh", "up", "uttarpradesh"]:
-        return "uttar_pradesh"
-    if clean in ["uttarakhand", "uk", "uttaranchal"]:
-        return "uttarakhand"
-    if clean in ["sikkim", "sk"]:
-        return "sikkim"
-    if clean in ["arunachal_pradesh", "arunachal", "ar"]:
-        return "arunachal_pradesh"
-    if clean in ["nagaland", "nl"]:
-        return "nagaland"
-    if clean in ["meghalaya", "ml"]:
-        return "meghalaya"
-    return "andhra_pradesh"
-
-def is_mizoram(state_id: Optional[str]) -> bool:
-    if not state_id:
-        return False
-    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
-    return clean in ["mizoram", "mz", "mizo"]
-
-def is_hp(state_id: Optional[str]) -> bool:
-    if not state_id:
-        return False
-    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
-    return clean in ["himachal_pradesh", "hp", "himachal"]
-
 class HazardService:
     def __init__(self):
         self._cache: Dict[str, Dict[str, Any]] = {}
 
     def _get_state_key(self, state_id: Optional[str]) -> str:
-        if is_mizoram(state_id):
-            return "mz"
-        if is_tn(state_id):
-            return "tn"
-        if is_hp(state_id):
-            return "hp"
-        return "ap"
+        return get_state_key(state_id)
 
     def _load_data(self, state_id: Optional[str] = "andhra_pradesh"):
-        key = resolve_state_key(state_id)
+        key = self._get_state_key(state_id)
         if key in self._cache:
             return self._cache[key]
 
-        haz_dir = settings.DATA_DIR / "processed" / "hazard" / "mandal_exposure"
+        meta = state_registry.get_state(key)
+        csv_path = meta.hazard_csv
+        geojson_path = meta.hazard_geojson
+        surge_included = meta.is_coastal
 
-        if key == "mz":
-            csv_path = haz_dir / "mizoram_subdistrict_multi_hazard_exposure.csv"
-            geojson_path = haz_dir / "mizoram_subdistrict_multi_hazard_exposure.geojson"
-            surge_included = False
-        elif key == "hp":
-            csv_path = haz_dir / "hp_tehsil_multi_hazard_exposure.csv"
-            geojson_path = haz_dir / "hp_tehsil_multi_hazard_exposure.geojson"
-            surge_included = False
-        elif key == "tn":
-            csv_path = haz_dir / "tn_taluk_multi_hazard_exposure.csv"
-            geojson_path = haz_dir / "tn_taluk_multi_hazard_exposure.geojson"
-            surge_included = True
-            surge_reason = "None"
-        elif key == "uttar_pradesh":
-            csv_path = haz_dir / "up_tehsil_multi_hazard_exposure.csv"
-            geojson_path = haz_dir / "up_tehsil_multi_hazard_exposure.geojson"
-            surge_included = False
-            surge_reason = "Inland northern state: Direct coastal storm surge is Not Applicable (0.0). Recurrent riverine flood inundation across Ganga, Yamuna, Ghaghara, Rapti, and Ramganga river basins & BIS IS 875 wind models applied."
-        elif key == "uttarakhand":
-            csv_path = haz_dir / "uk_tehsil_multi_hazard_exposure.csv"
-            geojson_path = haz_dir / "uk_tehsil_multi_hazard_exposure.geojson"
-            surge_included = False
-            surge_reason = "Inland Himalayan state: Direct coastal storm surge is Not Applicable (0.0). Trans-Himalayan flash flood / GLOF recurrence across Bhagirathi, Alaknanda, and Mandakini basins, high-relief slope/landslide constraints, and BIS IS 875 wind models applied."
-        elif key == "sikkim":
-            csv_path = haz_dir / "sk_subdivision_multi_hazard_exposure.csv"
-            geojson_path = haz_dir / "sk_subdivision_multi_hazard_exposure.geojson"
-            surge_included = False
-            surge_reason = "Inland Eastern Himalayan state: Direct coastal storm surge is Not Applicable (0.0). Teesta basin Glacial Lake Outburst Floods (GLOF), catastrophic flash flood runoff, steep mountain slope landslide hazards, and BIS IS 875 wind models applied."
-        elif key == "arunachal_pradesh":
-            csv_path = haz_dir / "ar_circle_multi_hazard_exposure.csv"
-            geojson_path = haz_dir / "ar_circle_multi_hazard_exposure.geojson"
-            surge_included = False
-            surge_reason = "Inland Eastern Himalayan state: Direct coastal storm surge is Not Applicable (0.0). Major river basin flash flood & landslide dam-burst risks (Siang, Subansiri, Kameng, Dibang, Lohit), steep mountain slope landslide hazards, and BIS IS 875 wind models applied."
-        elif key == "nagaland":
-            csv_path = haz_dir / "nl_circle_multi_hazard_exposure.csv"
-            geojson_path = haz_dir / "nl_circle_multi_hazard_exposure.geojson"
-            surge_included = False
-            surge_reason = "Inland northeastern state: Direct coastal storm surge is Not Applicable (0.0). Naga Hills steep mountain slope landslide hazards, Dhansiri-Doyang-Dikhu-Tizu riverine & flash flood recurrence, and BIS IS 875 wind models applied."
-        elif key == "meghalaya":
-            csv_path = haz_dir / "ml_block_multi_hazard_exposure.csv"
-            geojson_path = haz_dir / "ml_block_multi_hazard_exposure.geojson"
-            surge_included = False
-            surge_reason = "Inland hill state atop Shillong Plateau: Direct coastal storm surge is Not Applicable (0.0). Cherrapunji/Mawsynram extreme rainfall, southern escarpment flash flood & landslide susceptibility, northern riverine flood recurrence, and BIS IS 875 (55 m/s) wind models applied."
-        else:
-            csv_path = haz_dir / "mandal_multi_hazard_exposure.csv"
-            geojson_path = haz_dir / "ap_mandal_multi_hazard_exposure.geojson"
-            surge_included = False
-            surge_reason = "Open-access coastal surge inundation layer requires dynamic hydrodynamic modeling (e.g. ADCIRC). Historical tropical storm buffers applied as proxy."
+        if not csv_path or not csv_path.exists():
+            raise FileNotFoundError(f"Hazard data for {key} not found at {csv_path}")
 
-        if not csv_path.exists():
-            raise FileNotFoundError(f"Hazard data not found at {csv_path}")
+        df = pd.read_csv(csv_path)
 
         data = {
-            "exposure_df": pd.read_csv(csv_path),
+            "exposure_df": df,
             "geojson_path": geojson_path,
             "surge_included": surge_included,
-            "surge_reason": surge_reason,
             "geojson": None
         }
         self._cache[key] = data
@@ -136,55 +46,111 @@ class HazardService:
         df = data["exposure_df"]
 
         if district_id:
-            df = df[df["current_district_id"] == district_id.strip().lower()]
+            did_clean = district_id.strip().lower()
+            if "current_district_id" in df.columns:
+                df = df[df["current_district_id"].astype(str).str.lower() == did_clean]
+            elif "district_id" in df.columns:
+                df = df[df["district_id"].astype(str).str.lower() == did_clean]
 
-        items = [MandalHazardExposureItem(**row) for row in df.to_dict(orient="records")]
+        items = []
+        for row in df.to_dict(orient="records"):
+            # Ensure required schema fields exist with defaults
+            clean_row = dict(row)
+            if "mandal_id" not in clean_row:
+                clean_row["mandal_id"] = str(row.get("circle_id", row.get("tehsil_id", row.get("block_id", row.get("subdivision_id", row.get("taluk_id", ""))))))
+            if "mandal_name" not in clean_row:
+                clean_row["mandal_name"] = str(row.get("circle_name", row.get("tehsil_name", row.get("block_name", row.get("subdivision_name", row.get("taluk_name", ""))))))
+            if "current_district_id" not in clean_row:
+                clean_row["current_district_id"] = str(row.get("district_id", ""))
+            if "current_district_name" not in clean_row:
+                clean_row["current_district_name"] = str(row.get("district_name", ""))
+            if "mandal_area_sqkm" not in clean_row:
+                clean_row["mandal_area_sqkm"] = float(row.get("area_sqkm", 0.0))
+            if "multi_hazard_exposure_index" not in clean_row:
+                clean_row["multi_hazard_exposure_index"] = float(row.get("c1_hazard_exposure", row.get("composite_hazard_index", row.get("composite_hazard_score", 0.0))))
+
+            items.append(MandalHazardExposureItem(**clean_row))
+
         return MandalExposureListResponse(total_mandals=len(items), items=items)
 
     def get_mandal_detail(self, mandal_id: str, state_id: Optional[str] = "andhra_pradesh") -> Optional[MandalHazardExposureItem]:
         target = mandal_id.strip().upper()
-        if target.startswith("MZ_"):
-            detected_state = "mizoram"
-        elif target.startswith("TN_"):
-            detected_state = "tamil_nadu"
-        else:
-            detected_state = state_id
+        # Find which state this unit belongs to
+        detected_state = state_id
+        for sk, smeta in state_registry.states.items():
+            if target.startswith(f"{smeta.code}_"):
+                detected_state = sk
+                break
 
         data = self._load_data(detected_state)
         df = data["exposure_df"]
 
+        id_col = "mandal_id" if "mandal_id" in df.columns else ("block_id" if "block_id" in df.columns else "circle_id")
+        name_col = "mandal_name" if "mandal_name" in df.columns else ("block_name" if "block_name" in df.columns else "circle_name")
+
         match = df[
-            (df["mandal_id"] == target) |
-            (df["mandal_name"].str.upper() == target)
+            (df[id_col].astype(str).str.upper() == target) |
+            (df[name_col].astype(str).str.upper() == target)
         ]
-        if match.empty and detected_state != "tamil_nadu" and detected_state != "mizoram":
-            tn_data = self._load_data("tamil_nadu")
-            match = tn_data["exposure_df"][
-                (tn_data["exposure_df"]["mandal_id"] == target) |
-                (tn_data["exposure_df"]["mandal_name"].str.upper() == target)
-            ]
-        if match.empty and detected_state != "mizoram":
-            mz_data = self._load_data("mizoram")
-            match = mz_data["exposure_df"][
-                (mz_data["exposure_df"]["mandal_id"] == target) |
-                (mz_data["exposure_df"]["mandal_name"].str.upper() == target)
-            ]
+        if match.empty:
+            # Try other states in registry
+            for sk in state_registry.states.keys():
+                if sk == detected_state:
+                    continue
+                other_data = self._load_data(sk)
+                odf = other_data["exposure_df"]
+                oid = "mandal_id" if "mandal_id" in odf.columns else ("block_id" if "block_id" in odf.columns else "circle_id")
+                oname = "mandal_name" if "mandal_name" in odf.columns else ("block_name" if "block_name" in odf.columns else "circle_name")
+                match = odf[
+                    (odf[oid].astype(str).str.upper() == target) |
+                    (odf[oname].astype(str).str.upper() == target)
+                ]
+                if not match.empty:
+                    break
+
         if match.empty:
             return None
-        return MandalHazardExposureItem(**match.iloc[0].to_dict())
+
+        row = match.iloc[0].to_dict()
+        clean_row = dict(row)
+        if "mandal_id" not in clean_row:
+            clean_row["mandal_id"] = str(row.get("circle_id", row.get("tehsil_id", row.get("block_id", row.get("subdivision_id", row.get("taluk_id", ""))))))
+        if "mandal_name" not in clean_row:
+            clean_row["mandal_name"] = str(row.get("circle_name", row.get("tehsil_name", row.get("block_name", row.get("subdivision_name", row.get("taluk_name", ""))))))
+        if "current_district_id" not in clean_row:
+            clean_row["current_district_id"] = str(row.get("district_id", ""))
+        if "current_district_name" not in clean_row:
+            clean_row["current_district_name"] = str(row.get("district_name", ""))
+        if "mandal_area_sqkm" not in clean_row:
+            clean_row["mandal_area_sqkm"] = float(row.get("area_sqkm", 0.0))
+        if "multi_hazard_exposure_index" not in clean_row:
+            clean_row["multi_hazard_exposure_index"] = float(row.get("c1_hazard_exposure", row.get("composite_hazard_index", row.get("composite_hazard_score", 0.0))))
+
+        return MandalHazardExposureItem(**clean_row)
 
     def get_summary(self, state_id: Optional[str] = "andhra_pradesh") -> HazardSummaryResponse:
         data = self._load_data(state_id)
         df = data["exposure_df"]
 
-        indices = df["multi_hazard_exposure_index"]
+        idx_col = "multi_hazard_exposure_index" if "multi_hazard_exposure_index" in df.columns else ("c1_hazard_exposure" if "c1_hazard_exposure" in df.columns else "composite_hazard_score")
+        indices = df[idx_col]
         high_count = int((indices >= 0.50).sum())
         mod_count = int(((indices >= 0.25) & (indices < 0.50)).sum())
         low_count = int((indices < 0.25).sum())
 
-        top_5 = df.sort_values("multi_hazard_exposure_index", ascending=False).head(5)[
-            ["mandal_id", "mandal_name", "current_district_name", "multi_hazard_exposure_index"]
-        ].to_dict(orient="records")
+        id_col = "mandal_id" if "mandal_id" in df.columns else ("block_id" if "block_id" in df.columns else "circle_id")
+        name_col = "mandal_name" if "mandal_name" in df.columns else ("block_name" if "block_name" in df.columns else "circle_name")
+        dist_col = "current_district_name" if "current_district_name" in df.columns else "district_name"
+
+        top_df = df.sort_values(idx_col, ascending=False).head(5)
+        top_5 = []
+        for _, r in top_df.iterrows():
+            top_5.append({
+                "mandal_id": str(r.get(id_col, "")),
+                "mandal_name": str(r.get(name_col, "")),
+                "current_district_name": str(r.get(dist_col, "")),
+                "multi_hazard_exposure_index": float(r.get(idx_col, 0.0))
+            })
 
         return HazardSummaryResponse(
             total_mandals=len(df),
@@ -198,7 +164,7 @@ class HazardService:
             },
             top_exposed_mandals=top_5,
             storm_surge_included=data["surge_included"],
-            storm_surge_exclusion_reason=data["surge_reason"],
+            storm_surge_exclusion_reason="None" if data["surge_included"] else "Open-access coastal surge inundation layer requires dynamic hydrodynamic modeling (e.g. ADCIRC). Historical tropical storm buffers applied as proxy.",
             methodology_note="Calculated using verified open hazard datasets: JRC Global Surface Water 30m, NOAA IBTrACS Bay of Bengal tracks, BMTPC IS 875 wind speeds, and CGIAR SRTM 90m slope."
         )
 
@@ -206,6 +172,8 @@ class HazardService:
         data = self._load_data(state_id)
         if data["geojson"] is None:
             geojson_path = data["geojson_path"]
+            if not geojson_path or not geojson_path.exists():
+                raise FileNotFoundError(f"Hazard GeoJSON not found at {geojson_path}")
             with open(geojson_path, "r", encoding="utf-8") as f:
                 data["geojson"] = json.load(f)
 
@@ -215,7 +183,7 @@ class HazardService:
         target_did = district_id.strip().lower()
         filtered = [
             feat for feat in data["geojson"].get("features", [])
-            if str(feat.get("properties", {}).get("current_district_id", "")).lower() == target_did
+            if str(feat.get("properties", {}).get("current_district_id", feat.get("properties", {}).get("district_id", ""))).lower() == target_did
         ]
         return {
             "type": "FeatureCollection",
@@ -223,3 +191,4 @@ class HazardService:
         }
 
 hazard_service = HazardService()
+

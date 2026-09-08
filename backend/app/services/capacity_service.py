@@ -17,138 +17,38 @@ from app.capacity.schemas import (
     HostZoneCandidateListResponse,
 )
 
+from app.core.state_registry import state_registry, get_state_key
+
 def resolve_state_key(state_id: Optional[str]) -> str:
-    if not state_id:
-        return "andhra_pradesh"
-    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
-    if clean in ["odisha", "od", "or", "orissa"]:
-        return "odisha"
-    if clean in ["assam", "as"]:
-        return "assam"
-    if clean in ["bihar", "br"]:
-        return "bihar"
-    if clean in ["tamil_nadu", "tn", "tamilnadu"]:
-        return "tamil_nadu"
-    if clean in ["west_bengal", "wb", "westbengal"]:
-        return "west_bengal"
-    if clean in ["uttar_pradesh", "up", "uttarpradesh"]:
-        return "uttar_pradesh"
-    if clean in ["uttarakhand", "uk", "uttaranchal"]:
-        return "uttarakhand"
-    if clean in ["sikkim", "sk"]:
-        return "sikkim"
-    if clean in ["arunachal_pradesh", "arunachal", "ar"]:
-        return "arunachal_pradesh"
-    if clean in ["nagaland", "nl"]:
-        return "nagaland"
-    if clean in ["meghalaya", "ml"]:
-        return "meghalaya"
-    return "andhra_pradesh"
+    return get_state_key(state_id)
 
 def is_mizoram(state_id: Optional[str]) -> bool:
-    if not state_id:
-        return False
-    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
-    return clean in ["mizoram", "mz", "mizo"]
+    return get_state_key(state_id) == "mizoram"
 
 def is_hp(state_id: Optional[str]) -> bool:
-    if not state_id:
-        return False
-    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
-    return clean in ["himachal_pradesh", "hp", "himachal"]
+    return get_state_key(state_id) == "himachal_pradesh"
 
 class CapacityService:
     def __init__(self):
         self._cache: Dict[str, Dict[str, Any]] = {}
 
     def _get_state_key(self, state_id: Optional[str]) -> str:
-        if is_mizoram(state_id):
-            return "mz"
-        if is_tn(state_id):
-            return "tn"
-        if is_hp(state_id):
-            return "hp"
-        return "ap"
+        return get_state_key(state_id)
 
     def _load_data(self, state_id: Optional[str] = "andhra_pradesh"):
-        key = resolve_state_key(state_id)
+        key = get_state_key(state_id)
         if key in self._cache:
             return self._cache[key]
 
-        cap_dir = settings.DATA_DIR / "processed" / "capacity"
+        meta = state_registry.get_state(key)
+        cap_csv = meta.capacity_components_csv
+        adequacy_csv = meta.capacity_adequacy_csv
+        host_csv = meta.host_candidates_csv
+        cap_geojson = meta.capacity_geojson
+        adequacy_geojson = meta.capacity_geojson
+        bottlenecks_csv = adequacy_csv if key != "andhra_pradesh" else (settings.DATA_DIR / "processed" / "capacity" / "mandal_bottlenecks.csv")
 
-        if key == "mz":
-            cap_csv = cap_dir / "mizoram_subdistrict_capacity_components.csv"
-            adequacy_csv = cap_dir / "mizoram_subdistrict_capacity_adequacy.csv"
-            host_csv = cap_dir / "mizoram_host_zone_candidates.csv"
-            adequacy_geojson = cap_dir / "mizoram_subdistrict_capacity_adequacy.geojson"
-            cap_geojson = adequacy_geojson
-            bottlenecks_csv = adequacy_csv
-        elif key == "hp":
-            cap_csv = cap_dir / "hp_tehsil_capacity_components.csv"
-            adequacy_csv = cap_dir / "hp_tehsil_capacity_adequacy.csv"
-            host_csv = cap_dir / "hp_host_zone_candidates.csv"
-            adequacy_geojson = cap_dir / "hp_tehsil_capacity_adequacy.geojson"
-            cap_geojson = adequacy_geojson
-            bottlenecks_csv = adequacy_csv
-        elif key == "tn":
-            cap_csv = cap_dir / "tn_taluk_capacity_components.csv"
-            adequacy_csv = cap_dir / "tn_taluk_capacity_adequacy.csv"
-            host_csv = cap_dir / "tn_host_zone_candidates.csv"
-            adequacy_geojson = cap_dir / "tn_taluk_capacity_adequacy.geojson"
-            cap_geojson = adequacy_geojson
-            bottlenecks_csv = adequacy_csv
-        elif key == "uttar_pradesh":
-            cap_csv = cap_dir / "up_tehsil_capacity_components.csv"
-            adequacy_csv = cap_dir / "up_tehsil_capacity_adequacy.csv"
-            host_csv = cap_dir / "up_host_zone_candidates.csv"
-            adequacy_geojson = cap_dir / "up_tehsil_capacity_adequacy.geojson"
-            cap_geojson = adequacy_geojson
-            bottlenecks_csv = adequacy_csv
-        elif key == "uttarakhand":
-            cap_csv = cap_dir / "uk_tehsil_capacity_components.csv"
-            adequacy_csv = cap_dir / "uk_tehsil_capacity_adequacy.csv"
-            host_csv = cap_dir / "uk_host_zone_candidates.csv"
-            adequacy_geojson = cap_dir / "uk_tehsil_capacity_adequacy.geojson"
-            cap_geojson = adequacy_geojson
-            bottlenecks_csv = adequacy_csv
-        elif key == "sikkim":
-            cap_csv = cap_dir / "sk_subdivision_capacity_components.csv"
-            adequacy_csv = cap_dir / "sk_subdivision_capacity_adequacy.csv"
-            host_csv = cap_dir / "sk_host_zone_candidates.csv"
-            adequacy_geojson = cap_dir / "sk_subdivision_capacity_adequacy.geojson"
-            cap_geojson = adequacy_geojson
-            bottlenecks_csv = adequacy_csv
-        elif key == "arunachal_pradesh":
-            cap_csv = cap_dir / "ar_circle_capacity_components.csv"
-            adequacy_csv = cap_dir / "ar_circle_capacity_adequacy.csv"
-            host_csv = cap_dir / "ar_host_zone_candidates.csv"
-            adequacy_geojson = cap_dir / "ar_circle_capacity_adequacy.geojson"
-            cap_geojson = adequacy_geojson
-            bottlenecks_csv = adequacy_csv
-        elif key == "nagaland":
-            cap_csv = cap_dir / "nl_circle_capacity_components.csv"
-            adequacy_csv = cap_dir / "nl_circle_capacity_adequacy.csv"
-            host_csv = cap_dir / "nl_host_zone_candidates.csv"
-            adequacy_geojson = cap_dir / "nl_circle_capacity_adequacy.geojson"
-            cap_geojson = adequacy_geojson
-            bottlenecks_csv = adequacy_csv
-        elif key == "meghalaya":
-            cap_csv = cap_dir / "ml_block_capacity_components.csv"
-            adequacy_csv = cap_dir / "ml_block_capacity_adequacy.csv"
-            host_csv = cap_dir / "ml_host_zone_candidates.csv"
-            adequacy_geojson = cap_dir / "ml_block_capacity_adequacy.geojson"
-            cap_geojson = adequacy_geojson
-            bottlenecks_csv = adequacy_csv
-        else:
-            cap_csv = cap_dir / "mandal_capacity_components.csv"
-            adequacy_csv = cap_dir / "mandal_capacity_adequacy.csv"
-            host_csv = cap_dir / "host_zone_candidates.csv"
-            bottlenecks_csv = cap_dir / "mandal_bottlenecks.csv"
-            cap_geojson = cap_dir / "ap_mandal_capacity_components.geojson"
-            adequacy_geojson = cap_dir / "ap_mandal_capacity_adequacy.geojson"
-
-        if not cap_csv.exists():
+        if not cap_csv or not cap_csv.exists():
             raise FileNotFoundError(f"Capacity data not found at {cap_csv}")
 
         cap_df = pd.read_csv(cap_csv)

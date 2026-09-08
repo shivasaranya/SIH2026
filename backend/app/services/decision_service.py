@@ -12,109 +12,35 @@ from app.decision.schemas import (
 )
 
 
+from app.core.state_registry import state_registry, get_state_key
+
 def resolve_state_key(state_id: Optional[str]) -> str:
-    if not state_id:
-        return "andhra_pradesh"
-    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
-    if clean in ["odisha", "od", "or", "orissa"]:
-        return "odisha"
-    if clean in ["assam", "as"]:
-        return "assam"
-    if clean in ["bihar", "br"]:
-        return "bihar"
-    if clean in ["tamil_nadu", "tn", "tamilnadu"]:
-        return "tamil_nadu"
-    if clean in ["west_bengal", "wb", "westbengal"]:
-        return "west_bengal"
-    if clean in ["uttar_pradesh", "up", "uttarpradesh"]:
-        return "uttar_pradesh"
-    if clean in ["uttarakhand", "uk", "uttaranchal"]:
-        return "uttarakhand"
-    if clean in ["sikkim", "sk"]:
-        return "sikkim"
-    if clean in ["arunachal_pradesh", "arunachal", "ar"]:
-        return "arunachal_pradesh"
-    if clean in ["nagaland", "nl"]:
-        return "nagaland"
-    if clean in ["meghalaya", "ml"]:
-        return "meghalaya"
-    return "andhra_pradesh"
+    return get_state_key(state_id)
 
 def is_mizoram(state_id: Optional[str]) -> bool:
-    if not state_id:
-        return False
-    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
-    return clean in ["mizoram", "mz", "mizo"]
+    return get_state_key(state_id) == "mizoram"
 
 def is_hp(state_id: Optional[str]) -> bool:
-    if not state_id:
-        return False
-    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
-    return clean in ["himachal_pradesh", "hp", "himachal"]
+    return get_state_key(state_id) == "himachal_pradesh"
 
 class DecisionService:
     def __init__(self):
         self._cache: Dict[str, Dict[str, Any]] = {}
 
     def _get_state_key(self, state_id: Optional[str]) -> str:
-        if is_mizoram(state_id):
-            return "mz"
-        if is_tn(state_id):
-            return "tn"
-        if is_hp(state_id):
-            return "hp"
-        return "ap"
+        return get_state_key(state_id)
 
     def _load_data(self, state_id: Optional[str] = "andhra_pradesh"):
-        key = resolve_state_key(state_id)
+        key = get_state_key(state_id)
         if key in self._cache:
             return self._cache[key]
 
-        reloc_dir = settings.DATA_DIR / "processed" / "relocation"
-        cap_dir = settings.DATA_DIR / "processed" / "capacity"
+        meta = state_registry.get_state(key)
+        reloc_csv = meta.relocation_csv
+        cap_csv = meta.capacity_adequacy_csv
+        hosts_csv = meta.host_candidates_csv
 
-        if key == "mz":
-            reloc_csv = reloc_dir / "mizoram_subdistrict_relocation_priority.csv"
-            cap_csv = cap_dir / "mizoram_subdistrict_capacity_adequacy.csv"
-            hosts_csv = cap_dir / "mizoram_host_zone_candidates.csv"
-        elif key == "hp":
-            reloc_csv = reloc_dir / "hp_tehsil_relocation_priority.csv"
-            cap_csv = cap_dir / "hp_tehsil_capacity_adequacy.csv"
-            hosts_csv = cap_dir / "hp_host_zone_candidates.csv"
-        elif key == "tn":
-            reloc_csv = reloc_dir / "tn_taluk_relocation_priority.csv"
-            cap_csv = cap_dir / "tn_taluk_capacity_adequacy.csv"
-            hosts_csv = cap_dir / "tn_host_zone_candidates.csv"
-        elif key == "uttar_pradesh":
-            reloc_csv = reloc_dir / "up_tehsil_relocation_priority.csv"
-            cap_csv = cap_dir / "up_tehsil_capacity_adequacy.csv"
-            hosts_csv = cap_dir / "up_host_zone_candidates.csv"
-        elif key == "uttarakhand":
-            reloc_csv = reloc_dir / "uk_tehsil_relocation_priority.csv"
-            cap_csv = cap_dir / "uk_tehsil_capacity_adequacy.csv"
-            hosts_csv = cap_dir / "uk_host_zone_candidates.csv"
-        elif key == "sikkim":
-            reloc_csv = reloc_dir / "sk_subdivision_relocation_priority.csv"
-            cap_csv = cap_dir / "sk_subdivision_capacity_adequacy.csv"
-            hosts_csv = cap_dir / "sk_host_zone_candidates.csv"
-        elif key == "arunachal_pradesh":
-            reloc_csv = reloc_dir / "ar_circle_relocation_priority.csv"
-            cap_csv = cap_dir / "ar_circle_capacity_adequacy.csv"
-            hosts_csv = cap_dir / "ar_host_zone_candidates.csv"
-        elif key == "nagaland":
-            reloc_csv = reloc_dir / "nl_circle_relocation_priority.csv"
-            cap_csv = cap_dir / "nl_circle_capacity_adequacy.csv"
-            hosts_csv = cap_dir / "nl_host_zone_candidates.csv"
-        elif key == "meghalaya":
-            reloc_csv = reloc_dir / "ml_block_relocation_priority.csv"
-            cap_csv = cap_dir / "ml_block_capacity_adequacy.csv"
-            hosts_csv = cap_dir / "ml_host_zone_candidates.csv"
-        else:
-            reloc_csv = reloc_dir / "mandal_relocation_priority.csv"
-            cap_csv = cap_dir / "mandal_capacity_adequacy.csv"
-            hosts_csv = cap_dir / "host_zone_candidates.csv"
-
-        if not reloc_csv.exists() or not cap_csv.exists() or not hosts_csv.exists():
+        if not reloc_csv or not cap_csv or not hosts_csv or not reloc_csv.exists() or not cap_csv.exists() or not hosts_csv.exists():
             raise FileNotFoundError(f"Required processed datasets (relocation, capacity, host_candidates) not found for {key}.")
 
         data = {
