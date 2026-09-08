@@ -15,18 +15,22 @@ router = APIRouter(prefix="/village", tags=["Village Spatial Hazard"])
 @router.get("/{village_id}", response_model=VillageHazardResponse)
 async def get_village_summary(
     village_id: int,
-    disaster_type: str = Query("all", description="Disaster filter: flood, cyclone, wind, slope, all")
+    disaster_type: str = Query("all", description="Disaster filter: flood, cyclone, wind, slope, all"),
+    state_id: Optional[str] = Query(None, description="State identifier: andhra_pradesh, tamil_nadu, kerala")
 ):
     """Retrieve full spatial hazard and demographic analysis for a selected village."""
-    res = village_spatial_service.get_village_hazards(village_id, disaster_type=disaster_type)
+    res = village_spatial_service.get_village_hazards(village_id, disaster_type=disaster_type, state_id=state_id)
     if res is None:
         raise HTTPException(status_code=404, detail=f"Village with code {village_id} not found.")
     return res
 
 @router.get("/{village_id}/geometry", response_model=VillageGeometryResponse)
-async def get_village_geometry(village_id: int):
+async def get_village_geometry(
+    village_id: int,
+    state_id: Optional[str] = Query(None, description="State identifier: andhra_pradesh, tamil_nadu, kerala")
+):
     """Retrieve Leaflet-compatible GeoJSON boundaries and four cardinal sectors (N/E/S/W)."""
-    res = village_spatial_service.get_village_geometry(village_id)
+    res = village_spatial_service.get_village_geometry(village_id, state_id=state_id)
     if res is None:
         raise HTTPException(status_code=404, detail=f"Village geometry for code {village_id} not found.")
     return res
@@ -34,10 +38,11 @@ async def get_village_geometry(village_id: int):
 @router.get("/{village_id}/hazards", response_model=VillageHazardResponse)
 async def get_village_hazards(
     village_id: int,
-    disaster_type: str = Query("all", description="Disaster filter: flood, cyclone, wind, slope, all")
+    disaster_type: str = Query("all", description="Disaster filter: flood, cyclone, wind, slope, all"),
+    state_id: Optional[str] = Query(None, description="State identifier: andhra_pradesh, tamil_nadu, kerala")
 ):
     """Retrieve sector-by-sector real raster hazard intersections."""
-    res = village_spatial_service.get_village_hazards(village_id, disaster_type=disaster_type)
+    res = village_spatial_service.get_village_hazards(village_id, disaster_type=disaster_type, state_id=state_id)
     if res is None:
         raise HTTPException(status_code=404, detail=f"Village with code {village_id} not found.")
     return res
@@ -45,10 +50,11 @@ async def get_village_hazards(
 @router.get("/{village_id}/sectors")
 async def get_village_sectors(
     village_id: int,
-    disaster_type: str = Query("all", description="Disaster filter: flood, cyclone, wind, slope, all")
+    disaster_type: str = Query("all", description="Disaster filter: flood, cyclone, wind, slope, all"),
+    state_id: Optional[str] = Query(None, description="State identifier: andhra_pradesh, tamil_nadu, kerala")
 ):
     """Retrieve cardinal sector geometries and hazard metrics."""
-    res = village_spatial_service.get_village_hazards(village_id, disaster_type=disaster_type)
+    res = village_spatial_service.get_village_hazards(village_id, disaster_type=disaster_type, state_id=state_id)
     if res is None:
         raise HTTPException(status_code=404, detail=f"Village with code {village_id} not found.")
     return {
@@ -62,10 +68,11 @@ async def get_village_sectors(
 @router.get("/{village_id}/scenario", response_model=VillageScenarioResponse)
 async def get_village_scenario(
     village_id: int,
-    increase: float = Query(0.0, ge=0.0, le=10.0, description="What-if hazard sensitivity increase (0 to 10)")
+    increase: float = Query(0.0, ge=0.0, le=10.0, description="What-if hazard sensitivity increase (0 to 10)"),
+    state_id: Optional[str] = Query(None, description="State identifier: andhra_pradesh, tamil_nadu, kerala")
 ):
     """Run 0–10 what-if sensitivity simulation for the selected village."""
-    res = village_spatial_service.run_scenario(village_id, increase=increase)
+    res = village_spatial_service.run_scenario(village_id, increase=increase, state_id=state_id)
     if res is None:
         raise HTTPException(status_code=404, detail=f"Village with code {village_id} not found.")
     return res
@@ -76,7 +83,8 @@ async def get_village_relocation_centers(
     limit: int = Query(5, ge=1, le=50, description="Max recommended centers to return"),
     intensity: str = Query("high", description="Planning intensity: low, high, very_high"),
     sector: Optional[str] = Query(None, description="Affected sector: NORTH, EAST, SOUTH, WEST"),
-    disaster_type: str = Query("all", description="Disaster filter: flood, cyclone, wind, slope, all")
+    disaster_type: str = Query("all", description="Disaster filter: flood, cyclone, wind, slope, all"),
+    state_id: Optional[str] = Query(None, description="State identifier: andhra_pradesh, tamil_nadu, kerala")
 ):
     """Retrieve ranked candidate host relocation centers with transparent audit rationale."""
     res = village_spatial_service.get_relocation_centers(
@@ -84,7 +92,8 @@ async def get_village_relocation_centers(
         limit=limit,
         intensity=intensity,
         sector=sector,
-        disaster_type=disaster_type
+        disaster_type=disaster_type,
+        state_id=state_id
     )
     if res is None:
         raise HTTPException(status_code=404, detail=f"Village with code {village_id} not found.")
@@ -101,4 +110,3 @@ async def get_village_pois(
     if res is None:
         raise HTTPException(status_code=404, detail=f"Village with code {village_id} not found.")
     return res
-

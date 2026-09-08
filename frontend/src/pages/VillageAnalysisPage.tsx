@@ -56,7 +56,14 @@ export const TEST_VILLAGES = [
   { code: 581073, name: 'Gangaram', mandal: 'Kotabommali', district: 'Srikakulam', area: 2.51, category: 'Coastal Village' },
   { code: 594124, name: 'Sammathagiri', mandal: 'Holagunda', district: 'Kurnool', area: 6.90, category: 'Inland Village' },
   { code: 588383, name: 'Chinagollapalem', mandal: 'Kruthivennu', district: 'Krishna', area: 35.48, category: 'Coastal Delta' },
+  // Kerala villages (Census 2011 — Taluk-level spatial data)
+  { code: 320010001, name: 'Bekal', mandal: 'Hosdurg', district: 'Kasaragod', area: 0.42, category: 'Kerala Coastal' },
+  { code: 320060001, name: 'Mananthavady', mandal: 'Mananthavady', district: 'Wayanad', area: 1.85, category: 'Kerala Western Ghats' },
+  { code: 320590001, name: 'Thiruvananthapuram', mandal: 'Thiruvananthapuram', district: 'Thiruvananthapuram', area: 0.95, category: 'Kerala Capital' },
+  { code: 320110001, name: 'Kozhikode', mandal: 'Kozhikode', district: 'Kozhikode', area: 1.12, category: 'Kerala Port City' },
+  { code: 320340001, name: 'Devikulam', mandal: 'Devikulam', district: 'Idukki', area: 2.31, category: 'Kerala Highlands' },
 ];
+
 
 const DISASTERS = [
   { id: 'all', label: 'Multi-Hazard', icon: <Layers className="w-3.5 h-3.5" /> },

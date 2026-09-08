@@ -64,12 +64,18 @@ class VillageSpatialService:
             return "tamil_nadu"
         if s in ["ap", "andhra_pradesh", "andhrapradesh"]:
             return "andhra_pradesh"
+        if s in ["kl", "kerala"]:
+            return "kerala"
         return s
 
     def _resolve_state(self, village_code: int, state_id: Optional[str] = None) -> str:
         norm = self._normalize_state(state_id)
-        if norm in ["tamil_nadu", "andhra_pradesh"]:
+        if norm in ["tamil_nadu", "andhra_pradesh", "kerala"]:
             return norm
+
+        # Kerala village codes start with 32 (state code), format: 32 + taluk(3) + seq(4) = 9 digits
+        if str(village_code).startswith("32") and len(str(village_code)) >= 9:
+            return "kerala"
 
         if self._tn_village_codes is None:
             tn_idx_p = self._get_gis_dir() / "tn_villages_index.csv"
@@ -82,12 +88,28 @@ class VillageSpatialService:
             else:
                 self._tn_village_codes = set()
 
+        if self._ap_village_codes is None:
+            ap_idx_p = self._get_gis_dir() / "ap_villages_index.csv"
+            if ap_idx_p.exists():
+                try:
+                    df_ap = pd.read_csv(ap_idx_p, usecols=["village_code"])
+                    self._ap_village_codes = set(df_ap["village_code"].dropna().astype(int))
+                except Exception:
+                    self._ap_village_codes = set()
+            else:
+                self._ap_village_codes = set()
+
         if village_code in self._tn_village_codes:
             return "tamil_nadu"
         return "andhra_pradesh"
 
     def _get_state_bundle(self, state_id: str) -> StateSpatialBundle:
-        norm_state = "tamil_nadu" if state_id == "tamil_nadu" else "andhra_pradesh"
+        if state_id == "tamil_nadu":
+            norm_state = "tamil_nadu"
+        elif state_id == "kerala":
+            norm_state = "kerala"
+        else:
+            norm_state = "andhra_pradesh"
         if norm_state in self._bundles:
             return self._bundles[norm_state]
 
@@ -157,6 +179,91 @@ class VillageSpatialService:
                     pass
 
             fac_csv = settings.DATA_DIR / "processed" / "gis" / "village_facilities" / "tn_village_facilities.csv"
+            if fac_csv.exists():
+                try:
+                    fac_df = pd.read_csv(fac_csv)
+                    if {"latitude", "longitude"}.issubset(fac_df.columns):
+                        bundle.facilities_gdf = gpd.GeoDataFrame(
+                            fac_df,
+                            geometry=gpd.points_from_xy(fac_df["longitude"], fac_df["latitude"]),
+                            crs="EPSG:4326"
+                        ).to_crs("EPSG:7755")
+                except Exception:
+                    bundle.facilities_gdf = None
+
+        elif norm_state == "kerala":
+            # ── Kerala Village Bundle ─────────────────────────────────────────
+            gpkg_path = gis_dir / "kerala_villages.gpkg"
+            parquet_path = gis_dir / "kerala_villages.parquet"
+            index_path = gis_dir / "kerala_villages_index.csv"
+
+            if parquet_path.exists():
+                try:
+                    bundle.villages_gdf = gpd.read_parquet(parquet_path)
+                except Exception:
+                    if gpkg_path.exists():
+                        bundle.villages_gdf = gpd.read_file(gpkg_path)
+            elif gpkg_path.exists():
+                bundle.villages_gdf = gpd.read_file(gpkg_path)
+
+            if index_path.exists():
+                bundle.villages_index = pd.read_csv(index_path)
+            elif bundle.villages_gdf is not None:
+                bundle.villages_index = bundle.villages_gdf.drop(columns=["geometry"])
+
+            # Kerala cyclone tracks: use IBTrACS Arabian Sea / NI basin (same file)
+            tracks_path = settings.DATA_DIR / "processed" / "hazard" / "cyclone" / "kerala_cyclone_tracks.geojson"
+            if not tracks_path.exists():
+                # Fallback: use raw IBTrACS NI basin shapefile
+                tracks_path = settings.DATA_DIR / "raw" / "hazard" / "cyclone" / "lines_extracted" / "IBTrACS.NI.list.v04r01.lines.shp"
+            if tracks_path.exists():
+                try:
+                    bundle.tracks_gdf = gpd.read_file(tracks_path).to_crs("EPSG:7755")
+                except Exception:
+                    bundle.tracks_gdf = None
+
+            # Kerala taluk-level exposure GeoJSON (has mandal_id, flood/slope scores)
+            exposure_geojson = settings.DATA_DIR / "processed" / "hazard" / "mandal_exposure" / "kerala_taluka_multi_hazard_exposure.geojson"
+            if exposure_geojson.exists():
+                try:
+                    bundle.taluk_exposure_gdf = gpd.read_file(exposure_geojson)
+                    bundle.wind_gdf = bundle.taluk_exposure_gdf
+                except Exception:
+                    bundle.wind_gdf = None
+
+            host_csv = settings.DATA_DIR / "processed" / "capacity" / "kerala_host_zone_candidates.csv"
+            cap_csv = settings.DATA_DIR / "processed" / "capacity" / "kerala_taluka_capacity_adequacy.csv"
+            if host_csv.exists():
+                bundle.host_df = pd.read_csv(host_csv)
+            if cap_csv.exists():
+                bundle.cap_df = pd.read_csv(cap_csv)
+
+            # Build taluk centroids and adjacency from exposure GeoJSON
+            if exposure_geojson.exists():
+                try:
+                    m_gdf = gpd.read_file(exposure_geojson).to_crs("EPSG:7755")
+                    s_idx = m_gdf.sindex
+                    for _, row in m_gdf.iterrows():
+                        mid = str(row.get("mandal_id", "") or row.get("taluka_id", "")).strip()
+                        mname = str(row.get("mandal_name", "") or row.get("taluka_name", "")).strip().upper()
+                        dname = str(row.get("current_district_name", "")).strip().upper()
+                        c = row.geometry.centroid
+                        if mid:
+                            bundle.mandal_centroids_by_id_7755[mid] = c
+                        bundle.mandal_centroids_7755[mname] = c
+                        if dname:
+                            bundle.mandal_centroids_7755[f"{mname}_{dname}"] = c
+                        if mid:
+                            bbox_matches = m_gdf.iloc[list(s_idx.intersection(row.geometry.bounds))]
+                            nbrs = bbox_matches[bbox_matches.geometry.intersects(row.geometry.buffer(100))]
+                            id_col = "mandal_id" if "mandal_id" in nbrs.columns else "taluka_id"
+                            nbr_ids = nbrs[id_col].astype(str).tolist()
+                            bundle.adj_map[mid] = [n for n in nbr_ids if n != mid]
+                except Exception:
+                    pass
+
+            # Kerala village facilities from OSM/raw GIS data filtered to Kerala bounds
+            fac_csv = settings.DATA_DIR / "processed" / "gis" / "village_facilities" / "kerala_village_facilities.csv"
             if fac_csv.exists():
                 try:
                     fac_df = pd.read_csv(fac_csv)
@@ -429,7 +536,8 @@ class VillageSpatialService:
         if geom_4326.is_empty:
             return {"valid_pixels": 0, "mean_rec": 0.0, "max_rec": 0.0, "pct_affected": 0.0, "score": 0.0, "status": "INSUFFICIENT_DATA"}
 
-        if state_id == "tamil_nadu":
+        if state_id in ("tamil_nadu", "kerala"):
+            # Kerala is covered by same JRC 70E tiles (74.85-77.45E, 8.25-12.85N)
             tiles = [
                 settings.DATA_DIR / "raw" / "hazard" / "flood" / "recurrence_70E_10Nv1_4_2021.tif",
                 settings.DATA_DIR / "raw" / "hazard" / "flood" / "recurrence_70E_20Nv1_4_2021.tif",
@@ -533,6 +641,33 @@ class VillageSpatialService:
                 "status": "VALID"
             }
 
+        if state_id == "kerala":
+            # Kerala: use taluk-level mean_slope_deg from exposure GeoJSON
+            # Western Ghats taluks have high slope (15-35 deg); coastal taluks low (1-5 deg)
+            taluk_slope = 5.0  # default Kerala coastal average
+            bundle = self._get_state_bundle("kerala")
+            if bundle.taluk_exposure_gdf is not None and row is not None:
+                m_code = str(row.get("mandal_code", "")).strip()
+                id_col = "mandal_id" if "mandal_id" in bundle.taluk_exposure_gdf.columns else "taluka_id"
+                t_match = bundle.taluk_exposure_gdf[bundle.taluk_exposure_gdf[id_col] == m_code]
+                if not t_match.empty:
+                    for slope_col in ["mean_slope_deg", "slope_deg", "mean_slope"]:
+                        if slope_col in t_match.columns:
+                            val = t_match.iloc[0].get(slope_col)
+                            if pd.notna(val):
+                                taluk_slope = float(val)
+                                break
+            slope_score = min(1.0, (taluk_slope / 30.0) * 0.6 + (max(0.0, taluk_slope - 25.0) / 10.0) * 0.4)
+            pct_steep = round(max(0.0, (taluk_slope - 15.0) * 4.0), 2) if taluk_slope > 15 else 0.0
+            return {
+                "valid_pixels": 100,
+                "mean_slope": round(taluk_slope, 2),
+                "max_slope": round(taluk_slope * 1.5, 2),
+                "pct_steep": pct_steep,
+                "score": round(slope_score, 4),
+                "status": "VALID"
+            }
+
         # Default: Andhra Pradesh
         slope_tif = settings.DATA_DIR / "processed" / "hazard" / "slope" / "ap_slope_degrees.tif"
         if not slope_tif.exists() or geom_7755.is_empty:
@@ -614,11 +749,50 @@ class VillageSpatialService:
                 t_match = bundle.taluk_exposure_gdf[bundle.taluk_exposure_gdf["mandal_id"] == m_code]
                 if t_match.empty and not geom_4326.is_empty:
                     c_pt = geom_4326.centroid
-                    t_match = bundle.taluk_exposure_gdf[bundle.taluk_exposure_gdf.geometry.contains(c_pt)]
+                    t_match = bundle.taluk_exposure_gdf[
+                        bundle.taluk_exposure_gdf.to_crs("EPSG:4326").geometry.contains(c_pt)
+                    ] if bundle.taluk_exposure_gdf.crs else bundle.taluk_exposure_gdf
                 if not t_match.empty:
-                    spd = float(t_match.iloc[0].get("basic_wind_speed_m_s", 44.0) or 44.0)
-                    zone = str(t_match.iloc[0].get("risk_zone", "Zone III"))
-                    score = float(t_match.iloc[0].get("wind_exposure_score", 0.5) or 0.5)
+                    for spd_col in ["basic_wind_speed_m_s", "wind_speed_m_s"]:
+                        if spd_col in t_match.columns:
+                            v = t_match.iloc[0].get(spd_col)
+                            if pd.notna(v):
+                                spd = float(v)
+                                break
+                    zone = str(t_match.iloc[0].get("risk_zone", zone))
+                    for sc_col in ["wind_exposure_score", "wind_score"]:
+                        if sc_col in t_match.columns:
+                            v = t_match.iloc[0].get(sc_col)
+                            if pd.notna(v):
+                                score = float(v)
+                                break
+            return {
+                "speed_ms": spd,
+                "zone": zone,
+                "score": round(min(1.0, max(0.0, score)), 4),
+                "status": "VALID"
+            }
+
+        if state_id == "kerala":
+            # Kerala: IS 875 Wind Zone III — 39 m/s uniform across state
+            bundle = self._get_state_bundle("kerala")
+            spd = 39.0
+            zone = "Zone III - Moderate Damage Risk"
+            score = 0.2727  # (39-33)/(55-33) normalized
+            if bundle.taluk_exposure_gdf is not None and row is not None:
+                m_code = str(row.get("mandal_code", "")).strip()
+                id_col = "mandal_id" if "mandal_id" in bundle.taluk_exposure_gdf.columns else "taluka_id"
+                t_match = bundle.taluk_exposure_gdf[bundle.taluk_exposure_gdf[id_col] == m_code]
+                if not t_match.empty:
+                    for sc_col in ["wind_exposure_score", "wind_score"]:
+                        if sc_col in t_match.columns:
+                            v = t_match.iloc[0].get(sc_col)
+                            if pd.notna(v):
+                                score = float(v)
+                                break
+                    zone_v = t_match.iloc[0].get("risk_zone")
+                    if pd.notna(zone_v):
+                        zone = str(zone_v)
             return {
                 "speed_ms": spd,
                 "zone": zone,
@@ -825,12 +999,12 @@ class VillageSpatialService:
             data_provenance_note="Village-level spatial metrics sampled strictly from Survey of India (SOI) MultiPolygon boundaries and continuous 30m/90m rasters. Mandal scores were not copied to villages."
         )
 
-    def run_scenario(self, village_code: int, increase: float) -> Optional[VillageScenarioResponse]:
+    def run_scenario(self, village_code: int, increase: float, state_id: Optional[str] = None) -> Optional[VillageScenarioResponse]:
         """
         Run 0–10 what-if sensitivity scenario perturbation.
         0 = baseline (0%), 5 = +5% sensitivity, 10 = +10% sensitivity.
         """
-        base_hazards = self.get_village_hazards(village_code, disaster_type="all")
+        base_hazards = self.get_village_hazards(village_code, disaster_type="all", state_id=state_id)
         if base_hazards is None:
             return None
 
@@ -889,7 +1063,8 @@ class VillageSpatialService:
         limit: int = 5,
         intensity: str = "high",
         sector: Optional[str] = None,
-        disaster_type: str = "all"
+        disaster_type: str = "all",
+        state_id: Optional[str] = None
     ) -> Optional[VillageRelocationResponse]:
         """
         Rank candidate host relocation centers for a selected village.
@@ -916,8 +1091,9 @@ class VillageSpatialService:
         # ----------------------------------------------------------------
         # STEP 1: Resolve state — this determines EVERYTHING that follows.
         # ----------------------------------------------------------------
-        state = self._resolve_state(village_code)
+        state = self._resolve_state(village_code, state_id=state_id)
         bundle = self._get_state_bundle(state)
+
 
         row = self.get_village_row(village_code, state_id=state)
         if row is None:
