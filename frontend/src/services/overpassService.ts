@@ -1,27 +1,28 @@
 /**
- * OpenStreetMap Overpass API Service - Comprehensive Category Coverage
- * Fetches dynamic POIs across 9 essential categories:
- * 1. Education (school, college, university, library)
- * 2. Medical (hospital, clinic, pharmacy, blood_bank)
- * 3. Emergency & Safety (police, fire_station, shelter, disaster_management, evacuation_center)
- * 4. Government (government_office, post_office, townhall, register_office)
- * 5. Daily Needs (supermarket, grocery, bakery, mall, shop, marketplace)
- * 6. Transport (bus_station, railway_station, airport, fuel)
- * 7. Food & Stay (restaurant, cafe, hotel, hostel)
- * 8. Finance (bank, atm)
- * 9. Religion & Public (temple, mosque, church, park, community_centre)
+ * OpenStreetMap Overpass API Service - Comprehensive Category Coverage for Satellite & Standard Maps
+ *
+ * FULL LIST OF 9 CATEGORIES:
+ * 1. 🏫 Education: school, college, university, tuition centers, libraries
+ * 2. 🏥 Medical: hospital, clinic, pharmacy/medical shop, blood bank, ambulance services
+ * 3. 🛒 Daily Needs: supermarkets, grocery stores, kirana shops, bakeries, malls
+ * 4. 🏢 Government / Public: police station, fire station, government offices, municipal office, ration shops
+ * 5. 🚰 Emergency / Safety: shelters, relief camps, safe buildings, evacuation centers, disaster management offices
+ * 6. ⛽ Transport & Travel: bus stops, railway stations, airports, petrol pumps, parking
+ * 7. 🍴 Food & Lifestyle: restaurants, hotels, cafes, hostels
+ * 8. 🏦 Financial: banks, ATMs
+ * 9. 🛕 Others: temples, mosques, churches, parks, playgrounds
  */
 
 export type POIGroupKey =
   | 'education'
   | 'medical'
-  | 'emergency'
-  | 'government'
   | 'daily_needs'
+  | 'government'
+  | 'emergency'
   | 'transport'
-  | 'food_stay'
-  | 'finance'
-  | 'religion_public';
+  | 'food_lifestyle'
+  | 'financial'
+  | 'others';
 
 export interface OverpassPOI {
   id: number;
@@ -36,6 +37,10 @@ export interface OverpassPOI {
   office?: string;
   emergency?: string;
   religion?: string;
+  leisure?: string;
+  tourism?: string;
+  highway?: string;
+  railway?: string;
   rawTags: Record<string, string>;
 }
 
@@ -54,12 +59,12 @@ export const POI_GROUP_CONFIGS: Record<POIGroupKey, POIGroupConfig> = {
   education: {
     key: 'education',
     label: 'Education',
-    icon: '🎓',
+    icon: '🏫',
     color: '#3b82f6',
     badgeBg: '#eff6ff',
     badgeText: '#1d4ed8',
     borderColor: '#2563eb',
-    subTypes: ['School', 'College', 'University', 'Library'],
+    subTypes: ['Schools', 'Colleges', 'Universities', 'Tuition Centres', 'Libraries'],
   },
   medical: {
     key: 'medical',
@@ -69,27 +74,27 @@ export const POI_GROUP_CONFIGS: Record<POIGroupKey, POIGroupConfig> = {
     badgeBg: '#fef2f2',
     badgeText: '#b91c1c',
     borderColor: '#dc2626',
-    subTypes: ['Hospital', 'Clinic', 'Pharmacy', 'Blood Bank'],
+    subTypes: ['Hospitals', 'Clinics', 'Pharmacies', 'Blood Banks', 'Ambulance'],
   },
   emergency: {
     key: 'emergency',
     label: 'Emergency & Safety',
-    icon: '🚨',
-    color: '#f97316',
+    icon: '🚰',
+    color: '#ea580c',
     badgeBg: '#fff7ed',
-    badgeText: '#c2410c',
-    borderColor: '#ea580c',
-    subTypes: ['Police', 'Fire Station', 'Shelter', 'Disaster Centre', 'Evacuation Hub'],
+    badgeText: '#9a3412',
+    borderColor: '#c2410c',
+    subTypes: ['Shelters', 'Relief Camps', 'Safe Buildings', 'Evacuation Centers', 'Disaster Hubs'],
   },
   government: {
     key: 'government',
-    label: 'Government & Public Admin',
-    icon: '🏛️',
+    label: 'Government & Public',
+    icon: '🏢',
     color: '#6366f1',
     badgeBg: '#eef2ff',
     badgeText: '#4338ca',
     borderColor: '#4f46e5',
-    subTypes: ['Govt Office', 'Post Office', 'Town Hall', 'Municipal'],
+    subTypes: ['Police Stations', 'Fire Stations', 'Govt Offices', 'Municipalities', 'Ration Shops'],
   },
   daily_needs: {
     key: 'daily_needs',
@@ -99,55 +104,55 @@ export const POI_GROUP_CONFIGS: Record<POIGroupKey, POIGroupConfig> = {
     badgeBg: '#ecfdf5',
     badgeText: '#047857',
     borderColor: '#059669',
-    subTypes: ['Supermarket', 'Grocery', 'Bakery', 'Mall', 'Shop', 'Marketplace'],
+    subTypes: ['Supermarkets', 'Grocery Stores', 'Kirana Shops', 'Bakeries', 'Malls'],
   },
   transport: {
     key: 'transport',
-    label: 'Transport & Fuel',
-    icon: '🚌',
-    color: '#0ea5e9',
+    label: 'Transport & Travel',
+    icon: '⛽',
+    color: '#0284c7',
     badgeBg: '#f0f9ff',
     badgeText: '#0369a1',
-    borderColor: '#0284c7',
-    subTypes: ['Bus Station', 'Railway Station', 'Airport', 'Fuel Station'],
+    borderColor: '#0ea5e9',
+    subTypes: ['Bus Stops', 'Railway Stations', 'Airports', 'Petrol Pumps', 'Parking'],
   },
-  food_stay: {
-    key: 'food_stay',
-    label: 'Food & Hospitality',
-    icon: '🍽️',
+  food_lifestyle: {
+    key: 'food_lifestyle',
+    label: 'Food & Lifestyle',
+    icon: '🍴',
     color: '#d97706',
     badgeBg: '#fffbeb',
     badgeText: '#b45309',
-    borderColor: '#d97706',
-    subTypes: ['Restaurant', 'Café', 'Hotel', 'Hostel', 'Guest House'],
+    borderColor: '#f59e0b',
+    subTypes: ['Restaurants', 'Hotels', 'Cafes', 'Hostels'],
   },
-  finance: {
-    key: 'finance',
-    label: 'Banking & Finance',
+  financial: {
+    key: 'financial',
+    label: 'Financial & Banking',
     icon: '🏦',
-    color: '#14b8a6',
+    color: '#0d9488',
     badgeBg: '#f0fdfa',
     badgeText: '#0f766e',
-    borderColor: '#0d9488',
-    subTypes: ['Bank', 'ATM'],
+    borderColor: '#14b8a6',
+    subTypes: ['Banks', 'ATMs'],
   },
-  religion_public: {
-    key: 'religion_public',
-    label: 'Religion & Community',
+  others: {
+    key: 'others',
+    label: 'Religious & Public Parks',
     icon: '🛕',
-    color: '#a855f7',
+    color: '#9333ea',
     badgeBg: '#faf5ff',
     badgeText: '#7e22ce',
-    borderColor: '#9333ea',
-    subTypes: ['Temple', 'Mosque', 'Church', 'Park', 'Community Hall'],
+    borderColor: '#a855f7',
+    subTypes: ['Temples', 'Mosques', 'Churches', 'Parks', 'Playgrounds'],
   },
 };
 
-// In-memory cache keyed by spatial grid (lat/lon rounded to ~500m precision)
+// In-memory cache keyed by spatial grid
 const poiCache = new Map<string, { timestamp: number; data: OverpassPOI[] }>();
 const CACHE_TTL_MS = 10 * 60 * 1000; // 10 minutes cache validity
 
-// Primary Overpass endpoint with fallback
+// Free High-Availability Overpass Endpoints
 const OVERPASS_ENDPOINTS = [
   'https://overpass-api.de/api/interpreter',
   'https://overpass.kumi.systems/api/interpreter',
@@ -155,46 +160,50 @@ const OVERPASS_ENDPOINTS = [
 ];
 
 /**
- * Builds the comprehensive Overpass QL query covering all 9 categories
+ * Builds the comprehensive Overpass QL Query covering all full list requirements
  */
-export function buildComprehensiveOverpassQuery(lat: number, lng: number, radiusMeters: number = 5000): string {
+export function buildOverpassQueryForAllCategories(lat: number, lng: number, radiusMeters: number = 5000): string {
   return `[out:json][timeout:30];
 (
   /* 1. Education */
-  node["amenity"~"^(school|college|university|library)$"](around:${radiusMeters}, ${lat}, ${lng});
+  node["amenity"~"^(school|college|university|kindergarten|language_school|music_school|prep_school|library)$"](around:${radiusMeters}, ${lat}, ${lng});
+  node["cram_school"](around:${radiusMeters}, ${lat}, ${lng});
   
   /* 2. Medical */
-  node["amenity"~"^(hospital|clinic|pharmacy|blood_bank|doctors|dentist)$"](around:${radiusMeters}, ${lat}, ${lng});
-  node["healthcare"~"^(hospital|clinic|pharmacy|centre|blood_bank)$"](around:${radiusMeters}, ${lat}, ${lng});
+  node["amenity"~"^(hospital|clinic|pharmacy|blood_bank|ambulance_station|doctors|dentist|health_centre|nursing_home)$"](around:${radiusMeters}, ${lat}, ${lng});
+  node["healthcare"](around:${radiusMeters}, ${lat}, ${lng});
   
-  /* 3. Emergency & Safety */
-  node["amenity"~"^(police|fire_station|shelter|emergency_phone)$"](around:${radiusMeters}, ${lat}, ${lng});
-  node["emergency"~"^(disaster_management|evacuation_centre|shelter|fire_hydrant|assembly_point)$"](around:${radiusMeters}, ${lat}, ${lng});
+  /* 3. Emergency / Safety */
+  node["amenity"~"^(shelter|emergency_phone|assembly_point|social_facility)$"](around:${radiusMeters}, ${lat}, ${lng});
+  node["emergency"~"^(disaster_management|evacuation_centre|shelter|assembly_point|fire_hydrant|siren|defibrillator)$"](around:${radiusMeters}, ${lat}, ${lng});
+  node["building"="shelter"](around:${radiusMeters}, ${lat}, ${lng});
   
-  /* 4. Government */
-  node["amenity"~"^(post_office|townhall|courthouse|register_office|public_building)$"](around:${radiusMeters}, ${lat}, ${lng});
-  node["office"="government"](around:${radiusMeters}, ${lat}, ${lng});
+  /* 4. Government / Public */
+  node["amenity"~"^(police|fire_station|post_office|townhall|courthouse|register_office|public_building|administrative)$"](around:${radiusMeters}, ${lat}, ${lng});
+  node["office"~"^(government|administrative|state|local|cooperative)$"](around:${radiusMeters}, ${lat}, ${lng});
+  node["shop"="ration"](around:${radiusMeters}, ${lat}, ${lng});
   
   /* 5. Daily Needs */
   node["shop"](around:${radiusMeters}, ${lat}, ${lng});
   node["amenity"="marketplace"](around:${radiusMeters}, ${lat}, ${lng});
   
-  /* 6. Transport */
-  node["amenity"~"^(bus_station|fuel|ferry_terminal)$"](around:${radiusMeters}, ${lat}, ${lng});
-  node["railway"~"^(station|halt)$"](around:${radiusMeters}, ${lat}, ${lng});
-  node["aeroway"="aerodrome"](around:${radiusMeters}, ${lat}, ${lng});
+  /* 6. Transport & Travel */
+  node["amenity"~"^(bus_station|fuel|parking|parking_space|taxi|ferry_terminal)$"](around:${radiusMeters}, ${lat}, ${lng});
+  node["highway"~"^(bus_stop|platform)$"](around:${radiusMeters}, ${lat}, ${lng});
+  node["railway"~"^(station|halt|tram_stop)$"](around:${radiusMeters}, ${lat}, ${lng});
+  node["aeroway"~"^(aerodrome|terminal|helipad)$"](around:${radiusMeters}, ${lat}, ${lng});
   
-  /* 7. Food & Stay */
-  node["amenity"~"^(restaurant|cafe|fast_food|food_court)$"](around:${radiusMeters}, ${lat}, ${lng});
-  node["tourism"~"^(hotel|hostel|guest_house|motel)$"](around:${radiusMeters}, ${lat}, ${lng});
+  /* 7. Food & Lifestyle */
+  node["amenity"~"^(restaurant|cafe|fast_food|food_court|bar|pub|ice_cream)$"](around:${radiusMeters}, ${lat}, ${lng});
+  node["tourism"~"^(hotel|hostel|guest_house|motel|camp_site)$"](around:${radiusMeters}, ${lat}, ${lng});
   
-  /* 8. Finance */
-  node["amenity"~"^(bank|atm)$"](around:${radiusMeters}, ${lat}, ${lng});
+  /* 8. Financial */
+  node["amenity"~"^(bank|atm|bureau_de_change)$"](around:${radiusMeters}, ${lat}, ${lng});
   
-  /* 9. Religion & Public */
+  /* 9. Religious & Others */
   node["amenity"="place_of_worship"](around:${radiusMeters}, ${lat}, ${lng});
   node["amenity"="community_centre"](around:${radiusMeters}, ${lat}, ${lng});
-  node["leisure"~"^(park|garden|pitch)$"](around:${radiusMeters}, ${lat}, ${lng});
+  node["leisure"~"^(park|playground|pitch|garden|sports_centre|stadium|swimming_pool)$"](around:${radiusMeters}, ${lat}, ${lng});
 );
 out body;
 >;
@@ -210,65 +219,148 @@ export function classifyOsmPOI(tags: Record<string, string>): { group: POIGroupK
   const office = (tags.office || '').toLowerCase();
   const emergency = (tags.emergency || '').toLowerCase();
   const railway = (tags.railway || '').toLowerCase();
+  const highway = (tags.highway || '').toLowerCase();
   const tourism = (tags.tourism || '').toLowerCase();
   const leisure = (tags.leisure || '').toLowerCase();
   const healthcare = (tags.healthcare || '').toLowerCase();
   const religion = (tags.religion || '').toLowerCase();
+  const aeroway = (tags.aeroway || '').toLowerCase();
 
-  // 1. Education
-  if (['school', 'college', 'university', 'library'].includes(amenity)) {
-    return { group: 'education', subType: amenity.charAt(0).toUpperCase() + amenity.slice(1) };
+  // 1. 🏫 Education
+  if (
+    ['school', 'college', 'university', 'kindergarten', 'library', 'language_school', 'music_school', 'prep_school'].includes(amenity) ||
+    tags.cram_school ||
+    tags.tuition
+  ) {
+    let type = 'Education';
+    if (amenity === 'school') type = 'School';
+    else if (amenity === 'college') type = 'College';
+    else if (amenity === 'university') type = 'University';
+    else if (amenity === 'library') type = 'Library';
+    else if (tags.cram_school || tags.tuition) type = 'Tuition Centre';
+    else type = amenity.replace('_', ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+    return { group: 'education', subType: type };
   }
 
-  // 2. Medical
-  if (['hospital', 'clinic', 'pharmacy', 'blood_bank', 'doctors', 'dentist'].includes(amenity) || healthcare) {
-    const type = amenity || healthcare || 'Medical';
-    return { group: 'medical', subType: type.replace('_', ' ').replace(/\b\w/g, (c) => c.toUpperCase()) };
+  // 2. 🏥 Medical
+  if (
+    ['hospital', 'clinic', 'pharmacy', 'blood_bank', 'ambulance_station', 'doctors', 'dentist', 'health_centre', 'nursing_home'].includes(amenity) ||
+    healthcare
+  ) {
+    let type = 'Medical';
+    if (amenity === 'hospital' || healthcare === 'hospital') type = 'Hospital';
+    else if (amenity === 'clinic' || healthcare === 'clinic') type = 'Clinic';
+    else if (amenity === 'pharmacy' || shop === 'chemist' || shop === 'medical') type = 'Pharmacy / Medical Shop';
+    else if (amenity === 'blood_bank' || healthcare === 'blood_bank') type = 'Blood Bank';
+    else if (amenity === 'ambulance_station') type = 'Ambulance Service';
+    else type = (amenity || healthcare).replace('_', ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+    return { group: 'medical', subType: type };
   }
 
-  // 3. Emergency & Safety
-  if (['police', 'fire_station', 'shelter'].includes(amenity) || emergency) {
-    const type = emergency || amenity || 'Emergency';
-    return { group: 'emergency', subType: type.replace('_', ' ').replace(/\b\w/g, (c) => c.toUpperCase()) };
+  // 5. 🚰 Emergency / Safety (Relief camps, shelters, evacuation centers)
+  if (
+    ['shelter', 'emergency_phone', 'assembly_point', 'social_facility'].includes(amenity) ||
+    emergency ||
+    tags.building === 'shelter'
+  ) {
+    let type = 'Emergency Facility';
+    if (emergency === 'disaster_management') type = 'Disaster Management Office';
+    else if (emergency === 'evacuation_centre' || amenity === 'shelter') type = 'Cyclone / Flood Shelter';
+    else if (emergency === 'assembly_point' || amenity === 'assembly_point') type = 'Safe Evacuation Point';
+    else if (emergency === 'relief_camp') type = 'Relief Camp';
+    else type = (emergency || amenity).replace('_', ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+    return { group: 'emergency', subType: type };
   }
 
-  // 4. Government
-  if (['post_office', 'townhall', 'courthouse', 'register_office', 'public_building'].includes(amenity) || office === 'government') {
-    const type = office === 'government' ? 'Government Office' : amenity.replace('_', ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+  // 4. 🏢 Government / Public
+  if (
+    ['police', 'fire_station', 'post_office', 'townhall', 'courthouse', 'register_office', 'public_building', 'administrative'].includes(amenity) ||
+    office === 'government' ||
+    office === 'administrative' ||
+    shop === 'ration'
+  ) {
+    let type = 'Govt Office';
+    if (amenity === 'police') type = 'Police Station';
+    else if (amenity === 'fire_station') type = 'Fire Station';
+    else if (amenity === 'townhall') type = 'Municipal Office';
+    else if (amenity === 'post_office') type = 'Post Office';
+    else if (shop === 'ration' || tags.fair_price_shop) type = 'Ration Shop (PDS)';
+    else if (office === 'government') type = 'Government Office';
+    else type = amenity.replace('_', ' ').replace(/\b\w/g, (c) => c.toUpperCase());
     return { group: 'government', subType: type };
   }
 
-  // 6. Transport
-  if (['bus_station', 'fuel', 'ferry_terminal'].includes(amenity) || railway || tags.aeroway) {
-    const type = tags.aeroway ? 'Airport' : railway ? 'Railway Station' : amenity.replace('_', ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+  // 6. ⛽ Transport & Travel
+  if (
+    ['bus_station', 'fuel', 'parking', 'parking_space', 'taxi', 'ferry_terminal'].includes(amenity) ||
+    highway === 'bus_stop' ||
+    highway === 'platform' ||
+    railway ||
+    aeroway
+  ) {
+    let type = 'Transport';
+    if (highway === 'bus_stop' || amenity === 'bus_station') type = amenity === 'bus_station' ? 'Bus Station' : 'Bus Stop';
+    else if (railway === 'station' || railway === 'halt') type = 'Railway Station';
+    else if (aeroway) type = 'Airport';
+    else if (amenity === 'fuel') type = 'Petrol Pump';
+    else if (amenity === 'parking') type = 'Parking Area';
+    else type = amenity.replace('_', ' ').replace(/\b\w/g, (c) => c.toUpperCase());
     return { group: 'transport', subType: type };
   }
 
-  // 7. Food & Stay
-  if (['restaurant', 'cafe', 'fast_food', 'food_court'].includes(amenity) || tourism) {
-    const type = tourism ? tourism.replace('_', ' ').replace(/\b\w/g, (c) => c.toUpperCase()) : amenity.replace('_', ' ').replace(/\b\w/g, (c) => c.toUpperCase());
-    return { group: 'food_stay', subType: type };
+  // 7. 🍴 Food & Lifestyle
+  if (
+    ['restaurant', 'cafe', 'fast_food', 'food_court', 'bar', 'pub', 'ice_cream'].includes(amenity) ||
+    ['hotel', 'hostel', 'guest_house', 'motel'].includes(tourism)
+  ) {
+    let type = 'Restaurant';
+    if (tourism === 'hotel') type = 'Hotel';
+    else if (tourism === 'hostel') type = 'Hostel';
+    else if (tourism === 'guest_house') type = 'Guest House';
+    else if (amenity === 'cafe') type = 'Cafe';
+    else if (amenity === 'fast_food') type = 'Fast Food';
+    else type = (tourism || amenity).replace('_', ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+    return { group: 'food_lifestyle', subType: type };
   }
 
-  // 8. Finance
-  if (['bank', 'atm'].includes(amenity)) {
-    return { group: 'finance', subType: amenity.toUpperCase() };
+  // 8. 🏦 Financial
+  if (['bank', 'atm', 'bureau_de_change'].includes(amenity)) {
+    let type = 'Bank';
+    if (amenity === 'atm') type = 'ATM';
+    else if (amenity === 'bank') type = 'Bank Branch';
+    return { group: 'financial', subType: type };
   }
 
-  // 9. Religion & Public
-  if (amenity === 'place_of_worship' || religion || ['park', 'garden', 'pitch'].includes(leisure) || amenity === 'community_centre') {
-    let type = religion ? `${religion.charAt(0).toUpperCase() + religion.slice(1)} Place` : leisure ? leisure.charAt(0).toUpperCase() + leisure.slice(1) : 'Community Centre';
-    if (amenity === 'place_of_worship' && !religion) type = 'Place of Worship';
-    return { group: 'religion_public', subType: type };
+  // 9. 🛕 Others (Religious, Parks, Playgrounds)
+  if (
+    amenity === 'place_of_worship' ||
+    religion ||
+    ['park', 'playground', 'pitch', 'garden', 'sports_centre', 'stadium'].includes(leisure) ||
+    amenity === 'community_centre'
+  ) {
+    let type = 'Place of Worship';
+    if (religion === 'hindu' || tags['name:te']?.includes('గుడి') || tags.name?.toLowerCase().includes('temple')) type = 'Temple';
+    else if (religion === 'muslim' || tags.name?.toLowerCase().includes('masjid') || tags.name?.toLowerCase().includes('mosque')) type = 'Mosque';
+    else if (religion === 'christian' || tags.name?.toLowerCase().includes('church')) type = 'Church';
+    else if (leisure === 'park') type = 'Public Park';
+    else if (leisure === 'playground' || leisure === 'pitch') type = 'Playground';
+    else if (amenity === 'community_centre') type = 'Community Centre';
+    return { group: 'others', subType: type };
   }
 
-  // 5. Daily Needs (Default for shops or marketplace)
+  // 3. 🛒 Daily Needs (Supermarkets, Groceries, Kirana, Bakeries, Malls)
   if (shop || amenity === 'marketplace') {
-    const type = shop ? `${shop.charAt(0).toUpperCase() + shop.slice(1)} Shop` : 'Marketplace';
+    let type = 'Shop';
+    if (shop === 'supermarket') type = 'Supermarket';
+    else if (shop === 'convenience' || shop === 'general' || shop === 'grocery') type = 'Grocery / Kirana Store';
+    else if (shop === 'bakery') type = 'Bakery';
+    else if (shop === 'mall' || shop === 'department_store') type = 'Shopping Mall';
+    else if (amenity === 'marketplace') type = 'Marketplace';
+    else type = `${shop.charAt(0).toUpperCase() + shop.slice(1)} Shop`;
     return { group: 'daily_needs', subType: type };
   }
 
-  return { group: 'daily_needs', subType: 'General Place' };
+  return { group: 'daily_needs', subType: 'Local Shop' };
 }
 
 function getCacheKey(lat: number, lng: number, radius: number): string {
@@ -278,13 +370,13 @@ function getCacheKey(lat: number, lng: number, radius: number): string {
 }
 
 /**
- * Fetches POIs across all 9 categories from OpenStreetMap Overpass API
+ * Fetches dynamic POIs across ALL categories from OpenStreetMap Overpass API
  * @param lat Center latitude
  * @param lng Center longitude
  * @param radius Radius in meters (default 5000m)
  * @param signal Optional AbortSignal
  */
-export async function fetchComprehensivePOIs(
+export async function fetchNearbyPOIs(
   lat: number,
   lng: number,
   radius: number = 5000,
@@ -297,7 +389,7 @@ export async function fetchComprehensivePOIs(
     return cached.data;
   }
 
-  const query = buildComprehensiveOverpassQuery(lat, lng, radius);
+  const query = buildOverpassQueryForAllCategories(lat, lng, radius);
   let lastError: any = null;
 
   for (const endpoint of OVERPASS_ENDPOINTS) {
@@ -328,6 +420,8 @@ export async function fetchComprehensivePOIs(
             tags['name:en'] ||
             tags['name:te'] ||
             tags['name:hi'] ||
+            tags['name:ta'] ||
+            tags['name:or'] ||
             tags['operator'] ||
             tags['brand'] ||
             `Unnamed ${subType}`;
@@ -345,6 +439,10 @@ export async function fetchComprehensivePOIs(
             office: tags.office,
             emergency: tags.emergency,
             religion: tags.religion,
+            leisure: tags.leisure,
+            tourism: tags.tourism,
+            highway: tags.highway,
+            railway: tags.railway,
             rawTags: tags,
           };
         });
