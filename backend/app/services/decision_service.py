@@ -347,6 +347,15 @@ class DecisionService:
             return None
 
         state_key = resolve_state_key(detected_state)
+        sdma_agency = "State Disaster Management Authority / Revenue Department"
+        pwd_agency = "Roads & Buildings Department / District Police"
+        health_agency = "Health, Medical & Family Welfare Department"
+        wcd_agency = "Women Development & Child Welfare / Anganwadi Network"
+        irrigation_agency = "District Administration / Irrigation & Water Resources"
+        rws_agency = "Rural Water Supply & Sanitation"
+        edu_agency = "School Education Department / Disaster Management Cell"
+        rural_agency = "Department of Rural Development & Panchayati Raj"
+
         if state_key == "bihar":
             sdma_agency = "BSDMA / Disaster Management Department, Bihar"
             pwd_agency = "Bihar RWD / Road Construction Dept / Bihar Police"
