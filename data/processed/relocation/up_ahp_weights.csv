@@ -1,0 +1,5 @@
+criterion,code,weight,source
+C1 Hazard Exposure,C1,0.4231,Saaty AHP Eigenvector (CR=0.0038)
+C2 Evacuation Sensitivity,C2,0.2274,Saaty AHP Eigenvector (CR=0.0038)
+C3 Capacity Constraint,C3,0.2274,Saaty AHP Eigenvector (CR=0.0038)
+C4 Accessibility Constraint,C4,0.1221,Saaty AHP Eigenvector (CR=0.0038)

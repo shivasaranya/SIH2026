@@ -1,4 +1,4 @@
-from typing import List, Optional
+from typing import List, Optional, Union
 from pydantic import BaseModel, Field
 
 class DistrictDemographicSummary(BaseModel):
@@ -34,10 +34,11 @@ class StateDemographicSummary(BaseModel):
     total_workers: int
     total_villages: int
     total_districts: int
+    total_mandals: Optional[int] = None
     districts: List[DistrictDemographicSummary]
 
 class MandalDemographicSummary(BaseModel):
-    mandal_code: int
+    mandal_code: Union[int, str]
     mandal_name: str
     current_district_id: str
     current_district_name: str

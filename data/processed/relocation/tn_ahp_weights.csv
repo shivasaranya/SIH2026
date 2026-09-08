@@ -1,0 +1,5 @@
+criterion_code,criterion_name,weight,description
+C1,Multi-Hazard Exposure,0.4231,Derived via Saaty 1-9 AHP
+C2,Evacuation Assistance Sensitivity,0.2274,Derived via Saaty 1-9 AHP
+C3,Capacity Stress,0.2274,Derived via Saaty 1-9 AHP
+C4,Accessibility Constraint,0.1221,Derived via Saaty 1-9 AHP

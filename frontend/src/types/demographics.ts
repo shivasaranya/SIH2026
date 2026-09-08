@@ -32,6 +32,7 @@ export interface StateDemographicSummary {
   total_workers: number;
   total_villages: number;
   total_districts: number;
+  total_mandals?: number;
   districts: DistrictDemographicSummary[];
 }
 

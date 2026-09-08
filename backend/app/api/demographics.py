@@ -11,30 +11,33 @@ router = APIRouter(prefix="/demographics", tags=["Demographics"])
     summary="Get Statewide and District Demographic Summaries"
 )
 async def get_summary(
-    state: Optional[str] = Query(None, description="State identifier (e.g. 'ap', 'gujarat')")
+    state_id: Optional[str] = Query(None, description="State identifier (e.g. 'andhra_pradesh', 'gujarat')"),
+    state: Optional[str] = Query(None, description="State identifier alias (e.g. 'ap', 'gujarat')")
 ) -> StateDemographicSummary:
     """
     Returns total demographic indicators aggregated across the selected state and broken down by districts.
     All data is derived from official Census 2011 Primary Census Abstract (PCA) datasets.
     """
     try:
-        return demographics_service.get_state_summary(state=state)
+        return demographics_service.get_state_summary(state_id=state_id or state or "andhra_pradesh")
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
 @router.get(
     "/district/{district_id}",
     response_model=DistrictDetailResponse,
-    summary="Get Demographic Indicators and Mandal / Taluka Breakdown for a Specific District"
+    summary="Get Demographic Indicators and Unit Breakdown for a Specific District"
 )
 async def get_district_demographics(
     district_id: str = Path(..., description="The standardized district slug, e.g., 'visakhapatnam', 'ahmedabad'"),
-    state: Optional[str] = Query(None, description="State identifier (e.g. 'ap', 'gujarat')")
+    state_id: Optional[str] = Query(None, description="State identifier"),
+    state: Optional[str] = Query(None, description="State identifier alias")
 ) -> DistrictDetailResponse:
     """
     Returns demographic indicators for the requested district along with a granular breakdown of its constituent administrative units.
     """
-    result = demographics_service.get_district_summary(district_id, state=state)
+    target_state = state_id or state or "andhra_pradesh"
+    result = demographics_service.get_district_detail(district_id, state_id=target_state)
     if not result:
         raise HTTPException(
             status_code=404,

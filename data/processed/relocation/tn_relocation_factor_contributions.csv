@@ -1,0 +1,303 @@
+mandal_id,mandal_name,relocation_priority_category,factor_contrib_hazard_pct,factor_contrib_demographic_pct,factor_contrib_capacity_pct,factor_contrib_accessibility_pct,primary_priority_factor,secondary_priority_factor
+TN_TALUK_030,Tittakudi,VERY HIGH,52.1,19.5,17.5,10.8,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_028,Panruti,VERY HIGH,51.3,19.9,16.3,12.6,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_032,Virudhachalam,VERY HIGH,54.0,20.2,17.5,8.3,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_185,Orathanadu,VERY HIGH,52.1,17.5,17.3,13.1,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_189,Thanjavur,VERY HIGH,51.3,17.4,17.1,14.2,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_114,Vedaranyam,VERY HIGH,56.7,16.6,17.4,9.2,Hazard Exposure,Capacity Stress
+TN_TALUK_029,Srimushnam,VERY HIGH,54.8,20.8,13.1,11.3,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_031,Veppur,VERY HIGH,48.4,20.2,17.5,13.9,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_025,Cuddalore,VERY HIGH,56.9,21.0,15.6,6.5,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_111,Kilvelur,VERY HIGH,54.8,17.2,15.7,12.4,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_023,Bhuvanagiri,VERY HIGH,54.8,21.2,17.5,6.6,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_190,Thiruvaiyaru,VERY HIGH,52.0,18.3,19.1,10.5,Hazard Exposure,Capacity Stress
+TN_TALUK_113,Thirukkuvalai,VERY HIGH,57.7,17.1,12.6,12.5,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_184,Kumbakonam,VERY HIGH,53.5,18.4,19.3,8.7,Hazard Exposure,Capacity Stress
+TN_TALUK_188,Peravurani,VERY HIGH,53.2,18.5,16.9,11.4,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_207,Pallipattu,VERY HIGH,51.5,22.8,18.5,7.3,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_022,Bahour Taluk,VERY HIGH,53.4,21.5,15.2,9.8,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_203,Ambattur,VERY HIGH,49.6,22.8,15.6,12.0,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_026,Kattumannarkoil,VERY HIGH,57.0,21.9,15.1,6.0,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_204,Avadi,VERY HIGH,53.2,23.3,18.2,5.4,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_183,Budalur,VERY HIGH,53.3,19.0,14.1,13.7,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_024,Chidambaram,VERY HIGH,59.1,22.3,14.1,4.5,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_027,Kurinjipadi,VERY HIGH,58.9,22.3,14.0,4.7,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_191,Thiruvidaimarudur,VERY HIGH,52.6,19.2,17.3,10.9,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_107,Kuthalam,VERY HIGH,60.3,18.4,14.3,7.0,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_109,Sirkali,VERY HIGH,60.6,18.4,14.4,6.6,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_186,Papanasam,VERY HIGH,49.5,18.8,18.3,13.4,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_220,Thiruvarur,VERY HIGH,53.3,15.4,18.1,13.2,Hazard Exposure,Capacity Stress
+TN_TALUK_205,Gummidipoondi,VERY HIGH,47.8,23.2,15.9,13.1,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_290,Vikravandi,VERY HIGH,46.0,23.2,18.6,12.2,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_214,Koothanallur,HIGH,59.5,16.0,14.1,10.4,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_108,Mayiladuthurai,HIGH,62.5,18.8,15.4,3.4,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_210,R K Pet,HIGH,48.1,23.3,14.4,14.2,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_110,Tharangambadi,HIGH,63.2,18.8,14.5,3.5,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_206,Mathavaram,HIGH,48.0,23.4,13.9,14.7,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_221,Valangaiman,HIGH,56.1,16.0,14.6,13.3,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_010,Chennai,HIGH,58.9,21.6,16.9,2.6,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_216,Mannargudi,HIGH,55.8,16.2,14.7,13.3,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_217,Nannilam,HIGH,56.5,16.4,18.9,8.3,Hazard Exposure,Capacity Stress
+TN_TALUK_219,Thiruthuraipoondi,HIGH,54.8,16.0,14.7,14.5,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_005,Kancheepuram,HIGH,45.2,23.0,17.6,14.1,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_209,Poonamallee,HIGH,55.5,25.3,15.0,4.3,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_215,Kudavasal,HIGH,52.3,16.0,19.9,11.7,Hazard Exposure,Capacity Stress
+TN_TALUK_112,Nagapattinam,HIGH,60.4,19.7,16.6,3.3,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_187,Pattukkottai,HIGH,51.3,20.2,18.5,10.0,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_283,Kandachipuram,HIGH,46.1,24.2,16.7,13.1,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_212,Tiruttani,HIGH,53.9,25.6,16.5,4.0,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_284,Marakanam,HIGH,51.1,25.8,15.5,7.6,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_208,Ponneri,HIGH,50.0,25.4,18.1,6.4,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_291,Villianur Taluk,HIGH,47.1,24.8,12.4,15.7,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_285,Melmalaiyanur,HIGH,48.1,25.7,18.6,7.6,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_218,Needamangalam,HIGH,55.7,17.5,18.1,8.7,Hazard Exposure,Capacity Stress
+TN_TALUK_211,Thiruvallur,HIGH,52.4,26.5,15.8,5.2,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_292,Viluppuram,HIGH,48.8,25.9,20.5,4.8,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_138,Viralimalai,HIGH,43.1,23.6,19.4,13.9,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_006,Kundrathur,HIGH,45.0,24.2,14.7,16.1,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_213,Uthukkottai,HIGH,54.8,27.0,15.9,2.3,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_287,Thiruvennainallur,HIGH,49.5,26.4,16.0,8.1,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_228,Sathankulam,HIGH,44.3,21.3,18.6,15.8,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_009,Walajabad,HIGH,49.2,25.8,21.2,3.8,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_289,Vanur,HIGH,52.0,27.0,18.1,2.9,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_282,Gingee,HIGH,46.6,25.9,15.3,12.3,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_250,Radhapuram,HIGH,53.8,18.3,21.4,6.5,Hazard Exposure,Capacity Stress
+TN_TALUK_222,Eral,HIGH,43.9,21.7,19.6,14.8,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_127,Alangudi,HIGH,45.4,25.3,18.8,10.5,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_134,Manamelkudi,HIGH,41.6,24.1,18.2,16.1,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_288,Tindivanam,HIGH,50.2,27.4,16.3,6.1,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_077,Killiyoor,HIGH,46.8,22.0,17.5,13.7,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_007,Sriperumbudur,HIGH,44.3,25.3,15.2,15.2,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_008,Uthiramerur,HIGH,47.8,26.5,15.9,9.7,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_251,Tirunelveli,HIGH,55.2,19.2,17.3,8.4,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_231,Tiruchendur,HIGH,43.3,22.4,21.4,12.9,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_143,Paramakudi,HIGH,51.0,25.0,18.9,5.1,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_147,Tiruvadanai,HIGH,43.9,23.4,18.7,14.0,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_142,Mudukulathur,HIGH,41.1,22.5,19.7,16.6,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_245,Ambasamudram,HIGH,54.9,19.6,17.6,7.9,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_076,Kalkulam,HIGH,49.1,23.6,20.4,6.9,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_229,Srivaikuntam,HIGH,46.7,24.0,20.3,9.1,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_144,Rajasingamangalam,HIGH,43.5,23.4,16.2,16.8,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_246,Cheranmahadevi,HIGH,52.4,19.7,22.5,5.5,Hazard Exposure,Capacity Stress
+TN_TALUK_224,Kayathar,HIGH,46.2,24.2,21.2,8.4,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_146,Rameswaram,HIGH,51.6,25.5,8.9,14.1,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_078,Thiruvattar,HIGH,50.5,24.5,21.7,3.3,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_075,Agastheeswaram,HIGH,44.4,23.1,21.9,10.7,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_079,Thovala,HIGH,50.4,24.6,17.3,7.6,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_225,Kovilpatti,HIGH,40.6,22.9,19.7,16.8,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_133,Kulathur,HIGH,40.1,26.1,21.7,12.1,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_248,Nanguneri,HIGH,55.3,20.6,18.6,5.5,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_140,Kamuthi,HIGH,48.6,25.9,21.3,4.3,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_128,Aranthangi,HIGH,39.4,26.3,22.0,12.3,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_223,Ettayapuram,MODERATE,39.5,23.0,20.5,17.1,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_247,Manur,MODERATE,51.7,20.2,19.2,8.9,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_129,Avudayarkoil,MODERATE,48.2,29.1,18.9,3.8,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_130,Gandarvakkottai,MODERATE,41.5,27.3,22.3,8.9,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_226,Ottapidaram,MODERATE,41.4,23.7,19.0,16.0,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_244,Alangulam,MODERATE,53.7,21.0,18.0,7.3,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_230,Thoothukkudi,MODERATE,45.3,25.4,23.0,6.3,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_136,Pudukkottai,MODERATE,38.9,26.9,22.7,11.5,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_252,Tisayanvilai,MODERATE,53.0,21.0,18.9,7.2,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_286,Ozhukarai Taluk,MODERATE,59.3,33.5,2.8,4.4,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_080,Vilavancode,MODERATE,48.9,25.9,21.7,3.4,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_139,Kadaladi,MODERATE,43.8,26.0,20.6,9.5,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_132,Karambakudi,MODERATE,43.9,28.9,17.2,10.0,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_131,Iluppur,MODERATE,43.8,29.3,24.2,2.7,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_135,Ponnamaravathi,MODERATE,40.6,28.2,22.0,9.1,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_145,Ramanathapuram,MODERATE,47.1,27.3,20.6,5.1,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_249,Palayamkottai,MODERATE,54.7,22.3,20.8,2.2,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_227,Sankarankoil,MODERATE,48.0,27.7,21.7,2.5,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_232,Vilathikulam,MODERATE,49.5,28.1,19.4,3.0,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_181,Tiruvengadam,MODERATE,44.4,19.9,21.6,14.1,Hazard Exposure,Capacity Stress
+TN_TALUK_137,Thirumayam,MODERATE,37.6,28.6,22.4,11.4,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_141,Kilakarai,MODERATE,44.3,27.6,19.7,8.4,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_180,Tenkasi,MODERATE,44.2,20.2,27.1,8.6,Hazard Exposure,Capacity Stress
+TN_TALUK_275,Tiruvannamalai,MODERATE,36.7,27.6,23.4,12.3,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_241,Thuraiyur,MODERATE,41.6,22.2,24.5,11.7,Hazard Exposure,Capacity Stress
+TN_TALUK_237,Musiri,MODERATE,37.2,21.1,23.5,18.3,Hazard Exposure,Capacity Stress
+TN_TALUK_243,Tiruchirappalli West,MODERATE,37.0,21.2,23.3,18.5,Hazard Exposure,Capacity Stress
+TN_TALUK_242,Tiruchirappalli East,MODERATE,39.7,21.9,22.9,15.4,Hazard Exposure,Capacity Stress
+TN_TALUK_236,Marungapuri,MODERATE,37.9,21.8,27.3,13.0,Hazard Exposure,Capacity Stress
+TN_TALUK_257,Vaniyambadi,MODERATE,31.1,33.5,21.1,14.3,Demographic Sensitivity,Hazard Exposure
+TN_TALUK_179,Sivagiri,MODERATE,43.7,21.9,29.9,4.5,Hazard Exposure,Capacity Stress
+TN_TALUK_268,Chengam,MODERATE,30.1,26.5,27.4,16.0,Hazard Exposure,Capacity Stress
+TN_TALUK_269,Chetpet,MODERATE,29.9,26.6,27.9,15.6,Hazard Exposure,Capacity Stress
+TN_TALUK_067,Cheyyur,MODERATE,30.6,26.3,26.4,16.7,Hazard Exposure,Capacity Stress
+TN_TALUK_273,Polur,MODERATE,36.1,28.6,24.7,10.6,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_277,Vembakkam,MODERATE,33.4,27.7,25.7,13.1,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_239,Thiruverumbur,MODERATE,37.1,22.0,26.9,13.9,Hazard Exposure,Capacity Stress
+TN_TALUK_253,Ambur,MODERATE,27.0,33.3,23.2,16.5,Demographic Sensitivity,Hazard Exposure
+TN_TALUK_177,Kadayanallur,MODERATE,41.0,21.5,25.2,12.4,Hazard Exposure,Capacity Stress
+TN_TALUK_174,Sivaganga,MODERATE,31.1,23.3,27.8,17.8,Hazard Exposure,Capacity Stress
+TN_TALUK_073,Tiruporur,MODERATE,30.7,26.7,23.1,19.6,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_091,Hosur,MODERATE,26.8,33.5,21.6,18.1,Demographic Sensitivity,Hazard Exposure
+TN_TALUK_065,Ulundurpettai,MODERATE,33.7,29.6,29.4,7.3,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_271,Jamunamarathoor,MODERATE,32.6,28.5,25.4,13.5,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_062,Kalvarayan Hills,MODERATE,29.9,28.1,26.6,15.4,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_182,Veerakeralamputhur,MODERATE,40.6,21.8,24.6,13.0,Hazard Exposure,Capacity Stress
+TN_TALUK_152,Nemili,MODERATE,29.3,27.9,24.8,18.0,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_178,Shenkottai,MODERATE,45.4,23.4,28.3,3.0,Hazard Exposure,Capacity Stress
+TN_TALUK_034,Harur,MODERATE,29.7,25.0,28.5,16.9,Hazard Exposure,Capacity Stress
+TN_TALUK_233,Lalgudi,MODERATE,43.8,24.5,24.5,7.2,Hazard Exposure,Capacity Stress
+TN_TALUK_066,Chengalpattu,MODERATE,31.7,27.6,22.4,18.4,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_090,Denkanikottai,MODERATE,29.0,35.8,27.4,7.8,Demographic Sensitivity,Hazard Exposure
+TN_TALUK_274,Thandrampet,MODERATE,29.7,27.7,23.7,18.8,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_238,Srirangam,MODERATE,44.9,24.9,25.1,5.0,Hazard Exposure,Capacity Stress
+TN_TALUK_004,Udayarpalayam,MODERATE,36.3,25.5,27.1,11.1,Hazard Exposure,Capacity Stress
+TN_TALUK_235,Manapparai,MODERATE,40.3,24.6,31.8,3.3,Hazard Exposure,Capacity Stress
+TN_TALUK_176,Thiruppuvanam,MODERATE,34.3,24.8,23.7,17.2,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_089,Bargur,MODERATE,25.9,34.6,22.2,17.3,Demographic Sensitivity,Hazard Exposure
+TN_TALUK_199,Bodinayakanur,MODERATE,35.5,14.8,29.2,20.5,Hazard Exposure,Capacity Stress
+TN_TALUK_234,Manachanallur,MODERATE,40.2,24.6,30.2,5.0,Hazard Exposure,Capacity Stress
+TN_TALUK_272,Kalasapakkam,MODERATE,30.2,28.7,25.2,15.9,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_068,Maduranthakam,MODERATE,39.0,31.1,24.7,5.3,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_254,Anaicut,MODERATE,27.6,36.1,23.0,13.3,Demographic Sensitivity,Hazard Exposure
+TN_TALUK_256,Tirupathur,MODERATE,27.7,37.3,29.5,5.5,Demographic Sensitivity,Capacity Stress
+TN_TALUK_098,Madurai East,MODERATE,31.2,21.0,28.3,19.6,Hazard Exposure,Capacity Stress
+TN_TALUK_061,Kallakkurichi,MODERATE,29.2,29.6,30.0,11.2,Capacity Stress,Demographic Sensitivity
+TN_TALUK_149,Arcot,MODERATE,29.4,29.2,25.9,15.5,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_281,Vellore,MODERATE,25.6,30.9,26.1,17.3,Demographic Sensitivity,Capacity Stress
+TN_TALUK_240,Thottiyam,MODERATE,40.6,24.4,24.7,10.3,Hazard Exposure,Capacity Stress
+TN_TALUK_148,Arakonam,MODERATE,28.2,29.4,29.3,13.2,Demographic Sensitivity,Capacity Stress
+TN_TALUK_037,Palakkodu,MODERATE,30.7,26.2,26.1,17.0,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_124,Kunnam,MODERATE,29.4,20.5,30.2,20.0,Capacity Stress,Hazard Exposure
+TN_TALUK_255,Natrampalli,MODERATE,20.7,34.4,24.8,20.1,Demographic Sensitivity,Capacity Stress
+TN_TALUK_070,Sholinganallur,MODERATE,28.3,28.2,26.3,17.2,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_106,Vadipatti,MODERATE,29.2,21.3,28.4,21.1,Hazard Exposure,Capacity Stress
+TN_TALUK_072,Tirukalukundram,MODERATE,32.1,30.2,27.9,9.9,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_105,Usilampatti,MODERATE,34.4,22.0,23.7,19.9,Hazard Exposure,Capacity Stress
+TN_TALUK_279,K V Kuppam,MODERATE,26.4,33.4,31.4,8.8,Demographic Sensitivity,Capacity Stress
+TN_TALUK_280,Pernambut,MODERATE,26.3,32.4,24.8,16.5,Demographic Sensitivity,Hazard Exposure
+TN_TALUK_154,Wallajah,MODERATE,34.2,32.5,27.7,5.6,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_096,Kalligudi,MODERATE,32.4,22.3,28.9,16.4,Hazard Exposure,Capacity Stress
+TN_TALUK_083,Karur,MODERATE,43.9,7.6,25.4,23.1,Hazard Exposure,Capacity Stress
+TN_TALUK_039,Pennagaram,MODERATE,31.6,28.4,33.0,7.0,Capacity Stress,Hazard Exposure
+TN_TALUK_267,Arani,MODERATE,31.6,31.5,29.2,7.8,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_003,Sendurai,MODERATE,35.5,26.8,25.3,12.4,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_088,Anchetty,MODERATE,22.5,36.4,23.1,18.0,Demographic Sensitivity,Capacity Stress
+TN_TALUK_276,Vandavasi,MODERATE,31.3,31.3,28.0,9.4,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_150,Kalavai,MODERATE,31.2,32.1,28.3,8.3,Demographic Sensitivity,Hazard Exposure
+TN_TALUK_095,Uthangarai,MODERATE,24.9,39.2,29.8,6.1,Demographic Sensitivity,Capacity Stress
+TN_TALUK_171,Karaikkudi,MODERATE,26.7,25.3,28.3,19.7,Capacity Stress,Hazard Exposure
+TN_TALUK_094,Shoolagiri,MODERATE,26.9,39.4,25.8,7.9,Demographic Sensitivity,Hazard Exposure
+TN_TALUK_063,Sankarapuram,MODERATE,28.8,30.8,24.0,16.4,Demographic Sensitivity,Hazard Exposure
+TN_TALUK_200,Periyakulam,MODERATE,42.0,16.9,28.5,12.6,Hazard Exposure,Capacity Stress
+TN_TALUK_151,Katpadi,MODERATE,30.3,33.2,33.0,3.5,Demographic Sensitivity,Capacity Stress
+TN_TALUK_085,Kulithalai,MODERATE,41.9,7.7,28.4,22.0,Hazard Exposure,Capacity Stress
+TN_TALUK_278,Gudiyatham,MODERATE,31.1,36.0,26.4,6.5,Demographic Sensitivity,Hazard Exposure
+TN_TALUK_153,Sholinghur,MODERATE,30.4,32.7,28.6,8.3,Demographic Sensitivity,Hazard Exposure
+TN_TALUK_086,Manmangalam,MODERATE,41.0,7.9,34.5,16.6,Hazard Exposure,Capacity Stress
+TN_TALUK_064,Tirukkoyilur,MODERATE,33.9,33.7,26.5,6.0,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_002,Ariyalur,MODERATE,40.1,29.6,27.5,2.9,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_301,Virudhunagar,MODERATE,34.0,18.1,27.8,20.1,Hazard Exposure,Capacity Stress
+TN_TALUK_044,Kodaikanal,MODERATE,35.5,19.0,33.7,11.8,Hazard Exposure,Capacity Stress
+TN_TALUK_081,Aravakurichi,MODERATE,48.8,8.4,32.0,10.8,Hazard Exposure,Capacity Stress
+TN_TALUK_042,Dindigulwest,MODERATE,39.1,19.8,33.9,7.2,Hazard Exposure,Capacity Stress
+TN_TALUK_060,Chinnasalem,MODERATE,29.7,32.1,25.1,13.0,Demographic Sensitivity,Hazard Exposure
+TN_TALUK_049,Vedasandur,MODERATE,43.3,20.3,30.8,5.6,Hazard Exposure,Capacity Stress
+TN_TALUK_270,Cheyyar,MODERATE,31.2,32.5,27.1,9.2,Demographic Sensitivity,Hazard Exposure
+TN_TALUK_093,Pochampalli,MODERATE,27.5,41.4,26.3,4.9,Demographic Sensitivity,Hazard Exposure
+TN_TALUK_092,Krishnagiri,MODERATE,19.4,38.0,24.8,17.7,Demographic Sensitivity,Capacity Stress
+TN_TALUK_197,Udhagamandalam,MODERATE,38.8,12.8,31.5,16.9,Hazard Exposure,Capacity Stress
+TN_TALUK_169,Ilayangudi,MODERATE,30.4,26.7,24.5,18.4,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_100,Madurai South,MODERATE,30.2,23.4,31.5,15.0,Capacity Stress,Hazard Exposure
+TN_TALUK_071,Tambaram,MODERATE,35.8,33.9,26.5,3.8,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_297,Sivakasi,MODERATE,33.5,18.4,28.9,19.2,Hazard Exposure,Capacity Stress
+TN_TALUK_168,Devakottai,MODERATE,33.3,27.9,26.9,11.9,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_097,Madurai  West,MODERATE,32.6,23.6,28.0,15.7,Hazard Exposure,Capacity Stress
+TN_TALUK_014,Coimbatore South,MODERATE,34.3,14.4,31.0,20.3,Hazard Exposure,Capacity Stress
+TN_TALUK_019,Pollachi,MODERATE,42.3,15.3,27.3,15.1,Hazard Exposure,Capacity Stress
+TN_TALUK_012,Annur,MODERATE,34.9,14.4,29.3,21.4,Hazard Exposure,Capacity Stress
+TN_TALUK_125,Perambalur,MODERATE,29.5,22.6,27.1,20.8,Hazard Exposure,Capacity Stress
+TN_TALUK_103,Thirumangalam,MODERATE,29.6,24.2,34.0,12.2,Capacity Stress,Hazard Exposure
+TN_TALUK_021,Valparai,LOW,38.0,14.9,27.5,19.6,Hazard Exposure,Capacity Stress
+TN_TALUK_074,Vandalur,LOW,32.2,34.0,28.6,5.1,Demographic Sensitivity,Hazard Exposure
+TN_TALUK_035,Karimangalam,LOW,29.6,29.9,29.7,10.7,Demographic Sensitivity,Capacity Stress
+TN_TALUK_011,Anaimalai,LOW,38.6,15.0,28.3,18.1,Hazard Exposure,Capacity Stress
+TN_TALUK_196,Panthalur,LOW,34.2,12.8,34.3,18.6,Capacity Stress,Hazard Exposure
+TN_TALUK_195,Kundah,LOW,33.7,12.6,31.3,22.4,Hazard Exposure,Capacity Stress
+TN_TALUK_173,Singampunari,LOW,25.1,26.8,27.0,21.1,Capacity Stress,Demographic Sensitivity
+TN_TALUK_038,Pappireddipatti,LOW,33.4,31.6,30.6,4.4,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_126,Veppanthattai,LOW,38.9,25.2,27.7,8.2,Hazard Exposure,Capacity Stress
+TN_TALUK_202,Uthamapalayam,LOW,43.2,18.5,31.3,7.0,Hazard Exposure,Capacity Stress
+TN_TALUK_048,Palani,LOW,35.8,20.4,36.3,7.4,Capacity Stress,Hazard Exposure
+TN_TALUK_020,Sulur,LOW,41.7,16.2,35.3,6.8,Hazard Exposure,Capacity Stress
+TN_TALUK_175,Thiruppathur,LOW,37.8,30.9,28.8,2.5,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_043,Gujiliamparai,LOW,39.7,21.3,36.2,2.9,Hazard Exposure,Capacity Stress
+TN_TALUK_036,Nallampalli,LOW,25.1,28.8,25.6,20.5,Demographic Sensitivity,Capacity Stress
+TN_TALUK_040,Athoor,LOW,33.3,19.5,30.9,16.4,Hazard Exposure,Capacity Stress
+TN_TALUK_170,Kalaiyarkoil,LOW,30.2,30.4,35.0,4.5,Capacity Stress,Demographic Sensitivity
+TN_TALUK_201,Theni,LOW,37.1,18.0,34.3,10.7,Hazard Exposure,Capacity Stress
+TN_TALUK_160,Omalur,LOW,38.2,21.4,31.6,8.8,Hazard Exposure,Capacity Stress
+TN_TALUK_155,Attur,LOW,29.5,19.8,30.6,20.1,Capacity Stress,Hazard Exposure
+TN_TALUK_099,Madurai North,LOW,34.7,25.2,27.0,13.1,Hazard Exposure,Capacity Stress
+TN_TALUK_084,Krishnarayapuram,LOW,48.7,9.2,36.8,5.3,Hazard Exposure,Capacity Stress
+TN_TALUK_159,Mettur,LOW,31.7,20.5,33.1,14.7,Capacity Stress,Hazard Exposure
+TN_TALUK_104,Thirupparankundram,LOW,27.9,24.8,32.8,14.5,Capacity Stress,Hazard Exposure
+TN_TALUK_302,Watrap,LOW,37.2,19.9,26.9,16.0,Hazard Exposure,Capacity Stress
+TN_TALUK_172,Manamadurai,LOW,35.1,30.7,28.1,6.2,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_123,Alathur,LOW,31.8,25.8,36.7,5.8,Capacity Stress,Hazard Exposure
+TN_TALUK_047,Oddanchatram,LOW,42.1,21.2,28.3,8.4,Hazard Exposure,Capacity Stress
+TN_TALUK_001,Andimadam,LOW,32.9,30.9,31.9,4.3,Hazard Exposure,Capacity Stress
+TN_TALUK_087,Pugalur,LOW,48.1,8.9,31.3,11.8,Hazard Exposure,Capacity Stress
+TN_TALUK_194,Kotagiri,LOW,36.0,13.8,36.2,14.0,Capacity Stress,Hazard Exposure
+TN_TALUK_101,Melur,LOW,33.8,25.9,29.4,10.9,Hazard Exposure,Capacity Stress
+TN_TALUK_033,Dharmapuri,LOW,28.5,31.0,26.5,14.0,Demographic Sensitivity,Hazard Exposure
+TN_TALUK_198,Andipatti,LOW,36.0,17.8,29.4,16.8,Hazard Exposure,Capacity Stress
+TN_TALUK_193,Gudalur,LOW,40.6,14.2,31.6,13.6,Hazard Exposure,Capacity Stress
+TN_TALUK_300,Vembakottai,LOW,28.2,19.5,30.2,22.1,Capacity Stress,Hazard Exposure
+TN_TALUK_167,Yercaud,LOW,33.1,21.4,32.9,12.6,Hazard Exposure,Capacity Stress
+TN_TALUK_041,Dindiguleast,LOW,39.8,21.5,29.7,8.9,Hazard Exposure,Capacity Stress
+TN_TALUK_069,Pallavaram,LOW,52.8,43.1,0.0,4.1,Hazard Exposure,Demographic Sensitivity
+TN_TALUK_161,Pethanaickanpalayam,LOW,30.1,21.5,35.5,12.9,Capacity Stress,Hazard Exposure
+TN_TALUK_046,Nilakkottai,LOW,40.6,22.4,32.6,4.3,Hazard Exposure,Capacity Stress
+TN_TALUK_192,Coonoor,LOW,41.0,14.2,28.8,15.9,Hazard Exposure,Capacity Stress
+TN_TALUK_156,Edappadi,LOW,28.1,20.5,26.9,24.6,Hazard Exposure,Capacity Stress
+TN_TALUK_102,Peraiyur,LOW,33.4,26.6,28.3,11.8,Hazard Exposure,Capacity Stress
+TN_TALUK_082,Kadavur,LOW,42.8,8.7,28.6,19.9,Hazard Exposure,Capacity Stress
+TN_TALUK_018,Perur,LOW,32.8,15.6,28.1,23.5,Hazard Exposure,Capacity Stress
+TN_TALUK_015,Kinathukadavu,LOW,33.8,15.9,27.7,22.7,Hazard Exposure,Capacity Stress
+TN_TALUK_295,Rajapalayam,LOW,30.2,20.3,27.5,21.9,Hazard Exposure,Capacity Stress
+TN_TALUK_298,Srivilliputhur,LOW,32.5,20.7,28.0,18.8,Hazard Exposure,Capacity Stress
+TN_TALUK_165,Sankari,LOW,29.8,22.9,37.8,9.5,Capacity Stress,Hazard Exposure
+TN_TALUK_299,Tiruchuli,LOW,41.1,23.2,31.5,4.2,Hazard Exposure,Capacity Stress
+TN_TALUK_016,Madukkari,LOW,35.8,16.8,32.7,14.7,Hazard Exposure,Capacity Stress
+TN_TALUK_263,Tiruppurnorth,LOW,28.3,12.0,37.7,22.0,Capacity Stress,Hazard Exposure
+TN_TALUK_293,Aruppukkottai,LOW,36.1,22.0,29.5,12.4,Hazard Exposure,Capacity Stress
+TN_TALUK_164,Salem West,LOW,34.6,23.0,29.8,12.5,Hazard Exposure,Capacity Stress
+TN_TALUK_157,Gangavalli,LOW,38.6,24.3,31.5,5.7,Hazard Exposure,Capacity Stress
+TN_TALUK_013,Coimbatore North,LOW,39.8,18.3,35.4,6.4,Hazard Exposure,Capacity Stress
+TN_TALUK_045,Natham,LOW,32.5,22.1,30.0,15.4,Hazard Exposure,Capacity Stress
+TN_TALUK_294,Kariapatti,LOW,36.7,22.9,31.4,9.0,Hazard Exposure,Capacity Stress
+TN_TALUK_017,Mettupalayam,LOW,34.4,17.1,29.6,18.9,Hazard Exposure,Capacity Stress
+TN_TALUK_166,Vazhapadi,LOW,32.0,23.2,30.0,14.8,Hazard Exposure,Capacity Stress
+TN_TALUK_158,Kadayampatti,LOW,25.4,23.0,33.2,18.4,Capacity Stress,Hazard Exposure
+TN_TALUK_296,Sattur,LOW,38.8,24.5,33.2,3.5,Hazard Exposure,Capacity Stress
+TN_TALUK_163,Salem South,LOW,27.6,25.3,40.7,6.5,Capacity Stress,Hazard Exposure
+TN_TALUK_260,Kangeyam,LOW,31.2,13.2,39.1,16.6,Capacity Stress,Hazard Exposure
+TN_TALUK_054,Kodumudi,LOW,35.0,0.0,40.0,25.0,Capacity Stress,Hazard Exposure
+TN_TALUK_162,Salem,LOW,34.3,26.4,36.1,3.2,Capacity Stress,Hazard Exposure
+TN_TALUK_264,Tiruppursouth,LOW,32.8,13.2,33.2,20.8,Capacity Stress,Hazard Exposure
+TN_TALUK_119,Paramathi-Velur,LOW,34.1,6.4,44.8,14.7,Capacity Stress,Hazard Exposure
+TN_TALUK_121,Sendamangalam,LOW,27.2,6.3,45.4,21.0,Capacity Stress,Hazard Exposure
+TN_TALUK_052,Erode,LOW,28.7,0.0,42.1,29.2,Capacity Stress,Accessibility Constraint
+TN_TALUK_059,Thalavadi,LOW,26.8,0.0,48.1,25.1,Capacity Stress,Hazard Exposure
+TN_TALUK_056,Nambiyur,LOW,28.9,0.0,39.8,31.3,Capacity Stress,Accessibility Constraint
+TN_TALUK_053,Gobichettipalayam,LOW,26.6,0.0,41.2,32.2,Capacity Stress,Accessibility Constraint
+TN_TALUK_266,Uthukuli,LOW,25.1,14.3,34.3,26.3,Capacity Stress,Accessibility Constraint
+TN_TALUK_261,Madathukulam,LOW,27.2,14.5,36.2,22.2,Capacity Stress,Hazard Exposure
+TN_TALUK_258,Avanashi,LOW,37.5,15.3,36.3,10.9,Hazard Exposure,Capacity Stress
+TN_TALUK_115,Kolli Hills,LOW,40.4,7.0,42.1,10.4,Capacity Stress,Hazard Exposure
+TN_TALUK_120,Rasipuram,LOW,30.3,6.5,36.1,27.2,Capacity Stress,Hazard Exposure
+TN_TALUK_122,Tiruchengode,LOW,26.7,7.5,52.3,13.4,Capacity Stress,Hazard Exposure
+TN_TALUK_259,Dharapuram,LOW,35.9,15.8,38.1,10.1,Capacity Stress,Hazard Exposure
+TN_TALUK_265,Udumalaipettai,LOW,23.4,15.5,37.8,23.4,Capacity Stress,Accessibility Constraint
+TN_TALUK_058,Sathyamangalam,LOW,45.3,0.0,45.0,9.7,Hazard Exposure,Capacity Stress
+TN_TALUK_117,Mohanur,LOW,38.7,7.1,39.2,15.1,Capacity Stress,Hazard Exposure
+TN_TALUK_051,Bhavani,LOW,48.6,0.0,44.4,7.1,Hazard Exposure,Capacity Stress
+TN_TALUK_055,Modakkurichi,LOW,40.5,0.0,40.9,18.6,Capacity Stress,Hazard Exposure
+TN_TALUK_118,Namakkal,LOW,34.6,7.0,39.6,18.8,Capacity Stress,Hazard Exposure
+TN_TALUK_050,Anthiyur,LOW,31.6,0.0,48.7,19.7,Capacity Stress,Hazard Exposure
+TN_TALUK_262,Palladam,LOW,33.8,17.9,44.3,3.9,Capacity Stress,Hazard Exposure
+TN_TALUK_057,Perundurai,LOW,36.8,0.0,49.7,13.5,Capacity Stress,Hazard Exposure
+TN_TALUK_116,Kumarapalayam,LOW,35.7,7.8,45.3,11.1,Capacity Stress,Hazard Exposure

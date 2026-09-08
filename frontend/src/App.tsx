@@ -4,53 +4,82 @@ import { Sidebar } from './components/layout/Sidebar';
 import { GISPage } from './pages/GISPage';
 import { DashboardPage } from './pages/DashboardPage';
 import { DataMethodologyPage } from './pages/DataMethodologyPage';
+import { RelocationPlanningPage } from './pages/RelocationPlanningPage';
+import { HazardRiskPage } from './pages/HazardRiskPage';
+import { CommunityVulnerabilityPage } from './pages/CommunityVulnerabilityPage';
+import { EmergencyCapacityPage } from './pages/EmergencyCapacityPage';
+import { CandidateLocationsPage } from './pages/CandidateLocationsPage';
+import { SimulationPage } from './pages/SimulationPage';
+import { ActionPlanPage } from './pages/ActionPlanPage';
+import { PriorityDirectoryPage } from './pages/PriorityDirectoryPage';
 import { LandingScreen } from './pages/LandingScreen';
 import { StateSelectionScreen } from './pages/StateSelectionScreen';
 import { CitizenPage } from './pages/CitizenPage';
+import { StateProvider, useActiveState } from './context/StateContext';
+import { setActiveStateId } from './services/api';
 import type { ActiveTab } from './types';
+import type { MandalProperties } from './types/gis';
 
 export type PortalRole = 
   | 'landing' 
   | 'government_state_selection' 
-  | 'government_ap' 
+  | 'government_portal' 
   | 'citizen';
 
-export function App() {
+function AppContent() {
+  const { currentState, stateId, setStateId, selectStateByName } = useActiveState();
   const [activeTab, setActiveTab] = useState<ActiveTab>('gis');
-  const [selectedState, setSelectedState] = useState<string>('Andhra Pradesh');
+  const [selectedMandalForGIS, setSelectedMandalForGIS] = useState<MandalProperties | null>(null);
   
   // Determine initial portal view from URL hash
   const getInitialPortal = (): PortalRole => {
     if (typeof window === 'undefined') return 'landing';
     const hash = window.location.hash.toLowerCase();
     if (hash === '#government/select-state' || hash === '#government/states') return 'government_state_selection';
-    if (hash === '#government/gujarat') {
-      setSelectedState('Gujarat');
-      return 'government_ap';
-    }
-    if (hash === '#government/kerala' || hash === '#government/kerela') {
-      setSelectedState('Kerala');
-      return 'government_ap';
-    }
-    if (hash === '#government/maharashtra' || hash === '#government/maharastra' || hash === '#government/mh') {
-      setSelectedState('Maharashtra');
-      return 'government_ap';
-    }
-    if (hash === '#government/haryana' || hash === '#government/hr') {
-      setSelectedState('Haryana');
-      return 'government_ap';
-    }
-    if (hash === '#government/punjab' || hash === '#government/pb') {
-      setSelectedState('Punjab');
-      return 'government_ap';
-    }
-    if (hash === '#government/chhattisgarh' || hash === '#government/cg' || hash === '#government/ct') {
-      setSelectedState('Chhattisgarh');
-      return 'government_ap';
-    }
-    if (hash === '#government/ap' || hash === '#government/andhra-pradesh' || hash === '#government') {
-      setSelectedState('Andhra Pradesh');
-      return 'government_ap';
+    if (
+      hash.startsWith('#government/ml') ||
+      hash.startsWith('#government/meghalaya') ||
+      hash.startsWith('#government/nl') ||
+      hash.startsWith('#government/nagaland') ||
+      hash.startsWith('#government/ar') ||
+      hash.startsWith('#government/arunachal') ||
+      hash.startsWith('#government/sk') ||
+      hash.startsWith('#government/sikkim') ||
+      hash.startsWith('#government/uk') ||
+      hash.startsWith('#government/uttarakhand') ||
+      hash.startsWith('#government/uttaranchal') ||
+      hash.startsWith('#government/od') ||
+      hash.startsWith('#government/odisha') ||
+      hash.startsWith('#government/orissa') ||
+      hash.startsWith('#government/wb') ||
+      hash.startsWith('#government/west_bengal') ||
+      hash.startsWith('#government/bengal') ||
+      hash.startsWith('#government/br') ||
+      hash.startsWith('#government/bihar') ||
+      hash.startsWith('#government/up') ||
+      hash.startsWith('#government/uttar_pradesh') ||
+      hash.startsWith('#government/uttar') ||
+      hash.startsWith('#government/as') ||
+      hash.startsWith('#government/assam') ||
+      hash.startsWith('#government/ap') || 
+      hash.startsWith('#government/tn') || 
+      hash.startsWith('#government/andhra') || 
+      hash.startsWith('#government/tamil') ||
+      hash.startsWith('#government/gujarat') ||
+      hash.startsWith('#government/gj') ||
+      hash.startsWith('#government/kerala') ||
+      hash.startsWith('#government/kl') ||
+      hash.startsWith('#government/maharashtra') ||
+      hash.startsWith('#government/mh') ||
+      hash.startsWith('#government/haryana') ||
+      hash.startsWith('#government/hr') ||
+      hash.startsWith('#government/punjab') ||
+      hash.startsWith('#government/pb') ||
+      hash.startsWith('#government/chhattisgarh') ||
+      hash.startsWith('#government/cg') ||
+      hash === '#government'
+    ) {
+      return 'government_portal';
     }
     if (hash === '#citizen' || hash.startsWith('#citizen/')) return 'citizen';
     return 'landing';
@@ -58,33 +87,84 @@ export function App() {
 
   const [portalRole, setPortalRole] = useState<PortalRole>(getInitialPortal);
 
-  // Sync state with hash change
+  // Sync state and role with hash changes
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.toLowerCase();
       if (hash === '#government/select-state' || hash === '#government/states') {
         setPortalRole('government_state_selection');
-      } else if (hash === '#government/gujarat') {
-        setSelectedState('Gujarat');
-        setPortalRole('government_ap');
-      } else if (hash === '#government/kerala' || hash === '#government/kerela') {
-        setSelectedState('Kerala');
-        setPortalRole('government_ap');
-      } else if (hash === '#government/maharashtra' || hash === '#government/maharastra' || hash === '#government/mh') {
-        setSelectedState('Maharashtra');
-        setPortalRole('government_ap');
-      } else if (hash === '#government/haryana' || hash === '#government/hr') {
-        setSelectedState('Haryana');
-        setPortalRole('government_ap');
-      } else if (hash === '#government/punjab' || hash === '#government/pb') {
-        setSelectedState('Punjab');
-        setPortalRole('government_ap');
-      } else if (hash === '#government/chhattisgarh' || hash === '#government/cg' || hash === '#government/ct') {
-        setSelectedState('Chhattisgarh');
-        setPortalRole('government_ap');
-      } else if (hash === '#government/ap' || hash === '#government/andhra-pradesh' || hash === '#government') {
-        setSelectedState('Andhra Pradesh');
-        setPortalRole('government_ap');
+      } else if (hash.includes('/ml') || hash.includes('/meghalaya')) {
+        setPortalRole('government_portal');
+        setStateId('meghalaya');
+        setActiveStateId('meghalaya');
+      } else if (hash.includes('/nl') || hash.includes('/nagaland')) {
+        setPortalRole('government_portal');
+        setStateId('nagaland');
+        setActiveStateId('nagaland');
+      } else if (hash.includes('/ar') || hash.includes('/arunachal')) {
+        setPortalRole('government_portal');
+        setStateId('arunachal_pradesh');
+        setActiveStateId('arunachal_pradesh');
+      } else if (hash.includes('/sk') || hash.includes('/sikkim')) {
+        setPortalRole('government_portal');
+        setStateId('sikkim');
+        setActiveStateId('sikkim');
+      } else if (hash.includes('/uk') || hash.includes('/uttarakhand') || hash.includes('/uttaranchal')) {
+        setPortalRole('government_portal');
+        setStateId('uttarakhand');
+        setActiveStateId('uttarakhand');
+      } else if (hash.includes('/od') || hash.includes('/odisha') || hash.includes('/orissa')) {
+        setPortalRole('government_portal');
+        setStateId('odisha');
+        setActiveStateId('odisha');
+      } else if (hash.includes('/wb') || hash.includes('/west_bengal') || hash.includes('/bengal')) {
+        setPortalRole('government_portal');
+        setStateId('west_bengal');
+        setActiveStateId('west_bengal');
+      } else if (hash.includes('/br') || hash.includes('/bihar')) {
+        setPortalRole('government_portal');
+        setStateId('bihar');
+        setActiveStateId('bihar');
+      } else if (hash.includes('/as') || hash.includes('/assam')) {
+        setPortalRole('government_portal');
+        setStateId('assam');
+        setActiveStateId('assam');
+      } else if (hash.includes('/tn') || hash.includes('/tamil')) {
+        setPortalRole('government_portal');
+        setStateId('tamil_nadu');
+        setActiveStateId('tamil_nadu');
+      } else if (hash.includes('/up') || hash.includes('/uttar_pradesh') || (hash.includes('/uttar') && !hash.includes('uttarakhand') && !hash.includes('uttaranchal'))) {
+        setPortalRole('government_portal');
+        setStateId('uttar_pradesh');
+        setActiveStateId('uttar_pradesh');
+      } else if (hash.includes('/gujarat') || hash.includes('/gj')) {
+        setPortalRole('government_portal');
+        setStateId('gujarat');
+        setActiveStateId('gujarat');
+      } else if (hash.includes('/kerala') || hash.includes('/kl') || hash.includes('/kerela')) {
+        setPortalRole('government_portal');
+        setStateId('kerala');
+        setActiveStateId('kerala');
+      } else if (hash.includes('/maharashtra') || hash.includes('/mh') || hash.includes('/maharastra')) {
+        setPortalRole('government_portal');
+        setStateId('maharashtra');
+        setActiveStateId('maharashtra');
+      } else if (hash.includes('/haryana') || hash.includes('/hr')) {
+        setPortalRole('government_portal');
+        setStateId('haryana');
+        setActiveStateId('haryana');
+      } else if (hash.includes('/punjab') || hash.includes('/pb')) {
+        setPortalRole('government_portal');
+        setStateId('punjab');
+        setActiveStateId('punjab');
+      } else if (hash.includes('/chhattisgarh') || hash.includes('/cg') || hash.includes('/ct')) {
+        setPortalRole('government_portal');
+        setStateId('chhattisgarh');
+        setActiveStateId('chhattisgarh');
+      } else if (hash.includes('/ap') || hash.includes('/andhra') || hash === '#government') {
+        setPortalRole('government_portal');
+        setStateId('andhra_pradesh');
+        setActiveStateId('andhra_pradesh');
       } else if (hash === '#citizen' || hash.startsWith('#citizen/')) {
         setPortalRole('citizen');
       } else {
@@ -94,7 +174,12 @@ export function App() {
 
     window.addEventListener('hashchange', handleHashChange);
     return () => window.removeEventListener('hashchange', handleHashChange);
-  }, []);
+  }, [setStateId]);
+
+  // Keep API module-level state aligned with active stateId
+  useEffect(() => {
+    setActiveStateId(stateId);
+  }, [stateId]);
 
   // From Landing: Government -> State Selection, Citizen -> Citizen Portal
   const handleSelectRoleFromLanding = (role: 'government' | 'citizen') => {
@@ -109,15 +194,32 @@ export function App() {
 
   // From State Selection: Choose state
   const handleSelectState = (stateName: string) => {
-    setSelectedState(stateName);
-    setPortalRole('government_ap');
-    let slug = 'ap';
-    if (stateName.toLowerCase().includes('gujarat')) slug = 'gujarat';
-    else if (stateName.toLowerCase().includes('kerala') || stateName.toLowerCase().includes('kerela')) slug = 'kerala';
-    else if (stateName.toLowerCase().includes('maharashtra') || stateName.toLowerCase().includes('maharastra')) slug = 'maharashtra';
-    else if (stateName.toLowerCase().includes('haryana') || stateName.toLowerCase() === 'hr') slug = 'haryana';
-    else if (stateName.toLowerCase().includes('punjab') || stateName.toLowerCase() === 'pb') slug = 'punjab';
-    else if (stateName.toLowerCase().includes('chhattisgarh') || stateName.toLowerCase().includes('chhatisgarh') || stateName.toLowerCase() === 'cg') slug = 'chhattisgarh';
+    const isGJ = stateName.toLowerCase().includes('gujarat') || stateName.toLowerCase() === 'gj';
+    const isKL = stateName.toLowerCase().includes('kerala') || stateName.toLowerCase().includes('kerela') || stateName.toLowerCase() === 'kl';
+    const isMH = stateName.toLowerCase().includes('maharashtra') || stateName.toLowerCase().includes('maharastra') || stateName.toLowerCase() === 'mh';
+    const isHR = stateName.toLowerCase().includes('haryana') || stateName.toLowerCase() === 'hr';
+    const isPB = stateName.toLowerCase().includes('punjab') || stateName.toLowerCase() === 'pb';
+    const isCG = stateName.toLowerCase().includes('chhattisgarh') || stateName.toLowerCase().includes('chhatisgarh') || stateName.toLowerCase() === 'cg' || stateName.toLowerCase() === 'ct';
+    const isML = stateName.toLowerCase().includes('meghalaya') || stateName.toLowerCase() === 'ml';
+    const isNL = stateName.toLowerCase().includes('nagaland') || stateName.toLowerCase() === 'nl';
+    const isAR = stateName.toLowerCase().includes('arunachal') || stateName.toLowerCase() === 'ar';
+    const isSK = stateName.toLowerCase().includes('sikkim') || stateName.toLowerCase() === 'sk';
+    const isUK = stateName.toLowerCase().includes('uttarakhand') || stateName.toLowerCase().includes('uttaranchal') || stateName.toLowerCase() === 'uk';
+    const isOD = stateName.toLowerCase().includes('odisha') || stateName.toLowerCase().includes('orissa') || stateName.toLowerCase() === 'od';
+    const isWB = stateName.toLowerCase().includes('bengal') || stateName.toLowerCase() === 'wb';
+    const isAS = stateName.toLowerCase().includes('assam');
+    const isTN = stateName.toLowerCase().includes('tamil');
+    const isBR = stateName.toLowerCase().includes('bihar');
+    const isUP = !isUK && (stateName.toLowerCase().includes('uttar') || stateName.toLowerCase() === 'up');
+
+    const targetStateId: any = isGJ ? 'gujarat' : (isKL ? 'kerala' : (isMH ? 'maharashtra' : (isHR ? 'haryana' : (isPB ? 'punjab' : (isCG ? 'chhattisgarh' : (isML ? 'meghalaya' : (isNL ? 'nagaland' : (isAR ? 'arunachal_pradesh' : (isSK ? 'sikkim' : (isUK ? 'uttarakhand' : (isOD ? 'odisha' : (isWB ? 'west_bengal' : (isAS ? 'assam' : (isTN ? 'tamil_nadu' : (isBR ? 'bihar' : (isUP ? 'uttar_pradesh' : 'andhra_pradesh'))))))))))))))));
+
+    const slug = isGJ ? 'gujarat' : (isKL ? 'kerala' : (isMH ? 'maharashtra' : (isHR ? 'haryana' : (isPB ? 'punjab' : (isCG ? 'chhattisgarh' : (isML ? 'ml' : (isNL ? 'nl' : (isAR ? 'ar' : (isSK ? 'sk' : (isUK ? 'uk' : (isOD ? 'od' : (isWB ? 'wb' : (isAS ? 'as' : (isTN ? 'tn' : (isBR ? 'br' : (isUP ? 'up' : 'ap'))))))))))))))));
+
+    selectStateByName(stateName);
+    setActiveStateId(targetStateId);
+    setSelectedMandalForGIS(null);
+    setPortalRole('government_portal');
     window.location.hash = `#government/${slug}`;
   };
 
@@ -160,53 +262,60 @@ export function App() {
   const renderContent = () => {
     switch (activeTab) {
       case 'gis':
-        return <GISPage key={`gis-${selectedState}`} initialMetric="topsis_score" selectedState={selectedState} />;
+        return (
+          <GISPage 
+            key={`gis-${stateId}`} 
+            initialMetric="topsis_score" 
+            initialSelectedMandal={selectedMandalForGIS} 
+            onNavigateToTab={setActiveTab} 
+          />
+        );
+      case 'priority_directory':
+        return (
+          <PriorityDirectoryPage 
+            key={`priority-${stateId}`}
+            onSelectMandalOnMap={(m) => {
+              setSelectedMandalForGIS(m);
+              setActiveTab('gis');
+            }} 
+          />
+        );
       case 'hazard':
-        return <GISPage key={`hazard-${selectedState}`} initialMetric="hazard_exposure" selectedState={selectedState} />;
+        return <HazardRiskPage key={`hazard-${stateId}`} onSelectMandalOnMap={() => setActiveTab('gis')} />;
       case 'vulnerability':
-        return <GISPage key={`vulnerability-${selectedState}`} initialMetric="demographic_sensitivity" selectedState={selectedState} />;
+        return <CommunityVulnerabilityPage key={`vuln-${stateId}`} onSelectMandalOnMap={() => setActiveTab('gis')} />;
       case 'capacity':
-        return <GISPage key={`capacity-${selectedState}`} initialMetric="shelter_capacity" selectedState={selectedState} />;
+        return <EmergencyCapacityPage key={`cap-${stateId}`} onSelectMandalOnMap={() => setActiveTab('gis')} />;
       case 'relocation':
-        return <GISPage key={`relocation-${selectedState}`} initialMetric="topsis_score" selectedState={selectedState} />;
+        return <RelocationPlanningPage key={`reloc-${stateId}`} onSelectMandalOnMap={() => setActiveTab('gis')} />;
       case 'hosts':
-        return <GISPage key={`hosts-${selectedState}`} initialMetric="safe_area_fraction" selectedState={selectedState} />;
+        return <CandidateLocationsPage key={`hosts-${stateId}`} />;
       case 'simulation':
-        return <GISPage key={`simulation-${selectedState}`} initialMetric="scenario_topsis_score" initialOpenSimulation={true} selectedState={selectedState} />;
+        return <SimulationPage key={`sim-${stateId}`} />;
       case 'actions':
-        return <GISPage key={`actions-${selectedState}`} initialMetric="topsis_score" selectedState={selectedState} />;
+        return <ActionPlanPage key={`actions-${stateId}`} />;
       case 'dashboard':
-        return (
-          <div className="flex-1 overflow-y-auto p-4 lg:p-8 custom-scrollbar">
-            <div className="max-w-7xl mx-auto">
-              <DashboardPage onNavigateToGIS={() => setActiveTab('gis')} />
-            </div>
-          </div>
-        );
+        return <DashboardPage key={`dash-${stateId}`} onNavigateToGIS={() => setActiveTab('gis')} />;
       case 'data':
+        return <DataMethodologyPage key={`data-${stateId}`} initialTab="sources" onLaunchGIS={() => setActiveTab('gis')} />;
       case 'methodology':
-        return (
-          <div className="flex-1 overflow-y-auto p-4 lg:p-8 custom-scrollbar">
-            <div className="max-w-7xl mx-auto">
-              <DataMethodologyPage onLaunchGIS={() => setActiveTab('gis')} />
-            </div>
-          </div>
-        );
+        return <DataMethodologyPage key={`method-${stateId}`} initialTab="methodology" onLaunchGIS={() => setActiveTab('gis')} />;
       default:
-        return <GISPage key={`gis-${selectedState}`} initialMetric="topsis_score" selectedState={selectedState} />;
+        return <GISPage key={`gis-${stateId}`} initialMetric="topsis_score" onNavigateToTab={setActiveTab} />;
     }
   };
 
   return (
-    <div className="h-screen w-screen overflow-hidden bg-slate-950 flex flex-col font-sans select-none">
+    <div className="h-screen w-screen overflow-hidden bg-[#f8fafc] text-slate-900 flex flex-col font-sans select-none">
       <Header 
-        pilotState={selectedState} 
+        pilotState={currentState.name} 
         onBackToLanding={handleReturnToLanding}
         onNavigateToStateSelection={handleNavigateToStateSelection}
+        onSelectState={handleSelectState}
       />
       <div className="flex-1 flex overflow-hidden">
         <Sidebar activeTab={activeTab} onSelectTab={setActiveTab} />
-        <main className="flex-1 flex flex-col overflow-hidden bg-slate-950/60">
+        <main key={stateId} className="flex-1 flex flex-col overflow-hidden p-2 sm:p-2.5 gap-2.5 bg-[#f4f6fa]">
           {renderContent()}
         </main>
       </div>
@@ -214,5 +323,12 @@ export function App() {
   );
 }
 
-export default App;
+export function App() {
+  return (
+    <StateProvider>
+      <AppContent />
+    </StateProvider>
+  );
+}
 
+export default App;

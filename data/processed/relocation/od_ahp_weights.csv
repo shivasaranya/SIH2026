@@ -1,0 +1,5 @@
+criterion,weight,description
+c1_hazard_exposure,0.4231,"Multi-Hazard Exposure (Coastal Surge, Riverine Flood, Wind, Slope)"
+c2_demographic_sensitivity,0.2274,"Evacuation Assistance Sensitivity (Children, Non-workers, HH size)"
+c3_capacity_stress,0.2274,"Physical Capacity Stress (Shelter, Health Beds, Water, Safe Land)"
+c4_accessibility_constraint,0.1221,Evacuation Accessibility & Corridor Constraint
