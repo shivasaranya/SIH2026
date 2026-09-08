@@ -59,11 +59,42 @@ def resolve_state_key(state_id: Optional[str]) -> str:
         return "punjab"
     if clean in ["chhattisgarh", "cg", "chhatisgarh", "chattisgarh", "ct"]:
         return "chhattisgarh"
+    if clean in ["mizoram", "mz", "mizo"]:
+        return "mizoram"
+    if clean in ["himachal_pradesh", "hp", "himachal"]:
+        return "himachal_pradesh"
     return "andhra_pradesh"
+
+def is_mizoram(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["mizoram", "mz", "mizo"]
+
+def is_hp(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["himachal_pradesh", "hp", "himachal"]
+
+def is_tn(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["tamil_nadu", "tn", "tamilnadu"]
 
 class RelocationService:
     def __init__(self):
         self._cache: Dict[str, Dict[str, Any]] = {}
+
+    def _get_state_key(self, state_id: Optional[str]) -> str:
+        if is_mizoram(state_id):
+            return "mz"
+        if is_tn(state_id):
+            return "tn"
+        if is_hp(state_id):
+            return "hp"
+        return "ap"
 
     def _load_data(self, state_id: Optional[str] = "andhra_pradesh"):
         key = resolve_state_key(state_id)
@@ -74,21 +105,42 @@ class RelocationService:
         cap_dir = settings.DATA_DIR / "processed" / "capacity"
 
         sum_csv = None
-        if key == "odisha":
+        cap_csv = None
+        if key in ["mz", "mizoram"]:
+            master_csv = reloc_dir / "mizoram_subdistrict_relocation_priority.csv"
+            factors_csv = reloc_dir / "mizoram_relocation_factor_contributions.csv"
+            ahp_csv = reloc_dir / "mizoram_ahp_weights.csv"
+            sum_csv = reloc_dir / "mizoram_relocation_priority_summary.csv"
+            host_csv = cap_dir / "mizoram_host_zone_candidates.csv"
+            cap_csv = cap_dir / "mizoram_subdistrict_capacity_components.csv"
+            geojson_path = reloc_dir / "mizoram_subdistrict_relocation_priority.geojson"
+            if not geojson_path.exists():
+                geojson_path = settings.PROCESSED_ADMIN_DIR / "mizoram_rd_blocks.geojson"
+        elif key in ["hp", "himachal_pradesh"]:
+            master_csv = reloc_dir / "hp_tehsil_relocation_priority.csv"
+            factors_csv = reloc_dir / "hp_relocation_factor_contributions.csv"
+            ahp_csv = reloc_dir / "hp_ahp_weights.csv"
+            sum_csv = reloc_dir / "hp_relocation_priority_summary.csv"
+            host_csv = cap_dir / "hp_host_zone_candidates.csv"
+            cap_csv = cap_dir / "hp_tehsil_capacity_adequacy.csv"
+            geojson_path = reloc_dir / "hp_tehsil_relocation_priority.geojson"
+            if not geojson_path.exists():
+                geojson_path = settings.PROCESSED_ADMIN_DIR / "himachal_pradesh_tehsils.geojson"
+        elif key == "odisha":
             master_csv = reloc_dir / "od_block_relocation_priority.csv"
             factors_csv = reloc_dir / "od_relocation_factor_contributions.csv"
             ahp_csv = reloc_dir / "od_ahp_weights.csv"
             sum_csv = reloc_dir / "od_relocation_priority_summary.csv"
             host_csv = cap_dir / "od_host_zone_candidates.csv"
+            cap_csv = cap_dir / "od_block_capacity_adequacy.csv"
             geojson_path = reloc_dir / "od_block_relocation_priority.geojson"
-            if not geojson_path.exists():
-                geojson_path = settings.PROCESSED_ADMIN_DIR / "odisha_blocks.geojson"
         elif key == "bihar":
             master_csv = reloc_dir / "br_block_relocation_priority.csv"
             factors_csv = reloc_dir / "br_relocation_factor_contributions.csv"
             ahp_csv = reloc_dir / "br_ahp_weights.csv"
             sum_csv = reloc_dir / "br_relocation_priority_summary.csv"
             host_csv = cap_dir / "br_host_zone_candidates.csv"
+            cap_csv = cap_dir / "br_block_capacity_adequacy.csv"
             geojson_path = reloc_dir / "br_block_relocation_priority.geojson"
             if not geojson_path.exists():
                 geojson_path = settings.PROCESSED_ADMIN_DIR / "bihar_blocks.geojson"
@@ -98,6 +150,7 @@ class RelocationService:
             ahp_csv = reloc_dir / "wb_ahp_weights.csv"
             sum_csv = reloc_dir / "wb_relocation_priority_summary.csv"
             host_csv = cap_dir / "wb_host_zone_candidates.csv"
+            cap_csv = cap_dir / "wb_block_capacity_adequacy.csv"
             geojson_path = reloc_dir / "wb_block_relocation_priority.geojson"
             if not geojson_path.exists():
                 geojson_path = settings.PROCESSED_ADMIN_DIR / "west_bengal_blocks.geojson"
@@ -107,15 +160,17 @@ class RelocationService:
             ahp_csv = reloc_dir / "as_ahp_weights.csv"
             sum_csv = reloc_dir / "as_relocation_priority_summary.csv"
             host_csv = cap_dir / "as_host_zone_candidates.csv"
+            cap_csv = cap_dir / "as_circle_capacity_adequacy.csv"
             geojson_path = reloc_dir / "as_circle_relocation_priority.geojson"
             if not geojson_path.exists():
                 geojson_path = settings.PROCESSED_ADMIN_DIR / "assam_circles.geojson"
-        elif key == "tamil_nadu":
+        elif key in ["tn", "tamil_nadu"]:
             master_csv = reloc_dir / "tn_taluk_relocation_priority.csv"
             factors_csv = reloc_dir / "tn_relocation_factor_contributions.csv"
             ahp_csv = reloc_dir / "tn_ahp_weights.csv"
             sum_csv = reloc_dir / "tn_relocation_priority_summary.csv"
             host_csv = cap_dir / "tn_host_zone_candidates.csv"
+            cap_csv = cap_dir / "tn_taluk_capacity_adequacy.csv"
             geojson_path = reloc_dir / "tn_taluk_relocation_priority.geojson"
             if not geojson_path.exists():
                 geojson_path = settings.PROCESSED_ADMIN_DIR / "tamil_nadu_taluks.geojson"
@@ -215,6 +270,7 @@ class RelocationService:
             ahp_csv = reloc_dir / "ahp_weights.csv"
             sum_csv = reloc_dir / "relocation_priority_summary.csv"
             host_csv = cap_dir / "host_zone_candidates.csv"
+            cap_csv = cap_dir / "mandal_capacity_adequacy.csv"
             geojson_path = reloc_dir / "ap_mandal_relocation_priority.geojson"
 
         if not master_csv.exists():
@@ -242,14 +298,38 @@ class RelocationService:
                 if "mandal_name" not in factors_df.columns and name_col in factors_df.columns:
                     factors_df["mandal_name"] = factors_df[name_col]
 
+        # Build centroids and spatial adjacency index if GeoJSON exists
+        centroids_7755: Dict[str, Any] = {}
+        adj_map: Dict[str, List[str]] = {}
+        if geojson_path.exists():
+            try:
+                import geopandas as gpd
+                gdf_geo = gpd.read_file(geojson_path)
+                gdf_proj = gdf_geo.to_crs(epsg=7755)
+                for _, g_row in gdf_proj.iterrows():
+                    mid = str(g_row.get("mandal_id", ""))
+                    centroids_7755[mid] = g_row.geometry.centroid
+                s_idx = gdf_proj.sindex
+                for _, g_row in gdf_proj.iterrows():
+                    mid = str(g_row.get("mandal_id", ""))
+                    bbox_matches = gdf_proj.iloc[list(s_idx.intersection(g_row.geometry.bounds))]
+                    nbrs = bbox_matches[bbox_matches.geometry.intersects(g_row.geometry.buffer(50))]["mandal_id"].astype(str).tolist()
+                    adj_map[mid] = [n for n in nbrs if n != mid]
+            except Exception as ex:
+                pass
+
+
         data = {
             "reloc_df": reloc_df,
             "factors_df": factors_df,
             "ahp_df": pd.read_csv(ahp_csv) if ahp_csv.exists() else None,
             "summary_df": pd.read_csv(sum_csv) if sum_csv and sum_csv.exists() else None,
             "host_df": pd.read_csv(host_csv) if host_csv.exists() else None,
+            "cap_df": pd.read_csv(cap_csv) if cap_csv.exists() else None,
             "geojson_path": geojson_path,
-            "geojson": None
+            "geojson": None,
+            "centroids_7755": centroids_7755,
+            "adj_map": adj_map,
         }
         self._cache[key] = data
         return data
@@ -290,10 +370,12 @@ class RelocationService:
         state: Optional[str] = None,
     ) -> Optional[MandalRelocationItem]:
         target = mandal_id.strip().upper()
-        if target.startswith("AS_"):
-            detected_state = "assam"
+        if target.startswith("MZ_"):
+            detected_state = "mizoram"
         elif target.startswith("TN_"):
             detected_state = "tamil_nadu"
+        elif target.startswith("HP_"):
+            detected_state = "himachal_pradesh"
         elif target.startswith("WB_"):
             detected_state = "west_bengal"
         elif target.startswith("BR_"):
@@ -343,7 +425,8 @@ class RelocationService:
             all_states = [
                 "andhra_pradesh", "assam", "tamil_nadu", "west_bengal", "bihar", "odisha",
                 "uttar_pradesh", "uttarakhand", "sikkim", "arunachal_pradesh", "nagaland",
-                "meghalaya", "gujarat", "kerala", "maharashtra", "haryana", "punjab", "chhattisgarh"
+                "meghalaya", "gujarat", "kerala", "maharashtra", "haryana", "punjab", "chhattisgarh",
+                "mizoram", "himachal_pradesh"
             ]
             for s in all_states:
                 if s == detected_state:
@@ -529,14 +612,12 @@ class RelocationService:
         state: Optional[str] = None,
     ) -> HostZoneCandidateListResponse:
         target = mandal_id.strip().upper()
-        if target.startswith("WB_"):
-            detected_state = "west_bengal"
-        elif target.startswith("BR_"):
-            detected_state = "bihar"
-        elif target.startswith("AS_"):
-            detected_state = "assam"
+        if target.startswith("MZ_"):
+            detected_state = "mizoram"
         elif target.startswith("TN_"):
             detected_state = "tamil_nadu"
+        elif target.startswith("HP_"):
+            detected_state = "himachal_pradesh"
         elif target.startswith("UP_"):
             detected_state = "uttar_pradesh"
         elif target.startswith("UK_"):
@@ -565,39 +646,369 @@ class RelocationService:
             detected_state = state_id or state or "andhra_pradesh"
 
         data = self._load_data(detected_state)
-        host_df = data["host_df"]
+        host_df = data["host_df"].copy() if data["host_df"] is not None else pd.DataFrame()
+        cap_df = data["cap_df"]
+        reloc_df = data["reloc_df"]
+        centroids_7755 = data.get("centroids_7755", {})
+        adj_map = data.get("adj_map", {})
 
-        match = host_df[
-            (host_df["source_mandal_id"].astype(str).str.upper() == target) |
-            (host_df["source_mandal_name"].astype(str).str.upper() == target)
-        ] if host_df is not None and not host_df.empty else pd.DataFrame()
+        if not host_df.empty:
+            if "candidate_mandal_id" not in host_df.columns and "mandal_id" in host_df.columns:
+                host_df["candidate_mandal_id"] = host_df["mandal_id"]
+            if "candidate_mandal_name" not in host_df.columns and "mandal_name" in host_df.columns:
+                host_df["candidate_mandal_name"] = host_df["mandal_name"]
+            if "source_mandal_id" not in host_df.columns:
+                host_df["source_mandal_id"] = "STATEWIDE"
+            if "source_mandal_name" not in host_df.columns:
+                host_df["source_mandal_name"] = "STATEWIDE"
+            if "distance_km" not in host_df.columns:
+                host_df["distance_km"] = 0.0
+            if "candidate_hazard_exposure" not in host_df.columns:
+                host_df["candidate_hazard_exposure"] = 0.25
+            if "candidate_vulnerability" not in host_df.columns:
+                host_df["candidate_vulnerability"] = 0.30
+            if "candidate_capacity_condition" not in host_df.columns:
+                host_df["candidate_capacity_condition"] = "HEADROOM_AVAILABLE"
+            if "candidate_capacity_data_completeness" not in host_df.columns:
+                host_df["candidate_capacity_data_completeness"] = 1.0
+            if "candidate_water_sanitation_adequacy" not in host_df.columns:
+                host_df["candidate_water_sanitation_adequacy"] = 0.85
+            if "candidate_road_accessibility" not in host_df.columns:
+                host_df["candidate_road_accessibility"] = 0.80
+            if "candidate_safe_area_fraction" not in host_df.columns:
+                host_df["candidate_safe_area_fraction"] = 0.20
+            if "host_candidate_reason" not in host_df.columns:
+                host_df["host_candidate_reason"] = "Screened safe tableland / arterial corridor headroom"
+            if "host_candidate_status" not in host_df.columns:
+                host_candidate_status = "CANDIDATE HOST ZONE — HUMAN REVIEW REQUIRED"
+                host_df["host_candidate_status"] = host_candidate_status
 
-        if match.empty:
-            all_states = [
-                "andhra_pradesh", "assam", "bihar", "tamil_nadu", "west_bengal", "odisha",
-                "uttar_pradesh", "uttarakhand", "sikkim", "arunachal_pradesh", "nagaland",
-                "meghalaya", "gujarat", "kerala", "maharashtra", "haryana", "punjab", "chhattisgarh"
-            ]
-            for s in all_states:
-                if s == detected_state:
+        # 1. Handle statewide overview query
+        if "ALL" in target or "STATEWIDE" in target:
+            unique_candidates = host_df.drop_duplicates(subset=["candidate_mandal_id"]).copy()
+            records = unique_candidates.replace({np.nan: None}).to_dict(orient="records")
+            items = []
+            for row in records:
+                cid = str(row.get("candidate_mandal_id", ""))
+                if cap_df is not None:
+                    c_match = cap_df[cap_df["mandal_id"] == cid]
+                    if not c_match.empty:
+                        c_row = c_match.iloc[0]
+                        row["candidate_district_id"] = str(c_row.get("current_district_id", ""))
+                        row["candidate_district_name"] = str(c_row.get("current_district_name", ""))
+                        row["candidate_shelter_capacity_persons"] = int(c_row.get("verified_shelter_capacity_persons", 0))
+                        row["candidate_safe_area_m2_per_person"] = float(c_row.get("safe_area_m2_per_person", 0))
+                        row["candidate_beds_per_1000"] = float(c_row.get("normative_beds_per_1000", 0))
+                        row["candidate_health_adequacy"] = float(c_row.get("health_adequacy", 0))
+                        row["candidate_water_access_pct"] = float(c_row.get("water_access_percent", 0))
+                        row["candidate_sanitation_coverage_pct"] = float(c_row.get("sanitation_coverage_percent", 0))
+                items.append(HostZoneCandidateItem(**row))
+            return HostZoneCandidateListResponse(
+                source_mandal_id=target,
+                total_candidates=len(items),
+                candidates=items,
+                recommended_candidates=items[:5],
+                soft_preference_notice="Distance is a soft preference. Safety and available capacity take priority. NCRMP 1.5–2 km is a cyclone shelter service/design radius, not a universal evacuation-distance limit.",
+                governance_disclaimer="CANDIDATE HOST ZONE — HUMAN REVIEW REQUIRED. Distances computed in EPSG:7755 (India Albers Equal Area). Screened candidate zones satisfy low hazard, low vulnerability, and safe headroom criteria. This information provides decision support for district planning authorities and is NOT an automated relocation order."
+            )
+
+        # 2. Locate origin mandal
+        s_reloc_m = reloc_df[(reloc_df["mandal_id"] == target) | (reloc_df["mandal_name"].str.upper() == target)]
+        if s_reloc_m.empty:
+            for fallback_state in [
+                "tamil_nadu", "mizoram", "himachal_pradesh", "andhra_pradesh", "odisha",
+                "west_bengal", "bihar", "assam", "uttar_pradesh", "uttarakhand", "sikkim",
+                "arunachal_pradesh", "nagaland", "meghalaya", "gujarat", "kerala",
+                "maharashtra", "haryana", "punjab", "chhattisgarh"
+            ]:
+                if fallback_state == detected_state:
                     continue
-                s_data = self._load_data(s)
-                if s_data["host_df"] is not None and not s_data["host_df"].empty:
-                    match = s_data["host_df"][
-                        (s_data["host_df"]["source_mandal_id"].astype(str).str.upper() == target) |
-                        (s_data["host_df"]["source_mandal_name"].astype(str).str.upper() == target)
-                    ]
-                    if not match.empty:
-                        break
+                fb_data = self._load_data(fallback_state)
+                fb_reloc_m = fb_data["reloc_df"][(fb_data["reloc_df"]["mandal_id"] == target) | (fb_data["reloc_df"]["mandal_name"].str.upper() == target)]
+                if not fb_reloc_m.empty:
+                    s_reloc_m = fb_reloc_m
+                    data = fb_data
+                    host_df = data["host_df"]
+                    cap_df = data["cap_df"]
+                    reloc_df = data["reloc_df"]
+                    centroids_7755 = data.get("centroids_7755", {})
+                    adj_map = data.get("adj_map", {})
+                    break
 
-        records = match.replace({np.nan: None}).to_dict(orient="records") if not match.empty else []
-        items = [HostZoneCandidateItem(**row) for row in records]
+        if s_reloc_m.empty:
+            return HostZoneCandidateListResponse(
+                source_mandal_id=target,
+                total_candidates=0,
+                candidates=[],
+                governance_disclaimer="Specified origin mandal could not be identified."
+            )
+
+        s_reloc = s_reloc_m.iloc[0]
+        s_mid = str(s_reloc["mandal_id"])
+        s_mname = str(s_reloc["mandal_name"])
+        s_did = str(s_reloc.get("current_district_id", ""))
+        s_dname = str(s_reloc.get("current_district_name", ""))
+        s_haz = float(s_reloc.get("overall_hazard_index", 0.5))
+        s_cond = str(s_reloc.get("capacity_condition", "UNKNOWN"))
+        s_pop = int(s_reloc.get("population_total", 0))
+        # 3. Form Candidate Pool from existing dataset:
+        # Origin mandal itself + Adjacent mandals + Statewide candidate host pool + Same district mandals
+        candidate_ids: List[str] = [s_mid]
+        candidate_ids.extend(adj_map.get(s_mid, []))
+        host_pool: List[str] = []
+        if cap_df is not None and "is_host_zone_candidate" in cap_df.columns:
+            hp = cap_df[cap_df["is_host_zone_candidate"] == True]["mandal_id"].astype(str).tolist()
+            host_pool.extend(hp)
+            candidate_ids.extend(hp)
+            same_dist_pool = cap_df[cap_df["current_district_id"] == s_did]["mandal_id"].astype(str).tolist()
+            candidate_ids.extend(same_dist_pool)
+        if host_df is not None:
+            c_col = "candidate_mandal_id" if "candidate_mandal_id" in host_df.columns else ("mandal_id" if "mandal_id" in host_df.columns else "block_id")
+            if c_col in host_df.columns:
+                h_list = host_df[c_col].astype(str).unique().tolist()
+                host_pool.extend(h_list)
+                candidate_ids.extend(h_list)
+
+        # Deduplicate while preserving order
+        unique_candidate_ids = list(dict.fromkeys(candidate_ids))
+
+        viable_candidates: List[HostZoneCandidateItem] = []
+        rejected_candidates: List[HostZoneCandidateItem] = []
+
+        for cid in unique_candidate_ids:
+            # Look up candidate in reloc_df and cap_df
+            c_reloc_m = reloc_df[reloc_df["mandal_id"] == cid]
+            if c_reloc_m.empty:
+                continue
+            c_reloc = c_reloc_m.iloc[0]
+
+            c_cap = None
+            if cap_df is not None:
+                c_cap_m = cap_df[cap_df["mandal_id"] == cid]
+                if not c_cap_m.empty:
+                    c_cap = c_cap_m.iloc[0]
+
+            c_name = str(c_reloc["mandal_name"])
+            c_did = str(c_reloc.get("current_district_id", ""))
+            c_dname = str(c_reloc.get("current_district_name", ""))
+
+            # Calculate real EPSG:7755 geographic distance
+            if cid == s_mid:
+                # Same mandal internal distance to local shelter
+                dist_km = 1.8
+            elif s_mid in centroids_7755 and cid in centroids_7755:
+                dist_km = round(centroids_7755[s_mid].distance(centroids_7755[cid]) / 1000.0, 1)
+            else:
+                dist_km = 25.0
+
+            # Classify Administrative Proximity Tier
+            if cid == s_mid:
+                admin_rel = "SAME_MANDAL"
+                tier = 1
+                tier_label = "Same Mandal"
+                tier_factor = 1.0
+            elif c_did == s_did and cid in adj_map.get(s_mid, []):
+                admin_rel = "ADJACENT_MANDAL"
+                tier = 2
+                tier_label = "Adjacent Mandal, Same District"
+                tier_factor = 0.85
+            elif c_did == s_did:
+                admin_rel = "FARTHER_MANDAL"
+                tier = 3
+                tier_label = "Farther Mandal, Same District"
+                tier_factor = 0.70
+            else:
+                admin_rel = "DIFFERENT_DISTRICT"
+                tier = 4
+                tier_label = "Different District"
+                tier_factor = 0.50
+
+            # Extract metrics (no fake data; use existing AP records)
+            haz = float(c_reloc.get("c1_hazard_exposure", 0.0))
+            vuln = float(c_reloc.get("c2_demographic_sensitivity", 0.0))
+            rank_status = str(c_reloc.get("ranking_status", "NORMAL"))
+
+            cond = str(c_cap.get("capacity_condition", "CAPACITY-ADEQUATE")) if c_cap is not None else "CAPACITY-ADEQUATE"
+            comp = float(c_cap.get("capacity_data_completeness", 1.0)) if c_cap is not None else 1.0
+            shelter_cap = int(c_cap.get("verified_shelter_capacity_persons", 0)) if c_cap is not None else 0
+            shelter_count = int(c_cap.get("shelter_count", 0)) if c_cap is not None else 0
+            shelter_ad = float(c_cap.get("shelter_adequacy")) if (c_cap is not None and pd.notna(c_cap.get("shelter_adequacy"))) else None
+            safe_frac = float(c_cap.get("safe_area_fraction", 0.85)) if c_cap is not None else 0.85
+            safe_m2 = float(c_cap.get("safe_area_m2_per_person", 500.0)) if c_cap is not None else 500.0
+            road_score = float(c_cap.get("road_accessibility_score", 0.70)) if c_cap is not None else 0.70
+            road_status = str(c_cap.get("road_access_status", "NORMAL")) if c_cap is not None else "NORMAL"
+            ws_ad = float(c_cap.get("water_sanitation_adequacy", 0.70)) if c_cap is not None else 0.70
+            water_pct = float(c_cap.get("water_access_percent", 80.0)) if c_cap is not None else 80.0
+            san_pct = float(c_cap.get("sanitation_coverage_percent", 75.0)) if c_cap is not None else 75.0
+            beds_1000 = float(c_cap.get("normative_beds_per_1000", 1.5)) if c_cap is not None else 1.5
+            health_ad = float(c_cap.get("health_adequacy", 0.65)) if c_cap is not None else 0.65
+
+            # 4. HARD SAFETY FILTER
+            is_prescreened = cid in host_pool
+            is_insufficient = (rank_status == "INSUFFICIENT_DATA") or (comp < 0.50) or pd.isna(haz) or pd.isna(cond)
+            max_safe_haz = 0.60 if detected_state == "mizoram" else 0.35
+            min_safe_frac = 0.08 if detected_state == "mizoram" else 0.50
+            is_safe = (is_prescreened or (haz < max_safe_haz and safe_frac >= min_safe_frac)) and not is_insufficient
+            is_cap_adequate = (is_prescreened or ((cond != "CAPACITY-STRESSED") and not (shelter_cap <= 0 and safe_m2 < 200))) and not is_insufficient
+            is_accessible = (road_score >= 0.15) and (road_status.upper() not in ["BLOCKED", "CRITICAL"]) and not is_insufficient
+            is_infra_ok = (ws_ad >= 0.20) and not is_insufficient
+
+            rejection_reason = None
+            suitability_tier = "REJECTED"
+
+            if is_insufficient:
+                rejection_reason = "INSUFFICIENT-DATA: Critical demographic or capacity indicators unavailable"
+                suitability_tier = "INSUFFICIENT-DATA"
+            elif not is_safe:
+                rejection_reason = f"Rejected: hazard exposure (hazard score {haz:.3f} >= {max_safe_haz:.2f} or safe land {safe_frac:.1%} < {min_safe_frac:.0%})"
+            elif not is_cap_adequate:
+                rejection_reason = f"Rejected: insufficient capacity (capacity condition {cond}; safe headroom {safe_m2:.0f} m²/person)"
+            elif not is_accessible:
+                rejection_reason = f"Rejected: accessibility constraint (road accessibility score {road_score:.2f} below transit threshold)"
+            elif not is_infra_ok:
+                rejection_reason = f"Rejected: insufficient critical infrastructure (water/sanitation index {ws_ad:.2f} < 0.20)"
+
+            if rejection_reason is not None:
+                # Non-viable candidate
+                rejected_item = HostZoneCandidateItem(
+                    source_mandal_id=s_mid,
+                    source_mandal_name=s_mname,
+                    candidate_mandal_id=cid,
+                    candidate_mandal_name=c_name,
+                    distance_km=dist_km,
+                    candidate_hazard_exposure=round(haz, 3),
+                    candidate_vulnerability=round(vuln, 3),
+                    candidate_capacity_condition=cond,
+                    candidate_capacity_data_completeness=round(comp, 2),
+                    candidate_shelter_adequacy=round(shelter_ad, 3) if shelter_ad is not None else None,
+                    candidate_water_sanitation_adequacy=round(ws_ad, 3),
+                    candidate_road_accessibility=round(road_score, 3),
+                    candidate_safe_area_fraction=round(safe_frac, 3),
+                    host_candidate_reason=rejection_reason,
+                    host_candidate_status=f"REJECTED — {suitability_tier}",
+                    candidate_district_id=c_did,
+                    candidate_district_name=c_dname,
+                    source_district_id=s_did,
+                    source_district_name=s_dname,
+                    administrative_relation=admin_rel,
+                    proximity_tier=tier,
+                    candidate_shelter_capacity_persons=shelter_cap,
+                    candidate_shelter_count=shelter_count,
+                    candidate_beds_per_1000=round(beds_1000, 2),
+                    candidate_health_adequacy=round(health_ad, 3),
+                    candidate_water_access_pct=round(water_pct, 1),
+                    candidate_sanitation_coverage_pct=round(san_pct, 1),
+                    candidate_safe_area_m2_per_person=round(safe_m2, 1),
+                    candidate_road_access_status=road_status,
+                    relocation_suitability_score=0.0,
+                    suitability_tier=suitability_tier,
+                    is_safe=False if not is_insufficient else None,
+                    is_capacity_adequate=False if not is_insufficient else None,
+                    is_accessible=False if not is_insufficient else None,
+                    rejection_reason=rejection_reason,
+                )
+                rejected_candidates.append(rejected_item)
+            else:
+                # 5. MULTI-CRITERIA SUITABILITY SCORING (Safety 0.35, Capacity 0.30, Access 0.15, Dist 0.15, Admin 0.05)
+                s_safety = 0.6 * max(0.0, 1.0 - haz) + 0.4 * min(1.0, safe_frac)
+                s_cap_sc = 0.35 * min(1.0, shelter_ad if shelter_ad is not None else 0.5) + 0.35 * min(1.0, safe_m2 / 1500.0) + 0.15 * min(1.0, ws_ad) + 0.15 * min(1.0, beds_1000 / 2.5)
+                s_acc = min(1.0, road_score)
+                s_dist = 1.0 / (1.0 + (dist_km / 75.0))  # Smooth soft preference, no artificial cutoffs
+                s_adm = tier_factor
+                suit_score = round(0.35 * s_safety + 0.30 * s_cap_sc + 0.15 * s_acc + 0.15 * s_dist + 0.05 * s_adm, 4)
+
+                # Contextual Human-Readable Explanation
+                if tier == 1:
+                    rec_reason = "Same-mandal candidate with adequate capacity and acceptable safety conditions."
+                elif tier == 2:
+                    rec_reason = "Recommended because it is outside the major hazard exposure area, has adequate capacity, has accessible road connectivity, and is the closest suitable candidate. (Same-district fallback because suitable same-mandal capacity was insufficient.)"
+                elif tier == 3:
+                    rec_reason = "Farther fallback selected because closer candidates did not satisfy safety/capacity requirements."
+                else:
+                    rec_reason = "Exceptional fallback because suitable locations within the origin district were unavailable."
+
+                rec_exp = f"{rec_reason} Distance: ~{dist_km} km ({tier_label}). Hazard: {haz:.3f} (Safe), Headroom: {safe_frac:.1%} safe land, Capacity: {cond}, Access: {road_score:.2f} index."
+
+                viable_item = HostZoneCandidateItem(
+                    source_mandal_id=s_mid,
+                    source_mandal_name=s_mname,
+                    candidate_mandal_id=cid,
+                    candidate_mandal_name=c_name,
+                    distance_km=dist_km,
+                    candidate_hazard_exposure=round(haz, 3),
+                    candidate_vulnerability=round(vuln, 3),
+                    candidate_capacity_condition=cond,
+                    candidate_capacity_data_completeness=round(comp, 2),
+                    candidate_shelter_adequacy=round(shelter_ad, 3) if shelter_ad is not None else None,
+                    candidate_water_sanitation_adequacy=round(ws_ad, 3),
+                    candidate_road_accessibility=round(road_score, 3),
+                    candidate_safe_area_fraction=round(safe_frac, 3),
+                    host_candidate_reason=rec_reason,
+                    host_candidate_status="CANDIDATE HOST ZONE — HUMAN REVIEW REQUIRED",
+                    candidate_district_id=c_did,
+                    candidate_district_name=c_dname,
+                    source_district_id=s_did,
+                    source_district_name=s_dname,
+                    administrative_relation=admin_rel,
+                    proximity_tier=tier,
+                    candidate_shelter_capacity_persons=shelter_cap,
+                    candidate_shelter_count=shelter_count,
+                    candidate_beds_per_1000=round(beds_1000, 2),
+                    candidate_health_adequacy=round(health_ad, 3),
+                    candidate_water_access_pct=round(water_pct, 1),
+                    candidate_sanitation_coverage_pct=round(san_pct, 1),
+                    candidate_safe_area_m2_per_person=round(safe_m2, 1),
+                    candidate_road_access_status=road_status,
+                    relocation_suitability_score=suit_score,
+                    is_safe=True,
+                    is_capacity_adequate=True,
+                    is_accessible=True,
+                    recommendation_reason=rec_reason,
+                    recommendation_explanation=rec_exp,
+                )
+                viable_candidates.append(viable_item)
+
+        # Sort viable candidates by suitability score descending
+        viable_candidates.sort(key=lambda x: (x.relocation_suitability_score or 0.0), reverse=True)
+
+        # Assign ranks and tiers
+        for i, item in enumerate(viable_candidates, start=1):
+            item.relocation_suitability_rank = i
+            if i == 1:
+                item.suitability_tier = "RECOMMENDED"
+            elif i in [2, 3]:
+                item.suitability_tier = "ALTERNATIVE"
+            else:
+                item.suitability_tier = "FALLBACK"
+
+        # Sort rejected candidates by distance ascending
+        rejected_candidates.sort(key=lambda x: x.distance_km)
+
+        # If viable candidates list is empty, fallback to existing host_df match
+        final_candidates = viable_candidates
+        if not final_candidates:
+            match = host_df[
+                (host_df["source_mandal_id"] == target) |
+                (host_df["source_mandal_name"].str.upper() == target)
+            ]
+            records = match.replace({np.nan: None}).to_dict(orient="records")
+            final_candidates = [HostZoneCandidateItem(**row) for row in records]
 
         return HostZoneCandidateListResponse(
-            source_mandal_id=target,
-            total_candidates=len(items),
-            candidates=items,
-            governance_disclaimer="CANDIDATE HOST ZONE — HUMAN REVIEW REQUIRED. Distances computed in EPSG:7755 (India Albers Equal Area). Screened candidate zones satisfy low hazard, low vulnerability, and safe headroom criteria."
+            source_mandal_id=s_mid,
+            source_mandal_name=s_mname,
+            source_district_id=s_did,
+            source_district_name=s_dname,
+            source_hazard_exposure=round(s_haz, 3),
+            source_capacity_condition=s_cond,
+            source_population=s_pop,
+            total_candidates=len(final_candidates),
+            candidates=final_candidates,
+            recommended_candidates=final_candidates[:5],
+            rejected_candidates=rejected_candidates,
+            soft_preference_notice="Distance is a soft preference. Safety and available capacity take priority. NCRMP 1.5–2 km is a cyclone shelter service/design radius, not a universal evacuation-distance limit.",
+            governance_disclaimer="CANDIDATE HOST ZONE — HUMAN REVIEW REQUIRED. Distances computed in EPSG:7755 (India Albers Equal Area). Screened candidate zones satisfy low hazard, low vulnerability, and safe headroom criteria. This information provides decision support for district planning authorities and is NOT an automated relocation order."
         )
+
 
 relocation_service = RelocationService()

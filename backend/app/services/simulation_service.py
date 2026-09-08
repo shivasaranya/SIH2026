@@ -91,11 +91,42 @@ def resolve_state_key(state_id: Optional[str]) -> str:
         return "punjab"
     if clean in ["chhattisgarh", "cg", "chhatisgarh", "chattisgarh", "ct"]:
         return "chhattisgarh"
+    if clean in ["mizoram", "mz", "mizo"]:
+        return "mizoram"
+    if clean in ["himachal_pradesh", "hp", "himachal"]:
+        return "himachal_pradesh"
     return "andhra_pradesh"
+
+def is_mizoram(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["mizoram", "mz", "mizo"]
+
+def is_hp(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["himachal_pradesh", "hp", "himachal"]
+
+def is_tn(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["tamil_nadu", "tn", "tamilnadu"]
 
 class SimulationService:
     def __init__(self):
         self._cache: Dict[str, Dict[str, Any]] = {}
+
+    def _get_state_key(self, state_id: Optional[str]) -> str:
+        if is_mizoram(state_id):
+            return "mz"
+        if is_tn(state_id):
+            return "tn"
+        if is_hp(state_id):
+            return "hp"
+        return "ap"
 
     def _load_data(self, state_id: Optional[str] = "andhra_pradesh"):
         key = resolve_state_key(state_id)
@@ -103,7 +134,13 @@ class SimulationService:
             return self._cache[key]
 
         reloc_dir = settings.DATA_DIR / "processed" / "relocation"
-        if key == "odisha":
+        if key in ["mz", "mizoram"]:
+            master_csv = reloc_dir / "mizoram_subdistrict_relocation_priority.csv"
+        elif key in ["hp", "himachal_pradesh"]:
+            master_csv = reloc_dir / "hp_tehsil_relocation_priority.csv"
+        elif key in ["tn", "tamil_nadu"]:
+            master_csv = reloc_dir / "tn_taluk_relocation_priority.csv"
+        elif key == "odisha":
             master_csv = reloc_dir / "od_block_relocation_priority.csv"
         elif key == "bihar":
             master_csv = reloc_dir / "br_block_relocation_priority.csv"
@@ -111,8 +148,6 @@ class SimulationService:
             master_csv = reloc_dir / "wb_block_relocation_priority.csv"
         elif key == "assam":
             master_csv = reloc_dir / "as_circle_relocation_priority.csv"
-        elif key == "tamil_nadu":
-            master_csv = reloc_dir / "tn_taluk_relocation_priority.csv"
         elif key == "uttar_pradesh":
             master_csv = reloc_dir / "up_tehsil_relocation_priority.csv"
         elif key == "uttarakhand":

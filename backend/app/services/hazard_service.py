@@ -49,11 +49,36 @@ def resolve_state_key(state_id: Optional[str]) -> str:
         return "punjab"
     if clean in ["chhattisgarh", "cg", "chhatisgarh", "chattisgarh", "ct"]:
         return "chhattisgarh"
+    if clean in ["mizoram", "mz", "mizo"]:
+        return "mizoram"
+    if clean in ["himachal_pradesh", "hp", "himachal"]:
+        return "himachal_pradesh"
     return "andhra_pradesh"
+
+def is_mizoram(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["mizoram", "mz", "mizo"]
+
+def is_hp(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["himachal_pradesh", "hp", "himachal"]
 
 class HazardService:
     def __init__(self):
         self._cache: Dict[str, Dict[str, Any]] = {}
+
+    def _get_state_key(self, state_id: Optional[str]) -> str:
+        if is_mizoram(state_id):
+            return "mz"
+        if is_tn(state_id):
+            return "tn"
+        if is_hp(state_id):
+            return "hp"
+        return "ap"
 
     def _load_data(self, state_id: Optional[str] = "andhra_pradesh"):
         key = resolve_state_key(state_id)
@@ -62,27 +87,15 @@ class HazardService:
 
         haz_dir = settings.DATA_DIR / "processed" / "hazard" / "mandal_exposure"
 
-        if key == "odisha":
-            csv_path = haz_dir / "od_block_multi_hazard_exposure.csv"
-            geojson_path = haz_dir / "od_block_multi_hazard_exposure.geojson"
-            surge_included = True
-            surge_reason = "Odisha coastal belt (Balasore, Bhadrak, Kendrapara, Jagatsinghpur, Puri, Ganjam) models peak tropical cyclone storm surge (3.0-5.5m) and Mahanadi/Brahmani riverine flood recurrence."
-        elif key == "bihar":
-            csv_path = haz_dir / "br_block_multi_hazard_exposure.csv"
-            geojson_path = haz_dir / "br_block_multi_hazard_exposure.geojson"
+        if key == "mz":
+            csv_path = haz_dir / "mizoram_subdistrict_multi_hazard_exposure.csv"
+            geojson_path = haz_dir / "mizoram_subdistrict_multi_hazard_exposure.geojson"
             surge_included = False
-            surge_reason = "Inland northern state: Direct coastal storm surge is Not Applicable (0.0). Recurrent riverine flood inundation across Kosi, Gandak, Bagmati, and Ganga basins & BIS IS 875 wind models applied."
-        elif key == "west_bengal":
-            csv_path = haz_dir / "wb_block_multi_hazard_exposure.csv"
-            geojson_path = haz_dir / "wb_block_multi_hazard_exposure.geojson"
-            surge_included = True
-            surge_reason = "Sundarbans coastal zones (South 24 Parganas, North 24 Parganas, Purba Medinipur) model 2.5–6.0m peak cyclone surge. Inland blocks apply Gangetic and Teesta/Torsa riverine flood recurrence."
-        elif key == "assam":
-            csv_path = haz_dir / "as_circle_multi_hazard_exposure.csv"
-            geojson_path = haz_dir / "as_circle_multi_hazard_exposure.geojson"
+        elif key == "hp":
+            csv_path = haz_dir / "hp_tehsil_multi_hazard_exposure.csv"
+            geojson_path = haz_dir / "hp_tehsil_multi_hazard_exposure.geojson"
             surge_included = False
-            surge_reason = "Inland northeast state: Direct coastal storm surge is Not Applicable (0.0). Brahmaputra and Barak riverine flood inundation recurrence & severe storm wind models applied."
-        elif key == "tamil_nadu":
+        elif key == "tn":
             csv_path = haz_dir / "tn_taluk_multi_hazard_exposure.csv"
             geojson_path = haz_dir / "tn_taluk_multi_hazard_exposure.geojson"
             surge_included = True
@@ -197,10 +210,16 @@ class HazardService:
 
     def get_mandal_detail(self, mandal_id: str, state_id: Optional[str] = None, state: Optional[str] = None) -> Optional[MandalHazardExposureItem]:
         target = mandal_id.strip().upper()
-        if target.startswith("AS_"):
-            detected_state = "assam"
+        if target.startswith("MZ_"):
+            detected_state = "mizoram"
         elif target.startswith("TN_"):
             detected_state = "tamil_nadu"
+        elif target.startswith("HP_"):
+            detected_state = "himachal_pradesh"
+        elif target.startswith("UP_"):
+            detected_state = "uttar_pradesh"
+        elif target.startswith("UK_"):
+            detected_state = "uttarakhand"
         elif target.startswith("SK_"):
             detected_state = "sikkim"
         elif target.startswith("AR_"):
@@ -237,7 +256,7 @@ class HazardService:
                 (df["taluka_name"].astype(str).str.upper() == target)
             ]
         if match.empty:
-            for s in ["andhra_pradesh", "assam", "tamil_nadu", "bihar", "west_bengal", "odisha", "uttar_pradesh", "uttarakhand", "sikkim", "arunachal_pradesh", "nagaland", "meghalaya", "gujarat", "kerala", "maharashtra", "haryana", "punjab", "chhattisgarh"]:
+            for s in ["andhra_pradesh", "assam", "tamil_nadu", "bihar", "west_bengal", "odisha", "uttar_pradesh", "uttarakhand", "sikkim", "arunachal_pradesh", "nagaland", "meghalaya", "gujarat", "kerala", "maharashtra", "haryana", "punjab", "chhattisgarh", "mizoram", "himachal_pradesh"]:
                 if s == detected_state:
                     continue
                 s_data = self._load_data(s)

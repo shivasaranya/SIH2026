@@ -272,9 +272,9 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
         tnMarker.on('click', () => onSelectState('Tamil Nadu'));
         tnMarker.addTo(map);
 
-        // Add prominent Assam marker label at coordinates [26.20, 92.93]
-        const asLabelIcon = L.divIcon({
-          className: 'as-marker-badge',
+        // Add prominent Mizoram marker label at coordinates [23.16, 92.93]
+        const mzLabelIcon = L.divIcon({
+          className: 'mz-marker-badge',
           html: `<div style="
             background: #1E7446;
             color: #FFFFFF;
@@ -293,28 +293,28 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
             transform: scale(1.02);
           ">
             <span style="display:inline-block; width:7px; height:7px; background:#4ade80; border-radius:50%; box-shadow: 0 0 6px #4ade80;"></span>
-            Assam (Operational)
+            Mizoram (Operational)
           </div>`,
           iconSize: [140, 28],
           iconAnchor: [70, 14],
         });
 
-        const asMarker = L.marker([26.70, 93.30], { icon: asLabelIcon, interactive: true });
-        asMarker.on('click', () => onSelectState('Assam'));
-        asMarker.addTo(map);
+        const mzMarker = L.marker([23.16, 92.93], { icon: mzLabelIcon, interactive: true });
+        mzMarker.on('click', () => onSelectState('Mizoram'));
+        mzMarker.addTo(map);
 
-        // Add prominent Bihar marker label at coordinates [25.60, 85.14]
-        const brLabelIcon = L.divIcon({
-          className: 'br-marker-badge',
+        // Add Himachal Pradesh marker at coordinates [31.90, 77.10]
+        const hpLabelIcon = L.divIcon({
+          className: 'hp-marker-badge',
           html: `<div style="
-            background: #1E7446;
+            background: #4338ca;
             color: #FFFFFF;
             font-family: inherit;
             font-size: 11px;
             font-weight: 700;
             padding: 5px 10px;
             border-radius: 9999px;
-            box-shadow: 0 4px 14px rgba(20, 90, 54, 0.4);
+            box-shadow: 0 4px 14px rgba(67, 56, 202, 0.4);
             border: 2px solid #FFFFFF;
             white-space: nowrap;
             display: flex;
@@ -323,264 +323,16 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
             cursor: pointer;
             transform: scale(1.02);
           ">
-            <span style="display:inline-block; width:7px; height:7px; background:#4ade80; border-radius:50%; box-shadow: 0 0 6px #4ade80;"></span>
-            Bihar (Operational)
+            <span style="display:inline-block; width:7px; height:7px; background:#a5b4fc; border-radius:50%; box-shadow: 0 0 6px #a5b4fc;"></span>
+            Himachal Pradesh (Operational)
           </div>`,
-          iconSize: [140, 28],
-          iconAnchor: [70, 14],
+          iconSize: [200, 28],
+          iconAnchor: [100, 14],
         });
 
-        const brMarker = L.marker([25.60, 85.14], { icon: brLabelIcon, interactive: true });
-        brMarker.on('click', () => onSelectState('Bihar'));
-        brMarker.addTo(map);
-
-        // Add prominent West Bengal marker label at coordinates [22.98, 87.85]
-        const wbLabelIcon = L.divIcon({
-          className: 'wb-marker-badge',
-          html: `<div style="
-            background: #1E7446;
-            color: #FFFFFF;
-            font-family: inherit;
-            font-size: 11px;
-            font-weight: 700;
-            padding: 5px 10px;
-            border-radius: 9999px;
-            box-shadow: 0 4px 14px rgba(20, 90, 54, 0.4);
-            border: 2px solid #FFFFFF;
-            white-space: nowrap;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            cursor: pointer;
-            transform: scale(1.02);
-          ">
-            <span style="display:inline-block; width:7px; height:7px; background:#4ade80; border-radius:50%; box-shadow: 0 0 6px #4ade80;"></span>
-            West Bengal (Operational)
-          </div>`,
-          iconSize: [160, 28],
-          iconAnchor: [80, 14],
-        });
-
-        const wbMarker = L.marker([22.98, 87.85], { icon: wbLabelIcon, interactive: true });
-        wbMarker.on('click', () => onSelectState('West Bengal'));
-        wbMarker.addTo(map);
-
-        // Add prominent Odisha marker label at coordinates [20.95, 85.09]
-        const odLabelIcon = L.divIcon({
-          className: 'od-marker-badge',
-          html: `<div style="
-            background: #1E7446;
-            color: #FFFFFF;
-            font-family: inherit;
-            font-size: 11px;
-            font-weight: 700;
-            padding: 5px 10px;
-            border-radius: 9999px;
-            box-shadow: 0 4px 14px rgba(20, 90, 54, 0.4);
-            border: 2px solid #FFFFFF;
-            white-space: nowrap;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            cursor: pointer;
-            transform: scale(1.02);
-          ">
-            <span style="display:inline-block; width:7px; height:7px; background:#4ade80; border-radius:50%; box-shadow: 0 0 6px #4ade80;"></span>
-            Odisha (Operational)
-          </div>`,
-          iconSize: [150, 28],
-          iconAnchor: [75, 14],
-        });
-
-        const odMarker = L.marker([20.95, 85.09], { icon: odLabelIcon, interactive: true });
-        odMarker.on('click', () => onSelectState('Odisha'));
-        odMarker.addTo(map);
-
-        // Add prominent Uttar Pradesh marker label at coordinates [26.85, 80.95]
-        const upLabelIcon = L.divIcon({
-          className: 'up-marker-badge',
-          html: `<div style="
-            background: #1E7446;
-            color: #FFFFFF;
-            font-family: inherit;
-            font-size: 11px;
-            font-weight: 700;
-            padding: 5px 10px;
-            border-radius: 9999px;
-            box-shadow: 0 4px 14px rgba(20, 90, 54, 0.4);
-            border: 2px solid #FFFFFF;
-            white-space: nowrap;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            cursor: pointer;
-            transform: scale(1.02);
-          ">
-            <span style="display:inline-block; width:7px; height:7px; background:#4ade80; border-radius:50%; box-shadow: 0 0 6px #4ade80;"></span>
-            Uttar Pradesh (Operational)
-          </div>`,
-          iconSize: [175, 28],
-          iconAnchor: [87, 14],
-        });
-
-        const upMarker = L.marker([26.85, 80.95], { icon: upLabelIcon, interactive: true });
-        upMarker.on('click', () => onSelectState('Uttar Pradesh'));
-        upMarker.addTo(map);
-
-        // Add prominent Uttarakhand marker label at coordinates [30.06, 79.01]
-        const ukLabelIcon = L.divIcon({
-          className: 'uk-marker-badge',
-          html: `<div style="
-            background: #1E7446;
-            color: #FFFFFF;
-            font-family: inherit;
-            font-size: 11px;
-            font-weight: 700;
-            padding: 5px 10px;
-            border-radius: 9999px;
-            box-shadow: 0 4px 14px rgba(20, 90, 54, 0.4);
-            border: 2px solid #FFFFFF;
-            white-space: nowrap;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            cursor: pointer;
-            transform: scale(1.02);
-          ">
-            <span style="display:inline-block; width:7px; height:7px; background:#4ade80; border-radius:50%; box-shadow: 0 0 6px #4ade80;"></span>
-            Uttarakhand (Operational)
-          </div>`,
-          iconSize: [165, 28],
-          iconAnchor: [82, 14],
-        });
-
-        const ukMarker = L.marker([30.06, 79.01], { icon: ukLabelIcon, interactive: true });
-        ukMarker.on('click', () => onSelectState('Uttarakhand'));
-        ukMarker.addTo(map);
-
-        // Add prominent Sikkim marker label at coordinates [27.53, 88.51]
-        const skLabelIcon = L.divIcon({
-          className: 'sk-marker-badge',
-          html: `<div style="
-            background: #1E7446;
-            color: #FFFFFF;
-            font-family: inherit;
-            font-size: 11px;
-            font-weight: 700;
-            padding: 5px 10px;
-            border-radius: 9999px;
-            box-shadow: 0 4px 14px rgba(20, 90, 54, 0.4);
-            border: 2px solid #FFFFFF;
-            white-space: nowrap;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            cursor: pointer;
-            transform: scale(1.02);
-          ">
-            <span style="display:inline-block; width:7px; height:7px; background:#4ade80; border-radius:50%; box-shadow: 0 0 6px #4ade80;"></span>
-            Sikkim (Operational)
-          </div>`,
-          iconSize: [145, 28],
-          iconAnchor: [72, 14],
-        });
-
-        const skMarker = L.marker([27.53, 88.51], { icon: skLabelIcon, interactive: true });
-        skMarker.on('click', () => onSelectState('Sikkim'));
-        skMarker.addTo(map);
-
-        // Add prominent Arunachal Pradesh marker label at coordinates [28.04, 94.68]
-        const arLabelIcon = L.divIcon({
-          className: 'ar-marker-badge',
-          html: `<div style="
-            background: #1E7446;
-            color: #FFFFFF;
-            font-family: inherit;
-            font-size: 11px;
-            font-weight: 700;
-            padding: 5px 10px;
-            border-radius: 9999px;
-            box-shadow: 0 4px 14px rgba(20, 90, 54, 0.4);
-            border: 2px solid #FFFFFF;
-            white-space: nowrap;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            cursor: pointer;
-            transform: scale(1.02);
-          ">
-            <span style="display:inline-block; width:7px; height:7px; background:#4ade80; border-radius:50%; box-shadow: 0 0 6px #4ade80;"></span>
-            Arunachal Pradesh (Operational)
-          </div>`,
-          iconSize: [195, 28],
-          iconAnchor: [97, 14],
-        });
-
-        const arMarker = L.marker([28.04, 94.68], { icon: arLabelIcon, interactive: true });
-        arMarker.on('click', () => onSelectState('Arunachal Pradesh'));
-        arMarker.addTo(map);
-
-        // Add prominent Nagaland marker label at coordinates [26.16, 94.56]
-        const nlLabelIcon = L.divIcon({
-          className: 'nl-marker-badge',
-          html: `<div style="
-            background: #1E7446;
-            color: #FFFFFF;
-            font-family: inherit;
-            font-size: 11px;
-            font-weight: 700;
-            padding: 5px 10px;
-            border-radius: 9999px;
-            box-shadow: 0 4px 14px rgba(20, 90, 54, 0.4);
-            border: 2px solid #FFFFFF;
-            white-space: nowrap;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            cursor: pointer;
-            transform: scale(1.02);
-          ">
-            <span style="display:inline-block; width:7px; height:7px; background:#4ade80; border-radius:50%; box-shadow: 0 0 6px #4ade80;"></span>
-            Nagaland (Operational)
-          </div>`,
-          iconSize: [155, 28],
-          iconAnchor: [77, 14],
-        });
-
-        const nlMarker = L.marker([26.16, 94.56], { icon: nlLabelIcon, interactive: true });
-        nlMarker.on('click', () => onSelectState('Nagaland'));
-        nlMarker.addTo(map);
-
-        // Add prominent Meghalaya marker label at coordinates [25.58, 91.89]
-        const mlLabelIcon = L.divIcon({
-          className: 'ml-marker-badge',
-          html: `<div style="
-            background: #1E7446;
-            color: #FFFFFF;
-            font-family: inherit;
-            font-size: 11px;
-            font-weight: 700;
-            padding: 5px 10px;
-            border-radius: 9999px;
-            box-shadow: 0 4px 14px rgba(20, 90, 54, 0.4);
-            border: 2px solid #FFFFFF;
-            white-space: nowrap;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            cursor: pointer;
-            transform: scale(1.02);
-          ">
-            <span style="display:inline-block; width:7px; height:7px; background:#4ade80; border-radius:50%; box-shadow: 0 0 6px #4ade80;"></span>
-            Meghalaya (Operational)
-          </div>`,
-          iconSize: [160, 28],
-          iconAnchor: [80, 14],
-        });
-
-        const mlMarker = L.marker([25.35, 91.25], { icon: mlLabelIcon, interactive: true });
-        mlMarker.on('click', () => onSelectState('Meghalaya'));
-        mlMarker.addTo(map);
+        const hpMarker = L.marker([31.90, 77.10], { icon: hpLabelIcon, interactive: true });
+        hpMarker.on('click', () => onSelectState('Himachal Pradesh'));
+        hpMarker.addTo(map);
 
         // Force invalidate size after DOM layout settles to ensure full expansion
         setTimeout(() => {
@@ -627,14 +379,9 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
     { name: 'Assam', status: 'Operational State', isPilot: true },
     { name: 'Bihar', status: 'Operational State', isPilot: true },
     { name: 'Tamil Nadu', status: 'Operational State', isPilot: true },
-    { name: 'West Bengal', status: 'Operational State', isPilot: true },
-    { name: 'Odisha', status: 'Operational State', isPilot: true },
-    { name: 'Uttar Pradesh', status: 'Operational State', isPilot: true },
-    { name: 'Uttarakhand', status: 'Operational State', isPilot: true },
-    { name: 'Sikkim', status: 'Operational State', isPilot: true },
-    { name: 'Arunachal Pradesh', status: 'Operational State', isPilot: true },
-    { name: 'Nagaland', status: 'Operational State', isPilot: true },
-    { name: 'Meghalaya', status: 'Operational State', isPilot: true },
+    { name: 'Mizoram', status: 'Operational State', isPilot: true },
+    { name: 'Himachal Pradesh', status: 'Operational State', isPilot: true },
+    { name: 'Odisha', status: 'Coming Soon', isPilot: false },
     { name: 'Kerala', status: 'Coming Soon', isPilot: false },
     { name: 'Karnataka', status: 'Coming Soon', isPilot: false },
     { name: 'Maharashtra', status: 'Coming Soon', isPilot: false },

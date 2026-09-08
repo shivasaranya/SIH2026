@@ -79,7 +79,7 @@ export const SimulationPage: React.FC = () => {
     }
   };
 
-  const rankedCount = currentState.adminUnitCount;
+  const rankedCount = currentState.id === 'mizoram' ? 26 : (currentState.id === 'tamil_nadu' ? 302 : (currentState.id === 'himachal_pradesh' ? 172 : 680));
 
   return (
     <div className="flex-1 overflow-y-auto custom-scrollbar p-3.5 sm:p-5 bg-transparent text-slate-800 select-none">
@@ -280,7 +280,7 @@ export const SimulationPage: React.FC = () => {
                     </h2>
                   </div>
                   <span className="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-50 text-slate-600 border border-slate-200 font-semibold">
-                    {simulationResult.mandals?.length || currentState.adminUnitCount} {currentState.adminUnitPlural} Re-Ranked
+                    {simulationResult.mandals?.length || rankedCount} {currentState.adminUnitPlural} Re-Ranked
                   </span>
                 </div>
 
@@ -360,7 +360,7 @@ export const SimulationPage: React.FC = () => {
                 </div>
 
                 <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-[10px] text-slate-500 shadow-2xs">
-                  <em>Illustrative hazard sensitivity perturbation — NOT a forecast.</em> TOPSIS relative closeness is recalculated dynamically across all {simulationResult.mandals?.length || currentState.adminUnitCount} {currentState.adminUnitPlural.toLowerCase()} using adjusted normalized decision matrix weights.
+                  <em>Illustrative hazard sensitivity perturbation — NOT a forecast.</em> TOPSIS relative closeness is recalculated dynamically across all {rankedCount} {currentState.adminUnitPlural.toLowerCase()} using adjusted normalized decision matrix weights.
                 </div>
               </div>
             ) : (

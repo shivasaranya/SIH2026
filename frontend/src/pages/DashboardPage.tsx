@@ -15,27 +15,26 @@ import { useActiveState } from '../context/StateContext';
 
 export const DashboardPage: React.FC<DashboardPageProps> = ({ onNavigateToGIS }) => {
   const { currentState } = useActiveState();
-  const isWB = currentState.id === 'west_bengal';
   const isTN = currentState.id === 'tamil_nadu';
-  const isAS = currentState.id === 'assam';
-  const isBR = currentState.id === 'bihar';
+  const isMZ = currentState.id === 'mizoram';
+  const isHP = currentState.id === 'himachal_pradesh';
 
   const [counts, setCounts] = useState({
     districts: currentState.districtCount,
     mandals: currentState.adminUnitCount,
-    ranked: isWB ? 346 : (isAS ? 153 : (isTN ? 302 : (isBR ? 534 : 680))),
-    insufficient: isWB ? 0 : (isAS ? 0 : (isTN ? 0 : (isBR ? 0 : 16))),
-    candidateHosts: isWB ? 23 : (isAS ? 42 : (isTN ? 41 : (isBR ? 54 : 51))),
-    veryHigh: isWB ? 35 : (isAS ? 15 : (isTN ? 30 : (isBR ? 27 : 34))),
-    high: isWB ? 69 : (isAS ? 31 : (isTN ? 60 : (isBR ? 107 : 136))),
-    moderate: isWB ? 139 : (isAS ? 61 : (isTN ? 121 : (isBR ? 213 : 272))),
-    low: isWB ? 103 : (isAS ? 46 : (isTN ? 91 : (isBR ? 187 : 238)))
+    ranked: isMZ ? 26 : (isTN ? 302 : (isHP ? 172 : 680)),
+    insufficient: (isTN || isMZ || isHP) ? 0 : 16,
+    candidateHosts: isMZ ? 5 : (isTN ? 41 : (isHP ? 15 : 51)),
+    veryHigh: isMZ ? 2 : (isTN ? 30 : (isHP ? 46 : 34)),
+    high: isMZ ? 5 : (isTN ? 60 : (isHP ? 80 : 136)),
+    moderate: isMZ ? 11 : (isTN ? 121 : (isHP ? 46 : 272)),
+    low: isMZ ? 8 : (isTN ? 91 : (isHP ? 0 : 238))
   });
 
   useEffect(() => {
     let isMounted = true;
 
-    fetchRelocationGeoJson()
+    fetchRelocationGeoJson(undefined, currentState.id)
       .then((geo) => {
         if (!isMounted) return;
         let vh = 0, h = 0, m = 0, l = 0, ins = 0;
@@ -63,11 +62,11 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({ onNavigateToGIS })
           mandals: geo.features.length || currentState.adminUnitCount,
           ranked: geo.features.length - ins,
           insufficient: ins,
-          candidateHosts: isTN ? 41 : 51,
-          veryHigh: vh || (isTN ? 30 : 34),
-          high: h || (isTN ? 60 : 136),
-          moderate: m || (isTN ? 121 : 272),
-          low: l || (isTN ? 91 : 238)
+          candidateHosts: isMZ ? 5 : (isTN ? 41 : 51),
+          veryHigh: vh || (isMZ ? 2 : (isTN ? 30 : 34)),
+          high: h || (isMZ ? 5 : (isTN ? 60 : 136)),
+          moderate: m || (isMZ ? 11 : (isTN ? 121 : 272)),
+          low: l || (isMZ ? 8 : (isTN ? 91 : 238))
         }));
       })
       .catch((err) => {

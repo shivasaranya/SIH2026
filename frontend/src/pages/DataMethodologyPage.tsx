@@ -24,6 +24,10 @@ export const DataMethodologyPage: React.FC<DataMethodologyPageProps> = ({
   const [activeTab, setActiveTab] = useState<'sources' | 'methodology' | 'limitations' | 'governance'>(initialTab);
   const [expandedStep, setExpandedStep] = useState<number | null>(null);
 
+  const isTN = currentState.id === 'tamil_nadu';
+  const isMZ = currentState.id === 'mizoram';
+  const isHP = currentState.id === 'himachal_pradesh';
+
   const datasets = [
     {
       name: `Administrative Boundaries (${currentState.districtCount} Districts & ${currentState.adminUnitCount} ${currentState.adminUnitPlural})`,
@@ -35,10 +39,10 @@ export const DataMethodologyPage: React.FC<DataMethodologyPageProps> = ({
       limitations: `Official district and sub-district boundaries harmonized with Survey of India and state gazette.`
     },
     {
-      name: 'Primary Census Abstract (PCA) Village Demographics',
+      name: `Primary Census Abstract (PCA) ${currentState.adminUnitName} Demographics`,
       source: 'Office of the Registrar General & Census Commissioner, India (ORGI)',
       year: '2011 Census of India',
-      res: '17,039 Habitations & Villages (Complete AP)',
+      res: isMZ ? '26 R.D. Blocks & 830+ Census Villages' : (isTN ? '302 Taluks & 15,979 Census Villages' : (isHP ? '172 Tehsils & 17,495 Census Villages' : '17,039 Habitations & Villages (Complete AP)')),
       classification: 'OFFICIAL',
       use: 'Demographic vulnerability proxy: children (0-6), total households, non-workers, and family size congestion.',
       limitations: '2011 decennial enumeration is the latest official habitation-level demographic baseline in India.'
@@ -53,19 +57,19 @@ export const DataMethodologyPage: React.FC<DataMethodologyPageProps> = ({
       limitations: 'Reflects historical multi-decadal surface water presence; not a hydrodynamic 1D/2D flood model.'
     },
     {
-      name: 'Historical Tropical Cyclone Storm Tracks & Intensity',
+      name: isMZ ? 'Cyclone Hazard Assessment (Inland Policy Evaluation)' : 'Historical Tropical Cyclone Storm Tracks & Intensity',
       source: 'NOAA International Best Track Archive for Climate Stewardship (IBTrACS v04r00)',
       year: '1970–2023 (53-Year Archive)',
-      res: 'Line Segments with Saffir-Simpson & IMD Wind Speeds',
+      res: isMZ ? 'Inland Mountainous Terrain (Zero Direct Landfall Recurrence)' : 'Line Segments with Saffir-Simpson & IMD Wind Speeds',
       classification: 'OFFICIAL SCIENTIFIC',
-      use: 'Spatial track recurrence density, coastal surge exposure, and 50km/100km wind decay buffers.',
-      limitations: 'Historical storm track frequency and intensity; not a real-time meteorological track forecast.'
+      use: isMZ ? 'Verification of inland storm decay; cyclone exposure is not fabricated in strict accordance with Zero Fake Data policy.' : (isHP ? 'Verification of inland storm decay; HP is landlocked with no direct cyclone exposure. Snow/Avalanche and seismic hazards are prioritized.' : 'Spatial track recurrence density, coastal surge exposure, and 50km/100km wind decay buffers.'),
+      limitations: isMZ ? 'Mizoram is an inland mountainous state. Direct tropical cyclone storm surge is non-applicable; terrain slope and landslide hazards are prioritized instead.' : (isHP ? 'Himachal Pradesh is a landlocked Himalayan state. Cyclone storm surge is non-applicable; landslide, earthquake, GLOF, and snow/avalanche hazards dominate.' : 'Historical storm track frequency and intensity; not a real-time meteorological track forecast.')
     },
     {
       name: 'Basic Design Wind Speeds (IS 875 Part 3 & BMTPC)',
       source: 'Building Materials & Technology Promotion Council (BMTPC) Vulnerability Atlas',
       year: '2019 Revision',
-      res: 'Mandal-level Design Wind Speed Zones (44, 47, 50, 55 m/s)',
+      res: isMZ ? 'R.D. Block Design Wind Speed Zones (55 m/s, Zone A)' : (isHP ? 'Tehsil Design Wind Speed Zones (39–47 m/s, IS 875 Part 3)' : 'Mandal-level Design Wind Speed Zones (44, 47, 50, 55 m/s)'),
       classification: 'OFFICIAL',
       use: 'Structural wind hazard baseline and cyclonic wind exposure scoring.',
       limitations: 'Regional design wind thresholds; does not account for micro-topographic wind funneling.'
@@ -76,21 +80,21 @@ export const DataMethodologyPage: React.FC<DataMethodologyPageProps> = ({
       year: 'SRTM v3.0 (1 Arc-Second Global)',
       res: '30-meter Spatial Resolution',
       classification: 'OFFICIAL SCIENTIFIC',
-      use: 'Terrain slope calculation (Horn algorithm), elevation profiling, and steep slope constraint (>15°).',
+      use: (isMZ || isHP) ? 'Terrain slope calculation (Horn algorithm), elevation profiling, and steep slope landslide constraint (>25°).' : 'Terrain slope calculation (Horn algorithm), elevation profiling, and steep slope constraint (>15°).',
       limitations: '30m raster grid averages micro-relief; unsuitable for site-level civil engineering excavation.'
     },
     {
-      name: 'Multi-Purpose Cyclone Shelter Registry (NCRMP)',
-      source: `National Cyclone Risk Mitigation Project (NCRMP) / NDMA / ${currentState.sdmaName}`,
+      name: isMZ ? 'Community Shelter & YMA Hall Registry' : (isHP ? 'Emergency Shelter & Community Hall Registry' : 'Multi-Purpose Cyclone Shelter Registry (NCRMP)'),
+      source: isMZ ? 'Disaster Management & Rehabilitation (DM&R) Dept Govt of Mizoram & YMA Registers' : (isHP ? 'HP State Disaster Management Authority (HPSDMA) & District DM Plans' : 'National Cyclone Risk Mitigation Project (NCRMP) / NDMA / APSDMA'),
       year: 'Phase I & II Asset Registry',
-      res: `Designated Shelters Across ${currentState.name}`,
+      res: isMZ ? 'Designated Community Halls & Emergency Shelters Across Mizoram' : (isHP ? 'Designated Shelters, School Buildings & Community Halls Across HP' : '1,053 Designated Shelters Across AP'),
       classification: 'OFFICIAL',
       use: `Verified emergency shelter capacity per ${currentState.adminUnitName.toLowerCase()} and shelter deficit calculations.`,
       limitations: 'Reflects designated asset capacity registry; live real-time shelter availability requires field check.'
     },
     {
       name: 'Road Network Evacuation Corridors & Density',
-      source: `OpenStreetMap (OSM) Contributors & State Spatial Road Network (${currentState.code})`,
+      source: isMZ ? 'OpenStreetMap (OSM) Contributors & Mizoram PWD / NHIDCL Road Network' : (isTN ? 'OpenStreetMap (OSM) & TN Highways Department' : (isHP ? 'OpenStreetMap (OSM) & HP PWD / NHIDCL Road Network' : 'OpenStreetMap (OSM) Contributors & NRDMS AP State Spatial Road Network')),
       year: '2023 Extract',
       res: 'Vector Line Network (National, State, District & Rural Roads)',
       classification: 'OPEN / OFFICIAL HYBRID',
@@ -99,7 +103,7 @@ export const DataMethodologyPage: React.FC<DataMethodologyPageProps> = ({
     },
     {
       name: 'Healthcare Bed Standards & Facilities',
-      source: 'MoHFW Indian Public Health Standards (IPHS) / UDISE+ / SSDI',
+      source: isMZ ? 'Directorate of Health & Family Welfare Mizoram / IPHS Standards' : (isHP ? 'NHM Himachal Pradesh / IGMC Shimla / District Hospital Records / IPHS Standards' : 'MoHFW Indian Public Health Standards (IPHS) / UDISE+ / SSDI'),
       year: '2022 Guidelines',
       res: 'Normative Standard (1.0 Bed / 1,000 Population)',
       classification: 'NORMATIVE BENCHMARK',
@@ -110,14 +114,14 @@ export const DataMethodologyPage: React.FC<DataMethodologyPageProps> = ({
       name: 'Water & Sanitation Infrastructure Coverage',
       source: 'Jal Jeevan Mission (JJM) & SBM-Gramin Portals',
       year: '2023–2024 Administrative Aggregations',
-      res: 'District & Mandal Coverage Indices',
+      res: `${currentState.districtCount} Districts & ${currentState.adminUnitCount} ${currentState.adminUnitPlural} Coverage Indices`,
       classification: 'OFFICIAL / PROXY',
       use: 'Composite water supply and household sanitation coverage adequacy for relocation host planning.',
       limitations: 'Aggregated portal reporting indices used as proxy for baseline service headroom.'
     },
     {
       name: 'National Remote Sensing Centre (NRSC) Land Use/Land Cover',
-      source: 'ISRO / NRSC Bhuvan / Bhuvan Andhra',
+      source: isMZ ? 'ISRO / NRSC Bhuvan / MIRSAC Mizoram LULC' : (isTN ? 'ISRO / NRSC Bhuvan / TNSDMA' : (isHP ? 'ISRO / NRSC Bhuvan / HPSCSTE Himachal Pradesh LULC' : 'ISRO / NRSC Bhuvan / Bhuvan Andhra')),
       year: '2022–2023 LULC 1:50,000 Scale',
       res: 'Vector & Raster Land Classification',
       classification: 'OFFICIAL',
@@ -173,7 +177,7 @@ export const DataMethodologyPage: React.FC<DataMethodologyPageProps> = ({
       id: 7,
       title: 'TOPSIS RELOCATION ENGINE',
       sub: 'Ideal-Solution Closeness Ranking',
-      desc: 'Calculates Euclidean distance to Positive-Ideal Solution (PIS) and Negative-Ideal Solution (NIS). Relative closeness score C_i* determines final relocation prioritization rank across all 680 populated mandals.',
+      desc: `Calculates Euclidean distance to Positive-Ideal Solution (PIS) and Negative-Ideal Solution (NIS). Relative closeness score C_i* determines final relocation prioritization rank across all ${currentState.adminUnitCount} ${currentState.adminUnitPlural.toLowerCase()}.`,
       tech: 'Vector normalization -> Weighted normalized matrix -> Distance separation -> C_i* = S_i- / (S_i+ + S_i-).'
     },
     {
@@ -392,6 +396,42 @@ export const DataMethodologyPage: React.FC<DataMethodologyPageProps> = ({
                   <span className="text-[10px] font-bold text-purple-700 block uppercase">Accessibility (C4)</span>
                   <strong className="text-xl font-black text-purple-700 font-mono block mt-1">12.20%</strong>
                   <span className="text-[10px] text-slate-500 font-medium">Weight: 0.1220</span>
+                </div>
+              </div>
+            </div>
+
+            {/* EVIDENCE-BASED RELOCATION & SAFER LOCATIONS PROTOCOL */}
+            <div className="bg-white border border-slate-200/90 rounded-2xl p-5 shadow-xs space-y-3">
+              <div className="flex items-center justify-between">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-slate-900 flex items-center gap-2">
+                  <ShieldCheck className="w-4 h-4 text-emerald-600" />
+                  Evidence-Based Potential Safer Locations Protocol ({currentState.name})
+                </h3>
+                <span className="text-xs font-mono text-indigo-700 font-bold bg-indigo-50 px-2.5 py-0.5 rounded border border-indigo-200">
+                  Decision Hierarchy: Safety &gt; Capacity &gt; Access &gt; Distance
+                </span>
+              </div>
+              
+              <div className="bg-slate-50/80 p-4 rounded-xl border border-slate-200 text-xs text-slate-700 leading-relaxed space-y-2">
+                <p>
+                  <strong>RakshaSethu does not enforce a fixed evacuation distance or same-{currentState.adminUnitName.toLowerCase()}-only rule.</strong> For {currentState.name}, candidate locations are evaluated primarily on safety, capacity and accessibility, while distance and administrative proximity are treated as soft preferences. This allows the system to recommend a farther but safer and adequately resourced location when closer alternatives are unsuitable.
+                </p>
+                <p className="text-slate-600">
+                  <strong>The 1.5–2 km NCRMP value is a cyclone shelter service/design radius, not a universal evacuation-distance limit.</strong> National Cyclone Risk Mitigation Project (NCRMP) architectural guidelines designate 1.5–2 km as the walking service catchment for immediate cyclone shelter access, not a barrier against inter-administrative evacuation or planned relocation corridors.
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 border-t border-slate-200">
+                  <div className="bg-white p-3 rounded-lg border border-slate-200/80">
+                    <div className="font-bold text-slate-900 text-[11px] uppercase">Decision A: Relocation Priority (AHP + TOPSIS)</div>
+                    <p className="text-[11px] text-slate-600 mt-0.5">
+                      <em>"Which vulnerable {currentState.adminUnitPlural.toLowerCase()} need attention first?"</em> Synthesizes C1 Hazard (42.31%), C2 Sensitivity (22.74%), C3 Capacity Stress (22.74%), and C4 Accessibility (12.20%) to rank vulnerable source areas.
+                    </p>
+                  </div>
+                  <div className="bg-white p-3 rounded-lg border border-slate-200/80">
+                    <div className="font-bold text-slate-900 text-[11px] uppercase">Decision B: Potential Safer Locations</div>
+                    <p className="text-[11px] text-slate-600 mt-0.5">
+                      <em>"Where could affected people potentially be moved?"</em> Multi-criteria screening prioritizing Safety First (&lt;0.35 hazard), Capacity Second (&gt;500 m²/person safe headroom), Accessibility Third (&gt;0.15 road index), and Distance/Tier as soft coordination preferences.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>

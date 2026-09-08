@@ -31,7 +31,7 @@ export const PriorityDirectoryPage: React.FC<PriorityDirectoryPageProps> = ({ on
   useEffect(() => {
     let isMounted = true;
     setLoading(true);
-    fetchRelocationGeoJson()
+    fetchRelocationGeoJson(undefined, currentState.id)
       .then((geo) => {
         if (!isMounted) return;
         const propsList = geo.features.map((f: any) => f.properties as MandalProperties);
@@ -47,7 +47,7 @@ export const PriorityDirectoryPage: React.FC<PriorityDirectoryPageProps> = ({ on
     return () => {
       isMounted = false;
     };
-  }, []);
+  }, [currentState.id]);
 
   // District list
   const districtList = useMemo(() => {
@@ -483,7 +483,7 @@ export const PriorityDirectoryPage: React.FC<PriorityDirectoryPageProps> = ({ on
 
           <div className="p-3.5 border-t border-slate-100 bg-slate-50/60 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-500 gap-2">
             <div>
-              <strong>Data Governance:</strong> {mandals.length} {currentState.adminUnitPlural.toLowerCase()} ranked via TOPSIS MCDA engine.
+              <strong>Data Governance:</strong> {counts.ranked} populated {currentState.adminUnitPlural.toLowerCase()} ranked via TOPSIS MCDA engine. {counts.insufficient > 0 ? `${counts.insufficient} unpopulated geometries are marked as INSUFFICIENT DATA.` : 'All administrative units fully enumerated.'}
             </div>
             <div className="font-mono text-slate-400">
               Verified Dataset &bull; {currentState.name} State Disaster Decision Support

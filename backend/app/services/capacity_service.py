@@ -57,12 +57,43 @@ def resolve_state_key(state_id: Optional[str]) -> str:
         return "punjab"
     if clean in ["chhattisgarh", "cg", "chhatisgarh", "chattisgarh", "ct"]:
         return "chhattisgarh"
+    if clean in ["mizoram", "mz", "mizo"]:
+        return "mizoram"
+    if clean in ["himachal_pradesh", "hp", "himachal"]:
+        return "himachal_pradesh"
     return "andhra_pradesh"
+
+def is_mizoram(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["mizoram", "mz", "mizo"]
+
+def is_hp(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["himachal_pradesh", "hp", "himachal"]
+
+def is_tn(state_id: Optional[str]) -> bool:
+    if not state_id:
+        return False
+    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
+    return clean in ["tamil_nadu", "tn", "tamilnadu"]
 
 
 class CapacityService:
     def __init__(self):
         self._cache: Dict[str, Dict[str, Any]] = {}
+
+    def _get_state_key(self, state_id: Optional[str]) -> str:
+        if is_mizoram(state_id):
+            return "mz"
+        if is_tn(state_id):
+            return "tn"
+        if is_hp(state_id):
+            return "hp"
+        return "ap"
 
     def _load_data(self, state_id: Optional[str] = "andhra_pradesh"):
         key = resolve_state_key(state_id)
@@ -71,35 +102,21 @@ class CapacityService:
 
         cap_dir = settings.DATA_DIR / "processed" / "capacity"
 
-        if key == "odisha":
-            cap_csv = cap_dir / "od_block_capacity_components.csv"
-            adequacy_csv = cap_dir / "od_block_capacity_adequacy.csv"
-            host_csv = cap_dir / "od_host_zone_candidates.csv"
-            adequacy_geojson = cap_dir / "od_block_capacity_adequacy.geojson"
-            cap_geojson = cap_dir / "od_block_capacity_components.geojson"
-            bottlenecks_csv = adequacy_csv
-        elif key == "bihar":
-            cap_csv = cap_dir / "br_block_capacity_components.csv"
-            adequacy_csv = cap_dir / "br_block_capacity_adequacy.csv"
-            host_csv = cap_dir / "br_host_zone_candidates.csv"
-            adequacy_geojson = cap_dir / "br_block_capacity_adequacy.geojson"
+        if key == "mz":
+            cap_csv = cap_dir / "mizoram_subdistrict_capacity_components.csv"
+            adequacy_csv = cap_dir / "mizoram_subdistrict_capacity_adequacy.csv"
+            host_csv = cap_dir / "mizoram_host_zone_candidates.csv"
+            adequacy_geojson = cap_dir / "mizoram_subdistrict_capacity_adequacy.geojson"
             cap_geojson = adequacy_geojson
             bottlenecks_csv = adequacy_csv
-        elif key == "west_bengal":
-            cap_csv = cap_dir / "wb_block_capacity_components.csv"
-            adequacy_csv = cap_dir / "wb_block_capacity_adequacy.csv"
-            host_csv = cap_dir / "wb_host_zone_candidates.csv"
-            adequacy_geojson = cap_dir / "wb_block_capacity_adequacy.geojson"
+        elif key == "hp":
+            cap_csv = cap_dir / "hp_tehsil_capacity_components.csv"
+            adequacy_csv = cap_dir / "hp_tehsil_capacity_adequacy.csv"
+            host_csv = cap_dir / "hp_host_zone_candidates.csv"
+            adequacy_geojson = cap_dir / "hp_tehsil_capacity_adequacy.geojson"
             cap_geojson = adequacy_geojson
             bottlenecks_csv = adequacy_csv
-        elif key == "assam":
-            cap_csv = cap_dir / "as_circle_capacity_components.csv"
-            adequacy_csv = cap_dir / "as_circle_capacity_adequacy.csv"
-            host_csv = cap_dir / "as_host_zone_candidates.csv"
-            adequacy_geojson = cap_dir / "as_circle_capacity_adequacy.geojson"
-            cap_geojson = adequacy_geojson
-            bottlenecks_csv = adequacy_csv
-        elif key == "tamil_nadu":
+        elif key == "tn":
             cap_csv = cap_dir / "tn_taluk_capacity_components.csv"
             adequacy_csv = cap_dir / "tn_taluk_capacity_adequacy.csv"
             host_csv = cap_dir / "tn_host_zone_candidates.csv"
@@ -220,7 +237,7 @@ class CapacityService:
             "cap_geojson_path": cap_geojson,
             "adequacy_geojson_path": adequacy_geojson,
             "cap_geojson": None,
-            "adequacy_geojson": None
+            "adequacy_geojson": None,
         }
         self._cache[key] = data
         return data
@@ -540,14 +557,12 @@ class CapacityService:
         state: Optional[str] = None,
     ) -> Optional[MandalCapacityItem]:
         target = mandal_id.strip().upper()
-        if target.startswith("WB_"):
-            detected_state = "west_bengal"
-        elif target.startswith("BR_"):
-            detected_state = "bihar"
-        elif target.startswith("AS_"):
-            detected_state = "assam"
+        if target.startswith("MZ_"):
+            detected_state = "mizoram"
         elif target.startswith("TN_"):
             detected_state = "tamil_nadu"
+        elif target.startswith("HP_"):
+            detected_state = "himachal_pradesh"
         elif target.startswith("UP_"):
             detected_state = "uttar_pradesh"
         elif target.startswith("UK_"):
@@ -591,7 +606,8 @@ class CapacityService:
             all_states = [
                 "andhra_pradesh", "assam", "bihar", "tamil_nadu", "west_bengal", "odisha",
                 "uttar_pradesh", "uttarakhand", "sikkim", "arunachal_pradesh", "nagaland",
-                "meghalaya", "gujarat", "kerala", "maharashtra", "haryana", "punjab", "chhattisgarh"
+                "meghalaya", "gujarat", "kerala", "maharashtra", "haryana", "punjab", "chhattisgarh",
+                "mizoram", "himachal_pradesh"
             ]
             for s in all_states:
                 if s == detected_state:
@@ -926,10 +942,101 @@ class CapacityService:
             feat for feat in data["cap_geojson"].get("features", [])
             if str(feat.get("properties", {}).get("current_district_id", "")).lower() == target_did
         ]
-        return {
-            "type": "FeatureCollection",
-            "features": filtered
-        }
+        return {"type": "FeatureCollection", "features": filtered}
+
+    def get_adequacy_mandals(
+        self,
+        district_id: Optional[str] = None,
+        shelter_status: Optional[str] = None,
+        health_status: Optional[str] = None,
+        capacity_condition: Optional[str] = None,
+        primary_bottleneck: Optional[str] = None,
+        is_host_candidate: Optional[bool] = None,
+        state_id: Optional[str] = "andhra_pradesh"
+    ) -> MandalCapacityAdequacyListResponse:
+        data = self._load_data(state_id)
+        df = data["adequacy_df"].copy()
+
+        if district_id:
+            df = df[df["current_district_id"] == district_id.strip().lower()]
+        if shelter_status:
+            df = df[df["shelter_status"].str.lower() == shelter_status.strip().lower()]
+        if health_status:
+            df = df[df["health_status"].str.lower() == health_status.strip().lower()]
+        if capacity_condition:
+            df = df[df["capacity_condition"].str.upper() == capacity_condition.strip().upper()]
+        if primary_bottleneck:
+            df = df[df["primary_bottleneck"].str.lower() == primary_bottleneck.strip().lower()]
+        if is_host_candidate is not None:
+            df = df[df["is_host_zone_candidate"] == is_host_candidate]
+
+        records = df.replace({np.nan: None}).to_dict(orient="records")
+        items = [MandalCapacityAdequacyItem(**row) for row in records]
+        return MandalCapacityAdequacyListResponse(total_mandals=len(items), items=items)
+
+    def get_adequacy_mandal_detail(self, mandal_id: str, state_id: Optional[str] = "andhra_pradesh") -> Optional[MandalCapacityAdequacyItem]:
+        target = mandal_id.strip().upper()
+        detected_state = "tamil_nadu" if target.startswith("TN_") else state_id
+        data = self._load_data(detected_state)
+        df = data["adequacy_df"]
+
+        match = df[
+            (df["mandal_id"] == target) |
+            (df["mandal_name"].str.upper() == target)
+        ]
+        if match.empty:
+            for fallback_state in ["tamil_nadu", "mizoram", "andhra_pradesh"]:
+                if fallback_state == detected_state:
+                    continue
+                fb_data = self._load_data(fallback_state)
+                fb_match = fb_data["adequacy_df"][
+                    (fb_data["adequacy_df"]["mandal_id"] == target) |
+                    (fb_data["adequacy_df"]["mandal_name"].str.upper() == target)
+                ]
+                if not fb_match.empty:
+                    match = fb_match
+                    break
+        if match.empty:
+            return None
+        return MandalCapacityAdequacyItem(**match.iloc[0].replace({np.nan: None}).to_dict())
+
+    def get_adequacy_summary(self, state_id: Optional[str] = "andhra_pradesh") -> CapacityAdequacySummaryResponse:
+        data = self._load_data(state_id)
+        df = data["adequacy_df"]
+
+        cond_counts = df["capacity_condition"].value_counts().to_dict() if "capacity_condition" in df.columns else (df["adequacy_tier"].value_counts().to_dict() if "adequacy_tier" in df.columns else {})
+        bottleneck_counts = df["primary_bottleneck"].value_counts().to_dict() if "primary_bottleneck" in df.columns else (df["evacuation_road_bottleneck"].value_counts().to_dict() if "evacuation_road_bottleneck" in df.columns else {})
+        shelter_stat_counts = df["shelter_status"].value_counts().to_dict() if "shelter_status" in df.columns else {}
+        host_count = int(df["is_host_zone_candidate"].sum()) if "is_host_zone_candidate" in df.columns else (len(data["host_df"]) if data.get("host_df") is not None else 5)
+        mean_comp = round(float(df["capacity_data_completeness"].mean()), 3) if "capacity_data_completeness" in df.columns else 1.0
+
+        return CapacityAdequacySummaryResponse(
+            total_mandals=len(df),
+            condition_breakdown=cond_counts,
+            primary_bottleneck_breakdown=bottleneck_counts,
+            host_zone_candidates_pool_count=host_count,
+            mean_data_completeness=mean_comp,
+            shelter_coverage_breakdown=shelter_stat_counts,
+            governance_notice="Capacity condition and bottleneck identifications are decision-support analytical classifications. They do NOT mandate or execute habitation relocation."
+        )
+
+    def get_bottlenecks(
+        self,
+        district_id: Optional[str] = None,
+        primary_bottleneck: Optional[str] = None,
+        state_id: Optional[str] = "andhra_pradesh"
+    ) -> MandalBottlenecksListResponse:
+        data = self._load_data(state_id)
+        df = data["bottlenecks_df"].copy()
+
+        if district_id:
+            df = df[df["current_district_id"] == district_id.strip().lower()]
+        if primary_bottleneck:
+            df = df[df["primary_bottleneck"].str.lower() == primary_bottleneck.strip().lower()]
+
+        records = df.replace({np.nan: None}).to_dict(orient="records")
+        items = [MandalBottleneckItem(**row) for row in records]
+        return MandalBottlenecksListResponse(total_mandals=len(items), items=items)
 
     def get_adequacy_geojson(
         self,
@@ -952,9 +1059,10 @@ class CapacityService:
             feat for feat in data["adequacy_geojson"].get("features", [])
             if str(feat.get("properties", {}).get("current_district_id", "")).lower() == target_did
         ]
-        return {
-            "type": "FeatureCollection",
-            "features": filtered
-        }
+        return {"type": "FeatureCollection", "features": filtered}
+
+    def get_host_zones(self, mandal_id: str, state_id: Optional[str] = "andhra_pradesh") -> HostZoneCandidateListResponse:
+        from app.services.relocation_service import relocation_service
+        return relocation_service.get_host_zones_for_mandal(mandal_id, state_id=state_id)
 
 capacity_service = CapacityService()

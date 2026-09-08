@@ -1,7 +1,7 @@
 import sys
 from pathlib import Path
 
-# Ensure backend directory is in sys.path
+# Ensure backend directory is in sys.path so 'app' imports work regardless of working directory
 backend_dir = Path(__file__).resolve().parent
 if str(backend_dir) not in sys.path:
     sys.path.insert(0, str(backend_dir))
@@ -37,12 +37,21 @@ app.add_middleware(
 app.include_router(api_router, prefix="/api")
 
 
+@app.get("/health", summary="Direct Health Check")
+async def health():
+    return {
+        "status": "healthy",
+        "service": settings.APP_NAME,
+        "supported_states": ["andhra_pradesh", "tamil_nadu", "mizoram", "himachal_pradesh"]
+    }
+
 @app.get("/", summary="Root Index")
 async def root():
     return {
         "message": f"Welcome to {settings.APP_NAME} Decision-Support Platform",
         "sih_problem": settings.SIH_CODE,
         "pilot": settings.PILOT_STATE,
+        "supported_states": ["andhra_pradesh", "tamil_nadu", "mizoram"],
         "phase": "PHASE 0 — PROJECT FOUNDATION",
         "docs": "/docs",
         "health": "/api/health"

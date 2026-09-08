@@ -200,9 +200,45 @@ class HostZoneCandidateItem(BaseModel):
     host_candidate_reason: str
     host_candidate_status: str
 
+    # AP Relocation Logic Upgrade Enriched Attributes
+    candidate_district_id: Optional[str] = None
+    candidate_district_name: Optional[str] = None
+    source_district_id: Optional[str] = None
+    source_district_name: Optional[str] = None
+    administrative_relation: Optional[str] = None  # SAME_MANDAL, ADJACENT_MANDAL, FARTHER_MANDAL, DIFFERENT_DISTRICT
+    proximity_tier: Optional[int] = None  # 1: Same mandal, 2: Adjacent mandal same district, 3: Farther mandal same district, 4: Different district
+    candidate_shelter_capacity_persons: Optional[int] = None
+    candidate_shelter_count: Optional[int] = None
+    candidate_beds_per_1000: Optional[float] = None
+    candidate_health_adequacy: Optional[float] = None
+    candidate_water_access_pct: Optional[float] = None
+    candidate_sanitation_coverage_pct: Optional[float] = None
+    candidate_safe_area_m2_per_person: Optional[float] = None
+    candidate_road_access_status: Optional[str] = None
+    relocation_suitability_score: Optional[float] = None
+    relocation_suitability_rank: Optional[int] = None
+    suitability_tier: Optional[str] = None  # RECOMMENDED, ALTERNATIVE, FALLBACK, REJECTED, INSUFFICIENT-DATA
+    is_safe: Optional[bool] = None
+    is_capacity_adequate: Optional[bool] = None
+    is_accessible: Optional[bool] = None
+    rejection_reason: Optional[str] = None
+    recommendation_reason: Optional[str] = None
+    recommendation_explanation: Optional[str] = None
+
 
 class HostZoneCandidateListResponse(BaseModel):
     source_mandal_id: str
     total_candidates: int
     candidates: List[HostZoneCandidateItem]
     governance_disclaimer: str
+
+    # Contextual Origin & AP Logic Metadata
+    source_mandal_name: Optional[str] = None
+    source_district_id: Optional[str] = None
+    source_district_name: Optional[str] = None
+    source_hazard_exposure: Optional[float] = None
+    source_capacity_condition: Optional[str] = None
+    source_population: Optional[int] = None
+    recommended_candidates: Optional[List[HostZoneCandidateItem]] = None
+    rejected_candidates: Optional[List[HostZoneCandidateItem]] = None
+    soft_preference_notice: Optional[str] = None
