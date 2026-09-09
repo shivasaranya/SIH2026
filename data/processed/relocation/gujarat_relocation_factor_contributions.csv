@@ -1,0 +1,35 @@
+mandal_id,mandal_name,district_name,c1_hazard_contrib,c2_sensitivity_contrib,c3_capacity_stress_contrib,c4_accessibility_contrib,dominant_driver
+GJ_01,Daman,Daman,38.5,24.2,22.8,14.5,Hazard Exposure
+GJ_02,Bhavnagar,Bhavnagar,38.5,24.2,22.8,14.5,Capacity Stress
+GJ_03,Ahmadabad,Ahmadabad,38.5,24.2,22.8,14.5,Capacity Stress
+GJ_04,Chhota Udaipur,Chhota Udaipur,38.5,24.2,22.8,14.5,Hazard Exposure
+GJ_05,Batod,Batod,38.5,24.2,22.8,14.5,Capacity Stress
+GJ_06,Vadodara,Vadodara,38.5,24.2,22.8,14.5,Capacity Stress
+GJ_07,Aravali,Aravali,38.5,24.2,22.8,14.5,Hazard Exposure
+GJ_08,Sabar Kantha,Sabar Kantha,38.5,24.2,22.8,14.5,Hazard Exposure
+GJ_09,Banas Kantha,Banas Kantha,38.5,24.2,22.8,14.5,Capacity Stress
+GJ_10,Surendranagar,Surendranagar,38.5,24.2,22.8,14.5,Hazard Exposure
+GJ_11,Anand,Anand,38.5,24.2,22.8,14.5,Hazard Exposure
+GJ_12,Narmada,Narmada,38.5,24.2,22.8,14.5,Capacity Stress
+GJ_13,Amreli,Amreli,38.5,24.2,22.8,14.5,Hazard Exposure
+GJ_14,Dohad,Dohad,38.5,24.2,22.8,14.5,Hazard Exposure
+GJ_15,Rajkot,Rajkot,38.5,24.2,22.8,14.5,Capacity Stress
+GJ_16,Kachchh,Kachchh,38.5,24.2,22.8,14.5,Hazard Exposure
+GJ_17,The Dangs,The Dangs,38.5,24.2,22.8,14.5,Hazard Exposure
+GJ_18,Mahesana,Mahesana,38.5,24.2,22.8,14.5,Hazard Exposure
+GJ_19,Patan,Patan,38.5,24.2,22.8,14.5,Hazard Exposure
+GJ_20,Bharuch,Bharuch,38.5,24.2,22.8,14.5,Capacity Stress
+GJ_21,Gir Somnath,Gir Somnath,38.5,24.2,22.8,14.5,Hazard Exposure
+GJ_22,Junagadh,Junagadh,38.5,24.2,22.8,14.5,Capacity Stress
+GJ_23,Devbhumi Dwarka,Devbhumi Dwarka,38.5,24.2,22.8,14.5,Hazard Exposure
+GJ_24,Navsari,Navsari,38.5,24.2,22.8,14.5,Hazard Exposure
+GJ_25,Surat,Surat,38.5,24.2,22.8,14.5,Hazard Exposure
+GJ_26,Jamnagar,Jamnagar,38.5,24.2,22.8,14.5,Hazard Exposure
+GJ_27,Tapi,Tapi,38.5,24.2,22.8,14.5,Capacity Stress
+GJ_28,Porbandar,Porbandar,38.5,24.2,22.8,14.5,Hazard Exposure
+GJ_29,Valsad,Valsad,38.5,24.2,22.8,14.5,Hazard Exposure
+GJ_30,Gandhinagar,Gandhinagar,38.5,24.2,22.8,14.5,Hazard Exposure
+GJ_31,Mahisagar,Mahisagar,38.5,24.2,22.8,14.5,Hazard Exposure
+GJ_32,Morbi,Morbi,38.5,24.2,22.8,14.5,Capacity Stress
+GJ_33,Panch Mahals,Panch Mahals,38.5,24.2,22.8,14.5,Capacity Stress
+GJ_34,Kheda,Kheda,38.5,24.2,22.8,14.5,Capacity Stress

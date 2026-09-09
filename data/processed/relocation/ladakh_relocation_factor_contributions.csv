@@ -1,0 +1,21 @@
+mandal_id,mandal_name,current_district_id,current_district_name,c1_hazard_exposure,c2_demographic_sensitivity,c3_capacity_stress,c4_accessibility_constraint
+LA_U_008,Srinagar,LA_12,Srinagar,0.391,0.733,0.474,0.21
+LA_U_011,Punch,LA_10,Punch,0.402,0.657,0.505,0.13
+LA_U_016,Kathua,LA_06,Kathua,0.373,0.682,0.32,0.4
+LA_U_019,Udhampur,LA_13,Udhampur,0.38,0.679,0.281,0.44
+LA_U_013,Badgam,LA_02,Badgam,0.266,0.749,0.324,0.48
+LA_U_018,Rajauri,LA_11,Rajauri,0.283,0.702,0.419,0.39
+LA_U_005,Baramula,LA_03,Baramula,0.429,0.434,0.52,0.51
+LA_U_006,Kupwara,LA_07,Kupwara,0.382,0.614,0.188,0.4
+LA_U_010,Doda,LA_04,Doda,0.442,0.517,0.392,0.17
+LA_U_014,Gilghit,LA_05,Gilghit,0.334,0.691,0.129,0.38
+LA_U_004,Gilghit,LA_05,Gilghit,0.263,0.638,0.372,0.47
+LA_U_020,,LA_01,,0.401,0.489,0.318,0.52
+LA_U_007,,LA_01,,0.433,0.405,0.197,0.54
+LA_U_012,Pulwama,LA_09,Pulwama,0.326,0.611,0.157,0.12
+LA_U_017,Gilghit,LA_05,Gilghit,0.385,0.414,0.152,0.38
+LA_U_001,Gilghit,LA_05,Gilghit,0.328,0.423,0.283,0.22
+LA_U_003,Gilghit,LA_05,Gilghit,0.243,0.438,0.259,0.2
+LA_U_015,Leh,LA_08,Leh (Ladakh),0.244,0.381,0.306,0.26
+LA_U_002,Gilghit,LA_05,Gilghit,0.203,0.411,0.29,0.26
+LA_U_009,Anantnag,LA_01,Anantnag,0.237,0.45,0.122,0.13

@@ -1,0 +1,37 @@
+mandal_id,mandal_name,district_name,c1_hazard_contrib,c2_sensitivity_contrib,c3_capacity_stress_contrib,c4_accessibility_contrib,dominant_driver
+MH_01,Washim,Washim,38.5,24.2,22.8,14.5,Capacity Stress
+MH_02,Ahmadnagar,Ahmadnagar,38.5,24.2,22.8,14.5,Capacity Stress
+MH_03,Latur,Latur,38.5,24.2,22.8,14.5,Hazard Exposure
+MH_04,Solapur,Solapur,38.5,24.2,22.8,14.5,Capacity Stress
+MH_05,Nashik,Nashik,38.5,24.2,22.8,14.5,Hazard Exposure
+MH_06,Osmanabad,Osmanabad,38.5,24.2,22.8,14.5,Hazard Exposure
+MH_07,Sindhudurg,Sindhudurg,38.5,24.2,22.8,14.5,Capacity Stress
+MH_08,Kolhapur,Kolhapur,38.5,24.2,22.8,14.5,Capacity Stress
+MH_09,Chandrapur,Chandrapur,38.5,24.2,22.8,14.5,Hazard Exposure
+MH_10,Akola,Akola,38.5,24.2,22.8,14.5,Capacity Stress
+MH_11,Parbhani,Parbhani,38.5,24.2,22.8,14.5,Capacity Stress
+MH_12,Yavatmal,Yavatmal,38.5,24.2,22.8,14.5,Hazard Exposure
+MH_13,Nanded,Nanded,38.5,24.2,22.8,14.5,Hazard Exposure
+MH_14,Dhule,Dhule,38.5,24.2,22.8,14.5,Hazard Exposure
+MH_15,Satara,Satara,38.5,24.2,22.8,14.5,Capacity Stress
+MH_16,Sangli,Sangli,38.5,24.2,22.8,14.5,Hazard Exposure
+MH_17,Hingoli,Hingoli,38.5,24.2,22.8,14.5,Capacity Stress
+MH_18,Pune,Pune,38.5,24.2,22.8,14.5,Capacity Stress
+MH_19,Gondiya,Gondiya,38.5,24.2,22.8,14.5,Hazard Exposure
+MH_20,Amravati,Amravati,38.5,24.2,22.8,14.5,Hazard Exposure
+MH_21,Nandurbar,Nandurbar,38.5,24.2,22.8,14.5,Capacity Stress
+MH_22,Ratnagiri,Ratnagiri,38.5,24.2,22.8,14.5,Capacity Stress
+MH_23,Wardha,Wardha,38.5,24.2,22.8,14.5,Capacity Stress
+MH_24,Aurangabad,Aurangabad,38.5,24.2,22.8,14.5,Capacity Stress
+MH_25,Buldana,Buldana,38.5,24.2,22.8,14.5,Capacity Stress
+MH_26,Gadchiroli,Gadchiroli,38.5,24.2,22.8,14.5,Capacity Stress
+MH_27,Jalgaon,Jalgaon,38.5,24.2,22.8,14.5,Hazard Exposure
+MH_28,Raigarh,Raigarh,38.5,24.2,22.8,14.5,Capacity Stress
+MH_29,Bhandara,Bhandara,38.5,24.2,22.8,14.5,Hazard Exposure
+MH_30,Bid,Bid,38.5,24.2,22.8,14.5,Capacity Stress
+MH_31,Jalna,Jalna,38.5,24.2,22.8,14.5,Capacity Stress
+MH_32,Thane,Thane,38.5,24.2,22.8,14.5,Capacity Stress
+MH_33,Palghar,Palghar,38.5,24.2,22.8,14.5,Capacity Stress
+MH_34,Mumbai,Mumbai,38.5,24.2,22.8,14.5,Capacity Stress
+MH_35,Mumbai Suburban,Mumbai Suburban,38.5,24.2,22.8,14.5,Capacity Stress
+MH_36,Nagpur,Nagpur,38.5,24.2,22.8,14.5,Capacity Stress

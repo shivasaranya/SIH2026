@@ -15,49 +15,28 @@ import { useActiveState } from '../context/StateContext';
 
 export const DashboardPage: React.FC<DashboardPageProps> = ({ onNavigateToGIS }) => {
   const { currentState } = useActiveState();
-  const isRJ = currentState.id === 'rajasthan';
-  const isTG = currentState.id === 'telangana';
-  const isTR = currentState.id === 'tripura';
+  const isJK = currentState.id === 'jammu_kashmir';
   const isTN = currentState.id === 'tamil_nadu';
-
-  const defaultRanked = currentState.rankedCount || (isRJ ? 198 : (isTG ? 109 : (isTR ? 26 : (isTN ? 302 : 680))));
-  const defaultInsufficient = (isRJ || isTG || isTR || isTN) ? 0 : 16;
-  const defaultCandidateHosts = currentState.hostCandidateCount || (isRJ ? 34 : (isTG ? 18 : (isTR ? 78 : (isTN ? 38 : 51))));
-  const defaultVH = isRJ ? 30 : (isTG ? 16 : (isTR ? 3 : (isTN ? 30 : 34)));
-  const defaultH = isRJ ? 40 : (isTG ? 22 : (isTR ? 5 : (isTN ? 60 : 136)));
-  const defaultM = isRJ ? 69 : (isTG ? 38 : (isTR ? 10 : (isTN ? 121 : 272)));
-  const defaultL = isRJ ? 59 : (isTG ? 33 : (isTR ? 8 : (isTN ? 91 : 238)));
+  const isMP = currentState.id === 'madhya_pradesh';
+  const isMZ = currentState.id === 'mizoram';
+  const isHP = currentState.id === 'himachal_pradesh';
 
   const [counts, setCounts] = useState({
     districts: currentState.districtCount,
     mandals: currentState.adminUnitCount,
-    ranked: defaultRanked,
-    insufficient: defaultInsufficient,
-    candidateHosts: defaultCandidateHosts,
-    veryHigh: defaultVH,
-    high: defaultH,
-    moderate: defaultM,
-    low: defaultL
+    ranked: isMP ? 422 : isJK ? 197 : isMZ ? 26 : isHP ? 172 : isTN ? 302 : 680,
+    insufficient: (isMP || isJK || isTN || isMZ || isHP) ? 0 : 16,
+    candidateHosts: isMP ? 80 : isJK ? 8 : isMZ ? 5 : isHP ? 15 : isTN ? 41 : 51,
+    veryHigh: isMP ? 63 : isJK ? 20 : isMZ ? 2 : isHP ? 46 : isTN ? 30 : 34,
+    high: isMP ? 85 : isJK ? 39 : isMZ ? 5 : isHP ? 80 : isTN ? 60 : 136,
+    moderate: isMP ? 147 : isJK ? 79 : isMZ ? 11 : isHP ? 46 : isTN ? 121 : 272,
+    low: isMP ? 127 : isJK ? 59 : isMZ ? 8 : isHP ? 0 : isTN ? 91 : 238
   });
-
-  useEffect(() => {
-    setCounts({
-      districts: currentState.districtCount,
-      mandals: currentState.adminUnitCount,
-      ranked: defaultRanked,
-      insufficient: defaultInsufficient,
-      candidateHosts: defaultCandidateHosts,
-      veryHigh: defaultVH,
-      high: defaultH,
-      moderate: defaultM,
-      low: defaultL
-    });
-  }, [currentState]);
 
   useEffect(() => {
     let isMounted = true;
 
-    fetchRelocationGeoJson()
+    fetchRelocationGeoJson(undefined, currentState.id)
       .then((geo) => {
         if (!isMounted) return;
         let vh = 0, h = 0, m = 0, l = 0, ins = 0;
@@ -85,11 +64,11 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({ onNavigateToGIS })
           mandals: geo.features.length || currentState.adminUnitCount,
           ranked: geo.features.length - ins,
           insufficient: ins,
-          candidateHosts: currentState.hostCandidateCount || defaultCandidateHosts,
-          veryHigh: vh || defaultVH,
-          high: h || defaultH,
-          moderate: m || defaultM,
-          low: l || defaultL
+          candidateHosts: isMP ? 80 : isJK ? 8 : isMZ ? 5 : isHP ? 15 : isTN ? 41 : 51,
+          veryHigh: vh || (isMP ? 63 : isJK ? 20 : isMZ ? 2 : isHP ? 46 : isTN ? 30 : 34),
+          high: h || (isMP ? 85 : isJK ? 39 : isMZ ? 5 : isHP ? 80 : isTN ? 60 : 136),
+          moderate: m || (isMP ? 147 : isJK ? 79 : isMZ ? 11 : isHP ? 46 : isTN ? 121 : 272),
+          low: l || (isMP ? 127 : isJK ? 59 : isMZ ? 8 : isHP ? 0 : isTN ? 91 : 238)
         }));
       })
       .catch((err) => {

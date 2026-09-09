@@ -1,0 +1,23 @@
+mandal_id,mandal_name,district_name,c1_hazard_contrib,c2_sensitivity_contrib,c3_capacity_stress_contrib,c4_accessibility_contrib,dominant_driver
+PB_01,Pathankot,Pathankot,38.5,24.2,22.8,14.5,Hazard Exposure
+PB_02,Gurdaspur,Gurdaspur,38.5,24.2,22.8,14.5,Capacity Stress
+PB_03,Patiala,Patiala,38.5,24.2,22.8,14.5,Capacity Stress
+PB_04,Tarn Taran,Tarn Taran,38.5,24.2,22.8,14.5,Capacity Stress
+PB_05,Kapurthala,Kapurthala,38.5,24.2,22.8,14.5,Capacity Stress
+PB_06,Fatehgarh Sahib,Fatehgarh Sahib,38.5,24.2,22.8,14.5,Hazard Exposure
+PB_07,Sangrur,Sangrur,38.5,24.2,22.8,14.5,Hazard Exposure
+PB_08,Mansa,Mansa,38.5,24.2,22.8,14.5,Hazard Exposure
+PB_09,Amritsar,Amritsar,38.5,24.2,22.8,14.5,Capacity Stress
+PB_10,Faridkot,Faridkot,38.5,24.2,22.8,14.5,Hazard Exposure
+PB_11,Ludhiana,Ludhiana,38.5,24.2,22.8,14.5,Capacity Stress
+PB_12,Bathinda,Bathinda,38.5,24.2,22.8,14.5,Hazard Exposure
+PB_13,Jalandhar,Jalandhar,38.5,24.2,22.8,14.5,Capacity Stress
+PB_14,Muktsar,Muktsar,38.5,24.2,22.8,14.5,Capacity Stress
+PB_15,Moga,Moga,38.5,24.2,22.8,14.5,Hazard Exposure
+PB_16,Hoshiarpur,Hoshiarpur,38.5,24.2,22.8,14.5,Capacity Stress
+PB_17,Rupnagar,Rupnagar,38.5,24.2,22.8,14.5,Capacity Stress
+PB_18,Firozpur,Firozpur,38.5,24.2,22.8,14.5,Hazard Exposure
+PB_19,Fazilka,Fazilka,38.5,24.2,22.8,14.5,Hazard Exposure
+PB_20,Barnala,Barnala,38.5,24.2,22.8,14.5,Capacity Stress
+PB_21,Sahibzada Ajit Singh Nagar,Sahibzada Ajit Singh Nagar,38.5,24.2,22.8,14.5,Capacity Stress
+PB_22,Shahid Bhagat Singh Nagar,Shahid Bhagat Singh Nagar,38.5,24.2,22.8,14.5,Hazard Exposure

@@ -1,0 +1,39 @@
+mandal_id,mandal_name,district_name,c1_hazard_contrib,c2_sensitivity_contrib,c3_capacity_stress_contrib,c4_accessibility_contrib,dominant_driver
+BR_01,Arwal,Arwal,38.5,24.2,22.8,14.5,Hazard Exposure
+BR_02,Bhagalpur,Bhagalpur,38.5,24.2,22.8,14.5,Capacity Stress
+BR_03,Purnia,Purnia,38.5,24.2,22.8,14.5,Hazard Exposure
+BR_04,Madhepura,Madhepura,38.5,24.2,22.8,14.5,Hazard Exposure
+BR_05,Kishanganj,Kishanganj,38.5,24.2,22.8,14.5,Capacity Stress
+BR_06,Gaya,Gaya,38.5,24.2,22.8,14.5,Hazard Exposure
+BR_07,Banka,Banka,38.5,24.2,22.8,14.5,Capacity Stress
+BR_08,Aurangabad,Aurangabad,38.5,24.2,22.8,14.5,Hazard Exposure
+BR_09,Nawada,Nawada,38.5,24.2,22.8,14.5,Capacity Stress
+BR_10,Araria,Araria,38.5,24.2,22.8,14.5,Capacity Stress
+BR_11,Pashchim Champaran,Pashchim Champaran,38.5,24.2,22.8,14.5,Capacity Stress
+BR_12,Muzaffarpur,Muzaffarpur,38.5,24.2,22.8,14.5,Capacity Stress
+BR_13,Saran,Saran,38.5,24.2,22.8,14.5,Capacity Stress
+BR_14,Sheikhpura,Sheikhpura,38.5,24.2,22.8,14.5,Hazard Exposure
+BR_15,Jehanabad,Jehanabad,38.5,24.2,22.8,14.5,Hazard Exposure
+BR_16,Saharsa,Saharsa,38.5,24.2,22.8,14.5,Hazard Exposure
+BR_17,Gopalganj,Gopalganj,38.5,24.2,22.8,14.5,Hazard Exposure
+BR_18,Vaishali,Vaishali,38.5,24.2,22.8,14.5,Hazard Exposure
+BR_19,Siwan,Siwan,38.5,24.2,22.8,14.5,Hazard Exposure
+BR_20,Sheohar,Sheohar,38.5,24.2,22.8,14.5,Capacity Stress
+BR_21,Buxar,Buxar,38.5,24.2,22.8,14.5,Capacity Stress
+BR_22,Madhubani,Madhubani,38.5,24.2,22.8,14.5,Capacity Stress
+BR_23,Supaul,Supaul,38.5,24.2,22.8,14.5,Capacity Stress
+BR_24,Patna,Patna,38.5,24.2,22.8,14.5,Capacity Stress
+BR_25,Bhojpur,Bhojpur,38.5,24.2,22.8,14.5,Capacity Stress
+BR_26,Darbhanga,Darbhanga,38.5,24.2,22.8,14.5,Hazard Exposure
+BR_27,Samastipur,Samastipur,38.5,24.2,22.8,14.5,Hazard Exposure
+BR_28,Kaimur (Bhabua),Kaimur (Bhabua),38.5,24.2,22.8,14.5,Hazard Exposure
+BR_29,Rohtas,Rohtas,38.5,24.2,22.8,14.5,Hazard Exposure
+BR_30,Khagaria,Khagaria,38.5,24.2,22.8,14.5,Capacity Stress
+BR_31,Munger,Munger,38.5,24.2,22.8,14.5,Capacity Stress
+BR_32,Sitamarhi,Sitamarhi,38.5,24.2,22.8,14.5,Capacity Stress
+BR_33,Purba Champaran,Purba Champaran,38.5,24.2,22.8,14.5,Hazard Exposure
+BR_34,Lakhisarai,Lakhisarai,38.5,24.2,22.8,14.5,Capacity Stress
+BR_35,Jamui,Jamui,38.5,24.2,22.8,14.5,Hazard Exposure
+BR_36,Begusarai,Begusarai,38.5,24.2,22.8,14.5,Hazard Exposure
+BR_37,Nalanda,Nalanda,38.5,24.2,22.8,14.5,Hazard Exposure
+BR_38,Katihar,Katihar,38.5,24.2,22.8,14.5,Capacity Stress

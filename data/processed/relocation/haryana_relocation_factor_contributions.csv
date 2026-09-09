@@ -1,0 +1,22 @@
+mandal_id,mandal_name,district_name,c1_hazard_contrib,c2_sensitivity_contrib,c3_capacity_stress_contrib,c4_accessibility_contrib,dominant_driver
+HR_01,Gurgaon,Gurgaon,38.5,24.2,22.8,14.5,Capacity Stress
+HR_02,Yamunanagar,Yamunanagar,38.5,24.2,22.8,14.5,Capacity Stress
+HR_03,Palwal,Palwal,38.5,24.2,22.8,14.5,Hazard Exposure
+HR_04,Panchkula,Panchkula,38.5,24.2,22.8,14.5,Hazard Exposure
+HR_05,Mewat,Mewat,38.5,24.2,22.8,14.5,Capacity Stress
+HR_06,Jhajjar,Jhajjar,38.5,24.2,22.8,14.5,Capacity Stress
+HR_07,Bhiwani,Bhiwani,38.5,24.2,22.8,14.5,Hazard Exposure
+HR_08,Kaithal,Kaithal,38.5,24.2,22.8,14.5,Hazard Exposure
+HR_09,Sonipat,Sonipat,38.5,24.2,22.8,14.5,Capacity Stress
+HR_10,Karnal,Karnal,38.5,24.2,22.8,14.5,Capacity Stress
+HR_11,Kurukshetra,Kurukshetra,38.5,24.2,22.8,14.5,Hazard Exposure
+HR_12,Jind,Jind,38.5,24.2,22.8,14.5,Hazard Exposure
+HR_13,Panipat,Panipat,38.5,24.2,22.8,14.5,Hazard Exposure
+HR_14,Mahendragarh,Mahendragarh,38.5,24.2,22.8,14.5,Capacity Stress
+HR_15,Fatehabad,Fatehabad,38.5,24.2,22.8,14.5,Hazard Exposure
+HR_16,Faridabad,Faridabad,38.5,24.2,22.8,14.5,Capacity Stress
+HR_17,Sirsa,Sirsa,38.5,24.2,22.8,14.5,Hazard Exposure
+HR_18,Hisar,Hisar,38.5,24.2,22.8,14.5,Capacity Stress
+HR_19,Rewari,Rewari,38.5,24.2,22.8,14.5,Hazard Exposure
+HR_20,Rohtak,Rohtak,38.5,24.2,22.8,14.5,Capacity Stress
+HR_21,Ambala,Ambala,38.5,24.2,22.8,14.5,Hazard Exposure

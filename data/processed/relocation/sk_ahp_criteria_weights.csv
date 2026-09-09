@@ -1,0 +1,5 @@
+criterion_id,criterion_name,weight,weight_percent,saaty_scale_rationale
+c1,Physical Hazard Exposure,0.4231,42.31,"Extreme Himalayan flood, GLOF, slope, wind risks dominate life safety"
+c2,Demographic Sensitivity,0.2274,22.74,High child dependency and non-worker concentration elevate evacuation sensitivity
+c3,Physical Capacity Stress,0.2274,22.74,"Shelter, hospital bed, safe land deficits directly limit emergency sheltering"
+c4,Accessibility Constraint,0.1221,12.21,Mountain single-road connectivity and landslide severance constraints

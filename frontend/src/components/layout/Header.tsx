@@ -15,12 +15,12 @@ export const Header: React.FC<HeaderProps> = ({
   onNavigateToStateSelection,
   onSelectState,
 }) => {
-  const { currentState, availableStates } = useActiveState();
   const [showStateDropdown, setShowStateDropdown] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const { currentState, availableStates } = useActiveState();
 
   const stateCode = currentState?.code || 'AP';
-  const sdmaLabel = currentState?.sdmaName || 'Disaster Management Authority';
+  const sdmaLabel = currentState?.sdmaName || `${currentState?.name || pilotState} SDMA`;
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -59,55 +59,51 @@ export const Header: React.FC<HeaderProps> = ({
           >
             <span>RAKSHA SETHU</span>
           </button>
-          <p className="text-[10px] font-medium text-slate-500 leading-none mt-0.5">
+          <div className="text-[10px] text-slate-500 font-medium tracking-tight hidden sm:block mt-0.5">
             Disaster Decision &amp; Response Platform
-          </p>
+          </div>
         </div>
 
-        {/* Breadcrumb: In India > State Switcher */}
-        <div className="hidden sm:flex items-center space-x-1.5 text-xs text-slate-500 font-medium pl-3 border-l border-slate-200 relative" ref={dropdownRef}>
-          <button
-            onClick={onNavigateToStateSelection}
-            className="hover:text-indigo-600 transition text-slate-500"
-            title="Return to State Selection"
-          >
-            In India
-          </button>
-          <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-          
+        {/* State Selector Pill */}
+        <div className="relative" ref={dropdownRef}>
           <button
             onClick={() => setShowStateDropdown(!showStateDropdown)}
-            className="flex items-center gap-1 px-2 py-0.5 rounded-md hover:bg-indigo-50 text-indigo-700 font-bold transition border border-transparent hover:border-indigo-200"
-            title="Switch Operational State"
+            className="hidden md:flex items-center space-x-1.5 bg-slate-50 border border-slate-200/90 px-2.5 py-1 rounded-md text-xs font-semibold text-slate-700 hover:bg-slate-100 transition shadow-2xs"
+            title="Switch State Jurisdiction"
           >
-            <span>{currentState?.name || pilotState}</span>
-            <ChevronDown className="w-3 h-3 text-indigo-500" />
+            <span className="text-slate-400 font-normal">In India</span>
+            <ChevronRight className="w-3 h-3 text-slate-400" />
+            <span className="text-indigo-700 font-bold">{currentState?.name || pilotState}</span>
+            <ChevronDown className="w-3 h-3 text-slate-500" />
           </button>
 
-          {/* Quick State Dropdown */}
+          {/* Dropdown Menu */}
           {showStateDropdown && (
-            <div className="absolute top-full left-12 mt-1 w-56 bg-white rounded-xl shadow-xl border border-slate-200 py-1.5 z-50 animate-in fade-in zoom-in-95">
+            <div className="absolute top-full left-12 mt-1 w-64 bg-white rounded-xl shadow-xl border border-slate-200 py-1.5 z-50 animate-in fade-in zoom-in-95">
               <div className="px-3 py-1 text-[10px] font-semibold text-slate-400 uppercase tracking-wider">
                 Select Active State
               </div>
 
-              {availableStates.map((st) => (
-                <button
-                  key={st.id}
-                  onClick={() => handleStateChange(st.name)}
-                  className={`w-full text-left px-3 py-1.5 text-xs flex items-center justify-between hover:bg-slate-50 transition ${
-                    currentState.id === st.id ? 'text-indigo-600 font-bold bg-indigo-50/50' : 'text-slate-700'
-                  }`}
-                >
-                  <div>
-                    <div className="font-semibold">{st.name}</div>
-                    <div className="text-[10px] text-slate-400">
-                      {st.districtCount} Districts &bull; {st.adminUnitCount} {st.adminUnitPlural}
-                    </div>
-                  </div>
-                  {currentState.id === st.id && <Check className="w-3.5 h-3.5 text-indigo-600" />}
-                </button>
-              ))}
+              <div className="max-h-60 overflow-y-auto pr-1">
+                {availableStates.slice(0, 12).map((st) => {
+                  const isSelected = currentState?.id === st.id;
+                  return (
+                    <button
+                      key={st.id}
+                      onClick={() => handleStateChange(st.name)}
+                      className={`w-full text-left px-3 py-1.5 text-xs flex items-center justify-between hover:bg-slate-50 transition ${
+                        isSelected ? 'text-indigo-600 font-bold bg-indigo-50/50' : 'text-slate-700'
+                      }`}
+                    >
+                      <div>
+                        <div className="font-semibold">{st.name}</div>
+                        <div className="text-[10px] text-slate-400">{st.districtCount} Districts &bull; {st.adminUnitCount} {st.adminUnitPlural}</div>
+                      </div>
+                      {isSelected && <Check className="w-3.5 h-3.5 text-indigo-600" />}
+                    </button>
+                  );
+                })}
+              </div>
 
               <div className="border-t border-slate-100 mt-1 pt-1">
                 <button

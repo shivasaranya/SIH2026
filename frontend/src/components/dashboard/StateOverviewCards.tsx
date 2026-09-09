@@ -13,13 +13,13 @@ export const StateOverviewCards: React.FC<StateOverviewCardsProps> = ({ summary,
 
   const unitLabel = `${currentState.adminUnitPlural} Assessed`;
   const unitCount = currentState.adminUnitCount.toString();
-  const rankedUnits = (currentState.rankedCount || 680).toString();
-  const hostCount = (currentState.hostCandidateCount || 51).toString();
+  const rankedUnits = currentState.adminUnitCount.toString();
+  const hostCount = currentState.candidateHostsCount.toString();
 
   const cards = [
     {
       label: 'Districts Evaluated',
-      value: summary ? `${summary.total_districts}` : `${currentState.districtCount}`,
+      value: (summary && summary.state_code === currentState.code) ? `${summary.total_districts}` : `${currentState.districtCount}`,
       sub: `All ${currentState.districtCount} Admin Districts`,
       icon: Building2,
       color: 'text-sky-400',

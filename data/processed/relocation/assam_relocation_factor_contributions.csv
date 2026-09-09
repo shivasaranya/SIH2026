@@ -1,0 +1,34 @@
+mandal_id,mandal_name,district_name,c1_hazard_contrib,c2_sensitivity_contrib,c3_capacity_stress_contrib,c4_accessibility_contrib,dominant_driver
+AS_01,Goalpara,Goalpara,38.5,24.2,22.8,14.5,Hazard Exposure
+AS_02,Nalbari,Nalbari,38.5,24.2,22.8,14.5,Hazard Exposure
+AS_03,Dhubri,Dhubri,38.5,24.2,22.8,14.5,Hazard Exposure
+AS_04,Sivasagar,Sivasagar,38.5,24.2,22.8,14.5,Hazard Exposure
+AS_05,Karimganj,Karimganj,38.5,24.2,22.8,14.5,Capacity Stress
+AS_06,Tinsukia,Tinsukia,38.5,24.2,22.8,14.5,Capacity Stress
+AS_07,Hailakandi,Hailakandi,38.5,24.2,22.8,14.5,Capacity Stress
+AS_08,Chirang,Chirang,38.5,24.2,22.8,14.5,Hazard Exposure
+AS_09,Dhemaji,Dhemaji,38.5,24.2,22.8,14.5,Capacity Stress
+AS_10,Morigaon,Morigaon,38.5,24.2,22.8,14.5,Hazard Exposure
+AS_11,Karbi Anglong East,Karbi Anglong East,38.5,24.2,22.8,14.5,Capacity Stress
+AS_12,Lakhimpur,Lakhimpur,38.5,24.2,22.8,14.5,Hazard Exposure
+AS_13,Bongaigaon,Bongaigaon,38.5,24.2,22.8,14.5,Capacity Stress
+AS_14,Baksa,Baksa,38.5,24.2,22.8,14.5,Hazard Exposure
+AS_15,Nagaon,Nagaon,38.5,24.2,22.8,14.5,Capacity Stress
+AS_16,Cachar,Cachar,38.5,24.2,22.8,14.5,Hazard Exposure
+AS_17,Darrang,Darrang,38.5,24.2,22.8,14.5,Capacity Stress
+AS_18,Kamrup,Kamrup,38.5,24.2,22.8,14.5,Capacity Stress
+AS_19,Dibrugarh,Dibrugarh,38.5,24.2,22.8,14.5,Capacity Stress
+AS_20,Barpeta,Barpeta,38.5,24.2,22.8,14.5,Capacity Stress
+AS_21,Sonitpur,Sonitpur,38.5,24.2,22.8,14.5,Hazard Exposure
+AS_22,Udalguri,Udalguri,38.5,24.2,22.8,14.5,Capacity Stress
+AS_23,Golaghat,Golaghat,38.5,24.2,22.8,14.5,Hazard Exposure
+AS_24,Kamrup Metropolitan,Kamrup Metropolitan,38.5,24.2,22.8,14.5,Capacity Stress
+AS_25,Dima Hasao,Dima Hasao,38.5,24.2,22.8,14.5,Hazard Exposure
+AS_26,Kokrajhar,Kokrajhar,38.5,24.2,22.8,14.5,Hazard Exposure
+AS_27,Jorhat,Jorhat,38.5,24.2,22.8,14.5,Hazard Exposure
+AS_28,Charaideo,Charaideo,38.5,24.2,22.8,14.5,Hazard Exposure
+AS_29,Majuli,Majuli,38.5,24.2,22.8,14.5,Hazard Exposure
+AS_30,Biswanath,Biswanath,38.5,24.2,22.8,14.5,Capacity Stress
+AS_31,Hojai,Hojai,38.5,24.2,22.8,14.5,Capacity Stress
+AS_32,Karbi Anglong West,Karbi Anglong West,38.5,24.2,22.8,14.5,Hazard Exposure
+AS_33,South Salmara-Mankachar,South Salmara-Mankachar,38.5,24.2,22.8,14.5,Capacity Stress

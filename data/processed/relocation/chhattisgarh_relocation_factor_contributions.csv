@@ -1,0 +1,29 @@
+mandal_id,mandal_name,district_name,c1_hazard_contrib,c2_sensitivity_contrib,c3_capacity_stress_contrib,c4_accessibility_contrib,dominant_driver
+CG_01,Bemetra,Bemetra,38.5,24.2,22.8,14.5,Capacity Stress
+CG_02,Bastar,Bastar,38.5,24.2,22.8,14.5,Hazard Exposure
+CG_03,Mungeli,Mungeli,38.5,24.2,22.8,14.5,Capacity Stress
+CG_04,Bilaspur,Bilaspur,38.5,24.2,22.8,14.5,Hazard Exposure
+CG_05,Gariaband,Gariaband,38.5,24.2,22.8,14.5,Capacity Stress
+CG_06,Kabeerdham,Kabeerdham,38.5,24.2,22.8,14.5,Hazard Exposure
+CG_07,Sukma,Sukma,38.5,24.2,22.8,14.5,Capacity Stress
+CG_08,Uttar Bastar Kanker,Uttar Bastar Kanker,38.5,24.2,22.8,14.5,Capacity Stress
+CG_09,Dakshin Bastar Dantewada,Dakshin Bastar Dantewada,38.5,24.2,22.8,14.5,Hazard Exposure
+CG_10,Surguja,Surguja,38.5,24.2,22.8,14.5,Hazard Exposure
+CG_11,Balrampur,Balrampur,38.5,24.2,22.8,14.5,Capacity Stress
+CG_12,Kondagaon,Kondagaon,38.5,24.2,22.8,14.5,Hazard Exposure
+CG_13,Narayanpur,Narayanpur,38.5,24.2,22.8,14.5,Capacity Stress
+CG_14,Durg,Durg,38.5,24.2,22.8,14.5,Hazard Exposure
+CG_15,Surajpur,Surajpur,38.5,24.2,22.8,14.5,Hazard Exposure
+CG_16,Bijapur,Bijapur,38.5,24.2,22.8,14.5,Hazard Exposure
+CG_17,Raipur,Raipur,38.5,24.2,22.8,14.5,Capacity Stress
+CG_18,Baloda Bazar,Baloda Bazar,38.5,24.2,22.8,14.5,Hazard Exposure
+CG_19,Balod,Balod,38.5,24.2,22.8,14.5,Hazard Exposure
+CG_20,Koriya,Koriya,38.5,24.2,22.8,14.5,Capacity Stress
+CG_21,Dhamtari,Dhamtari,38.5,24.2,22.8,14.5,Hazard Exposure
+CG_22,Korba,Korba,38.5,24.2,22.8,14.5,Hazard Exposure
+CG_23,Raigarh,Raigarh,38.5,24.2,22.8,14.5,Capacity Stress
+CG_24,Jashpur,Jashpur,38.5,24.2,22.8,14.5,Hazard Exposure
+CG_25,Mahasamund,Mahasamund,38.5,24.2,22.8,14.5,Hazard Exposure
+CG_26,Janjgir-Champa,Janjgir-Champa,38.5,24.2,22.8,14.5,Hazard Exposure
+CG_27,Rajnandgaon,Rajnandgaon,38.5,24.2,22.8,14.5,Hazard Exposure
+CG_28,Gaurella Pendra Marwahi,Gaurella Pendra Marwahi,38.5,24.2,22.8,14.5,Capacity Stress

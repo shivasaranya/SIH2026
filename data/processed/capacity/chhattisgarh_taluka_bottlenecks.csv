@@ -1,0 +1,59 @@
+mandal_id,taluka_id,mandal_name,taluka_name,current_district_id,current_district_name,population_total,capacity_condition,primary_bottleneck,secondary_bottleneck,bottleneck_confidence,available_component_count,capacity_data_completeness,shelter_adequacy,health_adequacy,water_sanitation_adequacy,road_accessibility_score,safe_area_adequacy
+CT_TEH_01,CT_TEH_01,Balod,Balod,balod,Balod,826165,Adequate,Shelter Capacity,Health Bed Capacity,HIGH,5,1.0,0.3,0.7,0.926,0.953,1.0
+CT_TEH_02,CT_TEH_02,Baloda Bazar,Baloda Bazar,baloda_bazar,Baloda Bazar,415320,Adequate,Shelter Capacity,Health Bed Capacity,HIGH,5,1.0,0.306,0.7,0.917,0.967,1.0
+CT_TEH_03,CT_TEH_03,Bhatapara,Bhatapara,baloda_bazar,Baloda Bazar,312450,Adequate,Shelter Capacity,Health Bed Capacity,HIGH,5,1.0,0.307,0.7,0.923,0.967,1.0
+CT_TEH_04,CT_TEH_04,Simga,Simga,baloda_bazar,Baloda Bazar,298740,Adequate,Shelter Capacity,Health Bed Capacity,HIGH,5,1.0,0.335,0.7,0.916,0.967,1.0
+CT_TEH_05,CT_TEH_05,Kasdol,Kasdol,baloda_bazar,Baloda Bazar,279180,Adequate,Shelter Capacity,Health Bed Capacity,HIGH,5,1.0,0.388,0.7,0.912,0.96,0.996
+CT_TEH_06,CT_TEH_06,Pal,Pal,balrampur,Balrampur,372150,Constrained,Shelter Capacity,Health Bed Capacity,HIGH,5,1.0,0.375,0.7,0.912,0.767,0.837
+CT_TEH_07,CT_TEH_07,Samari,Samari,balrampur,Balrampur,358420,Constrained,Shelter Capacity,Health Bed Capacity,HIGH,5,1.0,0.378,0.7,0.913,0.753,0.826
+CT_TEH_08,CT_TEH_08,Jagdalpur,Jagdalpur,bastar,Bastar,834375,Adequate,Shelter Capacity,Health Bed Capacity,HIGH,5,1.0,0.427,0.7,0.917,0.873,0.961
+CT_TEH_09,CT_TEH_09,Bemetara,Bemetara,bemetara,Bemetara,791042,Adequate,Shelter Capacity,Health Bed Capacity,HIGH,5,1.0,0.361,0.7,0.922,0.967,1.0
+CT_TEH_10,CT_TEH_10,Bijapur,Bijapur,bijapur,Bijapur,255230,Adequate,Health Bed Capacity,Road Accessibility,HIGH,5,1.0,1.0,0.7,0.919,0.813,0.93
+CT_TEH_11,CT_TEH_11,Bilaspur,Bilaspur,bilaspur,Bilaspur,924510,Adequate,Shelter Capacity,Health Bed Capacity,HIGH,5,1.0,0.196,0.7,0.914,0.96,1.0
+CT_TEH_12,CT_TEH_12,Kota,Kota,bilaspur,Bilaspur,368420,Adequate,Shelter Capacity,Health Bed Capacity,HIGH,5,1.0,0.339,0.7,0.917,0.9,0.983
+CT_TEH_13,CT_TEH_13,Takhatpur,Takhatpur,bilaspur,Bilaspur,331890,Adequate,Shelter Capacity,Health Bed Capacity,HIGH,5,1.0,0.314,0.7,0.921,0.967,1.0
+CT_TEH_14,CT_TEH_14,Dantewada,Dantewada,dantewada,Dantewada,283440,Adequate,Shelter Capacity,Health Bed Capacity,HIGH,5,1.0,0.485,0.7,0.913,0.72,0.806
+CT_TEH_15,CT_TEH_15,Dhamtari,Dhamtari,dhamtari,Dhamtari,799777,Adequate,Shelter Capacity,Health Bed Capacity,HIGH,5,1.0,0.445,0.7,0.914,0.94,0.99
+CT_TEH_16,CT_TEH_16,Durg,Durg,durg,Durg,1721948,Adequate,Shelter Capacity,Health Bed Capacity,HIGH,5,1.0,0.131,0.7,0.917,0.967,1.0
+CT_TEH_17,CT_TEH_17,Rajim,Rajim,gariaband,Gariaband,312450,Adequate,Shelter Capacity,Health Bed Capacity,HIGH,5,1.0,0.413,0.7,0.916,0.927,0.999
+CT_TEH_18,CT_TEH_18,Bindranawagarh,Bindranawagarh,gariaband,Gariaband,285320,Adequate,Shelter Capacity,Health Bed Capacity,HIGH,5,1.0,0.445,0.7,0.917,0.86,0.949
+CT_TEH_19,CT_TEH_19,Pendraroad,Pendraroad,gaurela_pendra_marwahi,Gaurela-Pendra-Marwahi,336420,Adequate,Shelter Capacity,Health Bed Capacity,HIGH,5,1.0,0.372,0.7,0.922,0.84,0.976
+CT_TEH_20,CT_TEH_20,Janjgir,Janjgir,janjgir_champa,Janjgir-Champa,524180,Adequate,Shelter Capacity,Health Bed Capacity,HIGH,5,1.0,0.29,0.7,0.902,0.967,0.91
+CT_TEH_21,CT_TEH_21,Champa,Champa,janjgir_champa,Janjgir-Champa,437640,Adequate,Shelter Capacity,Health Bed Capacity,HIGH,5,1.0,0.29,0.7,0.904,0.967,0.926
+CT_TEH_22,CT_TEH_22,Jashpur,Jashpur,jashpur,Jashpur,321850,Adequate,Shelter Capacity,Health Bed Capacity,HIGH,5,1.0,0.44,0.7,0.914,0.787,0.867
+CT_TEH_23,CT_TEH_23,Bagicha,Bagicha,jashpur,Jashpur,284190,Adequate,Shelter Capacity,Health Bed Capacity,HIGH,5,1.0,0.44,0.7,0.914,0.767,0.856
+CT_TEH_24,CT_TEH_24,Pathalgaon,Pathalgaon,jashpur,Jashpur,249620,Adequate,Shelter Capacity,Health Bed Capacity,HIGH,5,1.0,0.459,0.7,0.917,0.867,0.951
+CT_TEH_25,CT_TEH_25,Kawardha,Kawardha,kabirdham,Kabirdham,472180,Adequate,Shelter Capacity,Health Bed Capacity,HIGH,5,1.0,0.507,0.7,0.922,0.853,0.983
+CT_TEH_26,CT_TEH_26,Pandariya,Pandariya,kabirdham,Kabirdham,350170,Adequate,Shelter Capacity,Health Bed Capacity,HIGH,5,1.0,0.535,0.7,0.922,0.84,0.97
+CT_TEH_27,CT_TEH_27,Kanker,Kanker,kanker,Kanker,421850,Adequate,Shelter Capacity,Health Bed Capacity,HIGH,5,1.0,0.583,0.7,0.92,0.887,0.996
+CT_TEH_28,CT_TEH_28,Bhanupratappur,Bhanupratappur,kanker,Kanker,327090,Adequate,Shelter Capacity,Health Bed Capacity,HIGH,5,1.0,0.586,0.7,0.921,0.827,0.95
+CT_TEH_29,CT_TEH_29,Khairagarh,Khairagarh,khairagarh_chhuikhadan_gandai,Khairagarh-Chhuikhadan-Gandai,212450,Adequate,Shelter Capacity,Health Bed Capacity,HIGH,5,1.0,0.579,0.7,0.923,0.927,1.0
+CT_TEH_30,CT_TEH_30,Chhuikhadan,Chhuikhadan,khairagarh_chhuikhadan_gandai,Khairagarh-Chhuikhadan-Gandai,184560,Adequate,Shelter Capacity,Health Bed Capacity,HIGH,5,1.0,0.587,0.7,0.923,0.9,1.0
+CT_TEH_31,CT_TEH_31,Kondagaon,Kondagaon,kondagaon,Kondagaon,578326,Adequate,Shelter Capacity,Health Bed Capacity,HIGH,5,1.0,0.544,0.7,0.918,0.867,0.964
+CT_TEH_32,CT_TEH_32,Korba,Korba,korba,Korba,612840,Adequate,Shelter Capacity,Health Bed Capacity,HIGH,5,1.0,0.218,0.7,0.903,0.913,0.881
+CT_TEH_33,CT_TEH_33,Katghora,Katghora,korba,Korba,395120,Adequate,Shelter Capacity,Health Bed Capacity,HIGH,5,1.0,0.264,0.7,0.905,0.887,0.873
+CT_TEH_34,CT_TEH_34,Kartala,Kartala,korba,Korba,198650,Adequate,Shelter Capacity,Health Bed Capacity,HIGH,5,1.0,0.409,0.7,0.909,0.913,0.924
+CT_TEH_35,CT_TEH_35,Baikunthpur,Baikunthpur,koriya,Koriya,312840,Adequate,Shelter Capacity,Health Bed Capacity,HIGH,5,1.0,0.446,0.7,0.914,0.813,0.886
+CT_TEH_36,CT_TEH_36,Mahasamund,Mahasamund,mahasamund,Mahasamund,598420,Adequate,Shelter Capacity,Health Bed Capacity,HIGH,5,1.0,0.515,0.7,0.907,0.947,0.934
+CT_TEH_37,CT_TEH_37,Saraipali,Saraipali,mahasamund,Mahasamund,434337,Adequate,Shelter Capacity,Health Bed Capacity,HIGH,5,1.0,0.556,0.7,0.909,0.96,0.967
+CT_TEH_38,CT_TEH_38,Manendragarh,Manendragarh,manendragarh_chirmiri_bharatpur,Manendragarh-Chirmiri-Bharatpur,245180,Adequate,Shelter Capacity,Health Bed Capacity,HIGH,5,1.0,0.425,0.7,0.914,0.793,0.871
+CT_TEH_39,CT_TEH_39,Bharatpur,Bharatpur,manendragarh_chirmiri_bharatpur,Manendragarh-Chirmiri-Bharatpur,138640,Adequate,Shelter Capacity,Health Bed Capacity,HIGH,5,1.0,0.676,0.7,0.914,0.753,0.84
+CT_TEH_40,CT_TEH_40,Mohla-Manpur,Mohla-Manpur,mohla_manpur_ambagarh_chowki,Mohla-Manpur-Ambagarh Chowki,283940,Adequate,Health Bed Capacity,Road Accessibility,HIGH,5,1.0,1.0,0.7,0.917,0.813,0.914
+CT_TEH_41,CT_TEH_41,Mungeli,Mungeli,mungeli,Mungeli,701707,Adequate,Shelter Capacity,Health Bed Capacity,HIGH,5,1.0,0.54,0.7,0.918,0.96,1.0
+CT_TEH_42,CT_TEH_42,Narayanpur,Narayanpur,narayanpur,Narayanpur,139820,Adequate,Health Bed Capacity,Road Accessibility,HIGH,5,1.0,1.0,0.7,0.917,0.733,0.849
+CT_TEH_43,CT_TEH_43,Raigarh,Raigarh,raigarh,Raigarh,612450,Adequate,Shelter Capacity,Health Bed Capacity,HIGH,5,1.0,0.296,0.7,0.902,0.94,0.89
+CT_TEH_44,CT_TEH_44,Kharsia,Kharsia,raigarh,Raigarh,248190,Adequate,Shelter Capacity,Health Bed Capacity,HIGH,5,1.0,0.42,0.7,0.904,0.927,0.897
+CT_TEH_45,CT_TEH_45,Gharghoda,Gharghoda,raigarh,Raigarh,218450,Adequate,Shelter Capacity,Health Bed Capacity,HIGH,5,1.0,0.458,0.7,0.907,0.9,0.896
+CT_TEH_46,CT_TEH_46,Udaipur (Dharamjaigarh),Udaipur (Dharamjaigarh),raigarh,Raigarh,234820,Adequate,Shelter Capacity,Health Bed Capacity,HIGH,5,1.0,0.488,0.7,0.907,0.86,0.86
+CT_TEH_47,CT_TEH_47,Raipur,Raipur,raipur,Raipur,2160876,Adequate,Shelter Capacity,Health Bed Capacity,HIGH,5,1.0,0.114,0.7,0.914,0.967,1.0
+CT_TEH_48,CT_TEH_48,Rajnandgaon,Rajnandgaon,rajnandgaon,Rajnandgaon,584920,Adequate,Shelter Capacity,Health Bed Capacity,HIGH,5,1.0,0.378,0.7,0.921,0.94,1.0
+CT_TEH_49,CT_TEH_49,Dongargarh,Dongargarh,rajnandgaon,Rajnandgaon,305410,Adequate,Shelter Capacity,Health Bed Capacity,HIGH,5,1.0,0.402,0.7,0.922,0.913,1.0
+CT_TEH_50,CT_TEH_50,Sakti,Sakti,sakti,Sakti,653150,Adequate,Shelter Capacity,Health Bed Capacity,HIGH,5,1.0,0.332,0.7,0.904,0.967,0.93
+CT_TEH_51,CT_TEH_51,Sarangarh,Sarangarh,sarangarh_bilaigarh,Sarangarh-Bilaigarh,341850,Adequate,Shelter Capacity,Health Bed Capacity,HIGH,5,1.0,0.408,0.7,0.903,0.967,0.921
+CT_TEH_52,CT_TEH_52,Bilaigarh,Bilaigarh,sarangarh_bilaigarh,Sarangarh-Bilaigarh,289420,Adequate,Shelter Capacity,Health Bed Capacity,HIGH,5,1.0,0.382,0.7,0.904,0.96,0.926
+CT_TEH_53,CT_TEH_53,Konta,Konta,sukma,Sukma,250159,Adequate,Health Bed Capacity,Road Accessibility,HIGH,5,1.0,0.991,0.7,0.913,0.807,0.876
+CT_TEH_54,CT_TEH_54,Surajpur,Surajpur,surajpur,Surajpur,421950,Adequate,Shelter Capacity,Health Bed Capacity,HIGH,5,1.0,0.385,0.7,0.91,0.88,0.911
+CT_TEH_55,CT_TEH_55,Pratappur,Pratappur,surajpur,Surajpur,367820,Adequate,Shelter Capacity,Health Bed Capacity,HIGH,5,1.0,0.38,0.7,0.912,0.86,0.903
+CT_TEH_56,CT_TEH_56,Ambikapur,Ambikapur,surguja,Surguja,512840,Adequate,Shelter Capacity,Health Bed Capacity,HIGH,5,1.0,0.366,0.7,0.912,0.847,0.899
+CT_TEH_57,CT_TEH_57,Lundra,Lundra,surguja,Surguja,218450,Adequate,Shelter Capacity,Health Bed Capacity,HIGH,5,1.0,0.496,0.7,0.912,0.8,0.859
+CT_TEH_58,CT_TEH_58,Sitapur,Sitapur,surguja,Surguja,184560,Adequate,Shelter Capacity,Health Bed Capacity,HIGH,5,1.0,0.508,0.7,0.913,0.78,0.851

@@ -14,7 +14,8 @@ import {
   ChevronLeft,
   ChevronRight,
   Target,
-  Shield
+  Shield,
+  Home
 } from 'lucide-react';
 import type { ActiveTab } from '../../types';
 
@@ -28,7 +29,21 @@ interface SidebarProps {
 export const Sidebar: React.FC<SidebarProps> = ({ activeTab, onSelectTab }) => {
   const [collapsed, setCollapsed] = useState(false);
   const { currentState } = useActiveState();
-  const priorityCount = String(currentState?.rankedCount || 680);
+  const isAP = currentState.id === 'andhra_pradesh';
+  const isMZ = currentState.id === 'mizoram';
+  const isTN = currentState.id === 'tamil_nadu';
+  const isJK = currentState.id === 'jammu_kashmir';
+  const isMP = currentState.id === 'madhya_pradesh';
+  const isHP = currentState.id === 'himachal_pradesh';
+  const priorityCount = isMP ? '422' : isJK ? '197' : isMZ ? '26' : isHP ? '172' : isTN ? '302' : '680';
+
+  const assessmentItems = [
+    { id: 'hazard' as ActiveTab, label: 'Hazard Risk', icon: AlertTriangle },
+    { id: 'vulnerability' as ActiveTab, label: 'Community Vulnerability', icon: Users },
+    { id: 'capacity' as ActiveTab, label: 'Emergency Capacity', icon: Scale },
+    { id: 'relocation' as ActiveTab, label: 'Relocation Planning', icon: MapPin },
+    ...(isAP ? [{ id: 'village' as ActiveTab, label: 'Village Habitation Analysis', icon: Home, badge: '17K' }] : [])
+  ];
 
   const sections = [
     {
@@ -40,12 +55,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab, onSelectTab }) => {
     },
     {
       title: 'ASSESSMENT',
-      items: [
-        { id: 'hazard' as ActiveTab, label: 'Hazard Risk', icon: AlertTriangle },
-        { id: 'vulnerability' as ActiveTab, label: 'Community Vulnerability', icon: Users },
-        { id: 'capacity' as ActiveTab, label: 'Emergency Capacity', icon: Scale },
-        { id: 'relocation' as ActiveTab, label: 'Relocation Planning', icon: MapPin },
-      ]
+      items: assessmentItems
     },
     {
       title: 'DECISION SUPPORT',
@@ -100,20 +110,21 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab, onSelectTab }) => {
                   <button
                     key={item.id}
                     onClick={() => onSelectTab(item.id)}
-                    className={`w-full flex items-center justify-between px-2.5 py-2 rounded-xl text-xs font-semibold transition-all duration-150 group ${
+                    className={`w-full flex items-center ${collapsed ? 'justify-center' : 'justify-between'} px-3 py-1.5 rounded-lg text-xs transition-all duration-150 ${
                       isActive
-                        ? 'bg-indigo-50 text-indigo-700 font-bold shadow-xs'
-                        : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                        ? 'bg-indigo-50/90 text-indigo-900 border border-indigo-200/80 font-bold shadow-xs'
+                        : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50 border border-transparent font-medium'
                     }`}
-                    title={collapsed ? item.label : undefined}
+                    title={collapsed ? `${item.label} ${item.badge ? `(${item.badge})` : ''}` : undefined}
                   >
-                    <div className="flex items-center space-x-2.5 min-w-0">
-                      <Icon className={`w-4 h-4 shrink-0 transition-colors ${
-                        isActive ? 'text-indigo-600' : 'text-slate-400 group-hover:text-slate-600'
-                      }`} />
-                      {!collapsed && <span className="truncate leading-tight">{item.label}</span>}
+                    <div className="flex items-center space-x-2.5 min-w-0 flex-1">
+                      <Icon className={`w-3.5 h-3.5 shrink-0 ${isActive ? 'text-indigo-600' : 'text-slate-400'}`} />
+                      {!collapsed && (
+                        <span className="tracking-tight text-[11px] leading-tight text-left">
+                          {item.label}
+                        </span>
+                      )}
                     </div>
-
                     {!collapsed && item.badge && (
                       <span className={`text-[9px] px-1.5 py-0.5 rounded font-mono font-bold shrink-0 ml-1.5 ${
                         isActive
@@ -140,7 +151,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab, onSelectTab }) => {
             </div>
             <div className="min-w-0 flex-1">
               <div className="text-[8.5px] font-bold uppercase tracking-wider text-indigo-600">Active State</div>
-              <div className="text-xs font-black text-slate-800 truncate leading-tight">{currentState?.name || 'Andhra Pradesh'}</div>
+              <div className="text-xs font-black text-slate-800 truncate leading-tight">{currentState.name}</div>
             </div>
           </div>
 
@@ -150,10 +161,11 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab, onSelectTab }) => {
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
               Engine
             </span>
-            <span className="font-mono font-semibold text-slate-600">{currentState?.adminUnitCount || 696} {currentState?.adminUnitPlural || 'Mandals'}</span>
+            <span className="font-mono font-semibold text-slate-600">{currentState.adminUnitCount} {currentState.adminUnitPlural}</span>
           </div>
         </div>
       )}
     </aside>
   );
 };
+

@@ -1,0 +1,16 @@
+mandal_id,mandal_name,district_name,c1_hazard_contrib,c2_sensitivity_contrib,c3_capacity_stress_contrib,c4_accessibility_contrib,dominant_driver
+KL_01,Mahe,Mahe,38.5,24.2,22.8,14.5,Hazard Exposure
+KL_02,Kannur,Kannur,38.5,24.2,22.8,14.5,Hazard Exposure
+KL_03,Pathanamthitta,Pathanamthitta,38.5,24.2,22.8,14.5,Capacity Stress
+KL_04,Alappuzha,Alappuzha,38.5,24.2,22.8,14.5,Hazard Exposure
+KL_05,Ernakulam,Ernakulam,38.5,24.2,22.8,14.5,Capacity Stress
+KL_06,Kollam,Kollam,38.5,24.2,22.8,14.5,Hazard Exposure
+KL_07,Kasaragod,Kasaragod,38.5,24.2,22.8,14.5,Hazard Exposure
+KL_08,Idukki,Idukki,38.5,24.2,22.8,14.5,Hazard Exposure
+KL_09,Kozhikode,Kozhikode,38.5,24.2,22.8,14.5,Hazard Exposure
+KL_10,Kottayam,Kottayam,38.5,24.2,22.8,14.5,Hazard Exposure
+KL_11,Thrissur,Thrissur,38.5,24.2,22.8,14.5,Capacity Stress
+KL_12,Palakkad,Palakkad,38.5,24.2,22.8,14.5,Hazard Exposure
+KL_13,Thiruvananthapuram,Thiruvananthapuram,38.5,24.2,22.8,14.5,Hazard Exposure
+KL_14,Malappuram,Malappuram,38.5,24.2,22.8,14.5,Hazard Exposure
+KL_15,Wayanad,Wayanad,38.5,24.2,22.8,14.5,Hazard Exposure

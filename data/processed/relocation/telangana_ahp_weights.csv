@@ -1,0 +1,5 @@
+criterion,weight,lambda_max,ci,cr
+Hazard Exposure,0.45,4.12,0.04,0.044
+Demographic Sensitivity,0.3,4.12,0.04,0.044
+Capacity Stress,0.15,4.12,0.04,0.044
+Accessibility Constraint,0.1,4.12,0.04,0.044

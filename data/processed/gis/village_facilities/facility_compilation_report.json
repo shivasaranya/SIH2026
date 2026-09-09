@@ -1,0 +1,24 @@
+{
+  "compilation_timestamp": "2026-09-07T22:16:40.630065",
+  "total_extracted": 60247,
+  "matched_to_census_villages": 4410,
+  "unmatched_or_outside_villages": 55837,
+  "facility_type_breakdown": {
+    "SCHOOL": 1390,
+    "HOSPITAL": 1209,
+    "PHC": 922,
+    "COLLEGE": 423,
+    "COMMUNITY_HALL": 255,
+    "GOVERNMENT_BUILDING": 117,
+    "SHELTER": 78,
+    "PANCHAYAT_BUILDING": 16
+  },
+  "suitability_breakdown": {
+    "MEDIUM": 2227,
+    "HIGH": 2183
+  },
+  "capacity_status_breakdown": {
+    "UNKNOWN": 4410
+  },
+  "villages_with_at_least_one_facility": 1772
+}

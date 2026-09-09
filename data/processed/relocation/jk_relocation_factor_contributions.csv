@@ -1,0 +1,198 @@
+mandal_id,mandal_name,relocation_priority_category,factor_contrib_hazard_pct,factor_contrib_demographic_pct,factor_contrib_capacity_pct,factor_contrib_accessibility_pct,primary_priority_factor,secondary_priority_factor
+JK_TEHSIL_017,Gurez,VERY HIGH,46.3,22.3,21.4,10.1,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_037,Mandi,VERY HIGH,49.2,19.5,22.1,9.2,Hazard Exposure,Capacity Stress
+JK_TEHSIL_167,Ramban,VERY HIGH,48.9,17.5,21.9,11.7,Hazard Exposure,Capacity Stress
+JK_TEHSIL_039,Uri,VERY HIGH,47.7,20.5,23.0,8.8,Hazard Exposure,Capacity Stress
+JK_TEHSIL_019,Kangan,VERY HIGH,42.3,22.5,22.4,12.8,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_032,Boniyar,VERY HIGH,44.4,20.7,23.3,11.6,Hazard Exposure,Capacity Stress
+JK_TEHSIL_012,Aloosa,VERY HIGH,44.5,23.9,19.4,12.2,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_038,Tangmarg,VERY HIGH,43.0,20.8,23.8,12.4,Hazard Exposure,Capacity Stress
+JK_TEHSIL_034,Kreeri,VERY HIGH,46.8,21.8,21.5,9.9,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_018,Hajin,VERY HIGH,43.2,23.6,19.9,13.2,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_131,Balakote,VERY HIGH,42.0,22.5,23.0,12.4,Hazard Exposure,Capacity Stress
+JK_TEHSIL_127,Ramhal,VERY HIGH,39.3,24.6,23.5,12.6,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_035,Kunzar,VERY HIGH,45.1,22.1,21.3,11.4,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_033,Khag,VERY HIGH,45.1,22.3,23.1,9.6,Hazard Exposure,Capacity Stress
+JK_TEHSIL_121,Lalpora,VERY HIGH,39.9,25.2,22.3,12.7,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_015,Ganderbal,VERY HIGH,46.8,24.9,15.6,12.7,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_117,Karnah,VERY HIGH,38.4,24.9,23.5,13.2,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_042,Chadoora,VERY HIGH,38.2,26.2,23.5,12.1,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_063,Srinagar (South),VERY HIGH,42.8,25.1,19.9,12.1,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_176,Reasi,HIGH,49.6,16.1,24.3,10.0,Hazard Exposure,Capacity Stress
+JK_TEHSIL_137,Surankote,HIGH,41.0,23.5,24.5,11.0,Hazard Exposure,Capacity Stress
+JK_TEHSIL_128,Trehgam,HIGH,39.5,25.6,21.8,13.2,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_030,Baramulla,HIGH,42.9,22.3,25.2,9.6,Hazard Exposure,Capacity Stress
+JK_TEHSIL_062,Srinagar (North),HIGH,39.6,24.6,24.4,11.4,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_022,Lar,HIGH,43.4,25.1,18.8,12.8,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_016,Gund,HIGH,40.6,24.6,23.9,10.9,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_134,Manjakote,HIGH,42.0,24.1,23.6,10.3,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_036,Magam,HIGH,43.8,22.8,22.5,11.0,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_047,Pulwama,HIGH,38.7,27.1,24.1,10.2,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_040,Wagoora,HIGH,45.6,23.2,20.3,10.9,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_027,Tulail,HIGH,39.5,24.4,24.6,11.5,Hazard Exposure,Capacity Stress
+JK_TEHSIL_059,Thathri,HIGH,45.5,18.5,22.0,14.0,Hazard Exposure,Capacity Stress
+JK_TEHSIL_057,Kashtigarh,HIGH,43.5,18.2,24.6,13.7,Hazard Exposure,Capacity Stress
+JK_TEHSIL_122,Langate,HIGH,39.3,26.1,22.4,12.2,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_129,Zachaldara,HIGH,39.8,26.3,21.2,12.8,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_124,Machil,HIGH,38.0,25.8,24.4,11.8,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_031,Beerwah,HIGH,42.6,22.8,24.8,9.8,Hazard Exposure,Capacity Stress
+JK_TEHSIL_133,Haveli,HIGH,39.3,23.5,23.9,13.2,Hazard Exposure,Capacity Stress
+JK_TEHSIL_013,Bandipora,HIGH,39.8,24.9,25.0,10.3,Hazard Exposure,Capacity Stress
+JK_TEHSIL_056,Doda,HIGH,42.7,18.3,24.7,14.3,Hazard Exposure,Capacity Stress
+JK_TEHSIL_024,Pattan,HIGH,42.4,25.6,20.7,11.3,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_118,Keran,HIGH,37.7,25.9,24.4,11.9,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_052,Bhalessa,HIGH,43.8,18.6,25.9,11.6,Hazard Exposure,Capacity Stress
+JK_TEHSIL_178,Thuroo,HIGH,46.5,16.3,24.2,13.0,Hazard Exposure,Capacity Stress
+JK_TEHSIL_123,Lolab,HIGH,39.5,26.8,23.1,10.6,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_116,Handwara,HIGH,38.2,26.4,24.3,11.1,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_054,Chilly Pingal,HIGH,42.9,18.6,26.1,12.3,Hazard Exposure,Capacity Stress
+JK_TEHSIL_164,Gool,HIGH,41.3,20.2,25.1,13.4,Hazard Exposure,Capacity Stress
+JK_TEHSIL_138,Thana Mandi,HIGH,41.0,24.6,24.6,9.8,Hazard Exposure,Capacity Stress
+JK_TEHSIL_126,Rafiabad,HIGH,38.4,26.3,21.2,14.0,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_163,Batote,HIGH,43.7,20.9,24.1,11.3,Hazard Exposure,Capacity Stress
+JK_TEHSIL_132,Darhal,HIGH,40.3,24.5,23.5,11.8,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_119,Kralpora,HIGH,36.4,26.0,24.8,12.9,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_097,Dachhan,HIGH,45.9,14.9,25.8,13.4,Hazard Exposure,Capacity Stress
+JK_TEHSIL_120,Kupwara,HIGH,36.2,26.1,24.8,12.9,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_014,Dangarpora,HIGH,46.9,26.1,12.4,14.6,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_108,Banihal,HIGH,38.9,21.6,25.3,14.3,Hazard Exposure,Capacity Stress
+JK_TEHSIL_175,Pouni,HIGH,45.4,16.7,25.1,12.8,Hazard Exposure,Capacity Stress
+JK_TEHSIL_114,Danghiwacha,HIGH,37.5,26.8,23.5,12.3,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_135,Mankote,MODERATE,37.3,23.9,24.9,13.9,Hazard Exposure,Capacity Stress
+JK_TEHSIL_136,Mendhar,MODERATE,38.6,24.5,25.0,12.0,Hazard Exposure,Capacity Stress
+JK_TEHSIL_130,Zaingeer,MODERATE,42.6,28.3,17.9,11.2,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_103,Marwah,MODERATE,46.5,15.5,26.8,11.2,Hazard Exposure,Capacity Stress
+JK_TEHSIL_165,Panchari,MODERATE,39.4,20.8,26.4,13.3,Hazard Exposure,Capacity Stress
+JK_TEHSIL_168,Arnas,MODERATE,43.0,16.8,25.3,14.9,Hazard Exposure,Capacity Stress
+JK_TEHSIL_177,Thakrakote,MODERATE,44.2,17.1,25.1,13.6,Hazard Exposure,Capacity Stress
+JK_TEHSIL_172,Mahore,MODERATE,42.9,16.9,26.9,13.2,Hazard Exposure,Capacity Stress
+JK_TEHSIL_171,Katra,MODERATE,42.9,17.1,25.3,14.7,Hazard Exposure,Capacity Stress
+JK_TEHSIL_053,Bhalla,MODERATE,41.8,19.8,24.0,14.4,Hazard Exposure,Capacity Stress
+JK_TEHSIL_050,Assar,MODERATE,43.1,19.9,21.4,15.6,Hazard Exposure,Capacity Stress
+JK_TEHSIL_074,Jourian,MODERATE,64.0,10.2,19.8,6.0,Hazard Exposure,Capacity Stress
+JK_TEHSIL_006,Pahalgam,MODERATE,40.7,20.4,27.6,11.3,Hazard Exposure,Capacity Stress
+JK_TEHSIL_170,Chowki Choura,MODERATE,45.2,17.5,21.6,15.8,Hazard Exposure,Capacity Stress
+JK_TEHSIL_169,Bhomag,MODERATE,42.5,17.2,25.2,15.1,Hazard Exposure,Capacity Stress
+JK_TEHSIL_002,Chhatroo,MODERATE,40.6,20.7,27.9,10.9,Hazard Exposure,Capacity Stress
+JK_TEHSIL_166,Rajgarh,MODERATE,43.5,22.6,22.1,11.7,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_051,Bhaderwah,MODERATE,40.6,20.1,27.6,11.7,Hazard Exposure,Capacity Stress
+JK_TEHSIL_196,Ramnagar,MODERATE,57.1,15.3,22.7,4.9,Hazard Exposure,Capacity Stress
+JK_TEHSIL_142,Bijbehara,MODERATE,47.0,22.7,21.6,8.7,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_094,Atholi (Paddar),MODERATE,41.5,15.7,27.6,15.2,Hazard Exposure,Capacity Stress
+JK_TEHSIL_186,Awantipora,MODERATE,48.2,20.4,22.1,9.3,Hazard Exposure,Capacity Stress
+JK_TEHSIL_159,Rajouri,MODERATE,42.9,17.3,28.5,11.2,Hazard Exposure,Capacity Stress
+JK_TEHSIL_125,Qaziabad,MODERATE,48.8,30.5,7.3,13.4,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_010,Warwan,MODERATE,38.2,20.5,27.5,13.8,Hazard Exposure,Capacity Stress
+JK_TEHSIL_174,Nagrota,MODERATE,42.3,18.0,27.0,12.7,Hazard Exposure,Capacity Stress
+JK_TEHSIL_105,Mughalmaidan,MODERATE,51.2,17.3,17.5,14.0,Hazard Exposure,Capacity Stress
+JK_TEHSIL_148,Sallar,MODERATE,49.1,24.0,22.6,4.3,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_146,Kulgam,MODERATE,49.4,24.1,21.6,4.9,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_026,Sopore,MODERATE,48.4,29.3,5.9,16.4,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_011,Ajas,MODERATE,54.8,29.8,0.0,15.4,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_029,Watergam,MODERATE,49.2,29.7,5.1,16.0,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_101,Kishtwar,MODERATE,44.0,17.2,25.2,13.7,Hazard Exposure,Capacity Stress
+JK_TEHSIL_025,Sonawari,MODERATE,47.6,30.3,9.7,12.5,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_060,Aripal,MODERATE,31.7,28.0,27.4,12.9,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_140,Anantnag East,MODERATE,44.0,23.7,23.5,8.8,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_043,Charar- E- Shrief,MODERATE,29.1,30.6,27.0,13.3,Demographic Sensitivity,Hazard Exposure
+JK_TEHSIL_173,Maira Mandrian,MODERATE,46.0,19.2,17.7,17.1,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_184,D H Pora,MODERATE,33.8,26.1,29.0,11.1,Hazard Exposure,Capacity Stress
+JK_TEHSIL_154,Kalakote,MODERATE,37.2,17.9,29.9,15.0,Hazard Exposure,Capacity Stress
+JK_TEHSIL_188,Pampore,MODERATE,46.0,21.9,23.6,8.5,Hazard Exposure,Capacity Stress
+JK_TEHSIL_106,Nagseni,MODERATE,53.3,18.4,14.3,14.0,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_064,Tullamulla Khirbhawani,MODERATE,36.3,29.8,21.8,12.1,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_055,Chiralla,MODERATE,47.2,22.4,14.0,16.4,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_115,Drugmulla,MODERATE,50.5,32.5,0.0,17.0,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_155,Khawas,MODERATE,37.5,18.0,29.0,15.5,Hazard Exposure,Capacity Stress
+JK_TEHSIL_139,Anantnag,MODERATE,50.9,25.4,16.6,7.1,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_149,Shahoora,MODERATE,53.8,26.0,15.8,4.3,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_028,Wakoora,MODERATE,53.8,31.8,0.0,14.4,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_049,Shopian,MODERATE,28.5,31.7,28.2,11.6,Demographic Sensitivity,Hazard Exposure
+JK_TEHSIL_046,Khansahib,MODERATE,27.7,31.3,27.9,13.1,Demographic Sensitivity,Capacity Stress
+JK_TEHSIL_061,Budgam,MODERATE,30.5,29.2,28.5,11.8,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_041,BK Pora,MODERATE,27.9,31.6,28.6,11.8,Demographic Sensitivity,Capacity Stress
+JK_TEHSIL_189,Tral,MODERATE,44.8,22.1,23.9,9.2,Hazard Exposure,Capacity Stress
+JK_TEHSIL_152,Zainapora,MODERATE,56.5,25.9,7.0,10.6,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_021,Khoie,MODERATE,52.6,31.8,0.0,15.6,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_096,Bounjwah,MODERATE,52.0,18.8,15.2,14.0,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_045,Keller,MODERATE,27.3,31.8,28.1,12.7,Demographic Sensitivity,Capacity Stress
+JK_TEHSIL_023,Narbal,MODERATE,54.4,32.8,0.0,12.9,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_161,Sundarbani,MODERATE,36.5,18.4,29.8,15.2,Hazard Exposure,Capacity Stress
+JK_TEHSIL_158,Qila Darhal,MODERATE,38.7,19.0,29.9,12.3,Hazard Exposure,Capacity Stress
+JK_TEHSIL_187,Kakapora,MODERATE,47.0,23.2,25.4,4.3,Hazard Exposure,Capacity Stress
+JK_TEHSIL_143,Chitragam,MODERATE,55.6,26.2,7.8,10.4,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_098,Drabshalla,MODERATE,53.7,19.1,12.3,14.9,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_048,Rajpora,MODERATE,28.0,32.6,28.0,11.4,Demographic Sensitivity,Capacity Stress
+JK_TEHSIL_109,Chassana,MODERATE,29.7,25.0,29.1,16.3,Hazard Exposure,Capacity Stress
+JK_TEHSIL_153,Beri Pattan,MODERATE,37.1,18.8,30.0,14.0,Hazard Exposure,Capacity Stress
+JK_TEHSIL_058,Marmat,MODERATE,52.0,24.3,9.9,13.8,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_162,Taryath,MODERATE,34.9,18.5,29.6,17.1,Hazard Exposure,Capacity Stress
+JK_TEHSIL_150,Srigufwara,MODERATE,49.2,26.0,16.5,8.3,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_009,Shangus,MODERATE,32.1,22.4,29.9,15.6,Hazard Exposure,Capacity Stress
+JK_TEHSIL_007,Pogal Paristan,MODERATE,33.1,22.6,29.7,14.6,Hazard Exposure,Capacity Stress
+JK_TEHSIL_044,Keegam,MODERATE,27.8,32.7,24.5,15.1,Demographic Sensitivity,Hazard Exposure
+JK_TEHSIL_004,Kokernag,MODERATE,31.9,22.6,30.1,15.5,Hazard Exposure,Capacity Stress
+JK_TEHSIL_111,Khari,MODERATE,29.0,25.4,29.3,16.2,Capacity Stress,Hazard Exposure
+JK_TEHSIL_100,Kahara,MODERATE,62.3,20.2,0.0,17.5,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_112,Koteranka,MODERATE,29.0,25.9,30.1,15.0,Capacity Stress,Hazard Exposure
+JK_TEHSIL_157,Nowshera,MODERATE,36.0,19.4,31.9,12.6,Hazard Exposure,Capacity Stress
+JK_TEHSIL_020,Kawarhama,LOW,49.9,33.0,0.0,17.1,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_095,Bharath Bagla,LOW,63.3,20.6,0.0,16.1,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_156,Laroka,LOW,33.4,18.9,30.3,17.4,Hazard Exposure,Capacity Stress
+JK_TEHSIL_068,Bhalwal,LOW,51.1,11.9,26.8,10.2,Hazard Exposure,Capacity Stress
+JK_TEHSIL_110,Devsar,LOW,33.1,27.0,27.1,12.9,Hazard Exposure,Capacity Stress
+JK_TEHSIL_008,Shahbad Bala,LOW,32.1,23.2,29.4,15.3,Hazard Exposure,Capacity Stress
+JK_TEHSIL_151,Yaripora,LOW,52.8,27.0,9.8,10.4,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_144,Frisal,LOW,61.1,28.4,0.0,10.5,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_141,Barbugh,LOW,57.2,28.3,8.0,6.5,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_147,Qaimoh,LOW,51.6,27.0,11.0,10.4,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_087,Kathua,LOW,44.6,21.0,24.8,9.5,Hazard Exposure,Capacity Stress
+JK_TEHSIL_003,Dooru,LOW,31.9,23.3,28.5,16.3,Hazard Exposure,Capacity Stress
+JK_TEHSIL_104,Mohalla,LOW,62.0,21.0,0.0,17.0,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_070,Jammu,LOW,54.2,12.8,28.1,4.9,Hazard Exposure,Capacity Stress
+JK_TEHSIL_001,Bhagwah,LOW,26.8,23.4,31.9,17.9,Capacity Stress,Hazard Exposure
+JK_TEHSIL_099,Gundna,LOW,61.9,21.5,0.0,16.7,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_005,Larnoo,LOW,34.8,24.3,25.6,15.4,Hazard Exposure,Capacity Stress
+JK_TEHSIL_079,Pargwal,LOW,52.9,12.5,25.0,9.6,Hazard Exposure,Capacity Stress
+JK_TEHSIL_191,Chenani,LOW,50.1,18.5,26.3,5.2,Hazard Exposure,Capacity Stress
+JK_TEHSIL_077,Mandal,LOW,56.9,13.2,24.4,5.5,Hazard Exposure,Capacity Stress
+JK_TEHSIL_145,Hermain,LOW,58.7,30.1,4.6,6.6,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_197,Udhampur,LOW,46.4,18.4,28.5,6.7,Hazard Exposure,Capacity Stress
+JK_TEHSIL_113,Qazigund,LOW,40.9,29.5,14.5,15.1,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_080,Ranbir Singh Pura,LOW,47.7,12.6,28.1,11.6,Hazard Exposure,Capacity Stress
+JK_TEHSIL_193,Latti,LOW,45.5,18.1,25.7,10.6,Hazard Exposure,Capacity Stress
+JK_TEHSIL_065,Akhnoor,LOW,49.3,13.0,28.5,9.2,Hazard Exposure,Capacity Stress
+JK_TEHSIL_102,Machail,LOW,57.5,21.8,0.0,20.7,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_107,Phigsoo,LOW,58.1,22.1,0.0,19.8,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_194,Majalta,LOW,46.3,19.1,27.3,7.3,Hazard Exposure,Capacity Stress
+JK_TEHSIL_185,Pahloo,LOW,43.6,32.7,4.9,18.8,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_075,Kharah Balli,LOW,48.7,13.6,30.5,7.3,Hazard Exposure,Capacity Stress
+JK_TEHSIL_076,Khour,LOW,48.4,13.6,30.3,7.7,Hazard Exposure,Capacity Stress
+JK_TEHSIL_081,Suchetgarh,LOW,50.1,13.9,30.3,5.8,Hazard Exposure,Capacity Stress
+JK_TEHSIL_066,Arnia,LOW,53.5,14.0,25.8,6.7,Hazard Exposure,Capacity Stress
+JK_TEHSIL_069,Bishnah,LOW,46.4,13.5,29.6,10.4,Hazard Exposure,Capacity Stress
+JK_TEHSIL_072,Jammu South,LOW,63.5,14.9,15.9,5.7,Hazard Exposure,Capacity Stress
+JK_TEHSIL_078,Marh,LOW,43.7,13.4,30.6,12.3,Hazard Exposure,Capacity Stress
+JK_TEHSIL_071,Jammu North,LOW,55.8,14.0,17.7,12.5,Hazard Exposure,Capacity Stress
+JK_TEHSIL_192,Dansal,LOW,47.2,20.1,25.8,6.9,Hazard Exposure,Capacity Stress
+JK_TEHSIL_190,Basantgarh,LOW,45.7,20.4,25.6,8.2,Hazard Exposure,Capacity Stress
+JK_TEHSIL_160,Siot,LOW,40.4,23.5,17.1,19.0,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_082,Bani,LOW,32.7,25.5,31.5,10.3,Hazard Exposure,Capacity Stress
+JK_TEHSIL_195,Moungri,LOW,50.1,20.8,17.4,11.7,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_067,Bahu,LOW,52.3,15.1,22.4,10.3,Hazard Exposure,Capacity Stress
+JK_TEHSIL_083,Basohli,LOW,30.4,25.9,31.4,12.2,Capacity Stress,Hazard Exposure
+JK_TEHSIL_084,Billawar,LOW,35.7,27.0,29.0,8.3,Hazard Exposure,Capacity Stress
+JK_TEHSIL_086,Hiranagar,LOW,36.3,26.3,26.8,10.6,Hazard Exposure,Capacity Stress
+JK_TEHSIL_182,Samba,LOW,33.6,17.2,36.4,12.8,Capacity Stress,Hazard Exposure
+JK_TEHSIL_089,Mahanpur,LOW,35.2,29.7,28.9,6.2,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_179,Bari Brahamana,LOW,38.7,18.0,32.5,10.9,Hazard Exposure,Capacity Stress
+JK_TEHSIL_088,Lohai Malhar,LOW,31.2,29.5,29.7,9.6,Hazard Exposure,Capacity Stress
+JK_TEHSIL_093,Ramkote,LOW,33.2,29.4,26.9,10.5,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_181,Ramgarh,LOW,38.2,19.2,34.2,8.5,Hazard Exposure,Capacity Stress
+JK_TEHSIL_183,Vijaypur,LOW,34.5,18.8,31.1,15.6,Hazard Exposure,Capacity Stress
+JK_TEHSIL_090,Marheen,LOW,32.4,31.8,27.6,8.2,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_073,Jammu West,LOW,68.5,19.4,0.0,12.1,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_091,Nagri,LOW,48.0,36.6,0.0,15.4,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_085,Ghagwal,LOW,46.0,36.2,7.9,10.0,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_092,Rajpura,LOW,42.1,37.3,7.4,13.3,Hazard Exposure,Demographic Sensitivity
+JK_TEHSIL_180,Dinga Amb,LOW,44.7,24.3,15.7,15.4,Hazard Exposure,Demographic Sensitivity

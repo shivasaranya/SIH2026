@@ -1,274 +1,423 @@
-mandal_id,mandal_name,relocation_priority_category,factor_contrib_hazard_pct,factor_contrib_demographic_pct,factor_contrib_capacity_pct,factor_contrib_accessibility_pct,primary_priority_factor,secondary_priority_factor
-MP_TEHSIL_001,Agar,LOW,65.0,0.0,18.6,16.4,Hazard Exposure,Capacity Stress
-MP_TEHSIL_002,Badod,LOW,53.1,0.0,24.4,22.5,Hazard Exposure,Capacity Stress
-MP_TEHSIL_003,Susner,LOW,54.8,0.0,28.0,17.2,Hazard Exposure,Capacity Stress
-MP_TEHSIL_004,Nalkheda,LOW,47.2,0.0,30.2,22.6,Hazard Exposure,Capacity Stress
-MP_TEHSIL_005,Alirajpur,VERY HIGH,55.2,0.0,30.8,14.0,Hazard Exposure,Capacity Stress
-MP_TEHSIL_006,Jobat,MODERATE,59.8,0.0,23.2,17.0,Hazard Exposure,Capacity Stress
-MP_TEHSIL_007,Sondwa,HIGH,56.8,0.0,23.7,19.5,Hazard Exposure,Capacity Stress
-MP_TEHSIL_008,Katthiwada,VERY HIGH,52.9,0.0,33.5,13.6,Hazard Exposure,Capacity Stress
-MP_TEHSIL_009,Anuppur,MODERATE,56.6,0.0,25.5,17.9,Hazard Exposure,Capacity Stress
-MP_TEHSIL_010,Kotma,MODERATE,55.9,0.0,26.6,17.5,Hazard Exposure,Capacity Stress
-MP_TEHSIL_011,Jaithari,MODERATE,62.1,0.0,17.9,20.0,Hazard Exposure,Capacity Stress
-MP_TEHSIL_012,Pushprajgarh,MODERATE,55.3,0.0,27.2,17.5,Hazard Exposure,Capacity Stress
-MP_TEHSIL_013,Ashoknagar,LOW,51.3,0.0,25.6,23.0,Hazard Exposure,Capacity Stress
-MP_TEHSIL_014,Chanderi,LOW,53.5,0.0,32.6,13.9,Hazard Exposure,Capacity Stress
-MP_TEHSIL_015,Mungaoli,LOW,45.5,0.0,36.4,18.0,Hazard Exposure,Capacity Stress
-MP_TEHSIL_016,Isagarh,LOW,59.4,0.0,18.5,22.1,Hazard Exposure,Capacity Stress
-MP_TEHSIL_017,Balaghat,MODERATE,63.4,0.0,19.8,16.8,Hazard Exposure,Capacity Stress
-MP_TEHSIL_018,Waraseoni,MODERATE,59.6,0.0,24.6,15.8,Hazard Exposure,Capacity Stress
-MP_TEHSIL_019,Baihar,MODERATE,53.1,0.0,32.7,14.2,Hazard Exposure,Capacity Stress
-MP_TEHSIL_020,Katangi,MODERATE,61.4,0.0,20.6,18.0,Hazard Exposure,Capacity Stress
-MP_TEHSIL_021,Lalburra,MODERATE,62.8,0.0,20.0,17.2,Hazard Exposure,Capacity Stress
-MP_TEHSIL_022,Barwani,HIGH,57.8,0.0,28.3,14.0,Hazard Exposure,Capacity Stress
-MP_TEHSIL_023,Sendhwa,MODERATE,56.6,0.0,27.4,16.0,Hazard Exposure,Capacity Stress
-MP_TEHSIL_024,Rajpur,MODERATE,61.5,0.0,22.3,16.3,Hazard Exposure,Capacity Stress
-MP_TEHSIL_025,Pansemal,VERY HIGH,50.6,0.0,32.6,16.8,Hazard Exposure,Capacity Stress
-MP_TEHSIL_026,Pati,HIGH,57.0,0.0,25.5,17.4,Hazard Exposure,Capacity Stress
-MP_TEHSIL_027,Betul,LOW,61.0,0.0,18.6,20.4,Hazard Exposure,Capacity Stress
-MP_TEHSIL_028,Multai,LOW,52.2,0.0,24.0,23.7,Hazard Exposure,Capacity Stress
-MP_TEHSIL_029,Bhainsdehi,LOW,57.5,0.0,20.9,21.6,Hazard Exposure,Capacity Stress
-MP_TEHSIL_030,Amla,LOW,60.6,0.0,19.4,20.0,Hazard Exposure,Capacity Stress
-MP_TEHSIL_031,Shahpur,LOW,55.4,0.0,25.5,19.1,Hazard Exposure,Capacity Stress
-MP_TEHSIL_032,Bhind,VERY HIGH,53.3,0.0,35.2,11.6,Hazard Exposure,Capacity Stress
-MP_TEHSIL_033,Mehgaon,VERY HIGH,56.8,0.0,29.1,14.1,Hazard Exposure,Capacity Stress
-MP_TEHSIL_034,Gohad,VERY HIGH,54.6,0.0,34.3,11.1,Hazard Exposure,Capacity Stress
-MP_TEHSIL_035,Lahar,VERY HIGH,56.2,0.0,33.0,10.8,Hazard Exposure,Capacity Stress
-MP_TEHSIL_036,Ater,VERY HIGH,55.9,0.0,34.5,9.6,Hazard Exposure,Capacity Stress
-MP_TEHSIL_037,Huzur (Bhopal),MODERATE,42.7,0.0,42.7,14.5,Hazard Exposure,Capacity Stress
-MP_TEHSIL_038,Berasia,HIGH,40.7,0.0,47.2,12.2,Hazard Exposure,Capacity Stress
-MP_TEHSIL_039,Kolar,HIGH,41.7,0.0,48.6,9.8,Hazard Exposure,Capacity Stress
-MP_TEHSIL_040,Burhanpur,LOW,60.5,0.0,19.4,20.1,Hazard Exposure,Capacity Stress
-MP_TEHSIL_041,Nepanagar,MODERATE,57.0,0.0,29.5,13.5,Hazard Exposure,Capacity Stress
-MP_TEHSIL_042,Khaknar,MODERATE,49.6,0.0,36.5,13.8,Hazard Exposure,Capacity Stress
-MP_TEHSIL_043,Chhatarpur,MODERATE,55.4,0.0,31.0,13.6,Hazard Exposure,Capacity Stress
-MP_TEHSIL_044,Nowgong,MODERATE,61.4,0.0,22.8,15.8,Hazard Exposure,Capacity Stress
-MP_TEHSIL_045,Rajnagar,MODERATE,56.9,0.0,25.6,17.5,Hazard Exposure,Capacity Stress
-MP_TEHSIL_046,Bijawar,MODERATE,62.1,0.0,20.8,17.1,Hazard Exposure,Capacity Stress
-MP_TEHSIL_047,Laundi,MODERATE,56.0,0.0,29.7,14.3,Hazard Exposure,Capacity Stress
-MP_TEHSIL_048,Chhindwara,LOW,59.9,0.0,20.3,19.8,Hazard Exposure,Capacity Stress
-MP_TEHSIL_049,Sausar,LOW,52.5,0.0,29.2,18.4,Hazard Exposure,Capacity Stress
-MP_TEHSIL_050,Parasia,LOW,51.6,0.0,24.0,24.4,Hazard Exposure,Capacity Stress
-MP_TEHSIL_051,Amarwara,LOW,58.9,0.0,19.1,22.0,Hazard Exposure,Capacity Stress
-MP_TEHSIL_052,Pandhurna,MODERATE,55.0,0.0,29.4,15.7,Hazard Exposure,Capacity Stress
-MP_TEHSIL_053,Jamai,LOW,48.8,0.0,28.2,22.9,Hazard Exposure,Capacity Stress
-MP_TEHSIL_054,Damoh,LOW,52.8,0.0,21.6,25.6,Hazard Exposure,Capacity Stress
-MP_TEHSIL_055,Hatta,LOW,56.7,0.0,23.0,20.3,Hazard Exposure,Capacity Stress
-MP_TEHSIL_056,Patharia,LOW,55.8,0.0,19.5,24.7,Hazard Exposure,Capacity Stress
-MP_TEHSIL_057,Jabera,LOW,50.3,0.0,30.2,19.5,Hazard Exposure,Capacity Stress
-MP_TEHSIL_058,Tendukheda,LOW,58.8,0.0,18.2,23.0,Hazard Exposure,Capacity Stress
-MP_TEHSIL_059,Datia,MODERATE,56.2,0.0,28.6,15.2,Hazard Exposure,Capacity Stress
-MP_TEHSIL_060,Seondha,MODERATE,50.9,0.0,36.7,12.4,Hazard Exposure,Capacity Stress
-MP_TEHSIL_061,Bhander,MODERATE,49.4,0.0,36.7,13.9,Hazard Exposure,Capacity Stress
-MP_TEHSIL_062,Indergarh,MODERATE,50.8,0.0,32.2,17.0,Hazard Exposure,Capacity Stress
-MP_TEHSIL_063,Dewas,LOW,41.6,0.0,43.5,14.9,Hazard Exposure,Capacity Stress
-MP_TEHSIL_064,Sonkatch,LOW,36.6,0.0,46.1,17.3,Hazard Exposure,Capacity Stress
-MP_TEHSIL_065,Bagli,LOW,56.9,0.0,21.8,21.3,Hazard Exposure,Capacity Stress
-MP_TEHSIL_066,Kannod,LOW,51.5,0.0,33.5,15.0,Hazard Exposure,Capacity Stress
-MP_TEHSIL_067,Khategaon,LOW,53.0,0.0,34.0,13.0,Hazard Exposure,Capacity Stress
-MP_TEHSIL_068,Tonk Khurd,LOW,49.5,0.0,34.9,15.6,Hazard Exposure,Capacity Stress
-MP_TEHSIL_069,Dhar,MODERATE,57.3,0.0,23.1,19.6,Hazard Exposure,Capacity Stress
-MP_TEHSIL_070,Badnawar,HIGH,50.3,0.0,31.8,17.9,Hazard Exposure,Capacity Stress
-MP_TEHSIL_071,Sardarpur,VERY HIGH,52.2,0.0,32.3,15.5,Hazard Exposure,Capacity Stress
-MP_TEHSIL_072,Kukshi,HIGH,49.8,0.0,36.0,14.2,Hazard Exposure,Capacity Stress
-MP_TEHSIL_073,Manawar,HIGH,52.1,0.0,33.0,14.9,Hazard Exposure,Capacity Stress
-MP_TEHSIL_074,Gandhwani,VERY HIGH,54.8,0.0,27.7,17.4,Hazard Exposure,Capacity Stress
-MP_TEHSIL_075,Dindori,MODERATE,61.8,0.0,20.4,17.8,Hazard Exposure,Capacity Stress
-MP_TEHSIL_076,Shahpura,HIGH,60.6,0.0,24.9,14.6,Hazard Exposure,Capacity Stress
-MP_TEHSIL_077,Mehandwani,HIGH,59.0,0.0,23.4,17.6,Hazard Exposure,Capacity Stress
-MP_TEHSIL_078,Samnapur,MODERATE,63.9,0.0,17.2,18.9,Hazard Exposure,Capacity Stress
-MP_TEHSIL_079,Guna,LOW,57.0,0.0,19.8,23.3,Hazard Exposure,Capacity Stress
-MP_TEHSIL_080,Raghogarh,LOW,62.1,0.0,22.3,15.6,Hazard Exposure,Capacity Stress
-MP_TEHSIL_081,Chachoura,LOW,52.2,0.0,35.2,12.6,Hazard Exposure,Capacity Stress
-MP_TEHSIL_082,Aron,LOW,49.1,0.0,38.8,12.1,Hazard Exposure,Capacity Stress
-MP_TEHSIL_083,Kumbhraj,LOW,45.3,0.0,37.4,17.3,Hazard Exposure,Capacity Stress
-MP_TEHSIL_084,Gwalior Urban,MODERATE,49.5,0.0,38.8,11.8,Hazard Exposure,Capacity Stress
-MP_TEHSIL_085,Dabra,MODERATE,52.3,0.0,36.2,11.5,Hazard Exposure,Capacity Stress
-MP_TEHSIL_086,Bhitarwar,MODERATE,50.8,0.0,36.9,12.2,Hazard Exposure,Capacity Stress
-MP_TEHSIL_087,Chinour,HIGH,45.4,0.0,44.9,9.7,Hazard Exposure,Capacity Stress
-MP_TEHSIL_088,Harda,MODERATE,62.1,0.0,19.3,18.6,Hazard Exposure,Capacity Stress
-MP_TEHSIL_089,Timarni,LOW,55.1,0.0,27.2,17.7,Hazard Exposure,Capacity Stress
-MP_TEHSIL_090,Khirkiya,MODERATE,62.8,0.0,21.3,16.0,Hazard Exposure,Capacity Stress
-MP_TEHSIL_091,Handia,MODERATE,64.9,0.0,22.0,13.1,Hazard Exposure,Capacity Stress
-MP_TEHSIL_092,Hoshangabad,VERY HIGH,59.7,0.0,25.1,15.1,Hazard Exposure,Capacity Stress
-MP_TEHSIL_093,Itarsi,VERY HIGH,62.4,0.0,19.2,18.4,Hazard Exposure,Capacity Stress
-MP_TEHSIL_094,Pipariya,VERY HIGH,59.0,0.0,27.7,13.3,Hazard Exposure,Capacity Stress
-MP_TEHSIL_095,Sohagpur,VERY HIGH,62.6,0.0,23.3,14.0,Hazard Exposure,Capacity Stress
-MP_TEHSIL_096,Seoni Malwa,HIGH,63.4,0.0,19.8,16.8,Hazard Exposure,Capacity Stress
-MP_TEHSIL_097,Bankhedi,HIGH,66.2,0.0,18.2,15.7,Hazard Exposure,Capacity Stress
-MP_TEHSIL_098,Indore Urban,HIGH,38.7,0.0,50.5,10.8,Hazard Exposure,Capacity Stress
-MP_TEHSIL_099,Mhow (Dr. Ambedkar Nagar),HIGH,42.9,0.0,47.7,9.4,Hazard Exposure,Capacity Stress
-MP_TEHSIL_100,Sanwer,VERY HIGH,44.4,0.0,45.3,10.3,Hazard Exposure,Capacity Stress
-MP_TEHSIL_101,Depalpur,HIGH,47.6,0.0,41.6,10.8,Hazard Exposure,Capacity Stress
-MP_TEHSIL_102,Hatod,MODERATE,43.1,0.0,44.9,12.0,Hazard Exposure,Capacity Stress
-MP_TEHSIL_103,Jabalpur Urban,VERY HIGH,54.6,0.0,31.3,14.1,Hazard Exposure,Capacity Stress
-MP_TEHSIL_104,Sihora,VERY HIGH,56.1,0.0,28.8,15.1,Hazard Exposure,Capacity Stress
-MP_TEHSIL_105,Patan,VERY HIGH,55.6,0.0,31.2,13.2,Hazard Exposure,Capacity Stress
-MP_TEHSIL_106,Panagar,VERY HIGH,53.4,0.0,31.3,15.3,Hazard Exposure,Capacity Stress
-MP_TEHSIL_107,Kundam,VERY HIGH,55.3,0.0,32.0,12.7,Hazard Exposure,Capacity Stress
-MP_TEHSIL_108,Shahpura,VERY HIGH,52.3,0.0,36.2,11.5,Hazard Exposure,Capacity Stress
-MP_TEHSIL_109,Jhabua,HIGH,47.6,0.0,35.8,16.6,Hazard Exposure,Capacity Stress
-MP_TEHSIL_110,Thandla,HIGH,62.7,0.0,22.1,15.2,Hazard Exposure,Capacity Stress
-MP_TEHSIL_111,Petlawad,HIGH,57.0,0.0,28.2,14.9,Hazard Exposure,Capacity Stress
-MP_TEHSIL_112,Ranapur,MODERATE,57.6,0.0,22.1,20.3,Hazard Exposure,Capacity Stress
-MP_TEHSIL_113,Meghnagar,MODERATE,61.2,0.0,18.4,20.4,Hazard Exposure,Capacity Stress
-MP_TEHSIL_114,Katni,MODERATE,44.6,0.0,36.5,18.8,Hazard Exposure,Capacity Stress
-MP_TEHSIL_115,Murwara,LOW,48.6,0.0,30.7,20.8,Hazard Exposure,Capacity Stress
-MP_TEHSIL_116,Vijayraghavgarh,LOW,37.4,0.0,42.2,20.4,Hazard Exposure,Capacity Stress
-MP_TEHSIL_117,Bahoriband,MODERATE,39.6,0.0,40.5,19.9,Hazard Exposure,Capacity Stress
-MP_TEHSIL_118,Rithi,LOW,56.9,0.0,23.2,19.8,Hazard Exposure,Capacity Stress
-MP_TEHSIL_119,Dheemerkheda,MODERATE,48.5,0.0,33.1,18.4,Hazard Exposure,Capacity Stress
-MP_TEHSIL_120,Khandwa,MODERATE,60.2,0.0,22.3,17.5,Hazard Exposure,Capacity Stress
-MP_TEHSIL_121,Pandhana,MODERATE,61.7,0.0,22.2,16.1,Hazard Exposure,Capacity Stress
-MP_TEHSIL_122,Punasa,MODERATE,61.4,0.0,21.8,16.8,Hazard Exposure,Capacity Stress
-MP_TEHSIL_123,Harsud,HIGH,60.4,0.0,20.2,19.4,Hazard Exposure,Capacity Stress
-MP_TEHSIL_124,Khalwa,MODERATE,57.9,0.0,25.2,16.9,Hazard Exposure,Capacity Stress
-MP_TEHSIL_125,Khargone,MODERATE,59.3,0.0,21.7,19.0,Hazard Exposure,Capacity Stress
-MP_TEHSIL_126,Barwaha,MODERATE,61.7,0.0,23.3,15.0,Hazard Exposure,Capacity Stress
-MP_TEHSIL_127,Maheshwar,MODERATE,58.8,0.0,23.8,17.4,Hazard Exposure,Capacity Stress
-MP_TEHSIL_128,Kasrawad,HIGH,59.4,0.0,26.1,14.6,Hazard Exposure,Capacity Stress
-MP_TEHSIL_129,Bhikangaon,VERY HIGH,59.1,0.0,25.6,15.3,Hazard Exposure,Capacity Stress
-MP_TEHSIL_130,Segaon,HIGH,50.3,0.0,31.9,17.8,Hazard Exposure,Capacity Stress
-MP_TEHSIL_131,Jhirnya,HIGH,60.2,0.0,23.9,15.8,Hazard Exposure,Capacity Stress
-MP_TEHSIL_132,Mandla,MODERATE,59.5,0.0,21.4,19.1,Hazard Exposure,Capacity Stress
-MP_TEHSIL_133,Nainpur,MODERATE,54.6,0.0,27.7,17.6,Hazard Exposure,Capacity Stress
-MP_TEHSIL_134,Bichhiya,MODERATE,62.0,0.0,19.8,18.1,Hazard Exposure,Capacity Stress
-MP_TEHSIL_135,Niwas,HIGH,57.3,0.0,27.4,15.3,Hazard Exposure,Capacity Stress
-MP_TEHSIL_136,Ghughri,MODERATE,58.0,0.0,22.6,19.4,Hazard Exposure,Capacity Stress
-MP_TEHSIL_137,Mandsaur,MODERATE,57.6,0.0,30.9,11.5,Hazard Exposure,Capacity Stress
-MP_TEHSIL_138,Malhargarh,LOW,54.7,0.0,28.2,17.1,Hazard Exposure,Capacity Stress
-MP_TEHSIL_139,Garoth,MODERATE,63.0,0.0,21.8,15.3,Hazard Exposure,Capacity Stress
-MP_TEHSIL_140,Bhanpura,LOW,61.9,0.0,19.5,18.6,Hazard Exposure,Capacity Stress
-MP_TEHSIL_141,Sitamau,LOW,55.7,0.0,32.2,12.1,Hazard Exposure,Capacity Stress
-MP_TEHSIL_142,Daloda,MODERATE,54.7,0.0,34.0,11.3,Hazard Exposure,Capacity Stress
-MP_TEHSIL_143,Morena,HIGH,53.8,0.0,32.4,13.8,Hazard Exposure,Capacity Stress
-MP_TEHSIL_144,Ambah,VERY HIGH,53.4,0.0,34.3,12.3,Hazard Exposure,Capacity Stress
-MP_TEHSIL_145,Porsa,VERY HIGH,57.4,0.0,31.2,11.4,Hazard Exposure,Capacity Stress
-MP_TEHSIL_146,Joura,VERY HIGH,55.3,0.0,34.7,10.1,Hazard Exposure,Capacity Stress
-MP_TEHSIL_147,Sabalgarh,VERY HIGH,52.9,0.0,33.9,13.2,Hazard Exposure,Capacity Stress
-MP_TEHSIL_148,Kailaras,VERY HIGH,53.0,0.0,34.5,12.5,Hazard Exposure,Capacity Stress
-MP_TEHSIL_149,Narsinghpur,LOW,61.7,0.0,22.7,15.6,Hazard Exposure,Capacity Stress
-MP_TEHSIL_150,Gadarwara,LOW,62.7,0.0,19.9,17.4,Hazard Exposure,Capacity Stress
-MP_TEHSIL_151,Gotegaon,MODERATE,62.5,0.0,25.0,12.6,Hazard Exposure,Capacity Stress
-MP_TEHSIL_152,Kareli,MODERATE,51.7,0.0,31.7,16.6,Hazard Exposure,Capacity Stress
-MP_TEHSIL_153,Tendukheda,MODERATE,54.8,0.0,29.1,16.1,Hazard Exposure,Capacity Stress
-MP_TEHSIL_154,Neemuch,LOW,62.2,0.0,23.8,13.9,Hazard Exposure,Capacity Stress
-MP_TEHSIL_155,Jawad,MODERATE,45.9,0.0,39.2,14.9,Hazard Exposure,Capacity Stress
-MP_TEHSIL_156,Manasa,MODERATE,61.9,0.0,22.1,16.1,Hazard Exposure,Capacity Stress
-MP_TEHSIL_157,Singoli,MODERATE,61.0,0.0,24.3,14.7,Hazard Exposure,Capacity Stress
-MP_TEHSIL_158,Jiran,MODERATE,56.4,0.0,27.3,16.3,Hazard Exposure,Capacity Stress
-MP_TEHSIL_159,Niwari,MODERATE,44.8,0.0,42.0,13.2,Hazard Exposure,Capacity Stress
-MP_TEHSIL_160,Orchha,MODERATE,48.2,0.0,39.6,12.2,Hazard Exposure,Capacity Stress
-MP_TEHSIL_161,Prithvipur,MODERATE,45.1,0.0,43.3,11.6,Hazard Exposure,Capacity Stress
-MP_TEHSIL_162,Panna,MODERATE,61.0,0.0,20.0,19.0,Hazard Exposure,Capacity Stress
-MP_TEHSIL_163,Ajaigarh,HIGH,59.4,0.0,24.5,16.2,Hazard Exposure,Capacity Stress
-MP_TEHSIL_164,Gunnor,MODERATE,54.5,0.0,27.1,18.4,Hazard Exposure,Capacity Stress
-MP_TEHSIL_165,Pawai,MODERATE,63.6,0.0,20.1,16.4,Hazard Exposure,Capacity Stress
-MP_TEHSIL_166,Shahnagar,MODERATE,61.7,0.0,18.5,19.8,Hazard Exposure,Capacity Stress
-MP_TEHSIL_167,Raisen,HIGH,63.9,0.0,17.4,18.7,Hazard Exposure,Capacity Stress
-MP_TEHSIL_168,Gairatganj,HIGH,65.1,0.0,16.7,18.2,Hazard Exposure,Capacity Stress
-MP_TEHSIL_169,Begamganj,VERY HIGH,61.4,0.0,20.0,18.5,Hazard Exposure,Capacity Stress
-MP_TEHSIL_170,Silwani,VERY HIGH,65.5,0.0,17.4,17.2,Hazard Exposure,Capacity Stress
-MP_TEHSIL_171,Udaipura,HIGH,65.1,0.0,20.1,14.9,Hazard Exposure,Capacity Stress
-MP_TEHSIL_172,Bareli,HIGH,65.4,0.0,16.3,18.3,Hazard Exposure,Capacity Stress
-MP_TEHSIL_173,Goharganj,VERY HIGH,60.0,0.0,22.5,17.5,Hazard Exposure,Capacity Stress
-MP_TEHSIL_174,Rajgarh,LOW,38.3,0.0,42.8,18.8,Hazard Exposure,Capacity Stress
-MP_TEHSIL_175,Biaora,LOW,41.7,0.0,48.2,10.1,Hazard Exposure,Capacity Stress
-MP_TEHSIL_176,Narsinghgarh,LOW,54.2,0.0,23.1,22.8,Hazard Exposure,Capacity Stress
-MP_TEHSIL_177,Sarangpur,LOW,47.5,0.0,35.3,17.2,Hazard Exposure,Capacity Stress
-MP_TEHSIL_178,Khilchipur,LOW,54.1,0.0,29.6,16.3,Hazard Exposure,Capacity Stress
-MP_TEHSIL_179,Jirapur,LOW,52.5,0.0,34.1,13.4,Hazard Exposure,Capacity Stress
-MP_TEHSIL_180,Ratlam,LOW,40.6,0.0,42.5,16.9,Hazard Exposure,Capacity Stress
-MP_TEHSIL_181,Jaora,MODERATE,37.1,0.0,50.1,12.8,Hazard Exposure,Capacity Stress
-MP_TEHSIL_182,Alot,LOW,42.6,0.0,45.0,12.4,Hazard Exposure,Capacity Stress
-MP_TEHSIL_183,Sailana,LOW,38.9,0.0,49.4,11.7,Hazard Exposure,Capacity Stress
-MP_TEHSIL_184,Bajna,LOW,48.0,0.0,34.9,17.1,Hazard Exposure,Capacity Stress
-MP_TEHSIL_185,Piploda,MODERATE,40.6,0.0,47.6,11.8,Hazard Exposure,Capacity Stress
-MP_TEHSIL_186,Rewa,HIGH,51.2,0.0,32.9,15.9,Hazard Exposure,Capacity Stress
-MP_TEHSIL_187,Huzur,HIGH,54.9,0.0,31.9,13.2,Hazard Exposure,Capacity Stress
-MP_TEHSIL_188,Sirmaur,HIGH,55.7,0.0,29.1,15.2,Hazard Exposure,Capacity Stress
-MP_TEHSIL_189,Teonthar,VERY HIGH,52.0,0.0,35.2,12.8,Hazard Exposure,Capacity Stress
-MP_TEHSIL_190,Mauganj,HIGH,53.8,0.0,28.5,17.7,Hazard Exposure,Capacity Stress
-MP_TEHSIL_191,Hanumana,VERY HIGH,49.3,0.0,38.2,12.5,Hazard Exposure,Capacity Stress
-MP_TEHSIL_192,Semariya,HIGH,50.9,0.0,33.6,15.5,Hazard Exposure,Capacity Stress
-MP_TEHSIL_193,Sagar,LOW,57.6,0.0,22.9,19.5,Hazard Exposure,Capacity Stress
-MP_TEHSIL_194,Khurai,LOW,48.7,0.0,28.0,23.3,Hazard Exposure,Capacity Stress
-MP_TEHSIL_195,Bina,LOW,44.5,0.0,37.0,18.5,Hazard Exposure,Capacity Stress
-MP_TEHSIL_196,Deori,MODERATE,44.5,0.0,36.6,18.9,Hazard Exposure,Capacity Stress
-MP_TEHSIL_197,Rehli,LOW,50.8,0.0,34.1,15.1,Hazard Exposure,Capacity Stress
-MP_TEHSIL_198,Banda,LOW,51.3,0.0,24.9,23.9,Hazard Exposure,Capacity Stress
-MP_TEHSIL_199,Rahatgarh,LOW,55.6,0.0,23.8,20.6,Hazard Exposure,Capacity Stress
-MP_TEHSIL_200,Satna (Raghurajnagar),MODERATE,56.8,0.0,27.7,15.5,Hazard Exposure,Capacity Stress
-MP_TEHSIL_201,Nagod,HIGH,45.8,0.0,39.3,14.9,Hazard Exposure,Capacity Stress
-MP_TEHSIL_202,Maihar,HIGH,50.3,0.0,31.9,17.8,Hazard Exposure,Capacity Stress
-MP_TEHSIL_203,Amarpatan,HIGH,57.2,0.0,28.0,14.8,Hazard Exposure,Capacity Stress
-MP_TEHSIL_204,Ramnagar,VERY HIGH,51.3,0.0,32.1,16.6,Hazard Exposure,Capacity Stress
-MP_TEHSIL_205,Uchehara,VERY HIGH,54.9,0.0,29.7,15.4,Hazard Exposure,Capacity Stress
-MP_TEHSIL_206,Sehore,VERY HIGH,59.5,0.0,25.9,14.6,Hazard Exposure,Capacity Stress
-MP_TEHSIL_207,Ashta,HIGH,65.0,0.0,20.7,14.3,Hazard Exposure,Capacity Stress
-MP_TEHSIL_208,Ichhawar,HIGH,60.7,0.0,24.0,15.3,Hazard Exposure,Capacity Stress
-MP_TEHSIL_209,Budhni,HIGH,62.3,0.0,25.1,12.6,Hazard Exposure,Capacity Stress
-MP_TEHSIL_210,Nasrullaganj,HIGH,64.5,0.0,20.2,15.3,Hazard Exposure,Capacity Stress
-MP_TEHSIL_211,Shyampur,MODERATE,60.9,0.0,23.1,16.0,Hazard Exposure,Capacity Stress
-MP_TEHSIL_212,Seoni,LOW,51.3,0.0,29.0,19.7,Hazard Exposure,Capacity Stress
-MP_TEHSIL_213,Lakhnadon,LOW,58.8,0.0,19.7,21.6,Hazard Exposure,Capacity Stress
-MP_TEHSIL_214,Keolari,LOW,58.6,0.0,21.0,20.4,Hazard Exposure,Capacity Stress
-MP_TEHSIL_215,Barghat,LOW,53.5,0.0,23.9,22.6,Hazard Exposure,Capacity Stress
-MP_TEHSIL_216,Ghansore,LOW,50.1,0.0,29.6,20.3,Hazard Exposure,Capacity Stress
-MP_TEHSIL_217,Chhapara,LOW,55.6,0.0,16.7,27.7,Hazard Exposure,Capacity Stress
-MP_TEHSIL_218,Sohagpur (Shahdol),LOW,61.1,0.0,19.1,19.8,Hazard Exposure,Capacity Stress
-MP_TEHSIL_219,Beohari,MODERATE,60.6,0.0,18.5,20.8,Hazard Exposure,Capacity Stress
-MP_TEHSIL_220,Jaisinghnagar,MODERATE,59.4,0.0,20.8,19.8,Hazard Exposure,Capacity Stress
-MP_TEHSIL_221,Gohparu,MODERATE,62.2,0.0,18.9,18.9,Hazard Exposure,Capacity Stress
-MP_TEHSIL_222,Shajapur,LOW,34.8,0.0,53.9,11.3,Hazard Exposure,Capacity Stress
-MP_TEHSIL_223,Shujalpur,LOW,43.1,0.0,39.0,17.9,Hazard Exposure,Capacity Stress
-MP_TEHSIL_224,Kalapipal,LOW,41.1,0.0,42.9,15.9,Hazard Exposure,Capacity Stress
-MP_TEHSIL_225,Gulana,LOW,47.6,0.0,39.1,13.3,Hazard Exposure,Capacity Stress
-MP_TEHSIL_226,Mohan Barodia,LOW,43.1,0.0,44.8,12.1,Hazard Exposure,Capacity Stress
-MP_TEHSIL_227,Sheopur,VERY HIGH,59.1,0.0,25.6,15.3,Hazard Exposure,Capacity Stress
-MP_TEHSIL_228,Vijaypur,VERY HIGH,63.8,0.0,19.7,16.5,Hazard Exposure,Capacity Stress
-MP_TEHSIL_229,Karahal,VERY HIGH,61.2,0.0,22.6,16.2,Hazard Exposure,Capacity Stress
-MP_TEHSIL_230,Baroda,HIGH,67.2,0.0,18.0,14.7,Hazard Exposure,Capacity Stress
-MP_TEHSIL_231,Shivpuri,HIGH,57.0,0.0,26.8,16.1,Hazard Exposure,Capacity Stress
-MP_TEHSIL_232,Kolaras,MODERATE,61.8,0.0,19.6,18.6,Hazard Exposure,Capacity Stress
-MP_TEHSIL_233,Karera,MODERATE,62.8,0.0,19.5,17.7,Hazard Exposure,Capacity Stress
-MP_TEHSIL_234,Pohari,MODERATE,60.9,0.0,21.2,18.0,Hazard Exposure,Capacity Stress
-MP_TEHSIL_235,Pichhore,HIGH,55.7,0.0,26.1,18.2,Hazard Exposure,Capacity Stress
-MP_TEHSIL_236,Khaniyadhana,MODERATE,59.0,0.0,22.8,18.1,Hazard Exposure,Capacity Stress
-MP_TEHSIL_237,Badarwas,HIGH,64.1,0.0,20.4,15.4,Hazard Exposure,Capacity Stress
-MP_TEHSIL_238,Sidhi (Gopadbanas),HIGH,48.9,0.0,33.2,17.8,Hazard Exposure,Capacity Stress
-MP_TEHSIL_239,Churhat,VERY HIGH,51.8,0.0,32.0,16.1,Hazard Exposure,Capacity Stress
-MP_TEHSIL_240,Rampur Naikin,HIGH,59.8,0.0,20.6,19.6,Hazard Exposure,Capacity Stress
-MP_TEHSIL_241,Majhauli,VERY HIGH,49.2,0.0,35.6,15.2,Hazard Exposure,Capacity Stress
-MP_TEHSIL_242,Kusmi,HIGH,54.4,0.0,32.7,13.0,Hazard Exposure,Capacity Stress
-MP_TEHSIL_243,Bahari,HIGH,54.2,0.0,27.8,18.0,Hazard Exposure,Capacity Stress
-MP_TEHSIL_244,Waidhan (Singrauli),LOW,52.7,0.0,25.0,22.2,Hazard Exposure,Capacity Stress
-MP_TEHSIL_245,Deosar,MODERATE,53.1,0.0,25.9,21.0,Hazard Exposure,Capacity Stress
-MP_TEHSIL_246,Chitrangi,LOW,51.0,0.0,31.4,17.6,Hazard Exposure,Capacity Stress
-MP_TEHSIL_247,Mada,LOW,56.5,0.0,23.0,20.6,Hazard Exposure,Capacity Stress
-MP_TEHSIL_248,Sarai,LOW,53.1,0.0,22.5,24.4,Hazard Exposure,Capacity Stress
-MP_TEHSIL_249,Tikamgarh,HIGH,51.2,0.0,38.1,10.7,Hazard Exposure,Capacity Stress
-MP_TEHSIL_250,Baldeogarh,LOW,53.0,0.0,30.4,16.5,Hazard Exposure,Capacity Stress
-MP_TEHSIL_251,Jatara,HIGH,53.3,0.0,32.0,14.7,Hazard Exposure,Capacity Stress
-MP_TEHSIL_252,Palera,MODERATE,59.8,0.0,26.9,13.3,Hazard Exposure,Capacity Stress
-MP_TEHSIL_253,Kharagpur,MODERATE,56.5,0.0,27.0,16.5,Hazard Exposure,Capacity Stress
-MP_TEHSIL_254,Ujjain Urban,HIGH,50.7,0.0,36.0,13.3,Hazard Exposure,Capacity Stress
-MP_TEHSIL_255,Nagda,MODERATE,55.1,0.0,27.7,17.2,Hazard Exposure,Capacity Stress
-MP_TEHSIL_256,Badnagar,MODERATE,43.8,0.0,39.6,16.6,Hazard Exposure,Capacity Stress
-MP_TEHSIL_257,Mahidpur,LOW,50.2,0.0,36.7,13.1,Hazard Exposure,Capacity Stress
-MP_TEHSIL_258,Tarana,HIGH,48.1,0.0,39.4,12.4,Hazard Exposure,Capacity Stress
-MP_TEHSIL_259,Khachrod,HIGH,52.6,0.0,33.3,14.1,Hazard Exposure,Capacity Stress
-MP_TEHSIL_260,Ghatiya,MODERATE,45.1,0.0,42.9,12.0,Hazard Exposure,Capacity Stress
-MP_TEHSIL_261,Bandhavgarh (Umaria),MODERATE,60.5,0.0,22.1,17.4,Hazard Exposure,Capacity Stress
-MP_TEHSIL_262,Manpur,MODERATE,61.8,0.0,18.4,19.7,Hazard Exposure,Capacity Stress
-MP_TEHSIL_263,Pali,MODERATE,55.7,0.0,24.6,19.7,Hazard Exposure,Capacity Stress
-MP_TEHSIL_264,Nowrozabad,MODERATE,61.7,0.0,18.1,20.3,Hazard Exposure,Capacity Stress
-MP_TEHSIL_265,Chandia,MODERATE,62.2,0.0,20.6,17.2,Hazard Exposure,Capacity Stress
-MP_TEHSIL_266,Vidisha,MODERATE,66.9,0.0,18.8,14.3,Hazard Exposure,Capacity Stress
-MP_TEHSIL_267,Basoda,MODERATE,63.0,0.0,23.2,13.8,Hazard Exposure,Capacity Stress
-MP_TEHSIL_268,Kurwai,MODERATE,54.4,0.0,29.9,15.7,Hazard Exposure,Capacity Stress
-MP_TEHSIL_269,Sironj,MODERATE,57.2,0.0,26.3,16.5,Hazard Exposure,Capacity Stress
-MP_TEHSIL_270,Lateri,LOW,56.0,0.0,31.9,12.2,Hazard Exposure,Capacity Stress
-MP_TEHSIL_271,Gyaraspur,LOW,67.2,0.0,19.5,13.3,Hazard Exposure,Capacity Stress
-MP_TEHSIL_272,Gulabganj,MODERATE,60.1,0.0,23.5,16.4,Hazard Exposure,Capacity Stress
-MP_TEHSIL_273,Nateran,LOW,58.9,0.0,27.6,13.4,Hazard Exposure,Capacity Stress
+mandal_id,mandal_name,current_district_id,current_district_name,topsis_score,relocation_priority_rank,factor_contrib_hazard_pct,factor_contrib_demographic_pct,factor_contrib_capacity_pct,factor_contrib_accessibility_pct,primary_relocation_factor,secondary_relocation_factor
+MP_TEHSIL_038,Rajpur,barwani,Barwani,0.859,1,53.1,20.7,15.9,10.3,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_360,Vijaypur,sheopur,Sheopur,0.8248,2,50.3,23.1,16.6,10.0,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_359,Sheopur,sheopur,Sheopur,0.8183,3,50.1,23.2,16.5,10.2,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_039,Sendhwa,barwani,Barwani,0.8158,4,52.9,22.3,17.2,7.5,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_036,Pansemal,barwani,Barwani,0.8123,5,51.1,22.1,16.7,10.0,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_229,Bamor,morena,Morena,0.8044,6,45.1,28.7,16.2,10.0,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_228,Ambah,morena,Morena,0.7868,7,45.4,29.4,16.8,8.3,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_358,Karahal,sheopur,Sheopur,0.7848,8,49.5,23.9,17.2,9.3,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_058,Lahar,bhind,Bhind,0.781,9,48.5,26.3,17.5,7.7,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_054,Bhind,bhind,Bhind,0.7714,10,46.3,25.8,17.1,10.9,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_230,Joura,morena,Morena,0.7693,11,45.5,30.0,17.0,7.6,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_057,Gormi,bhind,Bhind,0.7581,12,47.2,26.6,17.5,8.7,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_062,Ron,bhind,Bhind,0.7504,13,46.9,26.7,17.3,9.0,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_009,Sondawa,alirajpur,Alirajpur,0.7399,14,43.7,29.1,17.2,10.0,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_356,Badoda,sheopur,Sheopur,0.7393,15,48.3,24.8,17.9,8.9,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_040,Thikri,barwani,Barwani,0.7354,16,48.0,23.3,18.1,10.6,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_234,Porsa,morena,Morena,0.7249,17,43.5,30.7,17.6,8.2,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_357,Beerpur,sheopur,Sheopur,0.7217,18,46.4,24.6,17.7,11.3,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_056,Gohad,bhind,Bhind,0.7109,19,46.3,27.7,18.2,7.8,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_421,Vidisha,vidisha,Vidisha,0.7107,20,51.4,19.4,18.1,11.1,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_235,Sabalgarh,morena,Morena,0.7103,21,43.5,31.2,17.8,7.4,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_055,Bhind Nagar,bhind,Bhind,0.7024,22,45.7,27.7,17.2,9.4,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_232,Morena,morena,Morena,0.6857,23,40.9,31.0,17.6,10.5,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_059,Mau,bhind,Bhind,0.6842,24,43.0,27.2,18.0,11.7,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_160,Seoni-Malwa,hoshangabad,Hoshangabad,0.6817,25,60.2,12.7,18.4,8.7,Hazard Exposure,Capacity Stress
+MP_TEHSIL_231,Kailaras,morena,Morena,0.6794,26,40.4,31.0,17.8,10.8,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_061,Mihona,bhind,Bhind,0.6793,27,43.5,27.7,18.7,10.1,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_067,Burhanpur nagar,burhanpur,Burhanpur,0.6789,28,46.1,23.2,18.5,12.2,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_211,Maheshwar,khargone__west_nimar_,Khargone (West Nimar),0.6736,29,53.4,18.6,19.1,9.0,Hazard Exposure,Capacity Stress
+MP_TEHSIL_053,Ater,bhind,Bhind,0.6728,30,43.9,28.0,18.4,9.7,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_066,Burhanpur,burhanpur,Burhanpur,0.6704,31,47.8,24.0,19.2,9.0,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_209,Khargone,khargone__west_nimar_,Khargone (West Nimar),0.6606,32,50.8,18.3,19.3,11.5,Hazard Exposure,Capacity Stress
+MP_TEHSIL_034,Barwani,barwani,Barwani,0.6591,33,46.4,25.0,19.1,9.5,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_033,Anjad,barwani,Barwani,0.6582,34,46.3,25.0,19.4,9.2,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_037,Pati,barwani,Barwani,0.6567,35,45.2,24.7,18.9,11.2,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_207,Jhiranya,khargone__west_nimar_,Khargone (West Nimar),0.6559,36,52.3,18.8,19.5,9.4,Hazard Exposure,Capacity Stress
+MP_TEHSIL_204,Bhagwanpura,khargone__west_nimar_,Khargone (West Nimar),0.6429,37,50.0,18.6,19.4,12.0,Hazard Exposure,Capacity Stress
+MP_TEHSIL_060,Mehgaon,bhind,Bhind,0.6362,38,43.5,29.3,19.2,8.0,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_005,Alirajpur,alirajpur,Alirajpur,0.6348,39,41.1,32.1,19.1,7.6,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_205,Bhikangaon,khargone__west_nimar_,Khargone (West Nimar),0.6239,40,50.3,19.2,20.0,10.4,Hazard Exposure,Capacity Stress
+MP_TEHSIL_041,Varla,barwani,Barwani,0.6235,41,43.2,25.1,19.0,12.7,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_206,Gogaon,khargone__west_nimar_,Khargone (West Nimar),0.6175,42,48.3,18.8,19.9,12.9,Hazard Exposure,Capacity Stress
+MP_TEHSIL_250,Orchha,niwari,Niwari,0.6174,43,52.5,15.5,19.7,12.3,Hazard Exposure,Capacity Stress
+MP_TEHSIL_159,Pipariya,hoshangabad,Hoshangabad,0.6106,44,56.9,14.0,20.6,8.5,Hazard Exposure,Capacity Stress
+MP_TEHSIL_210,Khargone Nagar,khargone__west_nimar_,Khargone (West Nimar),0.6027,45,52.3,20.2,18.3,9.2,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_422,Vidisha Nagar,vidisha,Vidisha,0.6024,46,48.7,21.7,19.3,10.4,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_212,Segaon,khargone__west_nimar_,Khargone (West Nimar),0.6018,47,50.4,19.8,20.4,9.4,Hazard Exposure,Capacity Stress
+MP_TEHSIL_215,Mandla,mandla,Mandla,0.6002,48,63.2,7.5,20.2,9.0,Hazard Exposure,Capacity Stress
+MP_TEHSIL_035,Niwali,barwani,Barwani,0.5967,49,43.1,26.1,19.9,11.0,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_208,Kasrawad,khargone__west_nimar_,Khargone (West Nimar),0.5922,50,48.4,19.6,20.4,11.5,Hazard Exposure,Capacity Stress
+MP_TEHSIL_155,Dolariya,hoshangabad,Hoshangabad,0.5897,51,54.8,14.2,20.4,10.6,Hazard Exposure,Capacity Stress
+MP_TEHSIL_154,Bankhedi,hoshangabad,Hoshangabad,0.5763,52,54.0,14.4,20.9,10.7,Hazard Exposure,Capacity Stress
+MP_TEHSIL_241,Tendukheda,narsimhapur,Narsimhapur,0.5733,53,55.1,12.1,21.3,11.5,Hazard Exposure,Capacity Stress
+MP_TEHSIL_237,Gotegaon,narsimhapur,Narsimhapur,0.5693,54,53.7,12.0,20.6,13.7,Hazard Exposure,Capacity Stress
+MP_TEHSIL_079,Maharajpur,chhatarpur,Chhatarpur,0.5664,55,47.3,22.7,21.5,8.5,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_233,Morena Nagar,morena,Morena,0.5649,56,50.8,39.8,0.0,9.4,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_117,Sonkatch,dewas,Dewas,0.5587,57,50.4,16.5,21.2,11.9,Hazard Exposure,Capacity Stress
+MP_TEHSIL_238,Kareli,narsimhapur,Narsimhapur,0.5524,58,56.3,12.7,21.9,9.1,Hazard Exposure,Capacity Stress
+MP_TEHSIL_153,Babai,hoshangabad,Hoshangabad,0.5508,59,52.2,14.6,21.1,12.1,Hazard Exposure,Capacity Stress
+MP_TEHSIL_239,Narsimhapur,narsimhapur,Narsimhapur,0.5479,60,56.0,12.7,21.9,9.4,Hazard Exposure,Capacity Stress
+MP_TEHSIL_203,Barwaha,khargone__west_nimar_,Khargone (West Nimar),0.5416,61,46.7,20.7,21.3,11.3,Hazard Exposure,Capacity Stress
+MP_TEHSIL_158,Itarsi,hoshangabad,Hoshangabad,0.54,62,50.8,14.6,21.3,13.3,Hazard Exposure,Capacity Stress
+MP_TEHSIL_161,Sohagpur,hoshangabad,Hoshangabad,0.5209,63,51.6,15.2,22.4,10.8,Hazard Exposure,Capacity Stress
+MP_TEHSIL_008,Kathiwara,alirajpur,Alirajpur,0.5208,64,31.4,34.7,20.3,13.6,Demographic Sensitivity,Hazard Exposure
+MP_TEHSIL_240,Saikheda,narsimhapur,Narsimhapur,0.5206,65,54.7,13.1,23.1,9.1,Hazard Exposure,Capacity Stress
+MP_TEHSIL_183,Meghnagar,jhabua,Jhabua,0.5188,66,33.7,33.8,21.1,11.4,Demographic Sensitivity,Hazard Exposure
+MP_TEHSIL_236,Gadarwara,narsimhapur,Narsimhapur,0.5151,67,54.4,13.2,22.7,9.7,Hazard Exposure,Capacity Stress
+MP_TEHSIL_187,Thandla,jhabua,Jhabua,0.515,68,34.0,34.3,21.6,10.1,Demographic Sensitivity,Hazard Exposure
+MP_TEHSIL_006,Bhavra,alirajpur,Alirajpur,0.5082,69,32.1,36.5,21.8,9.6,Demographic Sensitivity,Hazard Exposure
+MP_TEHSIL_186,Ranapur,jhabua,Jhabua,0.502,70,33.3,35.1,21.8,9.7,Demographic Sensitivity,Hazard Exposure
+MP_TEHSIL_157,Hoshangabad nagar,hoshangabad,Hoshangabad,0.501,71,65.0,17.0,3.6,14.4,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_133,Chachaura,guna,Guna,0.5005,72,38.1,29.1,22.1,10.7,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_156,Hoshangabad,hoshangabad,Hoshangabad,0.4985,73,51.6,15.8,21.9,10.8,Hazard Exposure,Capacity Stress
+MP_TEHSIL_016,Chanderi,ashoknagar,Ashoknagar,0.4973,74,38.0,27.0,22.0,13.0,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_018,Mungaoli,ashoknagar,Ashoknagar,0.4921,75,39.1,27.8,22.9,10.3,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_182,Jhabua,jhabua,Jhabua,0.4888,76,29.4,34.6,21.7,14.3,Demographic Sensitivity,Hazard Exposure
+MP_TEHSIL_015,Bahadurpur,ashoknagar,Ashoknagar,0.4861,77,36.7,27.2,22.4,13.7,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_370,Shivpuri,shivpuri,Shivpuri,0.4856,78,36.6,27.8,22.1,13.5,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_185,Rama,jhabua,Jhabua,0.4844,79,29.9,35.3,21.9,12.8,Demographic Sensitivity,Hazard Exposure
+MP_TEHSIL_007,Jobat,alirajpur,Alirajpur,0.4842,80,29.3,37.9,22.6,10.2,Demographic Sensitivity,Hazard Exposure
+MP_TEHSIL_367,Pichhore,shivpuri,Shivpuri,0.4836,81,37.8,28.4,22.5,11.2,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_104,Badoni,datia,Datia,0.4808,82,37.7,28.1,22.3,11.9,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_174,Jabalpur,jabalpur,Jabalpur,0.48,83,59.6,14.8,18.0,7.6,Hazard Exposure,Capacity Stress
+MP_TEHSIL_137,Maksoodangarh,guna,Guna,0.4792,84,36.2,29.8,22.5,11.6,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_138,Raghogarh,guna,Guna,0.4791,85,35.5,29.5,22.0,13.0,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_107,Datia Nagar,datia,Datia,0.4783,86,35.9,27.6,21.8,14.7,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_136,Kumbhraj,guna,Guna,0.4766,87,35.6,29.7,22.4,12.2,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_364,Khaniyadhana,shivpuri,Shivpuri,0.4748,88,37.1,28.8,23.0,11.1,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_184,Petlawad,jhabua,Jhabua,0.473,89,28.9,36.2,22.4,12.5,Demographic Sensitivity,Hazard Exposure
+MP_TEHSIL_254,Devendranagar,panna,Panna,0.4703,90,39.4,24.9,22.8,13.0,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_366,Narwar,shivpuri,Shivpuri,0.4695,91,35.0,28.4,22.8,13.8,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_369,Rannod,shivpuri,Shivpuri,0.4671,92,36.4,29.0,22.7,11.8,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_132,Bamori,guna,Guna,0.4639,93,35.7,30.9,23.3,10.1,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_365,Kolaras,shivpuri,Shivpuri,0.4615,94,35.6,29.2,23.3,11.9,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_109,Seondha,datia,Datia,0.461,95,37.0,29.4,23.5,10.1,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_131,Aron,guna,Guna,0.4609,96,34.1,30.4,23.0,12.5,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_106,Datia,datia,Datia,0.46,97,34.1,28.4,22.9,14.5,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_013,Pushparajgarh,anuppur,Anuppur,0.4597,98,50.9,12.6,23.7,12.8,Hazard Exposure,Capacity Stress
+MP_TEHSIL_361,Badarwas,shivpuri,Shivpuri,0.4583,99,33.3,28.7,23.2,14.8,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_371,Shivpuri nagar,shivpuri,Shivpuri,0.4558,100,37.1,29.7,20.1,13.1,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_021,Shadhora,ashoknagar,Ashoknagar,0.4555,101,34.9,28.8,23.4,12.9,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_252,Ajaigarh,panna,Panna,0.4554,102,38.8,25.5,23.1,12.6,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_260,Simariya,panna,Panna,0.455,103,36.8,25.0,23.0,15.2,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_130,Shahpura,dindori,Dindori,0.4549,104,52.9,11.1,24.2,11.7,Hazard Exposure,Capacity Stress
+MP_TEHSIL_372,Bahari,sidhi,Sidhi,0.4549,105,39.7,23.0,22.9,14.4,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_129,Dindori,dindori,Dindori,0.4541,106,52.8,11.1,24.3,11.8,Hazard Exposure,Capacity Stress
+MP_TEHSIL_340,Lakhnadon,seoni,Seoni,0.4535,107,54.2,7.8,24.0,14.0,Hazard Exposure,Capacity Stress
+MP_TEHSIL_069,Nepanagar,burhanpur,Burhanpur,0.4532,108,33.1,29.1,23.1,14.7,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_363,Karera,shivpuri,Shivpuri,0.4531,109,34.4,29.5,23.7,12.3,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_108,Indergarh,datia,Datia,0.453,110,34.1,28.9,23.1,13.8,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_339,Kurai,seoni,Seoni,0.451,111,53.0,7.7,23.7,15.6,Hazard Exposure,Capacity Stress
+MP_TEHSIL_068,Khaknar,burhanpur,Burhanpur,0.4504,112,33.1,29.4,23.4,14.2,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_070,Bada Malhera,chhatarpur,Chhatarpur,0.4504,113,40.0,25.7,23.7,10.6,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_077,Ghuwara,chhatarpur,Chhatarpur,0.4502,114,36.7,24.8,23.5,15.0,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_362,Bairad,shivpuri,Shivpuri,0.4502,115,35.2,30.0,23.6,11.2,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_387,Jatara,tikamgarh,Tikamgarh,0.4502,116,36.1,26.3,23.2,14.5,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_019,Nai Sarai,ashoknagar,Ashoknagar,0.4493,117,35.6,29.5,23.7,11.2,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_412,Gulabganj,vidisha,Vidisha,0.4479,118,37.2,24.8,23.5,14.5,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_134,Guna,guna,Guna,0.4475,119,33.9,31.8,24.3,10.0,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_020,Piprai,ashoknagar,Ashoknagar,0.4465,120,33.1,28.8,22.8,15.2,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_017,Isagarh,ashoknagar,Ashoknagar,0.446,121,33.8,29.2,23.9,13.1,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_256,Panna,panna,Panna,0.445,122,38.3,26.1,24.0,11.6,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_413,Gyaraspur,vidisha,Vidisha,0.4443,123,37.2,25.0,23.2,14.6,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_105,Bhander,datia,Datia,0.4438,124,34.2,29.8,23.8,12.2,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_085,Chaurai,chhindwara,Chhindwara,0.4433,125,53.6,6.9,24.7,14.8,Hazard Exposure,Capacity Stress
+MP_TEHSIL_014,Ashoknagar,ashoknagar,Ashoknagar,0.4425,126,34.8,29.9,24.3,11.0,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_081,Rajnagar,chhatarpur,Chhatarpur,0.4419,127,36.1,25.1,23.6,15.2,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_390,Mohangarh,tikamgarh,Tikamgarh,0.4411,128,38.2,27.6,24.1,10.1,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_071,Bijawar,chhatarpur,Chhatarpur,0.4398,129,37.9,25.7,24.1,12.3,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_074,Chhatarpur,chhatarpur,Chhatarpur,0.4397,130,37.7,25.7,24.0,12.6,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_010,Anuppur,anuppur,Anuppur,0.4394,131,50.2,13.0,24.6,12.2,Hazard Exposure,Capacity Stress
+MP_TEHSIL_262,Baraily,raisen,Raisen,0.4393,132,38.8,23.0,24.1,14.1,Hazard Exposure,Capacity Stress
+MP_TEHSIL_218,Niwas,mandla,Mandla,0.4392,133,51.7,9.0,24.5,14.8,Hazard Exposure,Capacity Stress
+MP_TEHSIL_076,Gaurihar,chhatarpur,Chhatarpur,0.4389,134,39.2,26.2,24.4,10.2,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_385,Badgaon Dhasan,tikamgarh,Tikamgarh,0.4382,135,35.7,27.0,23.4,13.9,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_322,Ramnagar,satna,Satna,0.4375,136,40.7,22.6,24.0,12.7,Hazard Exposure,Capacity Stress
+MP_TEHSIL_093,Sausar,chhindwara,Chhindwara,0.4365,137,56.6,7.2,25.7,10.6,Hazard Exposure,Capacity Stress
+MP_TEHSIL_135,Guna Nagar,guna,Guna,0.435,138,34.5,32.6,21.7,11.3,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_140,Chinour,gwalior,Gwalior,0.435,139,44.6,28.1,18.5,8.8,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_416,Nateran,vidisha,Vidisha,0.4349,140,37.4,25.8,24.7,12.1,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_075,Chhatarpur Nagar,chhatarpur,Chhatarpur,0.4346,141,36.9,25.9,24.5,12.7,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_419,Sironj,vidisha,Vidisha,0.4346,142,35.6,25.2,23.7,15.4,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_386,Baldeogarh,tikamgarh,Tikamgarh,0.4344,143,37.5,27.9,24.6,9.9,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_073,Chandla,chhatarpur,Chhatarpur,0.4339,144,37.7,26.2,24.9,11.2,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_368,Pohri,shivpuri,Shivpuri,0.4322,145,32.8,31.0,24.9,11.3,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_420,Tyonda,vidisha,Vidisha,0.4305,146,35.8,25.6,24.5,14.0,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_342,Seoni Nagar,seoni,Seoni,0.43,147,54.7,8.1,24.2,12.9,Hazard Exposure,Capacity Stress
+MP_TEHSIL_094,Tamia,chhindwara,Chhindwara,0.4299,148,55.2,7.2,25.3,12.3,Hazard Exposure,Capacity Stress
+MP_TEHSIL_415,Lateri,vidisha,Vidisha,0.4299,149,35.8,25.6,24.2,14.3,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_380,Deosar,singrauli,Singrauli,0.4292,150,36.6,25.3,24.0,14.1,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_391,Palera,tikamgarh,Tikamgarh,0.4292,151,36.3,28.0,24.8,11.0,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_012,Kotma,anuppur,Anuppur,0.4283,152,50.5,13.3,25.7,10.5,Hazard Exposure,Capacity Stress
+MP_TEHSIL_028,Lalbarra,balaghat,Balaghat,0.4283,153,59.4,1.7,26.0,12.9,Hazard Exposure,Capacity Stress
+MP_TEHSIL_378,Sihawal,sidhi,Sidhi,0.4283,154,37.8,24.1,24.3,13.8,Hazard Exposure,Capacity Stress
+MP_TEHSIL_266,Goharganj,raisen,Raisen,0.4282,155,39.1,23.7,24.7,12.5,Hazard Exposure,Capacity Stress
+MP_TEHSIL_392,Tikamgarh,tikamgarh,Tikamgarh,0.4281,156,35.7,27.9,25.1,11.3,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_080,Nowgong,chhatarpur,Chhatarpur,0.4268,157,36.3,26.2,24.0,13.5,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_373,Churhat,sidhi,Sidhi,0.4266,158,38.9,24.6,24.9,11.6,Hazard Exposure,Capacity Stress
+MP_TEHSIL_258,Raipura,panna,Panna,0.4261,159,36.5,26.9,24.3,12.3,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_289,Gurh,rewa,Rewa,0.4259,160,40.4,22.3,24.7,12.6,Hazard Exposure,Capacity Stress
+MP_TEHSIL_418,Shamshabad,vidisha,Vidisha,0.4257,161,36.8,26.2,24.4,12.6,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_337,Ghansaur,seoni,Seoni,0.4255,162,51.4,8.0,24.6,16.1,Hazard Exposure,Capacity Stress
+MP_TEHSIL_031,Tirodi,balaghat,Balaghat,0.4237,163,59.0,1.7,26.3,13.0,Hazard Exposure,Capacity Stress
+MP_TEHSIL_029,Lanji,balaghat,Balaghat,0.4234,164,61.3,1.7,26.3,10.7,Hazard Exposure,Capacity Stress
+MP_TEHSIL_078,Laundi,chhatarpur,Chhatarpur,0.4234,165,36.3,26.6,25.2,12.0,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_331,Sehore,sehore,Sehore,0.4233,166,38.6,22.2,24.1,15.1,Hazard Exposure,Capacity Stress
+MP_TEHSIL_383,Singrauli,singrauli,Singrauli,0.4219,167,36.0,25.7,24.9,13.3,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_381,Mada,singrauli,Singrauli,0.4218,168,37.3,26.1,25.2,11.4,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_091,Pandhurna,chhindwara,Chhindwara,0.4214,169,53.3,7.2,25.5,14.0,Hazard Exposure,Capacity Stress
+MP_TEHSIL_411,Basoda,vidisha,Vidisha,0.4212,170,36.3,26.5,25.2,12.1,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_214,Ghughari,mandla,Mandla,0.421,171,50.3,9.2,24.7,15.8,Hazard Exposure,Capacity Stress
+MP_TEHSIL_143,Gird,gwalior,Gwalior,0.4209,172,42.9,28.5,18.9,9.7,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_299,Sirmour,rewa,Rewa,0.4209,173,40.6,22.6,24.8,12.0,Hazard Exposure,Capacity Stress
+MP_TEHSIL_264,Deori,raisen,Raisen,0.4206,174,39.6,24.2,24.8,11.4,Hazard Exposure,Capacity Stress
+MP_TEHSIL_253,Amanganj,panna,Panna,0.4203,175,35.7,27.3,25.6,11.4,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_023,Balaghat,balaghat,Balaghat,0.4199,176,57.0,1.6,25.4,16.0,Hazard Exposure,Capacity Stress
+MP_TEHSIL_119,Badnawar,dhar,Dhar,0.4199,177,37.9,22.7,24.5,14.9,Hazard Exposure,Capacity Stress
+MP_TEHSIL_329,Nasrullaganj,sehore,Sehore,0.4187,178,40.6,23.0,25.3,11.1,Hazard Exposure,Capacity Stress
+MP_TEHSIL_099,Hatta,damoh,Damoh,0.4183,179,38.1,22.5,24.2,15.2,Hazard Exposure,Capacity Stress
+MP_TEHSIL_139,Bhitarwar,gwalior,Gwalior,0.4182,180,43.8,29.0,18.8,8.4,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_257,Pawai,panna,Panna,0.4177,181,36.2,27.6,25.6,10.5,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_145,Pichhore Or Dabra,gwalior,Gwalior,0.4176,182,43.0,28.7,18.9,9.4,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_338,Keolari,seoni,Seoni,0.4176,183,50.9,8.1,24.8,16.2,Hazard Exposure,Capacity Stress
+MP_TEHSIL_101,Patera,damoh,Damoh,0.4175,184,38.0,22.5,24.6,14.9,Hazard Exposure,Capacity Stress
+MP_TEHSIL_259,Shahnagar,panna,Panna,0.4173,185,33.3,26.8,24.9,15.0,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_382,Sarai,singrauli,Singrauli,0.4173,186,33.6,25.5,24.6,16.2,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_290,Hanumana,rewa,Rewa,0.4171,187,37.8,22.2,24.4,15.6,Hazard Exposure,Capacity Stress
+MP_TEHSIL_122,Dharampuri,dhar,Dhar,0.417,188,39.9,23.2,24.7,12.1,Hazard Exposure,Capacity Stress
+MP_TEHSIL_100,Jabera,damoh,Damoh,0.4167,189,37.2,22.4,24.5,15.9,Hazard Exposure,Capacity Stress
+MP_TEHSIL_333,Shyampur,sehore,Sehore,0.4167,190,37.4,22.4,24.7,15.6,Hazard Exposure,Capacity Stress
+MP_TEHSIL_374,Gopadbanas,sidhi,Sidhi,0.4166,191,37.1,24.8,25.0,13.1,Hazard Exposure,Capacity Stress
+MP_TEHSIL_216,Nainpur,mandla,Mandla,0.4164,192,54.0,9.6,26.0,10.4,Hazard Exposure,Capacity Stress
+MP_TEHSIL_417,Pathari,vidisha,Vidisha,0.4161,193,34.3,26.2,23.9,15.7,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_083,Bichhua,chhindwara,Chhindwara,0.4159,194,55.2,7.4,26.2,11.2,Hazard Exposure,Capacity Stress
+MP_TEHSIL_097,Damoh,damoh,Damoh,0.4149,195,38.0,22.7,24.6,14.7,Hazard Exposure,Capacity Stress
+MP_TEHSIL_196,Vijayraghavgarh,katni,Katni,0.4148,196,44.0,20.3,25.5,10.2,Hazard Exposure,Capacity Stress
+MP_TEHSIL_275,Narsinghgarh,rajgarh,Rajgarh,0.4148,197,40.7,20.5,24.7,14.1,Hazard Exposure,Capacity Stress
+MP_TEHSIL_268,Silwani,raisen,Raisen,0.4146,198,37.6,24.2,25.1,13.1,Hazard Exposure,Capacity Stress
+MP_TEHSIL_320,Nagod,satna,Satna,0.4145,199,37.5,23.2,24.9,14.4,Hazard Exposure,Capacity Stress
+MP_TEHSIL_273,Khilchipur,rajgarh,Rajgarh,0.414,200,43.2,21.1,25.5,10.2,Hazard Exposure,Capacity Stress
+MP_TEHSIL_389,Lidhora,tikamgarh,Tikamgarh,0.4139,201,31.4,28.0,24.8,15.8,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_026,Khairlanji,balaghat,Balaghat,0.4136,202,58.3,1.7,26.9,13.2,Hazard Exposure,Capacity Stress
+MP_TEHSIL_126,Pithampur,dhar,Dhar,0.4135,203,39.6,23.4,25.4,11.5,Hazard Exposure,Capacity Stress
+MP_TEHSIL_388,Khargapur,tikamgarh,Tikamgarh,0.4128,204,33.4,28.5,24.8,13.3,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_316,Kotar,satna,Satna,0.4119,205,40.6,24.0,25.1,10.3,Hazard Exposure,Capacity Stress
+MP_TEHSIL_325,Ashta,sehore,Sehore,0.4114,206,37.9,22.7,24.6,14.8,Hazard Exposure,Capacity Stress
+MP_TEHSIL_123,Gandhwani,dhar,Dhar,0.4111,207,37.7,23.1,25.0,14.2,Hazard Exposure,Capacity Stress
+MP_TEHSIL_265,Gairatganj,raisen,Raisen,0.4107,208,35.4,23.9,24.9,15.8,Hazard Exposure,Capacity Stress
+MP_TEHSIL_202,Punasa,khandwa__east_nimar_,Khandwa (East Nimar),0.41,209,38.2,21.2,24.5,16.1,Hazard Exposure,Capacity Stress
+MP_TEHSIL_276,Pachore,rajgarh,Rajgarh,0.41,210,38.6,20.4,24.9,16.0,Hazard Exposure,Capacity Stress
+MP_TEHSIL_121,Dhar,dhar,Dhar,0.4096,211,37.7,23.2,24.9,14.2,Hazard Exposure,Capacity Stress
+MP_TEHSIL_024,Birsa,balaghat,Balaghat,0.4095,212,58.2,1.7,26.5,13.6,Hazard Exposure,Capacity Stress
+MP_TEHSIL_125,Manawar,dhar,Dhar,0.4092,213,36.3,23.0,24.9,15.8,Hazard Exposure,Capacity Stress
+MP_TEHSIL_128,BAJAG,dindori,Dindori,0.4092,214,51.5,12.0,26.0,10.5,Hazard Exposure,Capacity Stress
+MP_TEHSIL_102,Patharia,damoh,Damoh,0.4086,215,37.0,22.9,24.9,15.2,Hazard Exposure,Capacity Stress
+MP_TEHSIL_213,Bichhiya,mandla,Mandla,0.4084,216,49.0,9.3,25.0,16.7,Hazard Exposure,Capacity Stress
+MP_TEHSIL_317,Kothi,satna,Satna,0.4082,217,37.9,23.7,25.2,13.3,Hazard Exposure,Capacity Stress
+MP_TEHSIL_336,Dhanora,seoni,Seoni,0.4081,218,49.7,8.2,25.7,16.4,Hazard Exposure,Capacity Stress
+MP_TEHSIL_300,Teonthar,rewa,Rewa,0.4079,219,40.4,23.3,25.7,10.7,Hazard Exposure,Capacity Stress
+MP_TEHSIL_272,Jirapur,rajgarh,Rajgarh,0.4078,220,38.4,20.5,24.9,16.1,Hazard Exposure,Capacity Stress
+MP_TEHSIL_379,Chitrangi,singrauli,Singrauli,0.4076,221,35.1,26.6,25.6,12.7,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_096,Batiyagarh,damoh,Damoh,0.4075,222,40.0,23.7,26.0,10.3,Hazard Exposure,Capacity Stress
+MP_TEHSIL_011,Jaithari,anuppur,Anuppur,0.4074,223,47.6,13.4,24.9,14.1,Hazard Exposure,Capacity Stress
+MP_TEHSIL_296,Naigarhi,rewa,Rewa,0.4074,224,36.5,22.6,25.1,15.8,Hazard Exposure,Capacity Stress
+MP_TEHSIL_277,Rajgarh,rajgarh,Rajgarh,0.4071,225,39.3,20.7,24.8,15.2,Hazard Exposure,Capacity Stress
+MP_TEHSIL_311,Sagar,sagar,Sagar,0.4069,226,45.9,26.9,19.4,7.8,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_087,Chhindwara Nagar,chhindwara,Chhindwara,0.4068,227,53.5,7.3,23.5,15.7,Hazard Exposure,Capacity Stress
+MP_TEHSIL_377,Rampur Naikin,sidhi,Sidhi,0.4063,228,36.2,25.4,25.7,12.7,Hazard Exposure,Capacity Stress
+MP_TEHSIL_072,Buxwaha,chhatarpur,Chhatarpur,0.4056,229,35.4,27.8,26.0,10.8,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_146,Tansen,gwalior,Gwalior,0.4055,230,41.4,29.1,19.2,10.2,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_324,Unchahara,satna,Satna,0.4049,231,38.8,24.2,26.0,11.1,Hazard Exposure,Capacity Stress
+MP_TEHSIL_293,Jawa,rewa,Rewa,0.4044,232,39.0,23.2,25.5,12.4,Hazard Exposure,Capacity Stress
+MP_TEHSIL_278,Sarangpur,rajgarh,Rajgarh,0.4041,233,40.7,21.1,25.2,13.0,Hazard Exposure,Capacity Stress
+MP_TEHSIL_321,Raghurajnagar Nagareey,satna,Satna,0.4032,234,38.7,24.3,26.5,10.4,Hazard Exposure,Capacity Stress
+MP_TEHSIL_280,Alot,ratlam,Ratlam,0.4025,235,40.3,19.0,25.4,15.3,Hazard Exposure,Capacity Stress
+MP_TEHSIL_082,Amarwara,chhindwara,Chhindwara,0.4023,236,53.2,7.4,26.6,12.7,Hazard Exposure,Capacity Stress
+MP_TEHSIL_098,Danyantinagar,damoh,Damoh,0.4023,237,40.8,23.8,23.9,11.5,Hazard Exposure,Capacity Stress
+MP_TEHSIL_189,Bahoriband,katni,Katni,0.4023,238,38.8,19.9,25.0,16.3,Hazard Exposure,Capacity Stress
+MP_TEHSIL_334,Barghat,seoni,Seoni,0.4023,239,49.7,8.2,25.5,16.6,Hazard Exposure,Capacity Stress
+MP_TEHSIL_414,Kurwai,vidisha,Vidisha,0.4023,240,32.7,27.1,25.4,14.8,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_103,Tendukheda,damoh,Damoh,0.4018,241,36.6,23.3,25.4,14.7,Hazard Exposure,Capacity Stress
+MP_TEHSIL_255,Gunnor,panna,Panna,0.4018,242,32.3,28.1,26.0,13.6,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_217,Narayanganj,mandla,Mandla,0.4016,243,52.3,9.7,26.4,11.7,Hazard Exposure,Capacity Stress
+MP_TEHSIL_261,Badi,raisen,Raisen,0.4015,244,35.0,24.6,25.7,14.8,Hazard Exposure,Capacity Stress
+MP_TEHSIL_335,Chhapara,seoni,Seoni,0.4014,245,54.1,8.6,26.6,10.7,Hazard Exposure,Capacity Stress
+MP_TEHSIL_090,Mohkhed,chhindwara,Chhindwara,0.4011,246,53.7,7.5,26.4,12.4,Hazard Exposure,Capacity Stress
+MP_TEHSIL_267,Raisen,raisen,Raisen,0.4011,247,34.2,24.4,25.3,16.1,Hazard Exposure,Capacity Stress
+MP_TEHSIL_092,Parasia,chhindwara,Chhindwara,0.4006,248,54.0,7.5,27.1,11.4,Hazard Exposure,Capacity Stress
+MP_TEHSIL_089,Jamai,chhindwara,Chhindwara,0.4003,249,50.1,7.2,25.6,17.0,Hazard Exposure,Capacity Stress
+MP_TEHSIL_291,Huzur,rewa,Rewa,0.3994,250,39.6,23.7,25.9,10.8,Hazard Exposure,Capacity Stress
+MP_TEHSIL_114,Kannod,dewas,Dewas,0.3993,251,39.1,19.7,25.4,15.7,Hazard Exposure,Capacity Stress
+MP_TEHSIL_271,Biaora,rajgarh,Rajgarh,0.399,252,38.3,21.0,25.7,15.1,Hazard Exposure,Capacity Stress
+MP_TEHSIL_115,Khategaon,dewas,Dewas,0.3984,253,38.5,19.7,25.1,16.7,Hazard Exposure,Capacity Stress
+MP_TEHSIL_375,Kusmi,sidhi,Sidhi,0.3983,254,36.9,26.2,26.4,10.6,Hazard Exposure,Capacity Stress
+MP_TEHSIL_295,Mauganj,rewa,Rewa,0.3978,255,35.4,23.0,25.5,16.1,Hazard Exposure,Capacity Stress
+MP_TEHSIL_032,Waraseoni,balaghat,Balaghat,0.3971,256,54.6,1.7,26.9,16.8,Hazard Exposure,Capacity Stress
+MP_TEHSIL_315,Birsinghpur,satna,Satna,0.3971,257,36.4,24.1,25.5,13.9,Hazard Exposure,Capacity Stress
+MP_TEHSIL_350,Gulana,shajapur,Shajapur,0.3966,258,39.5,20.5,25.5,14.5,Hazard Exposure,Capacity Stress
+MP_TEHSIL_027,Kirnapur,balaghat,Balaghat,0.396,259,58.8,1.8,27.7,11.8,Hazard Exposure,Capacity Stress
+MP_TEHSIL_251,Prithvipur,niwari,Niwari,0.3955,260,41.6,20.5,26.0,11.9,Hazard Exposure,Capacity Stress
+MP_TEHSIL_327,Ichhawar,sehore,Sehore,0.3952,261,34.3,23.2,25.6,16.9,Hazard Exposure,Capacity Stress
+MP_TEHSIL_192,Katni Nagar,katni,Katni,0.3945,262,41.2,20.8,26.4,11.6,Hazard Exposure,Capacity Stress
+MP_TEHSIL_151,Sirali,harda,Harda,0.3944,263,40.8,21.3,26.7,11.2,Hazard Exposure,Capacity Stress
+MP_TEHSIL_341,Seoni,seoni,Seoni,0.3944,264,53.7,8.7,26.8,10.8,Hazard Exposure,Capacity Stress
+MP_TEHSIL_303,Deori,sagar,Sagar,0.3943,265,44.5,27.4,20.1,7.9,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_095,Umreth,chhindwara,Chhindwara,0.394,266,53.1,7.6,26.8,12.6,Hazard Exposure,Capacity Stress
+MP_TEHSIL_314,Amarpatan,satna,Satna,0.394,267,37.3,24.6,26.4,11.6,Hazard Exposure,Capacity Stress
+MP_TEHSIL_355,Shujalpur,shajapur,Shajapur,0.3938,268,41.7,21.0,26.4,10.9,Hazard Exposure,Capacity Stress
+MP_TEHSIL_328,Jawar,sehore,Sehore,0.3929,269,34.8,23.4,25.2,16.6,Hazard Exposure,Capacity Stress
+MP_TEHSIL_199,Khandwa,khandwa__east_nimar_,Khandwa (East Nimar),0.3928,270,38.3,22.2,25.8,13.6,Hazard Exposure,Capacity Stress
+MP_TEHSIL_120,Dahi,dhar,Dhar,0.3926,271,35.1,24.0,25.9,15.0,Hazard Exposure,Capacity Stress
+MP_TEHSIL_376,Majhauli,sidhi,Sidhi,0.3918,272,32.8,25.8,25.6,15.8,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_195,Sleemnbad,katni,Katni,0.3916,273,39.3,20.6,25.5,14.6,Hazard Exposure,Capacity Stress
+MP_TEHSIL_318,Maihar,satna,Satna,0.3916,274,35.5,24.4,26.0,14.1,Hazard Exposure,Capacity Stress
+MP_TEHSIL_351,Kalapipal,shajapur,Shajapur,0.3915,275,39.9,20.9,26.2,13.0,Hazard Exposure,Capacity Stress
+MP_TEHSIL_149,Khirkiya,harda,Harda,0.3911,276,40.9,21.4,26.4,11.3,Hazard Exposure,Capacity Stress
+MP_TEHSIL_269,Sultanpur,raisen,Raisen,0.3902,277,34.0,25.2,25.9,14.8,Hazard Exposure,Capacity Stress
+MP_TEHSIL_323,Rampur Baghelan,satna,Satna,0.39,278,35.4,24.6,26.5,13.4,Hazard Exposure,Capacity Stress
+MP_TEHSIL_022,Baihar,balaghat,Balaghat,0.3895,279,56.4,1.7,27.2,14.7,Hazard Exposure,Capacity Stress
+MP_TEHSIL_270,Udaipura,raisen,Raisen,0.3895,280,35.9,25.7,26.7,11.8,Hazard Exposure,Capacity Stress
+MP_TEHSIL_288,Tal,ratlam,Ratlam,0.3891,281,39.0,19.4,25.9,15.7,Hazard Exposure,Capacity Stress
+MP_TEHSIL_297,Raipur - Karchuliyan,rewa,Rewa,0.3887,282,33.6,23.4,26.1,16.8,Hazard Exposure,Capacity Stress
+MP_TEHSIL_084,Chand,chhindwara,Chhindwara,0.3884,283,50.4,7.4,25.8,16.4,Hazard Exposure,Capacity Stress
+MP_TEHSIL_263,Begamganj,raisen,Raisen,0.3884,284,34.6,25.6,26.6,13.2,Hazard Exposure,Capacity Stress
+MP_TEHSIL_124,Kukshi,dhar,Dhar,0.3883,285,36.2,24.5,26.5,12.8,Hazard Exposure,Capacity Stress
+MP_TEHSIL_002,Badod,agar,Agar,0.3878,286,40.3,20.2,26.4,13.1,Hazard Exposure,Capacity Stress
+MP_TEHSIL_326,Budni,sehore,Sehore,0.3875,287,37.7,24.4,26.4,11.4,Hazard Exposure,Capacity Stress
+MP_TEHSIL_141,City center,gwalior,Gwalior,0.3873,288,43.1,31.0,18.9,7.0,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_110,Bagli,dewas,Dewas,0.3869,289,39.1,20.4,26.1,14.4,Hazard Exposure,Capacity Stress
+MP_TEHSIL_088,Harrai,chhindwara,Chhindwara,0.3864,290,50.7,7.5,26.7,15.1,Hazard Exposure,Capacity Stress
+MP_TEHSIL_319,Majhgawan,satna,Satna,0.386,291,37.2,25.2,26.8,10.8,Hazard Exposure,Capacity Stress
+MP_TEHSIL_190,Barhi,katni,Katni,0.3851,292,37.3,20.7,25.8,16.1,Hazard Exposure,Capacity Stress
+MP_TEHSIL_144,Murar,gwalior,Gwalior,0.385,293,41.3,30.6,18.5,9.6,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_148,Harda,harda,Harda,0.3844,294,36.2,21.1,26.2,16.5,Hazard Exposure,Capacity Stress
+MP_TEHSIL_298,Semaria,rewa,Rewa,0.3844,295,34.7,23.9,26.5,14.9,Hazard Exposure,Capacity Stress
+MP_TEHSIL_193,Murwara or Katni,katni,Katni,0.3841,296,36.4,20.7,26.4,16.5,Hazard Exposure,Capacity Stress
+MP_TEHSIL_285,Ratlam Nagar,ratlam,Ratlam,0.384,297,38.2,19.6,26.0,16.2,Hazard Exposure,Capacity Stress
+MP_TEHSIL_294,Mangawan,rewa,Rewa,0.3839,298,37.2,24.3,26.6,11.9,Hazard Exposure,Capacity Stress
+MP_TEHSIL_127,Sardarpur,dhar,Dhar,0.3836,299,34.9,24.6,26.5,14.0,Hazard Exposure,Capacity Stress
+MP_TEHSIL_086,Chhindwara,chhindwara,Chhindwara,0.3834,300,49.4,7.5,26.7,16.5,Hazard Exposure,Capacity Stress
+MP_TEHSIL_200,Khandwa Nagar,khandwa__east_nimar_,Khandwa (East Nimar),0.3832,301,43.4,22.5,16.7,17.4,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_249,Niwari,niwari,Niwari,0.3829,302,38.1,20.6,26.4,14.9,Hazard Exposure,Capacity Stress
+MP_TEHSIL_281,Bajna,ratlam,Ratlam,0.3825,303,38.8,19.7,25.7,15.9,Hazard Exposure,Capacity Stress
+MP_TEHSIL_286,Rawti,ratlam,Ratlam,0.3823,304,42.4,20.3,26.5,10.8,Hazard Exposure,Capacity Stress
+MP_TEHSIL_302,Bina,sagar,Sagar,0.3822,305,43.1,27.9,20.5,8.5,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_142,Ghatigaon,gwalior,Gwalior,0.3818,306,41.2,31.2,20.5,7.1,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_116,Satwas,dewas,Dewas,0.3817,307,37.5,20.5,26.5,15.6,Hazard Exposure,Capacity Stress
+MP_TEHSIL_147,Handiya,harda,Harda,0.3815,308,36.3,21.3,26.7,15.6,Hazard Exposure,Capacity Stress
+MP_TEHSIL_274,Khujner,rajgarh,Rajgarh,0.381,309,38.4,22.0,26.1,13.6,Hazard Exposure,Capacity Stress
+MP_TEHSIL_118,Tonk Khurd,dewas,Dewas,0.3806,310,37.0,20.5,26.6,16.0,Hazard Exposure,Capacity Stress
+MP_TEHSIL_198,Khalwa,khandwa__east_nimar_,Khandwa (East Nimar),0.3789,311,34.2,22.6,26.3,16.8,Hazard Exposure,Capacity Stress
+MP_TEHSIL_354,Shajapur,shajapur,Shajapur,0.3787,312,35.9,21.0,26.3,16.7,Hazard Exposure,Capacity Stress
+MP_TEHSIL_201,Pandhana,khandwa__east_nimar_,Khandwa (East Nimar),0.3781,313,38.3,23.3,27.1,11.3,Hazard Exposure,Capacity Stress
+MP_TEHSIL_111,Dewas,dewas,Dewas,0.3776,314,37.5,20.7,26.4,15.4,Hazard Exposure,Capacity Stress
+MP_TEHSIL_030,Paraswada,balaghat,Balaghat,0.3775,315,57.9,1.8,28.1,12.2,Hazard Exposure,Capacity Stress
+MP_TEHSIL_304,Garhakota,sagar,Sagar,0.3772,316,45.8,29.1,20.7,4.4,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_287,Sailana,ratlam,Ratlam,0.3768,317,40.7,20.4,27.3,11.6,Hazard Exposure,Capacity Stress
+MP_TEHSIL_283,Piploda,ratlam,Ratlam,0.3758,318,37.3,19.9,26.4,16.4,Hazard Exposure,Capacity Stress
+MP_TEHSIL_219,Bhanpura,mandsaur,Mandsaur,0.3749,319,45.8,14.2,27.0,13.1,Hazard Exposure,Capacity Stress
+MP_TEHSIL_292,Huzur nagar,rewa,Rewa,0.3749,320,36.4,25.0,27.5,11.1,Hazard Exposure,Capacity Stress
+MP_TEHSIL_004,Susner,agar,Agar,0.3748,321,36.9,20.5,26.8,15.8,Hazard Exposure,Capacity Stress
+MP_TEHSIL_352,Moman Badodiya,shajapur,Shajapur,0.3748,322,37.9,21.6,27.1,13.4,Hazard Exposure,Capacity Stress
+MP_TEHSIL_188,Badwara,katni,Katni,0.3741,323,37.6,21.4,26.9,14.1,Hazard Exposure,Capacity Stress
+MP_TEHSIL_349,Awantipur Badodiya,shajapur,Shajapur,0.3739,324,38.3,21.5,26.1,14.1,Hazard Exposure,Capacity Stress
+MP_TEHSIL_330,Rehti,sehore,Sehore,0.3728,325,35.4,25.4,28.1,11.1,Hazard Exposure,Capacity Stress
+MP_TEHSIL_152,Timarni,harda,Harda,0.3726,326,36.6,21.9,26.9,14.5,Hazard Exposure,Capacity Stress
+MP_TEHSIL_405,Bilaspur,umaria,Umaria,0.3718,327,41.7,18.2,26.6,13.4,Hazard Exposure,Capacity Stress
+MP_TEHSIL_243,Jiran,neemuch,Neemuch,0.3715,328,44.3,12.5,26.6,16.6,Hazard Exposure,Capacity Stress
+MP_TEHSIL_408,Manpur,umaria,Umaria,0.3715,329,42.7,18.4,27.5,11.4,Hazard Exposure,Capacity Stress
+MP_TEHSIL_191,Dhimarkheda,katni,Katni,0.3714,330,35.8,21.5,27.1,15.6,Hazard Exposure,Capacity Stress
+MP_TEHSIL_344,Budar,shahdol,Shahdol,0.3713,331,45.7,15.5,27.7,11.0,Hazard Exposure,Capacity Stress
+MP_TEHSIL_150,Rehatgaon,harda,Harda,0.3711,332,38.9,22.4,27.6,11.1,Hazard Exposure,Capacity Stress
+MP_TEHSIL_309,Rahatgarh,sagar,Sagar,0.3699,333,42.9,28.7,20.2,8.3,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_197,Harsud,khandwa__east_nimar_,Khandwa (East Nimar),0.369,334,34.5,23.5,27.3,14.8,Hazard Exposure,Capacity Stress
+MP_TEHSIL_003,Nalkheda,agar,Agar,0.3689,335,38.0,21.0,27.1,13.9,Hazard Exposure,Capacity Stress
+MP_TEHSIL_284,Ratlam,ratlam,Ratlam,0.3682,336,39.8,20.8,27.6,11.8,Hazard Exposure,Capacity Stress
+MP_TEHSIL_407,Karkeli,umaria,Umaria,0.3682,337,39.9,18.0,25.2,17.0,Hazard Exposure,Capacity Stress
+MP_TEHSIL_310,Rehli,sagar,Sagar,0.3679,338,45.3,29.8,21.2,3.7,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_348,Sohagpur,shahdol,Shahdol,0.3673,339,44.8,15.5,27.2,12.5,Hazard Exposure,Capacity Stress
+MP_TEHSIL_308,Malthon,sagar,Sagar,0.3669,340,41.9,28.9,20.9,8.3,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_410,Pali,umaria,Umaria,0.3667,341,37.6,18.0,26.6,17.8,Hazard Exposure,Capacity Stress
+MP_TEHSIL_162,BhicholiHapsi,indore,Indore,0.3642,342,49.2,23.6,21.3,6.0,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_282,Jaora,ratlam,Ratlam,0.3639,343,35.4,20.6,27.5,16.6,Hazard Exposure,Capacity Stress
+MP_TEHSIL_346,Jaisinghnagar,shahdol,Shahdol,0.3633,344,40.8,15.2,27.2,16.8,Hazard Exposure,Capacity Stress
+MP_TEHSIL_343,Beohari,shahdol,Shahdol,0.3628,345,39.9,15.2,27.1,17.9,Hazard Exposure,Capacity Stress
+MP_TEHSIL_306,Kesli,sagar,Sagar,0.3624,346,43.2,29.6,21.1,6.1,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_001,Agar,agar,Agar,0.3614,347,38.0,21.6,28.4,12.0,Hazard Exposure,Capacity Stress
+MP_TEHSIL_025,Katangi,balaghat,Balaghat,0.3614,348,53.2,1.8,27.8,17.2,Hazard Exposure,Capacity Stress
+MP_TEHSIL_279,Suthaliya,rajgarh,Rajgarh,0.3614,349,36.0,23.3,28.2,12.5,Hazard Exposure,Capacity Stress
+MP_TEHSIL_221,Garoth,mandsaur,Mandsaur,0.3603,350,41.4,14.3,27.4,16.9,Hazard Exposure,Capacity Stress
+MP_TEHSIL_194,Rithi,katni,Katni,0.3594,351,36.5,22.4,27.9,13.2,Hazard Exposure,Capacity Stress
+MP_TEHSIL_353,Polaykala,shajapur,Shajapur,0.3591,352,36.8,22.7,28.7,11.8,Hazard Exposure,Capacity Stress
+MP_TEHSIL_113,Hatpiplya,dewas,Dewas,0.359,353,36.9,22.1,28.9,12.1,Hazard Exposure,Capacity Stress
+MP_TEHSIL_347,Jaitpur,shahdol,Shahdol,0.3589,354,39.4,15.3,27.2,18.0,Hazard Exposure,Capacity Stress
+MP_TEHSIL_248,Singoli,neemuch,Neemuch,0.3588,355,42.4,12.7,26.9,18.0,Hazard Exposure,Capacity Stress
+MP_TEHSIL_345,Gohparu,shahdol,Shahdol,0.3571,356,44.8,15.9,28.0,11.3,Hazard Exposure,Capacity Stress
+MP_TEHSIL_307,Khurai,sagar,Sagar,0.3559,357,41.8,29.8,21.0,7.4,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_164,Hatod,indore,Indore,0.355,358,45.5,23.1,20.4,11.0,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_406,Chandia,umaria,Umaria,0.3547,359,40.4,18.9,27.5,13.2,Hazard Exposure,Capacity Stress
+MP_TEHSIL_222,Malhargarh,mandsaur,Mandsaur,0.3538,360,39.9,14.5,27.4,18.2,Hazard Exposure,Capacity Stress
+MP_TEHSIL_247,Rampura,neemuch,Neemuch,0.3535,361,43.8,13.0,27.8,15.4,Hazard Exposure,Capacity Stress
+MP_TEHSIL_305,Jaisinagar,sagar,Sagar,0.3515,362,41.2,30.3,21.5,7.1,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_224,Mandsaur Nagar,mandsaur,Mandsaur,0.3505,363,40.3,14.6,27.8,17.3,Hazard Exposure,Capacity Stress
+MP_TEHSIL_112,Dewas Nagar,dewas,Dewas,0.3502,364,38.7,22.4,26.5,12.3,Hazard Exposure,Capacity Stress
+MP_TEHSIL_063,Berasia,bhopal,Bhopal,0.35,365,46.5,24.1,21.2,8.1,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_244,Manasa,neemuch,Neemuch,0.349,366,42.9,13.1,27.8,16.3,Hazard Exposure,Capacity Stress
+MP_TEHSIL_312,Sagar Nagar,sagar,Sagar,0.3479,367,50.7,30.8,9.1,9.3,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_301,Banda,sagar,Sagar,0.3476,368,41.7,31.0,22.1,5.1,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_404,Bandhogarh,umaria,Umaria,0.3472,369,38.9,19.1,27.4,14.6,Hazard Exposure,Capacity Stress
+MP_TEHSIL_169,Mhow,indore,Indore,0.347,370,47.7,24.2,21.5,6.6,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_225,Shamgarh,mandsaur,Mandsaur,0.3468,371,39.4,14.7,27.7,18.2,Hazard Exposure,Capacity Stress
+MP_TEHSIL_170,Rau,indore,Indore,0.3457,372,51.4,24.4,17.2,7.1,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_046,Bhainsdehi,betul,Betul,0.3432,373,43.2,10.1,28.4,18.4,Hazard Exposure,Capacity Stress
+MP_TEHSIL_409,Nowrozabad,umaria,Umaria,0.3425,374,38.6,19.6,28.9,12.9,Hazard Exposure,Capacity Stress
+MP_TEHSIL_396,Khacharod,ujjain,Ujjain,0.3415,375,46.2,23.2,21.6,9.0,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_163,Depalpur,indore,Indore,0.3414,376,46.1,24.2,21.4,8.3,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_313,Shahgarh,sagar,Sagar,0.3404,377,40.5,31.6,22.2,5.7,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_050,Multai,betul,Betul,0.3397,378,43.5,10.3,28.5,17.8,Hazard Exposure,Capacity Stress
+MP_TEHSIL_246,Neemuch Nagar,neemuch,Neemuch,0.3395,379,45.0,13.2,24.2,17.6,Hazard Exposure,Capacity Stress
+MP_TEHSIL_047,Bhimpur,betul,Betul,0.3367,380,43.2,10.3,28.6,17.9,Hazard Exposure,Capacity Stress
+MP_TEHSIL_167,Khudel,indore,Indore,0.3363,381,44.0,24.2,21.9,9.9,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_384,Singrauli Nagar,singrauli,Singrauli,0.3345,382,45.2,32.3,8.4,14.1,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_044,Betul,betul,Betul,0.3338,383,43.3,10.3,28.7,17.6,Hazard Exposure,Capacity Stress
+MP_TEHSIL_226,Sitamau,mandsaur,Mandsaur,0.3338,384,38.6,15.4,29.4,16.6,Hazard Exposure,Capacity Stress
+MP_TEHSIL_223,Mandsaur,mandsaur,Mandsaur,0.3329,385,36.9,15.4,29.2,18.6,Hazard Exposure,Capacity Stress
+MP_TEHSIL_049,Ghoda Dongri,betul,Betul,0.3317,386,41.7,10.5,29.3,18.5,Hazard Exposure,Capacity Stress
+MP_TEHSIL_042,Amla,betul,Betul,0.3313,387,46.9,10.6,29.3,13.2,Hazard Exposure,Capacity Stress
+MP_TEHSIL_165,Indore,indore,Indore,0.3309,388,45.4,25.0,22.7,6.8,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_052,Shahpur,betul,Betul,0.3299,389,42.7,10.5,29.4,17.4,Hazard Exposure,Capacity Stress
+MP_TEHSIL_398,Mahidpur,ujjain,Ujjain,0.3289,390,47.3,24.7,23.3,4.8,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_220,Daloda,mandsaur,Mandsaur,0.3275,391,40.8,16.0,31.0,12.2,Hazard Exposure,Capacity Stress
+MP_TEHSIL_242,Jawad,neemuch,Neemuch,0.3258,392,40.2,14.0,29.7,16.1,Hazard Exposure,Capacity Stress
+MP_TEHSIL_245,Neemuch,neemuch,Neemuch,0.3249,393,41.8,14.2,30.6,13.4,Hazard Exposure,Capacity Stress
+MP_TEHSIL_177,Panagar,jabalpur,Jabalpur,0.3243,394,52.0,18.2,21.7,8.1,Hazard Exposure,Capacity Stress
+MP_TEHSIL_178,Patan,jabalpur,Jabalpur,0.3228,395,53.0,18.6,22.8,5.6,Hazard Exposure,Capacity Stress
+MP_TEHSIL_395,Jharda,ujjain,Ujjain,0.3219,396,46.4,25.1,23.6,4.9,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_393,Badnagar,ujjain,Ujjain,0.321,397,44.2,24.4,22.4,9.0,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_051,PrabhatPattan,betul,Betul,0.3208,398,44.9,10.9,31.0,13.1,Hazard Exposure,Capacity Stress
+MP_TEHSIL_227,Suwasara,mandsaur,Mandsaur,0.3204,399,40.4,16.2,30.6,12.8,Hazard Exposure,Capacity Stress
+MP_TEHSIL_048,Chicholi,betul,Betul,0.3202,400,40.7,10.7,29.9,18.7,Hazard Exposure,Capacity Stress
+MP_TEHSIL_399,Makdon,ujjain,Ujjain,0.3192,401,46.2,25.2,23.3,5.3,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_176,Majholi,jabalpur,Jabalpur,0.318,402,50.8,18.3,22.0,8.9,Hazard Exposure,Capacity Stress
+MP_TEHSIL_394,Ghatiya,ujjain,Ujjain,0.3173,403,43.8,24.9,23.5,7.9,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_043,Athner,betul,Betul,0.3157,404,44.2,11.2,31.3,13.3,Hazard Exposure,Capacity Stress
+MP_TEHSIL_401,Tarana,ujjain,Ujjain,0.3155,405,47.1,25.6,23.2,4.1,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_180,Shahpura,jabalpur,Jabalpur,0.3127,406,50.9,18.7,23.0,7.4,Hazard Exposure,Capacity Stress
+MP_TEHSIL_065,Kolar,bhopal,Bhopal,0.3125,407,43.4,26.5,22.5,7.6,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_166,Kanadiya,indore,Indore,0.3117,408,42.9,25.6,21.0,10.5,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_171,Sawer,indore,Indore,0.3117,409,43.7,26.5,23.5,6.3,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_402,Ujjain,ujjain,Ujjain,0.3114,410,46.0,26.0,23.9,4.1,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_168,Malharganj,indore,Indore,0.3093,411,43.1,26.5,23.2,7.2,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_400,Nagda,ujjain,Ujjain,0.3048,412,44.1,26.6,25.0,4.2,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_332,Sehore Nagar,sehore,Sehore,0.3047,413,42.7,29.2,11.4,16.8,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_064,Huzur,bhopal,Bhopal,0.304,414,42.0,27.9,24.5,5.6,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_403,Ujjain Nagar,ujjain,Ujjain,0.3038,415,55.8,26.2,12.4,5.5,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_173,Gorakhpur,jabalpur,Jabalpur,0.2818,416,49.6,20.6,25.4,4.3,Hazard Exposure,Capacity Stress
+MP_TEHSIL_181,Sihora,jabalpur,Jabalpur,0.2756,417,46.1,20.2,24.3,9.4,Hazard Exposure,Capacity Stress
+MP_TEHSIL_175,Kundam,jabalpur,Jabalpur,0.2703,418,46.6,21.3,26.2,6.0,Hazard Exposure,Capacity Stress
+MP_TEHSIL_397,Kothi Mahal,ujjain,Ujjain,0.2473,419,58.4,30.8,0.0,10.8,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_179,Ranjhi,jabalpur,Jabalpur,0.1999,420,59.4,24.5,0.0,16.0,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_172,Adhartal,jabalpur,Jabalpur,0.1994,421,63.8,25.1,0.0,11.1,Hazard Exposure,Demographic Sensitivity
+MP_TEHSIL_045,Betul Nagar,betul,Betul,0.1801,422,61.6,15.0,0.0,23.3,Hazard Exposure,Accessibility Constraint

@@ -32,6 +32,7 @@ export interface StateDemographicSummary {
   total_workers: number;
   total_villages: number;
   total_districts: number;
+  total_mandals?: number;
   districts: DistrictDemographicSummary[];
 }
 
@@ -55,4 +56,36 @@ export interface MandalDemographicSummary {
 export interface DistrictDetailResponse {
   district: DistrictDemographicSummary;
   mandals: MandalDemographicSummary[];
+}
+
+export interface VillageItem {
+  village_code: string | number;
+  village_name: string;
+  mandal_name: string;
+  mandal_code?: string | number;
+  district_name: string;
+  district_code: string;
+  population_total: number;
+  households: number;
+  population_male?: number;
+  population_female?: number;
+  population_0_6?: number;
+  population_sc?: number;
+  population_st?: number;
+  workers?: number;
+  non_workers?: number;
+  data_year: number;
+  has_geometry: boolean;
+  geometry_note: string;
+}
+
+export interface MandalVillageListResponse {
+  mandal_id: string;
+  mandal_name: string;
+  district_name: string;
+  district_code: string;
+  total_villages: number;
+  villages: VillageItem[];
+  has_village_data: boolean;
+  note?: string;
 }

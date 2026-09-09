@@ -492235,10 +492235,7 @@
         "ISO": "IND",
         "NAME_0": "India",
         "ID_1": 11,
-        "NAME_1": "Goa",
-        "state_name": "Goa",
-        "is_implemented": true,
-        "pilot_status": "OPERATIONAL_STATE"
+        "NAME_1": "Goa"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -1415157,10 +1415154,7 @@
         "ISO": "IND",
         "NAME_0": "India",
         "ID_1": 22,
-        "NAME_1": "Manipur",
-        "is_implemented": true,
-        "state_name": "Manipur",
-        "pilot_status": "OPERATIONAL_STATE"
+        "NAME_1": "Manipur"
       },
       "geometry": {
         "type": "Polygon",
@@ -1419837,7 +1419831,13 @@
         "ISO": "IND",
         "NAME_0": "India",
         "ID_1": 23,
-        "NAME_1": "Meghalaya"
+        "NAME_1": "Meghalaya",
+        "is_implemented": true,
+        "pilot_status": "OPERATIONAL",
+        "admin_unit_name": "C.D. Block",
+        "admin_unit_count": 46,
+        "district_count": 11,
+        "candidate_hosts_count": 11
       },
       "geometry": {
         "type": "Polygon",
@@ -1765562,7 +1765562,9 @@
         "ISO": "IND",
         "NAME_0": "India",
         "ID_1": 34,
-        "NAME_1": "Uttaranchal"
+        "NAME_1": "Uttaranchal",
+        "is_implemented": true,
+        "pilot_status": "OPERATIONAL_STATE"
       },
       "geometry": {
         "type": "Polygon",

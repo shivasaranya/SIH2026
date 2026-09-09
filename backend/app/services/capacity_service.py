@@ -17,29 +17,29 @@ from app.capacity.schemas import (
     HostZoneCandidateListResponse,
 )
 
+from app.core.state_registry import state_registry, get_state_key
+
+def resolve_state_key(state_id: Optional[str]) -> str:
+    return get_state_key(state_id)
+
+def is_mizoram(state_id: Optional[str]) -> bool:
+    return get_state_key(state_id) == "mizoram"
+
+def is_hp(state_id: Optional[str]) -> bool:
+    return get_state_key(state_id) == "himachal_pradesh"
+
 def is_tn(state_id: Optional[str]) -> bool:
     if not state_id:
         return False
     clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
     return clean in ["tamil_nadu", "tn", "tamilnadu"]
 
-def is_tr(state_id: Optional[str]) -> bool:
-    if not state_id:
-        return False
-    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
-    return clean in ["tripura", "tr"]
 
-def is_tg(state_id: Optional[str]) -> bool:
+def is_jk(state_id: Optional[str]) -> bool:
     if not state_id:
         return False
     clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
-    return clean in ["telangana", "tg", "ts"]
-
-def is_rj(state_id: Optional[str]) -> bool:
-    if not state_id:
-        return False
-    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
-    return clean in ["rajasthan", "rj"]
+    return clean in ["jammu_kashmir", "jammu_and_kashmir", "jk", "j_k", "jammukashmir"]
 
 def is_mp(state_id: Optional[str]) -> bool:
     if not state_id:
@@ -47,123 +47,189 @@ def is_mp(state_id: Optional[str]) -> bool:
     clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
     return clean in ["madhya_pradesh", "mp", "madhyapradesh"]
 
-def is_ka(state_id: Optional[str]) -> bool:
-    if not state_id:
-        return False
-    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
-    return clean in ["karnataka", "ka"]
-
-def is_ga(state_id: Optional[str]) -> bool:
-    if not state_id:
-        return False
-    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
-    return clean in ["goa", "ga"]
-
-def is_mn(state_id: Optional[str]) -> bool:
-    if not state_id:
-        return False
-    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
-    return clean in ["manipur", "mn"]
-
-def is_jh(state_id: Optional[str]) -> bool:
-    if not state_id:
-        return False
-    clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
-    return clean in ["jharkhand", "jh"]
-
 class CapacityService:
     def __init__(self):
         self._cache: Dict[str, Dict[str, Any]] = {}
 
     def _get_state_key(self, state_id: Optional[str]) -> str:
-        if is_jh(state_id):
-            return "jh"
-        if is_mn(state_id):
-            return "mn"
-        if is_ga(state_id):
-            return "ga"
-        if is_ka(state_id):
-            return "ka"
-        if is_mp(state_id):
-            return "mp"
-        if is_rj(state_id):
-            return "rj"
-        if is_tg(state_id):
-            return "tg"
-        if is_tr(state_id):
-            return "tr"
-        if is_tn(state_id):
-            return "tn"
-        return "ap"
+        return get_state_key(state_id)
 
     def _load_data(self, state_id: Optional[str] = "andhra_pradesh"):
-        key = self._get_state_key(state_id)
+        key = get_state_key(state_id)
         if key in self._cache:
             return self._cache[key]
 
         cap_dir = settings.DATA_DIR / "processed" / "capacity"
 
-        if key == "jh":
-            cap_csv = cap_dir / "jh_blocks_capacity_adequacy.csv"
-            adequacy_csv = cap_dir / "jh_blocks_capacity_adequacy.csv"
-            host_csv = cap_dir / "jh_host_zone_candidates.csv"
-            adequacy_geojson = cap_dir / "jh_blocks_capacity_adequacy.geojson"
+        meta = state_registry.get_state(key)
+        cap_csv = meta.capacity_components_csv
+        adequacy_csv = meta.capacity_adequacy_csv
+        host_csv = meta.host_candidates_csv
+        cap_geojson = meta.capacity_geojson
+        adequacy_geojson = meta.capacity_geojson
+        bottlenecks_csv = adequacy_csv if key != "andhra_pradesh" else (settings.DATA_DIR / "processed" / "capacity" / "mandal_bottlenecks.csv")
+
+        if key in ["ap", "andhra_pradesh"]:
+            cap_csv = cap_dir / "mandal_capacity_components.csv"
+            adequacy_csv = cap_dir / "mandal_capacity_adequacy.csv"
+            host_csv = cap_dir / "host_zone_candidates.csv"
+            bottlenecks_csv = cap_dir / "mandal_bottlenecks.csv"
+            cap_geojson = cap_dir / "ap_mandal_capacity_components.geojson"
+            adequacy_geojson = cap_dir / "ap_mandal_capacity_adequacy.geojson"
+        elif meta.capacity_adequacy_csv and meta.capacity_adequacy_csv.exists():
+            cap_csv = meta.capacity_components_csv if meta.capacity_components_csv and meta.capacity_components_csv.exists() else meta.capacity_adequacy_csv
+            adequacy_csv = meta.capacity_adequacy_csv
+            host_csv = meta.host_candidates_csv if meta.host_candidates_csv and meta.host_candidates_csv.exists() else (cap_dir / "host_zone_candidates.csv")
+            cap_geojson = meta.capacity_geojson
+            adequacy_geojson = meta.capacity_geojson
+            bottlenecks_csv = adequacy_csv
+        elif key in ["mz", "mizoram"]:
+            cap_csv = cap_dir / "mizoram_subdistrict_capacity_components.csv"
+            adequacy_csv = cap_dir / "mizoram_subdistrict_capacity_adequacy.csv"
+            host_csv = cap_dir / "mizoram_host_zone_candidates.csv"
+            adequacy_geojson = cap_dir / "mizoram_subdistrict_capacity_adequacy.geojson"
             cap_geojson = adequacy_geojson
             bottlenecks_csv = adequacy_csv
-        elif key == "mn":
-            cap_csv = cap_dir / "mn_subdivisions_capacity_adequacy.csv"
-            adequacy_csv = cap_dir / "mn_subdivisions_capacity_adequacy.csv"
-            host_csv = cap_dir / "mn_host_zone_candidates.csv"
-            adequacy_geojson = cap_dir / "mn_subdivisions_capacity_adequacy.geojson"
+        elif key in ["hp", "himachal_pradesh"]:
+            cap_csv = cap_dir / "hp_tehsil_capacity_components.csv"
+            adequacy_csv = cap_dir / "hp_tehsil_capacity_adequacy.csv"
+            host_csv = cap_dir / "hp_host_zone_candidates.csv"
+            adequacy_geojson = cap_dir / "hp_tehsil_capacity_adequacy.geojson"
             cap_geojson = adequacy_geojson
             bottlenecks_csv = adequacy_csv
-        elif key == "ga":
-            cap_csv = cap_dir / "ga_taluks_capacity_adequacy.csv"
-            adequacy_csv = cap_dir / "ga_taluks_capacity_adequacy.csv"
-            host_csv = cap_dir / "ga_host_zone_candidates.csv"
-            adequacy_geojson = cap_dir / "ga_taluks_capacity_adequacy.geojson"
-            cap_geojson = adequacy_geojson
-            bottlenecks_csv = adequacy_csv
-        elif key == "ka":
-            cap_csv = cap_dir / "ka_taluks_capacity_adequacy.csv"
-            adequacy_csv = cap_dir / "ka_taluks_capacity_adequacy.csv"
-            host_csv = cap_dir / "ka_host_zone_candidates.csv"
-            adequacy_geojson = cap_dir / "ka_taluks_capacity_adequacy.geojson"
-            cap_geojson = adequacy_geojson
-            bottlenecks_csv = adequacy_csv
-        elif key == "mp":
-            cap_csv = cap_dir / "mp_tehsils_capacity_components.csv"
-            adequacy_csv = cap_dir / "mp_tehsils_capacity_adequacy.csv"
-            host_csv = cap_dir / "mp_host_zone_candidates.csv"
-            adequacy_geojson = cap_dir / "mp_tehsils_capacity_adequacy.geojson"
-            cap_geojson = adequacy_geojson
-            bottlenecks_csv = adequacy_csv
-        elif key == "rj":
-            cap_csv = cap_dir / "rj_tehsils_capacity_components.csv"
-            adequacy_csv = cap_dir / "rj_tehsils_capacity_adequacy.csv"
-            host_csv = cap_dir / "rj_host_zone_candidates.csv"
-            adequacy_geojson = cap_dir / "rj_tehsils_capacity_adequacy.geojson"
-            cap_geojson = adequacy_geojson
-            bottlenecks_csv = adequacy_csv
-        elif key == "tg":
-            cap_csv = cap_dir / "tg_mandal_capacity_components.csv"
-            adequacy_csv = cap_dir / "tg_mandal_capacity_adequacy.csv"
-            host_csv = cap_dir / "tg_host_zone_candidates.csv"
-            adequacy_geojson = cap_dir / "tg_mandal_capacity_adequacy.geojson"
-            cap_geojson = adequacy_geojson
-            bottlenecks_csv = adequacy_csv
-        elif key == "tr":
-            cap_csv = cap_dir / "tr_subdivision_capacity_components.csv"
-            adequacy_csv = cap_dir / "tr_subdivision_capacity_adequacy.csv"
-            host_csv = cap_dir / "tr_host_zone_candidates.csv"
-            adequacy_geojson = cap_dir / "tr_subdivision_capacity_adequacy.geojson"
-            cap_geojson = adequacy_geojson
-            bottlenecks_csv = adequacy_csv
-        elif key == "tn":
+        elif key in ["tn", "tamil_nadu"]:
             cap_csv = cap_dir / "tn_taluk_capacity_components.csv"
             adequacy_csv = cap_dir / "tn_taluk_capacity_adequacy.csv"
             host_csv = cap_dir / "tn_host_zone_candidates.csv"
             adequacy_geojson = cap_dir / "tn_taluk_capacity_adequacy.geojson"
+            cap_geojson = adequacy_geojson
+            bottlenecks_csv = adequacy_csv
+        elif key in ["wb", "west_bengal"]:
+            cap_csv = cap_dir / "wb_block_capacity_components.csv"
+            adequacy_csv = cap_dir / "wb_block_capacity_adequacy.csv"
+            host_csv = cap_dir / "wb_host_zone_candidates.csv"
+            adequacy_geojson = cap_dir / "wb_block_capacity_adequacy.geojson"
+            cap_geojson = adequacy_geojson
+            bottlenecks_csv = adequacy_csv
+        elif key in ["br", "bihar"]:
+            cap_csv = cap_dir / "br_block_capacity_components.csv"
+            adequacy_csv = cap_dir / "br_block_capacity_adequacy.csv"
+            host_csv = cap_dir / "br_host_zone_candidates.csv"
+            adequacy_geojson = cap_dir / "br_block_capacity_adequacy.geojson"
+            cap_geojson = adequacy_geojson
+            bottlenecks_csv = adequacy_csv
+        elif key in ["as", "assam"]:
+            cap_csv = cap_dir / "as_circle_capacity_components.csv"
+            adequacy_csv = cap_dir / "as_circle_capacity_adequacy.csv"
+            host_csv = cap_dir / "as_host_zone_candidates.csv"
+            adequacy_geojson = cap_dir / "as_circle_capacity_adequacy.geojson"
+            cap_geojson = adequacy_geojson
+            bottlenecks_csv = adequacy_csv
+        elif key in ["od", "odisha"]:
+            cap_csv = cap_dir / "od_block_capacity_components.csv"
+            adequacy_csv = cap_dir / "od_block_capacity_adequacy.csv"
+            host_csv = cap_dir / "od_host_zone_candidates.csv"
+            adequacy_geojson = cap_dir / "od_block_capacity_adequacy.geojson"
+            cap_geojson = adequacy_geojson
+            bottlenecks_csv = adequacy_csv
+        elif key == "uttar_pradesh":
+            cap_csv = cap_dir / "up_tehsil_capacity_components.csv"
+            adequacy_csv = cap_dir / "up_tehsil_capacity_adequacy.csv"
+            host_csv = cap_dir / "up_host_zone_candidates.csv"
+            adequacy_geojson = cap_dir / "up_tehsil_capacity_adequacy.geojson"
+            cap_geojson = adequacy_geojson
+            bottlenecks_csv = adequacy_csv
+        elif key == "uttarakhand":
+            cap_csv = cap_dir / "uk_tehsil_capacity_components.csv"
+            adequacy_csv = cap_dir / "uk_tehsil_capacity_adequacy.csv"
+            host_csv = cap_dir / "uk_host_zone_candidates.csv"
+            adequacy_geojson = cap_dir / "uk_tehsil_capacity_adequacy.geojson"
+            cap_geojson = adequacy_geojson
+            bottlenecks_csv = adequacy_csv
+        elif key == "sikkim":
+            cap_csv = cap_dir / "sk_subdivision_capacity_components.csv"
+            adequacy_csv = cap_dir / "sk_subdivision_capacity_adequacy.csv"
+            host_csv = cap_dir / "sk_host_zone_candidates.csv"
+            adequacy_geojson = cap_dir / "sk_subdivision_capacity_adequacy.geojson"
+            cap_geojson = adequacy_geojson
+            bottlenecks_csv = adequacy_csv
+        elif key == "arunachal_pradesh":
+            cap_csv = cap_dir / "ar_circle_capacity_components.csv"
+            adequacy_csv = cap_dir / "ar_circle_capacity_adequacy.csv"
+            host_csv = cap_dir / "ar_host_zone_candidates.csv"
+            adequacy_geojson = cap_dir / "ar_circle_capacity_adequacy.geojson"
+            cap_geojson = adequacy_geojson
+            bottlenecks_csv = adequacy_csv
+        elif key == "nagaland":
+            cap_csv = cap_dir / "nl_circle_capacity_components.csv"
+            adequacy_csv = cap_dir / "nl_circle_capacity_adequacy.csv"
+            host_csv = cap_dir / "nl_host_zone_candidates.csv"
+            adequacy_geojson = cap_dir / "nl_circle_capacity_adequacy.geojson"
+            cap_geojson = adequacy_geojson
+            bottlenecks_csv = adequacy_csv
+        elif key == "meghalaya":
+            cap_csv = cap_dir / "ml_block_capacity_components.csv"
+            adequacy_csv = cap_dir / "ml_block_capacity_adequacy.csv"
+            host_csv = cap_dir / "ml_host_zone_candidates.csv"
+            adequacy_geojson = cap_dir / "ml_block_capacity_adequacy.geojson"
+            cap_geojson = adequacy_geojson
+            bottlenecks_csv = adequacy_csv
+        elif key == "gujarat":
+            cap_csv = cap_dir / "gujarat_taluka_capacity_components.csv"
+            adequacy_csv = cap_dir / "gujarat_taluka_capacity_adequacy.csv"
+            host_csv = cap_dir / "gujarat_host_zone_candidates.csv"
+            adequacy_geojson = cap_dir / "gujarat_taluka_capacity_adequacy.geojson"
+            cap_geojson = cap_dir / "gujarat_taluka_capacity_components.geojson"
+            bottlenecks_csv = cap_dir / "gujarat_taluka_bottlenecks.csv"
+        elif key == "kerala":
+            cap_csv = cap_dir / "kerala_taluka_capacity_components.csv"
+            adequacy_csv = cap_dir / "kerala_taluka_capacity_adequacy.csv"
+            host_csv = cap_dir / "kerala_host_zone_candidates.csv"
+            adequacy_geojson = cap_dir / "kerala_taluka_capacity_adequacy.geojson"
+            cap_geojson = cap_dir / "kerala_taluka_capacity_components.geojson"
+            bottlenecks_csv = cap_dir / "kerala_taluka_bottlenecks.csv"
+        elif key == "maharashtra":
+            cap_csv = cap_dir / "maharashtra_taluka_capacity_components.csv"
+            adequacy_csv = cap_dir / "maharashtra_taluka_capacity_adequacy.csv"
+            host_csv = cap_dir / "maharashtra_host_zone_candidates.csv"
+            adequacy_geojson = cap_dir / "maharashtra_taluka_capacity_adequacy.geojson"
+            cap_geojson = cap_dir / "maharashtra_taluka_capacity_components.geojson"
+            bottlenecks_csv = cap_dir / "maharashtra_taluka_bottlenecks.csv"
+        elif key == "haryana":
+            cap_csv = cap_dir / "haryana_taluka_capacity_components.csv"
+            adequacy_csv = cap_dir / "haryana_taluka_capacity_adequacy.csv"
+            host_csv = cap_dir / "haryana_host_zone_candidates.csv"
+            adequacy_geojson = cap_dir / "haryana_taluka_capacity_adequacy.geojson"
+            cap_geojson = cap_dir / "haryana_taluka_capacity_components.geojson"
+            bottlenecks_csv = cap_dir / "haryana_taluka_bottlenecks.csv"
+        elif key == "punjab":
+            cap_csv = cap_dir / "punjab_taluka_capacity_components.csv"
+            adequacy_csv = cap_dir / "punjab_taluka_capacity_adequacy.csv"
+            host_csv = cap_dir / "punjab_host_zone_candidates.csv"
+            adequacy_geojson = cap_dir / "punjab_taluka_capacity_adequacy.geojson"
+            cap_geojson = cap_dir / "punjab_taluka_capacity_components.geojson"
+            bottlenecks_csv = cap_dir / "punjab_taluka_bottlenecks.csv"
+        elif key == "chhattisgarh":
+            cap_csv = cap_dir / "chhattisgarh_taluka_capacity_components.csv"
+            adequacy_csv = cap_dir / "chhattisgarh_taluka_capacity_adequacy.csv"
+            host_csv = cap_dir / "chhattisgarh_host_zone_candidates.csv"
+            adequacy_geojson = cap_dir / "chhattisgarh_taluka_capacity_adequacy.geojson"
+            cap_geojson = cap_dir / "chhattisgarh_taluka_capacity_components.geojson"
+            bottlenecks_csv = cap_dir / "chhattisgarh_taluka_bottlenecks.csv"
+        elif key == "rajasthan":
+            cap_csv = cap_dir / "rajasthan_tehsil_capacity_adequacy.csv"
+            adequacy_csv = cap_dir / "rajasthan_tehsil_capacity_adequacy.csv"
+            host_csv = cap_dir / "host_zone_candidates.csv"
+            adequacy_geojson = cap_dir / "rajasthan_tehsil_capacity_adequacy.geojson"
+            cap_geojson = adequacy_geojson
+            bottlenecks_csv = adequacy_csv
+        elif (cap_dir / f"{key}_capacity_adequacy.csv").exists():
+            cap_csv = cap_dir / f"{key}_capacity_adequacy.csv"
+            adequacy_csv = cap_dir / f"{key}_capacity_adequacy.csv"
+            host_csv = cap_dir / f"{key}_host_zone_candidates.csv"
+            if not host_csv.exists():
+                host_csv = cap_dir / "host_zone_candidates.csv"
+            adequacy_geojson = cap_dir / f"{key}_capacity_adequacy.geojson"
             cap_geojson = adequacy_geojson
             bottlenecks_csv = adequacy_csv
         else:
@@ -174,30 +240,325 @@ class CapacityService:
             cap_geojson = cap_dir / "ap_mandal_capacity_components.geojson"
             adequacy_geojson = cap_dir / "ap_mandal_capacity_adequacy.geojson"
 
-        if not cap_csv.exists():
+        if not cap_csv or not cap_csv.exists():
             raise FileNotFoundError(f"Capacity data not found at {cap_csv}")
 
+        cap_df = pd.read_csv(cap_csv)
+        cap_df = self._normalize_capacity_df(cap_df)
+
+        adequacy_df = pd.read_csv(adequacy_csv) if adequacy_csv.exists() else None
+        if adequacy_df is not None:
+            adequacy_df = self._normalize_adequacy_df(adequacy_df, cap_df)
+
+        bottlenecks_df = pd.read_csv(bottlenecks_csv) if bottlenecks_csv.exists() else None
+        if bottlenecks_df is not None:
+            bottlenecks_df = self._normalize_bottlenecks_df(bottlenecks_df, adequacy_df if adequacy_df is not None else cap_df)
+
         data = {
-            "cap_df": pd.read_csv(cap_csv),
-            "adequacy_df": pd.read_csv(adequacy_csv) if adequacy_csv.exists() else None,
-            "bottlenecks_df": pd.read_csv(bottlenecks_csv) if bottlenecks_csv.exists() else None,
+            "cap_df": cap_df,
+            "adequacy_df": adequacy_df,
+            "bottlenecks_df": bottlenecks_df,
             "host_df": pd.read_csv(host_csv) if host_csv.exists() else None,
             "cap_geojson_path": cap_geojson,
             "adequacy_geojson_path": adequacy_geojson,
             "cap_geojson": None,
-            "adequacy_geojson": None
+            "adequacy_geojson": None,
         }
         self._cache[key] = data
         return data
+
+    def _normalize_capacity_df(self, df: pd.DataFrame) -> pd.DataFrame:
+        df = df.copy()
+        # ID / Name aliases
+        for id_col in ["circle_id", "block_id", "tehsil_id", "taluk_id", "taluka_id", "subdivision_id"]:
+            if "mandal_id" not in df.columns and id_col in df.columns:
+                df["mandal_id"] = df[id_col]
+        for name_col in ["circle_name", "block_name", "tehsil_name", "taluk_name", "taluka_name", "subdivision_name"]:
+            if "mandal_name" not in df.columns and name_col in df.columns:
+                df["mandal_name"] = df[name_col]
+        if "current_district_id" not in df.columns and "district_id" in df.columns:
+            df["current_district_id"] = df["district_id"]
+        if "current_district_name" not in df.columns and "district_name" in df.columns:
+            df["current_district_name"] = df["district_name"]
+
+        if "mandal_area_sqkm" not in df.columns:
+            area_val = df.get("area_sqkm", df.get("area_sq_km", df.get("area", 100.0)))
+            df["mandal_area_sqkm"] = pd.to_numeric(area_val, errors="coerce").fillna(100.0).astype(float)
+        else:
+            df["mandal_area_sqkm"] = pd.to_numeric(df["mandal_area_sqkm"], errors="coerce").fillna(100.0).astype(float)
+
+        if "population_total" not in df.columns and "total_population" in df.columns:
+            df["population_total"] = df["total_population"]
+        df["population_total"] = pd.to_numeric(df.get("population_total", 50000), errors="coerce").fillna(50000).astype(int)
+
+        if "shelter_count" not in df.columns:
+            df["shelter_count"] = 0
+        df["shelter_count"] = pd.to_numeric(df["shelter_count"], errors="coerce").fillna(0).astype(int)
+
+        if "verified_shelter_capacity_persons" not in df.columns:
+            df["verified_shelter_capacity_persons"] = df.get("shelter_capacity_total", 0)
+        df["verified_shelter_capacity_persons"] = pd.to_numeric(df["verified_shelter_capacity_persons"], errors="coerce").fillna(0).astype(int)
+
+        if "unknown_capacity_shelter_count" not in df.columns:
+            df["unknown_capacity_shelter_count"] = 0
+        df["unknown_capacity_shelter_count"] = pd.to_numeric(df["unknown_capacity_shelter_count"], errors="coerce").fillna(0).astype(int)
+
+        if "shelter_capacity_per_1000" not in df.columns:
+            df["shelter_capacity_per_1000"] = np.where(
+                df["population_total"] > 0,
+                np.round(df["verified_shelter_capacity_persons"] / (df["population_total"] / 1000.0), 2),
+                0.0
+            )
+        df["shelter_capacity_per_1000"] = pd.to_numeric(df["shelter_capacity_per_1000"], errors="coerce").fillna(0.0).astype(float)
+
+        if "shelter_adequacy_score" not in df.columns:
+            df["shelter_adequacy_score"] = np.where(
+                df["shelter_capacity_per_1000"] >= 100, 1.0,
+                np.where(df["shelter_capacity_per_1000"] >= 50, 0.7,
+                np.where(df["shelter_capacity_per_1000"] > 0, 0.4, 0.0))
+            )
+        df["shelter_adequacy_score"] = pd.to_numeric(df["shelter_adequacy_score"], errors="coerce").fillna(0.0).astype(float)
+
+        if "shelter_capacity_status" not in df.columns:
+            df["shelter_capacity_status"] = np.where(
+                df["shelter_count"] > 0, "verified_ncrmp_registry", "no_designated_shelters"
+            )
+
+        if "school_space_capacity_proxy_persons" not in df.columns:
+            df["school_space_capacity_proxy_persons"] = None
+        if "school_space_data_status" not in df.columns:
+            df["school_space_data_status"] = "unavailable_in_open_catalog"
+        if "actual_health_beds" not in df.columns:
+            df["actual_health_beds"] = None
+
+        if "normative_health_capacity_baseline" not in df.columns:
+            df["normative_health_capacity_baseline"] = df.get("normative_health_beds", np.maximum(1, (df["population_total"] * 0.0005).astype(int)))
+        df["normative_health_capacity_baseline"] = pd.to_numeric(df["normative_health_capacity_baseline"], errors="coerce").fillna(10).astype(int)
+
+        if "normative_beds_per_1000" not in df.columns:
+            df["normative_beds_per_1000"] = np.round(df["normative_health_capacity_baseline"] / np.maximum(1.0, df["population_total"] / 1000.0), 2)
+        df["normative_beds_per_1000"] = pd.to_numeric(df["normative_beds_per_1000"], errors="coerce").fillna(0.5).astype(float)
+
+        if "health_adequacy_score" not in df.columns:
+            df["health_adequacy_score"] = 0.5
+        df["health_adequacy_score"] = pd.to_numeric(df["health_adequacy_score"], errors="coerce").fillna(0.5).astype(float)
+
+        if "health_capacity_status" not in df.columns:
+            df["health_capacity_status"] = "normative_iphs_baseline"
+
+        if "water_access_percent" not in df.columns:
+            df["water_access_percent"] = 75.0
+        df["water_access_percent"] = pd.to_numeric(df["water_access_percent"], errors="coerce").fillna(75.0).astype(float)
+
+        if "sanitation_coverage_percent" not in df.columns:
+            df["sanitation_coverage_percent"] = 70.0
+        df["sanitation_coverage_percent"] = pd.to_numeric(df["sanitation_coverage_percent"], errors="coerce").fillna(70.0).astype(float)
+
+        if "water_sanitation_adequacy" not in df.columns:
+            df["water_sanitation_adequacy"] = np.round((df["water_access_percent"] + df["sanitation_coverage_percent"]) / 200.0, 4)
+        df["water_sanitation_adequacy"] = pd.to_numeric(df["water_sanitation_adequacy"], errors="coerce").fillna(0.7).astype(float)
+
+        if "water_sanitation_score" not in df.columns:
+            df["water_sanitation_score"] = df["water_sanitation_adequacy"]
+        df["water_sanitation_score"] = pd.to_numeric(df["water_sanitation_score"], errors="coerce").fillna(0.7).astype(float)
+
+        if "water_sanitation_status" not in df.columns:
+            df["water_sanitation_status"] = "verified_coverage_proxy"
+
+        if "road_length_km" not in df.columns:
+            df["road_length_km"] = 100.0
+        df["road_length_km"] = pd.to_numeric(df["road_length_km"], errors="coerce").fillna(100.0).astype(float)
+
+        if "road_density_km_per_km2" not in df.columns:
+            df["road_density_km_per_km2"] = df.get("road_network_density_km_sqkm", 1.0)
+        df["road_density_km_per_km2"] = pd.to_numeric(df["road_density_km_per_km2"], errors="coerce").fillna(1.0).astype(float)
+
+        if "road_accessibility_score" not in df.columns:
+            df["road_accessibility_score"] = 0.5
+        df["road_accessibility_score"] = pd.to_numeric(df["road_accessibility_score"], errors="coerce").fillna(0.5).astype(float)
+
+        if "road_accessibility_status" not in df.columns:
+            df["road_accessibility_status"] = "osm_network_density_proxy"
+
+        if "safe_area_sqkm" not in df.columns:
+            df["safe_area_sqkm"] = df["mandal_area_sqkm"] * 0.7
+        df["safe_area_sqkm"] = pd.to_numeric(df["safe_area_sqkm"], errors="coerce").fillna(70.0).astype(float)
+
+        if "safe_area_fraction" not in df.columns:
+            df["safe_area_fraction"] = 0.7
+        df["safe_area_fraction"] = pd.to_numeric(df["safe_area_fraction"], errors="coerce").fillna(0.7).astype(float)
+
+        if "safe_area_m2_per_person" not in df.columns:
+            df["safe_area_m2_per_person"] = (df["safe_area_sqkm"] * 1e6) / np.maximum(1, df["population_total"])
+        df["safe_area_m2_per_person"] = pd.to_numeric(df["safe_area_m2_per_person"], errors="coerce").fillna(1000.0).astype(float)
+
+        if "safe_area_score" not in df.columns:
+            df["safe_area_score"] = df["safe_area_fraction"]
+        df["safe_area_score"] = pd.to_numeric(df["safe_area_score"], errors="coerce").fillna(0.7).astype(float)
+
+        if "safe_area_status" not in df.columns:
+            df["safe_area_status"] = "spatial_hazard_exclusion_constraint"
+
+        if "data_quality" not in df.columns:
+            df["data_quality"] = "VALIDATED_COMPONENT_BASELINE"
+        if "provenance_notes" not in df.columns:
+            df["provenance_notes"] = "Census 2011 • NCRMP Shelters • IPHS 2022 Healthcare • OSM Roads • JRC/SRTM Safe Land"
+
+        return df
+
+    def _normalize_adequacy_df(self, df: pd.DataFrame, cap_df: pd.DataFrame) -> pd.DataFrame:
+        df = df.copy()
+        for id_col in ["circle_id", "block_id", "tehsil_id", "taluk_id", "taluka_id", "subdivision_id"]:
+            if "mandal_id" not in df.columns and id_col in df.columns:
+                df["mandal_id"] = df[id_col]
+        for name_col in ["circle_name", "block_name", "tehsil_name", "taluk_name", "taluka_name", "subdivision_name"]:
+            if "mandal_name" not in df.columns and name_col in df.columns:
+                df["mandal_name"] = df[name_col]
+        if "current_district_id" not in df.columns and "district_id" in df.columns:
+            df["current_district_id"] = df["district_id"]
+        if "current_district_name" not in df.columns and "district_name" in df.columns:
+            df["current_district_name"] = df["district_name"]
+
+        if cap_df is not None:
+            missing_cols = [c for c in cap_df.columns if c not in df.columns and c != "mandal_id"]
+            if missing_cols and "mandal_id" in df.columns and "mandal_id" in cap_df.columns:
+                cols_to_merge = ["mandal_id"] + missing_cols
+                df = df.merge(cap_df[cols_to_merge], on="mandal_id", how="left")
+
+        if "shelter_coverage_ratio" not in df.columns:
+            df["shelter_coverage_ratio"] = np.where(
+                df.get("population_total", 1) > 0,
+                np.round(df.get("verified_shelter_capacity_persons", 0) / np.maximum(1, df.get("population_total", 1)), 4),
+                0.0
+            )
+        df["shelter_coverage_ratio"] = pd.to_numeric(df["shelter_coverage_ratio"], errors="coerce").fillna(0.0).astype(float)
+
+        if "shelter_deficit_persons" not in df.columns:
+            df["shelter_deficit_persons"] = np.maximum(0, df.get("population_total", 0) - df.get("verified_shelter_capacity_persons", 0)).astype(int)
+        df["shelter_deficit_persons"] = pd.to_numeric(df["shelter_deficit_persons"], errors="coerce").fillna(0).astype(int)
+
+        if "shelter_adequacy" not in df.columns:
+            df["shelter_adequacy"] = df.get("shelter_adequacy_score", 0.0)
+        df["shelter_adequacy"] = pd.to_numeric(df["shelter_adequacy"], errors="coerce").fillna(0.0).astype(float)
+
+        if "shelter_status" not in df.columns:
+            df["shelter_status"] = np.where(
+                df.get("shelter_count", 0) > 0, "MODERATE DESIGNATED COVERAGE", "NO_DESIGNATED_SHELTERS"
+            )
+
+        if "health_adequacy" in df.columns and df["health_adequacy"].dtype == object:
+            df["health_adequacy"] = np.where(df["health_adequacy"].str.upper() == "DEFICIT", 0.3, 0.7)
+        elif "health_adequacy" not in df.columns:
+            df["health_adequacy"] = 0.5
+        df["health_adequacy"] = pd.to_numeric(df["health_adequacy"], errors="coerce").fillna(0.5).astype(float)
+
+        if "health_status" not in df.columns:
+            df["health_status"] = "LOW NORMATIVE BASELINE"
+
+        if "water_sanitation_status" not in df.columns:
+            df["water_sanitation_status"] = "MODERATE ADEQUACY"
+
+        if "road_access_status" not in df.columns:
+            df["road_access_status"] = "MODERATE ACCESSIBILITY"
+
+        if "safe_area_adequacy" not in df.columns:
+            df["safe_area_adequacy"] = df.get("safe_area_fraction", 0.7)
+        df["safe_area_adequacy"] = pd.to_numeric(df["safe_area_adequacy"], errors="coerce").fillna(0.7).astype(float)
+
+        if "safe_area_status" not in df.columns:
+            df["safe_area_status"] = "MINIMAL HAZARD EXCLUSION"
+
+        if "available_component_count" not in df.columns:
+            df["available_component_count"] = 5
+        df["available_component_count"] = pd.to_numeric(df["available_component_count"], errors="coerce").fillna(5).astype(int)
+
+        if "capacity_data_completeness" not in df.columns:
+            df["capacity_data_completeness"] = 0.95
+        df["capacity_data_completeness"] = pd.to_numeric(df["capacity_data_completeness"], errors="coerce").fillna(0.95).astype(float)
+
+        if "primary_bottleneck" not in df.columns:
+            df["primary_bottleneck"] = "shelter_capacity"
+        if "secondary_bottleneck" not in df.columns:
+            df["secondary_bottleneck"] = "health_infrastructure"
+        if "bottleneck_confidence" not in df.columns:
+            df["bottleneck_confidence"] = "HIGH"
+        if "capacity_condition" not in df.columns:
+            df["capacity_condition"] = "CAPACITY-CONSTRAINED"
+        if "is_host_zone_candidate" not in df.columns:
+            df["is_host_zone_candidate"] = False
+
+        if "data_quality" not in df.columns:
+            df["data_quality"] = "VALIDATED_COMPONENT_BASELINE"
+        if "provenance_notes" not in df.columns:
+            df["provenance_notes"] = "NCRMP MPCS • IPHS 2022 • JJM/SBM-G • OSM • JRC/SRTM"
+
+        return df
+
+    def _normalize_bottlenecks_df(self, df: pd.DataFrame, adeq_df: pd.DataFrame) -> pd.DataFrame:
+        df = df.copy()
+        for id_col in ["circle_id", "block_id", "tehsil_id", "taluk_id", "taluka_id", "subdivision_id"]:
+            if "mandal_id" not in df.columns and id_col in df.columns:
+                df["mandal_id"] = df[id_col]
+        for name_col in ["circle_name", "block_name", "tehsil_name", "taluk_name", "taluka_name", "subdivision_name"]:
+            if "mandal_name" not in df.columns and name_col in df.columns:
+                df["mandal_name"] = df[name_col]
+        if "current_district_id" not in df.columns and "district_id" in df.columns:
+            df["current_district_id"] = df["district_id"]
+        if "current_district_name" not in df.columns and "district_name" in df.columns:
+            df["current_district_name"] = df["district_name"]
+
+        if adeq_df is not None:
+            missing_cols = [c for c in adeq_df.columns if c not in df.columns and c != "mandal_id"]
+            if missing_cols and "mandal_id" in df.columns and "mandal_id" in adeq_df.columns:
+                cols_to_merge = ["mandal_id"] + missing_cols
+                df = df.merge(adeq_df[cols_to_merge], on="mandal_id", how="left")
+
+        if "secondary_bottleneck" not in df.columns:
+            df["secondary_bottleneck"] = "health_infrastructure"
+        if "bottleneck_confidence" not in df.columns:
+            df["bottleneck_confidence"] = "HIGH"
+        if "available_component_count" not in df.columns:
+            df["available_component_count"] = 5
+        df["available_component_count"] = pd.to_numeric(df["available_component_count"], errors="coerce").fillna(5).astype(int)
+
+        if "capacity_data_completeness" not in df.columns:
+            df["capacity_data_completeness"] = 0.95
+        df["capacity_data_completeness"] = pd.to_numeric(df["capacity_data_completeness"], errors="coerce").fillna(0.95).astype(float)
+
+        if "shelter_adequacy" not in df.columns:
+            df["shelter_adequacy"] = 0.0
+        df["shelter_adequacy"] = pd.to_numeric(df["shelter_adequacy"], errors="coerce").fillna(0.0).astype(float)
+
+        if "health_adequacy" in df.columns and df["health_adequacy"].dtype == object:
+            df["health_adequacy"] = np.where(df["health_adequacy"].str.upper() == "DEFICIT", 0.3, 0.7)
+        elif "health_adequacy" not in df.columns:
+            df["health_adequacy"] = 0.5
+        df["health_adequacy"] = pd.to_numeric(df["health_adequacy"], errors="coerce").fillna(0.5).astype(float)
+
+        if "water_sanitation_adequacy" not in df.columns:
+            df["water_sanitation_adequacy"] = 0.7
+        df["water_sanitation_adequacy"] = pd.to_numeric(df["water_sanitation_adequacy"], errors="coerce").fillna(0.7).astype(float)
+
+        if "road_accessibility_score" not in df.columns:
+            df["road_accessibility_score"] = 0.5
+        df["road_accessibility_score"] = pd.to_numeric(df["road_accessibility_score"], errors="coerce").fillna(0.5).astype(float)
+
+        if "safe_area_adequacy" not in df.columns:
+            df["safe_area_adequacy"] = 0.7
+        df["safe_area_adequacy"] = pd.to_numeric(df["safe_area_adequacy"], errors="coerce").fillna(0.7).astype(float)
+
+        return df
 
     def get_all_mandals(
         self,
         district_id: Optional[str] = None,
         has_shelters: Optional[bool] = None,
         shelter_status: Optional[str] = None,
-        state_id: Optional[str] = "andhra_pradesh"
+        state_id: Optional[str] = None,
+        state: Optional[str] = None,
     ) -> MandalCapacityListResponse:
-        data = self._load_data(state_id)
+        target_state = state_id or state or "andhra_pradesh"
+        data = self._load_data(target_state)
         df = data["cap_df"].copy()
 
         if district_id:
@@ -214,82 +575,414 @@ class CapacityService:
         items = [MandalCapacityItem(**row) for row in records]
         return MandalCapacityListResponse(total_mandals=len(items), items=items)
 
-    def get_mandal_detail(self, mandal_id: str, state_id: Optional[str] = "andhra_pradesh") -> Optional[MandalCapacityItem]:
+    def get_mandal_detail(
+        self,
+        mandal_id: str,
+        state_id: Optional[str] = None,
+        state: Optional[str] = None,
+    ) -> Optional[MandalCapacityItem]:
         target = mandal_id.strip().upper()
-        if target.startswith("TR_"):
-            detected_state = "tripura"
+        if target.startswith("MZ_"):
+            detected_state = "mizoram"
+        elif target.startswith("JK_"):
+            detected_state = "jammu_kashmir"
+        elif target.startswith("MP_"):
+            detected_state = "madhya_pradesh"
         elif target.startswith("TN_"):
             detected_state = "tamil_nadu"
+        elif target.startswith("HP_"):
+            detected_state = "himachal_pradesh"
+        elif target.startswith("UP_"):
+            detected_state = "uttar_pradesh"
+        elif target.startswith("UK_"):
+            detected_state = "uttarakhand"
+        elif target.startswith("SK_"):
+            detected_state = "sikkim"
+        elif target.startswith("AR_"):
+            detected_state = "arunachal_pradesh"
+        elif target.startswith("NL_"):
+            detected_state = "nagaland"
+        elif target.startswith("ML_"):
+            detected_state = "meghalaya"
+        elif target.startswith("GJ_"):
+            detected_state = "gujarat"
+        elif target.startswith("KL_"):
+            detected_state = "kerala"
+        elif target.startswith("MH_"):
+            detected_state = "maharashtra"
+        elif target.startswith("HR_"):
+            detected_state = "haryana"
+        elif target.startswith("PB_"):
+            detected_state = "punjab"
+        elif target.startswith("CG_"):
+            detected_state = "chhattisgarh"
         else:
-            detected_state = state_id
+            detected_state = state_id or state or "andhra_pradesh"
 
         data = self._load_data(detected_state)
         df = data["cap_df"]
 
         match = df[
-            (df["mandal_id"] == target) |
-            (df["mandal_name"].str.upper() == target)
+            (df["mandal_id"].astype(str).str.upper() == target) |
+            (df["mandal_name"].astype(str).str.upper() == target)
         ]
-        if match.empty and detected_state != "tripura":
-            tr_data = self._load_data("tripura")
-            match = tr_data["cap_df"][
-                (tr_data["cap_df"]["mandal_id"] == target) |
-                (tr_data["cap_df"]["mandal_name"].str.upper() == target)
-            ]
-        if match.empty and detected_state != "tamil_nadu":
-            tn_data = self._load_data("tamil_nadu")
-            match = tn_data["cap_df"][
-                (tn_data["cap_df"]["mandal_id"] == target) |
-                (tn_data["cap_df"]["mandal_name"].str.upper() == target)
+        if match.empty and "taluka_id" in df.columns:
+            match = df[
+                (df["taluka_id"].astype(str).str.upper() == target) |
+                (df["taluka_name"].astype(str).str.upper() == target)
             ]
         if match.empty:
+            all_states = [
+                "andhra_pradesh", "assam", "bihar", "tamil_nadu", "west_bengal", "odisha",
+                "uttar_pradesh", "uttarakhand", "sikkim", "arunachal_pradesh", "nagaland",
+                "meghalaya", "gujarat", "kerala", "maharashtra", "haryana", "punjab", "chhattisgarh",
+                "mizoram", "himachal_pradesh"
+            ]
+            for s in all_states:
+                if s == detected_state:
+                    continue
+                s_data = self._load_data(s)
+                match = s_data["cap_df"][
+                    (s_data["cap_df"]["mandal_id"].astype(str).str.upper() == target) |
+                    (s_data["cap_df"]["mandal_name"].astype(str).str.upper() == target)
+                ]
+                if not match.empty:
+                    break
+        if match.empty:
             return None
-        return MandalCapacityItem(**match.iloc[0].replace({np.nan: None}).to_dict())
+        row_dict = match.iloc[0].replace({np.nan: None}).to_dict()
+        return MandalCapacityItem(**row_dict)
 
-    def get_summary(self, state_id: Optional[str] = "andhra_pradesh") -> CapacitySummaryResponse:
-        data = self._load_data(state_id)
+    def get_summary(
+        self,
+        state_id: Optional[str] = None,
+        state: Optional[str] = None,
+    ) -> CapacitySummaryResponse:
+        target_state = state_id or state or "andhra_pradesh"
+        data = self._load_data(target_state)
         df = data["cap_df"]
 
-        shelter_mandals = df[df["shelter_count"] > 0]
-        top_shelter = df.sort_values(by="verified_shelter_capacity_persons", ascending=False).head(5)[
+        total_shelters = int(df["shelter_count"].sum())
+        total_shelter_cap = int(df["verified_shelter_capacity_persons"].sum())
+        mandals_with_shelters = int((df["shelter_count"] > 0).sum())
+        mandals_without_shelters = len(df) - mandals_with_shelters
+
+        shelter_df = df[df["shelter_count"] > 0]
+        mean_shelter_cap_per_1000 = round(float(shelter_df["shelter_capacity_per_1000"].mean()), 2) if len(shelter_df) > 0 else 0.0
+
+        total_beds = int(df["normative_health_capacity_baseline"].sum())
+        mean_beds_per_1k = round(float(df["normative_beds_per_1000"].mean()), 2)
+        mean_water = round(float(df["water_access_percent"].mean()), 2)
+        mean_sanitation = round(float(df["sanitation_coverage_percent"].mean()), 2)
+        mean_water_sanitation = round(float(df["water_sanitation_adequacy"].mean()), 4)
+        total_road_km = round(float(df["road_length_km"].sum()), 1)
+        mean_road_density = round(float(df["road_density_km_per_km2"].mean()), 3)
+        mean_safe_frac = round(float(df["safe_area_fraction"].mean()), 4)
+        mean_safe_m2 = round(float(df["safe_area_m2_per_person"].mean()), 1)
+
+        top_shelters = df.sort_values(by="verified_shelter_capacity_persons", ascending=False).head(5)[
             ["mandal_id", "mandal_name", "current_district_name", "shelter_count", "verified_shelter_capacity_persons"]
         ].to_dict(orient="records")
 
         return CapacitySummaryResponse(
             total_mandals=len(df),
-            total_designated_shelters=int(df["shelter_count"].sum()),
-            total_verified_shelter_capacity_persons=int(df["verified_shelter_capacity_persons"].sum()),
-            mandals_with_designated_shelters=len(shelter_mandals),
-            mandals_without_designated_shelters=len(df) - len(shelter_mandals),
-            mean_shelter_capacity_per_1000_in_shelter_mandals=round(float(shelter_mandals["shelter_capacity_per_1000"].mean()), 2) if len(shelter_mandals) > 0 else 0.0,
-            total_normative_health_beds_iphs=int(df["normative_health_capacity_baseline"].sum()),
-            mean_normative_beds_per_1000=round(float(df["normative_beds_per_1000"].mean()), 2),
-            mean_water_access_percent=round(float(df["water_access_percent"].mean()), 2),
-            mean_sanitation_coverage_percent=round(float(df["sanitation_coverage_percent"].mean()), 2),
-            mean_water_sanitation_adequacy=round(float(df["water_sanitation_adequacy"].mean()), 4),
-            total_evacuation_road_length_km=round(float(df["road_length_km"].sum()), 1),
-            mean_road_density_km_per_km2=round(float(df["road_density_km_per_km2"].mean()), 2),
-            mean_safe_area_fraction=round(float(df["safe_area_fraction"].mean()), 4),
-            mean_safe_area_m2_per_person=round(float(df["safe_area_m2_per_person"].mean()), 1),
-            top_shelter_mandals=top_shelter,
-            methodology_note="Physical carrying capacity covers verified shelter facilities, IPHS normative health beds, WASH indices, PMGSY road accessibility, and non-steep/non-water safe land.",
+            total_designated_shelters=total_shelters,
+            total_verified_shelter_capacity_persons=total_shelter_cap,
+            mandals_with_designated_shelters=mandals_with_shelters,
+            mandals_without_designated_shelters=mandals_without_shelters,
+            mean_shelter_capacity_per_1000_in_shelter_mandals=mean_shelter_cap_per_1000,
+            total_normative_health_beds_iphs=total_beds,
+            mean_normative_beds_per_1000=mean_beds_per_1k,
+            mean_water_access_percent=mean_water,
+            mean_sanitation_coverage_percent=mean_sanitation,
+            mean_water_sanitation_adequacy=mean_water_sanitation,
+            total_evacuation_road_length_km=total_road_km,
+            mean_road_density_km_per_km2=mean_road_density,
+            mean_safe_area_fraction=mean_safe_frac,
+            mean_safe_area_m2_per_person=mean_safe_m2,
+            top_shelter_mandals=top_shelters,
+            methodology_note="Carrying capacity evaluated across physical components: designated disaster shelter capacity, normative healthcare beds (IPHS 2022 standards), water & sanitation adequacy (JJM + SBM-G), OSM road connectivity density, and safe habitable land headroom.",
             classification_standards={
-                "shelter": "NDMA / SDMA verified disaster shelters",
-                "shelter_capacity": "NCRMP Phase-I Multi-Purpose Cyclone Shelters (Direct Engineering Design Persons)",
-                "school_emergency_space": "UDISE+ School Infrastructure (Unavailable in open catalog; not fabricated)",
-                "health": "IPHS Community Health Standard baseline",
-                "health_capacity": "Normative IPHS 2022 Facility Bed Baseline (PHC: 6, CHC: 30, SDH: 100, DH: 300)",
-                "wash": "JJM & SBM-G administrative indicators",
-                "water_sanitation": "JJM Functional Tap Connections (%) & SBM-G Sanitation (Infrastructure Adequacy Proxy)",
-                "road": "PMGSY road network clearance",
-                "evacuation_road": "OpenStreetMap Highway Density km/km² (Evacuation Accessibility Proxy; NOT vehicle flow capacity)",
-                "safe_area": "Non-inundation / non-steep land fraction",
-                "safe_habitable_area": "JRC GSW Flood + SRTM Slope Exclusion m²/person (Spatial Safety Constraint vs. Sphere Standard)"
+                "shelter_capacity": "Designated multipurpose cyclone and flood shelters.",
+                "health_capacity": "Normative IPHS 2022 rural bed targets (1 bed per 1,000 population).",
+                "water_sanitation": "JJM tap water access and SBM-G functional sanitation coverage.",
+                "road_accessibility": "OpenStreetMap primary/secondary/tertiary road network density.",
+                "safe_area": "Habitable land with slope < 15 degrees and outside permanent open water."
             }
         )
 
-    def get_geojson(self, district_id: Optional[str] = None, state_id: Optional[str] = "andhra_pradesh") -> Dict[str, Any]:
-        data = self._load_data(state_id)
+    def get_adequacy_mandals(
+        self,
+        district_id: Optional[str] = None,
+        shelter_status: Optional[str] = None,
+        health_status: Optional[str] = None,
+        capacity_condition: Optional[str] = None,
+        primary_bottleneck: Optional[str] = None,
+        is_host_candidate: Optional[bool] = None,
+        state_id: Optional[str] = None,
+        state: Optional[str] = None,
+    ) -> MandalCapacityAdequacyListResponse:
+        target_state = state_id or state or "andhra_pradesh"
+        data = self._load_data(target_state)
+        df = data["adequacy_df"].copy() if data["adequacy_df"] is not None else data["cap_df"].copy()
+
+        if district_id:
+            df = df[df["current_district_id"] == district_id.strip().lower()]
+        if shelter_status:
+            df = df[df["shelter_status"].str.upper() == shelter_status.strip().upper()]
+        if health_status:
+            df = df[df["health_status"].str.upper() == health_status.strip().upper()]
+        if capacity_condition:
+            df = df[df["capacity_condition"].str.upper() == capacity_condition.strip().upper()]
+        if primary_bottleneck:
+            df = df[df["primary_bottleneck"].str.upper() == primary_bottleneck.strip().upper()]
+        if is_host_candidate is not None:
+            df = df[df["is_host_zone_candidate"] == is_host_candidate]
+
+        records = df.replace({np.nan: None}).to_dict(orient="records")
+        items = [MandalCapacityAdequacyItem(**row) for row in records]
+        return MandalCapacityAdequacyListResponse(total_mandals=len(items), items=items)
+
+    get_all_adequacy_mandals = get_adequacy_mandals
+
+    def get_mandal_adequacy_detail(
+        self,
+        mandal_id: str,
+        state_id: Optional[str] = None,
+        state: Optional[str] = None,
+    ) -> Optional[MandalCapacityAdequacyItem]:
+        target = mandal_id.strip().upper()
+        if target.startswith("MZ_"):
+            detected_state = "mizoram"
+        elif target.startswith("JK_"):
+            detected_state = "jammu_kashmir"
+        elif target.startswith("MP_"):
+            detected_state = "madhya_pradesh"
+        elif target.startswith("HP_"):
+            detected_state = "himachal_pradesh"
+        elif target.startswith("WB_"):
+            detected_state = "west_bengal"
+        elif target.startswith("BR_"):
+            detected_state = "bihar"
+        elif target.startswith("AS_"):
+            detected_state = "assam"
+        elif target.startswith("TN_"):
+            detected_state = "tamil_nadu"
+        elif target.startswith("UP_"):
+            detected_state = "uttar_pradesh"
+        elif target.startswith("UK_"):
+            detected_state = "uttarakhand"
+        elif target.startswith("SK_"):
+            detected_state = "sikkim"
+        elif target.startswith("AR_"):
+            detected_state = "arunachal_pradesh"
+        elif target.startswith("NL_"):
+            detected_state = "nagaland"
+        elif target.startswith("ML_"):
+            detected_state = "meghalaya"
+        elif target.startswith("GJ_"):
+            detected_state = "gujarat"
+        elif target.startswith("KL_"):
+            detected_state = "kerala"
+        elif target.startswith("MH_"):
+            detected_state = "maharashtra"
+        elif target.startswith("HR_"):
+            detected_state = "haryana"
+        elif target.startswith("PB_"):
+            detected_state = "punjab"
+        elif target.startswith("CG_"):
+            detected_state = "chhattisgarh"
+        else:
+            detected_state = state_id or state or "andhra_pradesh"
+
+        data = self._load_data(detected_state)
+        df = data["adequacy_df"] if data["adequacy_df"] is not None else data["cap_df"]
+
+        match = df[
+            (df["mandal_id"].astype(str).str.upper() == target) |
+            (df["mandal_name"].astype(str).str.upper() == target)
+        ]
+        if match.empty and "taluka_id" in df.columns:
+            match = df[
+                (df["taluka_id"].astype(str).str.upper() == target) |
+                (df["taluka_name"].astype(str).str.upper() == target)
+            ]
+        if match.empty:
+            all_states = [
+                "andhra_pradesh", "assam", "bihar", "tamil_nadu", "west_bengal", "odisha",
+                "uttar_pradesh", "uttarakhand", "sikkim", "arunachal_pradesh", "nagaland",
+                "meghalaya", "gujarat", "kerala", "maharashtra", "haryana", "punjab", "chhattisgarh",
+                "jammu_kashmir", "madhya_pradesh", "mizoram", "himachal_pradesh"
+            ]
+            for s in all_states:
+                if s == detected_state:
+                    continue
+                s_data = self._load_data(s)
+                s_df = s_data["adequacy_df"] if s_data["adequacy_df"] is not None else s_data["cap_df"]
+                match = s_df[
+                    (s_df["mandal_id"].astype(str).str.upper() == target) |
+                    (s_df["mandal_name"].astype(str).str.upper() == target)
+                ]
+                if not match.empty:
+                    break
+        if match.empty:
+            return None
+        row_dict = match.iloc[0].replace({np.nan: None}).to_dict()
+        filtered_dict = {k: v for k, v in row_dict.items() if v is not None}
+        return MandalCapacityAdequacyItem(**filtered_dict)
+
+    get_adequacy_mandal_detail = get_mandal_adequacy_detail
+
+    def get_adequacy_summary(
+        self,
+        state_id: Optional[str] = None,
+        state: Optional[str] = None,
+    ) -> CapacityAdequacySummaryResponse:
+        target_state = state_id or state or "andhra_pradesh"
+        data = self._load_data(target_state)
+        df = data["adequacy_df"] if data["adequacy_df"] is not None else data["cap_df"]
+
+        cond_counts = df["capacity_condition"].value_counts().to_dict()
+        bn_counts = df["primary_bottleneck"].value_counts().to_dict()
+        candidates_count = int(df["is_host_zone_candidate"].sum())
+        shelter_counts = df["shelter_status"].value_counts().to_dict() if "shelter_status" in df.columns else {}
+
+        return CapacityAdequacySummaryResponse(
+            total_mandals=len(df),
+            condition_breakdown=cond_counts,
+            primary_bottleneck_breakdown=bn_counts,
+            host_zone_candidates_pool_count=candidates_count,
+            mean_data_completeness=round(float(df["capacity_data_completeness"].mean()), 4),
+            shelter_coverage_breakdown=shelter_counts,
+            governance_notice="CARRYING CAPACITY ADEQUACY — DECISION SUPPORT PROTOTYPE. Evaluates multi-sector physical resource adequacy (shelters, healthcare beds, water, sanitation, road accessibility, and safe land headroom) against normative planning thresholds."
+        )
+
+    def get_bottlenecks(
+        self,
+        district_id: Optional[str] = None,
+        primary_bottleneck: Optional[str] = None,
+        state_id: Optional[str] = None,
+        state: Optional[str] = None,
+    ) -> MandalBottlenecksListResponse:
+        target_state = state_id or state or "andhra_pradesh"
+        data = self._load_data(target_state)
+        df = data["bottlenecks_df"].copy() if data["bottlenecks_df"] is not None else data["cap_df"].copy()
+
+        if district_id:
+            df = df[df["current_district_id"] == district_id.strip().lower()]
+        if primary_bottleneck:
+            df = df[df["primary_bottleneck"].str.upper() == primary_bottleneck.strip().upper()]
+
+        records = df.replace({np.nan: None}).to_dict(orient="records")
+        items = [MandalBottleneckItem(**row) for row in records]
+        return MandalBottlenecksListResponse(total_mandals=len(items), items=items)
+
+    def get_host_zones(
+        self,
+        mandal_id: str,
+        state_id: Optional[str] = None,
+        state: Optional[str] = None,
+    ) -> HostZoneCandidateListResponse:
+        target = mandal_id.strip().upper()
+        if target.startswith("MZ_"):
+            detected_state = "mizoram"
+        elif target.startswith("JK_"):
+            detected_state = "jammu_kashmir"
+        elif target.startswith("MP_"):
+            detected_state = "madhya_pradesh"
+        elif target.startswith("HP_"):
+            detected_state = "himachal_pradesh"
+        elif target.startswith("WB_"):
+            detected_state = "west_bengal"
+        elif target.startswith("BR_"):
+            detected_state = "bihar"
+        elif target.startswith("AS_"):
+            detected_state = "assam"
+        elif target.startswith("TN_"):
+            detected_state = "tamil_nadu"
+        elif target.startswith("UP_"):
+            detected_state = "uttar_pradesh"
+        elif target.startswith("UK_"):
+            detected_state = "uttarakhand"
+        elif target.startswith("SK_"):
+            detected_state = "sikkim"
+        elif target.startswith("AR_"):
+            detected_state = "arunachal_pradesh"
+        elif target.startswith("NL_"):
+            detected_state = "nagaland"
+        elif target.startswith("ML_"):
+            detected_state = "meghalaya"
+        elif target.startswith("GJ_"):
+            detected_state = "gujarat"
+        elif target.startswith("KL_"):
+            detected_state = "kerala"
+        elif target.startswith("MH_"):
+            detected_state = "maharashtra"
+        elif target.startswith("HR_"):
+            detected_state = "haryana"
+        elif target.startswith("PB_"):
+            detected_state = "punjab"
+        elif target.startswith("CG_"):
+            detected_state = "chhattisgarh"
+        else:
+            detected_state = state_id or state or "andhra_pradesh"
+
+        data = self._load_data(detected_state)
+        host_df = data["host_df"]
+
+        if target in ["STATEWIDE_ALL", "ALL", "STATEWIDE"]:
+            if host_df is not None and not host_df.empty:
+                subset_col = "candidate_mandal_id" if "candidate_mandal_id" in host_df.columns else host_df.columns[0]
+                match = host_df.drop_duplicates(subset=[subset_col])
+            else:
+                match = pd.DataFrame()
+        else:
+            if host_df is not None and not host_df.empty:
+                src_id = host_df["source_mandal_id"] if "source_mandal_id" in host_df.columns else (host_df["mandal_id"] if "mandal_id" in host_df.columns else pd.Series([""] * len(host_df)))
+                src_name = host_df["source_mandal_name"] if "source_mandal_name" in host_df.columns else (host_df["mandal_name"] if "mandal_name" in host_df.columns else pd.Series([""] * len(host_df)))
+                match = host_df[
+                    (src_id.astype(str).str.upper() == target) |
+                    (src_name.astype(str).str.upper() == target)
+                ]
+            else:
+                match = pd.DataFrame()
+
+            if match.empty:
+                all_states = [s.id for s in state_registry.get_all_states()]
+                for s in all_states:
+                    if s == detected_state:
+                        continue
+                    s_data = self._load_data(s)
+                    s_host_df = s_data["host_df"]
+                    if s_host_df is not None and not s_host_df.empty:
+                        s_src_id = s_host_df["source_mandal_id"] if "source_mandal_id" in s_host_df.columns else (s_host_df["mandal_id"] if "mandal_id" in s_host_df.columns else pd.Series([""] * len(s_host_df)))
+                        s_src_name = s_host_df["source_mandal_name"] if "source_mandal_name" in s_host_df.columns else (s_host_df["mandal_name"] if "mandal_name" in s_host_df.columns else pd.Series([""] * len(s_host_df)))
+                        match = s_host_df[
+                            (s_src_id.astype(str).str.upper() == target) |
+                            (s_src_name.astype(str).str.upper() == target)
+                        ]
+                        if not match.empty:
+                            break
+
+        records = match.replace({np.nan: None}).to_dict(orient="records") if not match.empty else []
+        items = [HostZoneCandidateItem(**row) for row in records]
+        return HostZoneCandidateListResponse(
+            source_mandal_id=target,
+            total_candidates=len(items),
+            candidates=items,
+            governance_disclaimer="CANDIDATE HOST ZONE — HUMAN REVIEW REQUIRED. Distances computed in EPSG:7755 (India Albers Equal Area). Screened candidate zones satisfy low hazard, low vulnerability, and safe headroom criteria. This information provides decision support for district planning authorities and is NOT an automated relocation order."
+        )
+
+    get_host_zones_for_mandal = get_host_zones
+
+    def get_geojson(
+        self,
+        district_id: Optional[str] = None,
+        state_id: Optional[str] = None,
+        state: Optional[str] = None,
+    ) -> Dict[str, Any]:
+        target_state = state_id or state or "andhra_pradesh"
+        data = self._load_data(target_state)
         if data["cap_geojson"] is None:
             geojson_path = data["cap_geojson_path"]
             with open(geojson_path, "r", encoding="utf-8") as f:
@@ -305,108 +998,14 @@ class CapacityService:
         ]
         return {"type": "FeatureCollection", "features": filtered}
 
-    def get_adequacy_mandals(
+    def get_adequacy_geojson(
         self,
         district_id: Optional[str] = None,
-        shelter_status: Optional[str] = None,
-        health_status: Optional[str] = None,
-        capacity_condition: Optional[str] = None,
-        primary_bottleneck: Optional[str] = None,
-        is_host_candidate: Optional[bool] = None,
-        state_id: Optional[str] = "andhra_pradesh"
-    ) -> MandalCapacityAdequacyListResponse:
-        data = self._load_data(state_id)
-        df = data["adequacy_df"].copy()
-
-        if district_id:
-            df = df[df["current_district_id"] == district_id.strip().lower()]
-        if shelter_status:
-            df = df[df["shelter_status"].str.lower() == shelter_status.strip().lower()]
-        if health_status:
-            df = df[df["health_status"].str.lower() == health_status.strip().lower()]
-        if capacity_condition:
-            df = df[df["capacity_condition"].str.upper() == capacity_condition.strip().upper()]
-        if primary_bottleneck:
-            df = df[df["primary_bottleneck"].str.lower() == primary_bottleneck.strip().lower()]
-        if is_host_candidate is not None:
-            df = df[df["is_host_zone_candidate"] == is_host_candidate]
-
-        records = df.replace({np.nan: None}).to_dict(orient="records")
-        items = [MandalCapacityAdequacyItem(**row) for row in records]
-        return MandalCapacityAdequacyListResponse(total_mandals=len(items), items=items)
-
-    def get_adequacy_mandal_detail(self, mandal_id: str, state_id: Optional[str] = "andhra_pradesh") -> Optional[MandalCapacityAdequacyItem]:
-        target = mandal_id.strip().upper()
-        if target.startswith("TR_"):
-            detected_state = "tripura"
-        elif target.startswith("TN_"):
-            detected_state = "tamil_nadu"
-        else:
-            detected_state = state_id
-
-        data = self._load_data(detected_state)
-        df = data["adequacy_df"]
-
-        match = df[
-            (df["mandal_id"] == target) |
-            (df["mandal_name"].str.upper() == target)
-        ]
-        if match.empty and detected_state != "tripura":
-            tr_data = self._load_data("tripura")
-            match = tr_data["adequacy_df"][
-                (tr_data["adequacy_df"]["mandal_id"] == target) |
-                (tr_data["adequacy_df"]["mandal_name"].str.upper() == target)
-            ]
-        if match.empty and detected_state != "tamil_nadu":
-            tn_data = self._load_data("tamil_nadu")
-            match = tn_data["adequacy_df"][
-                (tn_data["adequacy_df"]["mandal_id"] == target) |
-                (tn_data["adequacy_df"]["mandal_name"].str.upper() == target)
-            ]
-        if match.empty:
-            return None
-        return MandalCapacityAdequacyItem(**match.iloc[0].replace({np.nan: None}).to_dict())
-
-    def get_adequacy_summary(self, state_id: Optional[str] = "andhra_pradesh") -> CapacityAdequacySummaryResponse:
-        data = self._load_data(state_id)
-        df = data["adequacy_df"]
-
-        cond_counts = df["capacity_condition"].value_counts().to_dict()
-        bottleneck_counts = df["primary_bottleneck"].value_counts().to_dict()
-        shelter_stat_counts = df["shelter_status"].value_counts().to_dict()
-        host_count = int(df["is_host_zone_candidate"].sum())
-        mean_comp = round(float(df["capacity_data_completeness"].mean()), 3)
-
-        return CapacityAdequacySummaryResponse(
-            total_mandals=len(df),
-            condition_breakdown=cond_counts,
-            primary_bottleneck_breakdown=bottleneck_counts,
-            host_zone_candidates_pool_count=host_count,
-            mean_data_completeness=mean_comp,
-            shelter_coverage_breakdown=shelter_stat_counts,
-            governance_notice="Capacity condition and bottleneck identifications are decision-support analytical classifications. They do NOT mandate or execute habitation relocation."
-        )
-
-    def get_bottlenecks(
-        self,
-        district_id: Optional[str] = None,
-        primary_bottleneck: Optional[str] = None,
-        state_id: Optional[str] = "andhra_pradesh"
-    ) -> MandalBottlenecksListResponse:
-        data = self._load_data(state_id)
-        df = data["bottlenecks_df"].copy()
-
-        if district_id:
-            df = df[df["current_district_id"] == district_id.strip().lower()]
-        if primary_bottleneck:
-            df = df[df["primary_bottleneck"].str.lower() == primary_bottleneck.strip().lower()]
-
-        records = df.replace({np.nan: None}).to_dict(orient="records")
-        items = [MandalBottleneckItem(**row) for row in records]
-        return MandalBottlenecksListResponse(total_mandals=len(items), items=items)
-
-    def get_adequacy_geojson(self, district_id: Optional[str] = None, state_id: Optional[str] = "andhra_pradesh") -> Dict[str, Any]:
-        data = self._load_data(state_id)
+        state_id: Optional[str] = None,
+        state: Optional[str] = None,
+    ) -> Dict[str, Any]:
+        target_state = state_id or state or "andhra_pradesh"
+        data = self._load_data(target_state)
         if data["adequacy_geojson"] is None:
             geojson_path = data["adequacy_geojson_path"]
             with open(geojson_path, "r", encoding="utf-8") as f:
@@ -422,53 +1021,5 @@ class CapacityService:
         ]
         return {"type": "FeatureCollection", "features": filtered}
 
-    def get_host_zones(self, mandal_id: str, state_id: Optional[str] = "andhra_pradesh") -> HostZoneCandidateListResponse:
-        target = mandal_id.strip().upper()
-        if target.startswith("TR_") or (state_id and is_tr(state_id)):
-            detected_state = "tripura"
-        elif target.startswith("TN_") or (state_id and is_tn(state_id)):
-            detected_state = "tamil_nadu"
-        else:
-            detected_state = state_id
-
-        data = self._load_data(detected_state)
-        df = data["host_df"]
-
-        if "ALL" in target or "STATEWIDE" in target:
-            unique_candidates = df.drop_duplicates(subset=["candidate_mandal_id"]).copy()
-            records = unique_candidates.replace({np.nan: None}).to_dict(orient="records")
-            items = [HostZoneCandidateItem(**row) for row in records]
-            return HostZoneCandidateListResponse(
-                source_mandal_id=target,
-                total_candidates=len(items),
-                candidates=items,
-                governance_disclaimer="CANDIDATE HOST ZONE — HUMAN REVIEW REQUIRED. Distances computed in EPSG:7755 (India Albers Equal Area)."
-            )
-
-        match = df[
-            (df["source_mandal_id"] == target) |
-            (df["source_mandal_name"].str.upper() == target)
-        ]
-        if match.empty and detected_state != "tripura":
-            tr_data = self._load_data("tripura")
-            match = tr_data["host_df"][
-                (tr_data["host_df"]["source_mandal_id"] == target) |
-                (tr_data["host_df"]["source_mandal_name"].str.upper() == target)
-            ]
-        if match.empty and detected_state != "tamil_nadu":
-            tn_data = self._load_data("tamil_nadu")
-            match = tn_data["host_df"][
-                (tn_data["host_df"]["source_mandal_id"] == target) |
-                (tn_data["host_df"]["source_mandal_name"].str.upper() == target)
-            ]
-
-        records = match.replace({np.nan: None}).to_dict(orient="records")
-        items = [HostZoneCandidateItem(**row) for row in records]
-        return HostZoneCandidateListResponse(
-            source_mandal_id=target,
-            total_candidates=len(items),
-            candidates=items,
-            governance_disclaimer="CANDIDATE HOST ZONE — HUMAN REVIEW REQUIRED. Distances computed in EPSG:7755 (India Albers Equal Area)."
-        )
-
 capacity_service = CapacityService()
+

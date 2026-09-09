@@ -1,0 +1,2 @@
+state_id,state_name,state_code,total_districts,total_mandals,total_mandals_ranked,total_population,very_high_count,high_count,moderate_count,low_count,mean_topsis_score,max_topsis_score,min_topsis_score,p90_threshold,p70_threshold,p30_threshold,candidate_hosts_count,ahp_consistency_ratio,methodology
+uttarakhand,Uttarakhand,UK,13,127,127,10086292,13,25,51,38,0.3967,0.7582,0.0874,0.6214,0.51318,0.28168,29,0.0038,Validated Saaty AHP (4 Criteria) + TOPSIS Closeness Ranking

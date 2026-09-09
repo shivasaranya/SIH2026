@@ -1,0 +1,253 @@
+mandal_id,taluka_id,mandal_name,taluka_name,current_district_id,current_district_name,population_total,capacity_condition,primary_bottleneck,secondary_bottleneck,bottleneck_confidence,available_component_count,capacity_data_completeness,shelter_adequacy,health_adequacy,water_sanitation_adequacy,road_accessibility_score,safe_area_adequacy
+GJ_TALUKA_001,GJ_TALUKA_001,Ahmedabad City,Ahmedabad City,ahmedabad,Ahmedabad,415263,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,5,1.0,0.5298,0.7,0.8005,0.4167,0.7768
+GJ_TALUKA_002,GJ_TALUKA_002,Daskroi,Daskroi,ahmedabad,Ahmedabad,150102,CAPACITY-ADEQUATE,safe_habitable_area,water_sanitation,HIGH,5,1.0,0.7328,0.82,0.9215,0.5344,0.7902
+GJ_TALUKA_003,GJ_TALUKA_003,Dholka,Dholka,ahmedabad,Ahmedabad,151022,CAPACITY-ADEQUATE,safe_habitable_area,water_sanitation,HIGH,5,1.0,1.0,0.5667,0.9275,0.5567,0.7898
+GJ_TALUKA_004,GJ_TALUKA_004,Dhandhuka,Dhandhuka,ahmedabad,Ahmedabad,137420,CAPACITY-ADEQUATE,safe_habitable_area,water_sanitation,HIGH,5,1.0,1.0,1.0,0.83,0.78,0.7598
+GJ_TALUKA_005,GJ_TALUKA_005,Sanand,Sanand,ahmedabad,Ahmedabad,138827,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,5,1.0,1.0,0.7533,0.883,0.4306,0.7237
+GJ_TALUKA_006,GJ_TALUKA_006,Viramgam,Viramgam,ahmedabad,Ahmedabad,162130,CAPACITY-ADEQUATE,safe_habitable_area,water_sanitation,HIGH,5,1.0,1.0,0.9867,0.87,0.5644,0.7712
+GJ_TALUKA_007,GJ_TALUKA_007,Bavla,Bavla,ahmedabad,Ahmedabad,151955,CAPACITY-ADEQUATE,safe_habitable_area,water_sanitation,HIGH,5,1.0,0.7239,0.8467,0.8375,0.6417,0.7597
+GJ_TALUKA_008,GJ_TALUKA_008,Mandal,Mandal,ahmedabad,Ahmedabad,171920,CAPACITY-ADEQUATE,safe_habitable_area,water_sanitation,HIGH,5,1.0,1.0,0.9733,0.8835,0.5339,0.7709
+GJ_TALUKA_009,GJ_TALUKA_009,Detroj-Rampura,Detroj-Rampura,ahmedabad,Ahmedabad,65596,CAPACITY-ADEQUATE,safe_habitable_area,water_sanitation,HIGH,5,1.0,1.0,0.7533,0.8525,0.7244,0.7612
+GJ_TALUKA_010,GJ_TALUKA_010,Dholera,Dholera,ahmedabad,Ahmedabad,115750,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,5,1.0,1.0,1.0,0.965,0.4961,0.7512
+GJ_TALUKA_011,GJ_TALUKA_011,Amreli,Amreli,amreli,Amreli,130247,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,5,1.0,0.5374,0.6667,0.879,0.1917,0.8483
+GJ_TALUKA_012,GJ_TALUKA_012,Babra,Babra,amreli,Amreli,141330,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,5,1.0,0.9198,0.54,0.8385,0.6211,0.832
+GJ_TALUKA_013,GJ_TALUKA_013,Dhari,Dhari,amreli,Amreli,142063,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,5,1.0,1.0,0.5867,0.919,0.6761,0.8549
+GJ_TALUKA_014,GJ_TALUKA_014,Jafrabad,Jafrabad,amreli,Amreli,145322,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,5,1.0,0.4817,0.8467,0.873,0.6878,0.8143
+GJ_TALUKA_015,GJ_TALUKA_015,Khambha,Khambha,amreli,Amreli,145584,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,5,1.0,0.4808,0.9733,0.8585,0.7917,0.8341
+GJ_TALUKA_016,GJ_TALUKA_016,Kunkavav Vadia,Kunkavav Vadia,amreli,Amreli,150250,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,5,1.0,1.0,0.84,0.863,0.7078,0.8243
+GJ_TALUKA_017,GJ_TALUKA_017,Lathi,Lathi,amreli,Amreli,148849,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,5,1.0,0.4031,0.7133,0.9475,0.5339,0.8392
+GJ_TALUKA_018,GJ_TALUKA_018,Lilia,Lilia,amreli,Amreli,116012,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,5,1.0,1.0,0.8533,0.8645,0.4483,0.8272
+GJ_TALUKA_019,GJ_TALUKA_019,Rajula,Rajula,amreli,Amreli,143682,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,5,1.0,1.0,0.9533,0.8645,0.5761,0.815
+GJ_TALUKA_020,GJ_TALUKA_020,Savarkundla,Savarkundla,amreli,Amreli,94599,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,5,1.0,1.0,1.0,0.8585,0.705,0.8403
+GJ_TALUKA_021,GJ_TALUKA_021,Bagasara,Bagasara,amreli,Amreli,142525,CAPACITY-ADEQUATE,safe_habitable_area,water_sanitation,HIGH,5,1.0,0.7718,0.7933,0.827,0.6367,0.7989
+GJ_TALUKA_022,GJ_TALUKA_022,Anand,Anand,anand,Anand,123794,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,5,1.0,1.0,0.88,0.8775,0.3133,0.7454
+GJ_TALUKA_023,GJ_TALUKA_023,Anklav,Anklav,anand,Anand,122181,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,5,1.0,1.0,0.5533,0.876,0.3411,0.7459
+GJ_TALUKA_024,GJ_TALUKA_024,Borsad,Borsad,anand,Anand,166191,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,5,1.0,1.0,0.78,0.8215,0.33,0.7336
+GJ_TALUKA_025,GJ_TALUKA_025,Khambhat,Khambhat,anand,Anand,145985,CAPACITY-ADEQUATE,safe_habitable_area,water_sanitation,HIGH,5,1.0,1.0,0.7467,0.899,0.69,0.779
+GJ_TALUKA_026,GJ_TALUKA_026,Petlad,Petlad,anand,Anand,166745,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,5,1.0,0.7197,1.0,0.896,0.4944,0.7659
+GJ_TALUKA_027,GJ_TALUKA_027,Sojitra,Sojitra,anand,Anand,106942,CAPACITY-ADEQUATE,safe_habitable_area,water_sanitation,HIGH,5,1.0,0.9351,0.8733,0.881,0.615,0.7637
+GJ_TALUKA_028,GJ_TALUKA_028,Tarapur,Tarapur,anand,Anand,115851,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,5,1.0,1.0,0.8867,0.8615,0.645,0.8051
+GJ_TALUKA_029,GJ_TALUKA_029,Umreth,Umreth,anand,Anand,135527,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,5,1.0,1.0,0.9267,0.8575,0.4494,0.7901
+GJ_TALUKA_030,GJ_TALUKA_030,Modasa,Modasa,aravalli,Aravalli,116834,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.9933,0.8945,0.8317,0.8746
+GJ_TALUKA_031,GJ_TALUKA_031,Bhiloda,Bhiloda,aravalli,Aravalli,123639,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.7133,0.886,0.6311,0.8707
+GJ_TALUKA_032,GJ_TALUKA_032,Bayad,Bayad,aravalli,Aravalli,92561,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,4,0.8,,0.54,0.853,0.4717,0.8567
+GJ_TALUKA_033,GJ_TALUKA_033,Dhansura,Dhansura,aravalli,Aravalli,131584,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.56,0.859,0.5183,0.8093
+GJ_TALUKA_034,GJ_TALUKA_034,Malpur,Malpur,aravalli,Aravalli,153387,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.64,0.835,0.6611,0.8493
+GJ_TALUKA_035,GJ_TALUKA_035,Meghraj,Meghraj,aravalli,Aravalli,168782,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,4,0.8,,0.9533,0.8135,0.2867,0.8146
+GJ_TALUKA_036,GJ_TALUKA_036,Palanpur,Palanpur,banaskantha,Banaskantha,116936,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,4,0.8,,0.8,0.882,0.4878,0.8723
+GJ_TALUKA_037,GJ_TALUKA_037,Deesa,Deesa,banaskantha,Banaskantha,149112,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.66,0.8475,0.5628,0.8278
+GJ_TALUKA_038,GJ_TALUKA_038,Dhanera,Dhanera,banaskantha,Banaskantha,156484,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.5933,0.818,0.5728,0.8924
+GJ_TALUKA_039,GJ_TALUKA_039,Tharad,Tharad,banaskantha,Banaskantha,146785,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,4,0.8,,0.9267,0.9225,0.3983,0.8662
+GJ_TALUKA_040,GJ_TALUKA_040,Vav,Vav,banaskantha,Banaskantha,146785,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,4,0.8,,0.9267,0.9225,0.3983,0.8662
+GJ_TALUKA_041,GJ_TALUKA_041,Dantiwada,Dantiwada,banaskantha,Banaskantha,184738,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.62,0.902,0.6761,0.8679
+GJ_TALUKA_042,GJ_TALUKA_042,Vadgam,Vadgam,banaskantha,Banaskantha,155707,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.76,0.8725,0.7028,0.8554
+GJ_TALUKA_043,GJ_TALUKA_043,Amirgadh,Amirgadh,banaskantha,Banaskantha,105508,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,4,0.8,,0.6133,0.9055,0.2828,0.8896
+GJ_TALUKA_044,GJ_TALUKA_044,Danta,Danta,banaskantha,Banaskantha,129880,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,4,0.8,,0.9467,0.836,0.2622,0.8523
+GJ_TALUKA_045,GJ_TALUKA_045,Bhabhar,Bhabhar,banaskantha,Banaskantha,200347,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.9133,0.8525,0.6794,0.8345
+GJ_TALUKA_046,GJ_TALUKA_046,Kankrej,Kankrej,banaskantha,Banaskantha,92130,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.74,0.9235,0.5867,0.8693
+GJ_TALUKA_047,GJ_TALUKA_047,Deodar,Deodar,banaskantha,Banaskantha,115137,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,4,0.8,,0.6333,0.8655,0.4889,0.8443
+GJ_TALUKA_048,GJ_TALUKA_048,Suigam,Suigam,banaskantha,Banaskantha,131049,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.66,0.9485,0.5906,0.8182
+GJ_TALUKA_049,GJ_TALUKA_049,Lakhani,Lakhani,banaskantha,Banaskantha,167273,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.68,0.898,0.6411,0.8252
+GJ_TALUKA_050,GJ_TALUKA_050,Bharuch,Bharuch,bharuch,Bharuch,110709,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,5,1.0,0.542,0.5867,0.924,0.385,0.7861
+GJ_TALUKA_051,GJ_TALUKA_051,Ankleshwar,Ankleshwar,bharuch,Bharuch,140411,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,5,1.0,1.0,0.6067,0.8665,0.2678,0.7301
+GJ_TALUKA_052,GJ_TALUKA_052,Amod,Amod,bharuch,Bharuch,110089,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,5,1.0,0.6358,0.8933,0.8995,0.4772,0.7563
+GJ_TALUKA_053,GJ_TALUKA_053,Hansot,Hansot,bharuch,Bharuch,131378,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,5,1.0,1.0,0.54,0.886,0.4744,0.7157
+GJ_TALUKA_054,GJ_TALUKA_054,Jambusar,Jambusar,bharuch,Bharuch,139071,CAPACITY-ADEQUATE,safe_habitable_area,water_sanitation,HIGH,5,1.0,1.0,0.7933,0.851,0.7878,0.7491
+GJ_TALUKA_055,GJ_TALUKA_055,Jhagadia,Jhagadia,bharuch,Bharuch,120978,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,5,1.0,0.9093,1.0,0.8865,0.3528,0.7814
+GJ_TALUKA_056,GJ_TALUKA_056,Vagra,Vagra,bharuch,Bharuch,124863,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,5,1.0,0.9611,0.6067,0.8425,0.4733,0.799
+GJ_TALUKA_057,GJ_TALUKA_057,Valia,Valia,bharuch,Bharuch,99632,CAPACITY-ADEQUATE,safe_habitable_area,water_sanitation,HIGH,5,1.0,1.0,0.7733,0.823,0.7611,0.782
+GJ_TALUKA_058,GJ_TALUKA_058,Netrang,Netrang,bharuch,Bharuch,108444,CAPACITY-ADEQUATE,safe_habitable_area,water_sanitation,HIGH,5,1.0,1.0,0.56,0.8525,0.5406,0.7377
+GJ_TALUKA_059,GJ_TALUKA_059,Bhavnagar,Bhavnagar,bhavnagar,Bhavnagar,379862,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,5,1.0,0.3686,0.74,0.9395,0.6139,0.8252
+GJ_TALUKA_060,GJ_TALUKA_060,Gariadhar,Gariadhar,bhavnagar,Bhavnagar,140058,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,5,1.0,1.0,0.66,0.8855,0.5194,0.8724
+GJ_TALUKA_061,GJ_TALUKA_061,Ghogha,Ghogha,bhavnagar,Bhavnagar,164509,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,5,1.0,1.0,0.6533,0.9165,0.4833,0.8803
+GJ_TALUKA_062,GJ_TALUKA_062,Mahuva,Mahuva,bhavnagar,Bhavnagar,137186,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,5,1.0,0.656,0.6733,0.8995,0.535,0.8307
+GJ_TALUKA_063,GJ_TALUKA_063,Palitana,Palitana,bhavnagar,Bhavnagar,136454,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,5,1.0,1.0,0.7067,0.8035,0.4167,0.8492
+GJ_TALUKA_064,GJ_TALUKA_064,Sihor,Sihor,bhavnagar,Bhavnagar,109515,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,5,1.0,1.0,0.9467,0.8585,0.3711,0.8218
+GJ_TALUKA_065,GJ_TALUKA_065,Talaja,Talaja,bhavnagar,Bhavnagar,111062,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,5,1.0,1.0,0.6133,0.8575,0.7767,0.8236
+GJ_TALUKA_066,GJ_TALUKA_066,Umrala,Umrala,bhavnagar,Bhavnagar,106584,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,5,1.0,0.7506,0.88,0.895,0.6161,0.841
+GJ_TALUKA_067,GJ_TALUKA_067,Vallabhipur,Vallabhipur,bhavnagar,Bhavnagar,127865,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,5,1.0,1.0,0.5533,0.927,0.6478,0.8433
+GJ_TALUKA_068,GJ_TALUKA_068,Jesar,Jesar,bhavnagar,Bhavnagar,134878,CAPACITY-ADEQUATE,safe_habitable_area,water_sanitation,HIGH,5,1.0,0.519,0.7467,0.8335,0.6594,0.7916
+GJ_TALUKA_069,GJ_TALUKA_069,Botad,Botad,botad,Botad,140521,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.9733,0.877,0.6256,0.9466
+GJ_TALUKA_070,GJ_TALUKA_070,Barwala,Barwala,botad,Botad,143981,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,4,0.8,,0.6267,0.855,0.4928,0.9229
+GJ_TALUKA_071,GJ_TALUKA_071,Gadhada,Gadhada,botad,Botad,173933,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.78,0.897,0.6083,0.9444
+GJ_TALUKA_072,GJ_TALUKA_072,Ranpur,Ranpur,botad,Botad,82887,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.8267,0.867,0.7844,0.8936
+GJ_TALUKA_073,GJ_TALUKA_073,Chhota Udaipur,Chhota Udaipur,chhota_udaipur,Chhota Udaipur,100442,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,4,0.8,,0.9933,0.91,0.465,0.8364
+GJ_TALUKA_074,GJ_TALUKA_074,Bodeli,Bodeli,chhota_udaipur,Chhota Udaipur,184232,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.8067,0.8725,0.6106,0.8513
+GJ_TALUKA_075,GJ_TALUKA_075,Jetpur Pavi,Jetpur Pavi,chhota_udaipur,Chhota Udaipur,140571,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.74,0.8355,0.7522,0.8578
+GJ_TALUKA_076,GJ_TALUKA_076,Kavant,Kavant,chhota_udaipur,Chhota Udaipur,127172,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.9333,0.903,0.6889,0.8002
+GJ_TALUKA_077,GJ_TALUKA_077,Nasvadi,Nasvadi,chhota_udaipur,Chhota Udaipur,124617,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,4,0.8,,1.0,0.8735,0.2983,0.8331
+GJ_TALUKA_078,GJ_TALUKA_078,Sankheda,Sankheda,chhota_udaipur,Chhota Udaipur,139148,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,4,0.8,,0.9733,0.823,0.365,0.8435
+GJ_TALUKA_079,GJ_TALUKA_079,Dahod,Dahod,dahod,Dahod,152325,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,4,0.8,,0.86,0.9485,0.3567,0.8838
+GJ_TALUKA_080,GJ_TALUKA_080,Devgadh Baria,Devgadh Baria,dahod,Dahod,150725,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,1.0,0.8845,0.7361,0.9304
+GJ_TALUKA_081,GJ_TALUKA_081,Dhanpur,Dhanpur,dahod,Dahod,164823,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.5467,0.875,0.5078,0.8884
+GJ_TALUKA_082,GJ_TALUKA_082,Fatepura,Fatepura,dahod,Dahod,176571,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.86,0.887,0.5906,0.9241
+GJ_TALUKA_083,GJ_TALUKA_083,Garbada,Garbada,dahod,Dahod,148249,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.7267,0.8835,0.5733,0.8842
+GJ_TALUKA_084,GJ_TALUKA_084,Limkheda,Limkheda,dahod,Dahod,103434,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.9267,0.8795,0.6511,0.9025
+GJ_TALUKA_085,GJ_TALUKA_085,Jhalod,Jhalod,dahod,Dahod,105046,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,1.0,0.9065,0.6211,0.9101
+GJ_TALUKA_086,GJ_TALUKA_086,Sanjeli,Sanjeli,dahod,Dahod,169676,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,4,0.8,,0.56,0.8575,0.2456,0.9371
+GJ_TALUKA_087,GJ_TALUKA_087,Singvad,Singvad,dahod,Dahod,125775,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,4,0.8,,0.7867,0.8615,0.4383,0.8867
+GJ_TALUKA_088,GJ_TALUKA_088,Ahwa,Ahwa,dang,Dang,94738,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.96,0.8895,0.6444,0.8691
+GJ_TALUKA_089,GJ_TALUKA_089,Waghai,Waghai,dang,Dang,144492,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,4,0.8,,0.84,0.8765,0.4344,0.8579
+GJ_TALUKA_090,GJ_TALUKA_090,Subir,Subir,dang,Dang,140058,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,4,0.8,,0.9267,0.8365,0.45,0.889
+GJ_TALUKA_091,GJ_TALUKA_091,Dwarka,Dwarka,devbhumi_dwarka,Devbhumi Dwarka,187631,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,5,1.0,1.0,0.94,0.8985,0.6422,0.8498
+GJ_TALUKA_092,GJ_TALUKA_092,Bhanvad,Bhanvad,devbhumi_dwarka,Devbhumi Dwarka,135125,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,5,1.0,0.9621,0.7733,0.798,1.0,0.8368
+GJ_TALUKA_093,GJ_TALUKA_093,Kalyanpur,Kalyanpur,devbhumi_dwarka,Devbhumi Dwarka,123658,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,5,1.0,0.6469,0.78,0.95,0.3861,0.8175
+GJ_TALUKA_094,GJ_TALUKA_094,Khambhalia,Khambhalia,devbhumi_dwarka,Devbhumi Dwarka,157246,CAPACITY-ADEQUATE,safe_habitable_area,water_sanitation,HIGH,5,1.0,0.5088,0.5333,0.8875,0.5794,0.7983
+GJ_TALUKA_095,GJ_TALUKA_095,Gandhinagar,Gandhinagar,gandhinagar,Gandhinagar,126756,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,4,0.8,,1.0,0.8985,0.3767,0.9664
+GJ_TALUKA_096,GJ_TALUKA_096,Dehgam,Dehgam,gandhinagar,Gandhinagar,139266,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.9733,0.8415,0.5461,0.9472
+GJ_TALUKA_097,GJ_TALUKA_097,Kalol,Kalol,gandhinagar,Gandhinagar,142856,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,4,0.8,,0.6467,0.856,0.3794,0.9385
+GJ_TALUKA_098,GJ_TALUKA_098,Mansa,Mansa,gandhinagar,Gandhinagar,119673,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.7067,0.8945,0.7172,0.9074
+GJ_TALUKA_099,GJ_TALUKA_099,Veraval,Veraval,gir_somnath,Gir Somnath,140044,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,5,1.0,1.0,0.5933,0.9055,0.5133,0.8102
+GJ_TALUKA_100,GJ_TALUKA_100,Kodinar,Kodinar,gir_somnath,Gir Somnath,160028,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,5,1.0,1.0,1.0,0.899,0.3956,0.8489
+GJ_TALUKA_101,GJ_TALUKA_101,Sutrapada,Sutrapada,gir_somnath,Gir Somnath,154207,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,5,1.0,0.5188,0.5533,0.8635,0.5294,0.8462
+GJ_TALUKA_102,GJ_TALUKA_102,Talala,Talala,gir_somnath,Gir Somnath,121580,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,5,1.0,1.0,0.6667,0.8805,0.2894,0.8041
+GJ_TALUKA_103,GJ_TALUKA_103,Una,Una,gir_somnath,Gir Somnath,142079,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,5,1.0,1.0,0.7333,0.8865,0.615,0.8278
+GJ_TALUKA_104,GJ_TALUKA_104,Gir Gadhada,Gir Gadhada,gir_somnath,Gir Somnath,136918,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,5,1.0,0.6573,0.56,0.928,0.4194,0.8565
+GJ_TALUKA_105,GJ_TALUKA_105,Jamnagar,Jamnagar,jamnagar,Jamnagar,368269,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,5,1.0,0.2987,1.0,0.833,0.5028,0.8527
+GJ_TALUKA_106,GJ_TALUKA_106,Dhrol,Dhrol,jamnagar,Jamnagar,173970,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,5,1.0,1.0,0.7533,0.83,0.6172,0.8419
+GJ_TALUKA_107,GJ_TALUKA_107,Jamjodhpur,Jamjodhpur,jamnagar,Jamnagar,143583,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,5,1.0,1.0,0.6867,0.869,0.2111,0.8432
+GJ_TALUKA_108,GJ_TALUKA_108,Jodiya,Jodiya,jamnagar,Jamnagar,126098,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,5,1.0,1.0,0.7067,0.8975,0.6811,0.8636
+GJ_TALUKA_109,GJ_TALUKA_109,Kalavad,Kalavad,jamnagar,Jamnagar,111815,CAPACITY-ADEQUATE,safe_habitable_area,water_sanitation,HIGH,5,1.0,1.0,0.6333,0.9075,0.5972,0.7776
+GJ_TALUKA_110,GJ_TALUKA_110,Lalpur,Lalpur,jamnagar,Jamnagar,166326,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,5,1.0,0.6614,0.7067,0.9405,0.4317,0.876
+GJ_TALUKA_111,GJ_TALUKA_111,Junagadh City,Junagadh City,junagadh,Junagadh,407336,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,5,1.0,0.2209,0.8867,0.865,0.4606,0.783
+GJ_TALUKA_112,GJ_TALUKA_112,Junagadh Rural,Junagadh Rural,junagadh,Junagadh,122188,CAPACITY-ADEQUATE,safe_habitable_area,water_sanitation,HIGH,5,1.0,1.0,0.8067,0.932,0.6406,0.7616
+GJ_TALUKA_113,GJ_TALUKA_113,Bhesan,Bhesan,junagadh,Junagadh,93334,CAPACITY-ADEQUATE,safe_habitable_area,water_sanitation,HIGH,5,1.0,1.0,0.7333,0.909,0.68,0.7973
+GJ_TALUKA_114,GJ_TALUKA_114,Keshod,Keshod,junagadh,Junagadh,137173,CAPACITY-ADEQUATE,safe_habitable_area,water_sanitation,HIGH,5,1.0,1.0,0.7067,0.9325,0.7017,0.7579
+GJ_TALUKA_115,GJ_TALUKA_115,Malia Hatina,Malia Hatina,junagadh,Junagadh,145321,CAPACITY-ADEQUATE,safe_habitable_area,water_sanitation,HIGH,5,1.0,1.0,0.9867,0.9365,0.8,0.7504
+GJ_TALUKA_116,GJ_TALUKA_116,Manavadar,Manavadar,junagadh,Junagadh,134703,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,5,1.0,0.8908,0.7533,0.8755,0.3522,0.7002
+GJ_TALUKA_117,GJ_TALUKA_117,Mangrol,Mangrol,junagadh,Junagadh,138107,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,5,1.0,1.0,0.7267,0.893,0.4989,0.7684
+GJ_TALUKA_118,GJ_TALUKA_118,Mendarda,Mendarda,junagadh,Junagadh,131904,CAPACITY-ADEQUATE,safe_habitable_area,water_sanitation,HIGH,5,1.0,0.7581,0.7667,0.8765,0.5933,0.7591
+GJ_TALUKA_119,GJ_TALUKA_119,Vanthali,Vanthali,junagadh,Junagadh,114092,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,5,1.0,0.8765,0.6467,0.8805,0.7194,0.8103
+GJ_TALUKA_120,GJ_TALUKA_120,Visavadar,Visavadar,junagadh,Junagadh,91457,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,5,1.0,1.0,0.8933,0.8235,0.4061,0.7581
+GJ_TALUKA_121,GJ_TALUKA_121,Nadiad,Nadiad,kheda,Kheda,117134,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,4,0.8,,0.88,0.852,0.3067,0.9377
+GJ_TALUKA_122,GJ_TALUKA_122,Kheda,Kheda,kheda,Kheda,150479,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,4,0.8,,0.6733,0.824,0.415,0.8991
+GJ_TALUKA_123,GJ_TALUKA_123,Kapadvanj,Kapadvanj,kheda,Kheda,131227,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.72,0.8615,0.7417,0.9049
+GJ_TALUKA_124,GJ_TALUKA_124,Kathlal,Kathlal,kheda,Kheda,147575,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.98,0.8615,0.7611,0.9397
+GJ_TALUKA_125,GJ_TALUKA_125,Mahudha,Mahudha,kheda,Kheda,115851,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.86,0.8245,0.8333,0.9619
+GJ_TALUKA_126,GJ_TALUKA_126,Matar,Matar,kheda,Kheda,153299,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,1.0,0.9375,0.6322,0.9144
+GJ_TALUKA_127,GJ_TALUKA_127,Mehmedabad,Mehmedabad,kheda,Kheda,162424,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,4,0.8,,0.5733,0.905,0.3872,0.9337
+GJ_TALUKA_128,GJ_TALUKA_128,Thasra,Thasra,kheda,Kheda,103050,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.9867,0.9285,0.5856,0.9481
+GJ_TALUKA_129,GJ_TALUKA_129,Galteshwar,Galteshwar,kheda,Kheda,130788,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.9733,0.912,0.67,0.9226
+GJ_TALUKA_130,GJ_TALUKA_130,Vaso,Vaso,kheda,Kheda,142849,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,4,0.8,,0.9133,0.898,0.3067,0.9708
+GJ_TALUKA_131,GJ_TALUKA_131,Bhuj,Bhuj,kutch,Kutch,80333,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,5,1.0,1.0,0.9067,0.868,0.4228,0.7101
+GJ_TALUKA_132,GJ_TALUKA_132,Abdasa,Abdasa,kutch,Kutch,118031,CAPACITY-ADEQUATE,safe_habitable_area,water_sanitation,HIGH,5,1.0,1.0,0.9267,0.8725,0.5344,0.7481
+GJ_TALUKA_133,GJ_TALUKA_133,Anjar,Anjar,kutch,Kutch,116700,CAPACITY-ADEQUATE,safe_habitable_area,water_sanitation,HIGH,5,1.0,0.9426,0.5867,0.8825,0.5383,0.7726
+GJ_TALUKA_134,GJ_TALUKA_134,Bhachau,Bhachau,kutch,Kutch,130214,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,5,1.0,1.0,0.8933,0.898,0.4261,0.7517
+GJ_TALUKA_135,GJ_TALUKA_135,Gandhidham,Gandhidham,kutch,Kutch,95606,CAPACITY-ADEQUATE,safe_habitable_area,water_sanitation,HIGH,5,1.0,1.0,0.9267,0.8195,0.6433,0.7452
+GJ_TALUKA_136,GJ_TALUKA_136,Lakhpat,Lakhpat,kutch,Kutch,153855,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,5,1.0,1.0,0.8733,0.825,0.6161,0.8009
+GJ_TALUKA_137,GJ_TALUKA_137,Mandvi (Kutch),Mandvi (Kutch),kutch,Kutch,124066,CAPACITY-ADEQUATE,safe_habitable_area,water_sanitation,HIGH,5,1.0,1.0,0.7133,0.8085,0.5078,0.7483
+GJ_TALUKA_138,GJ_TALUKA_138,Mundra,Mundra,kutch,Kutch,91921,CAPACITY-ADEQUATE,safe_habitable_area,water_sanitation,HIGH,5,1.0,1.0,1.0,0.849,0.6172,0.7343
+GJ_TALUKA_139,GJ_TALUKA_139,Nakhatrana,Nakhatrana,kutch,Kutch,132681,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,5,1.0,0.6029,0.7733,0.9485,0.2789,0.7538
+GJ_TALUKA_140,GJ_TALUKA_140,Rapar,Rapar,kutch,Kutch,146774,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,5,1.0,1.0,0.6267,0.8985,0.4156,0.7749
+GJ_TALUKA_141,GJ_TALUKA_141,Lunawada,Lunawada,mahisagar,Mahisagar,155900,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.5933,0.938,0.5267,0.9387
+GJ_TALUKA_142,GJ_TALUKA_142,Balasinor,Balasinor,mahisagar,Mahisagar,186548,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,4,0.8,,0.6867,0.8815,0.4994,0.904
+GJ_TALUKA_143,GJ_TALUKA_143,Kadana,Kadana,mahisagar,Mahisagar,134943,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.9467,0.9005,0.9528,0.8997
+GJ_TALUKA_144,GJ_TALUKA_144,Khanpur,Khanpur,mahisagar,Mahisagar,120918,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.78,0.873,0.5272,0.9222
+GJ_TALUKA_145,GJ_TALUKA_145,Santrampur,Santrampur,mahisagar,Mahisagar,136076,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.7667,0.933,0.5778,0.8792
+GJ_TALUKA_146,GJ_TALUKA_146,Virpur,Virpur,mahisagar,Mahisagar,143556,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,4,0.8,,0.7067,0.8485,0.4494,0.9604
+GJ_TALUKA_147,GJ_TALUKA_147,Mehsana,Mehsana,mehsana,Mehsana,86792,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.5933,0.8225,0.7356,0.9565
+GJ_TALUKA_148,GJ_TALUKA_148,Becharaji,Becharaji,mehsana,Mehsana,105663,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.8867,0.8505,0.5489,0.9113
+GJ_TALUKA_149,GJ_TALUKA_149,Kadi,Kadi,mehsana,Mehsana,143795,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,4,0.8,,0.88,0.8825,0.46,0.9363
+GJ_TALUKA_150,GJ_TALUKA_150,Kheralu,Kheralu,mehsana,Mehsana,137684,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.6133,0.882,0.8039,0.9099
+GJ_TALUKA_151,GJ_TALUKA_151,Satlasana,Satlasana,mehsana,Mehsana,66096,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.6067,0.8495,0.5606,0.9169
+GJ_TALUKA_152,GJ_TALUKA_152,Unjha,Unjha,mehsana,Mehsana,126360,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,4,0.8,,0.86,0.8195,0.405,0.9282
+GJ_TALUKA_153,GJ_TALUKA_153,Vadnagar,Vadnagar,mehsana,Mehsana,151932,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.6467,0.848,0.5194,0.9435
+GJ_TALUKA_154,GJ_TALUKA_154,Vijapur,Vijapur,mehsana,Mehsana,76061,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,4,0.8,,0.72,0.841,0.4767,0.8999
+GJ_TALUKA_155,GJ_TALUKA_155,Visnagar,Visnagar,mehsana,Mehsana,113974,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.6933,0.8225,0.7211,0.9522
+GJ_TALUKA_156,GJ_TALUKA_156,Jotana,Jotana,mehsana,Mehsana,135786,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,4,0.8,,0.64,0.88,0.3306,0.9231
+GJ_TALUKA_157,GJ_TALUKA_157,Morbi,Morbi,morbi,Morbi,140031,CAPACITY-ADEQUATE,safe_habitable_area,water_sanitation,HIGH,5,1.0,0.4285,0.9067,0.858,0.6033,0.7998
+GJ_TALUKA_158,GJ_TALUKA_158,Halvad,Halvad,morbi,Morbi,125465,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,5,1.0,0.7173,0.72,0.8225,0.5133,0.8651
+GJ_TALUKA_159,GJ_TALUKA_159,Maliya,Maliya,morbi,Morbi,202805,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,5,1.0,0.7396,0.6533,0.871,0.6844,0.8146
+GJ_TALUKA_160,GJ_TALUKA_160,Tankara,Tankara,morbi,Morbi,156587,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,5,1.0,1.0,0.9,0.8735,0.3128,0.8576
+GJ_TALUKA_161,GJ_TALUKA_161,Wankaner,Wankaner,morbi,Morbi,125151,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,5,1.0,0.5593,0.7,0.856,0.6289,0.86
+GJ_TALUKA_162,GJ_TALUKA_162,Rajpipla (Nandod),Rajpipla (Nandod),narmada,Narmada,153360,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,4,0.8,,0.92,0.9295,0.3222,0.8644
+GJ_TALUKA_163,GJ_TALUKA_163,Dediapada,Dediapada,narmada,Narmada,137420,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,4,0.8,,0.7067,0.8865,0.4244,0.8354
+GJ_TALUKA_164,GJ_TALUKA_164,Garudeshwar,Garudeshwar,narmada,Narmada,151404,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.8933,0.939,0.6811,0.8174
+GJ_TALUKA_165,GJ_TALUKA_165,Sagbara,Sagbara,narmada,Narmada,118089,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.5467,0.893,0.5122,0.855
+GJ_TALUKA_166,GJ_TALUKA_166,Tilakwada,Tilakwada,narmada,Narmada,112004,CAPACITY-ADEQUATE,safe_habitable_area,water_sanitation,HIGH,4,0.8,,0.9,0.944,0.7094,0.7924
+GJ_TALUKA_167,GJ_TALUKA_167,Navsari,Navsari,navsari,Navsari,123095,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,5,1.0,1.0,0.7067,0.8665,0.455,0.7659
+GJ_TALUKA_168,GJ_TALUKA_168,Chikhli,Chikhli,navsari,Navsari,147720,CAPACITY-ADEQUATE,safe_habitable_area,water_sanitation,HIGH,5,1.0,1.0,0.8733,0.8695,0.5483,0.7885
+GJ_TALUKA_169,GJ_TALUKA_169,Gandevi,Gandevi,navsari,Navsari,178350,CAPACITY-ADEQUATE,safe_habitable_area,water_sanitation,HIGH,5,1.0,0.785,0.9067,0.875,0.625,0.7894
+GJ_TALUKA_170,GJ_TALUKA_170,Jalalpore,Jalalpore,navsari,Navsari,142137,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,5,1.0,1.0,0.6467,0.904,0.4867,0.743
+GJ_TALUKA_171,GJ_TALUKA_171,Khergam,Khergam,navsari,Navsari,148493,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,5,1.0,0.4041,0.88,0.867,0.4806,0.7773
+GJ_TALUKA_172,GJ_TALUKA_172,Vansda,Vansda,navsari,Navsari,115182,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,5,1.0,1.0,0.7867,0.8985,0.3356,0.7803
+GJ_TALUKA_173,GJ_TALUKA_173,Godhra,Godhra,panchmahal,Panchmahal,118757,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.9933,0.8985,0.805,0.9294
+GJ_TALUKA_174,GJ_TALUKA_174,Ghoghamba,Ghoghamba,panchmahal,Panchmahal,157958,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,4,0.8,,1.0,0.8165,0.2472,0.921
+GJ_TALUKA_175,GJ_TALUKA_175,Halol,Halol,panchmahal,Panchmahal,125923,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.5667,0.9245,0.6044,0.9066
+GJ_TALUKA_176,GJ_TALUKA_176,Jambughoda,Jambughoda,panchmahal,Panchmahal,118363,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.96,0.9395,0.74,0.9338
+GJ_TALUKA_177,GJ_TALUKA_177,Kalol (Panchmahal),Kalol (Panchmahal),panchmahal,Panchmahal,148933,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.98,0.9105,0.7417,0.9798
+GJ_TALUKA_178,GJ_TALUKA_178,Morwa Hadaf,Morwa Hadaf,panchmahal,Panchmahal,160313,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,4,0.8,,0.88,0.873,0.49,0.9062
+GJ_TALUKA_179,GJ_TALUKA_179,Shehra,Shehra,panchmahal,Panchmahal,137519,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,4,0.8,,0.5333,0.9365,0.4017,0.8837
+GJ_TALUKA_180,GJ_TALUKA_180,Patan,Patan,patan,Patan,148308,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.86,0.877,0.6678,0.8479
+GJ_TALUKA_181,GJ_TALUKA_181,Chanasma,Chanasma,patan,Patan,141388,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.72,0.822,0.7017,0.8657
+GJ_TALUKA_182,GJ_TALUKA_182,Harij,Harij,patan,Patan,148664,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.54,0.867,0.6906,0.8569
+GJ_TALUKA_183,GJ_TALUKA_183,Radhanpur,Radhanpur,patan,Patan,157539,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,4,0.8,,0.7867,0.919,0.3911,0.8479
+GJ_TALUKA_184,GJ_TALUKA_184,Sami,Sami,patan,Patan,156214,CAPACITY-ADEQUATE,safe_habitable_area,water_sanitation,HIGH,4,0.8,,0.86,0.938,0.6406,0.7881
+GJ_TALUKA_185,GJ_TALUKA_185,Santhalpur,Santhalpur,patan,Patan,144807,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,4,0.8,,0.98,0.903,0.4333,0.914
+GJ_TALUKA_186,GJ_TALUKA_186,Saraswati,Saraswati,patan,Patan,130475,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.6,0.9235,0.5178,0.8728
+GJ_TALUKA_187,GJ_TALUKA_187,Sidhpur,Sidhpur,patan,Patan,95726,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,4,0.8,,0.9,0.901,0.3656,0.8125
+GJ_TALUKA_188,GJ_TALUKA_188,Shankheshwar,Shankheshwar,patan,Patan,144692,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.6133,0.938,0.5556,0.8738
+GJ_TALUKA_189,GJ_TALUKA_189,Porbandar,Porbandar,porbandar,Porbandar,162205,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,5,1.0,1.0,0.78,0.8875,0.5228,0.8338
+GJ_TALUKA_190,GJ_TALUKA_190,Kutiyana,Kutiyana,porbandar,Porbandar,132027,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,5,1.0,1.0,0.6133,0.868,0.6311,0.8424
+GJ_TALUKA_191,GJ_TALUKA_191,Ranavav,Ranavav,porbandar,Porbandar,133850,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,5,1.0,1.0,0.58,0.9515,0.6094,0.8238
+GJ_TALUKA_192,GJ_TALUKA_192,Rajkot,Rajkot,rajkot,Rajkot,400025,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,4,0.8,,0.92,0.9005,0.2672,0.9352
+GJ_TALUKA_193,GJ_TALUKA_193,Dhoraji,Dhoraji,rajkot,Rajkot,89936,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.8067,0.8935,0.8156,0.9161
+GJ_TALUKA_194,GJ_TALUKA_194,Gondal,Gondal,rajkot,Rajkot,134648,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.6267,0.916,0.98,0.9246
+GJ_TALUKA_195,GJ_TALUKA_195,Jamkandorna,Jamkandorna,rajkot,Rajkot,119313,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.6067,0.8745,0.5056,0.9383
+GJ_TALUKA_196,GJ_TALUKA_196,Jasdan,Jasdan,rajkot,Rajkot,130908,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,4,0.8,,0.76,0.934,0.4956,0.9029
+GJ_TALUKA_197,GJ_TALUKA_197,Jetpur,Jetpur,rajkot,Rajkot,145322,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.92,0.802,0.5189,0.9007
+GJ_TALUKA_198,GJ_TALUKA_198,Kotda Sangani,Kotda Sangani,rajkot,Rajkot,152782,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,4,0.8,,0.8133,0.8855,0.3611,0.9032
+GJ_TALUKA_199,GJ_TALUKA_199,Lodhika,Lodhika,rajkot,Rajkot,123112,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.9533,0.902,0.6061,0.9098
+GJ_TALUKA_200,GJ_TALUKA_200,Paddhari,Paddhari,rajkot,Rajkot,116495,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,1.0,0.9095,0.7017,0.9639
+GJ_TALUKA_201,GJ_TALUKA_201,Upleta,Upleta,rajkot,Rajkot,157972,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,4,0.8,,1.0,0.866,0.4111,0.8885
+GJ_TALUKA_202,GJ_TALUKA_202,Vinchhiya,Vinchhiya,rajkot,Rajkot,131704,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,4,0.8,,1.0,0.8835,0.3594,0.9482
+GJ_TALUKA_203,GJ_TALUKA_203,Himmatnagar,Himmatnagar,sabarkantha,Sabarkantha,164492,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.8867,0.907,0.6472,0.8702
+GJ_TALUKA_204,GJ_TALUKA_204,Idar,Idar,sabarkantha,Sabarkantha,134943,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.9467,0.9005,0.9528,0.8299
+GJ_TALUKA_205,GJ_TALUKA_205,Khedbrahma,Khedbrahma,sabarkantha,Sabarkantha,108225,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.7733,0.8605,0.6094,0.8501
+GJ_TALUKA_206,GJ_TALUKA_206,Poshina,Poshina,sabarkantha,Sabarkantha,106855,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.62,0.867,0.6556,0.8377
+GJ_TALUKA_207,GJ_TALUKA_207,Prantij,Prantij,sabarkantha,Sabarkantha,140146,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,4,0.8,,0.5933,0.838,0.3839,0.8551
+GJ_TALUKA_208,GJ_TALUKA_208,Talod,Talod,sabarkantha,Sabarkantha,128438,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,1.0,0.817,0.6267,0.8879
+GJ_TALUKA_209,GJ_TALUKA_209,Vadali,Vadali,sabarkantha,Sabarkantha,152740,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.98,0.8525,0.7244,0.8604
+GJ_TALUKA_210,GJ_TALUKA_210,Vijaynagar,Vijaynagar,sabarkantha,Sabarkantha,142897,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,4,0.8,,0.6267,0.8285,0.36,0.8357
+GJ_TALUKA_211,GJ_TALUKA_211,Surat City,Surat City,surat,Surat,383657,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,5,1.0,0.2867,0.5933,0.838,0.3472,0.7656
+GJ_TALUKA_212,GJ_TALUKA_212,Bardoli,Bardoli,surat,Surat,85128,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,5,1.0,1.0,0.98,0.868,0.4661,0.765
+GJ_TALUKA_213,GJ_TALUKA_213,Choryasi,Choryasi,surat,Surat,122764,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,5,1.0,1.0,0.6467,0.8345,0.2972,0.7498
+GJ_TALUKA_214,GJ_TALUKA_214,Kamrej,Kamrej,surat,Surat,127340,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,5,1.0,1.0,0.7,0.8805,0.4211,0.7459
+GJ_TALUKA_215,GJ_TALUKA_215,Mahuva (Surat),Mahuva (Surat),surat,Surat,143211,CAPACITY-ADEQUATE,safe_habitable_area,water_sanitation,HIGH,5,1.0,1.0,0.7333,0.9135,0.5011,0.7351
+GJ_TALUKA_216,GJ_TALUKA_216,Mandvi (Surat),Mandvi (Surat),surat,Surat,139578,CAPACITY-ADEQUATE,safe_habitable_area,water_sanitation,HIGH,5,1.0,1.0,0.7,0.9255,0.5822,0.7399
+GJ_TALUKA_217,GJ_TALUKA_217,Mangrol (Surat),Mangrol (Surat),surat,Surat,135540,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,5,1.0,0.5902,1.0,0.928,0.4833,0.7461
+GJ_TALUKA_218,GJ_TALUKA_218,Olpad,Olpad,surat,Surat,133885,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,5,1.0,1.0,0.76,0.9145,0.3867,0.7529
+GJ_TALUKA_219,GJ_TALUKA_219,Palsana,Palsana,surat,Surat,157775,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,5,1.0,1.0,0.9067,0.922,0.5461,0.8685
+GJ_TALUKA_220,GJ_TALUKA_220,Umarpada,Umarpada,surat,Surat,97021,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,5,1.0,1.0,0.6333,0.8685,0.4122,0.7529
+GJ_TALUKA_221,GJ_TALUKA_221,Wadhwan,Wadhwan,surendranagar,Surendranagar,123022,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.7667,0.8705,0.5,0.9078
+GJ_TALUKA_222,GJ_TALUKA_222,Chotila,Chotila,surendranagar,Surendranagar,156769,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,4,0.8,,0.7133,0.9005,0.3989,0.9241
+GJ_TALUKA_223,GJ_TALUKA_223,Chuda,Chuda,surendranagar,Surendranagar,141901,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,4,0.8,,0.62,0.9005,0.4706,0.9266
+GJ_TALUKA_224,GJ_TALUKA_224,Dasada (Patdi),Dasada (Patdi),surendranagar,Surendranagar,112347,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,4,0.8,,0.5333,0.9405,0.3178,0.9329
+GJ_TALUKA_225,GJ_TALUKA_225,Dhrangadhra,Dhrangadhra,surendranagar,Surendranagar,140031,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,1.0,0.876,0.5506,0.9182
+GJ_TALUKA_226,GJ_TALUKA_226,Halvad,Halvad,surendranagar,Surendranagar,128144,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.8,0.859,0.5989,0.8717
+GJ_TALUKA_227,GJ_TALUKA_227,Lakhtar,Lakhtar,surendranagar,Surendranagar,168403,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,4,0.8,,0.96,0.9415,0.3756,0.8974
+GJ_TALUKA_228,GJ_TALUKA_228,Limbdi,Limbdi,surendranagar,Surendranagar,113034,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,4,0.8,,0.7667,0.898,0.4,0.9274
+GJ_TALUKA_229,GJ_TALUKA_229,Muli,Muli,surendranagar,Surendranagar,165927,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.9733,0.9235,0.61,0.9462
+GJ_TALUKA_230,GJ_TALUKA_230,Sayla,Sayla,surendranagar,Surendranagar,150186,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.8933,0.9395,0.5661,0.9525
+GJ_TALUKA_231,GJ_TALUKA_231,Thangadh,Thangadh,surendranagar,Surendranagar,136031,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.9333,0.8745,0.5122,0.9515
+GJ_TALUKA_232,GJ_TALUKA_232,Vyara,Vyara,tapi,Tapi,181927,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.8067,0.8645,0.5011,0.9174
+GJ_TALUKA_233,GJ_TALUKA_233,Dolvan,Dolvan,tapi,Tapi,176160,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.5933,0.879,0.6883,0.9301
+GJ_TALUKA_234,GJ_TALUKA_234,Kukurmunda,Kukurmunda,tapi,Tapi,145930,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.5667,0.896,0.6289,0.8912
+GJ_TALUKA_235,GJ_TALUKA_235,Nizar,Nizar,tapi,Tapi,102322,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,4,0.8,,0.54,0.8455,0.39,0.9792
+GJ_TALUKA_236,GJ_TALUKA_236,Songadh,Songadh,tapi,Tapi,129840,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.78,0.8465,0.8194,0.9111
+GJ_TALUKA_237,GJ_TALUKA_237,Uchchhal,Uchchhal,tapi,Tapi,121536,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.9933,0.813,0.5294,0.9459
+GJ_TALUKA_238,GJ_TALUKA_238,Valod,Valod,tapi,Tapi,129139,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,4,0.8,,0.88,0.799,0.4422,0.9148
+GJ_TALUKA_239,GJ_TALUKA_239,Vadodara,Vadodara,vadodara,Vadodara,378544,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.8267,0.8305,0.5739,0.8995
+GJ_TALUKA_240,GJ_TALUKA_240,Dabhoi,Dabhoi,vadodara,Vadodara,143938,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,4,0.8,,0.7333,0.885,0.3444,0.9088
+GJ_TALUKA_241,GJ_TALUKA_241,Desar,Desar,vadodara,Vadodara,182413,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,4,0.8,,0.88,0.853,0.3733,0.9044
+GJ_TALUKA_242,GJ_TALUKA_242,Karjan,Karjan,vadodara,Vadodara,151680,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.7933,0.918,0.5639,0.9264
+GJ_TALUKA_243,GJ_TALUKA_243,Padra,Padra,vadodara,Vadodara,166034,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,1.0,0.842,0.5361,0.952
+GJ_TALUKA_244,GJ_TALUKA_244,Savli,Savli,vadodara,Vadodara,101805,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,4,0.8,,0.5933,0.9075,0.3039,0.934
+GJ_TALUKA_245,GJ_TALUKA_245,Sinor,Sinor,vadodara,Vadodara,113724,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,1.0,0.871,0.5833,0.9251
+GJ_TALUKA_246,GJ_TALUKA_246,Vaghodia,Vaghodia,vadodara,Vadodara,87041,CAPACITY-ADEQUATE,health_infrastructure,water_sanitation,HIGH,4,0.8,,0.7133,0.8145,0.5811,0.8962
+GJ_TALUKA_247,GJ_TALUKA_247,Valsad,Valsad,valsad,Valsad,166571,CAPACITY-ADEQUATE,safe_habitable_area,water_sanitation,HIGH,5,1.0,0.7804,0.74,0.859,0.795,0.68
+GJ_TALUKA_248,GJ_TALUKA_248,Dharampur,Dharampur,valsad,Valsad,177320,CAPACITY-ADEQUATE,safe_habitable_area,water_sanitation,HIGH,5,1.0,0.7895,0.86,0.8955,0.5783,0.68
+GJ_TALUKA_249,GJ_TALUKA_249,Kaprada,Kaprada,valsad,Valsad,101803,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,5,1.0,0.7858,1.0,0.8795,0.4494,0.7148
+GJ_TALUKA_250,GJ_TALUKA_250,Pardi,Pardi,valsad,Valsad,130290,CAPACITY-ADEQUATE,safe_habitable_area,water_sanitation,HIGH,5,1.0,0.7675,0.82,0.9145,0.6378,0.68
+GJ_TALUKA_251,GJ_TALUKA_251,Umbergaon,Umbergaon,valsad,Valsad,124490,CAPACITY-ADEQUATE,road_accessibility,health_infrastructure,HIGH,5,1.0,0.9639,0.6533,0.8175,0.4511,0.68
+GJ_TALUKA_252,GJ_TALUKA_252,Vapi,Vapi,valsad,Valsad,136229,CAPACITY-ADEQUATE,safe_habitable_area,water_sanitation,HIGH,5,1.0,0.6607,0.7333,0.8645,0.695,0.7127

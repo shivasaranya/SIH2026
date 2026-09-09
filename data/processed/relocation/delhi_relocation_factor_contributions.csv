@@ -1,0 +1,10 @@
+mandal_id,mandal_name,current_district_id,current_district_name,c1_hazard_exposure,c2_demographic_sensitivity,c3_capacity_stress,c4_accessibility_constraint
+DL_U_003,North East,DL_05,North East,0.413,0.663,0.417,0.31
+DL_U_008,South,DL_07,South,0.429,0.589,0.202,0.53
+DL_U_006,Central,DL_01,Central,0.433,0.563,0.31,0.31
+DL_U_005,East,DL_02,East,0.335,0.743,0.149,0.2
+DL_U_002,North,DL_04,North,0.393,0.664,0.146,0.24
+DL_U_007,New Delhi,DL_03,New Delhi,0.394,0.532,0.284,0.34
+DL_U_001,North West,DL_06,North West,0.351,0.477,0.391,0.41
+DL_U_004,South West,DL_08,South West,0.376,0.435,0.281,0.41
+DL_U_009,West,DL_09,West,0.235,0.511,0.129,0.46

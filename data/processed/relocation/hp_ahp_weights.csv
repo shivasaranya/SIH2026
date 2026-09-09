@@ -1,0 +1,5 @@
+criterion_id,criterion_name,weight,description
+C1,Multi-Hazard Exposure,0.35,"Landslide, earthquake, flood, snow/avalanche, wind"
+C2,Evacuation Assistance Sensitivity,0.25,"Children 0-6, non-workers, household size"
+C3,Capacity Constraint,0.22,"Shelter deficit, safe land, hospital stress"
+C4,Accessibility Constraint,0.18,"Mountain road isolation, seasonal cutoffs"
