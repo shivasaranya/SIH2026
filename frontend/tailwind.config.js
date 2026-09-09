@@ -7,6 +7,16 @@ export default {
   theme: {
     extend: {
       colors: {
+        gov: {
+          navy: '#0F2D5C',
+          green: '#1F7A4D',
+          greenDark: '#165a38',
+          greenLight: '#2ea46a',
+          cream: '#F8F7F3',
+          sage: '#EAF4EE',
+          border: '#D8E6DD',
+          gold: '#C59B27',
+        },
         brand: {
           50: '#f0fdf4',
           100: '#dcfce7',
@@ -22,6 +32,10 @@ export default {
           blue: '#3b82f6',
           green: '#10b981'
         }
+      },
+      fontFamily: {
+        heading: ['Poppins', 'sans-serif'],
+        body: ['Inter', 'sans-serif'],
       }
     },
   },

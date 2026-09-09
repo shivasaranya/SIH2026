@@ -77,33 +77,38 @@ export const LandingScreen: React.FC<LandingScreenProps> = ({ onSelectRole }) =>
         {/* Two Primary Action Cards (Side-by-Side on Tablet/Desktop) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 w-full max-w-2xl mt-8 sm:mt-10">
           
-          {/* CARD 1 — GOVERNMENT */}
+          {/* CARD 1 — GOVERNMENT SECURE LOGIN */}
           <div 
             onClick={() => onSelectRole('government')}
             onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onSelectRole('government'); } }}
             role="button"
             tabIndex={0}
-            className="group relative rounded-3xl bg-white/95 border border-stone-200/90 hover:border-blue-400 p-6 sm:p-7 flex flex-col justify-between shadow-lg shadow-stone-300/30 hover:shadow-xl hover:shadow-blue-500/10 hover:-translate-y-1 transition-all duration-300 cursor-pointer backdrop-blur-sm focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:outline-none"
+            className="group relative rounded-3xl bg-white/95 border border-[#D8E6DD] hover:border-[#1F7A4D] p-6 sm:p-7 flex flex-col justify-between shadow-lg shadow-stone-300/30 hover:shadow-xl hover:shadow-[#1F7A4D]/10 hover:-translate-y-1 transition-all duration-300 cursor-pointer backdrop-blur-sm focus-visible:ring-2 focus-visible:ring-[#1F7A4D] focus-visible:outline-none"
           >
             <div>
               {/* Header with Icon */}
               <div className="flex items-center gap-4">
-                <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-[#0D629B] text-white flex items-center justify-center shadow-md shadow-blue-900/15 group-hover:scale-105 transition-transform duration-200 shrink-0">
+                <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-[#0F2D5C] text-white flex items-center justify-center shadow-md shadow-[#0F2D5C]/20 group-hover:scale-105 group-hover:bg-[#1F7A4D] transition-all duration-300 shrink-0">
                   <Landmark className="w-7 h-7 text-white stroke-[1.75]" />
                 </div>
                 <div className="flex flex-col">
-                  <h3 className="text-lg sm:text-xl font-extrabold tracking-wide text-slate-900 group-hover:text-blue-700 transition-colors">
-                    GOVERNMENT
-                  </h3>
+                  <div className="flex items-center gap-1.5">
+                    <h3 className="text-lg sm:text-xl font-heading font-extrabold tracking-wide text-[#0F2D5C] group-hover:text-[#1F7A4D] transition-colors">
+                      GOVERNMENT
+                    </h3>
+                    <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#EAF4EE] text-[#1F7A4D] border border-[#D8E6DD]">
+                      SIH26191
+                    </span>
+                  </div>
                   <p className="text-xs font-semibold text-slate-700">
-                    Decision Support &amp; Disaster Management
+                    Secure Command Portal &bull; Authorized Access
                   </p>
                 </div>
               </div>
 
               {/* Description Body */}
               <p className="text-xs sm:text-[13px] text-slate-500 leading-relaxed mt-5">
-                Access multi-hazard analytics, resource management, safe shelter allocation and simulation engine.
+                Access multi-hazard analytics, resource management, safe shelter allocation, carrying capacity and relocation decision engine.
               </p>
             </div>
 
@@ -111,9 +116,9 @@ export const LandingScreen: React.FC<LandingScreenProps> = ({ onSelectRole }) =>
             <div className="pt-6">
               <button 
                 type="button"
-                className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#0D629B] hover:bg-[#094d7c] text-white font-medium text-xs sm:text-sm tracking-wide shadow-sm shadow-blue-900/20 transition-all duration-200 group-hover:shadow-md"
+                className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#0F2D5C] hover:bg-[#1F7A4D] text-white font-medium text-xs sm:text-sm tracking-wide shadow-sm shadow-[#0F2D5C]/20 transition-all duration-200 group-hover:shadow-md cursor-pointer"
               >
-                <span>Continue</span>
+                <span>Secure Officer Login</span>
                 <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200" />
               </button>
             </div>

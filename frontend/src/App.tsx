@@ -13,6 +13,7 @@ import { SimulationPage } from './pages/SimulationPage';
 import { ActionPlanPage } from './pages/ActionPlanPage';
 import { PriorityDirectoryPage } from './pages/PriorityDirectoryPage';
 import { LandingScreen } from './pages/LandingScreen';
+import { GovernmentLoginPage } from './pages/GovernmentLoginPage';
 import { StateSelectionScreen } from './pages/StateSelectionScreen';
 import { CitizenPage } from './pages/CitizenPage';
 import { VillageAnalysisPage } from './pages/VillageAnalysisPage';
@@ -24,6 +25,7 @@ import type { MandalProperties } from './types/gis';
 
 export type PortalRole = 
   | 'landing' 
+  | 'government_login'
   | 'government_state_selection' 
   | 'government_portal' 
   | 'citizen';
@@ -66,6 +68,15 @@ function AppContent() {
     if (typeof window === 'undefined') return 'landing';
     const hash = window.location.hash.toLowerCase();
     const pathname = window.location.pathname.toLowerCase();
+    if (
+      hash === '#login' || 
+      hash === '#government/login' || 
+      hash === '#auth' || 
+      pathname === '/login' || 
+      pathname === '/government/login'
+    ) {
+      return 'government_login';
+    }
     if (hash === '#government/select-state' || hash === '#government/states' || pathname === '/government/select-state') {
       return 'government_state_selection';
     }
@@ -103,17 +114,38 @@ function AppContent() {
         setActiveStateId('andhra_pradesh');
         return;
       }
-      if (hash === '#government/select-state' || hash === '#government/states' || pathname === '/government/select-state') {
+      if (
+        hash === '#login' || 
+        hash === '#government/login' || 
+        hash === '#auth' || 
+        pathname === '/login' || 
+        pathname === '/government/login' ||
+        hash.endsWith('/login')
+      ) {
+        setPortalRole('government_login');
+        return;
+      }
+      if (
+        hash.includes('select-state') || 
+        hash.includes('states') || 
+        pathname.includes('select-state')
+      ) {
         setPortalRole('government_state_selection');
-      } else if (fullUrl.includes('government/') || hash === '#government' || pathname === '/government') {
+        return;
+      }
+      if (fullUrl.includes('government/') || hash === '#government' || pathname === '/government') {
         setPortalRole('government_portal');
         const match = fullUrl.match(/government\/([a-z0-9_-]+)/i);
-        if (match && match[1] && match[1] !== 'select-state' && match[1] !== 'states') {
+        if (match && match[1] && match[1] !== 'select-state' && match[1] !== 'states' && match[1] !== 'login' && match[1] !== 'dashboard') {
           const resolved = resolveStateId(match[1]);
           setStateId(resolved);
           setActiveStateId(resolved);
         }
-        if (fullUrl.includes('hosts') || fullUrl.includes('safer-locations')) setActiveTab('hosts');
+        if (fullUrl.includes('dashboard')) {
+          setActiveTab('dashboard');
+        } else if (fullUrl.includes('hosts') || fullUrl.includes('safer-locations')) {
+          setActiveTab('hosts');
+        }
       } else if (hash === '#citizen' || hash.startsWith('#citizen/') || pathname.startsWith('/citizen')) {
         setPortalRole('citizen');
       } else {
@@ -134,14 +166,33 @@ function AppContent() {
     setActiveStateId(stateId);
   }, [stateId]);
 
-  // From Landing: Government -> State Selection, Citizen -> Citizen Portal
+  // From Landing: Government -> Government Secure Login, Citizen -> Citizen Portal
   const handleSelectRoleFromLanding = (role: 'government' | 'citizen') => {
     if (role === 'government') {
-      setPortalRole('government_state_selection');
-      window.location.hash = '#government/select-state';
+      setPortalRole('government_login');
+      window.location.hash = '#government/login';
+      if (window.history && window.history.pushState) {
+        window.history.pushState(null, '', '/government/login');
+      }
     } else {
       setPortalRole('citizen');
       window.location.hash = '#citizen';
+      if (window.history && window.history.pushState) {
+        window.history.pushState(null, '', '/citizen');
+      }
+    }
+  };
+
+  // From Government Login: Transition to Government Command Center Dashboard
+  const handleGovernmentLoginSuccess = (preferredState?: string) => {
+    if (preferredState) {
+      selectStateByName(preferredState);
+    }
+    setActiveTab('dashboard');
+    setPortalRole('government_portal');
+    window.location.hash = '#government/dashboard';
+    if (window.history && window.history.pushState) {
+      window.history.pushState(null, '', '/government/dashboard');
     }
   };
 
@@ -165,11 +216,17 @@ function AppContent() {
   const handleNavigateToStateSelection = () => {
     setPortalRole('government_state_selection');
     window.location.hash = '#government/select-state';
+    if (window.history && window.history.pushState) {
+      window.history.pushState(null, '', '/government/select-state');
+    }
   };
 
   const handleReturnToLanding = () => {
     setPortalRole('landing');
     window.location.hash = '#access';
+    if (window.history && window.history.pushState) {
+      window.history.pushState(null, '', '/');
+    }
   };
 
   // If in Citizen Portal mode
@@ -178,6 +235,17 @@ function AppContent() {
       <CitizenPage
         onBackToLanding={handleReturnToLanding}
         onNavigateToGovernment={() => handleSelectRoleFromLanding('government')}
+      />
+    );
+  }
+
+  // If on Government Login Screen (Final SIH26191 Government Secure Login)
+  if (portalRole === 'government_login') {
+    return (
+      <GovernmentLoginPage
+        onLoginSuccess={handleGovernmentLoginSuccess}
+        onNavigateToCitizen={() => handleSelectRoleFromLanding('citizen')}
+        onNavigateToLanding={handleReturnToLanding}
       />
     );
   }
