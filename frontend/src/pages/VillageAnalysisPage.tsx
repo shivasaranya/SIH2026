@@ -16,7 +16,6 @@ import {
   MapPin,
   XCircle,
   ZoomIn,
-  ZoomOut,
   Maximize2,
   Focus,
   Search,
@@ -41,6 +40,7 @@ import {
   fetchVillageRelocationCenters,
   fetchVillagePois,
 } from '../services/api';
+import { fetchNearbyPOIs } from '../services/overpassService';
 
 interface VillageAnalysisPageProps {
   villageCode: number;
@@ -125,8 +125,6 @@ export const VillageAnalysisPage: React.FC<VillageAnalysisPageProps> = ({
   const mapInstanceRef = useRef<L.Map | null>(null);
   const tileLayersRef = useRef<{
     satellite: L.TileLayer;
-    satelliteBoundaries: L.TileLayer;
-    satelliteTransportation: L.TileLayer;
     standard: L.TileLayer;
   } | null>(null);
   const layersGroupRef = useRef<L.FeatureGroup | null>(null);
@@ -248,15 +246,109 @@ export const VillageAnalysisPage: React.FC<VillageAnalysisPageProps> = ({
     return () => { isMounted = false; };
   }, [planningIntensity, selectedSector, activeDisaster]);
 
-  // Fetch Real OpenStreetMap POIs
+  // Fetch Real OpenStreetMap POIs (Live Overpass API Integration across all 9 categories)
   useEffect(() => {
     if (!villageCode) return;
     const controller = new AbortController();
     setLoadingPois(true);
 
     fetchVillagePois(villageCode, poiSearchRadius, activeDisaster, controller.signal)
-      .then((res) => {
-        setPoiResponse(res);
+      .then(async (res) => {
+        let finalResponse = res;
+        if (geomData?.centroid_lat && geomData?.centroid_lon) {
+          try {
+            const liveOverpassPOIs = await fetchNearbyPOIs(
+              geomData.centroid_lat,
+              geomData.centroid_lon,
+              poiSearchRadius * 1000,
+              controller.signal
+            );
+
+            if (liveOverpassPOIs && liveOverpassPOIs.length > 0) {
+              const existingIds = new Set((res.pois || []).map((p) => String(p.osm_id)));
+              const newPoiItems: VillagePoiItem[] = [];
+
+              const calcDist = (lat1: number, lon1: number, lat2: number, lon2: number) => {
+                const R = 6371;
+                const dLat = ((lat2 - lat1) * Math.PI) / 180;
+                const dLon = ((lon2 - lon1) * Math.PI) / 180;
+                const a =
+                  Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                  Math.cos((lat1 * Math.PI) / 180) *
+                    Math.cos((lat2 * Math.PI) / 180) *
+                    Math.sin(dLon / 2) *
+                    Math.sin(dLon / 2);
+                return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+              };
+
+              liveOverpassPOIs.forEach((op) => {
+                const osmIdStr = `node_${op.id}`;
+                if (!existingIds.has(osmIdStr)) {
+                  existingIds.add(osmIdStr);
+                  const dist = calcDist(
+                    geomData.centroid_lat!,
+                    geomData.centroid_lon!,
+                    op.lat,
+                    op.lon
+                  );
+                  const isInside = dist <= 1.5;
+
+                  let filterCat = 'Other';
+                  if (op.group === 'education') filterCat = 'Schools';
+                  else if (op.group === 'medical') filterCat = op.subType.includes('Pharm') ? 'Pharmacies' : 'Hospitals';
+                  else if (op.group === 'emergency') filterCat = 'Shelters';
+                  else if (op.group === 'government') filterCat = op.subType.includes('Police') ? 'Police' : op.subType.includes('Fire') ? 'Fire' : 'Government';
+                  else if (op.group === 'daily_needs') filterCat = 'Shops / Markets';
+                  else if (op.group === 'transport') filterCat = op.subType.includes('Petrol') ? 'Petrol Pumps' : 'Transport';
+                  else if (op.group === 'food_lifestyle') filterCat = 'Food / Hotels';
+                  else if (op.group === 'financial') filterCat = 'Banks / ATMs';
+                  else if (op.group === 'others') filterCat = 'Religious Places';
+
+                  newPoiItems.push({
+                    osm_id: osmIdStr,
+                    name: op.name,
+                    category: op.group.toUpperCase(),
+                    filter_category: filterCat,
+                    subcategory: op.subType,
+                    latitude: op.lat,
+                    longitude: op.lon,
+                    is_inside: isInside,
+                    distance_km: Number(dist.toFixed(2)),
+                    direction: null,
+                    source: 'OpenStreetMap Live Overpass',
+                    address: op.rawTags['addr:street'] || null,
+                    opening_hours: op.rawTags.opening_hours || null,
+                    phone: op.rawTags.phone || null,
+                    website: op.rawTags.website || null,
+                  });
+                }
+              });
+
+              const mergedPois = [...(res.pois || []), ...newPoiItems];
+              const catCounts: Record<string, number> = {};
+              mergedPois.forEach((p) => {
+                catCounts[p.filter_category] = (catCounts[p.filter_category] || 0) + 1;
+              });
+              const categoriesSummary = Object.entries(catCounts).map(([cat, count]) => ({
+                category: cat,
+                count,
+              }));
+
+              finalResponse = {
+                ...res,
+                pois: mergedPois,
+                total_pois: mergedPois.length,
+                inside_count: mergedPois.filter((p) => p.is_inside).length,
+                nearby_count: mergedPois.filter((p) => !p.is_inside).length,
+                categories_summary: categoriesSummary,
+              };
+            }
+          } catch (e) {
+            // fallback
+          }
+        }
+
+        setPoiResponse(finalResponse);
         setLoadingPois(false);
       })
       .catch(() => {
@@ -268,7 +360,7 @@ export const VillageAnalysisPage: React.FC<VillageAnalysisPageProps> = ({
     return () => {
       controller.abort();
     };
-  }, [villageCode, poiSearchRadius, activeDisaster]);
+  }, [villageCode, poiSearchRadius, activeDisaster, geomData?.centroid_lat, geomData?.centroid_lon]);
 
 
   // Priority Styling Helpers
@@ -346,15 +438,22 @@ export const VillageAnalysisPage: React.FC<VillageAnalysisPageProps> = ({
   useEffect(() => {
     if (!mapContainerNode || mapInstanceRef.current) return;
 
-    // Initialize Leaflet Map instance with fine zoom snap (Google Maps-like continuous zoom)
+    // Initialize Leaflet Map instance with fine continuous zoom & responsive dragging
     const map = L.map(mapContainerNode, {
       zoomControl: false,
       attributionControl: false,
       zoomSnap: 0.25,
       zoomDelta: 0.5,
-      wheelPxPerZoomLevel: 90,
-      minZoom: 8,
+      wheelPxPerZoomLevel: 60,
+      minZoom: 6,
       maxZoom: 19,
+      dragging: true,
+      touchZoom: true,
+      doubleClickZoom: true,
+      scrollWheelZoom: true,
+      keyboard: true,
+      inertia: true,
+      inertiaDeceleration: 3000,
     });
 
     // Dedicated Panes for physical layer hierarchy:
@@ -396,66 +495,32 @@ export const VillageAnalysisPage: React.FC<VillageAnalysisPageProps> = ({
     const sLbl = map.getPane('sectorLabelsPane');
     if (sLbl) sLbl.style.zIndex = '600';
 
-    // 1a. Real Satellite Tile Layer: Esri World Imagery (Authoritative, sub-meter aerial basemap)
+    // 1. High-Quality ESRI World Imagery Satellite Layer
     const satelliteLayer = L.tileLayer(
       'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
       {
+        attribution: 'Tiles © Esri',
         maxZoom: 19,
-        maxNativeZoom: 18,
-        opacity: 1.0,
-        keepBuffer: 8,
-        updateInterval: 100,
-        className: 'satellite-tile',
-        attribution: 'Tiles &copy; Esri &mdash; Source: Esri, Maxar, Earthstar Geographics',
       }
     );
 
-    // 1b. Esri World Boundaries and Places (Village names, places, water bodies, administrative units)
-    const satelliteBoundariesLayer = L.tileLayer(
-      'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}',
-      {
-        pane: 'satelliteReferencePane',
-        maxZoom: 19,
-        maxNativeZoom: 18,
-        opacity: 0.95,
-        attribution: 'Esri, HERE, Garmin',
-      }
-    );
-
-    // 1c. Esri World Transportation (Roads, highways, road numbers, major streets)
-    const satelliteTransportationLayer = L.tileLayer(
-      'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Transportation/MapServer/tile/{z}/{y}/{x}',
-      {
-        pane: 'satelliteReferencePane',
-        maxZoom: 19,
-        maxNativeZoom: 18,
-        opacity: 0.90,
-        attribution: 'Esri, HERE, Garmin',
-      }
-    );
-
-    // 2. Standard OpenStreetMap Layer (Cartographic Vector basemap fallback with roads & place names)
+    // 2. Standard OpenStreetMap Layer fallback
     const standardLayer = L.tileLayer(
       'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
       {
+        attribution: '© OpenStreetMap',
         maxZoom: 19,
-        opacity: 1.0,
-        attribution: '&copy; OpenStreetMap contributors',
       }
     );
 
     tileLayersRef.current = {
       satellite: satelliteLayer,
-      satelliteBoundaries: satelliteBoundariesLayer,
-      satelliteTransportation: satelliteTransportationLayer,
       standard: standardLayer,
     };
 
     // Default to active basemapMode (satellite default)
     if (basemapMode === 'satellite') {
       satelliteLayer.addTo(map);
-      satelliteBoundariesLayer.addTo(map);
-      satelliteTransportationLayer.addTo(map);
     } else {
       standardLayer.addTo(map);
     }
@@ -510,18 +575,14 @@ export const VillageAnalysisPage: React.FC<VillageAnalysisPageProps> = ({
   // -------------------------------------------------------------
   useEffect(() => {
     if (!mapReady || !mapInstanceRef.current || !tileLayersRef.current) return;
-    const { satellite, satelliteBoundaries, satelliteTransportation, standard } = tileLayersRef.current;
+    const { satellite, standard } = tileLayersRef.current;
     const map = mapInstanceRef.current;
 
     if (basemapMode === 'satellite') {
       if (map.hasLayer(standard)) map.removeLayer(standard);
       if (!map.hasLayer(satellite)) map.addLayer(satellite);
-      if (!map.hasLayer(satelliteBoundaries)) map.addLayer(satelliteBoundaries);
-      if (!map.hasLayer(satelliteTransportation)) map.addLayer(satelliteTransportation);
     } else {
       if (map.hasLayer(satellite)) map.removeLayer(satellite);
-      if (map.hasLayer(satelliteBoundaries)) map.removeLayer(satelliteBoundaries);
-      if (map.hasLayer(satelliteTransportation)) map.removeLayer(satelliteTransportation);
       if (!map.hasLayer(standard)) map.addLayer(standard);
     }
   }, [basemapMode, mapReady]);
@@ -1011,34 +1072,62 @@ export const VillageAnalysisPage: React.FC<VillageAnalysisPageProps> = ({
 
   // User Map Controls: Smooth Zoom, Pan & Reset to Complete Boundary
   const handleResetView = () => {
-    if (mapInstanceRef.current && villageBoundsRef.current && villageBoundsRef.current.isValid()) {
-      mapInstanceRef.current.fitBounds(villageBoundsRef.current, {
-        padding: [30, 30],
-        maxZoom: 18,
-        animate: true,
-        duration: 0.5,
-      });
+    if (mapInstanceRef.current) {
+      if (villageBoundsRef.current && villageBoundsRef.current.isValid()) {
+        mapInstanceRef.current.fitBounds(villageBoundsRef.current, {
+          padding: [35, 35],
+          maxZoom: 18,
+          animate: true,
+          duration: 0.75,
+        });
+      } else if (geomData?.centroid_lat && geomData?.centroid_lon) {
+        mapInstanceRef.current.flyTo([geomData.centroid_lat, geomData.centroid_lon], 15, {
+          animate: true,
+          duration: 0.75,
+        });
+      }
     }
   };
 
   const handleZoomIn = () => {
     if (mapInstanceRef.current) {
-      mapInstanceRef.current.zoomIn(0.5);
+      mapInstanceRef.current.zoomIn(1, { animate: true });
     }
   };
 
   const handleZoomOut = () => {
     if (mapInstanceRef.current) {
-      mapInstanceRef.current.zoomOut(0.5);
+      mapInstanceRef.current.zoomOut(1, { animate: true });
     }
   };
 
   const handleZoomToLevel = (level: number) => {
-    if (mapInstanceRef.current && villageBoundsRef.current && villageBoundsRef.current.isValid()) {
-      mapInstanceRef.current.setView(villageBoundsRef.current.getCenter(), level, {
-        animate: true,
-        duration: 0.5,
-      });
+    if (mapInstanceRef.current) {
+      if (geomData?.centroid_lat && geomData?.centroid_lon) {
+        mapInstanceRef.current.flyTo([geomData.centroid_lat, geomData.centroid_lon], level, {
+          animate: true,
+          duration: 0.75,
+          easeLinearity: 0.25,
+        });
+      } else if (villageBoundsRef.current && villageBoundsRef.current.isValid()) {
+        mapInstanceRef.current.setView(villageBoundsRef.current.getCenter(), level, {
+          animate: true,
+          duration: 0.75,
+        });
+      }
+    }
+  };
+
+  const handlePan = (direction: 'up' | 'down' | 'left' | 'right') => {
+    if (mapInstanceRef.current) {
+      const offset = 220;
+      let dx = 0;
+      let dy = 0;
+      if (direction === 'up') dy = -offset;
+      if (direction === 'down') dy = offset;
+      if (direction === 'left') dx = -offset;
+      if (direction === 'right') dx = offset;
+      mapInstanceRef.current.panBy([dx, dy], { animate: true, duration: 0.3 });
     }
   };
 
@@ -1663,29 +1752,73 @@ export const VillageAnalysisPage: React.FC<VillageAnalysisPageProps> = ({
                   </button>
                 </div>
 
-                {/* + / - Zoom & Reset Buttons Group */}
-                <div className="bg-slate-900/95 backdrop-blur-md border border-slate-700/80 rounded-xl shadow-lg flex flex-col overflow-hidden divide-y divide-slate-700/70">
-                  <button
-                    onClick={handleZoomIn}
-                    className="w-8 h-8 flex items-center justify-center text-slate-200 hover:text-white hover:bg-slate-800 transition active:bg-slate-700"
-                    title="Zoom In (+0.5)"
-                  >
-                    <ZoomIn className="w-4 h-4" />
-                  </button>
-                  <button
-                    onClick={handleZoomOut}
-                    className="w-8 h-8 flex items-center justify-center text-slate-200 hover:text-white hover:bg-slate-800 transition active:bg-slate-700"
-                    title="Zoom Out (-0.5)"
-                  >
-                    <ZoomOut className="w-4 h-4" />
-                  </button>
-                  <button
-                    onClick={handleResetView}
-                    className="w-8 h-8 flex items-center justify-center text-indigo-400 hover:text-indigo-300 hover:bg-slate-800 transition active:bg-slate-700"
-                    title="Reset Map View (Fit Complete Boundary)"
-                  >
-                    <Maximize2 className="w-3.5 h-3.5" />
-                  </button>
+                {/* Move / Pan Navigation Cluster & Zoom Controls Group */}
+                <div className="flex items-center gap-2">
+                  {/* Directional Move D-Pad */}
+                  <div className="bg-slate-900/95 backdrop-blur-md border border-slate-700/80 rounded-xl p-1.5 shadow-xl flex flex-col items-center gap-1">
+                    <button
+                      onClick={() => handlePan('up')}
+                      className="w-7 h-7 flex items-center justify-center rounded-lg bg-slate-800 hover:bg-indigo-600 text-slate-200 hover:text-white transition active:scale-90 text-[11px]"
+                      title="Pan Up / North"
+                    >
+                      ▲
+                    </button>
+                    <div className="flex items-center gap-1">
+                      <button
+                        onClick={() => handlePan('left')}
+                        className="w-7 h-7 flex items-center justify-center rounded-lg bg-slate-800 hover:bg-indigo-600 text-slate-200 hover:text-white transition active:scale-90 text-[11px]"
+                        title="Pan Left / West"
+                      >
+                        ◀
+                      </button>
+                      <button
+                        onClick={handleResetView}
+                        className="w-7 h-7 flex items-center justify-center rounded-lg bg-slate-800 hover:bg-cyan-600 text-cyan-400 hover:text-white transition active:scale-90 text-[11px] font-bold"
+                        title="Center on Village"
+                      >
+                        ◉
+                      </button>
+                      <button
+                        onClick={() => handlePan('right')}
+                        className="w-7 h-7 flex items-center justify-center rounded-lg bg-slate-800 hover:bg-indigo-600 text-slate-200 hover:text-white transition active:scale-90 text-[11px]"
+                        title="Pan Right / East"
+                      >
+                        ▶
+                      </button>
+                    </div>
+                    <button
+                      onClick={() => handlePan('down')}
+                      className="w-7 h-7 flex items-center justify-center rounded-lg bg-slate-800 hover:bg-indigo-600 text-slate-200 hover:text-white transition active:scale-90 text-[11px]"
+                      title="Pan Down / South"
+                    >
+                      ▼
+                    </button>
+                  </div>
+
+                  {/* + / - Zoom & Reset Buttons Column */}
+                  <div className="bg-slate-900/95 backdrop-blur-md border border-slate-700/80 rounded-xl shadow-xl flex flex-col overflow-hidden divide-y divide-slate-700/70">
+                    <button
+                      onClick={handleZoomIn}
+                      className="w-9 h-9 flex items-center justify-center text-slate-200 hover:text-white hover:bg-indigo-600 transition active:scale-90 font-black text-base"
+                      title="Zoom In (+1.0)"
+                    >
+                      +
+                    </button>
+                    <button
+                      onClick={handleZoomOut}
+                      className="w-9 h-9 flex items-center justify-center text-slate-200 hover:text-white hover:bg-indigo-600 transition active:scale-90 font-black text-base"
+                      title="Zoom Out (-1.0)"
+                    >
+                      −
+                    </button>
+                    <button
+                      onClick={handleResetView}
+                      className="w-9 h-9 flex items-center justify-center text-cyan-400 hover:text-white hover:bg-cyan-600 transition active:scale-90"
+                      title="Reset Map View (Fit Village Boundary)"
+                    >
+                      <Maximize2 className="w-4 h-4" />
+                    </button>
+                  </div>
                 </div>
               </div>
 

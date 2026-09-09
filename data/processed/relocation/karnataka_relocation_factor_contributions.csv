@@ -1,31 +1,207 @@
-mandal_id,mandal_name,district_name,c1_hazard_contrib,c2_sensitivity_contrib,c3_capacity_stress_contrib,c4_accessibility_contrib,dominant_driver
-KA_01,Mandya,Mandya,38.5,24.2,22.8,14.5,Capacity Stress
-KA_02,Mysore,Mysore,38.5,24.2,22.8,14.5,Hazard Exposure
-KA_03,Chikkaballapura,Chikkaballapura,38.5,24.2,22.8,14.5,Hazard Exposure
-KA_04,Yadgir,Yadgir,38.5,24.2,22.8,14.5,Capacity Stress
-KA_05,Chikmagalur,Chikmagalur,38.5,24.2,22.8,14.5,Hazard Exposure
-KA_06,Chitradurga,Chitradurga,38.5,24.2,22.8,14.5,Hazard Exposure
-KA_07,Haveri,Haveri,38.5,24.2,22.8,14.5,Capacity Stress
-KA_08,Dakshina Kannada,Dakshina Kannada,38.5,24.2,22.8,14.5,Hazard Exposure
-KA_09,Raichur,Raichur,38.5,24.2,22.8,14.5,Capacity Stress
-KA_10,Kolar,Kolar,38.5,24.2,22.8,14.5,Capacity Stress
-KA_11,Bijapur,Bijapur,38.5,24.2,22.8,14.5,Capacity Stress
-KA_12,Uttara Kannada,Uttara Kannada,38.5,24.2,22.8,14.5,Hazard Exposure
-KA_13,Davanagere,Davanagere,38.5,24.2,22.8,14.5,Capacity Stress
-KA_14,Dharwad,Dharwad,38.5,24.2,22.8,14.5,Capacity Stress
-KA_15,Bidar,Bidar,38.5,24.2,22.8,14.5,Capacity Stress
-KA_16,Chamarajanagar,Chamarajanagar,38.5,24.2,22.8,14.5,Capacity Stress
-KA_17,Gulbarga,Gulbarga,38.5,24.2,22.8,14.5,Capacity Stress
-KA_18,Gadag,Gadag,38.5,24.2,22.8,14.5,Capacity Stress
-KA_19,Udupi,Udupi,38.5,24.2,22.8,14.5,Hazard Exposure
-KA_20,Bagalkot,Bagalkot,38.5,24.2,22.8,14.5,Hazard Exposure
-KA_21,Hassan,Hassan,38.5,24.2,22.8,14.5,Hazard Exposure
-KA_22,Shimoga,Shimoga,38.5,24.2,22.8,14.5,Capacity Stress
-KA_23,Bellary,Bellary,38.5,24.2,22.8,14.5,Capacity Stress
-KA_24,Kodagu,Kodagu,38.5,24.2,22.8,14.5,Hazard Exposure
-KA_25,Bangalore Rural,Bangalore Rural,38.5,24.2,22.8,14.5,Hazard Exposure
-KA_26,Tumkur,Tumkur,38.5,24.2,22.8,14.5,Capacity Stress
-KA_27,Belgaum,Belgaum,38.5,24.2,22.8,14.5,Hazard Exposure
-KA_28,Koppal,Koppal,38.5,24.2,22.8,14.5,Capacity Stress
-KA_29,Bangalore,Bangalore,38.5,24.2,22.8,14.5,Capacity Stress
-KA_30,Ramanagara,Ramanagara,38.5,24.2,22.8,14.5,Hazard Exposure
+mandal_id,mandal_name,current_district_id,current_district_name,c1_hazard_exposure,c2_demographic_sensitivity,c3_capacity_stress,c4_accessibility_constraint
+KA_U_088,Molakalmuru,KA_11,Chitradurga,0.627,0.709,0.229,0.53
+KA_U_175,Sorab,KA_24,Shimoga,0.5,0.754,0.493,0.46
+KA_U_044,Koppal,KA_09,Chamarajanagar,0.569,0.636,0.516,0.53
+KA_U_100,Hirekerur,KA_18,Haveri,0.569,0.72,0.364,0.47
+KA_U_204,Arkalgud,KA_17,Hassan,0.541,0.678,0.518,0.48
+KA_U_161,Hosakote,KA_03,Bangalore Rural,0.608,0.732,0.186,0.47
+KA_U_076,Sandur,KA_05,Bellary,0.549,0.728,0.406,0.37
+KA_U_093,Piriyapatna,KA_22,Mysore,0.513,0.728,0.507,0.31
+KA_U_172,Bangalore North,KA_02,Bangalore,0.527,0.685,0.482,0.35
+KA_U_186,Bhadravati,KA_24,Shimoga,0.542,0.705,0.353,0.41
+KA_U_199,Magadi,KA_03,Bangalore Rural,0.489,0.751,0.351,0.46
+KA_U_195,Harpanahalli,KA_13,Davanagere,0.478,0.702,0.507,0.42
+KA_U_061,Kundgol,KA_14,Dharwad,0.572,0.687,0.279,0.39
+KA_U_155,Koratagere,KA_25,Tumkur,0.509,0.669,0.462,0.43
+KA_U_181,Honnali,KA_13,Davanagere,0.552,0.739,0.373,0.15
+KA_U_012,Dharwad,KA_14,Dharwad,0.606,0.573,0.306,0.53
+KA_U_069,Gubbi,KA_25,Tumkur,0.563,0.679,0.132,0.51
+KA_U_086,Krishnarajanagara,KA_22,Mysore,0.512,0.675,0.496,0.19
+KA_U_108,Kundapura,KA_26,Udupi,0.536,0.747,0.164,0.33
+KA_U_087,Madikeri,KA_19,Kodagu,0.528,0.647,0.387,0.36
+KA_U_133,Manjarabad,KA_17,Hassan,0.495,0.648,0.362,0.53
+KA_U_085,Shorapur,KA_16,Gulbarga,0.422,0.716,0.396,0.52
+KA_U_013,Gangawati,KA_09,Chamarajanagar,0.525,0.683,0.426,0.17
+KA_U_162,Bantval,KA_12,Dakshina Kannada,0.487,0.719,0.2,0.54
+KA_U_094,Basavakalyan,KA_06,Bidar,0.447,0.747,0.458,0.18
+KA_U_159,Udupi,KA_26,Udupi,0.561,0.697,0.282,0.13
+KA_U_164,Nagamangala,KA_21,Mandya,0.4,0.703,0.461,0.48
+KA_U_051,Hospet,KA_05,Bellary,0.529,0.639,0.33,0.37
+KA_U_034,Parasgad,KA_04,Belgaum,0.511,0.738,0.21,0.27
+KA_U_146,Jagalur,KA_13,Davanagere,0.532,0.555,0.472,0.43
+KA_U_075,Shirhatti,KA_15,Gadag,0.449,0.746,0.261,0.4
+KA_U_185,Hosadurga,KA_11,Chitradurga,0.608,0.536,0.362,0.35
+KA_U_105,Chiknayakanhalli,KA_25,Tumkur,0.448,0.712,0.256,0.51
+KA_U_196,Ankola,KA_27,Uttara Kannada,0.552,0.661,0.328,0.16
+KA_U_021,Yadgir,KA_16,Gulbarga,0.587,0.437,0.498,0.53
+KA_U_148,Bhatkal,KA_27,Uttara Kannada,0.504,0.747,0.182,0.24
+KA_U_127,Davanagere,KA_13,Davanagere,0.461,0.586,0.507,0.47
+KA_U_017,Sindgi,KA_07,Bijapur,0.544,0.6,0.468,0.14
+KA_U_165,Tiptur,KA_25,Tumkur,0.398,0.685,0.491,0.39
+KA_U_206,Pavagada,KA_25,Tumkur,0.448,0.683,0.457,0.25
+KA_U_057,Mundargi,KA_15,Gadag,0.486,0.739,0.172,0.32
+KA_U_063,Hungund,KA_01,Bagalkot,0.527,0.621,0.27,0.42
+KA_U_123,Hiriyur,KA_11,Chitradurga,0.544,0.634,0.391,0.13
+KA_U_163,Bangarapet,KA_20,Kolar,0.5,0.685,0.4,0.11
+KA_U_187,Mudigere,KA_10,Chikmagalur,0.548,0.61,0.278,0.32
+KA_U_090,Ramdurg,KA_04,Belgaum,0.554,0.567,0.338,0.32
+KA_U_066,Gokak,KA_04,Belgaum,0.364,0.685,0.496,0.42
+KA_U_047,Supa,KA_27,Uttara Kannada,0.421,0.743,0.22,0.4
+KA_U_050,Belgaum,KA_04,Belgaum,0.472,0.647,0.453,0.18
+KA_U_112,Ranibennur,KA_18,Haveri,0.445,0.612,0.378,0.51
+KA_U_201,Channarayapatna,KA_17,Hassan,0.554,0.575,0.283,0.33
+KA_U_097,Karwar,KA_27,Uttara Kannada,0.384,0.704,0.48,0.25
+KA_U_203,Sringeri,KA_10,Chikmagalur,0.374,0.659,0.487,0.44
+KA_U_121,Mulbagal,KA_20,Kolar,0.424,0.685,0.282,0.43
+KA_U_043,Shahpur,KA_16,Gulbarga,0.461,0.674,0.395,0.13
+KA_U_062,Athni,KA_04,Belgaum,0.422,0.748,0.16,0.38
+KA_U_182,Honavar,KA_27,Uttara Kannada,0.605,0.524,0.226,0.34
+KA_U_022,Malavalli,KA_21,Mandya,0.484,0.698,0.122,0.34
+KA_U_173,Pandavapura,KA_21,Mandya,0.398,0.698,0.339,0.36
+KA_U_056,Aland,KA_16,Gulbarga,0.583,0.544,0.176,0.39
+KA_U_128,Shikarpur,KA_24,Shimoga,0.479,0.479,0.502,0.54
+KA_U_055,Jamkhandi,KA_01,Bagalkot,0.481,0.632,0.28,0.32
+KA_U_081,Hole Narsipur,KA_17,Hassan,0.482,0.697,0.233,0.16
+KA_U_153,Chitradurga,KA_11,Chitradurga,0.419,0.673,0.213,0.53
+KA_U_179,Kundapura,KA_26,Udupi,0.41,0.661,0.395,0.31
+KA_U_023,Bijapur,KA_07,Bijapur,0.481,0.562,0.351,0.43
+KA_U_080,Basavana Bagevadi,KA_07,Bijapur,0.56,0.402,0.436,0.55
+KA_U_064,Sedam,KA_16,Gulbarga,0.569,0.591,0.134,0.29
+KA_U_071,Savanur,KA_18,Haveri,0.368,0.606,0.516,0.47
+KA_U_006,Ron,KA_15,Gadag,0.489,0.608,0.164,0.49
+KA_U_008,Siruguppa,KA_05,Bellary,0.394,0.61,0.508,0.35
+KA_U_032,Lingsugur,KA_23,Raichur,0.456,0.646,0.259,0.35
+KA_U_101,Challakere,KA_11,Chitradurga,0.494,0.482,0.435,0.5
+KA_U_109,Sirsi,KA_27,Uttara Kannada,0.499,0.52,0.365,0.46
+KA_U_011,Navalgund,KA_14,Dharwad,0.538,0.58,0.325,0.14
+KA_U_027,Hunsur,KA_22,Mysore,0.497,0.694,0.183,0.12
+KA_U_039,Badami,KA_01,Bagalkot,0.452,0.624,0.409,0.2
+KA_U_042,Malavalli,KA_21,Mandya,0.39,0.635,0.498,0.28
+KA_U_150,Sira,KA_25,Tumkur,0.365,0.729,0.205,0.49
+KA_U_104,Holalkere,KA_11,Chitradurga,0.41,0.603,0.341,0.53
+KA_U_113,Byadgi,KA_18,Haveri,0.545,0.531,0.279,0.33
+KA_U_070,Karwar,KA_27,Uttara Kannada,0.443,0.685,0.216,0.29
+KA_U_117,Koppa,KA_10,Chikmagalur,0.519,0.49,0.498,0.24
+KA_U_205,Harihar,KA_13,Davanagere,0.455,0.612,0.183,0.54
+KA_U_147,Bhadravati,KA_24,Shimoga,0.611,0.545,0.168,0.17
+KA_U_198,Somvarpet,KA_19,Kodagu,0.543,0.554,0.16,0.42
+KA_U_099,Karwar,KA_27,Uttara Kannada,0.309,0.759,0.361,0.33
+KA_U_145,Hosanagara,KA_24,Shimoga,0.327,0.751,0.21,0.51
+KA_U_096,Anekal,KA_02,Bangalore,0.447,0.57,0.51,0.19
+KA_U_083,Hadagalli,KA_05,Bellary,0.491,0.493,0.494,0.29
+KA_U_091,Manvi,KA_23,Raichur,0.435,0.643,0.183,0.45
+KA_U_138,Mandya,KA_21,Mandya,0.583,0.442,0.408,0.22
+KA_U_202,Arsikere,KA_17,Hassan,0.494,0.503,0.499,0.22
+KA_U_048,Hubli,KA_14,Dharwad,0.515,0.533,0.423,0.14
+KA_U_089,Haveri,KA_18,Haveri,0.475,0.527,0.508,0.19
+KA_U_035,Virajpet,KA_19,Kodagu,0.51,0.427,0.509,0.37
+KA_U_016,Bhalki,KA_06,Bidar,0.441,0.577,0.436,0.21
+KA_U_052,Haliyal,KA_27,Uttara Kannada,0.403,0.596,0.317,0.48
+KA_U_028,Muddebihal,KA_07,Bijapur,0.448,0.699,0.183,0.12
+KA_U_200,Mangalore,KA_12,Dakshina Kannada,0.371,0.754,0.179,0.24
+KA_U_031,Bagalkot,KA_01,Bagalkot,0.361,0.544,0.517,0.5
+KA_U_140,Yelandur,KA_08,Chamaraja-Nagar,0.425,0.557,0.419,0.31
+KA_U_169,Krishnarajpet,KA_21,Mandya,0.618,0.426,0.287,0.2
+KA_U_149,Bhatkal,KA_27,Uttara Kannada,0.406,0.535,0.421,0.45
+KA_U_135,Tarikere,KA_10,Chikmagalur,0.491,0.472,0.311,0.49
+KA_U_189,Kadur,KA_10,Chikmagalur,0.528,0.46,0.403,0.24
+KA_U_054,Afzalpur,KA_16,Gulbarga,0.454,0.642,0.226,0.16
+KA_U_058,Bellary,KA_05,Bellary,0.399,0.648,0.245,0.33
+KA_U_143,Shimoga,KA_24,Shimoga,0.418,0.695,0.121,0.27
+KA_U_131,Malur,KA_20,Kolar,0.441,0.486,0.495,0.34
+KA_U_092,Homnabad,KA_06,Bidar,0.468,0.534,0.224,0.46
+KA_U_134,Bagepalli,KA_20,Kolar,0.455,0.569,0.146,0.51
+KA_U_152,Honavar,KA_27,Uttara Kannada,0.27,0.759,0.182,0.53
+KA_U_067,Hukeri,KA_04,Belgaum,0.392,0.542,0.424,0.41
+KA_U_122,Bhatkal,KA_27,Uttara Kannada,0.397,0.541,0.339,0.51
+KA_U_036,Malavalli,KA_21,Mandya,0.348,0.74,0.265,0.1
+KA_U_098,Karwar,KA_27,Uttara Kannada,0.549,0.495,0.175,0.29
+KA_U_003,Sindhnur,KA_23,Raichur,0.442,0.554,0.181,0.49
+KA_U_029,Bilgi,KA_01,Bagalkot,0.456,0.479,0.294,0.53
+KA_U_065,Yellapur,KA_27,Uttara Kannada,0.365,0.699,0.21,0.24
+KA_U_191,Kudligi,KA_05,Bellary,0.33,0.682,0.185,0.48
+KA_U_046,Raybag,KA_04,Belgaum,0.459,0.511,0.203,0.52
+KA_U_053,Chincholi,KA_16,Gulbarga,0.494,0.412,0.481,0.31
+KA_U_171,Beltangadi,KA_12,Dakshina Kannada,0.306,0.671,0.435,0.21
+KA_U_157,Gundlupet,KA_08,Chamaraja-Nagar,0.483,0.385,0.489,0.42
+KA_U_160,Madhugiri,KA_25,Tumkur,0.485,0.429,0.363,0.43
+KA_U_030,Devadurga,KA_23,Raichur,0.384,0.638,0.32,0.16
+KA_U_116,Turuvekere,KA_25,Tumkur,0.454,0.423,0.441,0.45
+KA_U_142,Channapatna,KA_03,Bangalore Rural,0.506,0.475,0.199,0.42
+KA_U_156,Chikmagalur,KA_10,Chikmagalur,0.44,0.49,0.27,0.53
+KA_U_176,Kanakapura,KA_03,Bangalore Rural,0.316,0.567,0.489,0.42
+KA_U_197,Devanahalli,KA_03,Bangalore Rural,0.348,0.634,0.406,0.18
+KA_U_107,Tarikere,KA_10,Chikmagalur,0.426,0.536,0.184,0.53
+KA_U_178,Kumta,KA_27,Uttara Kannada,0.378,0.57,0.385,0.3
+KA_U_033,Chikodi,KA_04,Belgaum,0.269,0.692,0.352,0.34
+KA_U_167,Udupi,KA_26,Udupi,0.41,0.502,0.383,0.4
+KA_U_136,Nanjangud,KA_22,Mysore,0.329,0.633,0.373,0.27
+KA_U_068,Raichur,KA_23,Raichur,0.441,0.581,0.209,0.23
+KA_U_129,Kumta,KA_27,Uttara Kannada,0.434,0.403,0.447,0.51
+KA_U_014,Aurad,KA_06,Bidar,0.488,0.565,0.149,0.17
+KA_U_018,Jevargi,KA_16,Gulbarga,0.299,0.624,0.375,0.37
+KA_U_114,Tumkur,KA_25,Tumkur,0.506,0.532,0.163,0.18
+KA_U_137,Kolar,KA_20,Kolar,0.387,0.577,0.176,0.48
+KA_U_193,Karwar,KA_27,Uttara Kannada,0.442,0.402,0.472,0.42
+KA_U_002,Kushtagi,KA_09,Chamarajanagar,0.418,0.595,0.172,0.26
+KA_U_010,Gadag,KA_15,Gadag,0.437,0.468,0.378,0.32
+KA_U_110,Karwar,KA_27,Uttara Kannada,0.458,0.513,0.21,0.33
+KA_U_158,Dod Ballapur,KA_03,Bangalore Rural,0.436,0.512,0.215,0.41
+KA_U_130,Bangalore South,KA_02,Bangalore,0.427,0.591,0.206,0.17
+KA_U_141,Maddur,KA_21,Mandya,0.346,0.559,0.441,0.26
+KA_U_001,Sampgaon,KA_04,Belgaum,0.37,0.565,0.356,0.26
+KA_U_045,Mudhol,KA_01,Bagalkot,0.424,0.474,0.361,0.33
+KA_U_095,Puttur,KA_12,Dakshina Kannada,0.396,0.526,0.254,0.42
+KA_U_074,Chintamani,KA_20,Kolar,0.487,0.527,0.174,0.16
+KA_U_118,Turuvekere,KA_25,Tumkur,0.441,0.514,0.194,0.36
+KA_U_040,Kollegal,KA_08,Chamaraja-Nagar,0.42,0.479,0.198,0.55
+KA_U_025,Mysore,KA_22,Mysore,0.473,0.406,0.392,0.29
+KA_U_194,Karwar,KA_27,Uttara Kannada,0.376,0.484,0.457,0.31
+KA_U_154,Udupi,KA_26,Udupi,0.464,0.414,0.31,0.41
+KA_U_190,Gauribidanur,KA_20,Kolar,0.447,0.487,0.389,0.1
+KA_U_072,Bidar,KA_06,Bidar,0.322,0.626,0.313,0.21
+KA_U_144,Bhatkal,KA_27,Uttara Kannada,0.418,0.613,0.161,0.1
+KA_U_077,Hagaribommanahalli,KA_05,Bellary,0.458,0.436,0.369,0.24
+KA_U_184,Honavar,KA_27,Uttara Kannada,0.498,0.412,0.191,0.43
+KA_U_009,Yelbarga,KA_09,Chamarajanagar,0.541,0.385,0.344,0.11
+KA_U_139,Chamrajnagar,KA_08,Chamaraja-Nagar,0.392,0.433,0.496,0.31
+KA_U_111,Karwar,KA_27,Uttara Kannada,0.382,0.475,0.379,0.37
+KA_U_102,Siddapur,KA_27,Uttara Kannada,0.456,0.47,0.151,0.41
+KA_U_026,Tirumakudal Narsipur,KA_22,Mysore,0.454,0.439,0.229,0.39
+KA_U_078,Chitapur,KA_16,Gulbarga,0.285,0.486,0.468,0.54
+KA_U_007,Khanapur,KA_04,Belgaum,0.501,0.459,0.168,0.19
+KA_U_060,Hubli,KA_14,Dharwad,0.447,0.42,0.231,0.45
+KA_U_049,Belgaum,KA_04,Belgaum,0.294,0.545,0.507,0.19
+KA_U_059,Kalghatgi,KA_14,Dharwad,0.466,0.424,0.357,0.15
+KA_U_103,Tirthahalli,KA_24,Shimoga,0.467,0.502,0.186,0.13
+KA_U_132,Alur,KA_17,Hassan,0.352,0.563,0.363,0.11
+KA_U_125,Chik Ballapur,KA_20,Kolar,0.43,0.442,0.302,0.27
+KA_U_174,Ramanagaram,KA_03,Bangalore Rural,0.415,0.455,0.219,0.38
+KA_U_170,Hassan,KA_17,Hassan,0.429,0.488,0.151,0.29
+KA_U_020,Gulbarga,KA_16,Gulbarga,0.295,0.494,0.415,0.39
+KA_U_115,Nelamangala,KA_03,Bangalore Rural,0.427,0.458,0.167,0.36
+KA_U_166,Udupi,KA_26,Udupi,0.405,0.447,0.403,0.12
+KA_U_119,Kunigal,KA_25,Tumkur,0.288,0.499,0.399,0.38
+KA_U_168,Udupi,KA_26,Udupi,0.363,0.467,0.209,0.48
+KA_U_004,Nargund,KA_15,Gadag,0.364,0.455,0.389,0.24
+KA_U_073,Karkal,KA_26,Udupi,0.429,0.48,0.243,0.1
+KA_U_037,Kanakapura,KA_03,Bangalore Rural,0.364,0.461,0.218,0.45
+KA_U_084,Mundgod,KA_27,Uttara Kannada,0.445,0.444,0.201,0.19
+KA_U_041,Heggadadevankote,KA_22,Mysore,0.455,0.384,0.197,0.34
+KA_U_151,Bhatkal,KA_27,Uttara Kannada,0.485,0.436,0.139,0.12
+KA_U_120,Belur,KA_17,Hassan,0.283,0.617,0.174,0.19
+KA_U_192,Hangal,KA_18,Haveri,0.362,0.483,0.192,0.31
+KA_U_079,Indi,KA_07,Bijapur,0.274,0.621,0.211,0.14
+KA_U_015,Aurad,KA_06,Bidar,0.447,0.385,0.132,0.39
+KA_U_188,Narasimharajapura,KA_10,Chikmagalur,0.344,0.409,0.359,0.37
+KA_U_180,Sagar,KA_24,Shimoga,0.4,0.45,0.254,0.14
+KA_U_126,Sidlaghatta,KA_20,Kolar,0.351,0.388,0.396,0.31
+KA_U_024,Shorapur,KA_16,Gulbarga,0.303,0.448,0.439,0.21
+KA_U_106,Kundapura,KA_26,Udupi,0.367,0.43,0.345,0.16
+KA_U_124,Chintamani,KA_20,Kolar,0.287,0.451,0.316,0.38
+KA_U_019,Shrirangapattana,KA_21,Mandya,0.38,0.452,0.16,0.21
+KA_U_082,Shiggaon,KA_18,Haveri,0.387,0.386,0.149,0.4
+KA_U_183,Channagiri,KA_13,Davanagere,0.36,0.386,0.127,0.26
+KA_U_177,Sulya,KA_12,Dakshina Kannada,0.301,0.462,0.135,0.19
+KA_U_038,Bangalore North,KA_02,Bangalore,0.255,0.492,0.193,0.16
+KA_U_005,Belgaum,KA_04,Belgaum,0.262,0.391,0.158,0.19

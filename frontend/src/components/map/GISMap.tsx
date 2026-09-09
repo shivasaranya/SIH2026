@@ -21,9 +21,11 @@ interface GISMapProps {
   showHabitationsWms: boolean;
   resetViewTrigger: number;
   priorityFilter?: 'VERY_HIGH' | 'MODERATE' | 'LOW' | null;
+  showOverpassPOIs?: boolean;
 }
 
 import { useActiveState } from '../../context/StateContext';
+import { DynamicOverpassPOILayer } from './DynamicOverpassPOILayer';
 
 export const GISMap: React.FC<GISMapProps> = ({
   districtsGeoJson,
@@ -41,10 +43,14 @@ export const GISMap: React.FC<GISMapProps> = ({
   showHabitationsWms,
   resetViewTrigger,
   priorityFilter = null,
+  showOverpassPOIs = true,
 }) => {
   const { currentState } = useActiveState();
+  const [mapReady, setMapReady] = React.useState<L.Map | null>(null);
+  const [isSatellite, setIsSatellite] = React.useState<boolean>(true);
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<L.Map | null>(null);
+  const tileLayerGroupRef = useRef<L.LayerGroup | null>(null);
   const districtsLayerRef = useRef<L.GeoJSON | null>(null);
   const mandalsLayerRef = useRef<L.GeoJSON | null>(null);
   const vulnerabilityLayerRef = useRef<L.GeoJSON | null>(null);
@@ -82,15 +88,16 @@ export const GISMap: React.FC<GISMapProps> = ({
 
   const fitToStateBounds = (targetMap: L.Map, animated: boolean = false) => {
     let bounds: L.LatLngBounds | null = null;
+    const stateBounds = L.latLngBounds(currentState.bounds);
     if (vulnerabilityLayerRef.current && vulnerabilityLayerRef.current.getLayers().length > 0) {
       const b = vulnerabilityLayerRef.current.getBounds();
-      if (b.isValid()) bounds = b;
+      if (b.isValid() && stateBounds.intersects(b.pad(0.5))) bounds = b;
     }
     if (!bounds && districtsLayerRef.current && districtsLayerRef.current.getLayers().length > 0) {
       const b = districtsLayerRef.current.getBounds();
-      if (b.isValid()) bounds = b;
+      if (b.isValid() && stateBounds.intersects(b.pad(0.5))) bounds = b;
     }
-    const targetBounds = bounds || L.latLngBounds(currentState.bounds);
+    const targetBounds = bounds || stateBounds;
     targetMap.fitBounds(targetBounds, {
       padding: [16, 16],
       animate: animated,
@@ -113,13 +120,9 @@ export const GISMap: React.FC<GISMapProps> = ({
       zoomDelta: 0.5,
     });
 
-    // Standard OpenStreetMap - completely open, genuinely accessible, no API key required
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      opacity: 0.5,
-      attribution: '&copy; OpenStreetMap contributors',
-      subdomains: ['a', 'b', 'c'],
-      maxZoom: 19,
-    }).addTo(map);
+    // Initialize Basemap Layer Group (Satellite / Standard)
+    const baseGroup = L.layerGroup().addTo(map);
+    tileLayerGroupRef.current = baseGroup;
 
     // Dedicated panes to guarantee correct visual stacking order:
     // districtsPane (zIndex 400), mandalsPane (zIndex 450), markersPane (zIndex 470)
@@ -140,6 +143,7 @@ export const GISMap: React.FC<GISMapProps> = ({
     // Initially show complete state with comfortable padding
     fitToStateBounds(map, false);
     mapInstanceRef.current = map;
+    setMapReady(map);
 
     const timer = setTimeout(() => {
       if (mapInstanceRef.current) {
@@ -152,8 +156,46 @@ export const GISMap: React.FC<GISMapProps> = ({
       clearTimeout(timer);
       map.remove();
       mapInstanceRef.current = null;
+      setMapReady(null);
     };
   }, []);
+
+  // 1a. Basemap Tile Layer Switcher (High-Res Satellite vs OpenStreetMap)
+  useEffect(() => {
+    if (!mapReady || !tileLayerGroupRef.current) return;
+    tileLayerGroupRef.current.clearLayers();
+
+    if (isSatellite) {
+      // 100% Free High-Resolution Esri World Imagery
+      const esriImagery = L.tileLayer(
+        'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+        {
+          attribution: 'Tiles &copy; Esri &mdash; High-Resolution Satellite',
+          maxZoom: 19,
+        }
+      );
+      // Place Labels & Boundaries Overlay
+      const esriLabels = L.tileLayer(
+        'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}',
+        {
+          attribution: '',
+          maxZoom: 19,
+          opacity: 0.95,
+        }
+      );
+      esriImagery.addTo(tileLayerGroupRef.current);
+      esriLabels.addTo(tileLayerGroupRef.current);
+    } else {
+      // OpenStreetMap Standard
+      const osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors',
+        subdomains: ['a', 'b', 'c'],
+        maxZoom: 19,
+        opacity: 0.85,
+      });
+      osm.addTo(tileLayerGroupRef.current);
+    }
+  }, [isSatellite, mapReady]);
 
   // 1b. Handle State Switch Transition (Re-center & re-fit bounds)
   const prevStateIdRef = useRef(currentState.id);
@@ -209,14 +251,20 @@ export const GISMap: React.FC<GISMapProps> = ({
     // In analytical mode (Vulnerability/Hazard/Sensitivity), districts serve as subtle context boundary outlines
     const metricConfig = METRIC_CONFIGS[activeMetric];
 
+    const hasVulnFeatures = Boolean(
+      vulnerabilityGeoJson &&
+      vulnerabilityGeoJson.features &&
+      vulnerabilityGeoJson.features.length > 0
+    );
+
     const layer = L.geoJSON(districtsGeoJson as any, {
       pane: 'districtsPane',
-      interactive: !isAnalyticalMode,
+      interactive: !isAnalyticalMode || !hasVulnFeatures,
       style: (feature) => {
         const did = feature?.properties?.district_id;
         const isSelected = did === selectedDistrictId;
 
-        if (isAnalyticalMode) {
+        if (isAnalyticalMode && hasVulnFeatures) {
           return {
             fillColor: 'transparent',
             fillOpacity: 0,
@@ -245,7 +293,7 @@ export const GISMap: React.FC<GISMapProps> = ({
         const val = getMetricValue(activeMetric, summary);
         const formattedVal = metricConfig.colorScale.formatter(val);
 
-        if (!isAnalyticalMode) {
+        if (!isAnalyticalMode || !hasVulnFeatures) {
           featureLayer.bindTooltip(
             `<div class="p-1 text-xs">
               <strong class="text-sm font-bold text-white">${dname}</strong><br/>
@@ -271,7 +319,7 @@ export const GISMap: React.FC<GISMapProps> = ({
           },
           mouseout: (e) => {
             const target = e.target;
-            if (did !== selectedDistrictId && !isAnalyticalMode) {
+            if (did !== selectedDistrictId && (!isAnalyticalMode || !hasVulnFeatures)) {
               target.setStyle({
                 weight: 1.2,
                 color: '#64748b',
@@ -280,7 +328,7 @@ export const GISMap: React.FC<GISMapProps> = ({
             }
           },
           click: (e) => {
-            if (!isAnalyticalMode) {
+            if (!isAnalyticalMode || !hasVulnFeatures) {
               L.DomEvent.stopPropagation(e);
               onSelectDistrict(did);
               const bounds = (featureLayer as any).getBounds();
@@ -594,8 +642,11 @@ export const GISMap: React.FC<GISMapProps> = ({
 
     if (!selectedMandal && !selectedDistrictId) {
       const b = layer.getBounds();
-      if (b.isValid()) {
+      const stateBounds = L.latLngBounds(currentState.bounds);
+      if (b.isValid() && stateBounds.intersects(b.pad(0.5))) {
         map.fitBounds(b, { padding: [16, 16], maxZoom: 8.5 });
+      } else {
+        map.fitBounds(stateBounds, { padding: [16, 16], maxZoom: 8.5 });
       }
     }
   }, [vulnerabilityGeoJson, activeMetric, priorityFilter, selectedMandal, onSelectMandal, isAnalyticalMode]);
@@ -731,8 +782,40 @@ export const GISMap: React.FC<GISMapProps> = ({
   }, [showFloodWms, showSheltersWms, showHabitationsWms]);
 
   return (
-    <div className="relative w-full h-full min-h-[500px] overflow-hidden bg-white">
+    <div className="relative w-full h-full min-h-[500px] overflow-hidden bg-slate-950">
       <div ref={mapContainerRef} className="w-full h-full z-0" />
+
+      {/* Floating Basemap Switcher (Satellite vs Standard Map) */}
+      <div className="absolute top-3 left-28 sm:left-32 z-30 flex items-center bg-slate-900/95 backdrop-blur-md border border-slate-700/80 rounded-xl p-0.5 shadow-xl pointer-events-auto">
+        <button
+          onClick={() => setIsSatellite(true)}
+          className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-bold transition ${
+            isSatellite
+              ? 'bg-indigo-600 text-white shadow-xs'
+              : 'text-slate-300 hover:text-white hover:bg-slate-800'
+          }`}
+          title="Switch to High-Resolution Satellite Map"
+        >
+          <span>🛰️</span>
+          <span className="hidden sm:inline">Satellite</span>
+        </button>
+        <button
+          onClick={() => setIsSatellite(false)}
+          className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-bold transition ${
+            !isSatellite
+              ? 'bg-indigo-600 text-white shadow-xs'
+              : 'text-slate-300 hover:text-white hover:bg-slate-800'
+          }`}
+          title="Switch to Standard Street Map"
+        >
+          <span>🗺️</span>
+          <span className="hidden sm:inline">Standard</span>
+        </button>
+      </div>
+
+      {showOverpassPOIs && mapReady && (
+        <DynamicOverpassPOILayer map={mapReady} />
+      )}
     </div>
   );
 };

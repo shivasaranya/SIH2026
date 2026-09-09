@@ -120,7 +120,11 @@ class DemographicsService:
         state_code = meta.code
 
         if not csv_path or not csv_path.exists():
-            raise FileNotFoundError(f"Demographics dataset not found at {csv_path}")
+            alt_path = settings.PROCESSED_CENSUS_DIR / f"{key}_demographics.csv"
+            if alt_path.exists():
+                csv_path = alt_path
+            else:
+                raise FileNotFoundError(f"Demographics dataset not found at {csv_path}")
 
         df = pd.read_csv(csv_path)
 

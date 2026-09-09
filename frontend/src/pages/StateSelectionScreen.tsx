@@ -31,11 +31,14 @@ interface StateFeatureProperties {
 
 const OPERATIONAL_STATES_SET = new Set([
   'andhra pradesh',
+  'rajasthan',
+  'telangana',
+  'madhya pradesh',
+  'tripura',
   'mizoram',
   'himachal pradesh',
   'jammu and kashmir',
   'jammu & kashmir',
-  'madhya pradesh',
   'assam',
   'bihar',
   'tamil nadu',
@@ -54,7 +57,14 @@ const OPERATIONAL_STATES_SET = new Set([
   'maharashtra',
   'haryana',
   'punjab',
-  'chhattisgarh'
+  'chhattisgarh',
+  'karnataka',
+  'goa',
+  'jharkhand',
+  'delhi',
+  'jammu and kashmir',
+  'ladakh',
+  'manipur'
 ]);
 
 const resolveStateProps = (rawProps?: StateFeatureProperties) => {
@@ -430,20 +440,28 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
   // Major states quick lookup
   const allStates = [
     { name: 'Andhra Pradesh', status: 'Operational Pilot', isPilot: true },
+    { name: 'Rajasthan', status: 'Operational State', isPilot: true },
+    { name: 'Telangana', status: 'Operational State', isPilot: true },
+    { name: 'Tamil Nadu', status: 'Operational State', isPilot: true },
+    { name: 'Madhya Pradesh', status: 'Operational State', isPilot: true },
+    { name: 'Tripura', status: 'Operational State', isPilot: true },
+    { name: 'Mizoram', status: 'Operational State', isPilot: true },
+    { name: 'Himachal Pradesh', status: 'Operational State', isPilot: true },
+    { name: 'Jammu and Kashmir', status: 'Operational State', isPilot: true },
+    { name: 'Kerala', status: 'Operational State', isPilot: true },
+    { name: 'Maharashtra', status: 'Operational State', isPilot: true },
+    { name: 'Gujarat', status: 'Operational State', isPilot: true },
+    { name: 'Haryana', status: 'Operational State', isPilot: true },
+    { name: 'Punjab', status: 'Operational State', isPilot: true },
+    { name: 'Chhattisgarh', status: 'Operational State', isPilot: true },
     { name: 'Assam', status: 'Operational State', isPilot: true },
     { name: 'Bihar', status: 'Operational State', isPilot: true },
-    { name: 'Tamil Nadu', status: 'Operational State', isPilot: true },
-    { name: 'Himachal Pradesh', status: 'Operational State', isPilot: true },
-    { name: 'Mizoram', status: 'Operational State', isPilot: true },
-    { name: 'Jammu and Kashmir', status: 'Operational State', isPilot: true },
-    { name: 'Madhya Pradesh', status: 'Operational State', isPilot: true },
-    { name: 'Odisha', status: 'Coming Soon', isPilot: false },
-    { name: 'Kerala', status: 'Coming Soon', isPilot: false },
-    { name: 'Karnataka', status: 'Coming Soon', isPilot: false },
-    { name: 'Maharashtra', status: 'Coming Soon', isPilot: false },
-    { name: 'Gujarat', status: 'Coming Soon', isPilot: false },
-    { name: 'Telangana', status: 'Coming Soon', isPilot: false },
-    { name: 'Goa', status: 'Coming Soon', isPilot: false },
+    { name: 'Odisha', status: 'Operational State', isPilot: true },
+    { name: 'West Bengal', status: 'Operational State', isPilot: true },
+    { name: 'Uttar Pradesh', status: 'Operational State', isPilot: true },
+    { name: 'Uttarakhand', status: 'Operational State', isPilot: true },
+    { name: 'Karnataka', status: 'Operational State', isPilot: true },
+    { name: 'Goa', status: 'Operational State', isPilot: true },
   ];
 
   const filteredStates = allStates.filter((s) =>
@@ -755,6 +773,66 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
                 <ArrowRight className="w-3.5 h-3.5 text-[#1E7446]" />
               </div>
 
+              {/* Rajasthan Quick Tile */}
+              <div 
+                onClick={() => onSelectState('Rajasthan')}
+                className="bg-[#FAF8F3] hover:bg-emerald-50/60 transition cursor-pointer p-2.5 rounded-xl border border-stone-200/60 flex items-center justify-between"
+              >
+                <div>
+                  <div className="text-xs font-bold text-slate-800 flex items-center gap-1.5">
+                    <span>Rajasthan</span>
+                    <span className="text-[9px] font-mono px-1.5 py-0.2 bg-emerald-100 text-emerald-800 rounded font-bold">ACTIVE</span>
+                  </div>
+                  <div className="text-[10px] text-slate-500 mt-0.5">33 Districts &bull; 244 Tehsils</div>
+                </div>
+                <ArrowRight className="w-3.5 h-3.5 text-[#1E7446]" />
+              </div>
+
+              {/* Telangana Quick Tile */}
+              <div 
+                onClick={() => onSelectState('Telangana')}
+                className="bg-[#FAF8F3] hover:bg-emerald-50/60 transition cursor-pointer p-2.5 rounded-xl border border-stone-200/60 flex items-center justify-between"
+              >
+                <div>
+                  <div className="text-xs font-bold text-slate-800 flex items-center gap-1.5">
+                    <span>Telangana</span>
+                    <span className="text-[9px] font-mono px-1.5 py-0.2 bg-emerald-100 text-emerald-800 rounded font-bold">ACTIVE</span>
+                  </div>
+                  <div className="text-[10px] text-slate-500 mt-0.5">33 Districts &bull; 594 Mandals</div>
+                </div>
+                <ArrowRight className="w-3.5 h-3.5 text-[#1E7446]" />
+              </div>
+
+              {/* Madhya Pradesh Quick Tile */}
+              <div 
+                onClick={() => onSelectState('Madhya Pradesh')}
+                className="bg-[#FAF8F3] hover:bg-emerald-50/60 transition cursor-pointer p-2.5 rounded-xl border border-stone-200/60 flex items-center justify-between"
+              >
+                <div>
+                  <div className="text-xs font-bold text-slate-800 flex items-center gap-1.5">
+                    <span>Madhya Pradesh</span>
+                    <span className="text-[9px] font-mono px-1.5 py-0.2 bg-emerald-100 text-emerald-800 rounded font-bold">ACTIVE</span>
+                  </div>
+                  <div className="text-[10px] text-slate-500 mt-0.5">52 Districts &bull; 428 Tehsils</div>
+                </div>
+                <ArrowRight className="w-3.5 h-3.5 text-[#1E7446]" />
+              </div>
+
+              {/* Tripura Quick Tile */}
+              <div 
+                onClick={() => onSelectState('Tripura')}
+                className="bg-[#FAF8F3] hover:bg-emerald-50/60 transition cursor-pointer p-2.5 rounded-xl border border-stone-200/60 flex items-center justify-between"
+              >
+                <div>
+                  <div className="text-xs font-bold text-slate-800 flex items-center gap-1.5">
+                    <span>Tripura</span>
+                    <span className="text-[9px] font-mono px-1.5 py-0.2 bg-emerald-100 text-emerald-800 rounded font-bold">ACTIVE</span>
+                  </div>
+                  <div className="text-[10px] text-slate-500 mt-0.5">8 Districts &bull; 58 R.D. Blocks</div>
+                </div>
+                <ArrowRight className="w-3.5 h-3.5 text-[#1E7446]" />
+              </div>
+
               {/* Assam Quick Tile */}
               <div 
                 onClick={() => onSelectState('Assam')}
@@ -981,19 +1059,11 @@ export const StateSelectionScreen: React.FC<StateSelectionScreenProps> = ({
               {filteredStates.map((s) => (
                 <button
                   key={s.name}
-                  onClick={() => {
-                    if (s.isPilot) {
-                      onSelectState(s.name);
-                    } else {
-                      setSelectedComingSoonState(s.name);
-                    }
-                  }}
+                  onClick={() => onSelectState(s.name)}
                   className="w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs hover:bg-stone-50 text-left transition"
                 >
                   <span className="text-slate-800 font-medium">{s.name}</span>
-                  <span className={`text-[9px] font-mono px-2 py-0.5 rounded-full ${
-                    s.isPilot ? 'bg-emerald-100 text-[#145A36] font-bold' : 'bg-stone-100 text-slate-500'
-                  }`}>
+                  <span className="text-[9px] font-mono px-2 py-0.5 rounded-full bg-emerald-100 text-[#145A36] font-bold">
                     {s.status}
                   </span>
                 </button>

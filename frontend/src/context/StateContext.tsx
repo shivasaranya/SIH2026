@@ -1,13 +1,47 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { setActiveStateId } from '../services/api';
 
-export type StateId = string;
+export type KnownStateId = 
+  | 'andhra_pradesh' 
+  | 'tamil_nadu' 
+  | 'mizoram' 
+  | 'himachal_pradesh' 
+  | 'assam' 
+  | 'bihar' 
+  | 'west_bengal' 
+  | 'odisha' 
+  | 'uttar_pradesh' 
+  | 'uttarakhand' 
+  | 'sikkim' 
+  | 'arunachal_pradesh' 
+  | 'nagaland' 
+  | 'meghalaya' 
+  | 'gujarat' 
+  | 'kerala' 
+  | 'maharashtra' 
+  | 'haryana' 
+  | 'punjab' 
+  | 'chhattisgarh'
+  | 'rajasthan'
+  | 'telangana'
+  | 'madhya_pradesh'
+  | 'tripura'
+  | 'karnataka'
+  | 'goa'
+  | 'jharkhand'
+  | 'delhi'
+  | 'jammu_and_kashmir'
+  | 'jammu_kashmir'
+  | 'ladakh'
+  | 'manipur';
+
+export type StateId = KnownStateId | (string & {});
 
 export interface StateConfig {
   id: StateId;
   name: string;
   code: string;
-  adminUnitName: string; // 'Mandal' | 'Taluk' | 'Tehsil' | 'Taluka' | 'R.D. Block' | 'Circle' | 'Subdivision'
+  adminUnitName: string; // 'Mandal' | 'Taluk' | 'Tehsil' | 'Taluka' | 'R.D. Block' | 'Circle' | 'Subdivision' | 'Block'
   adminUnitPlural: string;
   districtCount: number;
   adminUnitCount: number;
@@ -19,7 +53,7 @@ export interface StateConfig {
   tagline: string;
 }
 
-export const STATE_CONFIGS: Record<StateId, StateConfig> = {
+export const STATE_CONFIGS: Record<string, StateConfig> = {
   andhra_pradesh: {
     id: 'andhra_pradesh',
     name: 'Andhra Pradesh',
@@ -38,6 +72,42 @@ export const STATE_CONFIGS: Record<StateId, StateConfig> = {
     sdmaName: 'Andhra Pradesh SDMA (APSDMA)',
     tagline: 'Bay of Bengal Multi-Hazard Vulnerability & Relocation Decision System',
   },
+  rajasthan: {
+    id: 'rajasthan',
+    name: 'Rajasthan',
+    code: 'RJ',
+    adminUnitName: 'Tehsil',
+    adminUnitPlural: 'Tehsils',
+    districtCount: 33,
+    adminUnitCount: 244,
+    candidateHostsCount: 42,
+    center: [26.58, 73.84],
+    bounds: [
+      [23.05, 69.50],
+      [30.20, 78.28],
+    ],
+    isCoastal: false,
+    sdmaName: 'Rajasthan State Disaster Management Authority (RSDMA)',
+    tagline: 'Thar Desert Arid Drought, Extreme Heatwave & Relocation Decision System',
+  },
+  telangana: {
+    id: 'telangana',
+    name: 'Telangana',
+    code: 'TG',
+    adminUnitName: 'Mandal',
+    adminUnitPlural: 'Mandals',
+    districtCount: 33,
+    adminUnitCount: 594,
+    candidateHostsCount: 36,
+    center: [17.87, 78.96],
+    bounds: [
+      [15.84, 77.24],
+      [19.92, 81.32],
+    ],
+    isCoastal: false,
+    sdmaName: 'Telangana State Disaster Management Authority (TGSDMA)',
+    tagline: 'Godavari-Krishna Basin Urban Inundation & Heatwave Decision System',
+  },
   tamil_nadu: {
     id: 'tamil_nadu',
     name: 'Tamil Nadu',
@@ -55,6 +125,42 @@ export const STATE_CONFIGS: Record<StateId, StateConfig> = {
     isCoastal: true,
     sdmaName: 'Tamil Nadu SDMA (TNDMA)',
     tagline: 'Coromandel Coast & Delta Disaster Preparedness & Resettlement Platform',
+  },
+  madhya_pradesh: {
+    id: 'madhya_pradesh',
+    name: 'Madhya Pradesh',
+    code: 'MP',
+    adminUnitName: 'Tehsil',
+    adminUnitPlural: 'Tehsils',
+    districtCount: 52,
+    adminUnitCount: 428,
+    candidateHostsCount: 65,
+    center: [23.47, 77.94],
+    bounds: [
+      [21.08, 74.04],
+      [26.87, 82.81],
+    ],
+    isCoastal: false,
+    sdmaName: 'Madhya Pradesh State Disaster Management Authority (MPSDMA)',
+    tagline: 'Central River Basins Multi-Hazard & Resettlement Platform',
+  },
+  tripura: {
+    id: 'tripura',
+    name: 'Tripura',
+    code: 'TR',
+    adminUnitName: 'R.D. Block',
+    adminUnitPlural: 'R.D. Blocks',
+    districtCount: 8,
+    adminUnitCount: 58,
+    candidateHostsCount: 14,
+    center: [23.74, 91.74],
+    bounds: [
+      [22.94, 91.15],
+      [24.53, 92.34],
+    ],
+    isCoastal: false,
+    sdmaName: 'Tripura State Disaster Management Authority (TDMA)',
+    tagline: 'North Eastern Hilly Terrain Flash Flood & Landslide Decision System',
   },
   mizoram: {
     id: 'mizoram',
@@ -91,42 +197,6 @@ export const STATE_CONFIGS: Record<StateId, StateConfig> = {
     isCoastal: false,
     sdmaName: 'Himachal Pradesh State Disaster Management Authority (HPSDMA)',
     tagline: 'Himalayan Landslide, Earthquake & Multi-Hazard Resettlement Decision Platform',
-  },
-  jammu_kashmir: {
-    id: 'jammu_kashmir',
-    name: 'Jammu and Kashmir',
-    code: 'JK',
-    adminUnitName: 'Tehsil',
-    adminUnitPlural: 'Tehsils',
-    districtCount: 20,
-    adminUnitCount: 197,
-    candidateHostsCount: 18,
-    center: [33.7782, 75.0],
-    bounds: [
-      [32.2751, 73.7676],
-      [34.7878, 76.7811],
-    ],
-    isCoastal: false,
-    sdmaName: 'Jammu & Kashmir SDMA (JKDMA)',
-    tagline: 'Himalayan River Basin Multi-Hazard Resilience & Resettlement Platform',
-  },
-  madhya_pradesh: {
-    id: 'madhya_pradesh',
-    name: 'Madhya Pradesh',
-    code: 'MP',
-    adminUnitName: 'Tehsil',
-    adminUnitPlural: 'Tehsils',
-    districtCount: 52,
-    adminUnitCount: 422,
-    candidateHostsCount: 25,
-    center: [23.97, 78.42],
-    bounds: [
-      [21.07, 74.03],
-      [26.87, 82.81],
-    ],
-    isCoastal: false,
-    sdmaName: 'Madhya Pradesh SDMA (MPSDMA)',
-    tagline: 'Central River Basin Multi-Hazard Resilience & Resettlement Platform',
   },
   gujarat: {
     id: 'gujarat',
@@ -240,37 +310,37 @@ export const STATE_CONFIGS: Record<StateId, StateConfig> = {
     id: 'odisha',
     name: 'Odisha',
     code: 'OD',
-    adminUnitName: 'Taluk',
-    adminUnitPlural: 'Taluks',
+    adminUnitName: 'Block',
+    adminUnitPlural: 'Blocks',
     districtCount: 30,
-    adminUnitCount: 317,
-    candidateHostsCount: 42,
-    center: [20.95, 85.09],
+    adminUnitCount: 314,
+    candidateHostsCount: 48,
+    center: [20.9517, 85.0985],
     bounds: [
-      [17.8, 81.3],
-      [22.6, 87.5],
+      [17.78, 81.37],
+      [22.57, 87.50],
     ],
     isCoastal: true,
     sdmaName: 'Odisha State Disaster Management Authority (OSDMA)',
-    tagline: 'East Coast Super Cyclone, Storm Surge & Relocation Platform',
+    tagline: 'Bay of Bengal Cyclone, Storm Surge & Resettlement Decision System',
   },
-  assam: {
-    id: 'assam',
-    name: 'Assam',
-    code: 'AS',
-    adminUnitName: 'Circle',
-    adminUnitPlural: 'Circles',
-    districtCount: 35,
-    adminUnitCount: 154,
-    candidateHostsCount: 38,
-    center: [26.20, 92.93],
+  west_bengal: {
+    id: 'west_bengal',
+    name: 'West Bengal',
+    code: 'WB',
+    adminUnitName: 'Block',
+    adminUnitPlural: 'Blocks',
+    districtCount: 23,
+    adminUnitCount: 342,
+    candidateHostsCount: 52,
+    center: [22.9868, 87.8550],
     bounds: [
-      [24.1, 89.7],
-      [28.0, 96.0],
+      [21.50, 85.80],
+      [27.20, 89.90],
     ],
-    isCoastal: false,
-    sdmaName: 'Assam State Disaster Management Authority (ASDMA)',
-    tagline: 'Brahmaputra Flood & Multi-Hazard Resettlement Platform',
+    isCoastal: true,
+    sdmaName: 'West Bengal Disaster Management Department (WBDMD)',
+    tagline: 'Sundarbans Delta Inundation & Cyclone Relocation Platform',
   },
   bihar: {
     id: 'bihar',
@@ -280,33 +350,33 @@ export const STATE_CONFIGS: Record<StateId, StateConfig> = {
     adminUnitPlural: 'Blocks',
     districtCount: 38,
     adminUnitCount: 534,
-    candidateHostsCount: 48,
-    center: [25.09, 85.31],
+    candidateHostsCount: 62,
+    center: [25.0961, 85.3131],
     bounds: [
-      [24.3, 83.3],
-      [27.5, 88.3],
+      [24.28, 83.32],
+      [27.52, 88.30],
     ],
     isCoastal: false,
     sdmaName: 'Bihar State Disaster Management Authority (BSDMA)',
-    tagline: 'Kosi-Ganga Basin Riverine Flood & Resettlement Platform',
+    tagline: 'Gangetic Basin Multi-River Inundation & Relocation System',
   },
-  west_bengal: {
-    id: 'west_bengal',
-    name: 'West Bengal',
-    code: 'WB',
-    adminUnitName: 'Block',
-    adminUnitPlural: 'Blocks',
-    districtCount: 23,
-    adminUnitCount: 345,
-    candidateHostsCount: 45,
-    center: [22.98, 87.85],
+  assam: {
+    id: 'assam',
+    name: 'Assam',
+    code: 'AS',
+    adminUnitName: 'Circle',
+    adminUnitPlural: 'Circles',
+    districtCount: 33,
+    adminUnitCount: 154,
+    candidateHostsCount: 34,
+    center: [26.2006, 92.9376],
     bounds: [
-      [21.5, 85.8],
-      [27.2, 89.9],
+      [24.15, 89.70],
+      [28.00, 96.02],
     ],
-    isCoastal: true,
-    sdmaName: 'West Bengal Disaster Management Authority (WBDMA)',
-    tagline: 'Sundarbans Coastal & Deltaic Multi-Hazard Platform',
+    isCoastal: false,
+    sdmaName: 'Assam State Disaster Management Authority (ASDMA)',
+    tagline: 'Brahmaputra Basin Flood & Riverbank Erosion Resettlement Platform',
   },
   uttar_pradesh: {
     id: 'uttar_pradesh',
@@ -315,16 +385,16 @@ export const STATE_CONFIGS: Record<StateId, StateConfig> = {
     adminUnitName: 'Tehsil',
     adminUnitPlural: 'Tehsils',
     districtCount: 75,
-    adminUnitCount: 351,
-    candidateHostsCount: 65,
-    center: [26.84, 80.94],
+    adminUnitCount: 350,
+    candidateHostsCount: 88,
+    center: [26.8467, 80.9462],
     bounds: [
-      [23.8, 77.1],
-      [30.4, 84.6],
+      [23.86, 77.08],
+      [30.41, 84.64],
     ],
     isCoastal: false,
     sdmaName: 'Uttar Pradesh State Disaster Management Authority (UPSDMA)',
-    tagline: 'Gangetic Plain Flood & Multi-Hazard Decision Platform',
+    tagline: 'Gangetic Plains Multi-Hazard & Flood Resettlement Decision Platform',
   },
   uttarakhand: {
     id: 'uttarakhand',
@@ -335,32 +405,32 @@ export const STATE_CONFIGS: Record<StateId, StateConfig> = {
     districtCount: 13,
     adminUnitCount: 110,
     candidateHostsCount: 18,
-    center: [30.06, 79.01],
+    center: [30.0668, 79.0193],
     bounds: [
-      [28.7, 77.5],
-      [31.5, 81.0],
+      [28.71, 77.57],
+      [31.46, 81.05],
     ],
     isCoastal: false,
     sdmaName: 'Uttarakhand State Disaster Management Authority (USDMA)',
-    tagline: 'High Himalayan Flash Flood, Cloudburst & Landslide Resettlement System',
+    tagline: 'Central Himalaya Flash Flood, Landslide & Resettlement Platform',
   },
   sikkim: {
     id: 'sikkim',
     name: 'Sikkim',
     code: 'SK',
-    adminUnitName: 'Subdivision',
-    adminUnitPlural: 'Subdivisions',
+    adminUnitName: 'Sub-Division',
+    adminUnitPlural: 'Sub-Divisions',
     districtCount: 6,
-    adminUnitCount: 34,
-    candidateHostsCount: 12,
-    center: [27.53, 88.51],
+    adminUnitCount: 16,
+    candidateHostsCount: 8,
+    center: [27.5330, 88.5122],
     bounds: [
-      [27.0, 88.0],
-      [28.1, 88.9],
+      [27.08, 88.01],
+      [28.13, 88.92],
     ],
     isCoastal: false,
     sdmaName: 'Sikkim State Disaster Management Authority (SSDMA)',
-    tagline: 'Eastern Himalayan GLOF & Flash Flood Resettlement Decision System',
+    tagline: 'Eastern Himalaya GLOF & Landslide Relocation Decision System',
   },
   arunachal_pradesh: {
     id: 'arunachal_pradesh',
@@ -368,17 +438,17 @@ export const STATE_CONFIGS: Record<StateId, StateConfig> = {
     code: 'AR',
     adminUnitName: 'Circle',
     adminUnitPlural: 'Circles',
-    districtCount: 26,
-    adminUnitCount: 188,
+    districtCount: 25,
+    adminUnitCount: 180,
     candidateHostsCount: 22,
-    center: [28.21, 94.72],
+    center: [28.2180, 94.7278],
     bounds: [
-      [26.4, 91.5],
-      [29.5, 97.4],
+      [26.65, 91.50],
+      [29.47, 97.42],
     ],
     isCoastal: false,
-    sdmaName: 'Arunachal Pradesh State Disaster Management Authority (APSDMA)',
-    tagline: 'Eastern Himalayan Seismic & Landslide Multi-Hazard Decision System',
+    sdmaName: 'Arunachal Pradesh Disaster Management Authority (APSDMA)',
+    tagline: 'Eastern Himalayan Terrain Landslide & Flood Resettlement System',
   },
   nagaland: {
     id: 'nagaland',
@@ -387,36 +457,174 @@ export const STATE_CONFIGS: Record<StateId, StateConfig> = {
     adminUnitName: 'Circle',
     adminUnitPlural: 'Circles',
     districtCount: 16,
-    adminUnitCount: 114,
-    candidateHostsCount: 16,
-    center: [26.15, 94.56],
+    adminUnitCount: 93,
+    candidateHostsCount: 12,
+    center: [26.1584, 94.5624],
     bounds: [
-      [25.1, 93.3],
-      [27.0, 95.2],
+      [25.10, 93.33],
+      [27.04, 95.25],
     ],
     isCoastal: false,
     sdmaName: 'Nagaland State Disaster Management Authority (NSDMA)',
-    tagline: 'Naga Hills Earthquake & Landslide Resettlement Decision System',
+    tagline: 'Naga Hills Earthquake & Multi-Hazard Decision Platform',
   },
   meghalaya: {
     id: 'meghalaya',
     name: 'Meghalaya',
     code: 'ML',
-    adminUnitName: 'Block',
-    adminUnitPlural: 'Blocks',
+    adminUnitName: 'C&RD Block',
+    adminUnitPlural: 'C&RD Blocks',
     districtCount: 12,
     adminUnitCount: 46,
     candidateHostsCount: 14,
-    center: [25.46, 91.36],
+    center: [25.4670, 91.3662],
     bounds: [
-      [25.0, 89.8],
-      [26.1, 92.8],
+      [25.03, 89.81],
+      [26.12, 92.80],
     ],
     isCoastal: false,
     sdmaName: 'Meghalaya State Disaster Management Authority (MSDMA)',
-    tagline: 'Meghalaya Plateau Extreme Precipitation & Flood Decision System',
+    tagline: 'Shillong Plateau Flash Flood & Landslide Resettlement System',
+  },
+  karnataka: {
+    id: 'karnataka',
+    name: 'Karnataka',
+    code: 'KA',
+    adminUnitName: 'Taluk',
+    adminUnitPlural: 'Taluks',
+    districtCount: 31,
+    adminUnitCount: 240,
+    candidateHostsCount: 45,
+    center: [15.3173, 75.7139],
+    bounds: [
+      [11.59, 74.05],
+      [18.45, 78.58],
+    ],
+    isCoastal: true,
+    sdmaName: 'Karnataka State Disaster Management Authority (KSDMA)',
+    tagline: 'Western Ghats & Deccan Plateau Multi-Hazard Relocation Platform',
+  },
+  goa: {
+    id: 'goa',
+    name: 'Goa',
+    code: 'GA',
+    adminUnitName: 'Taluka',
+    adminUnitPlural: 'Talukas',
+    districtCount: 2,
+    adminUnitCount: 12,
+    candidateHostsCount: 6,
+    center: [15.2993, 74.1240],
+    bounds: [
+      [14.89, 73.68],
+      [15.80, 74.34],
+    ],
+    isCoastal: true,
+    sdmaName: 'Goa State Disaster Management Authority (GSDMA)',
+    tagline: 'Konkan Coast Inundation & Multi-Hazard Management Platform',
+  },
+  jharkhand: {
+    id: 'jharkhand',
+    name: 'Jharkhand',
+    code: 'JH',
+    adminUnitName: 'Block',
+    adminUnitPlural: 'Blocks',
+    districtCount: 24,
+    adminUnitCount: 260,
+    candidateHostsCount: 32,
+    center: [23.6102, 85.2799],
+    bounds: [
+      [21.97, 83.33],
+      [25.35, 87.95],
+    ],
+    isCoastal: false,
+    sdmaName: 'Jharkhand State Disaster Management Authority (JSDMA)',
+    tagline: 'Chota Nagpur Plateau Mining & Flood Hazard Resettlement Platform',
+  },
+  delhi: {
+    id: 'delhi',
+    name: 'Delhi',
+    code: 'DL',
+    adminUnitName: 'Tehsil',
+    adminUnitPlural: 'Tehsils',
+    districtCount: 11,
+    adminUnitCount: 33,
+    candidateHostsCount: 10,
+    center: [28.7041, 77.1025],
+    bounds: [
+      [28.40, 76.84],
+      [28.88, 77.34],
+    ],
+    isCoastal: false,
+    sdmaName: 'Delhi Disaster Management Authority (DDMA)',
+    tagline: 'National Capital Territory Urban Flood & Seismic Hazard Platform',
+  },
+  jammu_and_kashmir: {
+    id: 'jammu_and_kashmir',
+    name: 'Jammu and Kashmir',
+    code: 'JK',
+    adminUnitName: 'Tehsil',
+    adminUnitPlural: 'Tehsils',
+    districtCount: 20,
+    adminUnitCount: 140,
+    candidateHostsCount: 20,
+    center: [33.7782, 76.5762],
+    bounds: [
+      [32.28, 73.75],
+      [35.15, 77.80],
+    ],
+    isCoastal: false,
+    sdmaName: 'Jammu & Kashmir Disaster Management Authority (JKDMA)',
+    tagline: 'Pir Panjal & Kashmir Valley Avalanche, Seismic & Flood Platform',
+  },
+  ladakh: {
+    id: 'ladakh',
+    name: 'Ladakh',
+    code: 'LA',
+    adminUnitName: 'Sub-Division',
+    adminUnitPlural: 'Sub-Divisions',
+    districtCount: 2,
+    adminUnitCount: 14,
+    candidateHostsCount: 6,
+    center: [34.1526, 77.5771],
+    bounds: [
+      [32.20, 75.80],
+      [36.00, 80.50],
+    ],
+    isCoastal: false,
+    sdmaName: 'Ladakh Disaster Management Authority (LDMA)',
+    tagline: 'Trans-Himalayan Cold Desert Flash Flood & Glacial Lake Outburst Platform',
+  },
+  manipur: {
+    id: 'manipur',
+    name: 'Manipur',
+    code: 'MN',
+    adminUnitName: 'Sub-Division',
+    adminUnitPlural: 'Sub-Divisions',
+    districtCount: 16,
+    adminUnitCount: 68,
+    candidateHostsCount: 12,
+    center: [24.6637, 93.9063],
+    bounds: [
+      [23.83, 92.98],
+      [25.68, 94.78],
+    ],
+    isCoastal: false,
+    sdmaName: 'Manipur State Disaster Management Authority (MSDMA)',
+    tagline: 'Loktak Lake & Manipur River Basin Flood & Landslide Platform',
   },
 };
+
+/**
+ * Maps any state name, code, slug, or search term into a valid StateId
+ */
+
+// Alias for jammu_kashmir compatibility
+if (STATE_CONFIGS.jammu_and_kashmir && !STATE_CONFIGS.jammu_kashmir) {
+  STATE_CONFIGS.jammu_kashmir = {
+    ...STATE_CONFIGS.jammu_and_kashmir,
+    id: 'jammu_kashmir',
+  };
+}
 
 // ─── Generic config for any non-operational state ────────────────────────────
 export const buildGenericConfig = (stateId: string): StateConfig => {
@@ -441,66 +649,90 @@ export const buildGenericConfig = (stateId: string): StateConfig => {
   };
 };
 
-// ─── Name → stateId resolver ─────────────────────────────────────────────────
-export const stateIdFromName = (name: string): string => {
-  const n = name.trim().toLowerCase();
-  if (n.includes('mizo'))                                      return 'mizoram';
-  if (n.includes('tamil'))                                     return 'tamil_nadu';
-  if (n.includes('himachal') || n === 'hp')                    return 'himachal_pradesh';
-  if (n.includes('kashmir') || n.includes('jammu') || n === 'jk') return 'jammu_kashmir';
-  if (n.includes('madhya') || n === 'mp')                      return 'madhya_pradesh';
-  if (n.includes('uttarakhand') || n.includes('uttaranchal') || n === 'uk') return 'uttarakhand';
-  if (n.includes('uttar') || n === 'up')                       return 'uttar_pradesh';
-  if (n.includes('sikkim') || n === 'sk')                      return 'sikkim';
-  if (n.includes('arunachal') || n === 'ar')                   return 'arunachal_pradesh';
-  if (n.includes('nagaland') || n === 'nl')                    return 'nagaland';
-  if (n.includes('meghalaya') || n === 'ml')                   return 'meghalaya';
-  if (n.includes('gujarat') || n === 'gj')                     return 'gujarat';
-  if (n.includes('kerala') || n.includes('kerela') || n === 'kl') return 'kerala';
-  if (n.includes('maharashtra') || n.includes('maharastra') || n === 'mh') return 'maharashtra';
-  if (n.includes('haryana') || n === 'hr')                     return 'haryana';
-  if (n.includes('punjab') || n === 'pb')                      return 'punjab';
-  if (n.includes('chhattisgarh') || n.includes('chhatisgarh') || n === 'cg' || n === 'ct') return 'chhattisgarh';
-  if (n.includes('odisha') || n.includes('orissa') || n === 'od') return 'odisha';
-  if (n.includes('west bengal') || n.includes('westbengal') || n.includes('bengal') || n === 'wb') return 'west_bengal';
-  if (n.includes('assam') || n === 'as')                       return 'assam';
-  if (n.includes('bihar') || n === 'br')                       return 'bihar';
-  if (n.includes('andhra') || n === 'ap')                      return 'andhra_pradesh';
-  return n.replace(/\s+/g, '_').replace(/[^a-z0-9_]/g, '');
-};
+export function resolveStateId(input: string): StateId {
+  if (!input) return 'andhra_pradesh';
+  const clean = input.trim().toLowerCase().replace(/[-_]/g, ' ');
 
-// ─── Hash → stateId resolver ─────────────────────────────────────────────────
+  // Direct exact matches first
+  if (clean === 'rajasthan' || clean === 'rj') return 'rajasthan';
+  if (clean === 'andhra pradesh' || clean === 'andhra' || clean === 'ap') return 'andhra_pradesh';
+  if (clean === 'telangana' || clean === 'tg' || clean === 'ts') return 'telangana';
+  if (clean === 'tamil nadu' || clean === 'tamil' || clean === 'tn') return 'tamil_nadu';
+  if (clean === 'madhya pradesh' || clean === 'madhya' || clean === 'mp') return 'madhya_pradesh';
+  if (clean === 'tripura' || clean === 'tr') return 'tripura';
+  if (clean === 'mizoram' || clean === 'mizo' || clean === 'mz') return 'mizoram';
+  if (clean === 'himachal pradesh' || clean === 'himachal' || clean === 'hp') return 'himachal_pradesh';
+  if (clean === 'kerala' || clean === 'kerela' || clean === 'kl') return 'kerala';
+  if (clean === 'gujarat' || clean === 'gj') return 'gujarat';
+  if (clean === 'maharashtra' || clean === 'maharastra' || clean === 'mh') return 'maharashtra';
+  if (clean === 'haryana' || clean === 'hr') return 'haryana';
+  if (clean === 'punjab' || clean === 'pb') return 'punjab';
+  if (clean === 'chhattisgarh' || clean === 'chhatisgarh' || clean === 'cg' || clean === 'ct') return 'chhattisgarh';
+  if (clean === 'odisha' || clean === 'orissa' || clean === 'od') return 'odisha';
+  if (clean === 'west bengal' || clean === 'bengal' || clean === 'wb') return 'west_bengal';
+  if (clean === 'bihar' || clean === 'br') return 'bihar';
+  if (clean === 'assam' || clean === 'as') return 'assam';
+  if (clean === 'uttarakhand' || clean === 'uttaranchal' || clean === 'uk') return 'uttarakhand';
+  if (clean === 'uttar pradesh' || clean === 'uttar' || clean === 'up') return 'uttar_pradesh';
+  if (clean === 'sikkim' || clean === 'sk') return 'sikkim';
+  if (clean === 'arunachal pradesh' || clean === 'arunachal' || clean === 'ar') return 'arunachal_pradesh';
+  if (clean === 'nagaland' || clean === 'nl') return 'nagaland';
+  if (clean === 'meghalaya' || clean === 'ml') return 'meghalaya';
+  if (clean === 'karnataka' || clean === 'ka') return 'karnataka';
+  if (clean === 'goa' || clean === 'ga') return 'goa';
+  if (clean === 'jharkhand' || clean === 'jh') return 'jharkhand';
+  if (clean === 'delhi' || clean === 'dl') return 'delhi';
+  if (clean.includes('kashmir') || clean === 'jk') return 'jammu_and_kashmir';
+  if (clean === 'ladakh' || clean === 'la') return 'ladakh';
+  if (clean === 'manipur' || clean === 'mn') return 'manipur';
+
+  // Substring inclusion checks
+  if (clean.includes('rajasthan')) return 'rajasthan';
+  if (clean.includes('telangana')) return 'telangana';
+  if (clean.includes('madhya')) return 'madhya_pradesh';
+  if (clean.includes('tripura')) return 'tripura';
+  if (clean.includes('tamil')) return 'tamil_nadu';
+  if (clean.includes('mizo')) return 'mizoram';
+  if (clean.includes('himachal')) return 'himachal_pradesh';
+  if (clean.includes('gujarat')) return 'gujarat';
+  if (clean.includes('kerala')) return 'kerala';
+  if (clean.includes('maharashtra')) return 'maharashtra';
+  if (clean.includes('haryana')) return 'haryana';
+  if (clean.includes('punjab')) return 'punjab';
+  if (clean.includes('chhattisgarh') || clean.includes('chhatisgarh')) return 'chhattisgarh';
+  if (clean.includes('odisha') || clean.includes('orissa')) return 'odisha';
+  if (clean.includes('bengal')) return 'west_bengal';
+  if (clean.includes('bihar')) return 'bihar';
+  if (clean.includes('assam')) return 'assam';
+  if (clean.includes('uttarakhand') || clean.includes('uttaranchal')) return 'uttarakhand';
+  if (clean.includes('uttar')) return 'uttar_pradesh';
+  if (clean.includes('sikkim')) return 'sikkim';
+  if (clean.includes('arunachal')) return 'arunachal_pradesh';
+  if (clean.includes('nagaland')) return 'nagaland';
+  if (clean.includes('meghalaya')) return 'meghalaya';
+  if (clean.includes('karnataka')) return 'karnataka';
+  if (clean.includes('goa')) return 'goa';
+  if (clean.includes('jharkhand')) return 'jharkhand';
+  if (clean.includes('delhi')) return 'delhi';
+  if (clean.includes('manipur')) return 'manipur';
+  if (clean.includes('andhra')) return 'andhra_pradesh';
+
+  return 'andhra_pradesh';
+}
+
+/**
+ * Returns the URL slug for a given state ID (e.g. 'rajasthan', 'andhra-pradesh', 'telangana')
+ */
+export function getStateSlug(id: StateId): string {
+  return id.replace(/_/g, '-');
+}
+
+// ─── Aliases & Resolvers for upstream compatibility ──────────────────────────
+export const stateIdFromName = (name: string): string => resolveStateId(name);
 export const stateIdFromHash = (hash: string): string => {
-  const h = hash.toLowerCase();
-  const slugSegment = h.replace('#government/', '').split('/')[0];
-  const slug = slugSegment || 'ap';
-
-  if (slug === 'mz' || slug.includes('mizoram') || slug.includes('mizo')) return 'mizoram';
-  if (slug === 'tn' || slug.includes('tamil'))                          return 'tamil_nadu';
-  if (slug === 'hp' || slug.includes('himachal'))                       return 'himachal_pradesh';
-  if (slug === 'jk' || slug.includes('jammu') || slug.includes('kashmir')) return 'jammu_kashmir';
-  if (slug === 'mp' || slug.includes('madhya'))                         return 'madhya_pradesh';
-  if (slug === 'uk' || slug.includes('uttarakhand') || slug.includes('uttaranchal')) return 'uttarakhand';
-  if (slug === 'up' || slug.includes('uttar'))                          return 'uttar_pradesh';
-  if (slug === 'sk' || slug.includes('sikkim'))                         return 'sikkim';
-  if (slug === 'ar' || slug.includes('arunachal'))                      return 'arunachal_pradesh';
-  if (slug === 'nl' || slug.includes('nagaland'))                       return 'nagaland';
-  if (slug === 'ml' || slug.includes('meghalaya'))                      return 'meghalaya';
-  if (slug === 'gj' || slug.includes('gujarat'))                        return 'gujarat';
-  if (slug === 'kl' || slug.includes('kerala') || slug.includes('kerela')) return 'kerala';
-  if (slug === 'mh' || slug.includes('maharashtra') || slug.includes('maharastra')) return 'maharashtra';
-  if (slug === 'hr' || slug.includes('haryana'))                        return 'haryana';
-  if (slug === 'pb' || slug.includes('punjab'))                         return 'punjab';
-  if (slug === 'cg' || slug === 'ct' || slug.includes('chhattisgarh') || slug.includes('chhatisgarh')) return 'chhattisgarh';
-  if (slug === 'od' || slug.includes('odisha') || slug.includes('orissa')) return 'odisha';
-  if (slug === 'wb' || slug.includes('west-bengal') || slug.includes('bengal')) return 'west_bengal';
-  if (slug === 'as' || slug.includes('assam'))                          return 'assam';
-  if (slug === 'br' || slug.includes('bihar'))                          return 'bihar';
-  if (slug === 'ap' || slug.includes('andhra'))                         return 'andhra_pradesh';
-
-  return slug;
+  const slug = hash.toLowerCase().replace('#government/', '').split('/')[0];
+  return resolveStateId(slug);
 };
-
 export const parseStateIdFromHash = stateIdFromHash;
 export const parseStateIdFromName = stateIdFromName;
 
@@ -515,8 +747,15 @@ interface StateContextType {
 const StateContext = createContext<StateContextType | undefined>(undefined);
 
 export const StateProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const getInitialState = (): string => {
+  // Read initial state from hash or path, defaulting to andhra_pradesh
+  const getInitialState = (): StateId => {
     if (typeof window !== 'undefined') {
+      const fullUrl = (window.location.pathname + window.location.hash).toLowerCase();
+      // Look for government/(slug) pattern
+      const match = fullUrl.match(/government\/([a-z0-9_-]+)/i);
+      if (match && match[1] && match[1] !== 'select-state' && match[1] !== 'states') {
+        return resolveStateId(match[1]);
+      }
       const hash = window.location.hash.toLowerCase();
       if (hash.startsWith('#government') && !hash.includes('select-state') && !hash.includes('/states')) {
         return stateIdFromHash(hash);
@@ -525,34 +764,47 @@ export const StateProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     return 'andhra_pradesh';
   };
 
-  const [stateId, setStateIdState] = useState<string>(getInitialState);
+  const [stateId, setStateIdState] = useState<StateId>(getInitialState);
 
+  // Keep API client active state synchronized
   useEffect(() => {
     setActiveStateId(stateId);
   }, [stateId]);
 
-  const setStateId = (newId: string) => {
+  const setStateId = (newId: StateId) => {
     setActiveStateId(newId);
     setStateIdState(newId);
   };
 
   const selectStateByName = (name: string) => {
-    setStateId(stateIdFromName(name));
+    const targetId = resolveStateId(name);
+    setStateId(targetId);
   };
 
+  // Listen to hash and popstate changes
   useEffect(() => {
-    const handleHash = () => {
-      const hash = window.location.hash.toLowerCase();
-      if (hash.startsWith('#government') && !hash.includes('select-state') && !hash.includes('/states')) {
-        setStateIdState(stateIdFromHash(hash));
+    const handleUrlChange = () => {
+      const fullUrl = (window.location.pathname + window.location.hash).toLowerCase();
+      const match = fullUrl.match(/government\/([a-z0-9_-]+)/i);
+      if (match && match[1] && match[1] !== 'select-state' && match[1] !== 'states') {
+        const resolved = resolveStateId(match[1]);
+        setStateIdState(resolved);
+        setActiveStateId(resolved);
       }
     };
-    window.addEventListener('hashchange', handleHash);
-    return () => window.removeEventListener('hashchange', handleHash);
+    window.addEventListener('hashchange', handleUrlChange);
+    window.addEventListener('popstate', handleUrlChange);
+    return () => {
+      window.removeEventListener('hashchange', handleUrlChange);
+      window.removeEventListener('popstate', handleUrlChange);
+    };
   }, []);
 
   const currentState = STATE_CONFIGS[stateId] ?? buildGenericConfig(stateId);
-  const availableStates = Object.values(STATE_CONFIGS);
+  // Deduplicate availableStates (in case jammu_kashmir alias exists)
+  const availableStates = Object.values(STATE_CONFIGS).filter(
+    (s, idx, arr) => arr.findIndex((x) => x.name === s.name) === idx
+  );
 
   return (
     <StateContext.Provider

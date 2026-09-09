@@ -20,6 +20,7 @@ class GISService:
             return self._cached_districts[key]
 
         DISTRICT_FILES = {
+            "andhra_pradesh": "andhra_pradesh_26_districts.geojson",
             "odisha": "odisha_30_districts.geojson",
             "west_bengal": "west_bengal_23_districts.geojson",
             "bihar": "bihar_38_districts.geojson",
@@ -38,17 +39,19 @@ class GISService:
             "punjab": "punjab_23_districts.geojson",
             "chhattisgarh": "chhattisgarh_33_districts.geojson",
             "jammu_kashmir": "jammu_kashmir_20_districts.geojson",
-            "madhya_pradesh": "madhya_pradesh_52_districts.geojson",
+            "jammu_and_kashmir": "jammu_and_kashmir_districts.geojson",
+            "madhya_pradesh": "madhya_pradesh_districts.geojson",
             "mizoram": "mizoram_11_districts.geojson",
             "himachal_pradesh": "himachal_pradesh_12_districts.geojson",
-            "rajasthan": "rajasthan_districts.geojson",
+            "rajasthan": "rajasthan_33_districts.geojson",
             "karnataka": "karnataka_districts.geojson",
             "telangana": "telangana_districts.geojson",
-            "madhya_pradesh": "madhya_pradesh_districts.geojson",
             "jharkhand": "jharkhand_districts.geojson",
             "goa": "goa_districts.geojson",
-            "jammu_and_kashmir": "jammu_and_kashmir_districts.geojson",
-            "andhra_pradesh": "andhra_pradesh_26_districts.geojson",
+            "delhi": "delhi_districts.geojson",
+            "tripura": "tripura_districts.geojson",
+            "ladakh": "ladakh_districts.geojson",
+            "manipur": "manipur_districts.geojson",
         }
 
         dist_path = None
@@ -307,6 +310,17 @@ class GISService:
                 if not mand_path.exists():
                     raise FileNotFoundError(f"Chhattisgarh tehsils GeoJSON not found at {mand_path}")
                 with open(mand_path, "r", encoding="utf-8") as f:
+                    self._cached_mandals[key] = json.load(f)
+
+            elif key == "rajasthan":
+                mand_path = settings.PROCESSED_ADMIN_DIR / "rajasthan_tehsils.geojson"
+                if not mand_path.exists():
+                    mand_path = settings.DATA_DIR / "processed" / "relocation" / "rajasthan_tehsil_relocation_priority.geojson"
+                with open(mand_path, "r", encoding="utf-8") as f:
+                    self._cached_mandals[key] = json.load(f)
+
+            elif (settings.PROCESSED_ADMIN_DIR / f"{key}_units.geojson").exists():
+                with open(settings.PROCESSED_ADMIN_DIR / f"{key}_units.geojson", "r", encoding="utf-8") as f:
                     self._cached_mandals[key] = json.load(f)
 
             else:

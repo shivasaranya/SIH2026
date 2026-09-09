@@ -1,53 +1,180 @@
-mandal_id,mandal_name,district_name,c1_hazard_contrib,c2_sensitivity_contrib,c3_capacity_stress_contrib,c4_accessibility_contrib,dominant_driver
-MP_01,Ashoknagar,Ashoknagar,38.5,24.2,22.8,14.5,Hazard Exposure
-MP_02,Raisen,Raisen,38.5,24.2,22.8,14.5,Hazard Exposure
-MP_03,Chhindwara,Chhindwara,38.5,24.2,22.8,14.5,Hazard Exposure
-MP_04,Betul,Betul,38.5,24.2,22.8,14.5,Capacity Stress
-MP_05,Hoshangabad,Hoshangabad,38.5,24.2,22.8,14.5,Hazard Exposure
-MP_06,Sehore,Sehore,38.5,24.2,22.8,14.5,Hazard Exposure
-MP_07,Jabalpur,Jabalpur,38.5,24.2,22.8,14.5,Hazard Exposure
-MP_08,Narsimhapur,Narsimhapur,38.5,24.2,22.8,14.5,Hazard Exposure
-MP_09,Panna,Panna,38.5,24.2,22.8,14.5,Hazard Exposure
-MP_10,Ujjain,Ujjain,38.5,24.2,22.8,14.5,Capacity Stress
-MP_11,Rewa,Rewa,38.5,24.2,22.8,14.5,Capacity Stress
-MP_12,Dindori,Dindori,38.5,24.2,22.8,14.5,Capacity Stress
-MP_13,Balaghat,Balaghat,38.5,24.2,22.8,14.5,Hazard Exposure
-MP_14,Barwani,Barwani,38.5,24.2,22.8,14.5,Capacity Stress
-MP_15,Satna,Satna,38.5,24.2,22.8,14.5,Capacity Stress
-MP_16,Chhatarpur,Chhatarpur,38.5,24.2,22.8,14.5,Capacity Stress
-MP_17,Indore,Indore,38.5,24.2,22.8,14.5,Capacity Stress
-MP_18,Ratlam,Ratlam,38.5,24.2,22.8,14.5,Capacity Stress
-MP_19,Harda,Harda,38.5,24.2,22.8,14.5,Hazard Exposure
-MP_20,Sagar,Sagar,38.5,24.2,22.8,14.5,Hazard Exposure
-MP_21,Neemuch,Neemuch,38.5,24.2,22.8,14.5,Hazard Exposure
-MP_22,Tikamgarh,Tikamgarh,38.5,24.2,22.8,14.5,Capacity Stress
-MP_23,Guna,Guna,38.5,24.2,22.8,14.5,Hazard Exposure
-MP_24,Dewas,Dewas,38.5,24.2,22.8,14.5,Capacity Stress
-MP_25,Mandsaur,Mandsaur,38.5,24.2,22.8,14.5,Capacity Stress
-MP_26,Khargone (West Nimar),Khargone (West Nimar),38.5,24.2,22.8,14.5,Capacity Stress
-MP_27,Sheopur,Sheopur,38.5,24.2,22.8,14.5,Hazard Exposure
-MP_28,Morena,Morena,38.5,24.2,22.8,14.5,Capacity Stress
-MP_29,Bhind,Bhind,38.5,24.2,22.8,14.5,Capacity Stress
-MP_30,Jhabua,Jhabua,38.5,24.2,22.8,14.5,Hazard Exposure
-MP_31,Seoni,Seoni,38.5,24.2,22.8,14.5,Capacity Stress
-MP_32,Khandwa (East Nimar),Khandwa (East Nimar),38.5,24.2,22.8,14.5,Capacity Stress
-MP_33,Umaria,Umaria,38.5,24.2,22.8,14.5,Hazard Exposure
-MP_34,Gwalior,Gwalior,38.5,24.2,22.8,14.5,Hazard Exposure
-MP_35,Damoh,Damoh,38.5,24.2,22.8,14.5,Hazard Exposure
-MP_36,Dhar,Dhar,38.5,24.2,22.8,14.5,Hazard Exposure
-MP_37,Katni,Katni,38.5,24.2,22.8,14.5,Capacity Stress
-MP_38,Sidhi,Sidhi,38.5,24.2,22.8,14.5,Hazard Exposure
-MP_39,Alirajpur,Alirajpur,38.5,24.2,22.8,14.5,Hazard Exposure
-MP_40,Singrauli,Singrauli,38.5,24.2,22.8,14.5,Capacity Stress
-MP_41,Bhopal,Bhopal,38.5,24.2,22.8,14.5,Hazard Exposure
-MP_42,Rajgarh,Rajgarh,38.5,24.2,22.8,14.5,Hazard Exposure
-MP_43,Mandla,Mandla,38.5,24.2,22.8,14.5,Hazard Exposure
-MP_44,Shajapur,Shajapur,38.5,24.2,22.8,14.5,Capacity Stress
-MP_45,Shivpuri,Shivpuri,38.5,24.2,22.8,14.5,Hazard Exposure
-MP_46,Datia,Datia,38.5,24.2,22.8,14.5,Hazard Exposure
-MP_47,Burhanpur,Burhanpur,38.5,24.2,22.8,14.5,Hazard Exposure
-MP_48,Anuppur,Anuppur,38.5,24.2,22.8,14.5,Hazard Exposure
-MP_49,Shahdol,Shahdol,38.5,24.2,22.8,14.5,Capacity Stress
-MP_50,Vidisha,Vidisha,38.5,24.2,22.8,14.5,Capacity Stress
-MP_51,Agar,Agar,38.5,24.2,22.8,14.5,Capacity Stress
-MP_52,Niwari,Niwari,38.5,24.2,22.8,14.5,Capacity Stress
+mandal_id,mandal_name,current_district_id,current_district_name,c1_hazard_exposure,c2_demographic_sensitivity,c3_capacity_stress,c4_accessibility_constraint
+MP_U_005,Ajaigarh,MP_27,Panna,0.459,0.736,0.513,0.16
+MP_U_162,Rajpur,MP_02,Barwani,0.388,0.727,0.494,0.48
+MP_U_138,Jobat,MP_20,Jhabua,0.487,0.723,0.238,0.42
+MP_U_168,Bhainsdehi,MP_03,Betul,0.418,0.747,0.323,0.44
+MP_U_063,Garoth,MP_23,Mandsaur,0.434,0.712,0.343,0.44
+MP_U_099,Sohagpur,MP_17,Hoshangabad,0.4,0.739,0.434,0.3
+MP_U_064,Raghogarh,MP_14,Guna,0.425,0.639,0.465,0.48
+MP_U_076,Udaipura,MP_28,Raisen,0.404,0.698,0.45,0.34
+MP_U_152,Bhander,MP_09,Datia,0.449,0.733,0.155,0.46
+MP_U_110,Jabalpur,MP_19,Jabalpur,0.441,0.623,0.415,0.47
+MP_U_062,Sarangpur,MP_29,Rajgarh,0.382,0.66,0.448,0.48
+MP_U_169,Khargone,MP_45,West Nimar,0.346,0.683,0.487,0.46
+MP_U_074,Silwani,MP_28,Raisen,0.3,0.708,0.519,0.48
+MP_U_124,Itarsi,MP_17,Hoshangabad,0.351,0.755,0.256,0.51
+MP_U_153,Bhander,MP_09,Datia,0.408,0.67,0.492,0.23
+MP_U_157,Pohari,MP_39,Shivpuri,0.425,0.725,0.341,0.19
+MP_U_042,Agar,MP_37,Shajapur,0.473,0.742,0.13,0.22
+MP_U_022,Amarpatan,MP_33,Satna,0.368,0.732,0.471,0.15
+MP_U_036,Mungaoli,MP_14,Guna,0.37,0.663,0.337,0.48
+MP_U_010,Khaniyadhana,MP_39,Shivpuri,0.409,0.581,0.459,0.42
+MP_U_107,Indore,MP_18,Indore,0.415,0.697,0.378,0.11
+MP_U_141,Alirajpur,MP_20,Jhabua,0.369,0.631,0.499,0.35
+MP_U_174,Sendhwa,MP_02,Barwani,0.405,0.644,0.46,0.21
+MP_U_091,Gadarwara,MP_25,Narsimhapur,0.383,0.637,0.492,0.26
+MP_U_179,Lanji,MP_01,Balaghat,0.426,0.603,0.371,0.39
+MP_U_170,Pansemal,MP_02,Barwani,0.263,0.692,0.484,0.55
+MP_U_094,Lakhnadon,MP_35,Seoni,0.411,0.61,0.464,0.26
+MP_U_160,Karera,MP_39,Shivpuri,0.275,0.704,0.476,0.45
+MP_U_173,Segaon,MP_45,West Nimar,0.429,0.722,0.172,0.23
+MP_U_021,Ashta,MP_34,Sehore,0.375,0.712,0.402,0.12
+MP_U_038,Sironj,MP_44,Vidisha,0.43,0.624,0.425,0.16
+MP_U_100,Niwas,MP_22,Mandla,0.324,0.707,0.272,0.52
+MP_U_148,Gwalior,MP_15,Gwalior,0.442,0.704,0.151,0.23
+MP_U_077,Mahidpur,MP_42,Ujjain,0.36,0.681,0.348,0.29
+MP_U_052,Khurai,MP_32,Sagar,0.395,0.572,0.395,0.43
+MP_U_120,Lahar,MP_04,Bhind,0.433,0.593,0.44,0.13
+MP_U_095,Huzur,MP_05,Bhopal,0.329,0.708,0.321,0.31
+MP_U_114,Sehore,MP_34,Sehore,0.427,0.541,0.384,0.41
+MP_U_011,Guna,MP_14,Guna,0.402,0.606,0.404,0.24
+MP_U_139,Balaghat,MP_01,Balaghat,0.28,0.74,0.274,0.46
+MP_U_034,Banda1,MP_32,Sagar,0.294,0.696,0.519,0.15
+MP_U_172,Waraseoni,MP_01,Balaghat,0.394,0.553,0.444,0.36
+MP_U_024,Narsinghgarh,MP_29,Rajgarh,0.459,0.595,0.271,0.2
+MP_U_027,Mandsaur,MP_23,Mandsaur,0.373,0.508,0.481,0.54
+MP_U_015,Bhind,MP_04,Bhind,0.185,0.753,0.485,0.42
+MP_U_121,Mehgaon,MP_04,Bhind,0.414,0.553,0.492,0.19
+MP_U_116,Babai,MP_17,Hoshangabad,0.403,0.701,0.201,0.13
+MP_U_142,Harsud,MP_13,East Nimar,0.347,0.753,0.221,0.11
+MP_U_126,Mandla,MP_22,Mandla,0.403,0.571,0.249,0.47
+MP_U_127,Mhow,MP_18,Indore,0.243,0.75,0.328,0.36
+MP_U_133,Maheshwar,MP_45,West Nimar,0.278,0.687,0.37,0.38
+MP_U_004,Ajaigarh,MP_27,Panna,0.194,0.748,0.445,0.38
+MP_U_088,Depalpur,MP_18,Indore,0.341,0.589,0.514,0.24
+MP_U_144,Gwalior,MP_15,Gwalior,0.378,0.571,0.263,0.54
+MP_U_104,Jhabua,MP_20,Jhabua,0.311,0.663,0.249,0.49
+MP_U_105,Shujalpur,MP_37,Shajapur,0.418,0.528,0.383,0.34
+MP_U_112,Ichhawar,MP_34,Sehore,0.456,0.567,0.34,0.1
+MP_U_123,Lahar,MP_04,Bhind,0.302,0.673,0.432,0.21
+MP_U_122,Joura,MP_24,Morena,0.422,0.585,0.347,0.14
+MP_U_150,Sheopur,MP_38,Sheopur,0.429,0.522,0.412,0.24
+MP_U_040,Biaora,MP_29,Rajgarh,0.342,0.672,0.276,0.26
+MP_U_111,Kannod,MP_10,Dewas,0.417,0.488,0.505,0.25
+MP_U_019,Dewas,MP_10,Dewas,0.435,0.532,0.348,0.25
+MP_U_081,Harda,MP_16,Harda,0.438,0.417,0.42,0.53
+MP_U_178,Bhagwanpura,MP_45,West Nimar,0.3,0.753,0.177,0.27
+MP_U_012,Ajaigarh,MP_27,Panna,0.347,0.542,0.406,0.47
+MP_U_058,Lateri,MP_44,Vidisha,0.321,0.575,0.495,0.31
+MP_U_072,Ratlam,MP_30,Ratlam,0.255,0.727,0.22,0.46
+MP_U_001,Jatara,MP_41,Tikamgarh,0.404,0.504,0.3,0.51
+MP_U_030,Budni,MP_34,Sehore,0.301,0.598,0.397,0.45
+MP_U_033,Deosar,MP_40,Sidhi,0.299,0.615,0.307,0.53
+MP_U_046,Ashoknagar,MP_14,Guna,0.319,0.703,0.194,0.31
+MP_U_023,Malhargarh,MP_23,Mandsaur,0.338,0.658,0.237,0.32
+MP_U_048,Gurh,MP_31,Rewa,0.389,0.605,0.32,0.18
+MP_U_103,Dhar,MP_11,Dhar,0.353,0.71,0.213,0.11
+MP_U_083,Sohagpur1,MP_36,Shahdol,0.231,0.648,0.463,0.43
+MP_U_171,Burhanpur,MP_13,East Nimar,0.419,0.524,0.236,0.45
+MP_U_075,Amarwara,MP_07,Chhindwara,0.352,0.567,0.431,0.25
+MP_U_166,Bhikangaon,MP_45,West Nimar,0.301,0.537,0.441,0.53
+MP_U_085,Seondha,MP_09,Datia,0.277,0.748,0.288,0.1
+MP_U_067,Sihora,MP_19,Jabalpur,0.48,0.527,0.26,0.1
+MP_U_071,Tarana,MP_42,Ujjain,0.275,0.683,0.41,0.14
+MP_U_125,Hoshangabad,MP_17,Hoshangabad,0.294,0.606,0.492,0.22
+MP_U_098,Goharganj,MP_28,Raisen,0.421,0.522,0.142,0.51
+MP_U_007,Jaisinghnagar,MP_36,Shahdol,0.404,0.576,0.23,0.24
+MP_U_136,Lahar,MP_04,Bhind,0.379,0.476,0.397,0.44
+MP_U_025,Khilchipur,MP_29,Rajgarh,0.313,0.668,0.203,0.31
+MP_U_050,Damoh,MP_08,Damoh,0.335,0.625,0.23,0.32
+MP_U_057,Maihar,MP_33,Satna,0.206,0.756,0.254,0.32
+MP_U_119,Datia,MP_09,Datia,0.257,0.635,0.363,0.38
+MP_U_132,Barwaha,MP_45,West Nimar,0.247,0.702,0.317,0.25
+MP_U_009,Teonthar,MP_31,Rewa,0.329,0.502,0.445,0.41
+MP_U_056,Pawai,MP_27,Panna,0.438,0.449,0.355,0.27
+MP_U_080,Sardarpur,MP_11,Dhar,0.383,0.464,0.33,0.48
+MP_U_008,Chhatarpur,MP_06,Chhatarpur,0.44,0.418,0.319,0.42
+MP_U_093,Bagli,MP_10,Dewas,0.244,0.724,0.317,0.12
+MP_U_143,Morena,MP_24,Morena,0.409,0.555,0.268,0.12
+MP_U_164,Barwani,MP_02,Barwani,0.35,0.46,0.476,0.37
+MP_U_043,Alot,MP_30,Ratlam,0.347,0.517,0.327,0.39
+MP_U_060,Bijawar,MP_06,Chhatarpur,0.33,0.422,0.503,0.53
+MP_U_031,Nagod,MP_33,Satna,0.316,0.531,0.442,0.28
+MP_U_134,Gohad,MP_04,Bhind,0.183,0.723,0.365,0.26
+MP_U_044,Singrauli,MP_40,Sidhi,0.303,0.625,0.129,0.47
+MP_U_147,Manawar,MP_11,Dhar,0.417,0.453,0.403,0.2
+MP_U_163,Chhindwara,MP_07,Chhindwara,0.248,0.643,0.302,0.35
+MP_U_073,Thandla,MP_20,Jhabua,0.423,0.448,0.37,0.21
+MP_U_131,Khandwa,MP_13,East Nimar,0.307,0.614,0.36,0.11
+MP_U_017,Jawad,MP_26,Neemuch,0.257,0.575,0.409,0.36
+MP_U_090,Badnawar,MP_11,Dhar,0.311,0.585,0.172,0.45
+MP_U_039,Murwara,MP_21,Katni,0.4,0.393,0.406,0.4
+MP_U_066,Bandhogarh,MP_43,Umaria,0.312,0.571,0.171,0.47
+MP_U_109,Baraily,MP_28,Raisen,0.344,0.538,0.24,0.35
+MP_U_047,Mauganj,MP_31,Rewa,0.387,0.469,0.233,0.42
+MP_U_092,Begamganj,MP_28,Raisen,0.323,0.573,0.348,0.14
+MP_U_135,Vijaypur,MP_38,Sheopur,0.381,0.567,0.221,0.12
+MP_U_051,Manasa,MP_26,Neemuch,0.423,0.474,0.289,0.17
+MP_U_082,Ujjain,MP_42,Ujjain,0.269,0.614,0.21,0.41
+MP_U_053,Susner,MP_37,Shajapur,0.363,0.518,0.24,0.31
+MP_U_128,Baihar,MP_01,Balaghat,0.401,0.491,0.204,0.31
+MP_U_016,Chanderi,MP_14,Guna,0.43,0.393,0.418,0.21
+MP_U_084,Khacharod,MP_42,Ujjain,0.316,0.606,0.185,0.27
+MP_U_041,Sagar,MP_32,Sagar,0.373,0.42,0.27,0.54
+MP_U_055,Rajgarh,MP_29,Rajgarh,0.245,0.676,0.145,0.35
+MP_U_167,Kasrawad,MP_45,West Nimar,0.315,0.442,0.428,0.46
+MP_U_003,Ajaigarh,MP_27,Panna,0.308,0.432,0.454,0.48
+MP_U_086,Dindori,MP_12,Dindori,0.173,0.756,0.155,0.33
+MP_U_115,Khategaon,MP_10,Dewas,0.353,0.469,0.419,0.22
+MP_U_054,Jaora,MP_30,Ratlam,0.33,0.482,0.267,0.48
+MP_U_137,Seoni-Malwa,MP_17,Hoshangabad,0.403,0.445,0.286,0.28
+MP_U_078,Shajapur,MP_37,Shajapur,0.311,0.454,0.517,0.26
+MP_U_113,Vidisha,MP_44,Vidisha,0.201,0.63,0.244,0.49
+MP_U_146,Kukshi,MP_11,Dhar,0.223,0.617,0.373,0.26
+MP_U_014,Raghurajnagar,MP_33,Satna,0.254,0.622,0.297,0.22
+MP_U_177,Bhainsdehi,MP_03,Betul,0.229,0.694,0.188,0.23
+MP_U_175,Jhiranya,MP_45,West Nimar,0.282,0.455,0.476,0.4
+MP_U_145,Sabalgarh,MP_24,Morena,0.264,0.628,0.282,0.13
+MP_U_129,Alirajpur,MP_20,Jhabua,0.421,0.397,0.146,0.51
+MP_U_140,Seoni,MP_35,Seoni,0.247,0.574,0.326,0.31
+MP_U_118,Gairatganj,MP_28,Raisen,0.354,0.519,0.213,0.24
+MP_U_006,Basoda,MP_44,Vidisha,0.257,0.581,0.145,0.5
+MP_U_096,Pipariya,MP_17,Hoshangabad,0.399,0.43,0.144,0.46
+MP_U_117,Raisen,MP_28,Raisen,0.214,0.637,0.36,0.14
+MP_U_106,Patan,MP_19,Jabalpur,0.282,0.515,0.481,0.11
+MP_U_079,Sawer,MP_18,Indore,0.272,0.562,0.25,0.31
+MP_U_049,Gopadbanas,MP_40,Sidhi,0.36,0.462,0.346,0.14
+MP_U_097,Badnagar,MP_42,Ujjain,0.244,0.564,0.417,0.11
+MP_U_156,Niwari,MP_41,Tikamgarh,0.253,0.534,0.344,0.27
+MP_U_002,Pichhore,MP_39,Shivpuri,0.407,0.394,0.228,0.3
+MP_U_149,Betul,MP_03,Betul,0.251,0.553,0.262,0.31
+MP_U_037,Chachaura,MP_14,Guna,0.244,0.502,0.506,0.13
+MP_U_108,Pushparajgarh,MP_36,Shahdol,0.252,0.463,0.392,0.38
+MP_U_165,Multai,MP_03,Betul,0.246,0.482,0.511,0.13
+MP_U_159,Bhander,MP_09,Datia,0.295,0.408,0.415,0.33
+MP_U_065,Neemuch,MP_26,Neemuch,0.274,0.501,0.153,0.47
+MP_U_089,Anuppur,MP_36,Shahdol,0.297,0.392,0.298,0.54
+MP_U_161,Datia,MP_09,Datia,0.289,0.399,0.314,0.51
+MP_U_059,Rehli,MP_32,Sagar,0.314,0.511,0.214,0.15
+MP_U_020,Berasia,MP_05,Bhopal,0.249,0.391,0.516,0.37
+MP_U_069,Hatta,MP_08,Damoh,0.237,0.595,0.175,0.21
+MP_U_158,Laundi,MP_06,Chhatarpur,0.294,0.496,0.153,0.35
+MP_U_176,Sausar,MP_07,Chhindwara,0.229,0.543,0.271,0.26
+MP_U_035,Nasrullaganj,MP_34,Sehore,0.23,0.474,0.286,0.46
+MP_U_032,Bhanpura,MP_23,Mandsaur,0.324,0.405,0.234,0.4
+MP_U_130,Parasia,MP_07,Chhindwara,0.225,0.498,0.283,0.39
+MP_U_013,Ambah,MP_24,Morena,0.263,0.403,0.383,0.41
+MP_U_068,Kurwai,MP_44,Vidisha,0.251,0.477,0.176,0.51
+MP_U_151,Bhander,MP_09,Datia,0.214,0.633,0.185,0.1
+MP_U_155,Kolaras,MP_39,Shivpuri,0.264,0.444,0.431,0.16
+MP_U_061,Sitamau,MP_23,Mandsaur,0.306,0.407,0.196,0.45
+MP_U_028,Sailana,MP_30,Ratlam,0.241,0.506,0.171,0.36
+MP_U_154,Shivpuri,MP_39,Shivpuri,0.371,0.396,0.167,0.22
+MP_U_026,Beohari,MP_36,Shahdol,0.266,0.403,0.377,0.29
+MP_U_070,Sirmour,MP_31,Rewa,0.247,0.422,0.438,0.13
+MP_U_102,Petlawad,MP_20,Jhabua,0.256,0.42,0.127,0.53
+MP_U_018,Pichhore,MP_39,Shivpuri,0.23,0.388,0.464,0.15
+MP_U_087,Sonkatch,MP_10,Dewas,0.22,0.479,0.147,0.34
+MP_U_045,Tikamgarh,MP_41,Tikamgarh,0.26,0.446,0.216,0.19
+MP_U_029,Panna,MP_27,Panna,0.226,0.462,0.147,0.17
+MP_U_101,Narsimhapur,MP_25,Narsimhapur,0.241,0.43,0.186,0.12

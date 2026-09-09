@@ -12,6 +12,12 @@ from app.hazard.schemas import (
 
 def resolve_state_key(state_id: Optional[str]) -> str:
     return get_state_key(state_id)
+
+def is_mizoram(state_id: Optional[str]) -> bool:
+    return get_state_key(state_id) == "mizoram"
+
+def is_hp(state_id: Optional[str]) -> bool:
+    return get_state_key(state_id) == "himachal_pradesh"
 class HazardService:
     def __init__(self):
         self._cache: Dict[str, Dict[str, Any]] = {}
@@ -24,15 +30,25 @@ class HazardService:
         if key in self._cache:
             return self._cache[key]
 
+        haz_dir = settings.DATA_DIR / "processed" / "hazard" / "mandal_exposure"
         meta = state_registry.get_state(key)
         csv_path = meta.hazard_csv
         geojson_path = meta.hazard_geojson
+
+        if not csv_path or not csv_path.exists():
+            cand_csv = haz_dir / f"{key}_multi_hazard_exposure.csv"
+            csv_path = cand_csv if cand_csv.exists() else haz_dir / "mandal_multi_hazard_exposure.csv"
+
+        if not geojson_path or not geojson_path.exists():
+            cand_geo = haz_dir / f"{key}_multi_hazard_exposure.geojson"
+            geojson_path = cand_geo if cand_geo.exists() else haz_dir / "ap_mandal_multi_hazard_exposure.geojson"
+
         if not meta.is_coastal:
             surge_included = False
-            surge_reason = f"Inland {meta.name}: Direct coastal storm surge is Not Applicable (0.0). Inland models applied."
+            surge_reason = f"Inland {meta.name}: Direct coastal storm surge is Not Applicable (0.0). Inland hazard models applied."
         elif key == "tamil_nadu":
             surge_included = True
-            surge_reason = "None"
+            surge_reason = "Tamil Nadu Coromandel coast and Cauvery delta model cyclone storm surge and riverine flood recurrence."
         else:
             surge_included = False
             surge_reason = "Open-access coastal surge inundation layer requires dynamic hydrodynamic modeling (e.g. ADCIRC). Historical tropical storm buffers applied as proxy."

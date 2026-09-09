@@ -21,7 +21,7 @@ export const EmergencyCapacityPage: React.FC<EmergencyCapacityPageProps> = () =>
 
   useEffect(() => {
     let isMounted = true;
-    fetchVulnerabilityGeoJson()
+    fetchVulnerabilityGeoJson(undefined, currentState.id)
       .then((geo) => {
         if (!isMounted) return;
         const props = geo.features.map((f: any) => f.properties as MandalProperties);

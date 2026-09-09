@@ -11,11 +11,11 @@ from app.decision.schemas import (
     ActionDashboardSummary,
 )
 
-
 from app.core.state_registry import state_registry, get_state_key
 
 def resolve_state_key(state_id: Optional[str]) -> str:
     return get_state_key(state_id)
+
 def is_mizoram(state_id: Optional[str]) -> bool:
     return get_state_key(state_id) == "mizoram"
 
@@ -33,7 +33,6 @@ def is_mp(state_id: Optional[str]) -> bool:
         return False
     clean = state_id.strip().lower().replace("-", "_").replace(" ", "_")
     return clean in ["madhya_pradesh", "mp", "madhyapradesh"]
-
 class DecisionService:
     def __init__(self):
         self._cache: Dict[str, Dict[str, Any]] = {}
@@ -66,6 +65,16 @@ class DecisionService:
         reloc_csv = meta.relocation_csv
         cap_csv = meta.capacity_adequacy_csv
         hosts_csv = meta.host_candidates_csv
+
+        reloc_dir = settings.DATA_DIR / "processed" / "relocation"
+        cap_dir = settings.DATA_DIR / "processed" / "capacity"
+
+        if not reloc_csv or not reloc_csv.exists():
+            reloc_csv = reloc_dir / f"{key}_relocation_priority.csv" if (reloc_dir / f"{key}_relocation_priority.csv").exists() else reloc_dir / "mandal_relocation_priority.csv"
+        if not cap_csv or not cap_csv.exists():
+            cap_csv = cap_dir / f"{key}_capacity_adequacy.csv" if (cap_dir / f"{key}_capacity_adequacy.csv").exists() else cap_dir / "mandal_capacity_adequacy.csv"
+        if not hosts_csv or not hosts_csv.exists():
+            hosts_csv = cap_dir / f"{key}_host_zone_candidates.csv" if (cap_dir / f"{key}_host_zone_candidates.csv").exists() else cap_dir / "host_zone_candidates.csv"
 
         if not reloc_csv or not cap_csv or not hosts_csv or not reloc_csv.exists() or not cap_csv.exists() or not hosts_csv.exists():
             raise FileNotFoundError(f"Required processed datasets (relocation, capacity, host_candidates) not found for {key}.")

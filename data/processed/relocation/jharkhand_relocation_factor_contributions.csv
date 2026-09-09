@@ -1,25 +1,27 @@
-mandal_id,mandal_name,district_name,c1_hazard_contrib,c2_sensitivity_contrib,c3_capacity_stress_contrib,c4_accessibility_contrib,dominant_driver
-JH_01,Jamtara,Jamtara,38.5,24.2,22.8,14.5,Capacity Stress
-JH_02,Saraikela-Kharsawan,Saraikela-Kharsawan,38.5,24.2,22.8,14.5,Hazard Exposure
-JH_03,Simdega,Simdega,38.5,24.2,22.8,14.5,Capacity Stress
-JH_04,Latehar,Latehar,38.5,24.2,22.8,14.5,Capacity Stress
-JH_05,Khunti,Khunti,38.5,24.2,22.8,14.5,Hazard Exposure
-JH_06,Pashchimi Singhbhum,Pashchimi Singhbhum,38.5,24.2,22.8,14.5,Capacity Stress
-JH_07,Hazaribagh,Hazaribagh,38.5,24.2,22.8,14.5,Capacity Stress
-JH_08,Chatra,Chatra,38.5,24.2,22.8,14.5,Hazard Exposure
-JH_09,Purbi Singhbhum,Purbi Singhbhum,38.5,24.2,22.8,14.5,Hazard Exposure
-JH_10,Kodarma,Kodarma,38.5,24.2,22.8,14.5,Hazard Exposure
-JH_11,Giridih,Giridih,38.5,24.2,22.8,14.5,Capacity Stress
-JH_12,Lohardaga,Lohardaga,38.5,24.2,22.8,14.5,Hazard Exposure
-JH_13,Sahibganj,Sahibganj,38.5,24.2,22.8,14.5,Capacity Stress
-JH_14,Godda,Godda,38.5,24.2,22.8,14.5,Hazard Exposure
-JH_15,Palamu,Palamu,38.5,24.2,22.8,14.5,Capacity Stress
-JH_16,Dhanbad,Dhanbad,38.5,24.2,22.8,14.5,Hazard Exposure
-JH_17,Dumka,Dumka,38.5,24.2,22.8,14.5,Hazard Exposure
-JH_18,Bokaro,Bokaro,38.5,24.2,22.8,14.5,Capacity Stress
-JH_19,Deoghar,Deoghar,38.5,24.2,22.8,14.5,Hazard Exposure
-JH_20,Gumla,Gumla,38.5,24.2,22.8,14.5,Hazard Exposure
-JH_21,Ramgarh,Ramgarh,38.5,24.2,22.8,14.5,Hazard Exposure
-JH_22,Garhwa,Garhwa,38.5,24.2,22.8,14.5,Hazard Exposure
-JH_23,Ranchi,Ranchi,38.5,24.2,22.8,14.5,Capacity Stress
-JH_24,Pakur,Pakur,38.5,24.2,22.8,14.5,Capacity Stress
+mandal_id,mandal_name,current_district_id,current_district_name,c1_hazard_exposure,c2_demographic_sensitivity,c3_capacity_stress,c4_accessibility_constraint
+JH_U_013,Jamtara,JH_05,Dumka,0.438,0.75,0.505,0.48
+JH_U_021,Gumla,JH_09,Gumla,0.465,0.623,0.518,0.43
+JH_U_024,Chaibasa,JH_15,Pashchimi Singhbhum,0.369,0.681,0.495,0.18
+JH_U_009,Hazaribag,JH_10,Hazaribagh,0.273,0.721,0.459,0.45
+JH_U_004,Godda,JH_08,Godda,0.326,0.627,0.441,0.48
+JH_U_018,Kharsawan,JH_15,Pashchimi Singhbhum,0.346,0.709,0.288,0.29
+JH_U_020,Ranchi,JH_17,Ranchi,0.33,0.579,0.471,0.53
+JH_U_006,Chatra,JH_02,Chatra,0.436,0.583,0.327,0.25
+JH_U_025,Lohardaga,JH_12,Lohardaga,0.378,0.48,0.389,0.48
+JH_U_003,Baghmara-Cum-Katras,JH_04,Dhanbad,0.435,0.541,0.183,0.34
+JH_U_001,Chatra,JH_02,Chatra,0.246,0.604,0.42,0.45
+JH_U_008,Garhwa,JH_06,Garhwa,0.346,0.548,0.237,0.49
+JH_U_019,Dhalbhumgarh,JH_16,Purbi Singhbhum,0.288,0.652,0.248,0.34
+JH_U_005,Deoghar,JH_03,Deoghar,0.291,0.484,0.509,0.52
+JH_U_016,Dhanbad-Cum-Kenduadih-Jagta,JH_04,Dhanbad,0.264,0.606,0.426,0.31
+JH_U_002,Bermo,JH_01,Bokaro,0.274,0.667,0.264,0.23
+JH_U_011,Dumka,JH_05,Dumka,0.362,0.468,0.378,0.32
+JH_U_017,Giridih,JH_07,Giridih,0.242,0.607,0.217,0.46
+JH_U_015,Pakaur,JH_13,Pakaur,0.456,0.421,0.199,0.26
+JH_U_022,Khunti,JH_17,Ranchi,0.297,0.565,0.276,0.28
+JH_U_010,Kodarma,JH_11,Kodarma,0.458,0.396,0.22,0.18
+JH_U_026,Rajmahal,JH_18,Sahibganj,0.31,0.454,0.264,0.46
+JH_U_014,Daltonganj,JH_14,Palamu,0.27,0.555,0.201,0.28
+JH_U_012,Latehar,JH_14,Palamu,0.302,0.401,0.31,0.27
+JH_U_023,Simdega,JH_09,Gumla,0.259,0.401,0.229,0.3
+JH_U_007,Chakradharpur,JH_15,Pashchimi Singhbhum,0.208,0.382,0.247,0.49

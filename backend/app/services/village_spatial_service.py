@@ -11,13 +11,14 @@ except ImportError:
 
 from shapely.geometry import shape, Point, Polygon, MultiPolygon, mapping
 from shapely.validation import make_valid
-
 try:
     import rasterio
     from rasterio.mask import mask
+    HAS_RASTERIO = True
 except ImportError:
     rasterio = None
     mask = None
+    HAS_RASTERIO = False
 
 from app.core.config import settings
 from app.village.schemas import (
@@ -453,7 +454,6 @@ class VillageSpatialService:
             if not match.empty:
                 row = match.iloc[0].copy()
                 if "geometry" not in row or pd.isna(row.get("geometry")):
-                    from shapely.geometry import Point
                     cx = row.get("centroid_x_7755", 0.0)
                     cy = row.get("centroid_y_7755", 0.0)
                     row["geometry"] = Point(cx, cy)
@@ -597,7 +597,7 @@ class VillageSpatialService:
 
         # Default: Andhra Pradesh
         flood_tif = settings.DATA_DIR / "processed" / "hazard" / "flood" / "ap_water_recurrence.tif"
-        if not flood_tif.exists() or geom_4326.is_empty:
+        if not HAS_RASTERIO or not flood_tif.exists() or geom_4326.is_empty:
             if not geom_4326.is_empty:
                 area_ha = max(1.0, geom_4326.area * 111000 * 111000 / 10000.0)
                 sim_pixels = max(12, int(area_ha * 8))
@@ -609,7 +609,6 @@ class VillageSpatialService:
                     "score": 0.1635,
                     "status": "DERIVED_SAMPLE"
                 }
-            return None
             return {"valid_pixels": 0, "mean_rec": 0.0, "max_rec": 0.0, "pct_affected": 0.0, "score": 0.0, "status": "INSUFFICIENT_DATA"}
 
         try:
@@ -690,7 +689,7 @@ class VillageSpatialService:
 
         # Default: Andhra Pradesh
         slope_tif = settings.DATA_DIR / "processed" / "hazard" / "slope" / "ap_slope_degrees.tif"
-        if not slope_tif.exists() or geom_7755.is_empty:
+        if not HAS_RASTERIO or not slope_tif.exists() or geom_7755.is_empty:
             if not geom_7755.is_empty:
                 area_ha = max(1.0, geom_7755.area / 10000.0)
                 sim_pixels = max(15, int(area_ha / 0.81))
@@ -702,7 +701,6 @@ class VillageSpatialService:
                     "score": 0.1558,
                     "status": "DERIVED_SAMPLE"
                 }
-            return None
             return {"valid_pixels": 0, "mean_slope": 0.0, "max_slope": 0.0, "pct_steep": 0.0, "score": 0.0, "status": "INSUFFICIENT_DATA"}
 
         try:
@@ -1349,10 +1347,23 @@ class VillageSpatialService:
         # ------------------------------------------------------------------
         if clean_intensity == "high":
             v_mcode = row.get("mandal_code")
-            intra_mandal_villages = b_villages_gdf[
-                (b_villages_gdf["mandal_code"] == v_mcode) &
-                (b_villages_gdf["village_code"] != village_code)
-            ].copy() if b_villages_gdf is not None else gpd.GeoDataFrame()
+            v_mname = row.get("mandal_name")
+            if b_villages_gdf is not None and not b_villages_gdf.empty:
+                intra_mandal_villages = b_villages_gdf[
+                    (b_villages_gdf["mandal_code"] == v_mcode) &
+                    (b_villages_gdf["village_code"] != village_code)
+                ].copy()
+            elif bundle.villages_index is not None and not bundle.villages_index.empty:
+                m_filter = (bundle.villages_index["mandal_code"] == v_mcode) if v_mcode and pd.notna(v_mcode) else (bundle.villages_index["mandal_name"] == v_mname)
+                intra_mandal_villages = bundle.villages_index[
+                    m_filter & (bundle.villages_index["village_code"] != village_code)
+                ].copy()
+                if not intra_mandal_villages.empty:
+                    intra_mandal_villages["geometry"] = [
+                        Point(x, y) for x, y in zip(intra_mandal_villages["centroid_x_7755"], intra_mandal_villages["centroid_y_7755"])
+                    ]
+            else:
+                intra_mandal_villages = gpd.GeoDataFrame()
 
             # Origin mandal row in cap_df
             m_cap_row = pd.DataFrame()

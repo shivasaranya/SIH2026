@@ -33,6 +33,7 @@ export default defineConfig({
     proxy: apiProxy,
   },
   preview: {
+    host: true,
     port: 5173,
     proxy: apiProxy,
   },

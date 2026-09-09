@@ -69,7 +69,7 @@ def get_state_key(state_id: Optional[str]) -> str:
     return STATE_ALIAS_MAP.get(clean, clean)
 
 def is_jk(state_id: Optional[str]) -> bool:
-    return get_state_key(state_id) == "jammu_kashmir"
+    return get_state_key(state_id) in ["jammu_kashmir", "jammu_and_kashmir"]
 
 def is_mp(state_id: Optional[str]) -> bool:
     return get_state_key(state_id) == "madhya_pradesh"
@@ -665,22 +665,22 @@ class StateRegistry:
                 admin_unit_name="Tehsil",
                 admin_unit_plural="Tehsils",
                 district_count=33,
-                admin_unit_count=338,
+                admin_unit_count=244,
                 is_coastal=False,
-                districts_geojson=proc_admin / "rajasthan_districts.geojson",
-                admin_units_geojson=proc_reloc / "rajasthan_relocation_priority.geojson",
-                census_csv=proc_census / "rajasthan_demographics.csv",
-                hazard_csv=proc_haz / "rajasthan_hazard_exposure.csv",
-                hazard_geojson=proc_vuln / "rajasthan_vulnerability.geojson",
-                vulnerability_csv=proc_vuln / "rajasthan_demographic_vulnerability.csv",
-                vulnerability_geojson=proc_vuln / "rajasthan_vulnerability.geojson",
-                capacity_components_csv=proc_cap / "rajasthan_capacity_components.csv",
-                capacity_adequacy_csv=proc_cap / "rajasthan_capacity_adequacy.csv",
+                districts_geojson=proc_admin / "rajasthan_33_districts.geojson",
+                admin_units_geojson=proc_admin / "rajasthan_tehsils.geojson",
+                census_csv=proc_census / "rajasthan_tehsil_demographics.csv",
+                hazard_csv=proc_haz / "rajasthan_tehsil_multi_hazard_exposure.csv",
+                hazard_geojson=proc_haz / "rajasthan_tehsil_multi_hazard_exposure.geojson",
+                vulnerability_csv=proc_vuln / "rajasthan_tehsil_demographic_vulnerability.csv",
+                vulnerability_geojson=proc_vuln / "rajasthan_tehsil_vulnerability.geojson",
+                capacity_components_csv=proc_cap / "rajasthan_tehsil_capacity_components.csv",
+                capacity_adequacy_csv=proc_cap / "rajasthan_tehsil_capacity_adequacy.csv",
                 host_candidates_csv=proc_cap / "rajasthan_host_zone_candidates.csv",
-                capacity_geojson=proc_cap / "rajasthan_capacity_adequacy.geojson",
-                relocation_csv=proc_reloc / "rajasthan_relocation_priority.csv",
-                relocation_geojson=proc_reloc / "rajasthan_relocation_priority.geojson",
-                relocation_summary_csv=proc_reloc / "rajasthan_relocation_priority.csv",
+                capacity_geojson=proc_cap / "rajasthan_tehsil_capacity_adequacy.geojson",
+                relocation_csv=proc_reloc / "rajasthan_tehsil_relocation_priority.csv",
+                relocation_geojson=proc_reloc / "rajasthan_tehsil_relocation_priority.geojson",
+                relocation_summary_csv=proc_reloc / "rajasthan_relocation_priority_summary.csv",
                 ahp_weights_csv=proc_reloc / "rajasthan_ahp_weights.csv",
                 factors_csv=proc_reloc / "rajasthan_relocation_factor_contributions.csv"
             ),
@@ -781,6 +781,22 @@ class StateRegistry:
         pretty_name = key.replace("_", " ").title()
         code = "".join([w[0] for w in pretty_name.split()]).upper()[:3]
 
+        haz_csv = proc_haz / f"{key}_multi_hazard_exposure.csv"
+        if not haz_csv.exists():
+            haz_csv = proc_haz / f"{key}_hazard_exposure.csv"
+
+        haz_geo = proc_haz / f"{key}_multi_hazard_exposure.geojson"
+        if not haz_geo.exists():
+            haz_geo = proc_vuln / f"{key}_vulnerability.geojson"
+
+        cap_comp = proc_cap / f"{key}_capacity_components.csv"
+        if not cap_comp.exists():
+            cap_comp = proc_cap / f"{key}_capacity_adequacy.csv"
+
+        reloc_sum = proc_reloc / f"{key}_relocation_priority_summary.csv"
+        if not reloc_sum.exists():
+            reloc_sum = proc_reloc / f"{key}_relocation_priority.csv"
+
         return StateMetadata(
             id=key,
             code=code,
@@ -790,20 +806,20 @@ class StateRegistry:
             district_count=20,
             admin_unit_count=100,
             is_coastal=False,
-            districts_geojson=dist_path,
+            districts_geojson=dist_path if dist_path.exists() else None,
             admin_units_geojson=proc_reloc / f"{key}_relocation_priority.geojson",
             census_csv=proc_census / f"{key}_demographics.csv",
-            hazard_csv=proc_haz / f"{key}_hazard_exposure.csv",
-            hazard_geojson=proc_vuln / f"{key}_vulnerability.geojson",
+            hazard_csv=haz_csv,
+            hazard_geojson=haz_geo,
             vulnerability_csv=proc_vuln / f"{key}_demographic_vulnerability.csv",
             vulnerability_geojson=proc_vuln / f"{key}_vulnerability.geojson",
-            capacity_components_csv=proc_cap / f"{key}_capacity_components.csv",
+            capacity_components_csv=cap_comp,
             capacity_adequacy_csv=proc_cap / f"{key}_capacity_adequacy.csv",
             host_candidates_csv=proc_cap / f"{key}_host_zone_candidates.csv",
             capacity_geojson=proc_cap / f"{key}_capacity_adequacy.geojson",
             relocation_csv=proc_reloc / f"{key}_relocation_priority.csv",
             relocation_geojson=proc_reloc / f"{key}_relocation_priority.geojson",
-            relocation_summary_csv=proc_reloc / f"{key}_relocation_priority.csv",
+            relocation_summary_csv=reloc_sum,
             ahp_weights_csv=proc_reloc / f"{key}_ahp_weights.csv",
             factors_csv=proc_reloc / f"{key}_relocation_factor_contributions.csv"
         )
