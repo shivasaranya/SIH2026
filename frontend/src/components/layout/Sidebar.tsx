@@ -2,13 +2,10 @@ import React, { useState } from 'react';
 import { 
   LayoutDashboard, 
   Map, 
-  AlertTriangle, 
-  Scale, 
   MapPin, 
   Sliders, 
   BookOpen, 
   Activity, 
-  Users, 
   ShieldCheck, 
   Clock,
   ChevronLeft,
@@ -44,9 +41,6 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab, onSelectTab }) => {
   const priorityCount = isMP ? '422' : isJK ? '197' : isMZ ? '26' : isHP ? '172' : isTN ? '302' : '680';
 
   const assessmentItems = [
-    { id: 'hazard' as ActiveTab, label: 'Hazard Risk', icon: AlertTriangle },
-    { id: 'vulnerability' as ActiveTab, label: 'Community Vulnerability', icon: Users },
-    { id: 'capacity' as ActiveTab, label: 'Emergency Capacity', icon: Scale },
     { id: 'relocation' as ActiveTab, label: 'Relocation Planning', icon: MapPin },
     ...(isAP ? [{ id: 'village' as ActiveTab, label: 'Village Habitation Analysis', icon: Home, badge: '17K' }] : [])
   ];
