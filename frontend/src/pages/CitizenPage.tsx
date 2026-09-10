@@ -116,7 +116,7 @@ export const CitizenPage: React.FC<CitizenPageProps> = ({
               onClick={onNavigateToGovernment}
               className="flex items-center gap-1.5 px-3 sm:px-4 py-1.5 rounded-xl bg-indigo-600/20 hover:bg-indigo-600/30 text-indigo-300 hover:text-indigo-200 border border-indigo-500/40 text-xs font-semibold transition shadow-sm"
             >
-              <span className="hidden sm:inline">Government Authority Login</span>
+              <span className="hidden sm:inline">Government Portal</span>
               <span className="sm:hidden">Gov Portal</span>
               <ExternalLink className="w-3 h-3" />
             </button>

@@ -21,7 +21,6 @@ import { VerificationQueuePage } from './pages/VerificationQueuePage';
 import { VerifiedIncidentsPage } from './pages/VerifiedIncidentsPage';
 import { AlertHistoryPage } from './pages/AlertHistoryPage';
 import { EmergencyAnalyticsPage } from './pages/EmergencyAnalyticsPage';
-import { GovernmentLoginPage } from './pages/GovernmentLoginPage';
 import { StateSelectionScreen } from './pages/StateSelectionScreen';
 import { CitizenPage } from './pages/CitizenPage';
 import { VillageAnalysisPage } from './pages/VillageAnalysisPage';
@@ -33,7 +32,6 @@ import type { MandalProperties } from './types/gis';
 
 export type PortalRole = 
   | 'landing' 
-  | 'government_login'
   | 'government_state_selection' 
   | 'government_portal' 
   | 'citizen';
@@ -81,22 +79,27 @@ function AppContent() {
       hash === '#government/login' || 
       hash === '#auth' || 
       pathname === '/login' || 
-      pathname === '/government/login'
+      pathname === '/government/login' ||
+      hash === '#government/select-state' || 
+      hash === '#government/states' || 
+      hash === '#india' || 
+      hash === '#government' ||
+      pathname === '/government/select-state' ||
+      pathname === '/government'
     ) {
-      return 'government_login';
-    }
-    if (hash === '#government/select-state' || hash === '#government/states' || pathname === '/government/select-state') {
       return 'government_state_selection';
     }
     if (
       hash.startsWith('#government/') ||
-      hash === '#government' ||
       pathname.startsWith('/government/') ||
-      pathname === '/government' ||
       hash.includes('hosts') ||
       hash.includes('safer-locations')
     ) {
-      return 'government_portal';
+      const match = `${pathname}${hash}`.match(/government\/([a-z0-9_-]+)/i);
+      if (match && match[1] && match[1] !== 'select-state' && match[1] !== 'states' && match[1] !== 'login') {
+        return 'government_portal';
+      }
+      return 'government_state_selection';
     }
     if (hash === '#citizen' || hash.startsWith('#citizen/') || pathname.startsWith('/citizen')) return 'citizen';
     return 'landing';
@@ -128,26 +131,27 @@ function AppContent() {
         hash === '#auth' || 
         pathname === '/login' || 
         pathname === '/government/login' ||
-        hash.endsWith('/login')
-      ) {
-        setPortalRole('government_login');
-        return;
-      }
-      if (
+        hash.endsWith('/login') ||
         hash.includes('select-state') || 
         hash.includes('states') || 
-        pathname.includes('select-state')
+        hash === '#india' ||
+        pathname.includes('select-state') ||
+        hash === '#government' ||
+        pathname === '/government'
       ) {
         setPortalRole('government_state_selection');
         return;
       }
       if (fullUrl.includes('government/') || hash === '#government' || pathname === '/government') {
-        setPortalRole('government_portal');
         const match = fullUrl.match(/government\/([a-z0-9_-]+)/i);
         if (match && match[1] && match[1] !== 'select-state' && match[1] !== 'states' && match[1] !== 'login' && match[1] !== 'dashboard') {
           const resolved = resolveStateId(match[1]);
           setStateId(resolved);
           setActiveStateId(resolved);
+          setPortalRole('government_portal');
+        } else {
+          setPortalRole('government_state_selection');
+          return;
         }
         if (fullUrl.includes('dashboard')) {
           setActiveTab('dashboard');
@@ -174,31 +178,24 @@ function AppContent() {
     setActiveStateId(stateId);
   }, [stateId]);
 
-  // From Landing: Government -> Government Secure Login, Citizen -> Citizen Portal
+  // From Landing: Continue as Government -> India Map (StateSelectionScreen)
+  const handleContinueAsGovernment = () => {
+    setPortalRole('government_state_selection');
+    window.location.hash = '#government/select-state';
+    if (window.history && window.history.pushState) {
+      window.history.pushState(null, '', '/government/select-state');
+    }
+  };
+
   const handleSelectRoleFromLanding = (role: 'government' | 'citizen') => {
     if (role === 'government') {
-      setPortalRole('government_login');
-      window.location.hash = '#government/login';
-      if (window.history && window.history.pushState) {
-        window.history.pushState(null, '', '/government/login');
-      }
+      handleContinueAsGovernment();
     } else {
       setPortalRole('citizen');
       window.location.hash = '#citizen';
       if (window.history && window.history.pushState) {
         window.history.pushState(null, '', '/citizen');
       }
-    }
-  };
-
-  // From Government Login: Transition to Government Command Center Dashboard
-  const handleGovernmentLoginSuccess = (preferredState?: string) => {
-    // After successful login, navigate to the state selection screen (India map) as the starting point.
-    // PreferredState is ignored to provide a neutral entry.
-    setPortalRole('government_state_selection');
-    window.location.hash = '#government/select-state';
-    if (window.history && window.history.pushState) {
-      window.history.pushState(null, '', '/government/select-state');
     }
   };
 
@@ -245,20 +242,14 @@ function AppContent() {
     );
   }
 
-  // If on Government Login Screen (Final SIH26191 Government Secure Login)
-  if (portalRole === 'government_login') {
-    return (
-      <GovernmentLoginPage
-        onLoginSuccess={handleGovernmentLoginSuccess}
-        onNavigateToCitizen={() => handleSelectRoleFromLanding('citizen')}
-        onNavigateToLanding={handleReturnToLanding}
-      />
-    );
-  }
-
   // If on Initial Landing / Access-Selection Screen
   if (portalRole === 'landing') {
-    return <LandingScreen onSelectRole={handleSelectRoleFromLanding} />;
+    return (
+      <LandingScreen 
+        onContinueAsGovernment={handleContinueAsGovernment}
+        onSelectRole={handleSelectRoleFromLanding} 
+      />
+    );
   }
 
   // If on Government State Selection Screen (India Map)

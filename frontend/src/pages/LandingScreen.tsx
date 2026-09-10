@@ -1,7 +1,6 @@
 import React from 'react';
 import { 
   Landmark, 
-  Users, 
   ArrowRight, 
   HeartHandshake, 
   Clock, 
@@ -9,10 +8,22 @@ import {
 } from 'lucide-react';
 
 interface LandingScreenProps {
-  onSelectRole: (role: 'government' | 'citizen') => void;
+  onContinueAsGovernment?: () => void;
+  onSelectRole?: (role: 'government' | 'citizen') => void;
 }
 
-export const LandingScreen: React.FC<LandingScreenProps> = ({ onSelectRole }) => {
+export const LandingScreen: React.FC<LandingScreenProps> = ({ 
+  onContinueAsGovernment,
+  onSelectRole 
+}) => {
+  const handleProceed = () => {
+    if (onContinueAsGovernment) {
+      onContinueAsGovernment();
+    } else if (onSelectRole) {
+      onSelectRole('government');
+    }
+  };
+
   return (
     <div className="relative min-h-screen w-full bg-[#FBF9F4] text-slate-800 flex flex-col justify-between overflow-x-hidden select-none font-sans">
       
@@ -66,49 +77,43 @@ export const LandingScreen: React.FC<LandingScreenProps> = ({ onSelectRole }) =>
           <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed pt-1">
             Connecting authorities, communities and emergency response systems.
           </p>
-
-          <div className="pt-2 sm:pt-3">
-            <p className="text-xs sm:text-sm font-semibold text-slate-700 tracking-tight">
-              How are you accessing RakshaSethu?
-            </p>
-          </div>
         </div>
 
-        {/* Two Primary Action Cards (Side-by-Side on Tablet/Desktop) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 w-full max-w-2xl mt-8 sm:mt-10">
+        {/* Government Action Card (Single Centered Card) */}
+        <div className="w-full max-w-lg mt-8 sm:mt-10">
           
-          {/* CARD 1 — GOVERNMENT SECURE LOGIN */}
+          {/* CARD — GOVERNMENT DASHBOARD */}
           <div 
-            onClick={() => onSelectRole('government')}
-            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onSelectRole('government'); } }}
+            onClick={handleProceed}
+            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleProceed(); } }}
             role="button"
             tabIndex={0}
-            className="group relative rounded-3xl bg-white/95 border border-[#D8E6DD] hover:border-[#1F7A4D] p-6 sm:p-7 flex flex-col justify-between shadow-lg shadow-stone-300/30 hover:shadow-xl hover:shadow-[#1F7A4D]/10 hover:-translate-y-1 transition-all duration-300 cursor-pointer backdrop-blur-sm focus-visible:ring-2 focus-visible:ring-[#1F7A4D] focus-visible:outline-none"
+            className="group relative rounded-3xl bg-white/95 border border-[#D8E6DD] hover:border-[#1F7A4D] p-6 sm:p-8 flex flex-col justify-between shadow-lg shadow-stone-300/30 hover:shadow-xl hover:shadow-[#1F7A4D]/10 hover:-translate-y-1 transition-all duration-300 cursor-pointer backdrop-blur-sm focus-visible:ring-2 focus-visible:ring-[#1F7A4D] focus-visible:outline-none"
           >
             <div>
               {/* Header with Icon */}
               <div className="flex items-center gap-4">
-                <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-[#0F2D5C] text-white flex items-center justify-center shadow-md shadow-[#0F2D5C]/20 group-hover:scale-105 group-hover:bg-[#1F7A4D] transition-all duration-300 shrink-0">
+                <div className="w-14 h-14 rounded-2xl bg-[#0F2D5C] text-white flex items-center justify-center shadow-md shadow-[#0F2D5C]/20 group-hover:scale-105 group-hover:bg-[#1F7A4D] transition-all duration-300 shrink-0">
                   <Landmark className="w-7 h-7 text-white stroke-[1.75]" />
                 </div>
                 <div className="flex flex-col">
-                  <div className="flex items-center gap-1.5">
+                  <div className="flex items-center gap-2">
                     <h3 className="text-lg sm:text-xl font-heading font-extrabold tracking-wide text-[#0F2D5C] group-hover:text-[#1F7A4D] transition-colors">
                       GOVERNMENT
                     </h3>
-                    <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#EAF4EE] text-[#1F7A4D] border border-[#D8E6DD]">
+                    <span className="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-[#EAF4EE] text-[#1F7A4D] border border-[#D8E6DD]">
                       SIH26191
                     </span>
                   </div>
-                  <p className="text-xs font-semibold text-slate-700">
-                    Secure Command Portal &bull; Authorized Access
+                  <p className="text-xs font-semibold text-slate-700 mt-0.5">
+                    National Disaster Decision &amp; Command Platform
                   </p>
                 </div>
               </div>
 
               {/* Description Body */}
-              <p className="text-xs sm:text-[13px] text-slate-500 leading-relaxed mt-5">
-                Access multi-hazard analytics, resource management, safe shelter allocation, carrying capacity and relocation decision engine.
+              <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed mt-5">
+                Access multi-hazard analytics, resource management, safe shelter allocation, carrying capacity and relocation decision engine across India.
               </p>
             </div>
 
@@ -116,51 +121,9 @@ export const LandingScreen: React.FC<LandingScreenProps> = ({ onSelectRole }) =>
             <div className="pt-6">
               <button 
                 type="button"
-                className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#0F2D5C] hover:bg-[#1F7A4D] text-white font-medium text-xs sm:text-sm tracking-wide shadow-sm shadow-[#0F2D5C]/20 transition-all duration-200 group-hover:shadow-md cursor-pointer"
+                className="w-full flex items-center justify-center gap-2 py-3.5 px-5 rounded-xl bg-[#0F2D5C] hover:bg-[#1F7A4D] text-white font-semibold text-sm tracking-wide shadow-md shadow-[#0F2D5C]/20 transition-all duration-200 group-hover:shadow-lg cursor-pointer"
               >
-                <span>Secure Officer Login</span>
-                <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200" />
-              </button>
-            </div>
-          </div>
-
-          {/* CARD 2 — CITIZEN */}
-          <div 
-            onClick={() => onSelectRole('citizen')}
-            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onSelectRole('citizen'); } }}
-            role="button"
-            tabIndex={0}
-            className="group relative rounded-3xl bg-white/95 border border-stone-200/90 hover:border-emerald-500 p-6 sm:p-7 flex flex-col justify-between shadow-lg shadow-stone-300/30 hover:shadow-xl hover:shadow-emerald-500/10 hover:-translate-y-1 transition-all duration-300 cursor-pointer backdrop-blur-sm focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:outline-none"
-          >
-            <div>
-              {/* Header with Icon */}
-              <div className="flex items-center gap-4">
-                <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-[#1E7446] text-white flex items-center justify-center shadow-md shadow-emerald-900/15 group-hover:scale-105 transition-transform duration-200 shrink-0">
-                  <Users className="w-7 h-7 text-white stroke-[1.75]" />
-                </div>
-                <div className="flex flex-col">
-                  <h3 className="text-lg sm:text-xl font-extrabold tracking-wide text-slate-900 group-hover:text-[#1E7446] transition-colors">
-                    CITIZEN
-                  </h3>
-                  <p className="text-xs font-semibold text-slate-700">
-                    Report &amp; Receive Emergency Help
-                  </p>
-                </div>
-              </div>
-
-              {/* Description Body */}
-              <p className="text-xs sm:text-[13px] text-slate-500 leading-relaxed mt-5">
-                Report emergencies, find nearby safe shelters, track alerts and check-in for family safety.
-              </p>
-            </div>
-
-            {/* Action Button */}
-            <div className="pt-6">
-              <button 
-                type="button"
-                className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#1E7446] hover:bg-[#165a36] text-white font-medium text-xs sm:text-sm tracking-wide shadow-sm shadow-emerald-900/20 transition-all duration-200 group-hover:shadow-md"
-              >
-                <span>Continue</span>
+                <span>Continue as Government</span>
                 <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200" />
               </button>
             </div>
