@@ -240,7 +240,7 @@ export const VillageAnalysisPage: React.FC<VillageAnalysisPageProps> = ({
   // Relocation Centers & Planning Intensity
   const [planningIntensity] = useState<'low' | 'high' | 'very_high'>('high');
   const [relocData, setRelocData] = useState<VillageRelocationResponse | null>(null);
-  const [, setLoadingReloc] = useState<boolean>(false);
+  const [loadingReloc, setLoadingReloc] = useState<boolean>(false);
   const [retryCount] = useState<number>(0);
 
   // 1. Initial Load for Village (Summary, Geometry, and Relocation Centers)
