@@ -9,7 +9,6 @@ import {
   Mountain,
   AlertTriangle,
   ShieldCheck,
-  Sliders,
   Activity,
   Layers,
   Map as MapIcon,
@@ -27,17 +26,13 @@ import type {
   VillageRelocationResponse,
   VillageRelocationCandidate,
   SectorHazardDetail,
-  VillagePoiItem,
-  VillagePoiResponse,
 } from '../types/village';
 import {
   fetchVillageHazards,
   fetchVillageGeometry,
   fetchVillageScenario,
   fetchVillageRelocationCenters,
-  fetchVillagePois,
 } from '../services/api';
-import { fetchNearbyPOIs } from '../services/overpassService';
 
 interface VillageAnalysisPageProps {
   villageCode: number;
@@ -92,6 +87,86 @@ function getSectorLabelPosition(feature: any, centroidLat: number, centroidLon: 
   return bCenter;
 }
 
+// -------------------------------------------------------------
+// SPATIAL GEOMETRY & CURSOR DIRECTION UTILITIES
+// -------------------------------------------------------------
+function isPointInPolygonCoords(pt: [number, number], ring: number[][]): boolean {
+  const [x, y] = pt; // [lon, lat]
+  let inside = false;
+  for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+    const xi = ring[i][0], yi = ring[i][1];
+    const xj = ring[j][0], yj = ring[j][1];
+    const intersect = ((yi > y) !== (yj > y)) && (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
+    if (intersect) inside = !inside;
+  }
+  return inside;
+}
+
+function isPointInGeoJson(lat: number, lon: number, geojson: any): boolean {
+  if (!geojson) return false;
+  const features = geojson.type === 'FeatureCollection' ? geojson.features : (Array.isArray(geojson) ? geojson : [geojson]);
+  for (const f of features) {
+    const geom = f.geometry || f;
+    if (geom.type === 'Polygon' && geom.coordinates && geom.coordinates.length > 0) {
+      if (isPointInPolygonCoords([lon, lat], geom.coordinates[0])) return true;
+    } else if (geom.type === 'MultiPolygon' && geom.coordinates) {
+      for (const poly of geom.coordinates) {
+        if (poly && poly.length > 0 && isPointInPolygonCoords([lon, lat], poly[0])) return true;
+      }
+    }
+  }
+  return false;
+}
+
+function haversineDistanceKm(lat1: number, lon1: number, lat2: number, lon2: number): number {
+  const R = 6371;
+  const dLat = (lat2 - lat1) * Math.PI / 180;
+  const dLon = (lon2 - lon1) * Math.PI / 180;
+  const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+            Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+            Math.sin(dLon / 2) * Math.sin(dLon / 2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  return R * c;
+}
+
+function getSectorAndDirection(lat1: number, lon1: number, lat2: number, lon2: number): {
+  sector: 'NORTH' | 'EAST' | 'SOUTH' | 'WEST';
+  directionLabel: string;
+} {
+  const φ1 = lat1 * Math.PI / 180;
+  const φ2 = lat2 * Math.PI / 180;
+  const Δλ = (lon2 - lon1) * Math.PI / 180;
+  const y = Math.sin(Δλ) * Math.cos(φ2);
+  const x = Math.cos(φ1) * Math.sin(φ2) - Math.sin(φ1) * Math.cos(φ2) * Math.cos(Δλ);
+  const bearing = (Math.atan2(y, x) * 180 / Math.PI + 360) % 360;
+
+  if (bearing >= 315 || bearing < 45) {
+    let directionLabel = 'NORTH ↑';
+    if (bearing >= 337.5 || bearing < 22.5) directionLabel = 'NORTH ↑';
+    else if (bearing >= 22.5 && bearing < 45) directionLabel = 'NORTH-EAST ↗';
+    else directionLabel = 'NORTH-WEST ↖';
+    return { sector: 'NORTH', directionLabel };
+  } else if (bearing >= 45 && bearing < 135) {
+    let directionLabel = 'EAST →';
+    if (bearing >= 67.5 && bearing < 112.5) directionLabel = 'EAST →';
+    else if (bearing < 67.5) directionLabel = 'NORTH-EAST ↗';
+    else directionLabel = 'SOUTH-EAST ↘';
+    return { sector: 'EAST', directionLabel };
+  } else if (bearing >= 135 && bearing < 225) {
+    let directionLabel = 'SOUTH ↓';
+    if (bearing >= 157.5 && bearing < 202.5) directionLabel = 'SOUTH ↓';
+    else if (bearing < 157.5) directionLabel = 'SOUTH-EAST ↘';
+    else directionLabel = 'SOUTH-WEST ↙';
+    return { sector: 'SOUTH', directionLabel };
+  } else {
+    let directionLabel = 'WEST ←';
+    if (bearing >= 247.5 && bearing < 292.5) directionLabel = 'WEST ←';
+    else if (bearing < 247.5) directionLabel = 'SOUTH-WEST ↙';
+    else directionLabel = 'NORTH-WEST ↖';
+    return { sector: 'WEST', directionLabel };
+  }
+}
+
 export const VillageAnalysisPage: React.FC<VillageAnalysisPageProps> = ({
   villageCode,
   onBackToRiskMap,
@@ -101,21 +176,16 @@ export const VillageAnalysisPage: React.FC<VillageAnalysisPageProps> = ({
 }) => {
   const [activeDisaster, setActiveDisaster] = useState<string>('all');
   const [loading, setLoading] = useState<boolean>(true);
-  const [updatingHazards, setUpdatingHazards] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
   const [hazardData, setHazardData] = useState<VillageHazardResponse | null>(null);
   const [geomData, setGeomData] = useState<VillageGeometryResponse | null>(null);
-  const [selectedSector, setSelectedSector] = useState<string | null>(null);
+  const [selectedSector] = useState<string | null>(null);
 
   // Basemap switch: Satellite (default) vs Standard Map
   const [basemapMode, setBasemapMode] = useState<'satellite' | 'standard'>('satellite');
   const [mapReady, setMapReady] = useState<boolean>(false);
-  // Sector overlay opacity: default 0.06 (6%, within the required 5-8% range)
-  const [sectorOpacity, setSectorOpacity] = useState<number>(0.06);
-  const [showSectorOverlay, setShowSectorOverlay] = useState<boolean>(true);
-  const [currentZoom, setCurrentZoom] = useState<number>(15.0);
-  const [customVillageSearch, setCustomVillageSearch] = useState<string>('');
+  const [sectorAnalysis, setSectorAnalysis] = useState<boolean>(false);
 
   // Map DOM & Leaflet Refs (Controlled via callback ref state to guarantee container is mounted)
   const [mapContainerNode, setMapContainerNode] = useState<HTMLDivElement | null>(null);
@@ -125,27 +195,19 @@ export const VillageAnalysisPage: React.FC<VillageAnalysisPageProps> = ({
     standard: L.TileLayer;
   } | null>(null);
   const layersGroupRef = useRef<L.FeatureGroup | null>(null);
+  const interactiveGroupRef = useRef<L.FeatureGroup | null>(null);
+  const tooltipRef = useRef<HTMLDivElement | null>(null);
   const villageBoundsRef = useRef<L.LatLngBounds | null>(null);
 
-  // What-If Slider (0 to 10)
-  const [scenarioIncrease, setScenarioIncrease] = useState<number>(0);
+  // What-If Simulation
+  const [scenarioIncrease] = useState<number>(0);
   const [scenarioData, setScenarioData] = useState<VillageScenarioResponse | null>(null);
 
   // Relocation Centers & Planning Intensity
-  const [planningIntensity, setPlanningIntensity] = useState<'low' | 'high' | 'very_high'>('high');
+  const [planningIntensity] = useState<'low' | 'high' | 'very_high'>('high');
   const [relocData, setRelocData] = useState<VillageRelocationResponse | null>(null);
-  const [loadingReloc, setLoadingReloc] = useState<boolean>(false);
-  const [retryCount, setRetryCount] = useState<number>(0);
-
-  // POI Layer State
-  const [showPois, setShowPois] = useState<boolean>(true);
-  const [poiResponse, setPoiResponse] = useState<VillagePoiResponse | null>(null);
-  const [loadingPois, setLoadingPois] = useState<boolean>(false);
-  const [poiCategoryFilter, setPoiCategoryFilter] = useState<string>('All');
-  const [poiSearchQuery, setPoiSearchQuery] = useState<string>('');
-  const [selectedPoi, setSelectedPoi] = useState<VillagePoiItem | null>(null);
-  const poiSearchRadius = 3.0;
-  const [showPoiFilterDropdown, setShowPoiFilterDropdown] = useState<boolean>(false);
+  const [, setLoadingReloc] = useState<boolean>(false);
+  const [retryCount] = useState<number>(0);
 
   // 1. Initial Load for Village (Summary, Geometry, and Relocation Centers)
   useEffect(() => {
@@ -187,20 +249,14 @@ export const VillageAnalysisPage: React.FC<VillageAnalysisPageProps> = ({
   useEffect(() => {
     if (loading || !hazardData) return;
     let isMounted = true;
-    setUpdatingHazards(true);
 
     fetchVillageHazards(villageCode, activeDisaster)
       .then((haz) => {
         if (isMounted) {
           setHazardData(haz);
-          setUpdatingHazards(false);
         }
       })
-      .catch(() => {
-        if (isMounted) {
-          setUpdatingHazards(false);
-        }
-      });
+      .catch(() => {});
 
     return () => {
       isMounted = false;
@@ -243,191 +299,7 @@ export const VillageAnalysisPage: React.FC<VillageAnalysisPageProps> = ({
     return () => { isMounted = false; };
   }, [planningIntensity, selectedSector, activeDisaster]);
 
-  // Fetch Real OpenStreetMap POIs (Live Overpass API Integration across all 9 categories)
-  useEffect(() => {
-    if (!villageCode) return;
-    const controller = new AbortController();
-    setLoadingPois(true);
 
-    fetchVillagePois(villageCode, poiSearchRadius, activeDisaster, controller.signal)
-      .then(async (res) => {
-        let finalResponse = res;
-        if (geomData?.centroid_lat && geomData?.centroid_lon) {
-          try {
-            const liveOverpassPOIs = await fetchNearbyPOIs(
-              geomData.centroid_lat,
-              geomData.centroid_lon,
-              poiSearchRadius * 1000,
-              controller.signal
-            );
-
-            if (liveOverpassPOIs && liveOverpassPOIs.length > 0) {
-              const existingIds = new Set((res.pois || []).map((p) => String(p.osm_id)));
-              const newPoiItems: VillagePoiItem[] = [];
-
-              const calcDist = (lat1: number, lon1: number, lat2: number, lon2: number) => {
-                const R = 6371;
-                const dLat = ((lat2 - lat1) * Math.PI) / 180;
-                const dLon = ((lon2 - lon1) * Math.PI) / 180;
-                const a =
-                  Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-                  Math.cos((lat1 * Math.PI) / 180) *
-                    Math.cos((lat2 * Math.PI) / 180) *
-                    Math.sin(dLon / 2) *
-                    Math.sin(dLon / 2);
-                return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-              };
-
-              liveOverpassPOIs.forEach((op) => {
-                const osmIdStr = `node_${op.id}`;
-                if (!existingIds.has(osmIdStr)) {
-                  existingIds.add(osmIdStr);
-                  const dist = calcDist(
-                    geomData.centroid_lat!,
-                    geomData.centroid_lon!,
-                    op.lat,
-                    op.lon
-                  );
-                  const isInside = dist <= 1.5;
-
-                  let filterCat = 'Other';
-                  if (op.group === 'education') filterCat = 'Schools';
-                  else if (op.group === 'medical') filterCat = op.subType.includes('Pharm') ? 'Pharmacies' : 'Hospitals';
-                  else if (op.group === 'emergency') filterCat = 'Shelters';
-                  else if (op.group === 'government') filterCat = op.subType.includes('Police') ? 'Police' : op.subType.includes('Fire') ? 'Fire' : 'Government';
-                  else if (op.group === 'daily_needs') filterCat = 'Shops / Markets';
-                  else if (op.group === 'transport') filterCat = op.subType.includes('Petrol') ? 'Petrol Pumps' : 'Transport';
-                  else if (op.group === 'food_lifestyle') filterCat = 'Food / Hotels';
-                  else if (op.group === 'financial') filterCat = 'Banks / ATMs';
-                  else if (op.group === 'others') filterCat = 'Religious Places';
-
-                  newPoiItems.push({
-                    osm_id: osmIdStr,
-                    name: op.name,
-                    category: op.group.toUpperCase(),
-                    filter_category: filterCat,
-                    subcategory: op.subType,
-                    latitude: op.lat,
-                    longitude: op.lon,
-                    is_inside: isInside,
-                    distance_km: Number(dist.toFixed(2)),
-                    direction: null,
-                    source: 'OpenStreetMap Live Overpass',
-                    address: op.rawTags['addr:street'] || null,
-                    opening_hours: op.rawTags.opening_hours || null,
-                    phone: op.rawTags.phone || null,
-                    website: op.rawTags.website || null,
-                  });
-                }
-              });
-
-              const mergedPois = [...(res.pois || []), ...newPoiItems];
-              const catCounts: Record<string, number> = {};
-              mergedPois.forEach((p) => {
-                catCounts[p.filter_category] = (catCounts[p.filter_category] || 0) + 1;
-              });
-              const categoriesSummary = Object.entries(catCounts).map(([cat, count]) => ({
-                category: cat,
-                count,
-              }));
-
-              finalResponse = {
-                ...res,
-                pois: mergedPois,
-                total_pois: mergedPois.length,
-                inside_count: mergedPois.filter((p) => p.is_inside).length,
-                nearby_count: mergedPois.filter((p) => !p.is_inside).length,
-                categories_summary: categoriesSummary,
-              };
-            }
-          } catch (e) {
-            // fallback
-          }
-        }
-
-        setPoiResponse(finalResponse);
-        setLoadingPois(false);
-      })
-      .catch(() => {
-        if (!controller.signal.aborted) {
-          setLoadingPois(false);
-        }
-      });
-
-    return () => {
-      controller.abort();
-    };
-  }, [villageCode, poiSearchRadius, activeDisaster, geomData?.centroid_lat, geomData?.centroid_lon]);
-
-
-  // Priority Styling Helpers
-  const getPriorityBadge = (priority: string) => {
-    switch (priority?.toUpperCase()) {
-      case 'VERY HIGH':
-        return 'bg-rose-50 text-rose-700 border-rose-200 font-extrabold';
-      case 'HIGH':
-        return 'bg-amber-50 text-amber-700 border-amber-200 font-extrabold';
-      case 'MODERATE':
-        return 'bg-blue-50 text-blue-700 border-blue-200 font-extrabold';
-      case 'LOW':
-        return 'bg-emerald-50 text-emerald-700 border-emerald-200 font-extrabold';
-      case 'INSUFFICIENT DATA':
-        return 'bg-slate-100 text-slate-700 border-slate-300 font-extrabold';
-      default:
-        return 'bg-slate-50 text-slate-600 border-slate-200 font-extrabold';
-    }
-  };
-
-  const getPriorityColor = (priority: string) => {
-    switch (priority?.toUpperCase()) {
-      case 'VERY HIGH':
-        return '#f43f5e';
-      case 'HIGH':
-        return '#f59e0b';
-      case 'MODERATE':
-        return '#3b82f6';
-      case 'LOW':
-        return '#10b981';
-      case 'INSUFFICIENT DATA':
-      default:
-        return '#94a3b8';
-    }
-  };
-
-  // POI Category Visuals & Color Codes
-  const getPoiCategoryBadge = (category: string) => {
-    switch (category) {
-      case 'Schools':
-        return { icon: '🏫', color: '#6366f1', bg: 'bg-indigo-50', text: 'text-indigo-700', border: 'border-indigo-200' };
-      case 'Hospitals':
-        return { icon: '🏥', color: '#ef4444', bg: 'bg-rose-50', text: 'text-rose-700', border: 'border-rose-200' };
-      case 'Pharmacies':
-        return { icon: '💊', color: '#ec4899', bg: 'bg-pink-50', text: 'text-pink-700', border: 'border-pink-200' };
-      case 'Police':
-        return { icon: '👮', color: '#1d4ed8', bg: 'bg-blue-50', text: 'text-blue-700', border: 'border-blue-200' };
-      case 'Fire':
-        return { icon: '🚒', color: '#ea580c', bg: 'bg-orange-50', text: 'text-orange-700', border: 'border-orange-200' };
-      case 'Government':
-        return { icon: '🏛️', color: '#0284c7', bg: 'bg-sky-50', text: 'text-sky-700', border: 'border-sky-200' };
-      case 'Shelters':
-        return { icon: '⛺', color: '#059669', bg: 'bg-emerald-50', text: 'text-emerald-700', border: 'border-emerald-200' };
-      case 'Banks / ATMs':
-        return { icon: '🏦', color: '#0d9488', bg: 'bg-teal-50', text: 'text-teal-700', border: 'border-teal-200' };
-      case 'Petrol Pumps':
-        return { icon: '⛽', color: '#f59e0b', bg: 'bg-amber-50', text: 'text-amber-700', border: 'border-amber-200' };
-      case 'Religious Places':
-        return { icon: '🛕', color: '#8b5cf6', bg: 'bg-purple-50', text: 'text-purple-700', border: 'border-purple-200' };
-      case 'Shops / Markets':
-        return { icon: '🛒', color: '#10b981', bg: 'bg-emerald-50', text: 'text-emerald-700', border: 'border-emerald-200' };
-      case 'Food / Hotels':
-        return { icon: '🍽️', color: '#d97706', bg: 'bg-amber-50', text: 'text-amber-700', border: 'border-amber-200' };
-      case 'Transport':
-        return { icon: '🚌', color: '#64748b', bg: 'bg-slate-50', text: 'text-slate-700', border: 'border-slate-200' };
-      case 'Other':
-      default:
-        return { icon: '📍', color: '#64748b', bg: 'bg-slate-50', text: 'text-slate-700', border: 'border-slate-200' };
-    }
-  };
 
   // -------------------------------------------------------------
   // LEAFLET MAP INITIALIZATION (Triggers strictly AFTER container is mounted in DOM)
@@ -522,9 +394,13 @@ export const VillageAnalysisPage: React.FC<VillageAnalysisPageProps> = ({
       standardLayer.addTo(map);
     }
 
-    // FeatureGroup for Cadastral Boundary, Cardinal Sectors, Facilities, and Centroid
+    // FeatureGroup for Cadastral Boundary
     const featureGroup = L.featureGroup().addTo(map);
     layersGroupRef.current = featureGroup;
+
+    // FeatureGroup for Interactive Sectors & Cursor Direction Arrow
+    const interactiveGroup = L.featureGroup().addTo(map);
+    interactiveGroupRef.current = interactiveGroup;
 
     mapInstanceRef.current = map;
     setMapReady(true);
@@ -560,6 +436,7 @@ export const VillageAnalysisPage: React.FC<VillageAnalysisPageProps> = ({
       map.remove();
       mapInstanceRef.current = null;
       layersGroupRef.current = null;
+      interactiveGroupRef.current = null;
       tileLayersRef.current = null;
       villageBoundsRef.current = null;
       setMapReady(false);
@@ -623,83 +500,267 @@ export const VillageAnalysisPage: React.FC<VillageAnalysisPageProps> = ({
     }
   }, [geomData, mapReady]);
 
-  // User Map Controls: Smooth Zoom, Pan & Reset to Complete Boundary
-  const handleResetView = () => {
-    if (mapInstanceRef.current) {
-      if (villageBoundsRef.current && villageBoundsRef.current.isValid()) {
-        mapInstanceRef.current.fitBounds(villageBoundsRef.current, {
-          padding: [35, 35],
-          maxZoom: 18,
-          animate: true,
-          duration: 0.75,
+  // -------------------------------------------------------------
+  // INTERACTIVE 4-SECTOR ANALYSIS & LIVE CURSOR DIRECTION TRACKING
+  // -------------------------------------------------------------
+  useEffect(() => {
+    if (!mapReady || !mapInstanceRef.current || !interactiveGroupRef.current) return;
+    const map = mapInstanceRef.current;
+    const group = interactiveGroupRef.current;
+    const tooltipEl = tooltipRef.current;
+
+    // Reset everything first
+    group.clearLayers();
+    if (tooltipEl) tooltipEl.style.display = 'none';
+
+    // If disabled, stop here — map displays ONLY basemap + village boundary outline
+    if (!sectorAnalysis || !geomData) return;
+
+    const sectorLayersMap: Record<string, L.GeoJSON> = {};
+
+    // 1. Render 4 clipped sectors from geomData.sectors_geojson
+    if (geomData.sectors_geojson?.features) {
+      geomData.sectors_geojson.features.forEach((feature: any) => {
+        const sName = feature?.properties?.sector as 'NORTH' | 'EAST' | 'SOUTH' | 'WEST';
+        if (!sName) return;
+        const sDetail = hazardData?.sectors.find((s) => s.sector === sName);
+        const pColor = getPriorityColor(sDetail?.priority || 'MODERATE');
+
+        const sLayer = L.geoJSON(feature, {
+          pane: 'sectorsFillPane',
+          style: {
+            fillColor: pColor,
+            fillOpacity: 0.10, // subtle translucent fill so satellite imagery remains clearly visible
+            color: pColor,
+            weight: 1.5,
+            dashArray: '5, 4',
+            opacity: 0.85,
+          },
         });
-      } else if (geomData?.centroid_lat && geomData?.centroid_lon) {
-        mapInstanceRef.current.flyTo([geomData.centroid_lat, geomData.centroid_lon], 15, {
-          animate: true,
-          duration: 0.75,
+        sLayer.addTo(group);
+        sectorLayersMap[sName] = sLayer;
+
+        // Subtle sector label badge (non-obtrusive)
+        const pos = getSectorLabelPosition(feature, geomData.centroid_lat, geomData.centroid_lon);
+        const sectorIcon = L.divIcon({
+          className: 'sector-subtle-badge',
+          html: `
+            <div style="
+              display: flex;
+              align-items: center;
+              gap: 4px;
+              background: rgba(15, 23, 42, 0.85);
+              backdrop-filter: blur(4px);
+              padding: 2px 7px;
+              border-radius: 6px;
+              border: 1px solid rgba(255, 255, 255, 0.25);
+              box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+              transform: translate(-50%, -50%);
+              pointer-events: none;
+              user-select: none;
+              white-space: nowrap;
+            ">
+              <span style="width: 5px; height: 5px; border-radius: 9999px; background: ${pColor};"></span>
+              <span style="font-size: 9.5px; font-weight: 800; color: #f8fafc; font-family: ui-sans-serif, system-ui, sans-serif; letter-spacing: 0.03em;">
+                ${sName} SECTOR
+              </span>
+            </div>
+          `,
+          iconSize: [80, 20],
+          iconAnchor: [40, 10],
         });
+
+        const labelMarker = L.marker(pos, {
+          icon: sectorIcon,
+          pane: 'sectorLabelsPane',
+          interactive: false,
+        });
+        labelMarker.addTo(group);
+      });
+    }
+
+    // 2. Interactive temporary centroid-to-cursor visual direction arrow
+    const arrowLine = L.polyline([], {
+      pane: 'sectorsLinePane',
+      color: '#22d3ee',
+      weight: 2.5,
+      dashArray: '5, 4',
+      opacity: 0.95,
+      interactive: false,
+    }).addTo(group);
+
+    const centroidMarker = L.circleMarker([geomData.centroid_lat, geomData.centroid_lon], {
+      pane: 'sectorLabelsPane',
+      radius: 5,
+      fillColor: '#06b6d4',
+      fillOpacity: 0,
+      color: '#ffffff',
+      weight: 2,
+      opacity: 0,
+      interactive: false,
+    }).addTo(group);
+
+    const pointerMarker = L.circleMarker([0, 0], {
+      pane: 'sectorLabelsPane',
+      radius: 4,
+      fillColor: '#38bdf8',
+      fillOpacity: 0,
+      color: '#ffffff',
+      weight: 1.5,
+      opacity: 0,
+      interactive: false,
+    }).addTo(group);
+
+    let animFrame: number | null = null;
+    let lastActiveSector: string | null = null;
+
+    const handleMouseMove = (e: L.LeafletMouseEvent) => {
+      if (animFrame) cancelAnimationFrame(animFrame);
+      animFrame = requestAnimationFrame(() => {
+        const { lat, lng } = e.latlng;
+        const isInside = isPointInGeoJson(lat, lng, geomData.village_boundary_geojson);
+
+        if (!isInside) {
+          // Cursor outside village: hide tooltip, clear arrow, reset highlights
+          if (tooltipEl) tooltipEl.style.display = 'none';
+          arrowLine.setLatLngs([]);
+          centroidMarker.setStyle({ opacity: 0, fillOpacity: 0 });
+          pointerMarker.setStyle({ opacity: 0, fillOpacity: 0 });
+
+          if (lastActiveSector && sectorLayersMap[lastActiveSector]) {
+            const prevDetail = hazardData?.sectors.find((s) => s.sector === lastActiveSector);
+            const prevColor = getPriorityColor(prevDetail?.priority || 'MODERATE');
+            sectorLayersMap[lastActiveSector].setStyle({
+              fillOpacity: 0.10,
+              weight: 1.5,
+              color: prevColor,
+            });
+            lastActiveSector = null;
+          }
+          return;
+        }
+
+        // Inside village boundary!
+        const distKm = haversineDistanceKm(geomData.centroid_lat, geomData.centroid_lon, lat, lng);
+        const { sector, directionLabel } = getSectorAndDirection(
+          geomData.centroid_lat,
+          geomData.centroid_lon,
+          lat,
+          lng
+        );
+
+        // Highlight active sector and keep other 3 subtle
+        if (lastActiveSector !== sector) {
+          if (lastActiveSector && sectorLayersMap[lastActiveSector]) {
+            const prevDetail = hazardData?.sectors.find((s) => s.sector === lastActiveSector);
+            const prevColor = getPriorityColor(prevDetail?.priority || 'MODERATE');
+            sectorLayersMap[lastActiveSector].setStyle({
+              fillOpacity: 0.08,
+              weight: 1.2,
+              color: prevColor,
+            });
+          }
+          if (sectorLayersMap[sector]) {
+            sectorLayersMap[sector].setStyle({
+              fillOpacity: 0.28,
+              weight: 2.75,
+              color: '#ffffff',
+            });
+          }
+          lastActiveSector = sector;
+        }
+
+        // Draw temporary direction arrow: Centroid ● ───────→ Cursor
+        arrowLine.setLatLngs([
+          [geomData.centroid_lat, geomData.centroid_lon],
+          [lat, lng],
+        ]);
+        centroidMarker.setStyle({ opacity: 1, fillOpacity: 1 });
+        pointerMarker.setLatLng([lat, lng]);
+        pointerMarker.setStyle({ opacity: 1, fillOpacity: 1 });
+
+        // Update floating direction tooltip
+        if (tooltipEl && mapContainerNode) {
+          const pt = map.latLngToContainerPoint(e.latlng);
+          const sData = hazardData?.sectors.find((s) => s.sector === sector);
+          const priority = sData?.priority;
+          const score = sData?.sector_hazard_score != null ? sData.sector_hazard_score.toFixed(3) : null;
+          const pColor = getPriorityColor(priority || 'MODERATE');
+
+          tooltipEl.innerHTML = `
+            <div style="
+              background: rgba(15, 23, 42, 0.95);
+              backdrop-filter: blur(8px);
+              border: 1.5px solid #22d3ee;
+              border-radius: 12px;
+              padding: 8px 12px;
+              box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
+              min-width: 175px;
+              color: #ffffff;
+              font-family: ui-sans-serif, system-ui, sans-serif;
+              pointer-events: none;
+              font-size: 11px;
+              line-height: 1.35;
+            ">
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; border-bottom: 1px solid rgba(51, 65, 85, 0.8); padding-bottom: 4px; margin-bottom: 4px;">
+                <strong style="color: #67e8f9; font-size: 11px; font-weight: 900; letter-spacing: 0.04em;">${sector} SECTOR</strong>
+                ${priority ? `<span style="font-size: 8.5px; font-family: monospace; font-weight: 800; padding: 1px 5px; border-radius: 4px; background: rgba(15, 23, 42, 0.8); border: 1px solid ${pColor}; color: ${pColor};">${priority}</span>` : '<span style="font-size: 8px; color: #94a3b8;">Data unavailable</span>'}
+              </div>
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 6px;">
+                <span style="color: #94a3b8; font-size: 10px;">Direction:</span>
+                <span style="color: #22d3ee; font-weight: 900; font-family: monospace; font-size: 11px;">${directionLabel}</span>
+              </div>
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 6px;">
+                <span style="color: #94a3b8; font-size: 10px;">Distance:</span>
+                <span style="color: #f1f5f9; font-weight: 700; font-family: monospace; font-size: 10.5px;">${distKm.toFixed(2)} km</span>
+              </div>
+              ${score ? `
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: 6px; font-size: 9.5px; color: #94a3b8; border-top: 1px dashed rgba(51,65,85,0.6); padding-top: 3px; margin-top: 3px;">
+                  <span>Hazard Score:</span>
+                  <span style="color: #cbd5e1; font-family: monospace; font-weight: 700;">${score}</span>
+                </div>
+              ` : '<div style="font-size: 9px; color: #64748b; font-style: italic; padding-top: 2px;">Sector-specific data unavailable</div>'}
+            </div>
+          `;
+
+          const offsetX = pt.x + 16;
+          const offsetY = pt.y - 20;
+          tooltipEl.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+          tooltipEl.style.display = 'block';
+        }
+      });
+    };
+
+    const handleMouseOut = () => {
+      if (tooltipEl) tooltipEl.style.display = 'none';
+      arrowLine.setLatLngs([]);
+      centroidMarker.setStyle({ opacity: 0, fillOpacity: 0 });
+      pointerMarker.setStyle({ opacity: 0, fillOpacity: 0 });
+      if (lastActiveSector && sectorLayersMap[lastActiveSector]) {
+        const prevDetail = hazardData?.sectors.find((s) => s.sector === lastActiveSector);
+        const prevColor = getPriorityColor(prevDetail?.priority || 'MODERATE');
+        sectorLayersMap[lastActiveSector].setStyle({
+          fillOpacity: 0.10,
+          weight: 1.5,
+          color: prevColor,
+        });
+        lastActiveSector = null;
       }
-    }
-  };
+    };
 
-  const handleZoomIn = () => {
-    if (mapInstanceRef.current) {
-      mapInstanceRef.current.zoomIn(1, { animate: true });
-    }
-  };
+    map.on('mousemove', handleMouseMove);
+    map.on('mouseout', handleMouseOut);
 
-  const handleZoomOut = () => {
-    if (mapInstanceRef.current) {
-      mapInstanceRef.current.zoomOut(1, { animate: true });
-    }
-  };
+    return () => {
+      if (animFrame) cancelAnimationFrame(animFrame);
+      map.off('mousemove', handleMouseMove);
+      map.off('mouseout', handleMouseOut);
+      group.clearLayers();
+      if (tooltipEl) tooltipEl.style.display = 'none';
+    };
+  }, [sectorAnalysis, geomData, mapReady, hazardData, mapContainerNode]);
 
-  const handleZoomToLevel = (level: number) => {
-    if (mapInstanceRef.current) {
-      if (geomData?.centroid_lat && geomData?.centroid_lon) {
-        mapInstanceRef.current.flyTo([geomData.centroid_lat, geomData.centroid_lon], level, {
-          animate: true,
-          duration: 0.75,
-          easeLinearity: 0.25,
-        });
-      } else if (villageBoundsRef.current && villageBoundsRef.current.isValid()) {
-        mapInstanceRef.current.setView(villageBoundsRef.current.getCenter(), level, {
-          animate: true,
-          duration: 0.75,
-        });
-      }
-    }
-  };
 
-  const handlePan = (direction: 'up' | 'down' | 'left' | 'right') => {
-    if (mapInstanceRef.current) {
-      const offset = 220;
-      let dx = 0;
-      let dy = 0;
-      if (direction === 'up') dy = -offset;
-      if (direction === 'down') dy = offset;
-      if (direction === 'left') dx = -offset;
-      if (direction === 'right') dx = offset;
-      mapInstanceRef.current.panBy([dx, dy], { animate: true, duration: 0.3 });
-    }
-  };
-
-  const handleSwitchVillage = (targetCode: number) => {
-    if (onSelectVillage) {
-      onSelectVillage(targetCode);
-    } else {
-      window.location.hash = `#government/ap/village/${targetCode}`;
-    }
-  };
-
-  // Active Sector for Inspection
-  const activeSectorDetail: SectorHazardDetail | undefined = useMemo(() => {
-    if (!hazardData) return undefined;
-    if (selectedSector) {
-      return hazardData.sectors.find((s) => s.sector === selectedSector);
-    }
-    return [...hazardData.sectors].sort((a, b) => b.sector_hazard_score - a.sector_hazard_score)[0];
-  }, [hazardData, selectedSector]);
 
   // Proximity Tier grouping for Relocation Candidates
   const groupedCandidates = useMemo(() => {
@@ -835,8 +896,9 @@ export const VillageAnalysisPage: React.FC<VillageAnalysisPageProps> = ({
           {/* Large Map Card: ONLY Standard Map / Satellite Map switch & Map Canvas */}
           <div className="village-satellite-container flex-1 relative w-full h-full min-h-0 bg-slate-950 rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden flex flex-col">
             
-            {/* Map Card Header: ONLY two clean toggle buttons [ Standard Map ] [ Satellite Map ] */}
-            <div className="bg-slate-900 text-white px-3.5 py-2 flex items-center justify-between shrink-0 shadow-xs select-none z-10">
+            {/* Map Card Header: Clean Basemap switch [ Standard Map ] [ Satellite Map ] and compact [ Sector Analysis OFF / ON ] control */}
+            <div className="bg-slate-900 text-white px-3.5 py-2 flex items-center justify-between shrink-0 shadow-xs select-none z-10 flex-wrap gap-2">
+              {/* Basemap Selection: Standard vs Satellite */}
               <div className="flex items-center bg-slate-800 p-1 rounded-xl border border-slate-700/80 gap-1">
                 <button
                   type="button"
@@ -863,11 +925,70 @@ export const VillageAnalysisPage: React.FC<VillageAnalysisPageProps> = ({
                   <span>Satellite Map</span>
                 </button>
               </div>
+
+              {/* Sector Analysis Controls & Compact Status Panel */}
+              <div className="flex items-center gap-2 flex-wrap">
+                {/* Sector Analysis Toggle Button */}
+                <div className="flex items-center bg-slate-800 p-1 rounded-xl border border-slate-700/80 gap-1.5">
+                  <span className="text-[11px] font-bold text-slate-300 uppercase tracking-wider px-1.5">
+                    Sector Analysis
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => setSectorAnalysis((prev) => !prev)}
+                    className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-bold transition cursor-pointer ${
+                      sectorAnalysis
+                        ? 'bg-cyan-500 text-slate-950 font-black shadow-xs'
+                        : 'bg-slate-700/70 text-slate-300 hover:text-white'
+                    }`}
+                  >
+                    <Compass className={`w-3.5 h-3.5 ${sectorAnalysis ? 'text-slate-950' : 'text-slate-300'}`} />
+                    <span>{sectorAnalysis ? 'ON' : 'OFF'}</span>
+                  </button>
+                </div>
+
+                {/* When ON: compact display of NORTH | EAST | SOUTH | WEST with existing priority information */}
+                {sectorAnalysis && (
+                  <div className="hidden sm:flex items-center bg-slate-800/90 px-2.5 py-1 rounded-xl border border-slate-700/70 gap-2 text-[10px]">
+                    {(['NORTH', 'EAST', 'SOUTH', 'WEST'] as const).map((sec, idx) => {
+                      const sData = hazardData?.sectors.find((s) => s.sector === sec);
+                      const priority = sData?.priority;
+                      const pColor = getPriorityColor(priority || 'MODERATE');
+                      return (
+                        <div key={sec} className="flex items-center gap-1">
+                          {idx > 0 && <span className="text-slate-600 mr-1 font-bold">|</span>}
+                          <span className="font-bold text-slate-300">{sec}</span>
+                          {priority ? (
+                            <span
+                              className="px-1.5 py-0.2 rounded font-mono font-extrabold text-[9px]"
+                              style={{
+                                backgroundColor: `${pColor}20`,
+                                color: pColor,
+                                border: `1px solid ${pColor}50`,
+                              }}
+                            >
+                              {priority}
+                            </span>
+                          ) : (
+                            <span className="text-slate-500 text-[9px] italic">Unavailable</span>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
             </div>
 
             {/* Interactive Leaflet Map Container: Pure map canvas with ONLY the village boundary outline */}
             <div className="flex-1 relative w-full h-full min-h-0 overflow-hidden bg-slate-950">
               <div ref={setMapContainerNode} className="w-full h-full absolute inset-0 z-0" />
+              {/* Dynamic live cursor direction tooltip */}
+              <div
+                ref={tooltipRef}
+                className="absolute pointer-events-none z-30 transition-opacity duration-75"
+                style={{ display: 'none', left: 0, top: 0 }}
+              />
             </div>
 
           </div>
