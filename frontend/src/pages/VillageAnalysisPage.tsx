@@ -167,6 +167,40 @@ function getSectorAndDirection(lat1: number, lon1: number, lat2: number, lon2: n
   }
 }
 
+// Priority Styling Helpers
+export const getPriorityBadge = (priority?: string | null) => {
+  switch (priority?.toUpperCase()) {
+    case 'VERY HIGH':
+      return 'bg-rose-50 text-rose-700 border-rose-200 font-extrabold';
+    case 'HIGH':
+      return 'bg-amber-50 text-amber-700 border-amber-200 font-extrabold';
+    case 'MODERATE':
+      return 'bg-blue-50 text-blue-700 border-blue-200 font-extrabold';
+    case 'LOW':
+      return 'bg-emerald-50 text-emerald-700 border-emerald-200 font-extrabold';
+    case 'INSUFFICIENT DATA':
+      return 'bg-slate-100 text-slate-700 border-slate-300 font-extrabold';
+    default:
+      return 'bg-slate-50 text-slate-600 border-slate-200 font-extrabold';
+  }
+};
+
+export const getPriorityColor = (priority?: string | null) => {
+  switch (priority?.toUpperCase()) {
+    case 'VERY HIGH':
+      return '#f43f5e';
+    case 'HIGH':
+      return '#f59e0b';
+    case 'MODERATE':
+      return '#3b82f6';
+    case 'LOW':
+      return '#10b981';
+    case 'INSUFFICIENT DATA':
+    default:
+      return '#94a3b8';
+  }
+};
+
 export const VillageAnalysisPage: React.FC<VillageAnalysisPageProps> = ({
   villageCode,
   onBackToRiskMap,
