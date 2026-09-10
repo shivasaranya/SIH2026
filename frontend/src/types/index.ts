@@ -12,7 +12,15 @@ export type ActiveTab =
   | 'data'
   | 'methodology'
   | 'village'
-  | 'village_report';
+  | 'village_report'
+  // Emergency Intelligence tabs
+  | 'emergency_alerts'
+  | 'citizen_reports'
+  | 'emergency_map'
+  | 'verification_queue'
+  | 'verified_incidents'
+  | 'alert_history'
+  | 'emergency_analytics';
 
 
 

@@ -13,6 +13,14 @@ import { SimulationPage } from './pages/SimulationPage';
 import { ActionPlanPage } from './pages/ActionPlanPage';
 import { PriorityDirectoryPage } from './pages/PriorityDirectoryPage';
 import { LandingScreen } from './pages/LandingScreen';
+import { EmergencyIntelligencePage } from './pages/EmergencyIntelligencePage';
+import { EmergencyMapPage } from './pages/EmergencyMapPage';
+import { LiveAlertsPage } from './pages/LiveAlertsPage';
+import { CitizenReportsPage } from './pages/CitizenReportsPage';
+import { VerificationQueuePage } from './pages/VerificationQueuePage';
+import { VerifiedIncidentsPage } from './pages/VerifiedIncidentsPage';
+import { AlertHistoryPage } from './pages/AlertHistoryPage';
+import { EmergencyAnalyticsPage } from './pages/EmergencyAnalyticsPage';
 import { GovernmentLoginPage } from './pages/GovernmentLoginPage';
 import { StateSelectionScreen } from './pages/StateSelectionScreen';
 import { CitizenPage } from './pages/CitizenPage';
@@ -185,14 +193,12 @@ function AppContent() {
 
   // From Government Login: Transition to Government Command Center Dashboard
   const handleGovernmentLoginSuccess = (preferredState?: string) => {
-    if (preferredState) {
-      selectStateByName(preferredState);
-    }
-    setActiveTab('dashboard');
-    setPortalRole('government_portal');
-    window.location.hash = '#government/dashboard';
+    // After successful login, navigate to the state selection screen (India map) as the starting point.
+    // PreferredState is ignored to provide a neutral entry.
+    setPortalRole('government_state_selection');
+    window.location.hash = '#government/select-state';
     if (window.history && window.history.pushState) {
-      window.history.pushState(null, '', '/government/dashboard');
+      window.history.pushState(null, '', '/government/select-state');
     }
   };
 
@@ -338,6 +344,20 @@ function AppContent() {
         return <EmergencyCapacityPage key={`cap-${stateId}`} onSelectMandalOnMap={() => setActiveTab('gis')} />;
       case 'relocation':
         return <RelocationPlanningPage key={`reloc-${stateId}`} onSelectMandalOnMap={() => setActiveTab('gis')} />;
+      case 'emergency_alerts':
+        return <LiveAlertsPage key={`live-alerts-${stateId}`} />;
+      case 'citizen_reports':
+        return <CitizenReportsPage key={`citizen-reports-${stateId}`} />;
+      case 'emergency_map':
+        return <EmergencyMapPage key={`emergency-map-${stateId}`} />;
+      case 'verification_queue':
+        return <VerificationQueuePage key={`verification-${stateId}`} />;
+      case 'verified_incidents':
+        return <VerifiedIncidentsPage key={`verified-${stateId}`} />;
+      case 'alert_history':
+        return <AlertHistoryPage key={`history-${stateId}`} />;
+      case 'emergency_analytics':
+        return <EmergencyAnalyticsPage key={`analytics-${stateId}`} />;
       case 'hosts':
         return <CandidateLocationsPage key={`hosts-${stateId}`} />;
       case 'simulation':

@@ -808,3 +808,6 @@ export { getFirebaseConfig, saveFirebaseConfig, isFirebaseConfigured, type Fireb
 // Initialize on module load and startup
 initializeFirestore();
 initDemoGovernmentAuthUser();
+
+// Re-export firebaseLogin from authService to maintain compatibility
+export { firebaseLogin } from './authService';

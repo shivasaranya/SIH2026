@@ -9,6 +9,7 @@ from app.api.relocation import router as relocation_router
 from app.api.simulation import router as simulation_router
 from app.api.decision import router as decision_router
 from app.api.village import router as village_router
+from app.api.emergency import router as emergency_router
 
 api_router = APIRouter()
 api_router.include_router(health_router, tags=["Health"])
@@ -21,3 +22,4 @@ api_router.include_router(relocation_router, tags=["Relocation Prioritization (P
 api_router.include_router(simulation_router, tags=["What-If Disaster Simulation (Phase 5)"])
 api_router.include_router(decision_router, tags=["Decision & Action Planning (Phase 6)"])
 api_router.include_router(village_router, tags=["Village Spatial Hazard"])
+api_router.include_router(emergency_router, tags=["Emergency Map"])

@@ -15,7 +15,13 @@ import {
   ChevronRight,
   Target,
   Shield,
-  Home
+  Home,
+  Bell,
+  Megaphone,
+  CheckSquare,
+  CheckCircle,
+  History,
+  BarChart2
 } from 'lucide-react';
 import type { ActiveTab } from '../../types';
 
@@ -64,6 +70,18 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab, onSelectTab }) => {
         { id: 'hosts' as ActiveTab, label: 'Potential Safer Locations', icon: ShieldCheck },
         { id: 'simulation' as ActiveTab, label: 'What-If Scenarios', icon: Sliders },
         { id: 'actions' as ActiveTab, label: 'Action Plan', icon: Clock },
+      ]
+    },
+    {
+      title: 'EMERGENCY INTELLIGENCE',
+      items: [
+        { id: 'emergency_alerts' as ActiveTab, label: 'Live Alerts', icon: Bell },
+        { id: 'citizen_reports' as ActiveTab, label: 'Citizen Reports', icon: Megaphone },
+        { id: 'emergency_map' as ActiveTab, label: 'Emergency Map', icon: Map },
+        { id: 'verification_queue' as ActiveTab, label: 'Verification Queue', icon: CheckSquare },
+        { id: 'verified_incidents' as ActiveTab, label: 'Verified Incidents', icon: CheckCircle },
+        { id: 'alert_history' as ActiveTab, label: 'Alert History', icon: History },
+        { id: 'emergency_analytics' as ActiveTab, label: 'Analytics', icon: BarChart2 },
       ]
     },
     {
