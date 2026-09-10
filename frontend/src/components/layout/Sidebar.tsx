@@ -12,7 +12,6 @@ import {
   ChevronRight,
   Target,
   Shield,
-  Home,
   Bell,
   Megaphone,
   CheckSquare,
@@ -32,7 +31,6 @@ interface SidebarProps {
 export const Sidebar: React.FC<SidebarProps> = ({ activeTab, onSelectTab }) => {
   const [collapsed, setCollapsed] = useState(false);
   const { currentState } = useActiveState();
-  const isAP = currentState.id === 'andhra_pradesh';
   const isMZ = currentState.id === 'mizoram';
   const isTN = currentState.id === 'tamil_nadu';
   const isJK = currentState.id === 'jammu_kashmir';
@@ -41,8 +39,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab, onSelectTab }) => {
   const priorityCount = isMP ? '422' : isJK ? '197' : isMZ ? '26' : isHP ? '172' : isTN ? '302' : '680';
 
   const assessmentItems = [
-    { id: 'relocation' as ActiveTab, label: 'Relocation Planning', icon: MapPin },
-    ...(isAP ? [{ id: 'village' as ActiveTab, label: 'Village Habitation Analysis', icon: Home, badge: '17K' }] : [])
+    { id: 'relocation' as ActiveTab, label: 'Relocation Planning', icon: MapPin }
   ];
 
   const sections = [
